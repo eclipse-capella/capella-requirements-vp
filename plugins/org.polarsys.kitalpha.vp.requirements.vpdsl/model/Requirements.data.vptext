@@ -1,0 +1,138 @@
+/**
+ * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ *	Viewpoint Requirements
+ *	@author: Joao Barata
+ *	@date: 19/05/16
+ *
+ */
+Data Requirements.data {
+	Class ReqIFElement {
+		abstract: true
+
+		Attributes:
+			id type ecore.EString id: true
+			name type ecore.EString
+			ReqIF_Identifier type ecore.EString
+	}
+	Class AbstractRelation {
+		superClass ReqIFElement 
+		abstract: true
+
+		Attributes:
+			ReqIF_RelationType type ecore.EString
+
+		Associations:
+		    relationType refers [0,1] RelationType
+	}
+	Class InternalRelation {
+		icon: "InternalRelation.gif"
+		superClass AbstractRelation 
+
+		Associations:
+			source refers [0,1] Requirement
+			target refers [0,1] Requirement
+	}
+	Class Attribute {
+		superClass ReqIFElement
+		abstract: true
+
+		Attributes:
+			key type ecore.EString
+
+		Associations:
+			definition refers [0,1] AttributeDefinition
+	}
+	Class StringValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+
+		Attributes:
+			value type ecore.EString
+	}
+	Class IntegerValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+
+		Attributes:
+			value type ecore.EInt
+	}
+	Class AttributeOwner {
+		superClass ReqIFElement
+		abstract: true
+
+		Associations:
+			ownedAttributes contains [0,*] Attribute
+	}
+	Class Requirement {
+		icon: "Requirement.gif"
+		superClass AttributeOwner
+
+		Attributes:
+			ReqIF_ChapterName type ecore.EString
+			ReqIF_ForeignID type ecore.EString
+			ReqIF_Prefix type ecore.EString
+			ReqIF_Text type ecore.EString
+
+		Associations:
+		    requirementType refers [0,1] RequirementType
+			ownedRelations contains [0,*] AbstractRelation
+	}
+	Class Folder {
+		icon: "Folder.gif"
+		superClass Requirement
+
+		Associations:
+			ownedRequirements contains [0,*] Requirement
+	}
+	Class Module {
+		icon: "Module.gif"
+		superClass AttributeOwner
+
+		Associations:
+		    moduleType refers [0,1] ModuleType
+			ownedRequirements contains [0,*] Requirement
+	}
+	Class TypesFolder {
+		icon: "TypesFolder.gif"
+		superClass ReqIFElement
+
+		Associations:
+			ownedDefinitionTypes contains [0,*] DataTypeDefinition
+			ownedTypes contains [0,*] AbstractType
+	}
+	Class AbstractType {
+		superClass ReqIFElement
+		abstract: true
+
+		Associations:
+			ownedAttributes contains [0,*] AttributeDefinition
+	}
+	Class ModuleType {
+		icon: "ModuleType.gif"
+		superClass AbstractType
+	}
+	Class RequirementType {
+		icon: "RequirementType.gif"
+		superClass AbstractType
+	}
+	Class RelationType {
+		icon: "RelationType.gif"
+		superClass AbstractType
+	}
+	Class DataTypeDefinition {
+		icon: "DataTypeDefinition.gif"
+		superClass ReqIFElement
+	}
+	Class AttributeDefinition {
+		icon: "AttributeDefinition.gif"
+		superClass ReqIFElement
+
+		Associations:
+		    definitionType refers [0,1] DataTypeDefinition
+	}
+}

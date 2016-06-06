@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.polarsys.kitalpha.vp.requirements.vpdsl;singleton:=true
+Bundle-Name: %Bundle-Name 
+Bundle-Vendor: %Bundle-Vendor 
+Bundle-Version: 1.0.0.qualifier
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.polarsys.kitalpha.resourcereuse

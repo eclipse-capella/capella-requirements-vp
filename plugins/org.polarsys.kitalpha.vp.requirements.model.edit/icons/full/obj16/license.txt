@@ -1,0 +1,19 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/full/obj16/AttributeDefinition.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/AttributeDefinition.gif
+/icons/full/obj16/DataTypeDefinition.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/DataTypeDefinition.gif
+/icons/full/obj16/Folder.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Folder.gif
+/icons/full/obj16/IntegerValueAttribute.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/IntegerValueAttribute.gif
+/icons/full/obj16/InternalRelation.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/InternalRelation.gif
+/icons/full/obj16/Module.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Module.gif
+/icons/full/obj16/ModuleType.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/ModuleType.gif
+/icons/full/obj16/Relation.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Relation.gif
+/icons/full/obj16/RelationType.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/RelationType.gif
+/icons/full/obj16/Requirement.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Requirement.gif
+/icons/full/obj16/RequirementType.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/RequirementType.gif
+/icons/full/obj16/StringValueAttribute.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/StringValueAttribute.gif
+/icons/full/obj16/TypeFolder.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/TypeFolder.gif

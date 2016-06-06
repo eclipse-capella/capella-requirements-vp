@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="CapellaRequirements" version="10.1.0.201507271600">
+  <ownedViewpoints name="CapellaRequirements_ID" label="CapellaRequirements" modelFileExtension="capellarequirements melodymodeller">
+    <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.vp.requirements.design.service.CapellaRequirementsOpenJavaService"/>
+  </ownedViewpoints>
+</description:Group>

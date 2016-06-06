@@ -1,0 +1,9 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/CapellaModule.gif - org.eclipse.rmf.reqif10.edit - org.eclipse.rmf.reqif10.edit/icons/full/obj16/ReqIF.gif
+/icons/CapellaRelation.gif - org.eclipse.rmf.reqif10.edit - org.eclipse.rmf.reqif10.edit/icons/full/obj16/SpecRelation.gif
+/icons/CapellaTypesFolder.gif - org.eclipse.rmf.reqif10.edit - org.eclipse.rmf.reqif10.edit/icons/full/obj16/ReqIFToolExtension.gif

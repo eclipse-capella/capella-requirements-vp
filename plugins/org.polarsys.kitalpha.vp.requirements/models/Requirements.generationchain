@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generationChain:GenerationChain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:genchainExtension="http://www.polarsys.org/kitalpha/emde/genchain/1.0.0" xmlns:generationChain="http://www.eclipse.org/egf/1.0.0/generationChain" name="Requirements" factoryComponentName="org.polarsys.kitalpha.vp.requirements">
+  <elements xsi:type="generationChain:GenerationChain" name="Requirements">
+    <elements xsi:type="genchainExtension:EmdeGeneration" name="Kitalpha eMDE Emf Generation for Requirements" modelPath="/org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore" generateModel="true" generateEdit="true" pluginName="org.polarsys.kitalpha.vp.requirements.model" basePackage="org.polarsys.kitalpha.vp.requirements"/>
+    <elements xsi:type="generationChain:PluginAddition" name="Generated Plugins for Requirements">
+      <additions>org.polarsys.kitalpha.vp.requirements.vpdsl</additions>
+    </elements>
+    <elements xsi:type="generationChain:FeatureAddition" name="Generated Features for Requirements">
+      <additions>org.polarsys.kitalpha.vp.requirements.af.feature</additions>
+    </elements>
+  </elements>
+</generationChain:GenerationChain>
