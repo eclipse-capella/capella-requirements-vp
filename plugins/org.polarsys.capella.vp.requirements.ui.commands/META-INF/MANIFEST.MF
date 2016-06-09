@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ui.commands;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPUICommandsPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.polarsys.capella.core.data.gen,
+ org.polarsys.capella.vp.requirements.importer
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.polarsys.capella.vp.requirements.ui.commands
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

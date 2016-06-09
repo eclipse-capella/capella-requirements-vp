@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.vp.requirements.importer.extension;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.core.runtime,
+ org.polarsys.capella.common.mdsofa.common
+Export-Package: org.polarsys.capella.vp.requirements.importer.extension
+Bundle-Localization: plugin

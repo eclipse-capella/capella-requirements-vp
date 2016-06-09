@@ -1,0 +1,8 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/folder.gif - org.polarsys.capella.vp.requirements.ui.importer.preferences - org.polarsys.capella.vp.requirements.ui.importer.preferences/icons/folder.gif
+/icons/lock.gif - org.polarsys.capella.vp.requirements.ui.importer.preferences - org.polarsys.capella.vp.requirements.ui.importer.preferences/icons/lock.gif

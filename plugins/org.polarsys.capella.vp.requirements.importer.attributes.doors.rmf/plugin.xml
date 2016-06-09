@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<plugin>
+    <extension
+          point="org.polarsys.capella.vp.requirements.importer.extension.attributesProvider">
+       <attributesProvider
+       		 id="doors.rmf"
+             category="Doors RMF attributes"
+             mandatory="false">
+          <attribute
+                name="IE Capability Number"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE DocProperties Author"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE DocProperties Company"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Method"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Non Regression"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Procedure Number"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Responsible"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Skills"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE IVV Type"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Object Type"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE PUID"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Rationale"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Req Status"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Requirement Number"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE StyleList"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Test Method Expected"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE WordExportSettings"
+                defaultValue="true">
+          </attribute>
+       </attributesProvider>
+    </extension>
+</plugin>
