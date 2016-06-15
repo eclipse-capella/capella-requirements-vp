@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -42,14 +44,27 @@ public class ReqIFImportAction implements IObjectActionDelegate {
    */
   public void run(IAction action) {
     if (selection instanceof IStructuredSelection) {
-    	Object firstSelection = ((IStructuredSelection) selection).getFirstElement();
-    	if (firstSelection instanceof BlockArchitecture) {
-    		System.out.println(((BlockArchitecture) firstSelection).getName());
-    	    new RequirementsImportLauncher().launch(URI.createPlatformResourceURI("/org.polarsys.capella.vp.requirements.ju/model/testmodule.reqif", true), (BlockArchitecture) firstSelection, new NullProgressMonitor());
-    	} else {
-            RequirementsVPUICommandsPlugin.getDefault().getLog().log(new Status(Status.ERROR, RequirementsVPUICommandsPlugin.PLUGIN_ID, "Invalid selection"));
-    	}
+      Object firstSelection = ((IStructuredSelection) selection).getFirstElement();
+      if (firstSelection instanceof BlockArchitecture) {
+        URI file = getReqIFFileURI();
+        if (file != null) {
+          new RequirementsImportLauncher().launch(file, (BlockArchitecture) firstSelection, new NullProgressMonitor());
+        }
+      } else {
+        RequirementsVPUICommandsPlugin.getDefault().getLog().log(new Status(Status.ERROR, RequirementsVPUICommandsPlugin.PLUGIN_ID, "Invalid selection"));
+      }
     }
+  }
+
+  protected URI getReqIFFileURI() {
+    FileDialog fileDialog = new FileDialog(part.getSite().getWorkbenchWindow().getShell(), SWT.SINGLE);
+    fileDialog.setFilterExtensions(new String[] { "*.reqif", "*.*" });
+    fileDialog.setFilterNames(new String[] { "ReqIF files", "All files" });
+    String filepath = fileDialog.open();
+    if (filepath != null) {
+      return URI.createFileURI(filepath);
+    }
+    return null;
   }
 
   /**

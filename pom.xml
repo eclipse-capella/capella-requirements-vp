@@ -37,6 +37,7 @@
 	<capella-tests-repo.url>https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella.test.feature/site.p2</capella-tests-repo.url>
 	<diffmerge-repo.url>http://download.eclipse.org/diffmerge/releases/0.5.1/emf-diffmerge-site</diffmerge-repo.url>
 	<diffmerge-patterns-repo.url>http://download.eclipse.org/diffmerge/releases/0.5.1/edm-patterns-site</diffmerge-patterns-repo.url>
+	<diffmerge-coevolution-repo.url>http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site</diffmerge-coevolution-repo.url>
 	<kitalpha-repo.url>https://hudson.polarsys.org/kitalpha/job/Kitalpha_runtime/lastSuccessfulBuild/artifact/result/publish/kitalpha_runtime/site.p2</kitalpha-repo.url>
 	<amalgam-repo.url>http://download.eclipse.org/modeling/amalgam/updates/nightly/1.7.0-N20160409-021353/neon</amalgam-repo.url>
 	<sirius-repo.url>http://download.eclipse.org/sirius/updates/milestones/4.0.0rc1/mars</sirius-repo.url>
@@ -55,8 +56,8 @@
     <module>plugins/org.polarsys.capella.vp.requirements</module>
     <module>plugins/org.polarsys.capella.vp.requirements.af</module>
     <module>plugins/org.polarsys.capella.vp.requirements.design</module>
-    <!-- module>plugins/org.polarsys.capella.vp.requirements.doc</module -->
-    <!-- module>plugins/org.polarsys.capella.vp.requirements.importer</module -->
+    <module>plugins/org.polarsys.capella.vp.requirements.doc</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.importer</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.attributes.doors.rmf</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.extension</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.preferences</module>
@@ -64,7 +65,7 @@
     <module>plugins/org.polarsys.capella.vp.requirements.model.edit</module>
     <module>plugins/org.polarsys.capella.vp.requirements.semantic.browser</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui</module>
-    <!-- module>plugins/org.polarsys.capella.vp.requirements.ui.commands</module -->
+    <module>plugins/org.polarsys.capella.vp.requirements.ui.commands</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
     <module>plugins/org.polarsys.capella.vp.requirements.vpdsl</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements</module>
@@ -108,6 +109,11 @@
 	<repository>
 		<id>diffmerge-patterns</id>
 		<url>${diffmerge-patterns-repo.url}</url>
+		<layout>p2</layout>
+	</repository>
+	<repository>
+		<id>diffmerge-coevolution</id>
+		<url>${diffmerge-coevolution-repo.url}</url>
 		<layout>p2</layout>
 	</repository>
 	<repository>
