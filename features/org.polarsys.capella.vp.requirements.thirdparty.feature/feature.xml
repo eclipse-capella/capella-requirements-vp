@@ -10,7 +10,7 @@
        Thales - initial API and implementation
 -->
 <feature
-      id="org.polarsys.capella.vp.requirements.feature"
+      id="org.polarsys.capella.vp.requirements.thirdparty.feature"
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName">
@@ -27,53 +27,54 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="org.polarsys.capella.vp.requirements.af.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.capella.vp.requirements.representation.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.kitalpha.vp.requirements.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.capella.vp.requirements.ui.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.capella.vp.requirements.importer.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.capella.vp.requirements.thirdparty.feature"
-         version="0.0.0"/>
+   <requires>
+      <import feature="org.eclipse.emf.diffmerge.coevolution.sdk.feature" version="0.1.0.qualifier"/>
+   </requires>
 
    <plugin
-         id="org.polarsys.capella.vp.requirements.model.edit"
+         id="org.eclipse.rmf.reqif10"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.polarsys.capella.vp.requirements.model"
+         id="org.eclipse.rmf.reqif10.common"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.polarsys.capella.vp.requirements"
+         id="org.eclipse.rmf.reqif10.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.polarsys.capella.vp.requirements.vpdsl"
+         id="org.eclipse.rmf.reqif10.serialization"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.xhtml"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.xhtml.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.sphinx.emf.serialization"
          download-size="0"
          install-size="0"
          version="0.0.0"

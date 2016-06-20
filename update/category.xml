@@ -13,14 +13,13 @@
    <description url="http://www.polarsys.org/capella">
       Capella Requirements Viewpoint
    </description>
-
-  <category-def name="org.polarsys.capella.vp.requirements" label="Capella Requirements Viewpoint" />
-  <category-def name="org.polarsys.capella.vp.requirements.source" label="Capella Requirements Viewpoint SDK" />
-
-  <feature id="org.polarsys.capella.vp.requirements.feature" version="1.0.0.qualifier">
-    <category name="org.polarsys.capella.vp.requirements"/>
-  </feature>
-  <feature id="org.polarsys.capella.vp.requirements.feature.source" version="1.0.0.qualifier">
-    <category name="org.polarsys.capella.vp.requirements.source"/>
-  </feature>
+   <feature id="org.polarsys.capella.vp.requirements.feature" version="1.0.0.qualifier">
+      <category name="org.polarsys.capella.vp.requirements"/>
+   </feature>
+   <feature id="org.polarsys.capella.vp.requirements.feature.source" version="1.0.0.qualifier">
+      <category name="org.polarsys.capella.vp.requirements.source"/>
+   </feature>
+   <category-def name="org.polarsys.capella.vp.requirements" label="Capella Requirements Viewpoint"/>
+   <category-def name="org.polarsys.capella.vp.requirements.source" label="Capella Requirements Viewpoint SDK"/>
+   <repository-reference location="http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site" enabled="true" />
 </site>

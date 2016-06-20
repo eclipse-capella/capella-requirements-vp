@@ -49,7 +49,10 @@
   <modules>
     <module>features/org.polarsys.capella.vp.requirements.af.feature</module>
     <module>features/org.polarsys.capella.vp.requirements.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.importer.feature</module>
     <module>features/org.polarsys.capella.vp.requirements.representation.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.thirdparty.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.ui.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.af.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
@@ -231,25 +234,6 @@
         <configuration>
           <strictSrcIncludes>false</strictSrcIncludes>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho.extras</groupId>
-        <artifactId>tycho-source-feature-plugin</artifactId>
-        <version>${tycho-version}</version>
-	<configuration>
-	  <archive>
-	    <addMavenDescriptor>false</addMavenDescriptor>
-	  </archive>
-        </configuration>
-        <executions>
-          <execution>
-            <id>source-feature</id>
-            <phase>package</phase>
-            <goals>
-              <goal>source-feature</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
