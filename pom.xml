@@ -58,6 +58,7 @@
     <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
     <module>plugins/org.polarsys.capella.vp.requirements</module>
     <module>plugins/org.polarsys.capella.vp.requirements.af</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.business.queries</module>
     <module>plugins/org.polarsys.capella.vp.requirements.design</module>
     <module>plugins/org.polarsys.capella.vp.requirements.doc</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer</module>
@@ -70,6 +71,7 @@
     <module>plugins/org.polarsys.capella.vp.requirements.ui</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui.commands</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.ui.properties</module>
     <module>plugins/org.polarsys.capella.vp.requirements.vpdsl</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.af</module>

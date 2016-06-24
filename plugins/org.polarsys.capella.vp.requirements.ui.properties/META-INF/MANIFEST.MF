@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ui.properties;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.polarsys.kitalpha.ad.services,
+ org.polarsys.capella.core.ui.properties,
+ org.polarsys.capella.vp.requirements.model
+Export-Package: org.polarsys.capella.vp.requirements.ui.properties.sections
+Bundle-Vendor: %bundleVendor
+Bundle-Localization: plugin
