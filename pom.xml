@@ -63,6 +63,7 @@
     <module>plugins/org.polarsys.capella.vp.requirements.doc</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.attributes.doors.rmf</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.importer.commandline</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.extension</module>
     <module>plugins/org.polarsys.capella.vp.requirements.importer.preferences</module>
     <module>plugins/org.polarsys.capella.vp.requirements.model</module>
@@ -81,7 +82,7 @@
     <module>plugins/org.polarsys.kitalpha.vp.requirements.model.edit.decorators</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.ui</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.vpdsl</module>
-    <!-- module>tests/org.polarsys.capella.vp.requirements.ju</module -->
+    <module>tests/org.polarsys.capella.vp.requirements.ju</module>
     <module>update</module>
   </modules>
 

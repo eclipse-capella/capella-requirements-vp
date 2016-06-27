@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ju
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.polarsys.capella.test.framework
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName
+Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,
+ org.polarsys.capella.vp.requirements.ju.testsuites
