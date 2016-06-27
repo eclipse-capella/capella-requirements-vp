@@ -37,7 +37,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
    */
   @Override
   public List<String> getRequiredTestModels() {
-    return Collections.singletonList("testModel");
+    return Collections.singletonList("testmodel");
   }
 
   /**

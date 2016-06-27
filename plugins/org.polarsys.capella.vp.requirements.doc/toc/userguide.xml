@@ -11,12 +11,14 @@
        Thales - initial API and implementation
 -->
 <toc label="User's Guide" link_to="toc/index.xml#userguide" topic="html/3_userguide/3_userguide.html"> 
-   <topic href="html/3_userguide/31_preferences.html" label="Preferences">
+   <topic href="html/3_userguide/31_viewpointmanager.html" label="Viewpoint Manager">
    </topic>
-   <topic href="html/3_userguide/32_semanticbrowser.html" label="Semantic Browser">
+   <topic href="html/3_userguide/32_preferences.html" label="Preferences">
    </topic>
-   <topic href="html/3_userguide/33_propertiesview.html" label="Properties View">
+   <topic href="html/3_userguide/33_semanticbrowser.html" label="Semantic Browser">
    </topic>
-   <topic href="html/3_userguide/34_commandline.html" label="Command line Importer">
+   <topic href="html/3_userguide/34_propertiesview.html" label="Properties View">
+   </topic>
+   <topic href="html/3_userguide/35_commandline.html" label="Command line Importer">
    </topic>
 </toc>
