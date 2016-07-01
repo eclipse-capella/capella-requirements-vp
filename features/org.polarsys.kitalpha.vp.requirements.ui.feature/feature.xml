@@ -10,7 +10,7 @@
        Thales - initial API and implementation
 -->
 <feature
-      id="org.polarsys.kitalpha.vp.requirements.feature"
+      id="org.polarsys.kitalpha.vp.requirements.ui.feature"
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName">
@@ -27,41 +27,15 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="org.polarsys.kitalpha.vp.requirements.af.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.kitalpha.vp.requirements.representation.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.polarsys.kitalpha.vp.requirements.ui.feature"
-         version="0.0.0"/>
-
    <plugin
-         id="org.polarsys.kitalpha.vp.requirements.model"
+         id="org.polarsys.kitalpha.vp.requirements.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.polarsys.kitalpha.vp.requirements.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.polarsys.kitalpha.vp.requirements.vpdsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.polarsys.kitalpha.vp.requirements"
+         id="org.polarsys.kitalpha.vp.requirements.ui.properties"
          download-size="0"
          install-size="0"
          version="0.0.0"

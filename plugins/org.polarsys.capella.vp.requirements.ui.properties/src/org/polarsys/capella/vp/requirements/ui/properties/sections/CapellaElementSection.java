@@ -37,7 +37,7 @@ import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
-import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
+import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
 
 /**
  * @author Joao Barata
@@ -56,7 +56,7 @@ public class CapellaElementSection extends AbstractSection {
 	public boolean select(Object eObject) {
 		EObject eObjectToTest = super.selection(eObject);
 
-		if (isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
+		if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
 			return true;
 		}
 		return false;
@@ -72,13 +72,6 @@ public class CapellaElementSection extends AbstractSection {
 		if (newEObject instanceof CapellaElement) {
 			loadData((CapellaElement) newEObject);
 		}
-	}
-
-	/**
-	 * @return true is the AF viewpoint is active, false otherwise
-	 */
-	private boolean isViewpointActive(EObject modelElement) {
-		return ViewpointManager.getInstance(modelElement).isActive("org.polarsys.capella.vp.requirements");
 	}
 
 	/**
@@ -103,7 +96,7 @@ public class CapellaElementSection extends AbstractSection {
 	/**
 	 * @param capellaElement
 	 */
-	public void loadData(CapellaElement capellaElement) {
+	public void loadData(EObject capellaElement) {
 		super.loadData(capellaElement);
 
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(CapellacorePackage.Literals.CAPELLA_ELEMENT,

@@ -41,7 +41,7 @@
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        tab="org.polarsys.capella.vp.requirements.tab">
-		    </propertySection> 
+		    </propertySection>
 		</propertySections>
 </extension>
 <extension
@@ -52,7 +52,7 @@
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        tab="org.polarsys.capella.vp.requirements.tab">
-		    </propertySection> 
+		    </propertySection>
 		</propertySections>
 </extension>
 </plugin>
