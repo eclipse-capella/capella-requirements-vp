@@ -15,15 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.widgets.*;
-import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.*;
-import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
-import org.polarsys.capella.core.ui.properties.fields.*;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -77,18 +71,16 @@ public class CapellaRequirements_Module_CapellaRequirements_Module_Section exten
 	*/
 	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-
 	}
 
 	/**
 	* <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @param capellaElement_p
+	* @param capellaElement
 	* @generated
 	*/
-	public void loadData(CapellaElement capellaElement_p) {
-		super.loadData(capellaElement_p);
-
+	public void loadData(CapellaElement capellaElement) {
+		super.loadData(capellaElement);
 	}
 
 	/**

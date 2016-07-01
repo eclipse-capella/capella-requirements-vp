@@ -23,12 +23,12 @@ import org.polarsys.capella.common.helpers.query.IQuery;
 public class EObjectParentQuery implements IQuery {
 
 	/**
-	 * @param object_p: The model element for which the semantic browser extension is generated
+	 * @param object: The model element for which the semantic browser extension is generated
 	 * @return List of object to display in the parent category
 	 */
-	public List<Object> compute(Object object_p) {
+	public List<Object> compute(Object object) {
 		List<Object> result = new ArrayList<Object>();
-		EObject eObject = (EObject) object_p;
+		EObject eObject = (EObject) object;
 		result.add(eObject.eContainer());
 		return result;
 	}

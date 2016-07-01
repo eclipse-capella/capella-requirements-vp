@@ -12,7 +12,7 @@
 <feature
       id="org.polarsys.capella.vp.requirements.importer.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -28,7 +28,7 @@
    </license>
 
    <requires>
-      <import feature="org.polarsys.capella.vp.requirements.thirdparty.feature" version="1.0.0.qualifier"/>
+      <import feature="org.polarsys.capella.vp.requirements.thirdparty.feature" version="0.5.0.qualifier"/>
    </requires>
 
    <plugin

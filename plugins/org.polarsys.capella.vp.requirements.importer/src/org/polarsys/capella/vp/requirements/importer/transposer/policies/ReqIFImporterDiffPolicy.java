@@ -40,8 +40,8 @@ public class ReqIFImporterDiffPolicy extends CapellaDiffPolicy {
    * @see org.eclipse.emf.diffmerge.impl.policies.ConfigurableDiffPolicy#doConsiderOrdered(org.eclipse.emf.ecore.EStructuralFeature)
    */
   @Override
-  protected boolean doConsiderOrdered(EStructuralFeature feature_p) {
-    return super.doConsiderOrdered(feature_p) &&
-        !SEMANTICALLY_UNORDERED_REFERENCES.contains(feature_p);
+  protected boolean doConsiderOrdered(EStructuralFeature feature) {
+    return super.doConsiderOrdered(feature) &&
+        !SEMANTICALLY_UNORDERED_REFERENCES.contains(feature);
   }
 }

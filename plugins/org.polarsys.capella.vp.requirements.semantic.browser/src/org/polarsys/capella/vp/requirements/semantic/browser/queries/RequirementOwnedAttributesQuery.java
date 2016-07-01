@@ -24,14 +24,14 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 public class RequirementOwnedAttributesQuery implements IQuery {
 
 	/**
-	 * @param object_p: The model element for which the semantic browser extension is generated
+	 * @param object: The model element for which the semantic browser extension is generated
 	 * @return List of object to display in the parent category
 	 */
-	public List<Object> compute(Object object_p) {
+	public List<Object> compute(Object object) {
 		List<Object> result = new ArrayList<Object>();
-		Requirement object = (Requirement) object_p;
+		Requirement requirement = (Requirement) object;
 
-		for (EObject eObject : object.getOwnedAttributes())
+		for (EObject eObject : requirement.getOwnedAttributes())
 			result.add(eObject);
 
 		return result;

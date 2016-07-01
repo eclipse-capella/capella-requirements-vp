@@ -23,14 +23,14 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 public class InternalRelationTargetQuery implements IQuery {
 
 	/**
-	 * @param object_p: The model element for which the semantic browser extension is generated
+	 * @param object: The model element for which the semantic browser extension is generated
 	 * @return List of object to display in the parent category
 	 */
-	public List<Object> compute(Object object_p) {
+	public List<Object> compute(Object object) {
 		List<Object> result = new ArrayList<Object>();
-    InternalRelation object = (InternalRelation) object_p;
+    InternalRelation relation = (InternalRelation) object;
 
-    EObject target = object.getTarget();
+    EObject target = relation.getTarget();
     if (target != null)
       result.add(target);
 

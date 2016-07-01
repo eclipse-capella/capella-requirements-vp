@@ -67,21 +67,21 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
 	 * @see ILabelProvider#getImage(Object)
 	 */
 	@Override
-	public Image getImage(Object element_p) {
-	  if (element_p instanceof AttributeSet) {
-	    if (((AttributeSet) element_p).getChildren().isEmpty()) {
-	      if (((AttributeSet) element_p).isMandatory()) {
+	public Image getImage(Object element) {
+	  if (element instanceof AttributeSet) {
+	    if (((AttributeSet) element).getChildren().isEmpty()) {
+	      if (((AttributeSet) element).isMandatory()) {
 	        return overlayedAttributeImage;
 	      }
         return attributeImage;
 	    }
 
-	    if (((AttributeSet) element_p).isMandatory()) {
+	    if (((AttributeSet) element).isMandatory()) {
         return overlayedFolderImage;
       }
       return folderImage;
 	  }
-		return super.getImage(element_p);
+		return super.getImage(element);
 	}
 
   /**

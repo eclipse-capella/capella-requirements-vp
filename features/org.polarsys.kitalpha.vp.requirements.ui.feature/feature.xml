@@ -12,7 +12,7 @@
 <feature
       id="org.polarsys.kitalpha.vp.requirements.ui.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
