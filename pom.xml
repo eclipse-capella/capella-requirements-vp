@@ -35,8 +35,8 @@
 	<orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository</orbit-repo.url>
 	<capella-repo.url>https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella/site.p2</capella-repo.url>
 	<capella-tests-repo.url>https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella.test.feature/site.p2</capella-tests-repo.url>
-	<diffmerge-repo.url>http://download.eclipse.org/diffmerge/releases/0.5.1/emf-diffmerge-site</diffmerge-repo.url>
-	<diffmerge-patterns-repo.url>http://download.eclipse.org/diffmerge/releases/0.5.1/edm-patterns-site</diffmerge-patterns-repo.url>
+	<diffmerge-repo.url>http://download.eclipse.org/diffmerge/releases/0.7.0/emf-diffmerge-site</diffmerge-repo.url>
+	<diffmerge-patterns-repo.url>http://download.eclipse.org/diffmerge/releases/0.7.0/edm-patterns-site</diffmerge-patterns-repo.url>
 	<diffmerge-coevolution-repo.url>http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site</diffmerge-coevolution-repo.url>
 	<kitalpha-repo.url>https://hudson.polarsys.org/kitalpha/job/Kitalpha_runtime/lastSuccessfulBuild/artifact/result/publish/kitalpha_runtime/site.p2</kitalpha-repo.url>
 	<amalgam-repo.url>http://download.eclipse.org/modeling/amalgam/updates/nightly/1.7.0-N20160409-021353/neon</amalgam-repo.url>
