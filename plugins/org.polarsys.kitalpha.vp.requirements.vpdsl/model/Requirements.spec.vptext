@@ -14,7 +14,6 @@ Viewpoint Requirements {
 	name: "Requirements"
 	description: "Generic requirements viewpoint"
 	Data Requirements.data
-	UI Requirements.ui
 	Diagrams Requirements.diagram
 	Services Requirements.services
 	Configuration Requirements.conf

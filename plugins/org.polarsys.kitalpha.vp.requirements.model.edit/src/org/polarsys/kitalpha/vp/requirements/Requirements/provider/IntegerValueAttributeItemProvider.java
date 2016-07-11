@@ -85,15 +85,15 @@ public class IntegerValueAttributeItemProvider extends AttributeItemProvider imp
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_IntegerValueAttribute_value_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_IntegerValueAttribute_value_feature", //$NON-NLS-1$//$NON-NLS-2$
-								"_UI_IntegerValueAttribute_type"), //$NON-NLS-1$
-						RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE__VALUE, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IntegerValueAttribute_value_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_IntegerValueAttribute_value_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_IntegerValueAttribute_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE__VALUE, true, false, false,
+				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 

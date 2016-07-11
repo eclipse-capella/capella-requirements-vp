@@ -150,15 +150,15 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_Requirement_ReqIF_ChapterName_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ChapterName_feature", //$NON-NLS-1$//$NON-NLS-2$
-								"_UI_Requirement_type"), //$NON-NLS-1$
-						RequirementsPackage.Literals.REQUIREMENT__REQ_IF_CHAPTER_NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_ReqIF_ChapterName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ChapterName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_CHAPTER_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 
@@ -172,15 +172,15 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_Requirement_ReqIF_ForeignID_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ForeignID_feature", //$NON-NLS-1$//$NON-NLS-2$
-								"_UI_Requirement_type"), //$NON-NLS-1$
-						RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_ReqIF_ForeignID_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ForeignID_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 
@@ -194,15 +194,15 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_Requirement_ReqIF_Prefix_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Prefix_feature", //$NON-NLS-1$//$NON-NLS-2$
-								"_UI_Requirement_type"), //$NON-NLS-1$
-						RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_ReqIF_Prefix_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Prefix_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 
@@ -216,15 +216,15 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_Requirement_ReqIF_Text_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Text_feature", //$NON-NLS-1$//$NON-NLS-2$
-								"_UI_Requirement_type"), //$NON-NLS-1$
-						RequirementsPackage.Literals.REQUIREMENT__REQ_IF_TEXT, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_ReqIF_Text_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Text_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_TEXT, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 

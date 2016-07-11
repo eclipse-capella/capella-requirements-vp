@@ -67,16 +67,6 @@
 	     point="org.polarsys.kitalpha.resourcereuse.resources">
 	  <resource
 	        domain="vpdsl"
-	        id="org.polarsys.kitalpha.vp.requirements.vpdsl.resource.Requirements.ui"
-	        tags="Viewpoint"
-	        name="ui"
-	        path="/org.polarsys.kitalpha.vp.requirements.vpdsl/model/Requirements.ui.vptext"/>
-	</extension>
-
-	<extension
-	     point="org.polarsys.kitalpha.resourcereuse.resources">
-	  <resource
-	        domain="vpdsl"
 	        id="org.polarsys.kitalpha.vp.requirements.vpdsl.resource.Requirements.diagram"
 	        tags="Viewpoint"
 	        name="diagram"

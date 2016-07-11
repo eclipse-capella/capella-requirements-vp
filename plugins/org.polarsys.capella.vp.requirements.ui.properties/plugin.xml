@@ -17,9 +17,9 @@
 			<propertyTab
 		    	afterTab="Base"
 		        category="semantic &amp; extension"
-		        id="org.polarsys.capella.vp.requirements.tab"
+		        id="Requirements VP"
 		        label="Requirements VP">
-		    </propertyTab> 
+		    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -28,9 +28,9 @@
 			<propertyTab
 		    	afterTab="Base"
 		        category="default"
-		        id="org.polarsys.capella.vp.requirements.tab"
+		        id="Requirements VP"
 		        label="Requirements VP">
-		    </propertyTab> 
+		    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -40,7 +40,28 @@
 		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.core.data.capellacore.CapellaElement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder">
+              </input>
 		    </propertySection>
 		</propertySections>
 </extension>
@@ -51,7 +72,28 @@
 		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.core.data.capellacore.CapellaElement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder">
+              </input>
 		    </propertySection>
 		</propertySections>
 </extension>

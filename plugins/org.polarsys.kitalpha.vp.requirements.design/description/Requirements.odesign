@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="Requirements" version="10.1.0.201507271600">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="Requirements" version="11.0.0.201601261200">
   <ownedViewpoints name="Requirements_ID" label="Requirements" modelFileExtension="requirements">
     <ownedJavaExtensions qualifiedClassName="org.polarsys.kitalpha.vp.requirements.design.service.RequirementsOpenJavaService"/>
   </ownedViewpoints>

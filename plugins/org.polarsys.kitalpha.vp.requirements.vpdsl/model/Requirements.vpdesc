@@ -4,17 +4,17 @@
     <VP_Classes name="ReqIFElement" abstract="true">
       <VP_Class_Attributes name="id" isId="true">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="name">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIF_Identifier">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
     </VP_Classes>
@@ -22,7 +22,7 @@
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.14"/>
       <VP_Class_Attributes name="ReqIF_RelationType">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
@@ -36,7 +36,7 @@
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definition" type="reference" LocalTarget="//@VP_Data/@VP_Classes.16"/>
       <VP_Class_Attributes name="key">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
@@ -44,7 +44,7 @@
     <VP_Classes name="StringValueAttribute" icon="Attribute.gif">
       <VP_Class_Attributes name="value">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.3"/>
@@ -52,7 +52,7 @@
     <VP_Classes name="IntegerValueAttribute" icon="Attribute.gif">
       <VP_Class_Attributes name="value">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.3"/>
@@ -66,22 +66,22 @@
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRelations" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.1"/>
       <VP_Class_Attributes name="ReqIF_ChapterName">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIF_ForeignID">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIF_Prefix">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIF_Text">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.6"/>
@@ -202,15 +202,6 @@
         <subContainers name="Requirements_Requirement_AssociationGroup" label="Requirement Associations">
           <UI_fields name="ownedRelationsAssociation" label="Owned Relations" type="multipleChoiceList">
             <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Classes_Associations.1"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_Folder" label="Requirements">
-      <UI_Containers name="Requirements_Folder_Section">
-        <subContainers name="Requirements_Folder_AssociationGroup" label="Folder Associations">
-          <UI_fields name="ownedRequirementsAssociation" label="Owned Requirements" type="multipleChoiceList">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.8/@VP_Classes_Associations.0"/>
           </UI_fields>
         </subContainers>
       </UI_Containers>

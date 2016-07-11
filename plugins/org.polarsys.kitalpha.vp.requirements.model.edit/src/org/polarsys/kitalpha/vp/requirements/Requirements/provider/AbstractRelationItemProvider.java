@@ -144,15 +144,15 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
-				// end-extension-code
-				(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-						getString("_UI_AbstractRelation_ReqIF_RelationType_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-								"_UI_AbstractRelation_ReqIF_RelationType_feature", "_UI_AbstractRelation_type"), //$NON-NLS-1$ //$NON-NLS-2$
-						RequirementsPackage.Literals.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-						// begin-extension-code
-						null));
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_AbstractRelation_ReqIF_RelationType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_AbstractRelation_ReqIF_RelationType_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_AbstractRelation_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 

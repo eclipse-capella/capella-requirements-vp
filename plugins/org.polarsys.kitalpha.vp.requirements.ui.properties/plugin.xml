@@ -17,7 +17,7 @@
 			<propertyTab
 		    	afterTab="Base"
 		        category="semantic &amp; extension"
-		        id="org.polarsys.capella.vp.requirements.tab"
+		        id="Requirements VP"
 		        label="Requirements VP">
 		    </propertyTab> 
 	</propertyTabs>
@@ -28,7 +28,7 @@
 			<propertyTab
 		    	afterTab="Base"
 		        category="default"
-		        id="org.polarsys.capella.vp.requirements.tab"
+		        id="Requirements VP"
 		        label="Requirements VP">
 		    </propertyTab> 
 	</propertyTabs>
@@ -39,50 +39,71 @@
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AttributeSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Attribute">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AbstractTypeSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
+		        tab="Requirements VP">
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.InternalRelationSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.ModuleSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Module">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder">
+              </input>
 		    </propertySection>
 		</propertySections>
 </extension>
@@ -92,50 +113,74 @@
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AttributeSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Attribute">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeDefinitionSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.AbstractTypeSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AbstractTypeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.InternalRelationSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.ModuleSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Module">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        tab="org.polarsys.capella.vp.requirements.tab">
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder">
+              </input>
 		    </propertySection>
 		</propertySections>
 </extension>

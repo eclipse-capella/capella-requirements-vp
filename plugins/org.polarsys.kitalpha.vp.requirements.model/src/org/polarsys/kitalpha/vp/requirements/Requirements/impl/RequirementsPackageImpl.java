@@ -730,9 +730,6 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -758,11 +755,11 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		// Initialize classes, features, and operations; add parameters
 		initEClass(reqIFElementEClass, ReqIFElement.class, "ReqIFElement", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFElement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
+		initEAttribute(getReqIFElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReqIFElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
+		initEAttribute(getReqIFElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReqIFElement_ReqIF_Identifier(), theEcorePackage.getEString(), "ReqIF_Identifier", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getReqIFElement_ReqIF_Identifier(), ecorePackage.getEString(), "ReqIF_Identifier", null, 0, 1, //$NON-NLS-1$
 				ReqIFElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
@@ -771,8 +768,8 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAbstractRelation_RelationType(), this.getRelationType(), null, "relationType", null, 0, 1, //$NON-NLS-1$
 				AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractRelation_ReqIF_RelationType(), theEcorePackage.getEString(), "ReqIF_RelationType", //$NON-NLS-1$
-				null, 0, 1, AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEAttribute(getAbstractRelation_ReqIF_RelationType(), ecorePackage.getEString(), "ReqIF_RelationType", null, //$NON-NLS-1$
+				0, 1, AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalRelationEClass, InternalRelation.class, "InternalRelation", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
@@ -789,18 +786,18 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAttribute_Definition(), this.getAttributeDefinition(), null, "definition", null, 0, 1, //$NON-NLS-1$
 				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Key(), theEcorePackage.getEString(), "key", null, 0, 1, Attribute.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Key(), ecorePackage.getEString(), "key", null, 0, 1, Attribute.class, !IS_TRANSIENT, //$NON-NLS-1$
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringValueAttributeEClass, StringValueAttribute.class, "StringValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringValueAttribute_Value(), theEcorePackage.getEString(), "value", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getStringValueAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, //$NON-NLS-1$
 				StringValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integerValueAttributeEClass, IntegerValueAttribute.class, "IntegerValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerValueAttribute_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getIntegerValueAttribute_Value(), ecorePackage.getEInt(), "value", null, 0, 1, //$NON-NLS-1$
 				IntegerValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -818,16 +815,16 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getRequirement_OwnedRelations(), this.getAbstractRelation(), null, "ownedRelations", null, 0, -1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_ChapterName(), theEcorePackage.getEString(), "ReqIF_ChapterName", null, 0, //$NON-NLS-1$
-				1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_ForeignID(), theEcorePackage.getEString(), "ReqIF_ForeignID", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIF_ChapterName(), ecorePackage.getEString(), "ReqIF_ChapterName", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_Prefix(), theEcorePackage.getEString(), "ReqIF_Prefix", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIF_ForeignID(), ecorePackage.getEString(), "ReqIF_ForeignID", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_Text(), theEcorePackage.getEString(), "ReqIF_Text", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIF_Prefix(), ecorePackage.getEString(), "ReqIF_Prefix", null, 0, 1, //$NON-NLS-1$
+				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequirement_ReqIF_Text(), ecorePackage.getEString(), "ReqIF_Text", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
