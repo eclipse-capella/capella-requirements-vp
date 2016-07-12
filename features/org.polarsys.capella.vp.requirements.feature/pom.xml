@@ -27,7 +27,7 @@
       <plugin>
         <groupId>org.eclipse.tycho.extras</groupId>
         <artifactId>tycho-source-feature-plugin</artifactId>
-        <version>${tycho-version}</version>
+        <version>${tycho-extras-version}</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -37,6 +37,7 @@
             </goals>
             <configuration>
               <excludes>
+                <feature id="org.polarsys.capella.vp.requirements.thirdparty.feature"/>
               </excludes>
             </configuration>
           </execution>
