@@ -133,7 +133,7 @@ public class CapellaTypesFolderItemProvider extends TypesFolderItemProvider impl
 	@Override
 	public String getText(Object object) {
 
-		String label = ((CapellaTypesFolder) object).getName();
+		String label = ((CapellaTypesFolder) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_CapellaTypesFolder_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

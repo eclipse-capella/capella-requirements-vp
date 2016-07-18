@@ -84,6 +84,11 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected RequirementsSwitch<Adapter> modelSwitch = new RequirementsSwitch<Adapter>() {
 		@Override
+		public Adapter caseIdentifiableElement(IdentifiableElement object) {
+			return createIdentifiableElementAdapter();
+		}
+
+		@Override
 		public Adapter caseReqIFElement(ReqIFElement object) {
 			return createReqIFElementAdapter();
 		}
@@ -185,6 +190,20 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement <em>Identifiable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement
+	 * @generated
+	 */
+	public Adapter createIdentifiableElementAdapter() {
+		return null;
 	}
 
 	/**

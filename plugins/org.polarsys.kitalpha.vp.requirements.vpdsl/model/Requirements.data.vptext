@@ -11,20 +11,27 @@
  *
  */
 Data Requirements.data {
-	Class ReqIFElement {
+	Class IdentifiableElement {
 		abstract: true
 
 		Attributes:
 			id type ecore.EString id: true
-			name type ecore.EString
-			ReqIF_Identifier type ecore.EString
+	}
+	Class ReqIFElement {
+		superClass IdentifiableElement 
+		abstract: true
+
+		Attributes:
+			ReqIFIdentifier type ecore.EString
+			ReqIFDescription type ecore.EString
+			ReqIFLongName type ecore.EString
 	}
 	Class AbstractRelation {
 		superClass ReqIFElement 
 		abstract: true
 
 		Attributes:
-			ReqIF_RelationType type ecore.EString
+			ReqIFRelationType type ecore.EString
 
 		Associations:
 		    relationType refers [0,1] RelationType
@@ -38,11 +45,11 @@ Data Requirements.data {
 			target refers [0,1] Requirement
 	}
 	Class Attribute {
-		superClass ReqIFElement
+		superClass IdentifiableElement
 		abstract: true
 
 		Attributes:
-			key type ecore.EString
+			definitionProxy type ecore.EString
 
 		Associations:
 			definition refers [0,1] AttributeDefinition
@@ -73,10 +80,10 @@ Data Requirements.data {
 		superClass AttributeOwner
 
 		Attributes:
-			ReqIF_ChapterName type ecore.EString
-			ReqIF_ForeignID type ecore.EString
-			ReqIF_Prefix type ecore.EString
-			ReqIF_Text type ecore.EString
+			ReqIFChapterName type ecore.EString
+			ReqIFForeignID type ecore.EString
+			ReqIFPrefix type ecore.EString
+			ReqIFText type ecore.EString
 
 		Associations:
 		    requirementType refers [0,1] RequirementType

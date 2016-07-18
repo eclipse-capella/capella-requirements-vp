@@ -153,7 +153,7 @@ public class AttributeDefinitionItemProvider extends ReqIFElementItemProvider im
 	@Override
 	public String getText(Object object) {
 
-		String label = ((AttributeDefinition) object).getName();
+		String label = ((AttributeDefinition) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_AttributeDefinition_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

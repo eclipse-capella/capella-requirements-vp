@@ -105,7 +105,7 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 			super.getPropertyDescriptors(object);
 
 			addRelationTypePropertyDescriptor(object);
-			addReqIF_RelationTypePropertyDescriptor(object);
+			addReqIFRelationTypePropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -140,14 +140,14 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_RelationTypePropertyDescriptor(Object object) {
+	protected void addReqIFRelationTypePropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AbstractRelation_ReqIF_RelationType_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_AbstractRelation_ReqIF_RelationType_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_AbstractRelation_ReqIFRelationType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_AbstractRelation_ReqIFRelationType_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_AbstractRelation_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -165,7 +165,7 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 	@Override
 	public String getText(Object object) {
 
-		String label = ((AbstractRelation) object).getName();
+		String label = ((AbstractRelation) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_AbstractRelation_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

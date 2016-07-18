@@ -61,6 +61,7 @@
     <module>plugins/org.polarsys.capella.vp.requirements.importer.preferences</module>
     <module>plugins/org.polarsys.capella.vp.requirements.model</module>
     <module>plugins/org.polarsys.capella.vp.requirements.model.edit</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.model.edit.decorators</module>
     <module>plugins/org.polarsys.capella.vp.requirements.semantic.browser</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui.commands</module>

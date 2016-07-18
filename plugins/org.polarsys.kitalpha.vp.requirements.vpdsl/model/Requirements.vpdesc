@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="ASCII"?>
-<vpdesc:Viewpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DocGenConfiguration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/DocGenConfiguration/1.0.0" xmlns:configuration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/conf/1.0.0" xmlns:vpconf="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpconf/1.0.0" xmlns:vpdesc="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdesc/1.0.0" xmlns:vpdiagram="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/1.0.0" xmlns:vpservices="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpservices/1.0.0" xmlns:vpui="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpui/1.0.0" name="Requirements" shortName="Requirements">
+<vpdesc:Viewpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DocGenConfiguration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/DocGenConfiguration/1.0.0" xmlns:configuration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/conf/1.0.0" xmlns:vpconf="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpconf/1.0.0" xmlns:vpdesc="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdesc/1.0.0" xmlns:vpdiagram="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/1.0.0" xmlns:vpservices="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpservices/1.0.0" name="Requirements" shortName="Requirements">
   <VP_Data name="Requirements.data">
-    <VP_Classes name="ReqIFElement" abstract="true">
+    <VP_Classes name="IdentifiableElement" abstract="true">
       <VP_Class_Attributes name="id" isId="true">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <VP_Class_Attributes name="name">
-        <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        </owned_type>
-      </VP_Class_Attributes>
-      <VP_Class_Attributes name="ReqIF_Identifier">
-        <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        </owned_type>
-      </VP_Class_Attributes>
     </VP_Classes>
-    <VP_Classes name="AbstractRelation" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.14"/>
-      <VP_Class_Attributes name="ReqIF_RelationType">
+    <VP_Classes name="ReqIFElement" abstract="true">
+      <VP_Class_Attributes name="ReqIFIdentifier">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <VP_Class_Attributes name="ReqIFDescription">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <VP_Class_Attributes name="ReqIFLongName">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
     </VP_Classes>
-    <VP_Classes name="InternalRelation" icon="InternalRelation.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="source" type="reference" LocalTarget="//@VP_Data/@VP_Classes.7"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="target" type="reference" LocalTarget="//@VP_Data/@VP_Classes.7"/>
+    <VP_Classes name="AbstractRelation" abstract="true">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.15"/>
+      <VP_Class_Attributes name="ReqIFRelationType">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
+    <VP_Classes name="InternalRelation" icon="InternalRelation.gif">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="source" type="reference" LocalTarget="//@VP_Data/@VP_Classes.8"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="target" type="reference" LocalTarget="//@VP_Data/@VP_Classes.8"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.2"/>
+    </VP_Classes>
     <VP_Classes name="Attribute" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definition" type="reference" LocalTarget="//@VP_Data/@VP_Classes.16"/>
-      <VP_Class_Attributes name="key">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definition" type="reference" LocalTarget="//@VP_Data/@VP_Classes.17"/>
+      <VP_Class_Attributes name="definitionProxy">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
@@ -47,7 +55,7 @@
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.3"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.4"/>
     </VP_Classes>
     <VP_Classes name="IntegerValueAttribute" icon="Attribute.gif">
       <VP_Class_Attributes name="value">
@@ -55,72 +63,75 @@
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
         </owned_type>
       </VP_Class_Attributes>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.3"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.4"/>
     </VP_Classes>
     <VP_Classes name="AttributeOwner" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.3"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.4"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="Requirement" icon="Requirement.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="requirementType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.13"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRelations" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.1"/>
-      <VP_Class_Attributes name="ReqIF_ChapterName">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="requirementType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.14"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRelations" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.2"/>
+      <VP_Class_Attributes name="ReqIFChapterName">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <VP_Class_Attributes name="ReqIF_ForeignID">
+      <VP_Class_Attributes name="ReqIFForeignID">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <VP_Class_Attributes name="ReqIF_Prefix">
+      <VP_Class_Attributes name="ReqIFPrefix">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <VP_Class_Attributes name="ReqIF_Text">
+      <VP_Class_Attributes name="ReqIFText">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.6"/>
-    </VP_Classes>
-    <VP_Classes name="Folder" icon="Folder.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.7"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.7"/>
     </VP_Classes>
+    <VP_Classes name="Folder" icon="Folder.gif">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.8"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.8"/>
+    </VP_Classes>
     <VP_Classes name="Module" icon="Module.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="moduleType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.12"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.7"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.6"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="moduleType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.13"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.8"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.7"/>
     </VP_Classes>
     <VP_Classes name="TypesFolder" icon="TypesFolder.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedDefinitionTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.15"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.11"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedDefinitionTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.16"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.12"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="AbstractType" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.16"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.17"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="ModuleType" icon="ModuleType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.12"/>
     </VP_Classes>
     <VP_Classes name="RequirementType" icon="RequirementType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.12"/>
     </VP_Classes>
     <VP_Classes name="RelationType" icon="RelationType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.12"/>
     </VP_Classes>
     <VP_Classes name="DataTypeDefinition" icon="DataTypeDefinition.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="AttributeDefinition" icon="AttributeDefinition.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.15"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.16"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
   </VP_Data>
+  <VP_Aspects xsi:type="vpservices:ServiceSet" name="Requirements.services"/>
+  <VP_Aspects xsi:type="vpservices:RuleSet" name="Requirements.rules"/>
+  <VP_Aspects xsi:type="vpdiagram:DiagramSet" name="Requirements.diagram"/>
   <VP_Aspects xsi:type="vpconf:Configuration" name="Requirements.conf">
     <vpConfigurationElements xsi:type="vpconf:TargetApplication" type="EMF"/>
     <vpConfigurationElements xsi:type="vpconf:GenerationConfiguration" projectName="org.polarsys.kitalpha.vp.requirements" nsuri="http://www.polarsys.org/kitalpha/requirements"/>
@@ -130,91 +141,4 @@
       <ownedExtensionGenConf xsi:type="DocGenConfiguration:DocumentationGenerationConfiguration"/>
     </vpConfigurationElements>
   </VP_Aspects>
-  <VP_Aspects xsi:type="vpservices:ServiceSet" name="Requirements.services"/>
-  <VP_Aspects xsi:type="vpservices:RuleSet" name="Requirements.rules"/>
-  <VP_Aspects xsi:type="vpui:UIDescription" name="Requirements.ui">
-    <UIs name="Requirements_ReqIFElement" label="Requirements">
-      <UI_Containers name="Requirements_ReqIFElement_Section">
-        <subContainers name="Requirements_ReqIFElement_AttributeGroup" label="Req I F Element Attributes">
-          <UI_fields name="idField" label="Id">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.0/@VP_Class_Attributes.0"/>
-          </UI_fields>
-          <UI_fields name="nameField" label="Name">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.0/@VP_Class_Attributes.1"/>
-          </UI_fields>
-          <UI_fields name="ReqIF_IdentifierField" label="Req I F_ Identifier">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.0/@VP_Class_Attributes.2"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_InternalRelation" label="Requirements">
-      <UI_Containers name="Requirements_InternalRelation_Section">
-        <subContainers name="Requirements_Relation_AttributeGroup" label="Internal Relation Attributes">
-          <UI_fields name="ReqIF_RelationTypeField" label="Req I F_ Relation Type">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.1/@VP_Class_Attributes.0"/>
-          </UI_fields>
-        </subContainers>
-        <subContainers name="Requirements_InternalRelation_AssociationGroup" label="Internal Relation Associations">
-          <UI_fields name="sourceAssociation" label="Source" type="simpleChoiceList">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.2/@VP_Classes_Associations.0"/>
-          </UI_fields>
-          <UI_fields name="targetAssociation" label="Target" type="simpleChoiceList">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.2/@VP_Classes_Associations.1"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_Attribute" label="Requirements">
-      <UI_Containers name="Requirements_Attribute_Section">
-        <subContainers name="Requirements_Attribute_AttributeGroup" label="Attribute Attributes">
-          <UI_fields name="keyField" label="Key">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.3/@VP_Class_Attributes.0"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_StringValueAttribute" label="Requirements">
-      <UI_Containers name="Requirements_StringValueAttribute_Section">
-        <subContainers name="Requirements_StringValueAttribute_AttributeGroup" label="String Value Attribute Attributes">
-          <UI_fields name="valueField" label="Value">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.4/@VP_Class_Attributes.0"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_Requirement" label="Requirements">
-      <UI_Containers name="Requirements_Requirement_Section">
-        <subContainers name="Requirements_Requirement_AttributeGroup" label="Requirement Attributes">
-          <UI_fields name="ReqIF_ChapterNameField" label="Req I F_ Chapter Name">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Class_Attributes.0"/>
-          </UI_fields>
-          <UI_fields name="ReqIF_ForeignIDField" label="Req I F_ Foreign I D">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Class_Attributes.1"/>
-          </UI_fields>
-          <UI_fields name="ReqIF_PrefixField" label="Req I F_ Prefix">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Class_Attributes.2"/>
-          </UI_fields>
-          <UI_fields name="ReqIF_TextField" label="Req I F_ Text">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Class_Attributes.3"/>
-          </UI_fields>
-        </subContainers>
-        <subContainers name="Requirements_Requirement_AssociationGroup" label="Requirement Associations">
-          <UI_fields name="ownedRelationsAssociation" label="Owned Relations" type="multipleChoiceList">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.7/@VP_Classes_Associations.1"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-    <UIs name="Requirements_Module" label="Requirements">
-      <UI_Containers name="Requirements_Module_Section">
-        <subContainers name="Requirements_Module_AssociationGroup" label="Module Associations">
-          <UI_fields name="ownedRequirementsAssociation" label="Owned Requirements" type="multipleChoiceList">
-            <Mapping UI_Field_Mapped_To="//@VP_Data/@VP_Classes.9/@VP_Classes_Associations.1"/>
-          </UI_fields>
-        </subContainers>
-      </UI_Containers>
-    </UIs>
-  </VP_Aspects>
-  <VP_Aspects xsi:type="vpdiagram:DiagramSet" name="Requirements.diagram"/>
 </vpdesc:Viewpoint>

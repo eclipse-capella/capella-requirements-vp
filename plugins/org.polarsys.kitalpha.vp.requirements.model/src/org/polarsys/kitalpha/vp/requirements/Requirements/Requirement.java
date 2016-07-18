@@ -25,10 +25,10 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementType <em>Requirement Type</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getOwnedRelations <em>Owned Relations</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_ChapterName <em>Req IF Chapter Name</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_ForeignID <em>Req IF Foreign ID</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_Prefix <em>Req IF Prefix</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_Text <em>Req IF Text</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFChapterName <em>Req IF Chapter Name</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFText <em>Req IF Text</em>}</li>
  * </ul>
  *
  * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement()
@@ -102,25 +102,25 @@ public interface Requirement extends AttributeOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Chapter Name</em>' attribute.
-	 * @see #setReqIF_ChapterName(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIF_ChapterName()
+	 * @see #setReqIFChapterName(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFChapterName()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIF_ChapterName();
+	String getReqIFChapterName();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_ChapterName <em>Req IF Chapter Name</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFChapterName <em>Req IF Chapter Name</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Req IF Chapter Name</em>' attribute.
-	 * @see #getReqIF_ChapterName()
+	 * @see #getReqIFChapterName()
 	 * @generated
 	 */
 
-	void setReqIF_ChapterName(String value);
+	void setReqIFChapterName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Req IF Foreign ID</b></em>' attribute.
@@ -132,25 +132,25 @@ public interface Requirement extends AttributeOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Foreign ID</em>' attribute.
-	 * @see #setReqIF_ForeignID(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIF_ForeignID()
+	 * @see #setReqIFForeignID(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFForeignID()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIF_ForeignID();
+	String getReqIFForeignID();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_ForeignID <em>Req IF Foreign ID</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFForeignID <em>Req IF Foreign ID</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Req IF Foreign ID</em>' attribute.
-	 * @see #getReqIF_ForeignID()
+	 * @see #getReqIFForeignID()
 	 * @generated
 	 */
 
-	void setReqIF_ForeignID(String value);
+	void setReqIFForeignID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Req IF Prefix</b></em>' attribute.
@@ -162,25 +162,25 @@ public interface Requirement extends AttributeOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Prefix</em>' attribute.
-	 * @see #setReqIF_Prefix(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIF_Prefix()
+	 * @see #setReqIFPrefix(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFPrefix()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIF_Prefix();
+	String getReqIFPrefix();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_Prefix <em>Req IF Prefix</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Req IF Prefix</em>' attribute.
-	 * @see #getReqIF_Prefix()
+	 * @see #getReqIFPrefix()
 	 * @generated
 	 */
 
-	void setReqIF_Prefix(String value);
+	void setReqIFPrefix(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Req IF Text</b></em>' attribute.
@@ -192,24 +192,24 @@ public interface Requirement extends AttributeOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Text</em>' attribute.
-	 * @see #setReqIF_Text(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIF_Text()
+	 * @see #setReqIFText(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFText()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIF_Text();
+	String getReqIFText();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIF_Text <em>Req IF Text</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFText <em>Req IF Text</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Req IF Text</em>' attribute.
-	 * @see #getReqIF_Text()
+	 * @see #getReqIFText()
 	 * @generated
 	 */
 
-	void setReqIF_Text(String value);
+	void setReqIFText(String value);
 
 } // Requirement

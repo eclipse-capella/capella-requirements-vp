@@ -83,9 +83,18 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+		case RequirementsPackage.IDENTIFIABLE_ELEMENT: {
+			IdentifiableElement identifiableElement = (IdentifiableElement) theEObject;
+			T result = caseIdentifiableElement(identifiableElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case RequirementsPackage.REQ_IF_ELEMENT: {
 			ReqIFElement reqIFElement = (ReqIFElement) theEObject;
 			T result = caseReqIFElement(reqIFElement);
+			if (result == null)
+				result = caseIdentifiableElement(reqIFElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -95,6 +104,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseAbstractRelation(abstractRelation);
 			if (result == null)
 				result = caseReqIFElement(abstractRelation);
+			if (result == null)
+				result = caseIdentifiableElement(abstractRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -107,6 +118,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(internalRelation);
 			if (result == null)
+				result = caseIdentifiableElement(internalRelation);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -114,7 +127,7 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			Attribute attribute = (Attribute) theEObject;
 			T result = caseAttribute(attribute);
 			if (result == null)
-				result = caseReqIFElement(attribute);
+				result = caseIdentifiableElement(attribute);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -125,7 +138,7 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAttribute(stringValueAttribute);
 			if (result == null)
-				result = caseReqIFElement(stringValueAttribute);
+				result = caseIdentifiableElement(stringValueAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -136,7 +149,7 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAttribute(integerValueAttribute);
 			if (result == null)
-				result = caseReqIFElement(integerValueAttribute);
+				result = caseIdentifiableElement(integerValueAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -146,6 +159,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseAttributeOwner(attributeOwner);
 			if (result == null)
 				result = caseReqIFElement(attributeOwner);
+			if (result == null)
+				result = caseIdentifiableElement(attributeOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -157,6 +172,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseAttributeOwner(requirement);
 			if (result == null)
 				result = caseReqIFElement(requirement);
+			if (result == null)
+				result = caseIdentifiableElement(requirement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -171,6 +188,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(folder);
 			if (result == null)
+				result = caseIdentifiableElement(folder);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -182,6 +201,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(module);
 			if (result == null)
+				result = caseIdentifiableElement(module);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -191,6 +212,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(typesFolder);
 			if (result == null)
+				result = caseIdentifiableElement(typesFolder);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -199,6 +222,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseAbstractType(abstractType);
 			if (result == null)
 				result = caseReqIFElement(abstractType);
+			if (result == null)
+				result = caseIdentifiableElement(abstractType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -211,6 +236,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(moduleType);
 			if (result == null)
+				result = caseIdentifiableElement(moduleType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -221,6 +248,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseAbstractType(requirementType);
 			if (result == null)
 				result = caseReqIFElement(requirementType);
+			if (result == null)
+				result = caseIdentifiableElement(requirementType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -233,6 +262,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(relationType);
 			if (result == null)
+				result = caseIdentifiableElement(relationType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -241,6 +272,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseDataTypeDefinition(dataTypeDefinition);
 			if (result == null)
 				result = caseReqIFElement(dataTypeDefinition);
+			if (result == null)
+				result = caseIdentifiableElement(dataTypeDefinition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -251,12 +284,29 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(attributeDefinition);
 			if (result == null)
+				result = caseIdentifiableElement(attributeDefinition);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		default:
 			return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiableElement(IdentifiableElement object) {
+		return null;
 	}
 
 	/**

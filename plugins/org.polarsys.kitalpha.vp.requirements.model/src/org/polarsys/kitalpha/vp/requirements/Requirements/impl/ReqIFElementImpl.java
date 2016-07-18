@@ -29,15 +29,15 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIF_Identifier <em>Req IF Identifier</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFIdentifier <em>Req IF Identifier</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFDescription <em>Req IF Description</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFLongName <em>Req IF Long Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFElement {
+public abstract class ReqIFElementImpl extends IdentifiableElementImpl implements ReqIFElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,64 +46,64 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getReqIFIdentifier() <em>Req IF Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getReqIF_Identifier() <em>Req IF Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Identifier()
+	 * @see #getReqIFIdentifier()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_Identifier() <em>Req IF Identifier</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFIdentifier() <em>Req IF Identifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Identifier()
+	 * @see #getReqIFIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_Identifier = REQ_IF_IDENTIFIER_EDEFAULT;
+	protected String reqIFIdentifier = REQ_IF_IDENTIFIER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getReqIFDescription() <em>Req IF Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReqIFDescription() <em>Req IF Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reqIFDescription = REQ_IF_DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getReqIFLongName() <em>Req IF Long Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFLongName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_LONG_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReqIFLongName() <em>Req IF Long Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFLongName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reqIFLongName = REQ_IF_LONG_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,9 +132,9 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	 * @generated
 	 */
 
-	public String getId() {
+	public String getReqIFIdentifier() {
 
-		return id;
+		return reqIFIdentifier;
 	}
 
 	/**
@@ -143,66 +143,67 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	 * @generated
 	 */
 
-	public void setId(String newId) {
+	public void setReqIFIdentifier(String newReqIFIdentifier) {
 
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQ_IF_ELEMENT__ID, oldId, id));
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getName() {
-
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setName(String newName) {
-
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQ_IF_ELEMENT__NAME, oldName,
-					name));
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIF_Identifier() {
-
-		return reqIF_Identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIF_Identifier(String newReqIF_Identifier) {
-
-		String oldReqIF_Identifier = reqIF_Identifier;
-		reqIF_Identifier = newReqIF_Identifier;
+		String oldReqIFIdentifier = reqIFIdentifier;
+		reqIFIdentifier = newReqIFIdentifier;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER,
-					oldReqIF_Identifier, reqIF_Identifier));
+					oldReqIFIdentifier, reqIFIdentifier));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public String getReqIFDescription() {
+
+		return reqIFDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFDescription(String newReqIFDescription) {
+
+		String oldReqIFDescription = reqIFDescription;
+		reqIFDescription = newReqIFDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION, oldReqIFDescription, reqIFDescription));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public String getReqIFLongName() {
+
+		return reqIFLongName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFLongName(String newReqIFLongName) {
+
+		String oldReqIFLongName = reqIFLongName;
+		reqIFLongName = newReqIFLongName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME,
+					oldReqIFLongName, reqIFLongName));
 
 	}
 
@@ -214,12 +215,12 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case RequirementsPackage.REQ_IF_ELEMENT__ID:
-			return getId();
-		case RequirementsPackage.REQ_IF_ELEMENT__NAME:
-			return getName();
 		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER:
-			return getReqIF_Identifier();
+			return getReqIFIdentifier();
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION:
+			return getReqIFDescription();
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME:
+			return getReqIFLongName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,14 +233,14 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case RequirementsPackage.REQ_IF_ELEMENT__ID:
-			setId((String) newValue);
-			return;
-		case RequirementsPackage.REQ_IF_ELEMENT__NAME:
-			setName((String) newValue);
-			return;
 		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER:
-			setReqIF_Identifier((String) newValue);
+			setReqIFIdentifier((String) newValue);
+			return;
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION:
+			setReqIFDescription((String) newValue);
+			return;
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME:
+			setReqIFLongName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,14 +254,14 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case RequirementsPackage.REQ_IF_ELEMENT__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case RequirementsPackage.REQ_IF_ELEMENT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER:
-			setReqIF_Identifier(REQ_IF_IDENTIFIER_EDEFAULT);
+			setReqIFIdentifier(REQ_IF_IDENTIFIER_EDEFAULT);
+			return;
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION:
+			setReqIFDescription(REQ_IF_DESCRIPTION_EDEFAULT);
+			return;
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME:
+			setReqIFLongName(REQ_IF_LONG_NAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -274,13 +275,15 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case RequirementsPackage.REQ_IF_ELEMENT__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case RequirementsPackage.REQ_IF_ELEMENT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER:
-			return REQ_IF_IDENTIFIER_EDEFAULT == null ? reqIF_Identifier != null
-					: !REQ_IF_IDENTIFIER_EDEFAULT.equals(reqIF_Identifier);
+			return REQ_IF_IDENTIFIER_EDEFAULT == null ? reqIFIdentifier != null
+					: !REQ_IF_IDENTIFIER_EDEFAULT.equals(reqIFIdentifier);
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION:
+			return REQ_IF_DESCRIPTION_EDEFAULT == null ? reqIFDescription != null
+					: !REQ_IF_DESCRIPTION_EDEFAULT.equals(reqIFDescription);
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME:
+			return REQ_IF_LONG_NAME_EDEFAULT == null ? reqIFLongName != null
+					: !REQ_IF_LONG_NAME_EDEFAULT.equals(reqIFLongName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -296,12 +299,12 @@ public abstract class ReqIFElementImpl extends EObjectImpl implements ReqIFEleme
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", name: "); //$NON-NLS-1$
-		result.append(name);
-		result.append(", ReqIF_Identifier: "); //$NON-NLS-1$
-		result.append(reqIF_Identifier);
+		result.append(" (ReqIFIdentifier: "); //$NON-NLS-1$
+		result.append(reqIFIdentifier);
+		result.append(", ReqIFDescription: "); //$NON-NLS-1$
+		result.append(reqIFDescription);
+		result.append(", ReqIFLongName: "); //$NON-NLS-1$
+		result.append(reqIFLongName);
 		result.append(')');
 		return result.toString();
 	}

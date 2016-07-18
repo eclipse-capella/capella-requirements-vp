@@ -22,7 +22,7 @@ package org.polarsys.kitalpha.vp.requirements.Requirements;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Attribute#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Attribute#getKey <em>Key</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Attribute#getDefinitionProxy <em>Definition Proxy</em>}</li>
  * </ul>
  *
  * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAttribute()
@@ -30,7 +30,7 @@ package org.polarsys.kitalpha.vp.requirements.Requirements;
  * @generated
  */
 
-public interface Attribute extends ReqIFElement {
+public interface Attribute extends IdentifiableElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,33 +69,33 @@ public interface Attribute extends ReqIFElement {
 	void setDefinition(AttributeDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * Returns the value of the '<em><b>Definition Proxy</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Definition Proxy</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key</em>' attribute.
-	 * @see #setKey(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAttribute_Key()
+	 * @return the value of the '<em>Definition Proxy</em>' attribute.
+	 * @see #setDefinitionProxy(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAttribute_DefinitionProxy()
 	 * @model
 	 * @generated
 	 */
 
-	String getKey();
+	String getDefinitionProxy();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Attribute#getKey <em>Key</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Attribute#getDefinitionProxy <em>Definition Proxy</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key</em>' attribute.
-	 * @see #getKey()
+	 * @param value the new value of the '<em>Definition Proxy</em>' attribute.
+	 * @see #getDefinitionProxy()
 	 * @generated
 	 */
 
-	void setKey(String value);
+	void setDefinitionProxy(String value);
 
 } // Attribute

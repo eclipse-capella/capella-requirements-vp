@@ -31,7 +31,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getReqIF_RelationType <em>Req IF Relation Type</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getReqIFRelationType <em>Req IF Relation Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,24 +56,24 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	protected RelationType relationType;
 
 	/**
-	 * The default value of the '{@link #getReqIF_RelationType() <em>Req IF Relation Type</em>}' attribute.
+	 * The default value of the '{@link #getReqIFRelationType() <em>Req IF Relation Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_RelationType()
+	 * @see #getReqIFRelationType()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_RELATION_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_RelationType() <em>Req IF Relation Type</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFRelationType() <em>Req IF Relation Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_RelationType()
+	 * @see #getReqIFRelationType()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_RelationType = REQ_IF_RELATION_TYPE_EDEFAULT;
+	protected String reqIFRelationType = REQ_IF_RELATION_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,9 +149,9 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
-	public String getReqIF_RelationType() {
+	public String getReqIFRelationType() {
 
-		return reqIF_RelationType;
+		return reqIFRelationType;
 	}
 
 	/**
@@ -160,14 +160,14 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
-	public void setReqIF_RelationType(String newReqIF_RelationType) {
+	public void setReqIFRelationType(String newReqIFRelationType) {
 
-		String oldReqIF_RelationType = reqIF_RelationType;
-		reqIF_RelationType = newReqIF_RelationType;
+		String oldReqIFRelationType = reqIFRelationType;
+		reqIFRelationType = newReqIFRelationType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, oldReqIF_RelationType,
-					reqIF_RelationType));
+					RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, oldReqIFRelationType,
+					reqIFRelationType));
 
 	}
 
@@ -184,7 +184,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 				return getRelationType();
 			return basicGetRelationType();
 		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			return getReqIF_RelationType();
+			return getReqIFRelationType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,7 +201,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 			setRelationType((RelationType) newValue);
 			return;
 		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			setReqIF_RelationType((String) newValue);
+			setReqIFRelationType((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,7 +219,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 			setRelationType((RelationType) null);
 			return;
 		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			setReqIF_RelationType(REQ_IF_RELATION_TYPE_EDEFAULT);
+			setReqIFRelationType(REQ_IF_RELATION_TYPE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -236,8 +236,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE:
 			return relationType != null;
 		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			return REQ_IF_RELATION_TYPE_EDEFAULT == null ? reqIF_RelationType != null
-					: !REQ_IF_RELATION_TYPE_EDEFAULT.equals(reqIF_RelationType);
+			return REQ_IF_RELATION_TYPE_EDEFAULT == null ? reqIFRelationType != null
+					: !REQ_IF_RELATION_TYPE_EDEFAULT.equals(reqIFRelationType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -253,8 +253,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ReqIF_RelationType: "); //$NON-NLS-1$
-		result.append(reqIF_RelationType);
+		result.append(" (ReqIFRelationType: "); //$NON-NLS-1$
+		result.append(reqIFRelationType);
 		result.append(')');
 		return result.toString();
 	}

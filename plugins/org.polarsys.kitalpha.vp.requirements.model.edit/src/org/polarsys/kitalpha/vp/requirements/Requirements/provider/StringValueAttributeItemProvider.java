@@ -117,7 +117,7 @@ public class StringValueAttributeItemProvider extends AttributeItemProvider impl
 	@Override
 	public String getText(Object object) {
 
-		String label = ((StringValueAttribute) object).getName();
+		String label = ((StringValueAttribute) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_StringValueAttribute_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

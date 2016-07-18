@@ -108,10 +108,10 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 			super.getPropertyDescriptors(object);
 
 			addRequirementTypePropertyDescriptor(object);
-			addReqIF_ChapterNamePropertyDescriptor(object);
-			addReqIF_ForeignIDPropertyDescriptor(object);
-			addReqIF_PrefixPropertyDescriptor(object);
-			addReqIF_TextPropertyDescriptor(object);
+			addReqIFChapterNamePropertyDescriptor(object);
+			addReqIFForeignIDPropertyDescriptor(object);
+			addReqIFPrefixPropertyDescriptor(object);
+			addReqIFTextPropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -146,14 +146,14 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_ChapterNamePropertyDescriptor(Object object) {
+	protected void addReqIFChapterNamePropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_ReqIF_ChapterName_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ChapterName_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_Requirement_ReqIFChapterName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFChapterName_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_Requirement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_CHAPTER_NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -168,14 +168,14 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_ForeignIDPropertyDescriptor(Object object) {
+	protected void addReqIFForeignIDPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_ReqIF_ForeignID_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_ForeignID_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_Requirement_ReqIFForeignID_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFForeignID_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_Requirement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -190,14 +190,14 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_PrefixPropertyDescriptor(Object object) {
+	protected void addReqIFPrefixPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_ReqIF_Prefix_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Prefix_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_Requirement_ReqIFPrefix_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFPrefix_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_Requirement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -212,14 +212,14 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_TextPropertyDescriptor(Object object) {
+	protected void addReqIFTextPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_ReqIF_Text_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIF_Text_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_Requirement_ReqIFText_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFText_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_Requirement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_TEXT, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -278,7 +278,7 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	@Override
 	public String getText(Object object) {
 
-		String label = ((Requirement) object).getName();
+		String label = ((Requirement) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_Requirement_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

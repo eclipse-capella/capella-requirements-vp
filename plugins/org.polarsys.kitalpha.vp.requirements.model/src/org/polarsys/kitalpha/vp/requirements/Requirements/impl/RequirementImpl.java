@@ -41,10 +41,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getRequirementType <em>Requirement Type</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getOwnedRelations <em>Owned Relations</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIF_ChapterName <em>Req IF Chapter Name</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIF_ForeignID <em>Req IF Foreign ID</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIF_Prefix <em>Req IF Prefix</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIF_Text <em>Req IF Text</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFChapterName <em>Req IF Chapter Name</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFPrefix <em>Req IF Prefix</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFText <em>Req IF Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,84 +79,84 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	protected EList<AbstractRelation> ownedRelations;
 
 	/**
-	 * The default value of the '{@link #getReqIF_ChapterName() <em>Req IF Chapter Name</em>}' attribute.
+	 * The default value of the '{@link #getReqIFChapterName() <em>Req IF Chapter Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_ChapterName()
+	 * @see #getReqIFChapterName()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_CHAPTER_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_ChapterName() <em>Req IF Chapter Name</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFChapterName() <em>Req IF Chapter Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_ChapterName()
+	 * @see #getReqIFChapterName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_ChapterName = REQ_IF_CHAPTER_NAME_EDEFAULT;
+	protected String reqIFChapterName = REQ_IF_CHAPTER_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getReqIF_ForeignID() <em>Req IF Foreign ID</em>}' attribute.
+	 * The default value of the '{@link #getReqIFForeignID() <em>Req IF Foreign ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_ForeignID()
+	 * @see #getReqIFForeignID()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_FOREIGN_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_ForeignID() <em>Req IF Foreign ID</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFForeignID() <em>Req IF Foreign ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_ForeignID()
+	 * @see #getReqIFForeignID()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_ForeignID = REQ_IF_FOREIGN_ID_EDEFAULT;
+	protected String reqIFForeignID = REQ_IF_FOREIGN_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getReqIF_Prefix() <em>Req IF Prefix</em>}' attribute.
+	 * The default value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Prefix()
+	 * @see #getReqIFPrefix()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_PREFIX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_Prefix() <em>Req IF Prefix</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Prefix()
+	 * @see #getReqIFPrefix()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_Prefix = REQ_IF_PREFIX_EDEFAULT;
+	protected String reqIFPrefix = REQ_IF_PREFIX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getReqIF_Text() <em>Req IF Text</em>}' attribute.
+	 * The default value of the '{@link #getReqIFText() <em>Req IF Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Text()
+	 * @see #getReqIFText()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REQ_IF_TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIF_Text() <em>Req IF Text</em>}' attribute.
+	 * The cached value of the '{@link #getReqIFText() <em>Req IF Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIF_Text()
+	 * @see #getReqIFText()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIF_Text = REQ_IF_TEXT_EDEFAULT;
+	protected String reqIFText = REQ_IF_TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,9 +247,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIF_ChapterName() {
+	public String getReqIFChapterName() {
 
-		return reqIF_ChapterName;
+		return reqIFChapterName;
 	}
 
 	/**
@@ -258,13 +258,13 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public void setReqIF_ChapterName(String newReqIF_ChapterName) {
+	public void setReqIFChapterName(String newReqIFChapterName) {
 
-		String oldReqIF_ChapterName = reqIF_ChapterName;
-		reqIF_ChapterName = newReqIF_ChapterName;
+		String oldReqIFChapterName = reqIFChapterName;
+		reqIFChapterName = newReqIFChapterName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME,
-					oldReqIF_ChapterName, reqIF_ChapterName));
+					oldReqIFChapterName, reqIFChapterName));
 
 	}
 
@@ -274,9 +274,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIF_ForeignID() {
+	public String getReqIFForeignID() {
 
-		return reqIF_ForeignID;
+		return reqIFForeignID;
 	}
 
 	/**
@@ -285,13 +285,13 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public void setReqIF_ForeignID(String newReqIF_ForeignID) {
+	public void setReqIFForeignID(String newReqIFForeignID) {
 
-		String oldReqIF_ForeignID = reqIF_ForeignID;
-		reqIF_ForeignID = newReqIF_ForeignID;
+		String oldReqIFForeignID = reqIFForeignID;
+		reqIFForeignID = newReqIFForeignID;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID,
-					oldReqIF_ForeignID, reqIF_ForeignID));
+					oldReqIFForeignID, reqIFForeignID));
 
 	}
 
@@ -301,9 +301,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIF_Prefix() {
+	public String getReqIFPrefix() {
 
-		return reqIF_Prefix;
+		return reqIFPrefix;
 	}
 
 	/**
@@ -312,13 +312,13 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public void setReqIF_Prefix(String newReqIF_Prefix) {
+	public void setReqIFPrefix(String newReqIFPrefix) {
 
-		String oldReqIF_Prefix = reqIF_Prefix;
-		reqIF_Prefix = newReqIF_Prefix;
+		String oldReqIFPrefix = reqIFPrefix;
+		reqIFPrefix = newReqIFPrefix;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-					oldReqIF_Prefix, reqIF_Prefix));
+					oldReqIFPrefix, reqIFPrefix));
 
 	}
 
@@ -328,9 +328,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIF_Text() {
+	public String getReqIFText() {
 
-		return reqIF_Text;
+		return reqIFText;
 	}
 
 	/**
@@ -339,13 +339,13 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public void setReqIF_Text(String newReqIF_Text) {
+	public void setReqIFText(String newReqIFText) {
 
-		String oldReqIF_Text = reqIF_Text;
-		reqIF_Text = newReqIF_Text;
+		String oldReqIFText = reqIFText;
+		reqIFText = newReqIFText;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_TEXT,
-					oldReqIF_Text, reqIF_Text));
+					oldReqIFText, reqIFText));
 
 	}
 
@@ -378,13 +378,13 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		case RequirementsPackage.REQUIREMENT__OWNED_RELATIONS:
 			return getOwnedRelations();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME:
-			return getReqIF_ChapterName();
+			return getReqIFChapterName();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-			return getReqIF_ForeignID();
+			return getReqIFForeignID();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			return getReqIF_Prefix();
+			return getReqIFPrefix();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
-			return getReqIF_Text();
+			return getReqIFText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -406,16 +406,16 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			getOwnedRelations().addAll((Collection<? extends AbstractRelation>) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME:
-			setReqIF_ChapterName((String) newValue);
+			setReqIFChapterName((String) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-			setReqIF_ForeignID((String) newValue);
+			setReqIFForeignID((String) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			setReqIF_Prefix((String) newValue);
+			setReqIFPrefix((String) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
-			setReqIF_Text((String) newValue);
+			setReqIFText((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -436,16 +436,16 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			getOwnedRelations().clear();
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME:
-			setReqIF_ChapterName(REQ_IF_CHAPTER_NAME_EDEFAULT);
+			setReqIFChapterName(REQ_IF_CHAPTER_NAME_EDEFAULT);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-			setReqIF_ForeignID(REQ_IF_FOREIGN_ID_EDEFAULT);
+			setReqIFForeignID(REQ_IF_FOREIGN_ID_EDEFAULT);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			setReqIF_Prefix(REQ_IF_PREFIX_EDEFAULT);
+			setReqIFPrefix(REQ_IF_PREFIX_EDEFAULT);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
-			setReqIF_Text(REQ_IF_TEXT_EDEFAULT);
+			setReqIFText(REQ_IF_TEXT_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -464,15 +464,15 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		case RequirementsPackage.REQUIREMENT__OWNED_RELATIONS:
 			return ownedRelations != null && !ownedRelations.isEmpty();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME:
-			return REQ_IF_CHAPTER_NAME_EDEFAULT == null ? reqIF_ChapterName != null
-					: !REQ_IF_CHAPTER_NAME_EDEFAULT.equals(reqIF_ChapterName);
+			return REQ_IF_CHAPTER_NAME_EDEFAULT == null ? reqIFChapterName != null
+					: !REQ_IF_CHAPTER_NAME_EDEFAULT.equals(reqIFChapterName);
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-			return REQ_IF_FOREIGN_ID_EDEFAULT == null ? reqIF_ForeignID != null
-					: !REQ_IF_FOREIGN_ID_EDEFAULT.equals(reqIF_ForeignID);
+			return REQ_IF_FOREIGN_ID_EDEFAULT == null ? reqIFForeignID != null
+					: !REQ_IF_FOREIGN_ID_EDEFAULT.equals(reqIFForeignID);
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			return REQ_IF_PREFIX_EDEFAULT == null ? reqIF_Prefix != null : !REQ_IF_PREFIX_EDEFAULT.equals(reqIF_Prefix);
+			return REQ_IF_PREFIX_EDEFAULT == null ? reqIFPrefix != null : !REQ_IF_PREFIX_EDEFAULT.equals(reqIFPrefix);
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
-			return REQ_IF_TEXT_EDEFAULT == null ? reqIF_Text != null : !REQ_IF_TEXT_EDEFAULT.equals(reqIF_Text);
+			return REQ_IF_TEXT_EDEFAULT == null ? reqIFText != null : !REQ_IF_TEXT_EDEFAULT.equals(reqIFText);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -488,14 +488,14 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ReqIF_ChapterName: "); //$NON-NLS-1$
-		result.append(reqIF_ChapterName);
-		result.append(", ReqIF_ForeignID: "); //$NON-NLS-1$
-		result.append(reqIF_ForeignID);
-		result.append(", ReqIF_Prefix: "); //$NON-NLS-1$
-		result.append(reqIF_Prefix);
-		result.append(", ReqIF_Text: "); //$NON-NLS-1$
-		result.append(reqIF_Text);
+		result.append(" (ReqIFChapterName: "); //$NON-NLS-1$
+		result.append(reqIFChapterName);
+		result.append(", ReqIFForeignID: "); //$NON-NLS-1$
+		result.append(reqIFForeignID);
+		result.append(", ReqIFPrefix: "); //$NON-NLS-1$
+		result.append(reqIFPrefix);
+		result.append(", ReqIFText: "); //$NON-NLS-1$
+		result.append(reqIFText);
 		result.append(')');
 		return result.toString();
 	}

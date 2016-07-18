@@ -31,13 +31,13 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeImpl#getDefinitionProxy <em>Definition Proxy</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class AttributeImpl extends ReqIFElementImpl implements Attribute {
+public abstract class AttributeImpl extends IdentifiableElementImpl implements Attribute {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,24 +56,24 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 	protected AttributeDefinition definition;
 
 	/**
-	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * The default value of the '{@link #getDefinitionProxy() <em>Definition Proxy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getDefinitionProxy()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_EDEFAULT = null;
+	protected static final String DEFINITION_PROXY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * The cached value of the '{@link #getDefinitionProxy() <em>Definition Proxy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getDefinitionProxy()
 	 * @generated
 	 * @ordered
 	 */
-	protected String key = KEY_EDEFAULT;
+	protected String definitionProxy = DEFINITION_PROXY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,9 +149,9 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 	 * @generated
 	 */
 
-	public String getKey() {
+	public String getDefinitionProxy() {
 
-		return key;
+		return definitionProxy;
 	}
 
 	/**
@@ -160,12 +160,13 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 	 * @generated
 	 */
 
-	public void setKey(String newKey) {
+	public void setDefinitionProxy(String newDefinitionProxy) {
 
-		String oldKey = key;
-		key = newKey;
+		String oldDefinitionProxy = definitionProxy;
+		definitionProxy = newDefinitionProxy;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.ATTRIBUTE__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY,
+					oldDefinitionProxy, definitionProxy));
 
 	}
 
@@ -181,8 +182,8 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 			if (resolve)
 				return getDefinition();
 			return basicGetDefinition();
-		case RequirementsPackage.ATTRIBUTE__KEY:
-			return getKey();
+		case RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY:
+			return getDefinitionProxy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,8 +199,8 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 		case RequirementsPackage.ATTRIBUTE__DEFINITION:
 			setDefinition((AttributeDefinition) newValue);
 			return;
-		case RequirementsPackage.ATTRIBUTE__KEY:
-			setKey((String) newValue);
+		case RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY:
+			setDefinitionProxy((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,8 +217,8 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 		case RequirementsPackage.ATTRIBUTE__DEFINITION:
 			setDefinition((AttributeDefinition) null);
 			return;
-		case RequirementsPackage.ATTRIBUTE__KEY:
-			setKey(KEY_EDEFAULT);
+		case RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY:
+			setDefinitionProxy(DEFINITION_PROXY_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -233,8 +234,9 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 		switch (featureID) {
 		case RequirementsPackage.ATTRIBUTE__DEFINITION:
 			return definition != null;
-		case RequirementsPackage.ATTRIBUTE__KEY:
-			return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+		case RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY:
+			return DEFINITION_PROXY_EDEFAULT == null ? definitionProxy != null
+					: !DEFINITION_PROXY_EDEFAULT.equals(definitionProxy);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -250,8 +252,8 @@ public abstract class AttributeImpl extends ReqIFElementImpl implements Attribut
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (key: "); //$NON-NLS-1$
-		result.append(key);
+		result.append(" (definitionProxy: "); //$NON-NLS-1$
+		result.append(definitionProxy);
 		result.append(')');
 		return result.toString();
 	}

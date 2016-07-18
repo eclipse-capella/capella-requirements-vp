@@ -22,7 +22,7 @@ package org.polarsys.kitalpha.vp.requirements.Requirements;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIF_RelationType <em>Req IF Relation Type</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType <em>Req IF Relation Type</em>}</li>
  * </ul>
  *
  * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation()
@@ -78,24 +78,24 @@ public interface AbstractRelation extends ReqIFElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Relation Type</em>' attribute.
-	 * @see #setReqIF_RelationType(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation_ReqIF_RelationType()
+	 * @see #setReqIFRelationType(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation_ReqIFRelationType()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIF_RelationType();
+	String getReqIFRelationType();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIF_RelationType <em>Req IF Relation Type</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType <em>Req IF Relation Type</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Req IF Relation Type</em>' attribute.
-	 * @see #getReqIF_RelationType()
+	 * @see #getReqIFRelationType()
 	 * @generated
 	 */
 
-	void setReqIF_RelationType(String value);
+	void setReqIFRelationType(String value);
 
 } // AbstractRelation

@@ -6,7 +6,6 @@
       <additions>org.polarsys.capella.vp.requirements.vpdsl</additions>
     </elements>
     <elements xsi:type="generationChain:FeatureAddition" name="Generated Features for CapellaRequirements">
-      <additions>org.polarsys.capella.vp.requirements.representation.feature</additions>
       <additions>org.polarsys.capella.vp.requirements.af.feature</additions>
     </elements>
   </elements>

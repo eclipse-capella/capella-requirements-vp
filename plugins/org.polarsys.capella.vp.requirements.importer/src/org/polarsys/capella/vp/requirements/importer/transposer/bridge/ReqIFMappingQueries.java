@@ -83,8 +83,8 @@ public class ReqIFMappingQueries {
       // no types folder has been found, we create one
       CapellaTypesFolder folder = CapellaRequirementsFactory.eINSTANCE.createCapellaTypesFolder();
       folder.setId(generateId());
-      folder.setName("Types Folder");
-      folder.setReqIF_Identifier(getSourceModelId(context));
+      folder.setReqIFLongName("Types Folder");
+      folder.setReqIFIdentifier(getSourceModelId(context));
       block.getOwnedExtensions().add(folder);
       return folder;
     }

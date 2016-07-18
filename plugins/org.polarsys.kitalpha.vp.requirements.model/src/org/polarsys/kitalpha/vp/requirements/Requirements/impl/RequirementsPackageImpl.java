@@ -27,6 +27,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
@@ -53,6 +54,13 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * @generated
 	 */
 	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass identifiableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,6 +252,24 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIdentifiableElement() {
+		return identifiableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIdentifiableElement_Id() {
+		return (EAttribute) identifiableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReqIFElement() {
 		return reqIFElementEClass;
 	}
@@ -253,7 +279,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReqIFElement_Id() {
+	public EAttribute getReqIFElement_ReqIFIdentifier() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -262,7 +288,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReqIFElement_Name() {
+	public EAttribute getReqIFElement_ReqIFDescription() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -271,7 +297,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReqIFElement_ReqIF_Identifier() {
+	public EAttribute getReqIFElement_ReqIFLongName() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -298,7 +324,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbstractRelation_ReqIF_RelationType() {
+	public EAttribute getAbstractRelation_ReqIFRelationType() {
 		return (EAttribute) abstractRelationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -352,7 +378,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_Key() {
+	public EAttribute getAttribute_DefinitionProxy() {
 		return (EAttribute) attributeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -442,7 +468,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequirement_ReqIF_ChapterName() {
+	public EAttribute getRequirement_ReqIFChapterName() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -451,7 +477,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequirement_ReqIF_ForeignID() {
+	public EAttribute getRequirement_ReqIFForeignID() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -460,7 +486,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequirement_ReqIF_Prefix() {
+	public EAttribute getRequirement_ReqIFPrefix() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -469,7 +495,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequirement_ReqIF_Text() {
+	public EAttribute getRequirement_ReqIFText() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -646,10 +672,13 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		isCreated = true;
 
 		// Create classes and their features
+		identifiableElementEClass = createEClass(IDENTIFIABLE_ELEMENT);
+		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__ID);
+
 		reqIFElementEClass = createEClass(REQ_IF_ELEMENT);
-		createEAttribute(reqIFElementEClass, REQ_IF_ELEMENT__ID);
-		createEAttribute(reqIFElementEClass, REQ_IF_ELEMENT__NAME);
 		createEAttribute(reqIFElementEClass, REQ_IF_ELEMENT__REQ_IF_IDENTIFIER);
+		createEAttribute(reqIFElementEClass, REQ_IF_ELEMENT__REQ_IF_DESCRIPTION);
+		createEAttribute(reqIFElementEClass, REQ_IF_ELEMENT__REQ_IF_LONG_NAME);
 
 		abstractRelationEClass = createEClass(ABSTRACT_RELATION);
 		createEReference(abstractRelationEClass, ABSTRACT_RELATION__RELATION_TYPE);
@@ -661,7 +690,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEReference(attributeEClass, ATTRIBUTE__DEFINITION);
-		createEAttribute(attributeEClass, ATTRIBUTE__KEY);
+		createEAttribute(attributeEClass, ATTRIBUTE__DEFINITION_PROXY);
 
 		stringValueAttributeEClass = createEClass(STRING_VALUE_ATTRIBUTE);
 		createEAttribute(stringValueAttributeEClass, STRING_VALUE_ATTRIBUTE__VALUE);
@@ -735,9 +764,10 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		reqIFElementEClass.getESuperTypes().add(this.getIdentifiableElement());
 		abstractRelationEClass.getESuperTypes().add(this.getReqIFElement());
 		internalRelationEClass.getESuperTypes().add(this.getAbstractRelation());
-		attributeEClass.getESuperTypes().add(this.getReqIFElement());
+		attributeEClass.getESuperTypes().add(this.getIdentifiableElement());
 		stringValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		integerValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		attributeOwnerEClass.getESuperTypes().add(this.getReqIFElement());
@@ -753,13 +783,21 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		attributeDefinitionEClass.getESuperTypes().add(this.getReqIFElement());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(identifiableElementEClass, IdentifiableElement.class, "IdentifiableElement", IS_ABSTRACT, //$NON-NLS-1$
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIdentifiableElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, //$NON-NLS-1$
+				IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		initEClass(reqIFElementEClass, ReqIFElement.class, "ReqIFElement", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReqIFElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReqIFElement.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReqIFElement_ReqIF_Identifier(), ecorePackage.getEString(), "ReqIF_Identifier", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getReqIFElement_ReqIFIdentifier(), ecorePackage.getEString(), "ReqIFIdentifier", null, 0, 1, //$NON-NLS-1$
+				ReqIFElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReqIFElement_ReqIFDescription(), ecorePackage.getEString(), "ReqIFDescription", null, 0, 1, //$NON-NLS-1$
+				ReqIFElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReqIFElement_ReqIFLongName(), ecorePackage.getEString(), "ReqIFLongName", null, 0, 1, //$NON-NLS-1$
 				ReqIFElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
@@ -768,8 +806,8 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAbstractRelation_RelationType(), this.getRelationType(), null, "relationType", null, 0, 1, //$NON-NLS-1$
 				AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractRelation_ReqIF_RelationType(), ecorePackage.getEString(), "ReqIF_RelationType", null, //$NON-NLS-1$
-				0, 1, AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEAttribute(getAbstractRelation_ReqIFRelationType(), ecorePackage.getEString(), "ReqIFRelationType", null, 0, //$NON-NLS-1$
+				1, AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalRelationEClass, InternalRelation.class, "InternalRelation", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
@@ -786,8 +824,9 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAttribute_Definition(), this.getAttributeDefinition(), null, "definition", null, 0, 1, //$NON-NLS-1$
 				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Key(), ecorePackage.getEString(), "key", null, 0, 1, Attribute.class, !IS_TRANSIENT, //$NON-NLS-1$
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_DefinitionProxy(), ecorePackage.getEString(), "definitionProxy", null, 0, 1, //$NON-NLS-1$
+				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringValueAttributeEClass, StringValueAttribute.class, "StringValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -815,16 +854,16 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getRequirement_OwnedRelations(), this.getAbstractRelation(), null, "ownedRelations", null, 0, -1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_ChapterName(), ecorePackage.getEString(), "ReqIF_ChapterName", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIFChapterName(), ecorePackage.getEString(), "ReqIFChapterName", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_ForeignID(), ecorePackage.getEString(), "ReqIF_ForeignID", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIFForeignID(), ecorePackage.getEString(), "ReqIFForeignID", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_Prefix(), ecorePackage.getEString(), "ReqIF_Prefix", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIFPrefix(), ecorePackage.getEString(), "ReqIFPrefix", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIF_Text(), ecorePackage.getEString(), "ReqIF_Text", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIFText(), ecorePackage.getEString(), "ReqIFText", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 

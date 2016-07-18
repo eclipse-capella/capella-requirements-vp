@@ -94,15 +94,6 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_TYPES_FOLDER__ID = RequirementsPackage.TYPES_FOLDER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_TYPES_FOLDER__NAME = RequirementsPackage.TYPES_FOLDER__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +101,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_TYPES_FOLDER__REQ_IF_IDENTIFIER = RequirementsPackage.TYPES_FOLDER__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_TYPES_FOLDER__REQ_IF_DESCRIPTION = RequirementsPackage.TYPES_FOLDER__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_TYPES_FOLDER__REQ_IF_LONG_NAME = RequirementsPackage.TYPES_FOLDER__REQ_IF_LONG_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Owned Definition Types</b></em>' containment reference list.
@@ -167,15 +176,6 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_MODULE__ID = RequirementsPackage.MODULE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_MODULE__NAME = RequirementsPackage.MODULE__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,6 +183,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_MODULE__REQ_IF_IDENTIFIER = RequirementsPackage.MODULE__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_MODULE__REQ_IF_DESCRIPTION = RequirementsPackage.MODULE__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_MODULE__REQ_IF_LONG_NAME = RequirementsPackage.MODULE__REQ_IF_LONG_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
@@ -249,15 +267,6 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_RELATION__ID = RequirementsPackage.ABSTRACT_RELATION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_RELATION__NAME = RequirementsPackage.ABSTRACT_RELATION__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,6 +274,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_RELATION__REQ_IF_IDENTIFIER = RequirementsPackage.ABSTRACT_RELATION__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_RELATION__REQ_IF_DESCRIPTION = RequirementsPackage.ABSTRACT_RELATION__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_RELATION__REQ_IF_LONG_NAME = RequirementsPackage.ABSTRACT_RELATION__REQ_IF_LONG_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Relation Type</b></em>' reference.
@@ -313,15 +340,6 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_INCOMING_RELATION__ID = CAPELLA_RELATION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_INCOMING_RELATION__NAME = CAPELLA_RELATION__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,6 +347,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_INCOMING_RELATION__REQ_IF_IDENTIFIER = CAPELLA_RELATION__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_INCOMING_RELATION__REQ_IF_DESCRIPTION = CAPELLA_RELATION__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_INCOMING_RELATION__REQ_IF_LONG_NAME = CAPELLA_RELATION__REQ_IF_LONG_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Relation Type</b></em>' reference.
@@ -395,15 +431,6 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_OUTGOING_RELATION__ID = CAPELLA_RELATION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_OUTGOING_RELATION__NAME = CAPELLA_RELATION__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -411,6 +438,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_OUTGOING_RELATION__REQ_IF_IDENTIFIER = CAPELLA_RELATION__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_OUTGOING_RELATION__REQ_IF_DESCRIPTION = CAPELLA_RELATION__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_OUTGOING_RELATION__REQ_IF_LONG_NAME = CAPELLA_RELATION__REQ_IF_LONG_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Relation Type</b></em>' reference.

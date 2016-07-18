@@ -17,4 +17,10 @@
         supportedTypes="org.eclipse.emf.edit.provider.IItemLabelProvider"
         uri="http://www.polarsys.org/kitalpha/requirements"/>
    </extension>
+  <extension
+        point="org.polarsys.capella.core.model.handler.decoratorAdapterFactory">
+     <decoratorAdapterFactory
+           class="org.polarsys.kitalpha.vp.requirements.Requirements.provider.RequirementsItemProviderDecoratorAdapterFactory">
+     </decoratorAdapterFactory>
+  </extension>
 </plugin>

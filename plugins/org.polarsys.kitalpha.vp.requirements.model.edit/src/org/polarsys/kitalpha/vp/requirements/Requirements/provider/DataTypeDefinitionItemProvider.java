@@ -90,7 +90,7 @@ public class DataTypeDefinitionItemProvider extends ReqIFElementItemProvider imp
 	@Override
 	public String getText(Object object) {
 
-		String label = ((DataTypeDefinition) object).getName();
+		String label = ((DataTypeDefinition) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_DataTypeDefinition_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

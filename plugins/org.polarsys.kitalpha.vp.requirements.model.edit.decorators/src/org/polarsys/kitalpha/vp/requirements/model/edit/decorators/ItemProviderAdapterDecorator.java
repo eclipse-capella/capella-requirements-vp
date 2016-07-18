@@ -64,9 +64,8 @@ public class ItemProviderAdapterDecorator extends ItemProviderDecorator implemen
   public Notifier getTarget() {
     if (targets == null || targets.isEmpty()) {
       return null;
-    } else {
-      return targets.get(targets.size() - 1);
     }
+    return targets.get(targets.size() - 1);
   }
 
   /**

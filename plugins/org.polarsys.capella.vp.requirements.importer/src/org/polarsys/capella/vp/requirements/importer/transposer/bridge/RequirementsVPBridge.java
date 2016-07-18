@@ -138,7 +138,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
       while (it.hasNext()) {
         ElementExtension ext = it.next();
         if (ext instanceof ReqIFElement) {
-          String reqifid = ((ReqIFElement) ext).getReqIF_Identifier();
+          String reqifid = ((ReqIFElement) ext).getReqIFIdentifier();
           if (reqifid != null && !reqifid.isEmpty()) {
             if (ext instanceof CapellaModule) {
               toBeRemoved.add(ext);

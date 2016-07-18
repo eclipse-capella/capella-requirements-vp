@@ -12,7 +12,13 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.edit.provider.DecoratorAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ForwardingItemProviderAdapterDecorator;
 
 /**
@@ -26,9 +32,21 @@ public class RequirementsItemProviderDecoratorAdapterFactory extends DecoratorAd
 
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target, Object Type) {
-		if (target instanceof Requirement) {
+	  if (target instanceof Module) {
+      return new ModuleItemProviderDecorator(this);
+    } else if (target instanceof Folder) {
+      return new FolderItemProviderDecorator(this);
+    } else if (target instanceof Requirement) {
 			return new RequirementItemProviderDecorator(this);
-		}
+		} else if (target instanceof IntegerValueAttribute) {
+      return new IntegerValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof StringValueAttribute) {
+      return new StringValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof AttributeDefinition) {
+      return new AttributeDefinitionItemProviderDecorator(this);
+    } else if (target instanceof DataTypeDefinition) {
+      return new DataTypeDefinitionItemProviderDecorator(this);
+    }
 		return new ForwardingItemProviderAdapterDecorator(this);
 	}
 }

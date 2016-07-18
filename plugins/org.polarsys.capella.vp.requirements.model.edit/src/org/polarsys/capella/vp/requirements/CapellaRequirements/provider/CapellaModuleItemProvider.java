@@ -133,7 +133,7 @@ public class CapellaModuleItemProvider extends ModuleItemProvider implements IEd
 	@Override
 	public String getText(Object object) {
 
-		String label = ((CapellaModule) object).getName();
+		String label = ((CapellaModule) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_CapellaModule_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

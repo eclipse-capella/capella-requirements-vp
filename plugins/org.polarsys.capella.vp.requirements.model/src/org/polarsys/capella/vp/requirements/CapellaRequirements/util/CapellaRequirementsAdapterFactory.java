@@ -27,6 +27,7 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
@@ -116,6 +117,11 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCapellaOutgoingRelation(CapellaOutgoingRelation object) {
 			return createCapellaOutgoingRelationAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifiableElement(IdentifiableElement object) {
+			return createIdentifiableElementAdapter();
 		}
 
 		@Override
@@ -244,6 +250,20 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCapellaOutgoingRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement <em>Identifiable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement
+	 * @generated
+	 */
+	public Adapter createIdentifiableElementAdapter() {
 		return null;
 	}
 

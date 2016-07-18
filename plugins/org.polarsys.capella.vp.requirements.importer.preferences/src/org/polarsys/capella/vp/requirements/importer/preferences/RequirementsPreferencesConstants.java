@@ -17,6 +17,6 @@ public class RequirementsPreferencesConstants {
 
   public static final String REQUIREMENT_LABEL_EXPRESSION = "requirement.label.expression";
   
-  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "<%self.ownedAttributes[definition.name==\"IE PUID\"].value%>";
+  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "<%self.ownedAttributes[definition.ReqIFLongName==\"IE PUID\"].value%>";
 
 }

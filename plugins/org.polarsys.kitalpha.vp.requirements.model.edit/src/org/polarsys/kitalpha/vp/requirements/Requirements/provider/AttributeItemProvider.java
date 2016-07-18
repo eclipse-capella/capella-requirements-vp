@@ -40,7 +40,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeItemProvider extends ReqIFElementItemProvider implements IEditingDomainItemProvider,
+public class AttributeItemProvider extends IdentifiableElementItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,7 +104,7 @@ public class AttributeItemProvider extends ReqIFElementItemProvider implements I
 			super.getPropertyDescriptors(object);
 
 			addDefinitionPropertyDescriptor(object);
-			addKeyPropertyDescriptor(object);
+			addDefinitionProxyPropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -134,20 +134,21 @@ public class AttributeItemProvider extends ReqIFElementItemProvider implements I
 	}
 
 	/**
-	 * This adds a property descriptor for the Key feature.
+	 * This adds a property descriptor for the Definition Proxy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyPropertyDescriptor(Object object) {
+	protected void addDefinitionProxyPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Attribute_key_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Attribute_key_feature", "_UI_Attribute_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				RequirementsPackage.Literals.ATTRIBUTE__KEY, true, false, false,
+				getString("_UI_Attribute_definitionProxy_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Attribute_definitionProxy_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Attribute_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.ATTRIBUTE__DEFINITION_PROXY, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));
@@ -163,7 +164,7 @@ public class AttributeItemProvider extends ReqIFElementItemProvider implements I
 	@Override
 	public String getText(Object object) {
 
-		String label = ((Attribute) object).getName();
+		String label = ((Attribute) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_Attribute_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code
@@ -181,7 +182,7 @@ public class AttributeItemProvider extends ReqIFElementItemProvider implements I
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Attribute.class)) {
-		case RequirementsPackage.ATTRIBUTE__KEY:
+		case RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

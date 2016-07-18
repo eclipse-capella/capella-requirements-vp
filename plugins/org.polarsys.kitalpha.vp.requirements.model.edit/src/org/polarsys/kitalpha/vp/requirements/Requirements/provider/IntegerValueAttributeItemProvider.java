@@ -117,7 +117,7 @@ public class IntegerValueAttributeItemProvider extends AttributeItemProvider imp
 	@Override
 	public String getText(Object object) {
 
-		String label = ((IntegerValueAttribute) object).getName();
+		String label = ((IntegerValueAttribute) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_IntegerValueAttribute_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code

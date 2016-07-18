@@ -25,6 +25,7 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
@@ -105,6 +106,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExtensibleElement(capellaTypesFolder);
 			if (result == null)
+				result = caseIdentifiableElement(capellaTypesFolder);
+			if (result == null)
 				result = caseElement(capellaTypesFolder);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -126,6 +129,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElement(capellaModule);
 			if (result == null)
+				result = caseIdentifiableElement(capellaModule);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -136,6 +141,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 				result = caseAbstractRelation(capellaRelation);
 			if (result == null)
 				result = caseReqIFElement(capellaRelation);
+			if (result == null)
+				result = caseIdentifiableElement(capellaRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -150,6 +157,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(capellaIncomingRelation);
 			if (result == null)
+				result = caseIdentifiableElement(capellaIncomingRelation);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -162,6 +171,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 				result = caseAbstractRelation(capellaOutgoingRelation);
 			if (result == null)
 				result = caseReqIFElement(capellaOutgoingRelation);
+			if (result == null)
+				result = caseIdentifiableElement(capellaOutgoingRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -243,6 +254,21 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCapellaOutgoingRelation(CapellaOutgoingRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiableElement(IdentifiableElement object) {
 		return null;
 	}
 

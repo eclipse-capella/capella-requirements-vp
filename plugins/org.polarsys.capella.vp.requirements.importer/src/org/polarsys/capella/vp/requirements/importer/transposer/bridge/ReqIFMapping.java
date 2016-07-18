@@ -195,8 +195,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
           createdElements.putAll(parseStandardReqIFAttributes(value, module));
         }
         module.setId(ReqIFMappingQueries.generateId());
-        module.setReqIF_Identifier(specification.getIdentifier());
-        module.setName(specification.getLongName());
+        module.setReqIFIdentifier(specification.getIdentifier());
+        module.setReqIFLongName(specification.getLongName());
         return new TupleNP<Object>(module, createdElements);
       }
     };
@@ -234,8 +234,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
           createdElements.putAll(parseStandardReqIFAttributes(value, folder));
         }
         folder.setId(ReqIFMappingQueries.generateId());
-        folder.setReqIF_Identifier(object.getIdentifier());
-        folder.setName(folder.getReqIF_ChapterName());
+        folder.setReqIFIdentifier(object.getIdentifier());
+        folder.setReqIFLongName(folder.getReqIFChapterName());
         return new TupleNP<Object>(folder, createdElements);
       }
     };
@@ -273,8 +273,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
           createdElements.putAll(parseStandardReqIFAttributes(value, requirement));
         }
         requirement.setId(ReqIFMappingQueries.generateId());
-        requirement.setReqIF_Identifier(object.getIdentifier());
-        requirement.setName(requirement.getReqIF_ChapterName());
+        requirement.setReqIFIdentifier(object.getIdentifier());
+        requirement.setReqIFLongName(requirement.getReqIFChapterName());
         return new TupleNP<Object>(requirement, createdElements);
       }
     };
@@ -321,8 +321,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
 
         InternalRelation targetRelation = RequirementsFactory.eINSTANCE.createInternalRelation();
         targetRelation.setId(ReqIFMappingQueries.generateId());
-        targetRelation.setReqIF_Identifier(source.getIdentifier());
-        targetRelation.setReqIF_RelationType(source.getType().getLongName());
+        targetRelation.setReqIFIdentifier(source.getIdentifier());
+        targetRelation.setReqIFRelationType(source.getType().getLongName());
 
         createdElements.put(source.getIdentifier(), targetRelation);
         return new TupleNP<Object>(targetRelation, createdElements);
@@ -359,15 +359,15 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         for (org.eclipse.rmf.reqif10.AttributeDefinition definition : source.getSpecAttributes()) {
           AttributeDefinition attribute = RequirementsFactory.eINSTANCE.createAttributeDefinition();
           attribute.setId(ReqIFMappingQueries.generateId());
-          attribute.setName(definition.getLongName());
-          attribute.setReqIF_Identifier(definition.getIdentifier());
+          attribute.setReqIFLongName(definition.getLongName());
+          attribute.setReqIFIdentifier(definition.getIdentifier());
           type.getOwnedAttributes().add(attribute);
           createdElements.put(definition.getIdentifier(), attribute);
         }
 
         type.setId(ReqIFMappingQueries.generateId());
-        type.setReqIF_Identifier(source.getIdentifier());
-        type.setName(source.getLongName());
+        type.setReqIFIdentifier(source.getIdentifier());
+        type.setReqIFLongName(source.getLongName());
 
         return new TupleNP<Object>(type, createdElements);
       }
@@ -394,8 +394,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         createdElements.put(source.getIdentifier(), type);
 
         type.setId(ReqIFMappingQueries.generateId());
-        type.setReqIF_Identifier(source.getIdentifier());
-        type.setName(source.getLongName());
+        type.setReqIFIdentifier(source.getIdentifier());
+        type.setReqIFLongName(source.getLongName());
 
         return new TupleNP<Object>(type, createdElements);
       }
@@ -481,7 +481,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (importedCustomTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
-      pv.setKey(longName);
+      //pv.setKey(longName);
       pv.setValue(getContent((AttributeValueXHTML) value));
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
@@ -498,7 +498,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (importedCustomTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
-      pv.setKey(longName);
+      //pv.setKey(longName);
       pv.setValue(value.getTheValue());
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
@@ -515,7 +515,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (importedCustomTypes.contains(longName)) {
       IntegerValueAttribute pv = RequirementsFactory.eINSTANCE.createIntegerValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
-      pv.setKey(longName);
+      //pv.setKey(longName);
       pv.setValue(value.getTheValue().intValue());
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
@@ -532,7 +532,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (importedCustomTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
-      pv.setKey(longName);
+      //pv.setKey(longName);
       StringBuilder evs = new StringBuilder();
       for (EnumValue ev : value.getValues()) {
         evs.append(" " + ev.getLongName());
@@ -561,15 +561,15 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (value instanceof AttributeValueXHTML) {
       AttributeDefinitionXHTML definition = ((AttributeValueXHTML) value).getDefinition();
       if (definition.getLongName().equals("ReqIF.ChapterName")) {
-        target.setReqIF_ChapterName(getContent((AttributeValueXHTML) value));
+        target.setReqIFChapterName(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Name")) {
         //
       } else if (definition.getLongName().equals("ReqIF.Description")) {
         //
       } else if (definition.getLongName().equals("ReqIF.Text")) {
-        target.setReqIF_Text(getContent((AttributeValueXHTML) value));
+        target.setReqIFText(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Prefix")) {
-        target.setReqIF_Prefix(getContent((AttributeValueXHTML) value));
+        target.setReqIFPrefix(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.ForeignCreatedBy")) {
         //
       } else if (definition.getLongName().equals("ReqIF.ForeignModifiedBy")) {
@@ -584,7 +584,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     } else if (value instanceof AttributeValueInteger) {
       AttributeDefinitionInteger definition = ((AttributeValueInteger) value).getDefinition();
       if (definition.getLongName().equals("ReqIF.ForeignID")) {
-        target.setReqIF_ForeignID(((AttributeValueInteger) value).getTheValue().toString()); // FIXME should be EInteger in m2
+        target.setReqIFForeignID(((AttributeValueInteger) value).getTheValue().toString()); // FIXME should be EInteger in m2
       } else {
         createdObjects.putAll(parseNonStandardAttributes((AttributeValueInteger) value, target));
       }

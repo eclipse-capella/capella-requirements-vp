@@ -43,7 +43,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter implements IEditingDomainItemProvider,
+public class ReqIFElementItemProvider extends IdentifiableElementItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,54 +73,14 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addReqIF_IdentifierPropertyDescriptor(object);
+			addReqIFIdentifierPropertyDescriptor(object);
+			addReqIFDescriptionPropertyDescriptor(object);
+			addReqIFLongNamePropertyDescriptor(object);
 		}
+		// begin-extension-code
+		checkChildCreationExtender(object);
+		// end-extension-code
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-
-		// begin-extension-code
-		itemPropertyDescriptors.add(createItemPropertyDescriptor
-		// end-extension-code
-		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ReqIFElement_id_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_id_feature", "_UI_ReqIFElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				RequirementsPackage.Literals.REQ_IF_ELEMENT__ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				// begin-extension-code
-				null));
-		// end-extension-code
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-
-		// begin-extension-code
-		itemPropertyDescriptors.add(createItemPropertyDescriptor
-		// end-extension-code
-		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ReqIFElement_name_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_name_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_ReqIFElement_type"), //$NON-NLS-1$
-				RequirementsPackage.Literals.REQ_IF_ELEMENT__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				// begin-extension-code
-				null));
-		// end-extension-code
 	}
 
 	/**
@@ -129,14 +89,14 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIF_IdentifierPropertyDescriptor(Object object) {
+	protected void addReqIFIdentifierPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ReqIFElement_ReqIF_Identifier_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_ReqIF_Identifier_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_ReqIFElement_ReqIFIdentifier_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_ReqIFIdentifier_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_ReqIFElement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
@@ -146,13 +106,47 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 	}
 
 	/**
+	 * This adds a property descriptor for the Req IF Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public boolean hasChildren(Object object) {
-		return hasChildren(object, true);
+	protected void addReqIFDescriptionPropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ReqIFElement_ReqIFDescription_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_ReqIFDescription_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_ReqIFElement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
+		// end-extension-code
+	}
+
+	/**
+	 * This adds a property descriptor for the Req IF Long Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReqIFLongNamePropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ReqIFElement_ReqIFLongName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFElement_ReqIFLongName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_ReqIFElement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_LONG_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
+		// end-extension-code
 	}
 
 	/**
@@ -164,7 +158,7 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 	@Override
 	public String getText(Object object) {
 
-		String label = ((ReqIFElement) object).getName();
+		String label = ((ReqIFElement) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_ReqIFElement_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code
@@ -182,9 +176,9 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIFElement.class)) {
-		case RequirementsPackage.REQ_IF_ELEMENT__ID:
-		case RequirementsPackage.REQ_IF_ELEMENT__NAME:
 		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER:
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION:
+		case RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -201,17 +195,6 @@ public class ReqIFElementItemProvider extends ExtensionItemProviderAdapter imple
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
 	}
 
 }

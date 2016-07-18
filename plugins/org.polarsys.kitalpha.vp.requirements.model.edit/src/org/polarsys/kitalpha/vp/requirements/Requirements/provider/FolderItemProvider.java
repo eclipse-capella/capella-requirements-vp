@@ -125,7 +125,7 @@ public class FolderItemProvider extends RequirementItemProvider implements IEdit
 	@Override
 	public String getText(Object object) {
 
-		String label = ((Folder) object).getName();
+		String label = ((Folder) object).getId();
 		// begin-extension-code
 		return label == null || label.length() == 0 ? "[" + getString("_UI_Folder_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code
