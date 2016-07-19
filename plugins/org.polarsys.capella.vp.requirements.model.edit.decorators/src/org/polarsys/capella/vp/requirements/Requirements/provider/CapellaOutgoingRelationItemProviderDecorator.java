@@ -11,30 +11,37 @@
 package org.polarsys.capella.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
+import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 
 /**
  * @author Joao Barata
  */
-public class CapellaModuleItemProviderDecorator extends
+public class CapellaOutgoingRelationItemProviderDecorator extends
 		ItemProviderAdapterDecorator implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource {
 
-	public CapellaModuleItemProviderDecorator(AdapterFactory adapterFactory) {
+	public CapellaOutgoingRelationItemProviderDecorator(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
   public String getText(Object object) {
-	  String text = ((CapellaModule) object).getReqIFLongName();
-    return (text != null) ? text : "[" + ((EObject) object).eClass().getName() + "]";
+	  CapellaOutgoingRelation relation = (CapellaOutgoingRelation) object;
+
+    RelationType type = relation.getRelationType();
+    if (type != null) {
+      return "[" + type.getReqIFLongName() + "] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+    }
+
+    return super.getText(object);
   }
 }

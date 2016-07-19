@@ -11,12 +11,12 @@
 package org.polarsys.capella.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
 import org.polarsys.capella.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 
@@ -35,6 +35,6 @@ public class CapellaTypesFolderItemProviderDecorator extends
 	@Override
   public String getText(Object object) {
 	  String text = ((CapellaTypesFolder) object).getReqIFLongName();
-    return (text != null) ? text : ICommonConstants.EMPTY_STRING;
+    return (text != null) ? text : "[" + ((EObject) object).eClass().getName() + "]";
   }
 }

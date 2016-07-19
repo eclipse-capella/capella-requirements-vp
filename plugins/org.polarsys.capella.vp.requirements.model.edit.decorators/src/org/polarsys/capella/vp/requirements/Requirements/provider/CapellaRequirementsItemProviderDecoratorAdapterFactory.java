@@ -12,7 +12,9 @@ package org.polarsys.capella.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.edit.provider.DecoratorAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory;
 import org.polarsys.capella.vp.requirements.model.edit.decorators.ForwardingItemProviderAdapterDecorator;
@@ -32,6 +34,10 @@ public class CapellaRequirementsItemProviderDecoratorAdapterFactory extends Deco
       return new CapellaModuleItemProviderDecorator(this);
     } else if (target instanceof CapellaTypesFolder) {
       return new CapellaTypesFolderItemProviderDecorator(this);
+    } else if (target instanceof CapellaIncomingRelation) {
+      return new CapellaIncomingRelationItemProviderDecorator(this);
+    } else if (target instanceof CapellaOutgoingRelation) {
+      return new CapellaOutgoingRelationItemProviderDecorator(this);
     }
 		return new ForwardingItemProviderAdapterDecorator(this);
 	}

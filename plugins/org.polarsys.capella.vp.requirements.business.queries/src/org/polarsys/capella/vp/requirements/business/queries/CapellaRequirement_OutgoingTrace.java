@@ -17,12 +17,10 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
-import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.ctx.CtxPackage;
@@ -35,8 +33,9 @@ import org.polarsys.capella.core.data.oa.OaPackage;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.data.pa.PaPackage;
 import org.polarsys.capella.core.data.pa.PhysicalArchitecture;
-import org.polarsys.capella.core.data.requirement.RequirementsTrace;
 import org.polarsys.capella.core.model.utils.ListExt;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
@@ -146,9 +145,10 @@ public class CapellaRequirement_OutgoingTrace implements IBusinessQuery {
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     List<EObject> currentElements = new ArrayList<EObject>();
 
-    for (AbstractTrace trace : ((CapellaElement) element).getOutgoingTraces()) {
-      if (trace instanceof RequirementsTrace) {
-        currentElements.add((CapellaElement) trace.getTargetElement());
+    for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+      Requirement requirement = ((CapellaOutgoingRelation) referencer).getSource();
+      if (requirement != null) {
+        currentElements.add(requirement);
       }
     }
 

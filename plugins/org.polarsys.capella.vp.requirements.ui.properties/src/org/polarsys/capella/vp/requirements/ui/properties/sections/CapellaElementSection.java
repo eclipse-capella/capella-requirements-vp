@@ -11,10 +11,13 @@
 package org.polarsys.capella.vp.requirements.ui.properties.sections;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -23,6 +26,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
+import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataContentProvider;
@@ -37,7 +42,12 @@ import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
  * @author Joao Barata
@@ -88,10 +98,79 @@ public class CapellaElementSection extends AbstractSection {
     grp.setLayout(new GridLayout(1, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
-		viewer = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL);
+		viewer = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
+      @Override
+      protected boolean doHandleAddAllButton() {
+        addAllocations(getLeftInput().getValidElements());
+        return super.doHandleAddAllButton();
+      }
+
+      @Override
+      protected boolean doHandleRemoveAllButton() {
+        removeAllocations(getRightInput().getValidElements());
+        return super.doHandleRemoveAllButton();
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      protected boolean doHandleAddSelectedButton() {
+        addAllocations(((IStructuredSelection) getLeftViewer().getSelection()).toList());
+        return super.doHandleAddSelectedButton();
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      protected boolean doHandleRemoveSelectedButton() {
+        removeAllocations(((IStructuredSelection) getRightViewer().getSelection()).toList());
+        return super.doHandleRemoveSelectedButton();
+      }
+		  
+		};
 		viewer.setLeftContentProvider(new DataContentProvider());
     viewer.setRightContentProvider(new DataContentProvider());
 	}
+
+	protected void addAllocations(Collection<Object> elts) {
+    final List<Requirement> elementsToBeAdded = new ArrayList<Requirement>(0);
+    for (Object obj : elts) {
+      elementsToBeAdded.add((Requirement) obj);
+    }
+    final EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+      Requirement requirement = ((CapellaOutgoingRelation) referencer).getSource();
+      if ((requirement != null) && elementsToBeAdded.contains(requirement)) {
+        elementsToBeAdded.remove(requirement);
+      }
+    }
+    getExecutionManager().execute(new AbstractReadWriteCommand() {
+      public void run() {
+        for (Requirement requirement : elementsToBeAdded) {
+          CapellaOutgoingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
+          relation.setSource(requirement);
+          relation.setTarget((CapellaElement) currentSelection);
+          requirement.getOwnedRelations().add(relation);
+        }
+      }
+    });
+	}
+
+  protected void removeAllocations(Collection<Object> elts) {
+    final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
+    EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+      Requirement requirement = ((CapellaOutgoingRelation) referencer).getSource();
+      if ((requirement != null) && elts.contains(requirement)) {
+        elementsToBeDestroyed.add((AbstractRelation) referencer);
+      }
+    }
+    getExecutionManager().execute(new AbstractReadWriteCommand() {
+      public void run() {
+        for (AbstractRelation relation : elementsToBeDestroyed) {
+          EcoreUtil.delete(relation);
+        }
+      }
+    });
+  }
 
 	/**
 	 * @param capellaElement
