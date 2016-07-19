@@ -112,6 +112,7 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 			addReqIFForeignIDPropertyDescriptor(object);
 			addReqIFPrefixPropertyDescriptor(object);
 			addReqIFTextPropertyDescriptor(object);
+			addRequirementTypeProxyPropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -229,6 +230,28 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 	}
 
 	/**
+	 * This adds a property descriptor for the Requirement Type Proxy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequirementTypeProxyPropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_requirementTypeProxy_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_requirementTypeProxy_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQUIREMENT_TYPE_PROXY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
+		// end-extension-code
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -300,6 +323,7 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
+		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case RequirementsPackage.REQUIREMENT__OWNED_RELATIONS:

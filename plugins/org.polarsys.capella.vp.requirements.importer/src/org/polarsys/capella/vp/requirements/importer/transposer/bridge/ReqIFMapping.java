@@ -322,7 +322,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         InternalRelation targetRelation = RequirementsFactory.eINSTANCE.createInternalRelation();
         targetRelation.setId(ReqIFMappingQueries.generateId());
         targetRelation.setReqIFIdentifier(source.getIdentifier());
-        targetRelation.setReqIFRelationType(source.getType().getLongName());
+        targetRelation.setRelationTypeProxy(source.getType().getLongName());
 
         createdElements.put(source.getIdentifier(), targetRelation);
         return new TupleNP<Object>(targetRelation, createdElements);

@@ -3,7 +3,6 @@ package org.polarsys.capella.vp.requirements.CapellaRequirements.provider.sectio
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.data.core.properties.sections.NamedElementSection;
 import org.polarsys.capella.core.model.handler.helpers.CapellaAdapterHelper;
-import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 
 /**
  * This is the item provider adapter for a {@link CapellaOutgoingRelationSection} object.

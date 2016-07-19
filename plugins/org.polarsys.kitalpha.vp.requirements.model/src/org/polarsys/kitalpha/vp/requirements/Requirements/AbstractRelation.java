@@ -22,7 +22,7 @@ package org.polarsys.kitalpha.vp.requirements.Requirements;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType <em>Req IF Relation Type</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationTypeProxy <em>Relation Type Proxy</em>}</li>
  * </ul>
  *
  * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation()
@@ -69,33 +69,33 @@ public interface AbstractRelation extends ReqIFElement {
 	void setRelationType(RelationType value);
 
 	/**
-	 * Returns the value of the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Relation Type Proxy</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Req IF Relation Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Relation Type Proxy</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Req IF Relation Type</em>' attribute.
-	 * @see #setReqIFRelationType(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation_ReqIFRelationType()
+	 * @return the value of the '<em>Relation Type Proxy</em>' attribute.
+	 * @see #setRelationTypeProxy(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getAbstractRelation_RelationTypeProxy()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIFRelationType();
+	String getRelationTypeProxy();
 
 	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType <em>Req IF Relation Type</em>}' attribute.
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationTypeProxy <em>Relation Type Proxy</em>}' attribute.
 	
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Req IF Relation Type</em>' attribute.
-	 * @see #getReqIFRelationType()
+	 * @param value the new value of the '<em>Relation Type Proxy</em>' attribute.
+	 * @see #getRelationTypeProxy()
 	 * @generated
 	 */
 
-	void setReqIFRelationType(String value);
+	void setRelationTypeProxy(String value);
 
 } // AbstractRelation

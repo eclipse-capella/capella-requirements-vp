@@ -11,6 +11,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -33,6 +34,7 @@ public class ModuleItemProviderDecorator extends
 
 	@Override
   public String getText(Object object) {
-    return ((Module) object).getReqIFLongName();
+	  String text = ((Module) object).getReqIFLongName();
+    return (text != null) ? text : "[" + ((EObject) object).eClass().getName() + "]";
   }
 }

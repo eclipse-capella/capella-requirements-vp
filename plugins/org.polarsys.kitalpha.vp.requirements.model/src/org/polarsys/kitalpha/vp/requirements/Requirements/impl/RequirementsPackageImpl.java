@@ -324,7 +324,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbstractRelation_ReqIFRelationType() {
+	public EAttribute getAbstractRelation_RelationTypeProxy() {
 		return (EAttribute) abstractRelationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -497,6 +497,15 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 */
 	public EAttribute getRequirement_ReqIFText() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRequirement_RequirementTypeProxy() {
+		return (EAttribute) requirementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -682,7 +691,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 
 		abstractRelationEClass = createEClass(ABSTRACT_RELATION);
 		createEReference(abstractRelationEClass, ABSTRACT_RELATION__RELATION_TYPE);
-		createEAttribute(abstractRelationEClass, ABSTRACT_RELATION__REQ_IF_RELATION_TYPE);
+		createEAttribute(abstractRelationEClass, ABSTRACT_RELATION__RELATION_TYPE_PROXY);
 
 		internalRelationEClass = createEClass(INTERNAL_RELATION);
 		createEReference(internalRelationEClass, INTERNAL_RELATION__SOURCE);
@@ -708,6 +717,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		createEAttribute(requirementEClass, REQUIREMENT__REQ_IF_FOREIGN_ID);
 		createEAttribute(requirementEClass, REQUIREMENT__REQ_IF_PREFIX);
 		createEAttribute(requirementEClass, REQUIREMENT__REQ_IF_TEXT);
+		createEAttribute(requirementEClass, REQUIREMENT__REQUIREMENT_TYPE_PROXY);
 
 		folderEClass = createEClass(FOLDER);
 		createEReference(folderEClass, FOLDER__OWNED_REQUIREMENTS);
@@ -806,7 +816,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAbstractRelation_RelationType(), this.getRelationType(), null, "relationType", null, 0, 1, //$NON-NLS-1$
 				AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractRelation_ReqIFRelationType(), ecorePackage.getEString(), "ReqIFRelationType", null, 0, //$NON-NLS-1$
+		initEAttribute(getAbstractRelation_RelationTypeProxy(), ecorePackage.getEString(), "relationTypeProxy", null, 0, //$NON-NLS-1$
 				1, AbstractRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -865,6 +875,9 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_ReqIFText(), ecorePackage.getEString(), "ReqIFText", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequirement_RequirementTypeProxy(), ecorePackage.getEString(), "requirementTypeProxy", null, //$NON-NLS-1$
+				0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

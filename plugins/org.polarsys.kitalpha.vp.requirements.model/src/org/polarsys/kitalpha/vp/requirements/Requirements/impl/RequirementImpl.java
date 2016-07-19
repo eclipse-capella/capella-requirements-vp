@@ -45,6 +45,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFText <em>Req IF Text</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getRequirementTypeProxy <em>Requirement Type Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,6 +158,26 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @ordered
 	 */
 	protected String reqIFText = REQ_IF_TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRequirementTypeProxy() <em>Requirement Type Proxy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementTypeProxy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQUIREMENT_TYPE_PROXY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRequirementTypeProxy() <em>Requirement Type Proxy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementTypeProxy()
+	 * @generated
+	 * @ordered
+	 */
+	protected String requirementTypeProxy = REQUIREMENT_TYPE_PROXY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -354,6 +375,34 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
+	public String getRequirementTypeProxy() {
+
+		return requirementTypeProxy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setRequirementTypeProxy(String newRequirementTypeProxy) {
+
+		String oldRequirementTypeProxy = requirementTypeProxy;
+		requirementTypeProxy = newRequirementTypeProxy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY, oldRequirementTypeProxy,
+					requirementTypeProxy));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -385,6 +434,8 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return getReqIFPrefix();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			return getReqIFText();
+		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
+			return getRequirementTypeProxy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -417,6 +468,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			setReqIFText((String) newValue);
 			return;
+		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
+			setRequirementTypeProxy((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -447,6 +501,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			setReqIFText(REQ_IF_TEXT_EDEFAULT);
 			return;
+		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
+			setRequirementTypeProxy(REQUIREMENT_TYPE_PROXY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -473,6 +530,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return REQ_IF_PREFIX_EDEFAULT == null ? reqIFPrefix != null : !REQ_IF_PREFIX_EDEFAULT.equals(reqIFPrefix);
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			return REQ_IF_TEXT_EDEFAULT == null ? reqIFText != null : !REQ_IF_TEXT_EDEFAULT.equals(reqIFText);
+		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
+			return REQUIREMENT_TYPE_PROXY_EDEFAULT == null ? requirementTypeProxy != null
+					: !REQUIREMENT_TYPE_PROXY_EDEFAULT.equals(requirementTypeProxy);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -496,6 +556,8 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		result.append(reqIFPrefix);
 		result.append(", ReqIFText: "); //$NON-NLS-1$
 		result.append(reqIFText);
+		result.append(", requirementTypeProxy: "); //$NON-NLS-1$
+		result.append(requirementTypeProxy);
 		result.append(')');
 		return result.toString();
 	}

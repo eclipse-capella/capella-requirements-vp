@@ -105,7 +105,7 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 			super.getPropertyDescriptors(object);
 
 			addRelationTypePropertyDescriptor(object);
-			addReqIFRelationTypePropertyDescriptor(object);
+			addRelationTypeProxyPropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -135,21 +135,21 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 	}
 
 	/**
-	 * This adds a property descriptor for the Req IF Relation Type feature.
+	 * This adds a property descriptor for the Relation Type Proxy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIFRelationTypePropertyDescriptor(Object object) {
+	protected void addRelationTypeProxyPropertyDescriptor(Object object) {
 
 		// begin-extension-code
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AbstractRelation_ReqIFRelationType_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_AbstractRelation_ReqIFRelationType_feature", //$NON-NLS-1$//$NON-NLS-2$
+				getString("_UI_AbstractRelation_relationTypeProxy_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_AbstractRelation_relationTypeProxy_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_AbstractRelation_type"), //$NON-NLS-1$
-				RequirementsPackage.Literals.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, true, false, false,
+				RequirementsPackage.Literals.ABSTRACT_RELATION__RELATION_TYPE_PROXY, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));
@@ -183,7 +183,7 @@ public class AbstractRelationItemProvider extends ReqIFElementItemProvider imple
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AbstractRelation.class)) {
-		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
+		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

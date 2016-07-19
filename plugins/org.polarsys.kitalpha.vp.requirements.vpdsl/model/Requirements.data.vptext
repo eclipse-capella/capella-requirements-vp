@@ -31,7 +31,7 @@ Data Requirements.data {
 		abstract: true
 
 		Attributes:
-			ReqIFRelationType type ecore.EString
+			relationTypeProxy type ecore.EString
 
 		Associations:
 		    relationType refers [0,1] RelationType
@@ -84,6 +84,7 @@ Data Requirements.data {
 			ReqIFForeignID type ecore.EString
 			ReqIFPrefix type ecore.EString
 			ReqIFText type ecore.EString
+			requirementTypeProxy type ecore.EString
 
 		Associations:
 		    requirementType refers [0,1] RequirementType

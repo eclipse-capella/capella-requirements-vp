@@ -28,7 +28,7 @@
     </VP_Classes>
     <VP_Classes name="AbstractRelation" abstract="true">
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.15"/>
-      <VP_Class_Attributes name="ReqIFRelationType">
+      <VP_Class_Attributes name="relationTypeProxy">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
@@ -88,6 +88,11 @@
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIFText">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <VP_Class_Attributes name="requirementTypeProxy">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>

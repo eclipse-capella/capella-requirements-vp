@@ -231,13 +231,13 @@ public interface RequirementsPackage extends EPackage {
 	int ABSTRACT_RELATION__RELATION_TYPE = REQ_IF_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation Type Proxy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_RELATION__REQ_IF_RELATION_TYPE = REQ_IF_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_RELATION__RELATION_TYPE_PROXY = REQ_IF_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Relation</em>' class.
@@ -313,13 +313,13 @@ public interface RequirementsPackage extends EPackage {
 	int INTERNAL_RELATION__RELATION_TYPE = ABSTRACT_RELATION__RELATION_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation Type Proxy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_RELATION__REQ_IF_RELATION_TYPE = ABSTRACT_RELATION__REQ_IF_RELATION_TYPE;
+	int INTERNAL_RELATION__RELATION_TYPE_PROXY = ABSTRACT_RELATION__RELATION_TYPE_PROXY;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -723,13 +723,22 @@ public interface RequirementsPackage extends EPackage {
 	int REQUIREMENT__REQ_IF_TEXT = ATTRIBUTE_OWNER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Requirement Type Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__REQUIREMENT_TYPE_PROXY = ATTRIBUTE_OWNER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 6;
+	int REQUIREMENT_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Requirement</em>' class.
@@ -848,6 +857,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__REQ_IF_TEXT = REQUIREMENT__REQ_IF_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Requirement Type Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__REQUIREMENT_TYPE_PROXY = REQUIREMENT__REQUIREMENT_TYPE_PROXY;
 
 	/**
 	 * The feature id for the '<em><b>Owned Requirements</b></em>' containment reference list.
@@ -1564,15 +1582,15 @@ public interface RequirementsPackage extends EPackage {
 	EReference getAbstractRelation_RelationType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType <em>Req IF Relation Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationTypeProxy <em>Relation Type Proxy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Req IF Relation Type</em>'.
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getReqIFRelationType()
+	 * @return the meta object for the attribute '<em>Relation Type Proxy</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation#getRelationTypeProxy()
 	 * @see #getAbstractRelation()
 	 * @generated
 	 */
-	EAttribute getAbstractRelation_ReqIFRelationType();
+	EAttribute getAbstractRelation_RelationTypeProxy();
 
 	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation <em>Internal Relation</em>}'.
@@ -1776,6 +1794,17 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRequirement_ReqIFText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementTypeProxy <em>Requirement Type Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Requirement Type Proxy</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementTypeProxy()
+	 * @see #getRequirement()
+	 * @generated
+	 */
+	EAttribute getRequirement_RequirementTypeProxy();
 
 	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Folder <em>Folder</em>}'.
@@ -2038,12 +2067,12 @@ public interface RequirementsPackage extends EPackage {
 		EReference ABSTRACT_RELATION__RELATION_TYPE = eINSTANCE.getAbstractRelation_RelationType();
 
 		/**
-		 * The meta object literal for the '<em><b>Req IF Relation Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Relation Type Proxy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ABSTRACT_RELATION__REQ_IF_RELATION_TYPE = eINSTANCE.getAbstractRelation_ReqIFRelationType();
+		EAttribute ABSTRACT_RELATION__RELATION_TYPE_PROXY = eINSTANCE.getAbstractRelation_RelationTypeProxy();
 
 		/**
 		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.InternalRelationImpl <em>Internal Relation</em>}' class.
@@ -2208,6 +2237,14 @@ public interface RequirementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REQUIREMENT__REQ_IF_TEXT = eINSTANCE.getRequirement_ReqIFText();
+
+		/**
+		 * The meta object literal for the '<em><b>Requirement Type Proxy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIREMENT__REQUIREMENT_TYPE_PROXY = eINSTANCE.getRequirement_RequirementTypeProxy();
 
 		/**
 		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.FolderImpl <em>Folder</em>}' class.

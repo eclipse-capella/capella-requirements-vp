@@ -31,7 +31,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getReqIFRelationType <em>Req IF Relation Type</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationImpl#getRelationTypeProxy <em>Relation Type Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,24 +56,24 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	protected RelationType relationType;
 
 	/**
-	 * The default value of the '{@link #getReqIFRelationType() <em>Req IF Relation Type</em>}' attribute.
+	 * The default value of the '{@link #getRelationTypeProxy() <em>Relation Type Proxy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIFRelationType()
+	 * @see #getRelationTypeProxy()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQ_IF_RELATION_TYPE_EDEFAULT = null;
+	protected static final String RELATION_TYPE_PROXY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIFRelationType() <em>Req IF Relation Type</em>}' attribute.
+	 * The cached value of the '{@link #getRelationTypeProxy() <em>Relation Type Proxy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReqIFRelationType()
+	 * @see #getRelationTypeProxy()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIFRelationType = REQ_IF_RELATION_TYPE_EDEFAULT;
+	protected String relationTypeProxy = RELATION_TYPE_PROXY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,9 +149,9 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
-	public String getReqIFRelationType() {
+	public String getRelationTypeProxy() {
 
-		return reqIFRelationType;
+		return relationTypeProxy;
 	}
 
 	/**
@@ -160,14 +160,14 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
-	public void setReqIFRelationType(String newReqIFRelationType) {
+	public void setRelationTypeProxy(String newRelationTypeProxy) {
 
-		String oldReqIFRelationType = reqIFRelationType;
-		reqIFRelationType = newReqIFRelationType;
+		String oldRelationTypeProxy = relationTypeProxy;
+		relationTypeProxy = newRelationTypeProxy;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE, oldReqIFRelationType,
-					reqIFRelationType));
+					RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY, oldRelationTypeProxy,
+					relationTypeProxy));
 
 	}
 
@@ -183,8 +183,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 			if (resolve)
 				return getRelationType();
 			return basicGetRelationType();
-		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			return getReqIFRelationType();
+		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY:
+			return getRelationTypeProxy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,8 +200,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE:
 			setRelationType((RelationType) newValue);
 			return;
-		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			setReqIFRelationType((String) newValue);
+		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY:
+			setRelationTypeProxy((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -218,8 +218,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE:
 			setRelationType((RelationType) null);
 			return;
-		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			setReqIFRelationType(REQ_IF_RELATION_TYPE_EDEFAULT);
+		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY:
+			setRelationTypeProxy(RELATION_TYPE_PROXY_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -235,9 +235,9 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 		switch (featureID) {
 		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE:
 			return relationType != null;
-		case RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE:
-			return REQ_IF_RELATION_TYPE_EDEFAULT == null ? reqIFRelationType != null
-					: !REQ_IF_RELATION_TYPE_EDEFAULT.equals(reqIFRelationType);
+		case RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY:
+			return RELATION_TYPE_PROXY_EDEFAULT == null ? relationTypeProxy != null
+					: !RELATION_TYPE_PROXY_EDEFAULT.equals(relationTypeProxy);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -253,8 +253,8 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ReqIFRelationType: "); //$NON-NLS-1$
-		result.append(reqIFRelationType);
+		result.append(" (relationTypeProxy: "); //$NON-NLS-1$
+		result.append(relationTypeProxy);
 		result.append(')');
 		return result.toString();
 	}

@@ -13,7 +13,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractRelation" abstract="true" eSuperTypes="#//ReqIFElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="relationType" eType="#//RelationType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFRelationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationTypeProxy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InternalRelation" eSuperTypes="#//AbstractRelation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Requirement"/>
@@ -41,6 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFForeignID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementTypeProxy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Folder" eSuperTypes="#//Requirement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRequirements" upperBound="-1"

@@ -303,13 +303,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_RELATION__RELATION_TYPE = RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation Type Proxy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_RELATION__REQ_IF_RELATION_TYPE = RequirementsPackage.ABSTRACT_RELATION__REQ_IF_RELATION_TYPE;
+	int CAPELLA_RELATION__RELATION_TYPE_PROXY = RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY;
 
 	/**
 	 * The number of structural features of the '<em>Capella Relation</em>' class.
@@ -376,13 +376,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_INCOMING_RELATION__RELATION_TYPE = CAPELLA_RELATION__RELATION_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation Type Proxy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_INCOMING_RELATION__REQ_IF_RELATION_TYPE = CAPELLA_RELATION__REQ_IF_RELATION_TYPE;
+	int CAPELLA_INCOMING_RELATION__RELATION_TYPE_PROXY = CAPELLA_RELATION__RELATION_TYPE_PROXY;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -467,13 +467,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_OUTGOING_RELATION__RELATION_TYPE = CAPELLA_RELATION__RELATION_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Req IF Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation Type Proxy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION__REQ_IF_RELATION_TYPE = CAPELLA_RELATION__REQ_IF_RELATION_TYPE;
+	int CAPELLA_OUTGOING_RELATION__RELATION_TYPE_PROXY = CAPELLA_RELATION__RELATION_TYPE_PROXY;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.

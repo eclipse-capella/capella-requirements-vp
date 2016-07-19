@@ -24,21 +24,4 @@
       <extender class="org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory$RequirementsChildCreationExtender" uri="http://www.polarsys.org/kitalpha/requirements"/>
       <extender class="org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory$EmdeChildCreationExtender" uri="http://www.polarsys.org/kitalpha/emde/1.0.0"/>
    </extension>
-
-
-<!--@generated-->
-  <extension point="org.polarsys.capella.common.menu.dynamic.MDEMenuItemContribution">
-</extension>
-
-<!--@generated-->
-  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-    <propertySections contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
-</propertySections>
-    </extension>
-
-<!--@generated-->
-  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-    <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-</propertySections>
-    </extension>
 </plugin>

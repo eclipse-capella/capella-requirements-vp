@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFText <em>Req IF Text</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementTypeProxy <em>Requirement Type Proxy</em>}</li>
  * </ul>
  *
  * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement()
@@ -211,5 +212,35 @@ public interface Requirement extends AttributeOwner {
 	 */
 
 	void setReqIFText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Requirement Type Proxy</b></em>' attribute.
+	
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Requirement Type Proxy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Requirement Type Proxy</em>' attribute.
+	 * @see #setRequirementTypeProxy(String)
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_RequirementTypeProxy()
+	 * @model
+	 * @generated
+	 */
+
+	String getRequirementTypeProxy();
+
+	/**
+	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementTypeProxy <em>Requirement Type Proxy</em>}' attribute.
+	
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Requirement Type Proxy</em>' attribute.
+	 * @see #getRequirementTypeProxy()
+	 * @generated
+	 */
+
+	void setRequirementTypeProxy(String value);
 
 } // Requirement

@@ -16,8 +16,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ForwardingItemProviderAdapterDecorator;
 
@@ -46,6 +50,14 @@ public class RequirementsItemProviderDecoratorAdapterFactory extends DecoratorAd
       return new AttributeDefinitionItemProviderDecorator(this);
     } else if (target instanceof DataTypeDefinition) {
       return new DataTypeDefinitionItemProviderDecorator(this);
+    } else if (target instanceof InternalRelation) {
+      return new InternalRelationItemProviderDecorator(this);
+    } else if (target instanceof ModuleType) {
+      return new ModuleTypeItemProviderDecorator(this);
+    } else if (target instanceof RequirementType) {
+      return new RequirementTypeItemProviderDecorator(this);
+    } else if (target instanceof RelationType) {
+      return new RelationTypeItemProviderDecorator(this);
     }
 		return new ForwardingItemProviderAdapterDecorator(this);
 	}

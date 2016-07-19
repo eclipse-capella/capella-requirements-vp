@@ -17,24 +17,24 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 
 /**
  * @author Joao Barata
  */
-public class FolderItemProviderDecorator extends
+public class ModuleTypeItemProviderDecorator extends
 		ItemProviderAdapterDecorator implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource {
 
-	public FolderItemProviderDecorator(AdapterFactory adapterFactory) {
+	public ModuleTypeItemProviderDecorator(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
   public String getText(Object object) {
-	  String text = ((Folder) object).getReqIFLongName();
+	  String text = ((ModuleType) object).getReqIFLongName();
     return (text != null) ? text : "[" + ((EObject) object).eClass().getName() + "]";
   }
 }

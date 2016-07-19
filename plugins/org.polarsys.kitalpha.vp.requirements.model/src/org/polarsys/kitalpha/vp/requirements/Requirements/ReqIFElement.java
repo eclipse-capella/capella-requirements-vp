@@ -12,8 +12,6 @@
 
 package org.polarsys.kitalpha.vp.requirements.Requirements;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Req IF Element</b></em>'.
