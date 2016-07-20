@@ -10,8 +10,10 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.commands;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -48,12 +50,23 @@ public class ReqIFImportAction implements IObjectActionDelegate {
       if (firstSelection instanceof BlockArchitecture) {
         URI file = getReqIFFileURI();
         if (file != null) {
-          new RequirementsImportLauncher().launch(file, (BlockArchitecture) firstSelection, new NullProgressMonitor());
+          run(file, (BlockArchitecture) firstSelection);
         }
       } else {
         RequirementsVPUICommandsPlugin.getDefault().getLog().log(new Status(Status.ERROR, RequirementsVPUICommandsPlugin.PLUGIN_ID, "Invalid selection"));
       }
     }
+  }
+
+  private void run(final URI model, final BlockArchitecture target) {
+    Job job = new Job("Import from ReqIF") {
+      protected IStatus run(IProgressMonitor monitor) {
+        new RequirementsImportLauncher().launch(model, target, monitor);
+        return Status.OK_STATUS;
+      }
+    };
+    job.setPriority(Job.SHORT);
+    job.schedule();
   }
 
   protected URI getReqIFFileURI() {

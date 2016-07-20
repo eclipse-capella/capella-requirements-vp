@@ -15,12 +15,32 @@
 	   <objectContribution
 	         objectClass="org.polarsys.capella.core.data.cs.BlockArchitecture"
 	         id="org.polarsys.capella.vp.requirements.ui.commands">
+         <enablement>
+             <test property="org.polarsys.capella.vp.requirements.ui.commands.viewpointActive" forcePluginActivation="true">
+             </test>
+         </enablement>
+         <menu
+               icon="icons/module.gif"
+               id="org.polarsys.capella.vp.requirements.ui.menu.import"
+               label="%ui.menu.import"
+               path="additions">
+         </menu>
 	      <action
-	            label="%ui.command.import"
-	            icon="icons/action.gif"
-	            class="org.polarsys.capella.vp.requirements.ui.commands.ReqIFImportAction"
-	            id="org.polarsys.capella.vp.requirements.ui.commands.import">
+             class="org.polarsys.capella.vp.requirements.ui.commands.ReqIFImportAction"
+             icon="icons/action.gif"
+             id="org.polarsys.capella.vp.requirements.ui.commands.import"
+             label="%ui.command.import"
+             menubarPath="org.polarsys.capella.vp.requirements.ui.menu.import/additions">
 	      </action>
 	   </objectContribution>
 	</extension>
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+         <propertyTester
+             id="org.polarsys.capella.vp.requirements.ui.commands.property.tester"
+             type="org.eclipse.emf.ecore.EObject"
+             namespace="org.polarsys.capella.vp.requirements.ui.commands"
+             properties="viewpointActive"
+             class="org.polarsys.capella.vp.requirements.ui.commands.ReqIFPropertyTester">
+         </propertyTester>    
+   </extension>
 </plugin>
