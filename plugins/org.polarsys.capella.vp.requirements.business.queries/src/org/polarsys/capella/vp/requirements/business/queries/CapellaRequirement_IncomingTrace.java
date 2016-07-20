@@ -145,8 +145,8 @@ public class CapellaRequirement_IncomingTrace implements IBusinessQuery {
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     List<EObject> currentElements = new ArrayList<EObject>();
 
-    for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
-      Requirement requirement = ((CapellaIncomingRelation) referencer).getTarget();
+    for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
+      Requirement requirement = ((CapellaIncomingRelation) referencer).getSource();
       if (requirement != null) {
         currentElements.add(requirement);
       }

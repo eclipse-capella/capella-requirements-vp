@@ -33,8 +33,8 @@ public class CapellaElementOutgoingRelatedRequirementsQuery implements IQuery {
 		List<Object> result = new ArrayList<Object>();
 		CapellaElement element = (CapellaElement) object;
 
-		for (EObject eObject : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
-			result.add(((CapellaOutgoingRelation) eObject).getSource());
+		for (EObject eObject : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
+			result.add(((CapellaOutgoingRelation) eObject).getTarget());
 		}
 
 		return result;

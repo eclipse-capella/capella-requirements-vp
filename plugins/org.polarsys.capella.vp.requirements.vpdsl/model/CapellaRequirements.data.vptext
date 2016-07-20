@@ -33,15 +33,15 @@ Data CapellaRequirements.data {
 		superClass CapellaRelation
 
 		Associations:
-			source refers [0,1] external capellacore.CapellaElement
-			target refers [0,1] external Requirements.Requirement
+			source refers [0,1] external Requirements.Requirement
+			target refers [0,1] external capellacore.CapellaElement
 	}
 	Class CapellaOutgoingRelation {
 		icon: "CapellaRelation.gif"
 		superClass CapellaRelation
 
 		Associations:
-			source refers [0,1] external Requirements.Requirement
-			target refers [0,1] external capellacore.CapellaElement
+			source refers [0,1] external capellacore.CapellaElement
+			target refers [0,1] external Requirements.Requirement
 	}
 }

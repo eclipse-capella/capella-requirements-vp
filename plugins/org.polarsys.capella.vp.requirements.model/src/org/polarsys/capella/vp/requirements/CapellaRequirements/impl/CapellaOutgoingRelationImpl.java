@@ -56,7 +56,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected Requirement source;
+	protected CapellaElement source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -66,7 +66,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected CapellaElement target;
+	protected Requirement target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,11 +95,11 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public Requirement getSource() {
+	public CapellaElement getSource() {
 
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
-			source = (Requirement) eResolveProxy(oldSource);
+			source = (CapellaElement) eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -115,7 +115,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public Requirement basicGetSource() {
+	public CapellaElement basicGetSource() {
 
 		return source;
 	}
@@ -126,9 +126,9 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public void setSource(Requirement newSource) {
+	public void setSource(CapellaElement newSource) {
 
-		Requirement oldSource = source;
+		CapellaElement oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -142,11 +142,11 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public CapellaElement getTarget() {
+	public Requirement getTarget() {
 
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
-			target = (CapellaElement) eResolveProxy(oldTarget);
+			target = (Requirement) eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -162,7 +162,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public CapellaElement basicGetTarget() {
+	public Requirement basicGetTarget() {
 
 		return target;
 	}
@@ -173,9 +173,9 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
-	public void setTarget(CapellaElement newTarget) {
+	public void setTarget(Requirement newTarget) {
 
-		CapellaElement oldTarget = target;
+		Requirement oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -212,10 +212,10 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
-			setSource((Requirement) newValue);
+			setSource((CapellaElement) newValue);
 			return;
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__TARGET:
-			setTarget((CapellaElement) newValue);
+			setTarget((Requirement) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,10 +230,10 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
-			setSource((Requirement) null);
+			setSource((CapellaElement) null);
 			return;
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__TARGET:
-			setTarget((CapellaElement) null);
+			setTarget((Requirement) null);
 			return;
 		}
 		super.eUnset(featureID);

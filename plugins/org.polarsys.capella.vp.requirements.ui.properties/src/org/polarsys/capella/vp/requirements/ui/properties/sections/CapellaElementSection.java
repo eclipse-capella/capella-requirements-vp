@@ -136,8 +136,8 @@ public class CapellaElementSection extends AbstractSection {
       elementsToBeAdded.add((Requirement) obj);
     }
     final EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
-    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
-      Requirement requirement = ((CapellaOutgoingRelation) referencer).getSource();
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
+      Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
       if ((requirement != null) && elementsToBeAdded.contains(requirement)) {
         elementsToBeAdded.remove(requirement);
       }
@@ -146,8 +146,8 @@ public class CapellaElementSection extends AbstractSection {
       public void run() {
         for (Requirement requirement : elementsToBeAdded) {
           CapellaOutgoingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
-          relation.setSource(requirement);
-          relation.setTarget((CapellaElement) currentSelection);
+          relation.setTarget(requirement);
+          relation.setSource((CapellaElement) currentSelection);
           requirement.getOwnedRelations().add(relation);
         }
       }
@@ -157,8 +157,8 @@ public class CapellaElementSection extends AbstractSection {
   protected void removeAllocations(Collection<Object> elts) {
     final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
     EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
-    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
-      Requirement requirement = ((CapellaOutgoingRelation) referencer).getSource();
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
+      Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
       if ((requirement != null) && elts.contains(requirement)) {
         elementsToBeDestroyed.add((AbstractRelation) referencer);
       }

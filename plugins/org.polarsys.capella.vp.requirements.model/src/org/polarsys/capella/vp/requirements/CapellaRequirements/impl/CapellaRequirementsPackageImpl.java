@@ -369,19 +369,19 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 
 		initEClass(capellaIncomingRelationEClass, CapellaIncomingRelation.class, "CapellaIncomingRelation", //$NON-NLS-1$
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCapellaIncomingRelation_Source(), theCapellacorePackage.getCapellaElement(), null, "source", //$NON-NLS-1$
+		initEReference(getCapellaIncomingRelation_Source(), theRequirementsPackage.getRequirement(), null, "source", //$NON-NLS-1$
 				null, 0, 1, CapellaIncomingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCapellaIncomingRelation_Target(), theRequirementsPackage.getRequirement(), null, "target", //$NON-NLS-1$
+		initEReference(getCapellaIncomingRelation_Target(), theCapellacorePackage.getCapellaElement(), null, "target", //$NON-NLS-1$
 				null, 0, 1, CapellaIncomingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(capellaOutgoingRelationEClass, CapellaOutgoingRelation.class, "CapellaOutgoingRelation", //$NON-NLS-1$
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCapellaOutgoingRelation_Source(), theRequirementsPackage.getRequirement(), null, "source", //$NON-NLS-1$
+		initEReference(getCapellaOutgoingRelation_Source(), theCapellacorePackage.getCapellaElement(), null, "source", //$NON-NLS-1$
 				null, 0, 1, CapellaOutgoingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCapellaOutgoingRelation_Target(), theCapellacorePackage.getCapellaElement(), null, "target", //$NON-NLS-1$
+		initEReference(getCapellaOutgoingRelation_Target(), theRequirementsPackage.getRequirement(), null, "target", //$NON-NLS-1$
 				null, 0, 1, CapellaOutgoingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

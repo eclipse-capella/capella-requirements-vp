@@ -20,11 +20,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapellaRelation" abstract="true" eSuperTypes="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractRelation"/>
   <eClassifiers xsi:type="ecore:EClass" name="CapellaIncomingRelation" eSuperTypes="#//CapellaRelation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CapellaOutgoingRelation" eSuperTypes="#//CapellaRelation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CapellaOutgoingRelation" eSuperTypes="#//CapellaRelation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement"/>
   </eClassifiers>
 </ecore:EPackage>

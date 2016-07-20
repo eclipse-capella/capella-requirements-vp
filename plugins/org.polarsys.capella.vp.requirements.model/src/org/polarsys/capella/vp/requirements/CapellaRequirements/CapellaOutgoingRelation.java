@@ -52,13 +52,13 @@ public interface CapellaOutgoingRelation extends CapellaRelation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Requirement)
+	 * @see #setSource(CapellaElement)
 	 * @see org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage#getCapellaOutgoingRelation_Source()
 	 * @model
 	 * @generated
 	 */
 
-	Requirement getSource();
+	CapellaElement getSource();
 
 	/**
 	 * Sets the value of the '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation#getSource <em>Source</em>}' reference.
@@ -70,7 +70,7 @@ public interface CapellaOutgoingRelation extends CapellaRelation {
 	 * @generated
 	 */
 
-	void setSource(Requirement value);
+	void setSource(CapellaElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
@@ -82,13 +82,13 @@ public interface CapellaOutgoingRelation extends CapellaRelation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(CapellaElement)
+	 * @see #setTarget(Requirement)
 	 * @see org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage#getCapellaOutgoingRelation_Target()
 	 * @model
 	 * @generated
 	 */
 
-	CapellaElement getTarget();
+	Requirement getTarget();
 
 	/**
 	 * Sets the value of the '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation#getTarget <em>Target</em>}' reference.
@@ -100,6 +100,6 @@ public interface CapellaOutgoingRelation extends CapellaRelation {
 	 * @generated
 	 */
 
-	void setTarget(CapellaElement value);
+	void setTarget(Requirement value);
 
 } // CapellaOutgoingRelation

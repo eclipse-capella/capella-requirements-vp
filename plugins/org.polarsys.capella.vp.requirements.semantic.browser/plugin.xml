@@ -192,9 +192,9 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.capellaelement.outgoingrelation.requirement"
 	            isTopLevel="true"
-	            name="Allocating Requirements">
+	            name="Allocated Requirements">
 	         <targetBrowserId
-	               id="ReferencingElementBrowser">
+	               id="ReferencedElementBrowser">
 	         </targetBrowserId>
 	         <availableForType
 	               class="org.polarsys.capella.core.data.capellacore.CapellaElement">
@@ -208,9 +208,9 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.capellaelement.incomingrelation.requirement"
 	            isTopLevel="true"
-	            name="Allocated Requirements">
+	            name="Allocating Requirements">
 	         <targetBrowserId
-	               id="ReferencedElementBrowser">
+	               id="ReferencingElementBrowser">
 	         </targetBrowserId>
 	         <availableForType
 	               class="org.polarsys.capella.core.data.capellacore.CapellaElement">
