@@ -23,17 +23,23 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @author Joao Barata
  */
 public class ReqIFImporterDiffPolicy extends CapellaDiffPolicy {
-	  
+
   /** The set of references whose order should be ignored (semantically unordered references) */
   private static final Collection<EReference> SEMANTICALLY_UNORDERED_REFERENCES =
     Arrays.asList(
-        RequirementsPackage.eINSTANCE.getModule_OwnedRequirements(),
-        RequirementsPackage.eINSTANCE.getFolder_OwnedRequirements(),
-        RequirementsPackage.eINSTANCE.getAttributeOwner_OwnedAttributes(),
-        RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations(),
-        RequirementsPackage.eINSTANCE.getTypesFolder_OwnedTypes(),
-        RequirementsPackage.eINSTANCE.getTypesFolder_OwnedDefinitionTypes(),
-        EmdePackage.eINSTANCE.getExtensibleElement_OwnedExtensions()
+      RequirementsPackage.eINSTANCE.getModule_OwnedRequirements(),
+      RequirementsPackage.eINSTANCE.getFolder_OwnedRequirements(),
+      RequirementsPackage.eINSTANCE.getAttributeOwner_OwnedAttributes(),
+      RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations(),
+      RequirementsPackage.eINSTANCE.getTypesFolder_OwnedTypes(),
+      RequirementsPackage.eINSTANCE.getTypesFolder_OwnedDefinitionTypes(),
+      EmdePackage.eINSTANCE.getExtensibleElement_OwnedExtensions()
+    );
+
+  /** The set of references that can be ignored */
+  private static final Collection<EReference> UNSIGNIFICANT_REFERENCES =
+    Arrays.asList(
+      RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations()
     );
 
   /**
@@ -41,7 +47,14 @@ public class ReqIFImporterDiffPolicy extends CapellaDiffPolicy {
    */
   @Override
   protected boolean doConsiderOrdered(EStructuralFeature feature) {
-    return super.doConsiderOrdered(feature) &&
-        !SEMANTICALLY_UNORDERED_REFERENCES.contains(feature);
+    return !SEMANTICALLY_UNORDERED_REFERENCES.contains(feature) && super.doConsiderOrdered(feature);
+  }
+
+  /**
+   * @see org.eclipse.emf.diffmerge.impl.policies.DefaultDiffPolicy#coverFeature(org.eclipse.emf.ecore.EStructuralFeature)
+   */
+  @Override
+  public boolean coverFeature(EStructuralFeature feature) {
+    return !UNSIGNIFICANT_REFERENCES.contains(feature) && super.coverFeature(feature);
   }
 }

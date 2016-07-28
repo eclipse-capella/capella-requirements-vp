@@ -16,7 +16,7 @@
 	  <view
 	        name="Capella Requirements"
 	        icon="icons/view.gif"
-	        category="org.polarsys.kitalpha.view.category"
+	        category="org.polarsys.capella.vp.views.category"
 	        class="org.polarsys.kitalpha.ad.viewpoint.ui.views.ViewpointView"
 	        id="org.polarsys.capella.vp.requirements.view"
 	        resourceId="org.polarsys.capella.vp.requirements"/>
