@@ -42,7 +42,7 @@ import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
-import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
@@ -53,7 +53,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 /**
  * @author Joao Barata
  */
-public class CapellaElementSection extends AbstractSection {
+public class RequirementSection extends AbstractSection {
   
   public final static int DEFAULT_EXPAND_LEVEL = 4;
   public final static int DEFAULT_TREE_VIEWER_STYLE = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER;
@@ -67,7 +67,7 @@ public class CapellaElementSection extends AbstractSection {
 	public boolean select(Object eObject) {
 		EObject eObjectToTest = super.selection(eObject);
 
-		if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
+		if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof Requirement) {
 			return true;
 		}
 		return false;
@@ -79,7 +79,7 @@ public class CapellaElementSection extends AbstractSection {
 	*/
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		EObject newEObject = super.setInputSelection(part, selection);
-		if (newEObject instanceof CapellaElement) {
+		if (newEObject instanceof Requirement) {
 			loadData(newEObject);
 		}
 	}
@@ -131,24 +131,24 @@ public class CapellaElementSection extends AbstractSection {
 	}
 
 	protected void addAllocations(Collection<Object> elts) {
-    final List<Requirement> elementsToBeAdded = new ArrayList<Requirement>(0);
+    final List<CapellaElement> elementsToBeAdded = new ArrayList<CapellaElement>(0);
     for (Object obj : elts) {
-      elementsToBeAdded.add((Requirement) obj);
+      elementsToBeAdded.add((CapellaElement) obj);
     }
     final EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
-    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
-      Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
-      if ((requirement != null) && elementsToBeAdded.contains(requirement)) {
-        elementsToBeAdded.remove(requirement);
+    for (EObject elt : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
+      CapellaElement element = ((CapellaIncomingRelation) elt).getTarget();
+      if ((element != null) && elementsToBeAdded.contains(element)) {
+        elementsToBeAdded.remove(element);
       }
     }
     getExecutionManager().execute(new AbstractReadWriteCommand() {
       public void run() {
-        for (Requirement requirement : elementsToBeAdded) {
-          CapellaOutgoingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
-          relation.setTarget(requirement);
-          relation.setSource((CapellaElement) currentSelection);
-          requirement.getOwnedRelations().add(relation);
+        for (CapellaElement elt : elementsToBeAdded) {
+          CapellaIncomingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
+          relation.setTarget(elt);
+          relation.setSource((Requirement) currentSelection);
+          ((Requirement) currentSelection).getOwnedRelations().add(relation);
         }
       }
     });
@@ -157,9 +157,9 @@ public class CapellaElementSection extends AbstractSection {
   protected void removeAllocations(Collection<Object> elts) {
     final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
     EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
-    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
-      Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
-      if ((requirement != null) && elts.contains(requirement)) {
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
+      CapellaElement elt = ((CapellaIncomingRelation) referencer).getTarget();
+      if ((elt != null) && elts.contains(elt)) {
         elementsToBeDestroyed.add((AbstractRelation) referencer);
       }
     }
@@ -179,7 +179,7 @@ public class CapellaElementSection extends AbstractSection {
 		super.loadData(capellaElement);
 
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(CapellacorePackage.Literals.CAPELLA_ELEMENT,
-        ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
+        ModellingcorePackage.Literals.TRACEABLE_ELEMENT__INCOMING_TRACES);
     if (query != null) {
       List<EObject> availableElements = query.getAvailableElements(capellaElement);
       DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
@@ -191,9 +191,9 @@ public class CapellaElementSection extends AbstractSection {
         @Override
         public String getText(Object object) {
           String prefix = ICommonConstants.EMPTY_STRING;
-          if (object instanceof Requirement) {
-            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
-              RelationType type = ((CapellaOutgoingRelation) relation).getRelationType();
+          if (object instanceof CapellaElement) {
+            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
+              RelationType type = ((CapellaIncomingRelation) relation).getRelationType();
               if (type!= null) {
                 String typeName = type.getReqIFLongName();
                 if (typeName != null && !typeName.isEmpty()) {

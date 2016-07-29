@@ -14,23 +14,35 @@
 <extension
 	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	<propertyTabs contributorId="org.eclipse.sirius.diagram.ui">
-			<propertyTab
-		    	afterTab="Base"
-		        category="semantic &amp; extension"
-		        id="Requirements VP"
-		        label="Requirements VP">
-		    </propertyTab>
+		<propertyTab
+	    	afterTab="Base"
+	        category="semantic &amp; extension"
+	        id="Requirements VP"
+	        label="Requirements VP">
+	    </propertyTab>
+		<propertyTab
+	    	afterTab="Requirements VP"
+	        category="semantic &amp; extension"
+	        id="Requirements Allocation"
+	        label="Requirements Allocation">
+	    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
 	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	<propertyTabs contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
-			<propertyTab
-		    	afterTab="Base"
-		        category="default"
-		        id="Requirements VP"
-		        label="Requirements VP">
-		    </propertyTab>
+		<propertyTab
+	    	afterTab="Base"
+	        category="default"
+	        id="Requirements VP"
+	        label="Requirements VP">
+	    </propertyTab>
+		<propertyTab
+	    	afterTab="Requirements VP"
+	        category="default"
+	        id="Requirements Allocation"
+	        label="Requirements Allocation">
+	    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -40,9 +52,18 @@
 		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
-		        tab="Requirements VP">
+		        tab="Requirements Allocation">
               <input
                type="org.polarsys.capella.core.data.capellacore.CapellaElement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        tab="Requirements Allocation">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
               </input>
 		    </propertySection>
 		    <propertySection
@@ -72,9 +93,18 @@
 		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
 		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaElementSection"
-		        tab="Requirements VP">
+		        tab="Requirements Allocation">
               <input
                type="org.polarsys.capella.core.data.capellacore.CapellaElement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        filter="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        id="org.polarsys.capella.vp.requirements.ui.properties.sections.RequirementSection"
+		        tab="Requirements Allocation">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
               </input>
 		    </propertySection>
 		    <propertySection
