@@ -82,7 +82,7 @@
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site"/>
+<repository location="https://hudson.eclipse.org/diffmerge/job/buckminster-emf-diffmerge-coevolution-master/lastSuccessfulBuild/artifact/result/publish/org.eclipse.emf.diffmerge.coevolution.sdk.feature/site.p2"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.diffmerge.patterns.sdk.feature.feature.group" version="0.0.0"/>

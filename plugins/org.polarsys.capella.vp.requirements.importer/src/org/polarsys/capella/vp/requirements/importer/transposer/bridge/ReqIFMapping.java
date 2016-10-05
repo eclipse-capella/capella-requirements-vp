@@ -12,8 +12,8 @@ package org.polarsys.capella.vp.requirements.importer.transposer.bridge;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -50,7 +50,6 @@ import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
-import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -79,26 +78,6 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   IContext _context;
 
   @Override
-  public boolean addElementaryTarget(IEditableModelScope targetScope, Object target) {
-    return super.addElementaryTarget(targetScope, target);
-  }
-
-  @Override
-  public boolean addTarget(IEditableModelScope targetDataSet, Object target) {
-    if (target instanceof TupleNP) {
-      for (Object e : ((TupleNP<?>) target).asCollection()) {
-        if (e instanceof ModelElement) {
-          ((ModelElement) e).getId();
-        }
-      }
-    }
-    if (target instanceof ModelElement) {
-      ((ModelElement) target).getId();
-    }
-    return super.addTarget(targetDataSet, target);
-  }
-
-  @Override
   protected MappingBridgeOperation createMappingOperation(IEditableModelScope sourceDataSet, IEditableModelScope targetDataSet, MappingExecution execution) {
     final MappingBridgeOperation operation = new ReqIfMappingBridgeOperation(sourceDataSet, targetDataSet, this, execution);
     return operation;
@@ -108,61 +87,61 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     _context = context;
 
     final Query<IEditableModelScope, Specification> modules = new Query<IEditableModelScope, Specification>(this) {
-      public Iterator<Specification> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<Specification> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllSpecifications(source).iterator();
+          return ReqIFMappingQueries.getAllSpecifications(source);
         } catch (Exception e) {
-          return getIterator((Specification[]) null);
+          return Collections.emptySet();
         }
       }
     };
 
     final Query<IEditableModelScope, SpecHierarchy> folders = new Query<IEditableModelScope, SpecHierarchy>(this) {
-      public Iterator<SpecHierarchy> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<SpecHierarchy> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllFolders(source).iterator();
+          return ReqIFMappingQueries.getAllFolders(source);
         } catch (Exception e) {
-          return getIterator((SpecHierarchy[]) null);
+          return Collections.emptySet();
         }
       }
     };
 
     final Query<IEditableModelScope, SpecHierarchy> requirements = new Query<IEditableModelScope, SpecHierarchy>(this) {
-      public Iterator<SpecHierarchy> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<SpecHierarchy> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllRequirements(source).iterator();
+          return ReqIFMappingQueries.getAllRequirements(source);
         } catch (Exception e) {
-          return getIterator((SpecHierarchy[]) null);
+          return Collections.emptySet();
         }
       }
     };
 
     final Query<IEditableModelScope, SpecRelation> relations = new Query<IEditableModelScope, SpecRelation>(this) {
-      public Iterator<SpecRelation> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<SpecRelation> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllRelations(source).iterator();
+          return ReqIFMappingQueries.getAllRelations(source);
         } catch (Exception e) {
-          return getIterator((SpecRelation[]) null);
+          return Collections.emptySet();
         }
       }
     };
 
     final Query<IEditableModelScope, SpecType> types = new Query<IEditableModelScope, SpecType>(this) {
-      public Iterator<SpecType> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<SpecType> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllTypes(source).iterator();
+          return ReqIFMappingQueries.getAllTypes(source);
         } catch (Exception e) {
-          return getIterator((SpecType[]) null);
+          return Collections.emptySet();
         }
       }
     };
 
     final Query<IEditableModelScope, DatatypeDefinition> typeDefinitions = new Query<IEditableModelScope, DatatypeDefinition>(this) {
-      public Iterator<DatatypeDefinition> evaluate(IEditableModelScope source, IQueryExecution environment) {
+      public Iterable<DatatypeDefinition> evaluate(IEditableModelScope source, IQueryExecution environment) {
         try {
-          return ReqIFMappingQueries.getAllTypeDefinitions(source).iterator();
+          return ReqIFMappingQueries.getAllTypeDefinitions(source);
         } catch (Exception e) {
-          return getIterator((DatatypeDefinition[]) null);
+          return Collections.emptySet();
         }
       }
     };
