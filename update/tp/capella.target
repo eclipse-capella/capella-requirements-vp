@@ -67,7 +67,7 @@
 <unit id="org.polarsys.capella.core.ui.wizards.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.core.validation.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.doc.feature.feature.group" version="0.0.0"/>
-<unit id="org.polarsys.capella.detachment.version.precondition.feature.feature.group" version="0.0.0"/>
+<unit id="org.polarsys.capella.detachment.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.patterns.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.shared.feature.feature.group" version="0.0.0"/>
 <repository location="https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella/site.p2"/>
