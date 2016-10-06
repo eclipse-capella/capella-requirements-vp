@@ -101,7 +101,7 @@
 <unit id="org.apache.log4j" version="1.2.15.v201012070815"/>
 <unit id="org.apache.commons.lang" version="2.4.0.v201005080502"/>
 <unit id="org.apache.commons.net" version="3.2.0.v201305141515"/>
-<unit id="com.google.guava" version="11.0.2.v201303041551"/>
+<unit id="com.google.guava" version="0.0.0"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
