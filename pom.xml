@@ -39,8 +39,11 @@
 	<packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
 
 	<!-- for sonar -->
+	<jacoco.reportDir>${project.basedir}/../../target/jacoco/</jacoco.reportDir>
 	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+	<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 	<sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
+	<sonar.jacoco.itReportPath>${project.basedir}/../../target/jacoco-it.exec</sonar.jacoco.itReportPath>
   </properties>
 
   <modules>
@@ -332,4 +335,50 @@
 			</plugins>
     </pluginManagement>
   </build>
+	<profiles>
+		<!-- This profile is used to generate jacoco xml report -->
+		<profile>
+			<id>reporting</id>
+			<build>
+				<plugins>
+					<!-- Enabling use of jacoco -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${jacoco.version}</version>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+								<configuration>
+									<!-- Where to put jacoco coverage report -->
+									<destFile>${sonar.jacoco.reportPath}</destFile>
+								</configuration>
+							</execution>
+							<execution>
+								<id>report</id>
+								<goals>
+									<goal>report</goal>
+								</goals>
+								<configuration>
+									<!-- Where to put jacoco coverage report -->
+									<dataFile>${sonar.jacoco.reportPath}</dataFile>
+									<outputDirectory>${jacoco.reportDir}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- This profile is used to gather code coverage from unit tests -->
+		<profile>
+			<id>run-its</id>
+			<modules>
+				<module>tests/org.polarsys.capella.vp.requirements.ju</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>
