@@ -32,7 +32,6 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<argLine>${testsuite-launch-args}</argLine>
 					<product>${capella-product-id}</product>
 					<useUIHarness>true</useUIHarness>
 					<testSuite>org.polarsys.capella.vp.requirements.ju</testSuite>

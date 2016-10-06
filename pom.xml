@@ -32,16 +32,14 @@
 
 	<!-- for junit -->
     <capella-product-id>org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
-    <testsuite-launch-args>-Xms256m -Xmx1024m</testsuite-launch-args>
+    <tycho.testArgLine>-Xms256m -Xmx1024m</tycho.testArgLine>
 
 	<!-- for packaging -->
 	<eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
 	<packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
 
 	<!-- for sonar -->
-	<jacoco.reportDir>${project.basedir}/../../target/jacoco/</jacoco.reportDir>
 	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-	<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 	<sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
 	<sonar.jacoco.itReportPath>${project.basedir}/../../target/jacoco-it.exec</sonar.jacoco.itReportPath>
   </properties>
@@ -225,15 +223,6 @@
             <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
           </configuration>
         </plugin>
-        <!--plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.4.1</version>
-          <configuration>
-            <encoding>ISO-8859-1</encoding>
-          </configuration>
-        </plugin>
-      </plugins-->
 
 		<!-- plugins only called if a descendant need them -->
 				<plugin>
@@ -335,50 +324,4 @@
 			</plugins>
     </pluginManagement>
   </build>
-	<profiles>
-		<!-- This profile is used to generate jacoco xml report -->
-		<profile>
-			<id>reporting</id>
-			<build>
-				<plugins>
-					<!-- Enabling use of jacoco -->
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<version>${jacoco.version}</version>
-						<executions>
-							<execution>
-								<id>prepare-agent</id>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
-								<configuration>
-									<!-- Where to put jacoco coverage report -->
-									<destFile>${sonar.jacoco.reportPath}</destFile>
-								</configuration>
-							</execution>
-							<execution>
-								<id>report</id>
-								<goals>
-									<goal>report</goal>
-								</goals>
-								<configuration>
-									<!-- Where to put jacoco coverage report -->
-									<dataFile>${sonar.jacoco.reportPath}</dataFile>
-									<outputDirectory>${jacoco.reportDir}</outputDirectory>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<!-- This profile is used to gather code coverage from unit tests -->
-		<profile>
-			<id>run-its</id>
-			<modules>
-				<module>tests/org.polarsys.capella.vp.requirements.ju</module>
-			</modules>
-		</profile>
-	</profiles>
 </project>
