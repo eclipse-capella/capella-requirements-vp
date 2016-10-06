@@ -32,7 +32,7 @@
 <unit id="org.polarsys.kitalpha.ad.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.kitalpha.ad.integration.emde.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.kitalpha.ad.integration.sirius.feature.feature.group" version="0.0.0"/>
-<repository location="https://hudson.polarsys.org/kitalpha/job/Kitalpha_runtime/lastSuccessfulBuild/artifact/result/publish/kitalpha_runtime/site.p2"/>
+<repository location="https://hudson.polarsys.org/kitalpha/job/Kitalpha_master/124/artifact/result/publish/kitalpha_runtime/site.p2"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.polarsys.capella.common.libraries.definition.feature.feature.group" version="0.0.0"/>
