@@ -86,7 +86,7 @@
     <module>plugins/org.polarsys.kitalpha.vp.requirements.ui.properties</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.vpdsl</module>
     <module>tests/org.polarsys.capella.vp.requirements.ju</module>
-    <module>update</module>
+    <module>releng/org.polarsys.capella.vp.requirements.update</module>
   </modules>
 
   <build>
