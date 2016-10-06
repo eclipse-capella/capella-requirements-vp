@@ -28,6 +28,7 @@
     <tycho-extras-version>0.24.0</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
 	<antrun-version>1.7</antrun-version>
+	<jacoco-version>0.7.4.201502262128</jacoco-version>
 
 	<!-- for junit -->
     <capella-product-id>org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
@@ -36,6 +37,10 @@
 	<!-- for packaging -->
 	<eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
 	<packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
+
+	<!-- for sonar -->
+	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+	<sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
   </properties>
 
   <modules>
@@ -151,6 +156,21 @@
           </environments>
         </configuration>
       </plugin>
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>${jacoco-version}</version>
+			<configuration>
+				<destFile>${sonar.jacoco.reportPath}</destFile>
+			</configuration>
+			<executions>
+				<execution>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-source-plugin</artifactId>
