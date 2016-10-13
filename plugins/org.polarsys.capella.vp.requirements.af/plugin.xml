@@ -26,7 +26,7 @@
 	  <resource
 	        domain="AF"
 	        id="org.polarsys.capella.vp.requirements"
-	        tags="vp"
+	        tags="vp, stateMutableActivation"
 	        name="Capella Requirements"
 	        path="/org.polarsys.capella.vp.requirements.af/model/CapellaRequirements.vp#_MB6moB21EeaZT-H7SsDebw"/>
 	</extension>

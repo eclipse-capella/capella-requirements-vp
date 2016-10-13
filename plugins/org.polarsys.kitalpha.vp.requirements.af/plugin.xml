@@ -26,7 +26,7 @@
 	  <resource
 	        domain="AF"
 	        id="org.polarsys.kitalpha.vp.requirements"
-	        tags="vp"
+	        tags="vp, stateHidden"
 	        name="Requirements"
 	        path="/org.polarsys.kitalpha.vp.requirements.af/model/Requirements.vp#_SyafgB20EeaZT-H7SsDebw"/>
 	</extension>

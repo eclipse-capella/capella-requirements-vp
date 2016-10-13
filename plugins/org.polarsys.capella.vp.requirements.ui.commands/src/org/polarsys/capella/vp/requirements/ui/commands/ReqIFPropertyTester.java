@@ -25,7 +25,8 @@ public class ReqIFPropertyTester extends PropertyTester {
    * @return true is the AF viewpoint is active, false otherwise
    */
   public static boolean isViewpointActive(EObject modelElement) {
-    return ViewpointManager.getInstance(modelElement).isActive(VIEWPOINT_ID);
+    return ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
+        !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID);
   }
 
   /**
