@@ -10,7 +10,7 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<toc label="ReqIF Importer for Capella" topic="html/index.html">
+<toc label="Requirements Viewpoint for Capella" topic="html/index.html">
    <topic href="html/1_gettingstarted/1_gettingstarted.html" label="Getting Started">
       <anchor id="gettingstarted"/>
    </topic>
