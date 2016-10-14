@@ -19,4 +19,6 @@ public class RequirementsPreferencesConstants {
   
   public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "<%self.ownedAttributes[definition.ReqIFLongName==\"IE PUID\"].value%>";
 
+  public static final String REQUIREMENT_PROPERTIES_FILES = "requirement.properties.files";
+
 }

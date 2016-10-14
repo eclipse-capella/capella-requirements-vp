@@ -10,13 +10,20 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.extension;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Properties;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.emf.common.util.URI;
 import org.polarsys.capella.common.mdsofa.common.helper.ExtensionPointHelper;
 
 /**
@@ -24,18 +31,18 @@ import org.polarsys.capella.common.mdsofa.common.helper.ExtensionPointHelper;
  */
 public class AttributesProvider {
 
-  private static AttributesProvider _instance = null;
-  private List<AttributeSet> _attributes = null;
+  private static AttributesProvider instance = null;
+  private List<AttributeSet> attributes = null;
 
   private AttributesProvider() {
     //
   }
 
   public static AttributesProvider getInstance() {
-    if (_instance == null) {
-      _instance = new AttributesProvider();
+    if (instance == null) {
+      instance = new AttributesProvider();
     }
-    return _instance;
+    return instance;
   }
   
   private List<AttributeSet> getContributors() {
@@ -66,11 +73,49 @@ public class AttributesProvider {
     }
     return result;
   }
+  
+  private List<AttributeSet> loadContributors(List<URI> propertiesFiles) {
+    List<AttributeSet> result = new ArrayList<AttributeSet>();
+
+    for (URI propertiesFile : propertiesFiles) {
+      String filepath = propertiesFile.toFileString();
+      if (filepath != null) {
+        File file = new File(filepath);
+        if (file.exists()) {
+          try {
+            FileInputStream stream = new FileInputStream(file);
+            Properties properties = new Properties();
+            properties.load(stream);
+            for (Entry<Object, Object> entry : properties.entrySet()) {
+              String key = (String) entry.getKey();
+              String value = (String) entry.getValue();
+
+              // TODO to be implemented
+            }
+            stream.close();
+          } catch (FileNotFoundException ex) {
+            System.err.println(ex.getMessage());
+          } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+          }
+        } else {
+          System.out.println("Invalid file path: " + filepath); //$NON-NLS-1$
+        }
+      } else {
+        System.out.println("Invalid file path"); //$NON-NLS-1$
+      }
+    }
+
+    return result;
+  }
 
   public List<AttributeSet> getAttributes() {
-    if (_attributes == null) {
-     _attributes = getContributors();
+    if (attributes == null) {
+     attributes = getContributors();
+
+     List<URI> propertiesFiles = PropertiesFileProvider.getInstance().getPropertiesFiles();
+     attributes.addAll(loadContributors(propertiesFiles));
     }
-    return _attributes;
+    return attributes;
   }
 }

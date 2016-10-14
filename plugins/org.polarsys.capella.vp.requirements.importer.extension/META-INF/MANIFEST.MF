@@ -6,6 +6,7 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.common,
  org.polarsys.capella.common.mdsofa.common
 Export-Package: org.polarsys.capella.vp.requirements.importer.extension
 Bundle-Localization: plugin
