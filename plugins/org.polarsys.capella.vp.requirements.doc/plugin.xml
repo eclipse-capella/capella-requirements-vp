@@ -26,5 +26,8 @@
       <toc
             file="toc/userguide.xml">
       </toc>
+      <toc
+            file="toc/knownissues.xml">
+      </toc>
    </extension>
 </plugin>

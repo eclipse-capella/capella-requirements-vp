@@ -20,4 +20,7 @@
    <topic href="html/3_userguide/3_userguide.html" label="User's Guide">
       <anchor id="userguide"/>
    </topic>
+   <topic href="html/4_knownissues/4_limitations_knownissues.html" label="Limitations / Known Issues">
+      <anchor id="knownissues"/>
+   </topic>
 </toc>

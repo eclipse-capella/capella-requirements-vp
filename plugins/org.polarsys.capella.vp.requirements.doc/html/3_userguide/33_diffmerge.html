@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
+      <title>Diff/Merge Dialog</title>
+   </head>
+   <body>
+      <h2>
+         Diff/Merge Dialog
+      </h2>
+      <p>
+<img src="../../images/diffmerge.png" alt="Diff/Merge" title="Diff/Merge">
+      </p>
+      <p>
+The default GUI is composed of 3 vertical sections and 2 horizontal sections. 
+      </p>
+      <p>
+<b>Vertical sections</b><br>
+The middle section represents the contents of the initial model (before import) while the section on the right-hand side represents the contents of the resulting model (after import). When hovering on the top of any section, the complete path to the model is displayed as a tooltip if the window is too narrow. Each side is associated to a colour: by default, dark red for the left model and blue for the right model. This colour code is also used in other dialogs of the diff/merge tool in order to prevent any ambiguity. 
+The section on the left-hand side is the Synthesis section: it represents the differences between the models. According to the colour code, model elements which are present in the right model but not in the left model are written in blue, while they are written in dark red in the opposite case. Elements which are present in both sides but have differences in their attributes or references ("modified elements") are labeled in purple. The number of differences they contain (after filtering) is written between parentheses. The 3 sections are synchronized: clicking an element in the Synthesis section highlights it in the other sections and vice-versa. 
+      </p>
+      <p>
+<b>Horizontal sections</b><br>
+The 2 horizontal sections correspond to 2 levels of detail. The top section focuses on model elements and only reflects that level of granularity. The bottom section is the Details section: it shows the contents (attributes and references) of the model element which is currently selected in the top section.
+      </p>
+      <p>
+For example, if a modified element (in purple) is being clicked in the Synthesis section, then the Details section displays all the attributes and references of that element that have differences. The corresponding values are displayed in the middle and right parts of the Details section according to the model they belong to. These sub-sections are called the Value sections. For instance, in the snapshot above, element "N2" is selected in the Synthesis section; the Details section shows that it has a difference on its name: the name is "N2" in the left model and "N2-Container" in the right model as shown in the Value sections.
+      </p>
+      <p>
+See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation</a> for more detailed information.
+      </p>
+   </body>
+</html>
