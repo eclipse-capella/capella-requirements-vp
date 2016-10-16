@@ -26,7 +26,7 @@
                path="additions">
          </menu>
 	      <action
-             class="org.polarsys.capella.vp.requirements.ui.commands.ReqIFImportAction"
+             class="org.polarsys.capella.vp.requirements.ui.commands.importer.ReqIFImportAction"
              icon="icons/action.gif"
              id="org.polarsys.capella.vp.requirements.ui.commands.import"
              label="%ui.command.import"
@@ -42,5 +42,24 @@
              properties="viewpointActive"
              class="org.polarsys.capella.vp.requirements.ui.commands.ReqIFPropertyTester">
          </propertyTester>    
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.polarsys.capella.vp.requirements.ui.commands.obfuscator.ObfuscatorActionProvider"
+            id="capella.project.explorer.actions.obfuscation">
+         <enablement>
+               <and>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFile">
+                  </instanceof>
+                  <test
+                        forcePluginActivation="true"
+                        property="org.eclipse.core.resources.extension"
+                        value="reqif">
+                  </test>
+               </and>
+            </enablement>
+      </actionProvider>
    </extension>
 </plugin>

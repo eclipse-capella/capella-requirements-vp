@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.commands;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.sirius.common.ui.tools.api.plugin.AbstractUIActivator;
 import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
  * @author Joao Barata
  */
-public class RequirementsVPUICommandsPlugin extends AbstractUIPlugin {
+public class RequirementsVPUICommandsPlugin extends AbstractUIActivator {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.polarsys.capella.vp.requirements.ui.commands"; //$NON-NLS-1$

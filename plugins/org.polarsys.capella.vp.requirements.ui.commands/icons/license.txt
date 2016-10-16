@@ -5,4 +5,5 @@ These followings icons are made available under the terms of the Eclipse Public 
 <icon file path> - <original eclipse plug-in> - <original file path>
 
 /icons/action.gif - org.polarsys.capella.vp.requirements.ui.commands - org.polarsys.capella.vp.requirements.ui.commands/icons/action.gif
+/icons/binary.gif - org.eclipse.ui.ide - org.eclipse.ui.ide/icons/full/etool16/build_exec.gif
 /icons/module.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Module.gif

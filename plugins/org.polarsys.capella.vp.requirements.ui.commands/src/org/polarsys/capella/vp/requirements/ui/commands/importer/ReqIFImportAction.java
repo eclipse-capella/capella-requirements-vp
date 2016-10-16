@@ -8,7 +8,7 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.vp.requirements.ui.commands;
+package org.polarsys.capella.vp.requirements.ui.commands.importer;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -25,6 +25,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.vp.requirements.importer.transposer.launcher.RequirementsImportLauncher;
+import org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPUICommandsPlugin;
 
 /**
  * @author Joao Barata
