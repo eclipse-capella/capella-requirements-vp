@@ -23,6 +23,7 @@
                icon="icons/action.gif"
                tooltip="%ui.command.import.description"
                style="push">
+            <visibleWhen checkEnabled="true"/>
          </command>
          </menu>
       </menuContribution>
