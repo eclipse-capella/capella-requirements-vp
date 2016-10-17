@@ -14,20 +14,24 @@ import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.ISources;
 import org.eclipse.ui.IWorkbenchPart;
 import org.polarsys.capella.common.ui.services.commands.AbstractUiHandler;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.vp.requirements.importer.transposer.launcher.RequirementsImportLauncher;
 import org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPUICommandsPlugin;
+import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 /**
  * @author Joao Barata
@@ -54,7 +58,8 @@ public class ReqIFImportCommandHandler extends AbstractUiHandler {
 
   @Override
   public void setEnabled(Object evaluationContext) {
-    super.setEnabled(evaluationContext);
+    Object ctx = ((IEvaluationContext) evaluationContext).getVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME);
+    setBaseEnabled(isAllowedContext(ctx));
   }
 
   protected Shell getActiveShell(ExecutionEvent event) {
@@ -85,5 +90,36 @@ public class ReqIFImportCommandHandler extends AbstractUiHandler {
       return URI.createFileURI(filepath);
     }
     return null;
+  }
+
+  public static final String VIEWPOINT_ID = "org.polarsys.capella.vp.requirements"; //$NON-NLS-1$
+
+  /**
+   * @return true is the AF viewpoint is active, false otherwise
+   */
+  public static boolean isViewpointActive(EObject modelElement) {
+    return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
+      !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID) : false;
+  }
+
+  /**
+   *
+   */
+  public boolean isAllowedContext(Object object) {
+    if (object instanceof IStructuredSelection) {
+      boolean result = true;
+      for (Object obj : ((IStructuredSelection) object).toList()) {
+        if (obj instanceof BlockArchitecture) {
+          result &= isViewpointActive((EObject) obj);
+        } else {
+          result = false;
+        }
+      }
+      return result;
+    }
+    else if (object instanceof BlockArchitecture) {
+      return isViewpointActive((EObject) object);
+    }
+    return false;
   }
 }
