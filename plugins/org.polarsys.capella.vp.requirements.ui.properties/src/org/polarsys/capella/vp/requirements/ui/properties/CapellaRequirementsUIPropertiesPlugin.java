@@ -26,7 +26,8 @@ public class CapellaRequirementsUIPropertiesPlugin implements BundleActivator {
    * @return true is the AF viewpoint is active, false otherwise
    */
   public static boolean isViewpointActive(EObject modelElement) {
-    return ViewpointManager.getInstance(modelElement).isActive(CapellaRequirementsUIPropertiesPlugin.VIEWPOINT_ID);
+    return ViewpointManager.getInstance(modelElement).isReferenced(CapellaRequirementsUIPropertiesPlugin.VIEWPOINT_ID) &&
+      !ViewpointManager.getInstance(modelElement).isInactive(CapellaRequirementsUIPropertiesPlugin.VIEWPOINT_ID);
   }
 
   /**

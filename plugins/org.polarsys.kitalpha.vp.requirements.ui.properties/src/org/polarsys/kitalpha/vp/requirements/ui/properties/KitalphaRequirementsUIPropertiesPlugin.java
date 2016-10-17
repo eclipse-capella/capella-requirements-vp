@@ -26,7 +26,8 @@ public class KitalphaRequirementsUIPropertiesPlugin implements BundleActivator {
    * @return true is the AF viewpoint is active, false otherwise
    */
   public static boolean isViewpointActive(EObject modelElement) {
-    return ViewpointManager.getInstance(modelElement).isActive(KitalphaRequirementsUIPropertiesPlugin.VIEWPOINT_ID);
+    return ViewpointManager.getInstance(modelElement).isReferenced(KitalphaRequirementsUIPropertiesPlugin.VIEWPOINT_ID) &&
+      !ViewpointManager.getInstance(modelElement).isInactive(KitalphaRequirementsUIPropertiesPlugin.VIEWPOINT_ID);
   }
 
   /**
