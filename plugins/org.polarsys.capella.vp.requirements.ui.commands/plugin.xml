@@ -28,6 +28,14 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension point="org.eclipse.ui.handlers">
+     <handler commandId="org.polarsys.capella.vp.requirements.ui.menu.import.cmd"
+            class="org.polarsys.capella.vp.requirements.ui.commands.importer.ReqIFImportCommandHandler">
+         <activeWhen>
+                <test forcePluginActivation="true" property="org.polarsys.capella.vp.requirements.ui.commands.viewpointActive" value="true"/>
+         </activeWhen>
+     </handler>
+   </extension>
    <extension point="org.eclipse.ui.commands">
     <category
           id="org.polarsys.capella.vp.requirements.commands"
@@ -37,9 +45,17 @@
     <command id="org.polarsys.capella.vp.requirements.ui.menu.import.cmd"
           categoryId="org.polarsys.capella.vp.requirements.commands"
           description="%ui.command.import.description"
-          defaultHandler="org.polarsys.capella.vp.requirements.ui.commands.importer.ReqIFImportCommandHandler"
           name="%ui.command.import.label">
     </command>
+   </extension>
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+         <propertyTester
+             id="org.polarsys.capella.vp.requirements.ui.commands.viewpointActive"
+             type="java.lang.Object"
+             namespace="org.polarsys.capella.vp.requirements.ui.commands"
+             properties="viewpointActive"
+             class="org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPPropertyTester">
+         </propertyTester>    
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
