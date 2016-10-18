@@ -46,7 +46,7 @@ public class RequirementsVPPropertyTester extends PropertyTester {
             result = false;
           }
         }
-        return result;
+        return result && !((List<?>) object).isEmpty();
       }
       else if (object instanceof BlockArchitecture) {
         return isViewpointActive((EObject) object);
