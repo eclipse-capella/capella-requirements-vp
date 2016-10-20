@@ -66,6 +66,10 @@
                 defaultValue="true">
           </attribute>
           <attribute
+                name="IE Release"
+                defaultValue="true">
+          </attribute>
+          <attribute
                 name="IE Req Status"
                 defaultValue="true">
           </attribute>

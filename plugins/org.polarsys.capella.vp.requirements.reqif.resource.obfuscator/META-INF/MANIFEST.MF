@@ -7,8 +7,8 @@ Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
- org.polarsys.capella.common.data.core.gen,
- org.polarsys.capella.common.ef
+ org.eclipse.rmf.reqif10,
+ org.polarsys.capella.common.model
 Bundle-Activator: org.polarsys.capella.vp.requirements.reqif.resource.obfuscator.ResourceObfuscatorPlugin
 Export-Package: org.polarsys.capella.vp.requirements.reqif.resource.obfuscator
 Bundle-Localization: plugin

@@ -413,8 +413,15 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     }
   }
 
+  /**
+   * @deprecated extension point contributions / preferences shall be used
+   */
+  @Deprecated
   private List<String> importedCustomTypes = Arrays.asList(
     // Doors RMF attributes
+    "IE Capability Number",
+    "IE DocProperties Author",
+    "IE DocProperties Company",
     "IE IVV Method",
     "IE IVV Non Regression",
     "IE IVV Procedure Number",
@@ -424,33 +431,12 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     "IE Object Type",
     "IE PUID",
     "IE Rationale",
+    "IE Release",
     "IE Req Status",
     "IE Requirement Number",
-    "IE Test Method Expected",
-    // Orchestra specific attributes
-    "Orchestra Module Id",
-    "ORCH Applicability Gold",
-    "ORCH Applicability Silver",
-    "ORCH SSS Status Gold",
-    "ORCH SSS Status Silver",
-    "ORCH Test Campaign",
-    "ORCH test level",
-    "PCR",
-    "IE Capability Number",
-    "IE DocProperties Author",
-    "IE DocProperties Company",
     "IE StyleList",
-    "IE WordExportSettings",
-    "WEXP Export DOT Name",
-    "WEXP Export File Name",
-    "WEXP Export Options 1",
-    "WEXP Export Options 2",
-    "WEXP Export Options 3",
-    "WEXP Export Options 4",
-    "WEXP Export View Name",
-    "WEXP Bookmark",
-    "Enable by default",
-    "Mode"
+    "IE Test Method Expected",
+    "IE WordExportSettings"
   );
 
   protected Map<String, Object> parseNonStandardAttributes(AttributeValueXHTML value, AttributeOwner target) {

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EStructuralFeatureImpl.SimpleFeatureMapEntry;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.lib.IdGenerator;
 
@@ -109,24 +109,15 @@ public class ResourceObfuscatorCommand extends AbstractReadWriteCommand {
    * @return
    */
   protected boolean isObfuscationAllowedOnEAttribute(EObject object, EAttribute attribute) {
-    if (ModellingcorePackage.Literals.MODEL_ELEMENT__ID.equals(attribute)) {
+    if (ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME.equals(attribute)) {
+      if (ReqIF10Package.Literals.ATTRIBUTE_DEFINITION.isInstance(object)
+        || ReqIF10Package.Literals.DATATYPE_DEFINITION.isInstance(object))
+      {
+        return false;
+      }
+    } else if (ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES.equals(attribute)) {
       return false;
     }
-    if (ModellingcorePackage.Literals.MODEL_ELEMENT__SID.equals(attribute)) {
-      return false;
-    }
-
-//    if (CapellacorePackage.Literals.KEY_VALUE__KEY.equals(attribute)) {
-//      if ((object != null) && (object.eContainer() != null) && (object.eContainer() instanceof Project)) {
-//        return false;
-//      }
-//    }
-//    if (CapellacorePackage.Literals.KEY_VALUE__VALUE.equals(attribute)) {
-//      if ((object != null) && (object.eContainer() != null) && (object.eContainer() instanceof Project)) {
-//        return false;
-//      }
-//    }
-
     return true;
   }
 
