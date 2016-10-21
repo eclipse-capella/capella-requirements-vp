@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ju
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.polarsys.capella.test.framework,
- org.polarsys.capella.vp.requirements.af
+ org.polarsys.capella.vp.requirements.af,
+ org.polarsys.capella.vp.requirements.importer
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,
