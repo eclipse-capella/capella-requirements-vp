@@ -20,13 +20,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
+import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
+import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.shared.id.handler.IScope;
 import org.polarsys.capella.shared.id.handler.IdManager;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 import org.polarsys.capella.test.framework.helpers.IResourceHelpers;
 import org.polarsys.capella.test.framework.helpers.TestHelper;
-import org.polarsys.capella.vp.requirements.importer.transposer.launcher.RequirementsImportLauncher;
+import org.polarsys.capella.vp.requirements.ju.transposer.TestRequirementsImportLauncher;
 
 /**
  * @author Joao Barata
@@ -52,7 +54,7 @@ public class ImportTestCase extends BasicTestCase {
    */
   @Override
   public void test() throws Exception {
-    EObject target = IdManager.getInstance().getEObject(systemAnalysis, new IScope() {
+    final EObject target = IdManager.getInstance().getEObject(systemAnalysis, new IScope() {
       @Override
       public List<Resource> getResources() {
         Session session = getSession(projectTestName);
@@ -61,10 +63,14 @@ public class ImportTestCase extends BasicTestCase {
       }
     });
     if (target instanceof BlockArchitecture) {
-      File file = IResourceHelpers.getFileOrFolderInTestPlugin(getClass(), inputFileName);
-      URI model = URI.createFileURI(file.getPath());
-
-      new RequirementsImportLauncher().launch(model, (BlockArchitecture) target, new NullProgressMonitor());
+      TransactionHelper.getExecutionManager(target).execute(new AbstractReadWriteCommand() {
+        @Override
+        public void run() {
+          File file = IResourceHelpers.getFileOrFolderInTestPlugin(getClass(), inputFileName);
+          URI model = URI.createFileURI(file.getPath());
+          new TestRequirementsImportLauncher().launch(model, (BlockArchitecture) target, new NullProgressMonitor());
+        }
+      });
     }
   }
 }

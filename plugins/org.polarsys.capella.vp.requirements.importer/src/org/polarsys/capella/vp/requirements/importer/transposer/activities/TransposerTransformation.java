@@ -19,6 +19,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
+import org.eclipse.emf.diffmerge.bridge.api.IBridge;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.api.incremental.IIncrementalBridgeExecution;
 import org.eclipse.emf.diffmerge.bridge.interactive.util.ResourceUtil;
@@ -53,7 +54,7 @@ import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
  */
 public class TransposerTransformation extends AbstractActivity {
 
-  public static final String getId() {
+  public static String getId() {
     return TransposerTransformation.class.getCanonicalName();
   }
 
@@ -66,9 +67,44 @@ public class TransposerTransformation extends AbstractActivity {
 
     // Define the set of rules for the transformation
     ReqIFMapping mapping = new ReqIFMapping(context);
-
+    
     // Incremental bridge
-    final RequirementsVPBridge bridge = new RequirementsVPBridge(targetScope, mapping, new ReqIFImporterDiffPolicy(), new CapellaMergePolicy(), null) {
+    final RequirementsVPBridge bridge = createBridge(targetScope, mapping);
+
+    // Load traces
+    Resource traceResource = getCreateResource(getTraceURI(getTransformationURI(targetScope)), getTransformationDomain(targetScope));
+    IBridgeTrace/*.Editable*/ existingTrace = /*(IBridgeTrace.Editable)*/ getTrace(bridge, traceResource);
+
+    // Run transformation
+    //IMappingExecution execution = mapping.createExecution(existingTrace);
+    //((MappingExecution) execution).setTolerantToDuplicates(true); //?
+    //SystemArchitectBridge.temporaryScope = null;
+    //IEditableModelScope tempScope = bridge.createIntermediateDataSet(sourceScope, targetScope);
+    
+    //execution = mapping.executeOn(sourceScope, tempScope, execution, new NullProgressMonitor());
+    
+    // Do only the merge
+    final IIncrementalBridgeExecution execution2 = bridge.executeOn(sourceScope, targetScope, null/*execution*/, existingTrace/*execution.getTrace()*/, true, new NullProgressMonitor());
+
+    // TODO do here all necessary transformations before to show the diff/merge dialog
+    
+    bridge.mergeInteractively(execution2, new NullProgressMonitor());
+
+    // Save traces and output model
+    save(execution2, traceResource, execution2.getTrace(), targetScope);
+
+  	TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
+  	      @Override
+  	      public void run() {
+              HoldingResourceHelper.flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
+  	      }
+  	});
+
+    return Status.OK_STATUS;
+  }
+
+  protected RequirementsVPBridge createBridge(IEditableModelScope targetScope, IBridge<IEditableModelScope, IEditableModelScope> bridge) {
+    return new RequirementsVPBridge(targetScope, bridge, new ReqIFImporterDiffPolicy(), new CapellaMergePolicy(), null) {
       @Override
       protected EMFDiffNode createDiffNode(EComparison comparison, EditingDomain domain) {
         EMFDiffNode diffNode = super.createDiffNode(comparison, domain);
@@ -99,37 +135,6 @@ public class TransposerTransformation extends AbstractActivity {
         return diffNode;
       }
     };
-
-    // Load traces
-    Resource traceResource = getCreateResource(getTraceURI(getTransformationURI(targetScope)), getTransformationDomain(targetScope));
-    IBridgeTrace/*.Editable*/ existingTrace = /*(IBridgeTrace.Editable)*/ getTrace(bridge, traceResource);
-
-    // Run transformation
-    //IMappingExecution execution = mapping.createExecution(existingTrace);
-    //((MappingExecution) execution).setTolerantToDuplicates(true); //?
-    //SystemArchitectBridge.temporaryScope = null;
-    //IEditableModelScope tempScope = bridge.createIntermediateDataSet(sourceScope, targetScope);
-    
-    //execution = mapping.executeOn(sourceScope, tempScope, execution, new NullProgressMonitor());
-    
-    // Do only the merge
-    final IIncrementalBridgeExecution execution2 = bridge.executeOn(sourceScope, targetScope, null/*execution*/, existingTrace/*execution.getTrace()*/, true, new NullProgressMonitor());
-
-    // TODO do here all necessary transformations before to show the diff/merge dialog
-    
-    bridge.mergeInteractively(execution2, new NullProgressMonitor());
-
-    // Save traces and output model
-    save(execution2, traceResource, execution2.getTrace(), targetScope);
-
-	TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
-	      @Override
-	      public void run() {
-            HoldingResourceHelper.flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
-	      }
-	});
-
-    return Status.OK_STATUS;
   }
 
   /**

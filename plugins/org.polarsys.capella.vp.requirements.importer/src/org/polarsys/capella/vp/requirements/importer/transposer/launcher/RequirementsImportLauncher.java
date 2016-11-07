@@ -32,9 +32,9 @@ import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
  */
 public class RequirementsImportLauncher extends ActivitiesLauncher {
 
-  HashMap<String, String[]> activities = null;
+  protected HashMap<String, String[]> activities = null;
 
-  IContext context = new TransitionContext();
+  protected IContext context = new TransitionContext();
 
   public RequirementsImportLauncher() {
     activities = new HashMap<String, String[]>();

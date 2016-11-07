@@ -5,15 +5,15 @@ Bundle-SymbolicName: org.polarsys.capella.vp.requirements.importer;singleton:=tr
 Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.polarsys.capella.vp.requirements.importer.RequirementsVPPlugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.diffmerge.bridge,
- org.eclipse.emf.diffmerge.bridge.interactive,
+ org.eclipse.emf.diffmerge.bridge;visibility:=reexport,
+ org.eclipse.emf.diffmerge.bridge.interactive;visibility:=reexport,
  org.eclipse.emf.diffmerge.bridge.mapping,
  org.eclipse.emf.diffmerge.ui,
  org.eclipse.rmf.reqif10,
  org.eclipse.rmf.reqif10.common,
  org.eclipse.rmf.reqif10.serialization,
  org.eclipse.rmf.reqif10.xhtml,
- org.polarsys.capella.core.compare,
+ org.polarsys.capella.core.compare;visibility:=reexport,
  org.polarsys.capella.core.data.gen,
  org.polarsys.capella.core.transition.common;visibility:=reexport,
  org.polarsys.capella.shared.id.handler,
