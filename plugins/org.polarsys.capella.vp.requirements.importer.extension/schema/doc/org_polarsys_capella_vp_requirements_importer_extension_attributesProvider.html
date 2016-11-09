@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Attributes Provider</title>
+<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
+</HEAD>
+<BODY>
+<H1 style="text-align:center">Attributes Provider</H1>
+<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Identifier: </h6>org.polarsys.capella.vp.requirements.importer.extension.attributesProvider<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Since: </h6>Capella Requirements Viewpoint 0.5.0
+<p></p>
+
+<h6 class="CaptionFigColumn SchemaHeader">Description: </h6>This extension point allows to extend the scope of the importer.<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h6>
+<p></p>
+<p class="code SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.attributesProvider">attributesProvider</a>)&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST extension</p>
+<p class="code SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.attributesProvider">attributesProvider</a> (<a href="#e.attribute">attribute</a>)+&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST attributesProvider</p>
+<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">category&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">description&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">mandatory&nbsp;&nbsp;&nbsp;(true | false) &gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>id</b> - </li>
+<li><b>category</b> - </li>
+<li><b>description</b> - </li>
+<li><b>mandatory</b> - </li>
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.attribute">attribute</a> EMPTY&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST attribute</p>
+<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">defaultValue&nbsp;(true | false) &gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>name</b> - </li>
+<li><b>defaultValue</b> - </li>
+</ul>
+<br><h6 class="CaptionFigColumn SchemaHeader">Examples: </h6>Here is an example of provider that defines some attributes
+
+<pre class="Example"><span class="code SchemaTag">
+   &lt;extension point=</span><span class="code SchemaCstring">&quot;org.polarsys.capella.vp.requirements.importer.extension.attributesProvider&quot;</span><span class="code SchemaTag">&gt;
+      &lt;attributesProvider id=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> category=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> mandatory=</span><span class="code SchemaCstring">&quot;false&quot;</span><span class="code SchemaTag">&gt;
+         &lt;attribute name=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> defaultValue=</span><span class="code SchemaCstring">&quot;true&quot;</span><span class="code SchemaTag">/&gt;
+         &lt;attribute name=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> defaultValue=</span><span class="code SchemaCstring">&quot;false&quot;</span><span class="code SchemaTag">/&gt;
+      &lt;/attributesProvider&gt;
+   &lt;/extension&gt; 
+</span></span></pre>
+<p></p>
+
+<br>
+<p class="note SchemaCopyright">
+Copyright (c) 2016 THALES GLOBAL SERVICES.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+   Thales - initial API and implementation
+
+</p>
+</BODY>
+</HTML>
