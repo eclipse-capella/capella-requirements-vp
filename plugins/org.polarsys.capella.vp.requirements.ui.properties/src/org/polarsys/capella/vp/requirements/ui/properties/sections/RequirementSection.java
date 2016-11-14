@@ -29,6 +29,7 @@ import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.common.lib.IdGenerator;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataContentProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
@@ -146,6 +147,7 @@ public class RequirementSection extends AbstractSection {
       public void run() {
         for (CapellaElement elt : elementsToBeAdded) {
           CapellaIncomingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
+          relation.setId(IdGenerator.createId());
           relation.setTarget(elt);
           relation.setSource((Requirement) currentSelection);
           ((Requirement) currentSelection).getOwnedRelations().add(relation);
