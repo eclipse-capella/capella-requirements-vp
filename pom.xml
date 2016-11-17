@@ -28,6 +28,7 @@
     <tycho-extras-version>0.24.0</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
 	<antrun-version>1.7</antrun-version>
+	<sonar-version>3.0.2</sonar-version>
 	<jacoco-version>0.7.4.201502262128</jacoco-version>
 
 	<!-- for junit -->
@@ -322,6 +323,13 @@
 						</execution>
 					</executions>
 				</plugin>
+
+		      <plugin>
+		        <groupId>org.sonarsource.scanner.maven</groupId>
+		        <artifactId>sonar-maven-plugin</artifactId>
+		        <version>${sonar-version}</version>
+		      </plugin>
+
 			</plugins>
     </pluginManagement>
   </build>
