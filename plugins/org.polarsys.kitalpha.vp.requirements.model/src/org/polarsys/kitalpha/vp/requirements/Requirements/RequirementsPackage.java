@@ -541,6 +541,198 @@ public interface RequirementsPackage extends EPackage {
 	int INTEGER_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.BooleanValueAttributeImpl <em>Boolean Value Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.BooleanValueAttributeImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getBooleanValueAttribute()
+	 * @generated
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE__DEFINITION = ATTRIBUTE__DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Definition Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE__DEFINITION_PROXY = ATTRIBUTE__DEFINITION_PROXY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE__VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Boolean Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RealValueAttributeImpl <em>Real Value Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RealValueAttributeImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRealValueAttribute()
+	 * @generated
+	 */
+	int REAL_VALUE_ATTRIBUTE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE__DEFINITION = ATTRIBUTE__DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Definition Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE__DEFINITION_PROXY = ATTRIBUTE__DEFINITION_PROXY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE__VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Real Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Real Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.DateValueAttributeImpl <em>Date Value Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.DateValueAttributeImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getDateValueAttribute()
+	 * @generated
+	 */
+	int DATE_VALUE_ATTRIBUTE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE__DEFINITION = ATTRIBUTE__DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Definition Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE__DEFINITION_PROXY = ATTRIBUTE__DEFINITION_PROXY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE__VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Date Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Date Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeOwnerImpl <em>Attribute Owner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -548,7 +740,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeOwner()
 	 * @generated
 	 */
-	int ATTRIBUTE_OWNER = 7;
+	int ATTRIBUTE_OWNER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -621,7 +813,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRequirement()
 	 * @generated
 	 */
-	int REQUIREMENT = 8;
+	int REQUIREMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -757,7 +949,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 9;
+	int FOLDER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -902,7 +1094,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 10;
+	int MODULE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -993,7 +1185,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getTypesFolder()
 	 * @generated
 	 */
-	int TYPES_FOLDER = 11;
+	int TYPES_FOLDER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1075,7 +1267,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAbstractType()
 	 * @generated
 	 */
-	int ABSTRACT_TYPE = 12;
+	int ABSTRACT_TYPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1148,7 +1340,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getModuleType()
 	 * @generated
 	 */
-	int MODULE_TYPE = 13;
+	int MODULE_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1221,7 +1413,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRequirementType()
 	 * @generated
 	 */
-	int REQUIREMENT_TYPE = 14;
+	int REQUIREMENT_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1294,7 +1486,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 15;
+	int RELATION_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1367,7 +1559,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getDataTypeDefinition()
 	 * @generated
 	 */
-	int DATA_TYPE_DEFINITION = 16;
+	int DATA_TYPE_DEFINITION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1431,7 +1623,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeDefinition()
 	 * @generated
 	 */
-	int ATTRIBUTE_DEFINITION = 17;
+	int ATTRIBUTE_DEFINITION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1697,6 +1889,69 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntegerValueAttribute_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute <em>Boolean Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Value Attribute</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute
+	 * @generated
+	 */
+	EClass getBooleanValueAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute#isValue()
+	 * @see #getBooleanValueAttribute()
+	 * @generated
+	 */
+	EAttribute getBooleanValueAttribute_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute <em>Real Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Real Value Attribute</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute
+	 * @generated
+	 */
+	EClass getRealValueAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute#getValue()
+	 * @see #getRealValueAttribute()
+	 * @generated
+	 */
+	EAttribute getRealValueAttribute_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute <em>Date Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Date Value Attribute</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute
+	 * @generated
+	 */
+	EClass getDateValueAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute#getValue()
+	 * @see #getDateValueAttribute()
+	 * @generated
+	 */
+	EAttribute getDateValueAttribute_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner <em>Attribute Owner</em>}'.
@@ -2161,6 +2416,60 @@ public interface RequirementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTEGER_VALUE_ATTRIBUTE__VALUE = eINSTANCE.getIntegerValueAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.BooleanValueAttributeImpl <em>Boolean Value Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.BooleanValueAttributeImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getBooleanValueAttribute()
+		 * @generated
+		 */
+		EClass BOOLEAN_VALUE_ATTRIBUTE = eINSTANCE.getBooleanValueAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_VALUE_ATTRIBUTE__VALUE = eINSTANCE.getBooleanValueAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RealValueAttributeImpl <em>Real Value Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RealValueAttributeImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRealValueAttribute()
+		 * @generated
+		 */
+		EClass REAL_VALUE_ATTRIBUTE = eINSTANCE.getRealValueAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REAL_VALUE_ATTRIBUTE__VALUE = eINSTANCE.getRealValueAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.DateValueAttributeImpl <em>Date Value Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.DateValueAttributeImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getDateValueAttribute()
+		 * @generated
+		 */
+		EClass DATE_VALUE_ATTRIBUTE = eINSTANCE.getDateValueAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATE_VALUE_ATTRIBUTE__VALUE = eINSTANCE.getDateValueAttribute_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeOwnerImpl <em>Attribute Owner</em>}' class.

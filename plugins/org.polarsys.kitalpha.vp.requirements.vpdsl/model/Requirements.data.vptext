@@ -68,6 +68,27 @@ Data Requirements.data {
 		Attributes:
 			value type ecore.EInt
 	}
+	Class BooleanValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+
+		Attributes:
+			value type ecore.EBoolean
+	}
+	Class RealValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+
+		Attributes:
+			value type ecore.EDouble
+	}
+	Class DateValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+
+		Attributes:
+			value type ecore.EDate
+	}
 	Class AttributeOwner {
 		superClass ReqIFElement
 		abstract: true

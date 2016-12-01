@@ -18,21 +18,18 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
-import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
+import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
-import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
+import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
 
 /**
  * @author Joao Barata
  */
-public abstract class AttributeSection extends AbstractSection {
+public class StringAttributeSection extends AttributeSection {
 
-  protected SimpleSemanticField definitionField;
+  protected TextValueGroup valueField;
 
 	/**
 	 * @param eObject current object
@@ -40,7 +37,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public boolean select(Object eObject) {
 		EObject eObjectToTest = super.selection(eObject);
 
-		if (KitalphaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest)) {
+		if (super.select(eObject) && eObjectToTest instanceof StringValueAttribute) {
 			return true;
 		}
 		return false;
@@ -53,7 +50,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		EObject newEObject = super.setInputSelection(part, selection);
 
-		if (newEObject instanceof Attribute) {
+		if (newEObject instanceof StringValueAttribute) {
 			loadData(newEObject);
 		}
 	}
@@ -67,9 +64,8 @@ public abstract class AttributeSection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    definitionField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("Attribute.DefinitionLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
-    definitionField.setDisplayedInWizard(displayedInWizard);
+    valueField = new TextValueGroup(getReferencesGroup(), Messages.getString("Attribute.ValueLabel"), getWidgetFactory(), true, true); //$NON-NLS-1$
+    valueField.setDisplayedInWizard(displayedInWizard);
 	}
 
 	/**
@@ -78,7 +74,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public void loadData(EObject capellaElement) {
 		super.loadData(capellaElement);
 
-    definitionField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getAttribute_Definition());
+    valueField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getStringValueAttribute_Value());
   }
 
 	/**
@@ -87,7 +83,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public List<AbstractSemanticField> getSemanticFields() {
 		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
 
-		abstractSemanticFields.add(definitionField);
+    abstractSemanticFields.add(valueField);
 
 		return abstractSemanticFields;
 	}

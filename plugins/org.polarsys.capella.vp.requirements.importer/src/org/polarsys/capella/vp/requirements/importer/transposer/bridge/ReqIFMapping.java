@@ -11,20 +11,24 @@
 package org.polarsys.capella.vp.requirements.importer.transposer.bridge;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
-import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.impl.MappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.impl.emf.EMFMappingBridge;
 import org.eclipse.emf.diffmerge.bridge.mapping.operations.MappingBridgeOperation;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionSimple;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
@@ -32,9 +36,11 @@ import org.eclipse.rmf.reqif10.AttributeValueDate;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
+import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
@@ -42,7 +48,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.FolderQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.ModuleQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RelationQuery;
-import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequierementQuery;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequirementQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.TypeDefinitionQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.TypeQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.rules.FolderRule;
@@ -55,9 +61,9 @@ import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
-import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 
 /**
@@ -82,7 +88,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
 
     ModuleQuery modules = new ModuleQuery(this);
     FolderQuery folders = new FolderQuery(this);
-    RequierementQuery requirements = new RequierementQuery(this);
+    RequirementQuery requirements = new RequirementQuery(this);
     RelationQuery relations = new RelationQuery(this);
     TypeQuery types = new TypeQuery(this);
     TypeDefinitionQuery typeDefinitions = new TypeDefinitionQuery(this);
@@ -139,6 +145,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   private List<String> importedCustomTypes = Arrays.asList(
     // Doors RMF attributes
     "IE Capability Number",
+    "IE Checked Object",
     "IE DocProperties Author",
     "IE DocProperties Company",
     "IE IVV Method",
@@ -151,6 +158,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     "IE PUID",
     "IE Rationale",
     "IE Release",
+    "IE Req Obsolete",
     "IE Req Status",
     "IE Requirement Number",
     "IE StyleList",
@@ -176,35 +184,66 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   }
 
   protected Map<String, Object> parseNonStandardAttributes(AttributeValueString value, AttributeOwner target) {
-    Map<String, Object> createdObjects = new HashMap<String, Object>();
-    AttributeDefinitionString definition = ((AttributeValueString) value).getDefinition();
-    String longName = definition.getLongName();
-    if (importedCustomTypes.contains(longName)) {
-      StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
-      pv.setId(ReqIFMappingQueries.generateId());
-      //pv.setKey(longName);
-      pv.setValue(value.getTheValue());
-      target.getOwnedAttributes().add(pv);
-      createdObjects.put(longName, pv);
-    } else {
-      System.out.println("[String] Not imported: " + longName);
-    }
-    return createdObjects;
+    return parseNonStandardAttributes(value, target,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__DEFINITION,
+      RequirementsPackage.Literals.STRING_VALUE_ATTRIBUTE,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+      RequirementsPackage.Literals.STRING_VALUE_ATTRIBUTE__VALUE);
   }
 
   protected Map<String, Object> parseNonStandardAttributes(AttributeValueInteger value, AttributeOwner target) {
+    return parseNonStandardAttributes(value, target,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__DEFINITION,
+      RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE,
+      RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE__VALUE);
+  }
+
+  protected Map<String, Object> parseNonStandardAttributes(AttributeValueBoolean value, AttributeOwner target) {
+    return parseNonStandardAttributes(value, target,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__DEFINITION,
+      RequirementsPackage.Literals.BOOLEAN_VALUE_ATTRIBUTE,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE,
+      RequirementsPackage.Literals.BOOLEAN_VALUE_ATTRIBUTE__VALUE);
+  }
+
+  protected Map<String, Object> parseNonStandardAttributes(AttributeValueDate value, AttributeOwner target) {
+    return parseNonStandardAttributes(value, target,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__DEFINITION,
+      RequirementsPackage.Literals.DATE_VALUE_ATTRIBUTE,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE,
+      RequirementsPackage.Literals.DATE_VALUE_ATTRIBUTE__VALUE);
+  }
+
+  protected Map<String, Object> parseNonStandardAttributes(AttributeValueReal value, AttributeOwner target) {
+    return parseNonStandardAttributes(value, target,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__DEFINITION,
+      RequirementsPackage.Literals.REAL_VALUE_ATTRIBUTE,
+      ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE,
+      RequirementsPackage.Literals.REAL_VALUE_ATTRIBUTE__VALUE);
+  }
+
+  protected Map<String, Object> parseNonStandardAttributes(AttributeValueSimple srcValue, AttributeOwner target, EReference definitionRef, EClass attributeType, EAttribute srcValueRef, EAttribute tgtValueRef) {
     Map<String, Object> createdObjects = new HashMap<String, Object>();
-    AttributeDefinitionInteger definition = ((AttributeValueInteger) value).getDefinition();
-    String longName = definition.getLongName();
-    if (importedCustomTypes.contains(longName)) {
-      IntegerValueAttribute pv = RequirementsFactory.eINSTANCE.createIntegerValueAttribute();
-      pv.setId(ReqIFMappingQueries.generateId());
-      //pv.setKey(longName);
-      pv.setValue(value.getTheValue().intValue());
-      target.getOwnedAttributes().add(pv);
-      createdObjects.put(longName, pv);
-    } else {
-      System.out.println("[Integer] Not imported: " + longName);
+    AttributeDefinitionSimple definition = (AttributeDefinitionSimple) srcValue.eGet(definitionRef);
+    if (definition != null) {
+      String longName = definition.getLongName();
+      if (importedCustomTypes.contains(longName)) {
+        Attribute attribute = (Attribute) RequirementsFactory.eINSTANCE.create(attributeType);
+        attribute.setId(ReqIFMappingQueries.generateId());
+        //attribute.setKey(longName);
+        Object value = srcValue.eGet(srcValueRef);
+        if (value instanceof BigInteger) {
+          value = ((BigInteger) value).intValue();
+        } else if (value instanceof GregorianCalendar) {
+          value = ((GregorianCalendar) value).getTime();
+        }
+        attribute.eSet(tgtValueRef, value);
+        target.getOwnedAttributes().add(attribute);
+        createdObjects.put(longName, attribute);
+      } else {
+        System.out.println("[Importer] Not imported: " + longName);
+      }
     }
     return createdObjects;
   }
@@ -236,6 +275,14 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueXHTML) value, target));
     } else if (value instanceof AttributeValueInteger) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueInteger) value, target));
+    } else if (value instanceof AttributeValueString) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueString) value, target));
+    } else if (value instanceof AttributeValueBoolean) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueBoolean) value, target));
+    } else if (value instanceof AttributeValueDate) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+    } else if (value instanceof AttributeValueReal) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueReal) value, target));
     }
     return createdObjects;
   }
@@ -274,13 +321,19 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       }
     } else if (value instanceof AttributeValueString) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueString) value, target));
+    } else if (value instanceof AttributeValueBoolean) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueBoolean) value, target));
+    } else if (value instanceof AttributeValueDate) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+    } else if (value instanceof AttributeValueReal) {
+      createdObjects.putAll(parseNonStandardAttributes((AttributeValueReal) value, target));
     } else if (value instanceof AttributeValueEnumeration) {
       AttributeDefinitionEnumeration definition = ((AttributeValueEnumeration) value).getDefinition();
       if (definition.getLongName().equals("ReqIF.ForeignCreatedThru")) {
         //
       } else if (definition.getLongName().equals("TableType")) {
-	    //
-	  } else {
+	      //
+	    } else {
         createdObjects.putAll(parseNonStandardAttributes((AttributeValueEnumeration) value, target));
       }
     }

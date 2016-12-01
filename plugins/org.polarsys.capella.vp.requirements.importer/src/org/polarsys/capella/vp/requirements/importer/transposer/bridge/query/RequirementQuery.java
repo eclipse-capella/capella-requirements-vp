@@ -19,9 +19,9 @@ import org.eclipse.emf.diffmerge.bridge.mapping.impl.Query;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
 
-public class RequierementQuery extends Query<IEditableModelScope, SpecHierarchy> {
+public class RequirementQuery extends Query<IEditableModelScope, SpecHierarchy> {
 
-  public RequierementQuery(IQueryHolder<? extends IEditableModelScope> parent) {
+  public RequirementQuery(IQueryHolder<? extends IEditableModelScope> parent) {
     super(parent);
   }
 

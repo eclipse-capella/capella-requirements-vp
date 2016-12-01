@@ -18,21 +18,13 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
-import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
-import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
-import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
 
 /**
  * @author Joao Barata
  */
-public abstract class AttributeSection extends AbstractSection {
-
-  protected SimpleSemanticField definitionField;
+public class RealAttributeSection extends AttributeSection {
 
 	/**
 	 * @param eObject current object
@@ -40,7 +32,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public boolean select(Object eObject) {
 		EObject eObjectToTest = super.selection(eObject);
 
-		if (KitalphaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest)) {
+		if (super.select(eObject) && eObjectToTest instanceof RealValueAttribute) {
 			return true;
 		}
 		return false;
@@ -53,7 +45,7 @@ public abstract class AttributeSection extends AbstractSection {
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		EObject newEObject = super.setInputSelection(part, selection);
 
-		if (newEObject instanceof Attribute) {
+		if (newEObject instanceof RealValueAttribute) {
 			loadData(newEObject);
 		}
 	}
@@ -64,12 +56,6 @@ public abstract class AttributeSection extends AbstractSection {
 	 */
 	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-
-    boolean displayedInWizard = isDisplayedInWizard();
-
-    definitionField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("Attribute.DefinitionLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
-    definitionField.setDisplayedInWizard(displayedInWizard);
 	}
 
 	/**
@@ -77,8 +63,6 @@ public abstract class AttributeSection extends AbstractSection {
 	 */
 	public void loadData(EObject capellaElement) {
 		super.loadData(capellaElement);
-
-    definitionField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getAttribute_Definition());
   }
 
 	/**
@@ -86,8 +70,6 @@ public abstract class AttributeSection extends AbstractSection {
    */
 	public List<AbstractSemanticField> getSemanticFields() {
 		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
-
-		abstractSemanticFields.add(definitionField);
 
 		return abstractSemanticFields;
 	}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <vp:Viewpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sirius="http://www.polarsys.org/kitalpha/ad/sirius/1.0.0" xmlns:vp="http://www.polarsys.org/kitalpha/ad/viewpoint/1.0.0" name="Requirements" id="org.polarsys.kitalpha.vp.requirements" vpid="_SyafgB20EeaZT-H7SsDebw" version="0.5.0">
-  <ruleSet vpid="_gfyKAVQQEeas5ZJk-jBSMA" target="_SyafgB20EeaZT-H7SsDebw"/>
-  <serviceSet vpid="_gfyKAFQQEeas5ZJk-jBSMA" target="_SyafgB20EeaZT-H7SsDebw"/>
+  <ruleSet vpid="_1rUCILexEeaFnJPJqKO3fw" target="_SyafgB20EeaZT-H7SsDebw"/>
+  <serviceSet vpid="_1rS0ALexEeaFnJPJqKO3fw" target="_SyafgB20EeaZT-H7SsDebw"/>
   <metamodel>
     <models href="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#/"/>
   </metamodel>

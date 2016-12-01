@@ -178,6 +178,75 @@ public class RequirementsItemProviderAdapterFactory extends RequirementsAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanValueAttributeItemProvider booleanValueAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanValueAttributeAdapter() {
+		if (booleanValueAttributeItemProvider == null) {
+			booleanValueAttributeItemProvider = new BooleanValueAttributeItemProvider(this);
+		}
+
+		return booleanValueAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RealValueAttributeItemProvider realValueAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRealValueAttributeAdapter() {
+		if (realValueAttributeItemProvider == null) {
+			realValueAttributeItemProvider = new RealValueAttributeItemProvider(this);
+		}
+
+		return realValueAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateValueAttributeItemProvider dateValueAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateValueAttributeAdapter() {
+		if (dateValueAttributeItemProvider == null) {
+			dateValueAttributeItemProvider = new DateValueAttributeItemProvider(this);
+		}
+
+		return dateValueAttributeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -516,6 +585,12 @@ public class RequirementsItemProviderAdapterFactory extends RequirementsAdapterF
 			stringValueAttributeItemProvider.dispose();
 		if (integerValueAttributeItemProvider != null)
 			integerValueAttributeItemProvider.dispose();
+		if (booleanValueAttributeItemProvider != null)
+			booleanValueAttributeItemProvider.dispose();
+		if (realValueAttributeItemProvider != null)
+			realValueAttributeItemProvider.dispose();
+		if (dateValueAttributeItemProvider != null)
+			dateValueAttributeItemProvider.dispose();
 		if (requirementItemProvider != null)
 			requirementItemProvider.dispose();
 		if (folderItemProvider != null)

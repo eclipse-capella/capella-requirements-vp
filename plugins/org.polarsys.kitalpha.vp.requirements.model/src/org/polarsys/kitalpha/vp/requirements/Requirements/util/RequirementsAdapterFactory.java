@@ -119,6 +119,21 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBooleanValueAttribute(BooleanValueAttribute object) {
+			return createBooleanValueAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseRealValueAttribute(RealValueAttribute object) {
+			return createRealValueAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseDateValueAttribute(DateValueAttribute object) {
+			return createDateValueAttributeAdapter();
+		}
+
+		@Override
 		public Adapter caseAttributeOwner(AttributeOwner object) {
 			return createAttributeOwnerAdapter();
 		}
@@ -287,6 +302,48 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntegerValueAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute <em>Boolean Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute
+	 * @generated
+	 */
+	public Adapter createBooleanValueAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute <em>Real Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute
+	 * @generated
+	 */
+	public Adapter createRealValueAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute <em>Date Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute
+	 * @generated
+	 */
+	public Adapter createDateValueAttributeAdapter() {
 		return null;
 	}
 

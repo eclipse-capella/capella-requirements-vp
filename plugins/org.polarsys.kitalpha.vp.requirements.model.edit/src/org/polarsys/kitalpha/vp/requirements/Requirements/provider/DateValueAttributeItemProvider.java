@@ -18,27 +18,26 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
- * This is the item provider adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner} object.
+ * This is the item provider adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeOwnerItemProvider extends ReqIFElementItemProvider implements IEditingDomainItemProvider,
+public class DateValueAttributeItemProvider extends AttributeItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,7 +52,7 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeOwnerItemProvider(AdapterFactory adapterFactory) {
+	public DateValueAttributeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,6 +67,7 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
 		}
 		// begin-extension-code
 		checkChildCreationExtender(object);
@@ -76,33 +76,36 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES);
-		}
-		return childrenFeatures;
+	protected void addValuePropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DateValueAttribute_value_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_DateValueAttribute_value_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_DateValueAttribute_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.DATE_VALUE_ATTRIBUTE__VALUE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
+		// end-extension-code
 	}
 
 	/**
+	 * This returns DateValueAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DateValueAttribute")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,9 +117,9 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 	@Override
 	public String getText(Object object) {
 
-		String label = ((AttributeOwner) object).getId();
+		String label = ((DateValueAttribute) object).getId();
 		// begin-extension-code
-		return label == null || label.length() == 0 ? "[" + getString("_UI_AttributeOwner_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return label == null || label.length() == 0 ? "[" + getString("_UI_DateValueAttribute_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		// end-extension-code
 	}
 
@@ -131,9 +134,9 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AttributeOwner.class)) {
-		case RequirementsPackage.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(DateValueAttribute.class)) {
+		case RequirementsPackage.DATE_VALUE_ATTRIBUTE__VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -149,22 +152,6 @@ public class AttributeOwnerItemProvider extends ReqIFElementItemProvider impleme
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES,
-				RequirementsFactory.eINSTANCE.createStringValueAttribute()));
-
-		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES,
-				RequirementsFactory.eINSTANCE.createIntegerValueAttribute()));
-
-		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES,
-				RequirementsFactory.eINSTANCE.createBooleanValueAttribute()));
-
-		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES,
-				RequirementsFactory.eINSTANCE.createRealValueAttribute()));
-
-		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_OWNER__OWNED_ATTRIBUTES,
-				RequirementsFactory.eINSTANCE.createDateValueAttribute()));
-
 	}
 
 }

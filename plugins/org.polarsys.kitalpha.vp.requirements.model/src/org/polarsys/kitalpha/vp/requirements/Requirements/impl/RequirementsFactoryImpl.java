@@ -79,6 +79,12 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 			return createStringValueAttribute();
 		case RequirementsPackage.INTEGER_VALUE_ATTRIBUTE:
 			return createIntegerValueAttribute();
+		case RequirementsPackage.BOOLEAN_VALUE_ATTRIBUTE:
+			return createBooleanValueAttribute();
+		case RequirementsPackage.REAL_VALUE_ATTRIBUTE:
+			return createRealValueAttribute();
+		case RequirementsPackage.DATE_VALUE_ATTRIBUTE:
+			return createDateValueAttribute();
 		case RequirementsPackage.REQUIREMENT:
 			return createRequirement();
 		case RequirementsPackage.FOLDER:
@@ -130,6 +136,36 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	public IntegerValueAttribute createIntegerValueAttribute() {
 		IntegerValueAttributeImpl integerValueAttribute = new IntegerValueAttributeImpl();
 		return integerValueAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanValueAttribute createBooleanValueAttribute() {
+		BooleanValueAttributeImpl booleanValueAttribute = new BooleanValueAttributeImpl();
+		return booleanValueAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RealValueAttribute createRealValueAttribute() {
+		RealValueAttributeImpl realValueAttribute = new RealValueAttributeImpl();
+		return realValueAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateValueAttribute createDateValueAttribute() {
+		DateValueAttributeImpl dateValueAttribute = new DateValueAttributeImpl();
+		return dateValueAttribute;
 	}
 
 	/**

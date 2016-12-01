@@ -67,6 +67,33 @@ public interface RequirementsFactory extends EFactory {
 	IntegerValueAttribute createIntegerValueAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Boolean Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Value Attribute</em>'.
+	 * @generated
+	 */
+	BooleanValueAttribute createBooleanValueAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Real Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Real Value Attribute</em>'.
+	 * @generated
+	 */
+	RealValueAttribute createRealValueAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Date Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date Value Attribute</em>'.
+	 * @generated
+	 */
+	DateValueAttribute createDateValueAttribute();
+
+	/**
 	 * Returns a new object of class '<em>Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -154,6 +154,39 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case RequirementsPackage.BOOLEAN_VALUE_ATTRIBUTE: {
+			BooleanValueAttribute booleanValueAttribute = (BooleanValueAttribute) theEObject;
+			T result = caseBooleanValueAttribute(booleanValueAttribute);
+			if (result == null)
+				result = caseAttribute(booleanValueAttribute);
+			if (result == null)
+				result = caseIdentifiableElement(booleanValueAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RequirementsPackage.REAL_VALUE_ATTRIBUTE: {
+			RealValueAttribute realValueAttribute = (RealValueAttribute) theEObject;
+			T result = caseRealValueAttribute(realValueAttribute);
+			if (result == null)
+				result = caseAttribute(realValueAttribute);
+			if (result == null)
+				result = caseIdentifiableElement(realValueAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RequirementsPackage.DATE_VALUE_ATTRIBUTE: {
+			DateValueAttribute dateValueAttribute = (DateValueAttribute) theEObject;
+			T result = caseDateValueAttribute(dateValueAttribute);
+			if (result == null)
+				result = caseAttribute(dateValueAttribute);
+			if (result == null)
+				result = caseIdentifiableElement(dateValueAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case RequirementsPackage.ATTRIBUTE_OWNER: {
 			AttributeOwner attributeOwner = (AttributeOwner) theEObject;
 			T result = caseAttributeOwner(attributeOwner);
@@ -396,6 +429,51 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIntegerValueAttribute(IntegerValueAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Value Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanValueAttribute(BooleanValueAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Real Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Real Value Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRealValueAttribute(RealValueAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Value Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateValueAttribute(DateValueAttribute object) {
 		return null;
 	}
 

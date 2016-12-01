@@ -25,13 +25,16 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
+import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -103,6 +106,27 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * @generated
 	 */
 	private EClass integerValueAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanValueAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass realValueAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dateValueAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -423,6 +447,60 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBooleanValueAttribute() {
+		return booleanValueAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanValueAttribute_Value() {
+		return (EAttribute) booleanValueAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRealValueAttribute() {
+		return realValueAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRealValueAttribute_Value() {
+		return (EAttribute) realValueAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDateValueAttribute() {
+		return dateValueAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateValueAttribute_Value() {
+		return (EAttribute) dateValueAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAttributeOwner() {
 		return attributeOwnerEClass;
 	}
@@ -707,6 +785,15 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		integerValueAttributeEClass = createEClass(INTEGER_VALUE_ATTRIBUTE);
 		createEAttribute(integerValueAttributeEClass, INTEGER_VALUE_ATTRIBUTE__VALUE);
 
+		booleanValueAttributeEClass = createEClass(BOOLEAN_VALUE_ATTRIBUTE);
+		createEAttribute(booleanValueAttributeEClass, BOOLEAN_VALUE_ATTRIBUTE__VALUE);
+
+		realValueAttributeEClass = createEClass(REAL_VALUE_ATTRIBUTE);
+		createEAttribute(realValueAttributeEClass, REAL_VALUE_ATTRIBUTE__VALUE);
+
+		dateValueAttributeEClass = createEClass(DATE_VALUE_ATTRIBUTE);
+		createEAttribute(dateValueAttributeEClass, DATE_VALUE_ATTRIBUTE__VALUE);
+
 		attributeOwnerEClass = createEClass(ATTRIBUTE_OWNER);
 		createEReference(attributeOwnerEClass, ATTRIBUTE_OWNER__OWNED_ATTRIBUTES);
 
@@ -780,6 +867,9 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		attributeEClass.getESuperTypes().add(this.getIdentifiableElement());
 		stringValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		integerValueAttributeEClass.getESuperTypes().add(this.getAttribute());
+		booleanValueAttributeEClass.getESuperTypes().add(this.getAttribute());
+		realValueAttributeEClass.getESuperTypes().add(this.getAttribute());
+		dateValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		attributeOwnerEClass.getESuperTypes().add(this.getReqIFElement());
 		requirementEClass.getESuperTypes().add(this.getAttributeOwner());
 		folderEClass.getESuperTypes().add(this.getRequirement());
@@ -849,6 +939,24 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEAttribute(getIntegerValueAttribute_Value(), ecorePackage.getEInt(), "value", null, 0, 1, //$NON-NLS-1$
 				IntegerValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanValueAttributeEClass, BooleanValueAttribute.class, "BooleanValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanValueAttribute_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, //$NON-NLS-1$
+				BooleanValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(realValueAttributeEClass, RealValueAttribute.class, "RealValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRealValueAttribute_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, //$NON-NLS-1$
+				RealValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(dateValueAttributeEClass, DateValueAttribute.class, "DateValueAttribute", !IS_ABSTRACT, //$NON-NLS-1$
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateValueAttribute_Value(), ecorePackage.getEDate(), "value", null, 0, 1, //$NON-NLS-1$
+				DateValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeOwnerEClass, AttributeOwner.class, "AttributeOwner", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

@@ -21,6 +21,10 @@
                 name="IE Capability Number"
                 defaultValue="true">
           </attribute>
+         <attribute
+                name="IE Checked Object"
+                defaultValue="true">
+          </attribute>
           <attribute
                 name="IE DocProperties Author"
                 defaultValue="true">
@@ -67,6 +71,10 @@
           </attribute>
           <attribute
                 name="IE Release"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="IE Req Obsolete"
                 defaultValue="true">
           </attribute>
           <attribute

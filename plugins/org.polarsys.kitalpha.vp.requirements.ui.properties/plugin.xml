@@ -37,12 +37,48 @@
 	point="org.eclipse.ui.views.properties.tabbed.propertySections">
 		<propertySections contributorId="org.eclipse.sirius.diagram.ui">
 		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
 		        tab="Requirements VP">
               <input
-               type="org.polarsys.kitalpha.vp.requirements.Requirements.Attribute">
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute">
               </input>
 		    </propertySection>
 		    <propertySection
@@ -111,12 +147,48 @@
 	point="org.eclipse.ui.views.properties.tabbed.propertySections">
 		<propertySections contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
 		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.AttributeSection"
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.IntegerAttributeSection"
 		        tab="Requirements VP">
               <input
-               type="org.polarsys.kitalpha.vp.requirements.Requirements.Attribute">
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.StringAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.BooleanAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DateAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RealAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute">
               </input>
 		    </propertySection>
 		    <propertySection

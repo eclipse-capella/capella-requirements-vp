@@ -13,12 +13,15 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 import org.eclipse.emf.edit.provider.DecoratorAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
@@ -46,6 +49,12 @@ public class RequirementsItemProviderDecoratorAdapterFactory extends DecoratorAd
       return new IntegerValueAttributeItemProviderDecorator(this);
     } else if (target instanceof StringValueAttribute) {
       return new StringValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof BooleanValueAttribute) {
+      return new BooleanValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof DateValueAttribute) {
+      return new DateValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof RealValueAttribute) {
+      return new RealValueAttributeItemProviderDecorator(this);
     } else if (target instanceof AttributeDefinition) {
       return new AttributeDefinitionItemProviderDecorator(this);
     } else if (target instanceof DataTypeDefinition) {

@@ -22,7 +22,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
-import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequierementQuery;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequirementQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
@@ -30,7 +30,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 
 public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
 
-  public RequirementRule(ReqIFMapping mapping, RequierementQuery requirements) {
+  public RequirementRule(ReqIFMapping mapping, RequirementQuery requirements) {
     super(mapping, requirements, "Requirement");
   }
 
