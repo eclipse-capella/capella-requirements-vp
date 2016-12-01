@@ -7,8 +7,8 @@ These followings icons are made available under the terms of the Eclipse Public 
 /images/diffmerge.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/diffmerge.png
 /images/info.png - org.polarsys.capella.commandline.doc - org.polarsys.capella.commandline.doc/html/19. Command Line Support/Images/19.1. Core Mechanism & Applications_html_3c78e109.png
 /images/overview.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/overview.png
+/images/categories.png - org.eclipse.emf.diffmerge.ui - org.eclipse.emf.diffmerge.ui/icons/full/filter.gif
 /images/preferences_acceleo.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_acceleo.png
-/images/preferences_importer_scope1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_importer_scope1.png
 /images/preferences_importer_scope2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_importer_scope2.png
 /images/propertiesview_requirementsallocation.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/propertiesview_requirementsallocation.png
 /images/semanticbrowser.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/semanticbrowser.png

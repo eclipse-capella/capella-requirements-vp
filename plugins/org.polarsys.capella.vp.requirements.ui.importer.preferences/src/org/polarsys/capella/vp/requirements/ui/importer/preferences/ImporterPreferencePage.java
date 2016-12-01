@@ -70,12 +70,6 @@ public class ImporterPreferencePage  extends PreferencePage implements IWorkbenc
     result.setLayout(layout);
 
     Group grp = new Group(result, SWT.NONE);
-    grp.setText("Select the scope of the importer");
-    grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, false));
-    grp.setLayout(new GridLayout());
-    createScopeSelectionSection(grp);
-
-    grp = new Group(result, SWT.NONE);
     grp.setText("Manage files containing set of attributes");
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, false));
     grp.setLayout(new GridLayout(2, false));
@@ -90,15 +84,6 @@ public class ImporterPreferencePage  extends PreferencePage implements IWorkbenc
     applyDialogFont(result);
 
     return result;
-  }
-
-  void createScopeSelectionSection(Composite container) {
-    Button btn = new Button(container, SWT.CHECK);
-    btn.setText("Import internal links"); //$NON-NLS-1$
-    btn.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, true, true));
-    btn = new Button(container, SWT.CHECK);
-    btn.setText("Import type definitions"); //$NON-NLS-1$
-    btn.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, true, true));
   }
 
   void createFilesSelectionSection(Composite container) {

@@ -32,9 +32,12 @@ import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFact
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
 import org.eclipse.emf.diffmerge.diffdata.impl.EComparisonImpl;
+import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
+import org.eclipse.emf.diffmerge.ui.viewers.categories.DifferenceCategorySet;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -46,8 +49,10 @@ import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.model.handler.helpers.HoldingResourceHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.EClassCategory;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  * @author Joao Barata
@@ -167,6 +172,17 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
     }
   }
 
+  protected EMFDiffNode createDiffNode(EComparison comparison,
+      EditingDomain domain) {
+    final EMFDiffNode diffNode = super.createDiffNode(comparison, domain);
+    
+    DifferenceCategorySet set = new DifferenceCategorySet(Messages.Categories_Name, Messages.Categories_Description);
+    set.getChildren().add(new EClassCategory(RequirementsPackage.Literals.INTERNAL_RELATION, Messages.Categories_InternalRelations, RequirementsPackage.Literals.INTERNAL_RELATION));
+    set.getChildren().add(new EClassCategory(RequirementsPackage.Literals.TYPES_FOLDER, Messages.Categories_Types, RequirementsPackage.Literals.DATA_TYPE_DEFINITION, RequirementsPackage.Literals.ATTRIBUTE_DEFINITION, RequirementsPackage.Literals.ABSTRACT_TYPE, RequirementsPackage.Literals.TYPES_FOLDER));
+    diffNode.getCategoryManager().addCategories(set);
+    return diffNode;
+  }
+  
   public void initializeTrace(Trace trace) {
     trace.setSymbolFunction(new EMFSymbolFunction() {
       @Override
