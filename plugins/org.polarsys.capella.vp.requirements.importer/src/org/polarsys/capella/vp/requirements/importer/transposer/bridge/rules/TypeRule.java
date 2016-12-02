@@ -63,12 +63,14 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
     return new TupleNP<Object>(type, createdElements);
   }
 
-  public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv,
-      IMappingExecution ruleEnv) {
+  public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv, IMappingExecution ruleEnv) {
     Object typeInTargetModel = ruleEnv.getOne(spectype);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();
     }
+
+    getMapping().synchronizeAttributeDefinitions(ruleEnv, spectype);
+
     if (typeInTargetModel instanceof AbstractType) {
       TypesFolder folder = ReqIFMappingQueries.getTypesFolder(getMapping().getContext(),
           getMapping().getTemporaryScope());
@@ -77,5 +79,4 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       }
     }
   }
-
 }

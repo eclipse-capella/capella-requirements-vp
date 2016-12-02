@@ -26,9 +26,13 @@ import org.eclipse.emf.diffmerge.bridge.mapping.operations.MappingBridgeOperatio
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
+import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
+import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
 import org.eclipse.rmf.reqif10.AttributeDefinitionSimple;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
@@ -43,6 +47,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.FolderQuery;
@@ -61,6 +66,7 @@ import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -102,6 +108,39 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     new TypeRule(this, types);
     new TypeDefinitionRule(this, typeDefinitions);
 
+  }
+
+  public void synchronizeAttributeDefinitions(IMappingExecution ruleEnv, SpecType spectype) {
+    for (org.eclipse.rmf.reqif10.AttributeDefinition attribute : spectype.getSpecAttributes()) {
+      org.eclipse.rmf.reqif10.DatatypeDefinition datatype = null;
+      if (attribute instanceof AttributeDefinitionEnumeration) {
+        datatype = ((AttributeDefinitionEnumeration) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionBoolean) {
+        datatype = ((AttributeDefinitionBoolean) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionDate) {
+        datatype = ((AttributeDefinitionDate) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionInteger) {
+        datatype = ((AttributeDefinitionInteger) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionReal) {
+        datatype = ((AttributeDefinitionReal) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionString) {
+        datatype = ((AttributeDefinitionString) attribute).getType();
+      } else if (attribute instanceof AttributeDefinitionXHTML) {
+        datatype = ((AttributeDefinitionXHTML) attribute).getType();
+      }
+
+      Object attr = ruleEnv.getOne(attribute.eContainer());
+      if (attr instanceof TupleNP<?>) {
+        attr = ((TupleNP<?>) attr).get(attribute.getIdentifier());
+      }
+      Object def = ruleEnv.getOne(datatype);
+      if (def instanceof TupleNP<?>) {
+        def = ((TupleNP<?>) def).get(datatype.getIdentifier());
+      }
+      if (attr instanceof AttributeDefinition && def instanceof DataTypeDefinition) {
+        ((AttributeDefinition) attr).setDefinitionType((DataTypeDefinition) def);
+      }
+    }
   }
 
   public void synchronizeAttributes(IMappingExecution ruleEnv, SpecHierarchy hierarchy, SpecElementWithAttributes element) {

@@ -15,15 +15,18 @@ import java.util.List;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -41,11 +44,33 @@ public class RequirementItemProviderDecorator extends
 		super(adapterFactory);
 	}
 
+  /**
+   * This method allows to retrieve a session from elements attached to the 'holding resource' (ie. diff/merge dialog)
+   * @param element
+   * @return a session related to the given element
+   */
+  protected Session getRelatedSession(EObject element) {
+    Session session = SessionManager.INSTANCE.getSession(element);
+    if (session == null) {
+      TransactionalEditingDomain domain = TransactionHelper.getEditingDomain(element);
+      for (Session activeSession : SessionManager.INSTANCE.getSessions()) {
+        if (activeSession.getTransactionalEditingDomain().equals(domain)) {
+          return activeSession;
+        }
+      }
+    }
+    return session;
+  }
+
+  /**
+   * @param object
+   * @return
+   */
 	@Override
   public String getText(Object object) {
     Requirement requirement = (Requirement) object;
     try {
-      Session session = SessionManager.INSTANCE.getSession(requirement);
+      Session session = getRelatedSession(requirement);
       if (session != null) {
         IInterpreter interpreter = session.getInterpreter();
         if (interpreter != null) {

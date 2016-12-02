@@ -18,10 +18,14 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
+import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -29,6 +33,7 @@ import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElem
  */
 public class AttributeDefinitionSection extends AbstractSection {
 
+  protected SimpleSemanticField definitionField;
   protected BasicReqIFElementGroup reqIFElementGroup;
 
 	/**
@@ -66,6 +71,9 @@ public class AttributeDefinitionSection extends AbstractSection {
 
     reqIFElementGroup = new BasicReqIFElementGroup(_rootParentComposite, getWidgetFactory(), true);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
+
+    definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+    definitionField.setDisplayedInWizard(displayedInWizard);
 	}
 
 	/**
@@ -75,6 +83,7 @@ public class AttributeDefinitionSection extends AbstractSection {
 		super.loadData(capellaElement);
 
     reqIFElementGroup.loadData(capellaElement);
+    definitionField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getAttributeDefinition_DefinitionType());
   }
 
 	/**
@@ -84,6 +93,7 @@ public class AttributeDefinitionSection extends AbstractSection {
 		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
 
 		abstractSemanticFields.add(reqIFElementGroup);
+    abstractSemanticFields.add(definitionField);
 
 		return abstractSemanticFields;
 	}

@@ -333,5 +333,21 @@
 	            </basicQuery>
 	         </categoryQuery>
 	      </category>
+	      <category
+	            id="org.polarsys.kitalpha.vp.requirements.attributedefinition.datatype"
+	            isTopLevel="true"
+	            name="Data Type">
+	         <targetBrowserId
+	               id="ReferencedElementBrowser">
+	         </targetBrowserId>
+	         <availableForType
+	               class="org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition">
+	         </availableForType>
+	         <categoryQuery>
+	            <basicQuery
+	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.AttributeDefinitionDataTypeQuery">
+	            </basicQuery>
+	         </categoryQuery>
+	      </category>
 	</extension>
 </plugin>
