@@ -217,7 +217,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
     } else {
-      System.out.println("[XHTML] Not imported: " + longName);
+      System.out.println("[" + value.eClass().getName() + "] Not imported: " + longName);
     }
     return createdObjects;
   }
@@ -281,7 +281,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         target.getOwnedAttributes().add(attribute);
         createdObjects.put(longName, attribute);
       } else {
-        System.out.println("[Importer] Not imported: " + longName);
+        System.out.println("[" + srcValue.eClass().getName() + "] Not imported: " + longName);
       }
     }
     return createdObjects;
@@ -303,7 +303,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
     } else {
-      System.out.println("[Enum] Not imported: " + longName);
+      System.out.println("[" + value.eClass().getName() + "] Not imported: " + longName);
     }
     return createdObjects;
   }
@@ -311,7 +311,20 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   public Map<String, Object> parseStandardReqIFAttributes(AttributeValue value, CapellaModule target) {
     Map<String, Object> createdObjects = new HashMap<String, Object>();
     if (value instanceof AttributeValueXHTML) {
-      createdObjects.putAll(parseNonStandardAttributes((AttributeValueXHTML) value, target));
+      AttributeDefinitionXHTML definition = ((AttributeValueXHTML) value).getDefinition();
+      if (definition.getLongName().equals("ReqIF.Name")) {
+        target.setReqIFLongName(getContent((AttributeValueXHTML) value));
+      } else if (definition.getLongName().equals("ReqIF.Description")) {
+        target.setReqIFDescription(getContent((AttributeValueXHTML) value));
+      } else if (definition.getLongName().equals("ReqIF.Prefix")) {
+        // not applicable
+      } else if (definition.getLongName().equals("ReqIF.ForeignCreatedBy")) {
+        // not applicable
+      } else if (definition.getLongName().equals("ReqIF.ForeignModifiedBy")) {
+        // not applicable
+      } else {
+        createdObjects.putAll(parseNonStandardAttributes((AttributeValueXHTML) value, target));
+      }
     } else if (value instanceof AttributeValueInteger) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueInteger) value, target));
     } else if (value instanceof AttributeValueString) {
@@ -319,7 +332,14 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     } else if (value instanceof AttributeValueBoolean) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueBoolean) value, target));
     } else if (value instanceof AttributeValueDate) {
-      createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+      AttributeDefinitionDate definition = ((AttributeValueDate) value).getDefinition();
+      if (definition.getLongName().equals("ReqIF.ForeignCreatedOn")) {
+        // not applicable
+      } else if (definition.getLongName().equals("ReqIF.ForeignModifiedOn")) {
+        // not applicable
+      } else {
+        createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+      }
     } else if (value instanceof AttributeValueReal) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueReal) value, target));
     }
@@ -333,21 +353,21 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       if (definition.getLongName().equals("ReqIF.ChapterName")) {
         target.setReqIFChapterName(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Name")) {
-        //
+        target.setReqIFLongName(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Description")) {
-        //
+        target.setReqIFDescription(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Text")) {
         target.setReqIFText(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.Prefix")) {
         target.setReqIFPrefix(getContent((AttributeValueXHTML) value));
       } else if (definition.getLongName().equals("ReqIF.ForeignCreatedBy")) {
-        //
+        // not applicable
       } else if (definition.getLongName().equals("ReqIF.ForeignModifiedBy")) {
-        //
+        // not applicable
       } else if (definition.getLongName().equals("Comment")) {
-        //
+        // not applicable
       } else if (definition.getLongName().equals("Paragraph Style")) {
-        //
+        // not applicable
       } else {
         createdObjects.putAll(parseNonStandardAttributes((AttributeValueXHTML) value, target));
       }
@@ -361,17 +381,29 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     } else if (value instanceof AttributeValueString) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueString) value, target));
     } else if (value instanceof AttributeValueBoolean) {
-      createdObjects.putAll(parseNonStandardAttributes((AttributeValueBoolean) value, target));
+      AttributeDefinitionBoolean definition = ((AttributeValueBoolean) value).getDefinition();
+      if (definition.getLongName().equals("ReqIF.ForeignDeleted")) {
+        // not applicable
+      } else {
+        createdObjects.putAll(parseNonStandardAttributes((AttributeValueBoolean) value, target));
+      }
     } else if (value instanceof AttributeValueDate) {
-      createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+      AttributeDefinitionDate definition = ((AttributeValueDate) value).getDefinition();
+      if (definition.getLongName().equals("ReqIF.ForeignCreatedOn")) {
+        // not applicable
+      } else if (definition.getLongName().equals("ReqIF.ForeignModifiedOn")) {
+        // not applicable
+      } else {
+        createdObjects.putAll(parseNonStandardAttributes((AttributeValueDate) value, target));
+      }
     } else if (value instanceof AttributeValueReal) {
       createdObjects.putAll(parseNonStandardAttributes((AttributeValueReal) value, target));
     } else if (value instanceof AttributeValueEnumeration) {
       AttributeDefinitionEnumeration definition = ((AttributeValueEnumeration) value).getDefinition();
       if (definition.getLongName().equals("ReqIF.ForeignCreatedThru")) {
-        //
+        // not applicable
       } else if (definition.getLongName().equals("TableType")) {
-	      //
+	      // not applicable
 	    } else {
         createdObjects.putAll(parseNonStandardAttributes((AttributeValueEnumeration) value, target));
       }
