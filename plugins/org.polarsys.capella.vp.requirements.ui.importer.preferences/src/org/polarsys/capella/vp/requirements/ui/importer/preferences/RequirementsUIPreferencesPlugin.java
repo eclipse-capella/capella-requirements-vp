@@ -10,8 +10,13 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.importer.preferences;
 
+import org.eclipse.core.runtime.preferences.DefaultScope;
+import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.framework.BundleContext;
+import org.polarsys.capella.vp.requirements.importer.extension.RequirementsImporterExtensionPlugin;
 
 /**
  * @author Joao Barata
@@ -23,6 +28,8 @@ public class RequirementsUIPreferencesPlugin extends AbstractUIPlugin {
 
   // The shared instance
   private static RequirementsUIPreferencesPlugin plugin;
+  
+  private ScopedPreferenceStore preferenceStore;
 
   /**
    * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
@@ -49,5 +56,15 @@ public class RequirementsUIPreferencesPlugin extends AbstractUIPlugin {
    */
   public static RequirementsUIPreferencesPlugin getDefault() {
     return plugin;
+  }
+
+  @Override
+  public IPreferenceStore getPreferenceStore() {
+
+    // Create the preference store lazily.
+    if (preferenceStore == null) {
+      preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, RequirementsImporterExtensionPlugin.PLUGIN_ID);
+    }
+    return preferenceStore;
   }
 }

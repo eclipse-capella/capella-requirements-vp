@@ -10,22 +10,20 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.importer.preferences.attributes;
 
-import java.util.List;
-
-import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
-import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
+import org.polarsys.capella.vp.requirements.importer.extension.PropertiesFileAttributesProvider;
 
 /**
  * @author Joao Barata
  */
+// TODO split this class and it internal to each section
 public class SelectionContentProvider implements ITreeContentProvider {
   private static Object[] EMPTY_ARRAY = new Object[0];
-  protected CheckboxTreeViewer _viewer = null;
+  protected Viewer _viewer = null;
 
   /**
    * @see IContentProvider#dispose()
@@ -36,12 +34,15 @@ public class SelectionContentProvider implements ITreeContentProvider {
 
   /**
    * @see IContentProvider#inputChanged(Viewer, Object, Object)
-   * @param viewer the viewer
-   * @param oldInput the old input element, or <code>null</code> if the viewer did not previously have an input
-   * @param newInput the new input element, or <code>null</code> if the viewer does not have an input
+   * @param viewer
+   *          the viewer
+   * @param oldInput
+   *          the old input element, or <code>null</code> if the viewer did not previously have an input
+   * @param newInput
+   *          the new input element, or <code>null</code> if the viewer does not have an input
    */
   public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-    _viewer = (CheckboxTreeViewer) viewer;
+    _viewer = viewer;
   }
 
   /**
@@ -49,10 +50,9 @@ public class SelectionContentProvider implements ITreeContentProvider {
    */
   public Object[] getChildren(Object parentElement) {
     if (parentElement instanceof AttributeSet) {
-      AttributeSet node = (AttributeSet) parentElement;
-      List<AttributeSet> list = node.getChildren();
-      if (list != null)
-        return list.toArray();
+      return ((AttributeSet) parentElement).getChildren().toArray();
+    }else if(parentElement instanceof PropertiesFileAttributesProvider){
+      return PropertiesFileAttributesProvider.getInstance().getPropertiesFiles().toArray();
     }
     return EMPTY_ARRAY;
   }
@@ -78,6 +78,6 @@ public class SelectionContentProvider implements ITreeContentProvider {
    * @see IStructuredContentProvider#getElements(Object)
    */
   public Object[] getElements(Object inputElement) {
-    return AttributesProvider.getInstance().getAttributes().toArray();
+    return getChildren(inputElement);
   }
 }

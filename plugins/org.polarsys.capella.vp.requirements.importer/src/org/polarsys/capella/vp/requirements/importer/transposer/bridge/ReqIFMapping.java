@@ -12,10 +12,9 @@ package org.polarsys.capella.vp.requirements.importer.transposer.bridge;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
@@ -50,6 +49,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
+import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.FolderQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.ModuleQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RelationQuery;
@@ -77,29 +77,21 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
  */
 public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditableModelScope> {
 
-  IContext _context;
-
-  public IContext getContext() {
-    return _context;
-  }
+  IContext context;
   
-  @Override
-  protected MappingBridgeOperation createMappingOperation(IEditableModelScope sourceDataSet, IEditableModelScope targetDataSet, MappingExecution execution) {
-    final MappingBridgeOperation operation = new ReqIfMappingBridgeOperation(sourceDataSet, targetDataSet, this, execution);
-    return operation;
-  }
+  Collection<String> reqTypes;
 
   public ReqIFMapping(IContext context) {
-    _context = context;
-
+    this.context = context;
+  
     ModuleQuery modules = new ModuleQuery(this);
     FolderQuery folders = new FolderQuery(this);
     RequirementQuery requirements = new RequirementQuery(this);
     RelationQuery relations = new RelationQuery(this);
     TypeQuery types = new TypeQuery(this);
     TypeDefinitionQuery typeDefinitions = new TypeDefinitionQuery(this);
-
-
+  
+  
     // ******** RULES ********
     new ModuleRule(this, modules);
     new FolderRule(this, folders);
@@ -107,7 +99,20 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     new RelationRule(this, relations);
     new TypeRule(this, types);
     new TypeDefinitionRule(this, typeDefinitions);
+    
+    // Req Types from preferences
+    reqTypes = AttributesProvider.getInstance().getAttributeTypes();
+  
+  }
 
+  public IContext getContext() {
+    return context;
+  }
+  
+  @Override
+  protected MappingBridgeOperation createMappingOperation(IEditableModelScope sourceDataSet, IEditableModelScope targetDataSet, MappingExecution execution) {
+    final MappingBridgeOperation operation = new ReqIfMappingBridgeOperation(sourceDataSet, targetDataSet, this, execution);
+    return operation;
   }
 
   public void synchronizeAttributeDefinitions(IMappingExecution ruleEnv, SpecType spectype) {
@@ -177,39 +182,11 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     }
   }
 
-  /**
-   * @deprecated extension point contributions / preferences shall be used
-   */
-  @Deprecated
-  private List<String> importedCustomTypes = Arrays.asList(
-    // Doors RMF attributes
-    "IE Capability Number",
-    "IE Checked Object",
-    "IE DocProperties Author",
-    "IE DocProperties Company",
-    "IE IVV Method",
-    "IE IVV Non Regression",
-    "IE IVV Procedure Number",
-    "IE IVV Responsible",
-    "IE IVV Skills",
-    "IE IVV Type",
-    "IE Object Type",
-    "IE PUID",
-    "IE Rationale",
-    "IE Release",
-    "IE Req Obsolete",
-    "IE Req Status",
-    "IE Requirement Number",
-    "IE StyleList",
-    "IE Test Method Expected",
-    "IE WordExportSettings"
-  );
-
   protected Map<String, Object> parseNonStandardAttributes(AttributeValueXHTML value, AttributeOwner target) {
     Map<String, Object> createdObjects = new HashMap<String, Object>();
     AttributeDefinitionXHTML definition = ((AttributeValueXHTML) value).getDefinition();
     String longName = definition.getLongName();
-    if (importedCustomTypes.contains(longName)) {
+    if (reqTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
       //pv.setKey(longName);
@@ -267,7 +244,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     AttributeDefinitionSimple definition = (AttributeDefinitionSimple) srcValue.eGet(definitionRef);
     if (definition != null) {
       String longName = definition.getLongName();
-      if (importedCustomTypes.contains(longName)) {
+      if (reqTypes.contains(longName)) {
         Attribute attribute = (Attribute) RequirementsFactory.eINSTANCE.create(attributeType);
         attribute.setId(ReqIFMappingQueries.generateId());
         //attribute.setKey(longName);
@@ -291,7 +268,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     Map<String, Object> createdObjects = new HashMap<String, Object>();
     AttributeDefinitionEnumeration definition = ((AttributeValueEnumeration) value).getDefinition();
     String longName = definition.getLongName();
-    if (importedCustomTypes.contains(longName)) {
+    if (reqTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setId(ReqIFMappingQueries.generateId());
       //pv.setKey(longName);

@@ -24,14 +24,20 @@ public class SelectionCheckStateProvider implements ICheckStateProvider {
   @Override
   public boolean isChecked(Object element) {
     if (element instanceof AttributeSet) {
-      if (((AttributeSet) element).getChildren().isEmpty()) {
-        return ((AttributeSet) element).isSelected();
+      AttributeSet attributeSet = (AttributeSet)element;
+      if (attributeSet.getChildren().isEmpty()) {
+        return attributeSet.isMandatory() || ((AttributeSet) element).isSelected();
       }
       boolean allChildChecked = true;
       boolean atLeastOneChildChecked = false;
-      for (AttributeSet child : ((AttributeSet) element).getChildren()) {
-        if (!child.isSelected()) allChildChecked = false;
-        else atLeastOneChildChecked = true;
+      for (AttributeSet child : attributeSet.getChildren()) {
+        if (!child.isSelected()) {
+          allChildChecked = false;
+        }
+        else{
+          atLeastOneChildChecked = true;
+          break;
+        }
       }
       return (allChildChecked || atLeastOneChildChecked);
     }
@@ -42,18 +48,21 @@ public class SelectionCheckStateProvider implements ICheckStateProvider {
    * @see org.eclipse.jface.viewers.ICheckStateProvider#isGrayed(java.lang.Object)
    */
   @Override
-  public boolean isGrayed(Object element) {
-    if (element instanceof AttributeSet) {
-      if (!((AttributeSet) element).getChildren().isEmpty()) {
-        boolean allChildChecked = true;
-        boolean allChildUnchecked = true;
-        for (AttributeSet child : ((AttributeSet) element).getChildren()) {
-          if (!child.isSelected()) allChildChecked = false;
-          else allChildUnchecked = false;
-        }
-        return !(allChildChecked || allChildUnchecked);
-      }
-    }
-    return false;
-  }
+	public boolean isGrayed(Object element) {
+		if (element instanceof AttributeSet) {
+			AttributeSet attributeSet = (AttributeSet) element;
+			if (!attributeSet.getChildren().isEmpty()) {
+				boolean allChildChecked = true;
+				boolean allChildUnchecked = true;
+				for (AttributeSet child : attributeSet.getChildren()) {
+					if (!child.isSelected())
+						allChildChecked = false;
+					else
+						allChildUnchecked = false;
+				}
+				return !(allChildChecked || allChildUnchecked);
+			}
+		}
+		return false;
+	}
 }

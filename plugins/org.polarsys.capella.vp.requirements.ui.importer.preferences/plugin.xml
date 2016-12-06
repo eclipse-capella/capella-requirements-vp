@@ -22,7 +22,7 @@
       <page
             category="org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencePage"
             class="org.polarsys.capella.vp.requirements.ui.importer.preferences.ImporterPreferencePage"
-            id="org.polarsys.capella.vp.requirements.importer.preferences.ImporterPreferencePage"
+            id="org.polarsys.capella.vp.requirements.ui.importer.preferences.ImporterPreferencePage"
             name="Importer">
       </page>
    </extension>

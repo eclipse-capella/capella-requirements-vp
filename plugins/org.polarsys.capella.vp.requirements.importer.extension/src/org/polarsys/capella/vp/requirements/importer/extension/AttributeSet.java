@@ -11,20 +11,19 @@
 package org.polarsys.capella.vp.requirements.importer.extension;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * @author Joao Barata
  */
 public class AttributeSet {
-  private String id;
   private String name;
   private String description;
   private boolean defaultValue = false;
   private boolean mandatory = false;
   private boolean selected = false;
   private AttributeSet parent = null;
-  private List<AttributeSet> children = null;
+  private Collection<AttributeSet> children = null;
 
   /**
    *
@@ -32,20 +31,6 @@ public class AttributeSet {
   public AttributeSet(String name) {
     this.name = name;
     this.children = new ArrayList<AttributeSet>();
-  }
-
-  /**
-   *
-   */
-  public String getId() {
-    return id;
-  }
-
-  /**
-   *
-   */
-  public void setId(String id) {
-    this.id = id;
   }
 
   /**
@@ -135,7 +120,7 @@ public class AttributeSet {
   /**
    * @return Returns the children.
    */
-  public List<AttributeSet> getChildren() {
+  public Collection<AttributeSet> getChildren() {
     return children;
   }
 
@@ -166,7 +151,7 @@ public class AttributeSet {
 
     return result;
   }
-
+  
   /**
    * @param node
    */
@@ -175,5 +160,35 @@ public class AttributeSet {
       children = new ArrayList<AttributeSet>();
     children.add(node);
     node.setParent(this);
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    AttributeSet other = (AttributeSet) obj;
+    if (name == null) {
+      if (other.name != null)
+        return false;
+    } else if (!name.equals(other.name))
+      return false;
+    return true;
+  }
+  
+  @Override
+  public String toString() {
+    return "AttributeSet [name=" + name + ", parent=" + parent + "]";
   }
 }

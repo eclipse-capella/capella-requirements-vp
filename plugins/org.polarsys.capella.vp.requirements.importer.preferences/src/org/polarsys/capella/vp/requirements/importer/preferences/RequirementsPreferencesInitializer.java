@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.preferences;
 
+import java.util.Collection;
+
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.core.runtime.preferences.DefaultScope;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -27,11 +29,14 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
    */
   @Override
   public void initializeDefaultPreferences() {
+    initializeDefaultPreferences(AttributesProvider.getInstance().getCategories());
+  }
+  
+  public void initializeDefaultPreferences(Collection<AttributeSet> attributes){
     IEclipsePreferences defaultScope = DefaultScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
-
-    for (AttributeSet category : AttributesProvider.getInstance().getAttributes()) {
+    for (AttributeSet category : attributes) {
       for (AttributeSet attribute : category.getChildren()) {
-        String key = category.getId() + "." + attribute.getName();
+        String key = ReqImporterPreferences.getPreferenceKey(attribute);
         defaultScope.putBoolean(key, attribute.defaultValue());
       }
     }

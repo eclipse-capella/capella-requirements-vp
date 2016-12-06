@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.importer.preferences.attributes;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
@@ -29,6 +30,7 @@ import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
 /**
  * @author Joao Barata
  */
+//TODO split this class and it internal to each section
 public class SelectionLabelProvider extends DecoratingLabelProvider {
 
   private ImageDescriptor lockImage;
@@ -36,6 +38,7 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
   private Image attributeImage;
   private Image overlayedFolderImage;
   private Image overlayedAttributeImage;
+  private Image fileImage;
 
   /**
 	 * Constructor
@@ -45,6 +48,7 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
 		lockImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.capella.vp.requirements.ui.importer.preferences", "icons/lock.gif");
 		attributeImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.kitalpha.vp.requirements.model.edit", "icons/full/obj16/StringValueAttribute.gif").createImage();
     folderImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.capella.vp.requirements.ui.importer.preferences", "icons/folder.gif").createImage();
+    fileImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.capella.vp.requirements.ui.importer.preferences", "icons/file.png").createImage();
     overlayedFolderImage = new DecorationOverlayIcon(folderImage, lockImage, IDecoration.TOP_RIGHT).createImage();
     overlayedAttributeImage = new DecorationOverlayIcon(attributeImage, lockImage, IDecoration.TOP_RIGHT).createImage();
 	}
@@ -60,6 +64,8 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
     overlayedAttributeImage.dispose();
     overlayedAttributeImage = null;
     lockImage = null;
+    fileImage.dispose();
+    fileImage = null;
     super.dispose();
   }
 
@@ -80,6 +86,8 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
         return overlayedFolderImage;
       }
       return folderImage;
+	  }else if(element instanceof URI){
+	    return fileImage;
 	  }
 		return super.getImage(element);
 	}
@@ -91,6 +99,8 @@ public class SelectionLabelProvider extends DecoratingLabelProvider {
 	public String getText(Object element) {
 		if (element instanceof AttributeSet) {
 			return ((AttributeSet) element).getName();
+		}else if(element instanceof URI){
+		  return ((URI)element).toString();
 		}
 		return ""; //$NON-NLS-1$
 	}
