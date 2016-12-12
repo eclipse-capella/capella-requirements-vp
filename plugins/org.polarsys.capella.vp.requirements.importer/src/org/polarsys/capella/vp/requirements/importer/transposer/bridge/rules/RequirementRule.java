@@ -61,6 +61,7 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
     }
     if (type instanceof RequirementType) {
       ((Requirement) target.getRoot()).setRequirementType((RequirementType) type);
+      ((Requirement) target.getRoot()).setRequirementTypeProxy(((RequirementType) type).getReqIFIdentifier());
     }
 
     getMapping().synchronizeAttributes(ruleEnv, hierarchy, hierarchy.getObject());

@@ -60,6 +60,7 @@ public class FolderRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
     }
     if (type instanceof RequirementType) {
       ((Folder) target.getRoot()).setRequirementType((RequirementType) type);
+      ((Folder) target.getRoot()).setRequirementTypeProxy(((RequirementType) type).getReqIFIdentifier());
     }
 
     getMapping().synchronizeAttributes(ruleEnv, hierarchy, hierarchy.getObject());
