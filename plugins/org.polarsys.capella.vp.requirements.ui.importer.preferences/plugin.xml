@@ -18,12 +18,25 @@
             class="org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsPreferencePage"
             id="org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencePage"
             name="Requirements">
+         <keywordReference
+               id="org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsKeyword">
+         </keywordReference>
       </page>
       <page
             category="org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencePage"
             class="org.polarsys.capella.vp.requirements.ui.importer.preferences.ImporterPreferencePage"
             id="org.polarsys.capella.vp.requirements.ui.importer.preferences.ImporterPreferencePage"
             name="Importer">
+         <keywordReference
+               id="org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsKeyword">
+         </keywordReference>
       </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.keywords">
+      <keyword
+            id="org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsKeyword"
+            label="Requirements">
+      </keyword>
    </extension>
 </plugin>

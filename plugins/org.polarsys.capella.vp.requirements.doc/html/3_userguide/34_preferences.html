@@ -28,14 +28,35 @@ The default expression allows to show as its label the value of a requirement's 
 
 <h2>Importer scope</h2>
 <p>
-The scope of the data can be customized by choosing the set of attributes to be imported (some of them are defined as 'mandatory' and cannot be deselected):<br/>
+The scope of data to import can be customized in the Importer preference page:
 </p>
 
 <img src="../../images/preferences_importer_scope2.png" alt="Importer Scope" title="Importer Scope"/>
 
 <p>
+To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).<br/>
+</p>
+<h3>Add custom attributes</h3>
+There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.
+
+<h4>1. Use Properties Files</h4>
+You can add new attributes by referencing .properties files with the following format (be careful to escape whitespaces):
+<pre>
+Attribute1Name:defaultSelectionState
+Attribute2Name:defaultSelectionState
+</pre>
+Then add the properties file in the first part of the preference dialog by clicking on "Add file".
+<p>
+In the screenshot above, the following file was used:
+<pre>
+Requirement\ Author:true
+Requirement\ Identifier:false
+Requirement\ State:false
+</pre>
+</p> 
+<h4>2. Use Eclipse extension points</h4>
+<p>
 The list of attributes to be imported can be enhanced by contributing to a extension point (see Programmer's Guide).
 </p>
-
 </body>
 </html>

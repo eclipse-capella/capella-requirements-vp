@@ -23,7 +23,7 @@ public class AttributeSet {
   private boolean mandatory = false;
   private boolean selected = false;
   private AttributeSet parent = null;
-  private Collection<AttributeSet> children = null;
+  private final Collection<AttributeSet> children;
 
   /**
    *
@@ -126,65 +126,38 @@ public class AttributeSet {
 
   /**
    * Checks if the current item has some children checked.
-   * @return <code>True</code> if some children are checked else <code>false</code>.
+   * @return <code>true</code> if some children are checked else <code>false</code>.
    */
   public boolean hasChildrenSelected() {
-    boolean result = false;
-
     for (AttributeSet node : children) {
-      result |= node.selected;
+      if (node.selected) {
+        // One child is selected. 
+        return true;
+      }
     }
-
-    return result;
+    return false;
   }
 
   /**
    * Checks if the current item has all children checked.
-   * @return <code>True</code> if all children are checked else <code>false</code>.
+   * @return <code>true</code> if all children are checked else <code>false</code>.
    */
   public boolean hasAllChildrenSelected() {
-    boolean result = true;
-
     for (AttributeSet node : children) {
-      result &= node.selected;
+      if (!node.selected) {
+        // One child is not selected.
+        return false;
+      }
     }
-
-    return result;
+    return true;
   }
   
   /**
    * @param node
    */
   public void addChild(AttributeSet node) {
-    if (children == null)
-      children = new ArrayList<AttributeSet>();
     children.add(node);
     node.setParent(this);
-  }
-
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    AttributeSet other = (AttributeSet) obj;
-    if (name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!name.equals(other.name))
-      return false;
-    return true;
   }
   
   @Override

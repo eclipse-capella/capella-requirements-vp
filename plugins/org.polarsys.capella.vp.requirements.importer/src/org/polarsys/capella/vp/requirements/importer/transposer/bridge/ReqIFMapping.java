@@ -100,8 +100,8 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     new TypeRule(this, types);
     new TypeDefinitionRule(this, typeDefinitions);
     
-    // Req Types from preferences
-    reqTypes = AttributesProvider.getInstance().getAttributeTypes();
+    // Get attribute types to import from preferences
+    reqTypes = AttributesProvider.getInstance().getSelectedAttributeTypes();
   
   }
 

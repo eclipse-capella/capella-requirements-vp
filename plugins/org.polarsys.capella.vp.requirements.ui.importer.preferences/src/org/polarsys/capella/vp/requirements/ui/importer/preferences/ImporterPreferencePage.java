@@ -10,30 +10,30 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.importer.preferences;
 
+import java.io.IOException;
+
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesInitializer;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
+import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
+import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
+import org.polarsys.capella.vp.requirements.importer.extension.ImportPreferencesModel;
+import org.polarsys.capella.vp.requirements.importer.extension.ReqImporterPreferencesUtil;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
 import org.polarsys.capella.vp.requirements.ui.importer.preferences.internal.AttributesSelectionSection;
 import org.polarsys.capella.vp.requirements.ui.importer.preferences.internal.FilesSelectionSection;
-import org.polarsys.capella.vp.requirements.ui.importer.preferences.internal.messages.Messages;
-import org.polarsys.capella.vp.requirements.ui.importer.preferences.util.SWTUtil;
+import org.polarsys.kitalpha.emde.extension.utils.Log;
 
 /**
  * @author Joao Barata
  */
 public class ImporterPreferencePage extends PreferencePage implements IWorkbenchPreferencePage {
-  
-  public ImporterPreferencePage(){
-    new RequirementsPreferencesInitializer().initializeDefaultPreferences();
-  }
     /**
      * 
      */
@@ -42,6 +42,14 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
     private AttributesSelectionSection attributesSelectionSection;
     private FilesSelectionSection filesSelectionSection;
 
+    private ImportPreferencesModel model;
+    
+    
+    public ImporterPreferencePage(){
+      setPreferenceStore(RequirementsUIPreferencesPlugin.getDefault().getPreferenceStore());
+      model = new ImportPreferencesModel();
+    }
+    
     @Override
     protected Control createContents(Composite parent) {
         Composite result = new Composite(parent, SWT.NONE);
@@ -62,12 +70,12 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
     }
 
     private void createFilesSelectionSection(Composite container) {
-      filesSelectionSection = new FilesSelectionSection();
+      filesSelectionSection = new FilesSelectionSection(model);
       filesSelectionSection.createComposite(container);
     }
 
     private void createAttributesSelectionSection(Composite container) {
-      attributesSelectionSection = new AttributesSelectionSection();
+      attributesSelectionSection = new AttributesSelectionSection(model);
       attributesSelectionSection.createComposite(container);
     }
 
@@ -77,8 +85,24 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
 
     @Override
     protected void performApply() {
-      filesSelectionSection.performApply(getPreferenceStore());
-      attributesSelectionSection.performApply(getPreferenceStore());
+      IPreferenceStore preferenceStore = getPreferenceStore();
+      try {
+        // Write property files list in preferences.
+        String value = ReqImporterPreferencesUtil.serializePropertyFilesPreference(model.getPropertiesFiles());
+        preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, value);
+
+        // Write selected attributes in preferences.
+        for (AttributeSet category : model.getCategories()) {
+          for (AttributeSet attribute : category.getChildren()) {
+            String key = ReqImporterPreferencesUtil.getPreferenceKey(attribute);
+            preferenceStore.setValue(key, attribute.isSelected());
+          }
+        }
+        ((ScopedPreferenceStore)preferenceStore).save();
+      } catch (IOException e) {
+        Log.getDefault().logError(e);
+      }
+      AttributesProvider.invalidateModel();
     }
 
     @Override
@@ -89,18 +113,6 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
 
     @Override
     protected void performDefaults() {
-      filesSelectionSection.performDefaults(getPreferenceStore());
       attributesSelectionSection.performDefaults(getPreferenceStore());
-    }
-
-    @Override
-    public boolean performCancel() {
-        performDefaults();
-        return super.performCancel();
-    }
-
-    @Override
-    protected IPreferenceStore doGetPreferenceStore() {
-        return RequirementsUIPreferencesPlugin.getDefault().getPreferenceStore();
     }
 }
