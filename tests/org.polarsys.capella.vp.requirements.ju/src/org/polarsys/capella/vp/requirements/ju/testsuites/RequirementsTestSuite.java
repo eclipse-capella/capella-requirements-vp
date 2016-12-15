@@ -11,11 +11,12 @@
 package org.polarsys.capella.vp.requirements.ju.testsuites;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
+import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
 
 import junit.framework.Test;
@@ -33,20 +34,14 @@ public class RequirementsTestSuite extends BasicTestSuite {
   }
 
   /**
-   * @see org.polarsys.capella.test.framework.api.BasicTestArtefact#getRequiredTestModels()
-   */
-  @Override
-  public List<String> getRequiredTestModels() {
-    return Collections.singletonList("testmodel");
-  }
-
-  /**
    * @see org.polarsys.capella.test.framework.api.BasicTestSuite#getTests()
    */
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
     tests.add(new RequirementsTestCase());
+    tests.add(new ImportPreferencesTestCase());
+    tests.add(new ImportTestCase());
     return tests;
   }
 }
