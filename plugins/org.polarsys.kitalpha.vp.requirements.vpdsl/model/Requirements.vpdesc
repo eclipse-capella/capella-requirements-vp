@@ -103,7 +103,7 @@
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIFForeignID">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIFPrefix">

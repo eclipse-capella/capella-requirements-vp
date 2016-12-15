@@ -7,8 +7,6 @@
     </elements>
     <elements xsi:type="generationChain:FeatureAddition" name="Generated Features for Requirements">
       <additions>org.polarsys.kitalpha.vp.requirements.af.feature</additions>
-      <additions>org.polarsys.kitalpha.vp.requirements.representation.feature</additions>
-      <additions>org.polarsys.kitalpha.vp.requirements.rules.feature</additions>
     </elements>
   </elements>
 </generationChain:GenerationChain>

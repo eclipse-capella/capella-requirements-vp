@@ -975,7 +975,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEAttribute(getRequirement_ReqIFChapterName(), ecorePackage.getEString(), "ReqIFChapterName", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirement_ReqIFForeignID(), ecorePackage.getEString(), "ReqIFForeignID", null, 0, 1, //$NON-NLS-1$
+		initEAttribute(getRequirement_ReqIFForeignID(), ecorePackage.getEBigInteger(), "ReqIFForeignID", null, 0, 1, //$NON-NLS-1$
 				Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_ReqIFPrefix(), ecorePackage.getEString(), "ReqIFPrefix", null, 0, 1, //$NON-NLS-1$

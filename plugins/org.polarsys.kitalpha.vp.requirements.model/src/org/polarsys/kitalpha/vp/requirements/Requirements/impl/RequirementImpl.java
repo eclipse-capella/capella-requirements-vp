@@ -12,6 +12,7 @@
 
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
+import java.math.BigInteger;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -107,7 +108,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQ_IF_FOREIGN_ID_EDEFAULT = null;
+	protected static final BigInteger REQ_IF_FOREIGN_ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getReqIFForeignID() <em>Req IF Foreign ID</em>}' attribute.
@@ -117,7 +118,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 * @ordered
 	 */
-	protected String reqIFForeignID = REQ_IF_FOREIGN_ID_EDEFAULT;
+	protected BigInteger reqIFForeignID = REQ_IF_FOREIGN_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
@@ -295,7 +296,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIFForeignID() {
+	public BigInteger getReqIFForeignID() {
 
 		return reqIFForeignID;
 	}
@@ -306,9 +307,9 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public void setReqIFForeignID(String newReqIFForeignID) {
+	public void setReqIFForeignID(BigInteger newReqIFForeignID) {
 
-		String oldReqIFForeignID = reqIFForeignID;
+		BigInteger oldReqIFForeignID = reqIFForeignID;
 		reqIFForeignID = newReqIFForeignID;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID,
@@ -460,7 +461,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			setReqIFChapterName((String) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-			setReqIFForeignID((String) newValue);
+			setReqIFForeignID((BigInteger) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
 			setReqIFPrefix((String) newValue);

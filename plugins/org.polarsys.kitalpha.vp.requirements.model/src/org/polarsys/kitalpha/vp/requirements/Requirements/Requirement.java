@@ -12,6 +12,7 @@
 
 package org.polarsys.kitalpha.vp.requirements.Requirements;
 
+import java.math.BigInteger;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -133,13 +134,13 @@ public interface Requirement extends AttributeOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Foreign ID</em>' attribute.
-	 * @see #setReqIFForeignID(String)
+	 * @see #setReqIFForeignID(BigInteger)
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFForeignID()
 	 * @model
 	 * @generated
 	 */
 
-	String getReqIFForeignID();
+	BigInteger getReqIFForeignID();
 
 	/**
 	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFForeignID <em>Req IF Foreign ID</em>}' attribute.
@@ -151,7 +152,7 @@ public interface Requirement extends AttributeOwner {
 	 * @generated
 	 */
 
-	void setReqIFForeignID(String value);
+	void setReqIFForeignID(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Req IF Prefix</b></em>' attribute.

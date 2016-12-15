@@ -102,7 +102,7 @@ Data Requirements.data {
 
 		Attributes:
 			ReqIFChapterName type ecore.EString
-			ReqIFForeignID type ecore.EString
+			ReqIFForeignID type ecore.EBigInteger
 			ReqIFPrefix type ecore.EString
 			ReqIFText type ecore.EString
 			requirementTypeProxy type ecore.EString

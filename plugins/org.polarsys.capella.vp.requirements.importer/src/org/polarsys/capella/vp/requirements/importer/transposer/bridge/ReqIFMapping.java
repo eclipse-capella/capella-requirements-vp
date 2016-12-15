@@ -351,7 +351,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     } else if (value instanceof AttributeValueInteger) {
       AttributeDefinitionInteger definition = ((AttributeValueInteger) value).getDefinition();
       if (definition.getLongName().equals("ReqIF.ForeignID")) {
-        target.setReqIFForeignID(((AttributeValueInteger) value).getTheValue().toString()); // FIXME should be EInteger in m2
+        target.setReqIFForeignID(((AttributeValueInteger) value).getTheValue());
       } else {
         createdObjects.putAll(parseNonStandardAttributes((AttributeValueInteger) value, target));
       }
