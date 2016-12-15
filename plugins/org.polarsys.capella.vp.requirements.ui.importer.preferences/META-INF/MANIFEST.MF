@@ -4,10 +4,9 @@ Bundle-Name: %bundleName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ui.importer.preferences;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.ui,
- org.polarsys.capella.core.ui.toolkit,
- org.polarsys.capella.vp.requirements.importer.preferences
+Require-Bundle: org.polarsys.capella.core.ui.toolkit,
+ org.polarsys.capella.vp.requirements.importer.preferences,
+ org.polarsys.capella.vp.requirements.importer.extension
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsUIPreferencesPlugin
 Export-Package: org.polarsys.capella.vp.requirements.ui.importer.preferences,

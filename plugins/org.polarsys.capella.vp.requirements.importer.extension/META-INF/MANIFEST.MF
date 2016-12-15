@@ -5,8 +5,8 @@ Bundle-SymbolicName: org.polarsys.capella.vp.requirements.importer.extension;sin
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.common,
- org.polarsys.capella.common.mdsofa.common
+Require-Bundle: org.eclipse.emf.common,
+ org.polarsys.capella.common.mdsofa.common,
+ org.polarsys.capella.vp.requirements.importer.preferences
 Export-Package: org.polarsys.capella.vp.requirements.importer.extension
 Bundle-Localization: plugin

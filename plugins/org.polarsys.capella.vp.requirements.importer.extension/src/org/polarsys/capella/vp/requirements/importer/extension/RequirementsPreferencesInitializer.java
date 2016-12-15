@@ -8,16 +8,13 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.vp.requirements.importer.preferences;
+package org.polarsys.capella.vp.requirements.importer.extension;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.core.runtime.preferences.DefaultScope;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
-import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
-import org.polarsys.capella.vp.requirements.importer.extension.RequirementsImporterExtensionPlugin;
 
 /**
  * Class used to initialize default preference values.
@@ -29,16 +26,11 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
    */
   @Override
   public void initializeDefaultPreferences() {
-    initializeDefaultPreferences(AttributesProvider.getInstance().getCategories());
-  }
-  
-  public void initializeDefaultPreferences(Collection<AttributeSet> attributes){
     IEclipsePreferences defaultScope = DefaultScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
-    for (AttributeSet category : attributes) {
-      for (AttributeSet attribute : category.getChildren()) {
-        String key = ReqImporterPreferences.getPreferenceKey(attribute);
-        defaultScope.putBoolean(key, attribute.defaultValue());
-      }
+    List<AttributeSet> allAttributes = AttributesProvider.getInstance().getAttributes();
+    for (AttributeSet attribute : allAttributes) {
+      String key = ReqImporterPreferencesUtil.getPreferenceKey(attribute);
+      defaultScope.putBoolean(key, attribute.defaultValue());
     }
   }
 }

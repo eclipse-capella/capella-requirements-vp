@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.importer.preferences;
 
-import org.eclipse.core.runtime.preferences.DefaultScope;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
