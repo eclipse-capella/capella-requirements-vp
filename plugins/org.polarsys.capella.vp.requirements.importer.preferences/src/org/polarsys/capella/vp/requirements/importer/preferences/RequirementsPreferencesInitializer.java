@@ -8,13 +8,10 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.vp.requirements.importer.extension;
-
-import java.util.List;
+package org.polarsys.capella.vp.requirements.importer.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 
 /**
  * Class used to initialize default preference values.
@@ -27,10 +24,8 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
   @Override
   public void initializeDefaultPreferences() {
     IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
-    List<AttributeSet> allAttributes = AttributesProvider.getInstance().getAttributes();
-    for (AttributeSet attribute : allAttributes) {
-      String key = ReqImporterPreferencesUtil.getPreferenceKey(attribute);
-      store.setDefault(key, attribute.defaultValue());
-    }
+    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION,
+        RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_EXPRESSION);
   }
+  
 }

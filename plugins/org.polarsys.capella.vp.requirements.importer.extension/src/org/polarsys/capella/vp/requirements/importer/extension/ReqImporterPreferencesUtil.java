@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,12 +28,11 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.util.URI;
-import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.polarsys.capella.common.mdsofa.common.helper.ExtensionPointHelper;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 
 public class ReqImporterPreferencesUtil {
   
@@ -73,7 +72,7 @@ public class ReqImporterPreferencesUtil {
 
   public static List<AttributeSet> loadPropertiesFileAttributes(List<URI> propertiesFiles) {    
     List<AttributeSet> result = new ArrayList<AttributeSet>();
-    IEclipsePreferences instanceScope = InstanceScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
+    IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
     for (URI propertiesFile : propertiesFiles) {
       // Get a platform path or an absolute path.
       String absoluteFilePath = null;
@@ -103,7 +102,8 @@ public class ReqImporterPreferencesUtil {
               attrSet.addChild(childAttr);
               Boolean defaultValue = Boolean.valueOf(value);
               childAttr.setDefaultValue(defaultValue);
-              boolean selected = instanceScope.getBoolean(getPreferenceKey(childAttr), defaultValue);
+              String akey = getPreferenceKey(childAttr);
+              boolean selected = store.contains(akey) ? store.getBoolean(akey) : defaultValue;
               childAttr.setSelected(selected);
             }
             result.add(attrSet);
@@ -124,14 +124,14 @@ public class ReqImporterPreferencesUtil {
   }
 
   public static List<URI> getPropertyFilesFromPreferences() {
-    IEclipsePreferences instanceScope = InstanceScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
-    String values = instanceScope.get(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, ICommonConstants.EMPTY_STRING);
+    IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
+    String values = store.getString(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES);
     return deserializePropertyFilesPreference(values);
   }
 
   public static List<AttributeSet> loadContributedCategories() {
     List<AttributeSet> contributedAttributes = new ArrayList<AttributeSet>();
-    IEclipsePreferences instanceScope = InstanceScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
+    IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
     IConfigurationElement[] attributesProvider = ExtensionPointHelper.getConfigurationElements(RequirementsImporterExtensionPlugin.PLUGIN_ID,
             RequirementsImporterExtensionPlugin.ATTRIBUTES_PROVIDER_EXTENSION_ID);
     for (IConfigurationElement provider : attributesProvider) {
@@ -144,10 +144,10 @@ public class ReqImporterPreferencesUtil {
         attributeSet.addChild(attributeSetChild);
         boolean defaultValue = Boolean.valueOf(attribute.getAttribute("defaultValue"));
         attributeSetChild.setDefaultValue(defaultValue);
-        boolean selected = instanceScope.getBoolean(getPreferenceKey(attributeSetChild), defaultValue);
+        String akey = getPreferenceKey(attributeSetChild);
+        boolean selected = store.contains(akey) ? store.getBoolean(akey) : defaultValue;
         attributeSetChild.setSelected(selected);
         attributeSetChild.setMandatory(attributeSet.isMandatory());
-  
       }
   
       contributedAttributes.add(attributeSet);

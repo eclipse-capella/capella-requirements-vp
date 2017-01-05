@@ -4,8 +4,11 @@ Bundle-Name: %bundleName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ui.importer.preferences;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.polarsys.capella.core.ui.toolkit,
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.polarsys.capella.core.ui.toolkit,
  org.polarsys.capella.vp.requirements.importer.preferences,
+ org.polarsys.capella.core.preferences,
  org.polarsys.capella.vp.requirements.importer.extension
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.polarsys.capella.vp.requirements.ui.importer.preferences.RequirementsUIPreferencesPlugin
@@ -13,3 +16,4 @@ Export-Package: org.polarsys.capella.vp.requirements.ui.importer.preferences,
  org.polarsys.capella.vp.requirements.ui.importer.preferences.attributes
 Bundle-Vendor: %bundleVendor
 Bundle-Localization: plugin
+Import-Package: org.polarsys.capella.vp.requirements.importer.preferences

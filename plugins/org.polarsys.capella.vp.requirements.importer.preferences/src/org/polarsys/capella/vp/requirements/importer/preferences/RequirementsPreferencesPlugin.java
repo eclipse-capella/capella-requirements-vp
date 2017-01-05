@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,13 +10,16 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.preferences;
 
-import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.framework.BundleContext;
 
 /**
  * @author Joao Barata
  */
-public class RequirementsPreferencesPlugin extends Plugin {
+public class RequirementsPreferencesPlugin extends AbstractUIPlugin {
 
   // The plug-in ID
   public static final String PLUGIN_ID = "org.polarsys.capella.vp.requirements.importer.preferences"; //$NON-NLS-1$
@@ -24,6 +27,18 @@ public class RequirementsPreferencesPlugin extends Plugin {
   // The shared instance
   private static RequirementsPreferencesPlugin plugin;
 
+  private ScopedPreferenceStore preferenceStore;
+
+  @Override
+  public IPreferenceStore getPreferenceStore() {
+
+    // Create the preference store lazily.
+    if (preferenceStore == null) {
+      preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, RequirementsPreferencesPlugin.PLUGIN_ID);
+    }
+    return preferenceStore;
+  }
+  
   /**
    * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
    */
@@ -31,6 +46,7 @@ public class RequirementsPreferencesPlugin extends Plugin {
   public void start(BundleContext context) throws Exception {
     super.start(context);
     plugin = this;
+    new RequirementsPreferencesInitializer().initializeDefaultPreferences();
   }
 
   /**

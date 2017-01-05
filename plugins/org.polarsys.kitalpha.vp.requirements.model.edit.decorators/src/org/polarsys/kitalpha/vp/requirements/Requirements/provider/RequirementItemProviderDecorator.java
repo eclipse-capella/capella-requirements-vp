@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,8 +12,6 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 
 import java.util.List;
 
-import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -74,19 +72,21 @@ public class RequirementItemProviderDecorator extends
       if (session != null) {
         IInterpreter interpreter = session.getInterpreter();
         if (interpreter != null) {
-          IEclipsePreferences scope = InstanceScope.INSTANCE.getNode(RequirementsPreferencesPlugin.PLUGIN_ID);
-          String expression = scope.get(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION, RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_EXPRESSION);
+          String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore().getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
           Object value = interpreter.evaluate(requirement, expression);
+          String result = "";
           if (value instanceof List<?>) {
-    	    value = ((List<?>) value).get(0);
+            for (Object item : (List)value) {
+              result += item;
+            }
+          } else {
+            result += value;
           }
-          if (value instanceof String) {
-    	    return (String) value;
-          }
+          return result;
         }
       }
     } catch (EvaluationException ex) {
-      ex.printStackTrace();
+      return "[Error in label expression] " + super.getText(object);
     }
     return super.getText(object);
   }
