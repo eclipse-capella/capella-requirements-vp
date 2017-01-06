@@ -17,7 +17,7 @@ public class RequirementsPreferencesConstants {
 
   public static final String REQUIREMENT_LABEL_EXPRESSION = "requirement.label.expression";
   
-  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "<%(self.ownedAttributes[definition.ReqIFLongName==\"IE PUID\"].value + (self.ReqIFText.adapt(\"List\")+self.ReqIFLongName .adapt(\"List\") + self.ReqIFChapterName.adapt(\"List\"))[length>0].nFirst).sep(\" ; \").toString%>";
+  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "<%(self.ownedAttributes[definition.ReqIFLongName==\"IE PUID\"].value + (self.ReqIFText.adapt(\"List\")+self.ReqIFLongName .adapt(\"List\") + self.ReqIFChapterName.adapt(\"List\"))[length>0].nFirst).sep(\" \").toString%>";
 
   public static final String REQUIREMENT_PROPERTIES_FILES = "requirement.properties.files";
   
