@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -62,8 +62,9 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   public static IEditableModelScope temporaryScope = null;
   IEditableModelScope _targetScope;
 
-  public RequirementsVPBridge(IEditableModelScope targetScope, IBridge<IEditableModelScope, IEditableModelScope> bridge,
-      IDiffPolicy diffPolicy, IMergePolicy mergePolicy, IMergeSelector merger) {
+  public RequirementsVPBridge(IEditableModelScope targetScope,
+      IBridge<IEditableModelScope, IEditableModelScope> bridge, IDiffPolicy diffPolicy, IMergePolicy mergePolicy,
+      IMergeSelector merger) {
     super(bridge, diffPolicy, mergePolicy, merger);
     _targetScope = targetScope;
   }
@@ -117,8 +118,8 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
       manager.execute(new AbstractReadWriteCommand() {
         @Override
         public void run() {
-          Resource holdingResource = HoldingResourceHelper
-              .getHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents()));
+          Resource holdingResource = HoldingResourceHelper.getHoldingResource(TransactionHelper
+              .getEditingDomain(targetScope.getContents()));
 
           Project project = (Project) scope.getContents().get(0);
           HoldingResourceHelper.attachToHoldingResource(project, holdingResource);
@@ -172,17 +173,25 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
     }
   }
 
-  protected EMFDiffNode createDiffNode(EComparison comparison,
-      EditingDomain domain) {
+  protected EMFDiffNode createDiffNode(EComparison comparison, EditingDomain domain) {
     final EMFDiffNode diffNode = super.createDiffNode(comparison, domain);
-    
+
     DifferenceCategorySet set = new DifferenceCategorySet(Messages.Categories_Name, Messages.Categories_Description);
-    set.getChildren().add(new EClassCategory(RequirementsPackage.Literals.INTERNAL_RELATION, Messages.Categories_InternalRelations, RequirementsPackage.Literals.INTERNAL_RELATION));
-    set.getChildren().add(new EClassCategory(RequirementsPackage.Literals.TYPES_FOLDER, Messages.Categories_Types, RequirementsPackage.Literals.DATA_TYPE_DEFINITION, RequirementsPackage.Literals.ATTRIBUTE_DEFINITION, RequirementsPackage.Literals.ABSTRACT_TYPE, RequirementsPackage.Literals.TYPES_FOLDER));
+    set.getChildren().add(
+        new EClassCategory(RequirementsPackage.Literals.INTERNAL_RELATION, Messages.Categories_InternalRelations,
+            RequirementsPackage.Literals.INTERNAL_RELATION));
+
+    EClassCategory typesFolderEClassCategory = new EClassCategory(RequirementsPackage.Literals.TYPES_FOLDER,
+        Messages.Categories_Types, RequirementsPackage.Literals.DATA_TYPE_DEFINITION,
+        RequirementsPackage.Literals.ATTRIBUTE_DEFINITION, RequirementsPackage.Literals.ABSTRACT_TYPE,
+        RequirementsPackage.Literals.TYPES_FOLDER);
+    typesFolderEClassCategory.setActive(true); /* Types Folder are now filtered */
+    set.getChildren().add(typesFolderEClassCategory);
+
     diffNode.getCategoryManager().addCategories(set);
     return diffNode;
   }
-  
+
   public void initializeTrace(Trace trace) {
     trace.setSymbolFunction(new EMFSymbolFunction() {
       @Override
