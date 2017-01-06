@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -43,7 +43,6 @@ public class FolderRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
     }
     folder.setId(ReqIFMappingQueries.generateId());
     folder.setReqIFIdentifier(object.getIdentifier());
-    folder.setReqIFLongName(folder.getReqIFChapterName());
     return new TupleNP<Object>(folder, createdElements);
   }
 

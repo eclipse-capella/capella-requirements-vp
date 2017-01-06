@@ -26,6 +26,8 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
     IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
     store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION,
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_EXPRESSION);
+    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN,
+        RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_MAX_LEN);
   }
   
 }

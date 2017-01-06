@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,9 +41,7 @@ public class RequirementsItemProviderDecoratorAdapterFactory extends DecoratorAd
 	protected IItemProviderDecorator createItemProviderDecorator(Object target, Object Type) {
 	  if (target instanceof Module) {
       return new ModuleItemProviderDecorator(this);
-    } else if (target instanceof Folder) {
-      return new FolderItemProviderDecorator(this);
-    } else if (target instanceof Requirement) {
+    } else if (target instanceof Requirement || target instanceof Folder) {
 			return new RequirementItemProviderDecorator(this);
 		} else if (target instanceof IntegerValueAttribute) {
       return new IntegerValueAttributeItemProviderDecorator(this);

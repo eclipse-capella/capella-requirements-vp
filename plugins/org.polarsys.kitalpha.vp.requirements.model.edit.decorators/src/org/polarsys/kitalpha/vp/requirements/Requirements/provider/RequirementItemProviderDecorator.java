@@ -33,17 +33,17 @@ import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderA
 /**
  * @author Joao Barata
  */
-public class RequirementItemProviderDecorator extends
-		ItemProviderAdapterDecorator implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorator
+    implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+    IItemPropertySource {
 
-	public RequirementItemProviderDecorator(AdapterFactory adapterFactory) {
-		super(adapterFactory);
-	}
+  public RequirementItemProviderDecorator(AdapterFactory adapterFactory) {
+    super(adapterFactory);
+  }
 
   /**
    * This method allows to retrieve a session from elements attached to the 'holding resource' (ie. diff/merge dialog)
+   * 
    * @param element
    * @return a session related to the given element
    */
@@ -64,7 +64,7 @@ public class RequirementItemProviderDecorator extends
    * @param object
    * @return
    */
-	@Override
+  @Override
   public String getText(Object object) {
     Requirement requirement = (Requirement) object;
     try {
@@ -72,22 +72,38 @@ public class RequirementItemProviderDecorator extends
       if (session != null) {
         IInterpreter interpreter = session.getInterpreter();
         if (interpreter != null) {
-          String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore().getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
+          String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+              .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
           Object value = interpreter.evaluate(requirement, expression);
           String result = "";
           if (value instanceof List<?>) {
-            for (Object item : (List)value) {
+            for (Object item : (List) value) {
               result += item;
             }
           } else {
             result += value;
           }
-          return result;
+          return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+              .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN));
         }
       }
     } catch (EvaluationException ex) {
       return "[Error in label expression] " + super.getText(object);
     }
     return super.getText(object);
+  }
+
+  /**
+   * 
+   * @param reqName
+   * @return a reduced requirement name with length = MAX_LEN
+   */
+  protected String reduceReqNameLen(String reqName, String strMaxLen) {
+    if (strMaxLen.length() == 0)
+      return reqName;
+    int maxLen = Integer.parseInt(strMaxLen);
+    if (reqName.length() > maxLen)
+      return reqName.substring(0, maxLen).concat("...");
+    return reqName;
   }
 }
