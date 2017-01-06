@@ -74,25 +74,25 @@
               <input
                type="org.eclipse.sirius.viewpoint.DRepresentationDescriptor">
               </input>
-         </propertySection>
-		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        tab="Requirements VP">
+            </propertySection>
+            <propertySection
+                class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                tab="Requirements VP">
               <input
-               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule">
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation">
               </input>
-		    </propertySection>
-		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        tab="Requirements VP">
+            </propertySection>
+            <propertySection
+                class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                tab="Requirements VP">
               <input
-               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder">
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation">
               </input>
-		    </propertySection>
+            </propertySection>
 		</propertySections>
 </extension>
 <extension
@@ -125,24 +125,24 @@
                type="org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart">
               </input>
             </propertySection>
-		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.ModuleSection"
-		        tab="Requirements VP">
+            <propertySection
+                class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaIncomingRelationPropertySection"
+                tab="Requirements VP">
               <input
-               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule">
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation">
               </input>
-		    </propertySection>
-		    <propertySection
-		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.TypesFolderSection"
-		        tab="Requirements VP">
+            </propertySection>
+            <propertySection
+                class="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                filter="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                id="org.polarsys.capella.vp.requirements.ui.properties.sections.CapellaOutgoingRelationPropertySection"
+                tab="Requirements VP">
               <input
-               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder">
+               type="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation">
               </input>
-		    </propertySection>
+            </propertySection>
 		</propertySections>
 </extension>
 </plugin>
