@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,15 +24,14 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
 import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
 import org.polarsys.capella.vp.requirements.importer.extension.ReqImporterPreferencesUtil;
-import org.polarsys.capella.vp.requirements.importer.extension.RequirementsImporterExtensionPlugin;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 
 /**
  * Test requirement import preferences (contribution mechanism, default attributes selection, mandatory selection,
@@ -49,9 +48,8 @@ public class ImportPreferencesTestCase extends BasicTestCase {
   @Override
   public void test() throws Exception {
     final NullProgressMonitor npm = new NullProgressMonitor();
-    // Clear preference node (JUnit should be launch on a clean workspace ... but in the case of).
-    IEclipsePreferences instanceScope = InstanceScope.INSTANCE.getNode(RequirementsImporterExtensionPlugin.PLUGIN_ID);
-    instanceScope.clear();
+    ScopedPreferenceStore preferenceStore = (ScopedPreferenceStore) RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
+    
     //
     // Create .properties files.
     //
@@ -78,7 +76,7 @@ public class ImportPreferencesTestCase extends BasicTestCase {
     propertiesFileURIs.add(URI.createFileURI(classicFile.getAbsolutePath()));
     // Write property files list in preferences.
     String value = ReqImporterPreferencesUtil.serializePropertyFilesPreference(propertiesFileURIs);
-    instanceScope.put(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, value);
+    preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, value);
 
     //
     // Perform tests
@@ -96,7 +94,7 @@ public class ImportPreferencesTestCase extends BasicTestCase {
 
     // Simulate selection of Attribute2 from workspace file only -> Attribute2 shall not be selected since Attribute2
     // from classic file is not selected.
-    instanceScope.putBoolean(workspaceFile.getName() + "." + ATTRIBUTE2, true);
+    preferenceStore.setValue(workspaceFile.getName() + "." + ATTRIBUTE2, true);
     AttributesProvider.invalidateModel();
     selectedAttributes = AttributesProvider.getInstance().getSelectedAttributeTypes();
     assertTrue(selectedAttributes.containsAll(getDefaultContributedAttributes()));
@@ -106,7 +104,7 @@ public class ImportPreferencesTestCase extends BasicTestCase {
 
     // Simulate selection of Attribute2 from classic file only -> now Attribute2 shall be selected since Attribute2 from
     // both sources is selected.
-    instanceScope.putBoolean(classicFile.getName() + "." + ATTRIBUTE2, true);
+    preferenceStore.setValue(classicFile.getName() + "." + ATTRIBUTE2, true);
     AttributesProvider.invalidateModel();
     selectedAttributes = AttributesProvider.getInstance().getSelectedAttributeTypes();
     assertTrue(selectedAttributes.containsAll(getDefaultContributedAttributes()));
