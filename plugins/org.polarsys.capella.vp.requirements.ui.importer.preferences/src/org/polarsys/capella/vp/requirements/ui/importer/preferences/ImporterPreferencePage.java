@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvide
 import org.polarsys.capella.vp.requirements.importer.extension.ImportPreferencesModel;
 import org.polarsys.capella.vp.requirements.importer.extension.ReqImporterPreferencesUtil;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 import org.polarsys.capella.vp.requirements.ui.importer.preferences.internal.AttributesSelectionSection;
 import org.polarsys.capella.vp.requirements.ui.importer.preferences.internal.FilesSelectionSection;
 import org.polarsys.kitalpha.emde.extension.utils.Log;
@@ -44,10 +45,14 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
 
     private ImportPreferencesModel model;
     
-    
-    public ImporterPreferencePage(){
-      setPreferenceStore(RequirementsUIPreferencesPlugin.getDefault().getPreferenceStore());
+    public ImporterPreferencePage() {
       model = new ImportPreferencesModel();
+      setPreferenceStore(RequirementsPreferencesPlugin.getDefault().getPreferenceStore());
+    }
+
+    @Override
+    protected IPreferenceStore doGetPreferenceStore() {
+      return RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
     }
     
     @Override

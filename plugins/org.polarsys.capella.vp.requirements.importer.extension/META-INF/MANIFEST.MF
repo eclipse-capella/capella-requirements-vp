@@ -7,6 +7,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.emf.common,
  org.polarsys.capella.common.mdsofa.common,
- org.polarsys.capella.vp.requirements.importer.preferences
+ org.polarsys.capella.vp.requirements.importer.preferences,
+ org.eclipse.ui
 Export-Package: org.polarsys.capella.vp.requirements.importer.extension
 Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.polarsys.capella.vp.requirements.importer.extension.RequirementsImporterExtensionPlugin
