@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,7 +17,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
@@ -45,7 +44,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 /**
  * @author Joao Barata
  */
-public class CapellaRequirement_OutgoingTrace implements IBusinessQuery {
+public class CapellaElement_CapellaOutgoingRelation_Requirement implements IBusinessQuery {
 
   /**
    * @see org.polarsys.capella.core.business.queries.ui.business.queries.IBusinessQuery#getAvailableElements(EObject)
@@ -164,7 +163,7 @@ public class CapellaRequirement_OutgoingTrace implements IBusinessQuery {
 
   @Override
 	public List<EReference> getEStructuralFeatures() {
-    return Collections.singletonList(ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
+    return Collections.singletonList(CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
   }
 
   /**

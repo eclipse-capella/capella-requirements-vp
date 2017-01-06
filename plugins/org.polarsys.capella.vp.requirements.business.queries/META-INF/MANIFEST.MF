@@ -6,7 +6,8 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.core.data.business.queries,
- org.polarsys.capella.vp.requirements.model
+ org.polarsys.capella.vp.requirements.model,
+ org.polarsys.capella.vp.requirements.model.helpers
 Export-Package: org.polarsys.capella.vp.requirements.business.queries
 Bundle-Vendor: %bundleVendor
 Bundle-Localization: plugin

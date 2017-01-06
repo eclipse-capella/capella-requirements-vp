@@ -7,7 +7,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.core.ui.properties,
  org.polarsys.capella.vp.requirements.model,
- org.polarsys.kitalpha.vp.requirements.ui.properties
+ org.polarsys.kitalpha.vp.requirements.ui.properties,
+ org.eclipse.sirius.diagram.ui,
+ org.polarsys.capella.vp.requirements.model.helpers
 Export-Package: org.polarsys.capella.vp.requirements.ui.properties,
  org.polarsys.capella.vp.requirements.ui.properties.sections
 Bundle-Vendor: %bundleVendor

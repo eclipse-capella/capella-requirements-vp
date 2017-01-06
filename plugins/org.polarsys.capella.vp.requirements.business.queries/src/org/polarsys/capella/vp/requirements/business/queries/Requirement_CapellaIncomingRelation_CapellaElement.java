@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,12 +18,10 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
-import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.ctx.CtxPackage;
 import org.polarsys.capella.core.data.ctx.SystemAnalysis;
@@ -38,11 +36,12 @@ import org.polarsys.capella.core.data.pa.PhysicalArchitecture;
 import org.polarsys.capella.core.model.utils.ListExt;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  * @author Joao Barata
  */
-public class CapellaRequirement_IncomingTrace implements IBusinessQuery {
+public class Requirement_CapellaIncomingRelation_CapellaElement implements IBusinessQuery {
 
   /**
    * @see org.polarsys.capella.core.business.queries.ui.business.queries.IBusinessQuery#getAvailableElements(EObject)
@@ -156,12 +155,12 @@ public class CapellaRequirement_IncomingTrace implements IBusinessQuery {
 
   @Override
 	public EClass getEClass() {
-    return CapellacorePackage.Literals.CAPELLA_ELEMENT;
+    return RequirementsPackage.Literals.REQUIREMENT;
   }
 
   @Override
 	public List<EReference> getEStructuralFeatures() {
-    return Collections.singletonList(ModellingcorePackage.Literals.TRACEABLE_ELEMENT__INCOMING_TRACES);
+    return Collections.singletonList(CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
   }
 
   /**

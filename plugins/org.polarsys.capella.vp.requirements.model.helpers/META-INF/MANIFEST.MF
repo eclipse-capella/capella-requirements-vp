@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.vp.requirements.model.helpers;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.sirius,
+ org.polarsys.capella.core.model.handler,
+ org.polarsys.capella.vp.requirements.model
+Bundle-ActivationPolicy: lazy
+Export-Package: org.polarsys.capella.vp.requirements.model.helpers
