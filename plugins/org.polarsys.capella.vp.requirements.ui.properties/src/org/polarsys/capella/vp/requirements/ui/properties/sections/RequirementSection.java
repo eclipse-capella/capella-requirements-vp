@@ -60,6 +60,7 @@ public class RequirementSection extends AbstractSection {
   public final static int TRANSFER_TREE_STYLE = AbstractTransferViewer2.SINGLE_SELECTION_VIEWER | AbstractTransferViewer2.ALL_BUTTONS;
 
   protected TransferTreeListViewer viewer;
+  protected EObject requirement;
 
 	/**
 	 * @param eObject current object
@@ -135,7 +136,12 @@ public class RequirementSection extends AbstractSection {
     for (Object obj : elts) {
       elementsToBeAdded.add((CapellaElement) obj);
     }
-    final EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    final EObject currentSelection;
+    // When the section is not initialized for a Property view, the selection is not set
+    if (getSelection() == null)
+      currentSelection = requirement;
+    else
+      currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
     for (EObject elt : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
       CapellaElement element = ((CapellaIncomingRelation) elt).getTarget();
       if ((element != null) && elementsToBeAdded.contains(element)) {
@@ -157,7 +163,11 @@ public class RequirementSection extends AbstractSection {
 
   protected void removeAllocations(Collection<Object> elts) {
     final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
-    EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    EObject currentSelection;
+    if (getSelection() == null)
+      currentSelection = requirement;
+    else
+      currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
     for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
       CapellaElement elt = ((CapellaIncomingRelation) referencer).getTarget();
       if ((elt != null) && elts.contains(elt)) {
@@ -178,7 +188,7 @@ public class RequirementSection extends AbstractSection {
 	 */
 	public void loadData(EObject capellaElement) {
 		super.loadData(capellaElement);
-
+		this.requirement = capellaElement;
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
         CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
     if (query != null) {
