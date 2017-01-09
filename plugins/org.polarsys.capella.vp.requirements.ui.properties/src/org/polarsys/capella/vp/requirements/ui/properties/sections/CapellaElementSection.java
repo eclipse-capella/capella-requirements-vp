@@ -54,42 +54,43 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * @author Joao Barata
  */
 public class CapellaElementSection extends AbstractSection {
-  
+
   public final static int DEFAULT_EXPAND_LEVEL = 4;
   public final static int DEFAULT_TREE_VIEWER_STYLE = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER;
   public final static int TRANSFER_TREE_STYLE = AbstractTransferViewer2.SINGLE_SELECTION_VIEWER | AbstractTransferViewer2.ALL_BUTTONS;
 
   protected TransferTreeListViewer viewer;
+  protected EObject capellaElement;
 
-	/**
+  /**
 	 * @param eObject current object
-	 */
-	public boolean select(Object eObject) {
-		EObject eObjectToTest = super.selection(eObject);
+   */
+  public boolean select(Object eObject) {
+    EObject eObjectToTest = super.selection(eObject);
 
 		if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
-			return true;
-		}
-		return false;
-	}
+      return true;
+    }
+    return false;
+  }
 
-	/**
-	* @param part
-	* @param selection
-	*/
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		EObject newEObject = super.setInputSelection(part, selection);
-		if (newEObject instanceof CapellaElement) {
-			loadData(newEObject);
-		}
-	}
+  /**
+   * @param part
+   * @param selection
+   */
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+    if (newEObject instanceof CapellaElement) {
+      loadData(newEObject);
+    }
+  }
 
-	/**
-	 * @param parent
-	 * @param aTabbedPropertySheetPage
-	 */
-	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		super.createControls(parent, aTabbedPropertySheetPage);
+  /**
+   * @param parent
+   * @param aTabbedPropertySheetPage
+   */
+  public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+    super.createControls(parent, aTabbedPropertySheetPage);
 
     _rootParentComposite.setLayout(new GridLayout());
     _rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
@@ -124,18 +125,23 @@ public class CapellaElementSection extends AbstractSection {
         removeAllocations(((IStructuredSelection) getRightViewer().getSelection()).toList());
         return super.doHandleRemoveSelectedButton();
       }
-		  
-		};
-		viewer.setLeftContentProvider(new DataContentProvider());
-    viewer.setRightContentProvider(new DataContentProvider());
-	}
 
-	protected void addAllocations(Collection<Object> elts) {
+    };
+    viewer.setLeftContentProvider(new DataContentProvider());
+    viewer.setRightContentProvider(new DataContentProvider());
+  }
+
+  protected void addAllocations(Collection<Object> elts) {
     final List<Requirement> elementsToBeAdded = new ArrayList<Requirement>(0);
     for (Object obj : elts) {
       elementsToBeAdded.add((Requirement) obj);
     }
-    final EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    final EObject currentSelection;
+    // When the section is not initialized for a Property view, the selection is not set
+    if (getSelection() == null)
+      currentSelection = capellaElement;
+    else
+      currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
     for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
       Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
       if ((requirement != null) && elementsToBeAdded.contains(requirement)) {
@@ -153,11 +159,15 @@ public class CapellaElementSection extends AbstractSection {
         }
       }
     });
-	}
+  }
 
   protected void removeAllocations(Collection<Object> elts) {
     final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
-    EObject currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
+    EObject currentSelection;
+    if (getSelection() == null)
+      currentSelection = capellaElement;
+    else
+      currentSelection = (EObject) ((IStructuredSelection) getSelection()).getFirstElement();
     for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
       Requirement requirement = ((CapellaOutgoingRelation) referencer).getTarget();
       if ((requirement != null) && elts.contains(requirement)) {
@@ -173,12 +183,12 @@ public class CapellaElementSection extends AbstractSection {
     });
   }
 
-	/**
-	 * @param capellaElement
-	 */
-	public void loadData(EObject capellaElement) {
-		super.loadData(capellaElement);
-
+  /**
+   * @param capellaElement
+   */
+  public void loadData(EObject capellaElement) {
+    super.loadData(capellaElement);
+    this.capellaElement = capellaElement;
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(CapellacorePackage.Literals.CAPELLA_ELEMENT,
         CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
     if (query != null) {
@@ -195,7 +205,7 @@ public class CapellaElementSection extends AbstractSection {
           if (object instanceof Requirement) {
             for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
               RelationType type = ((CapellaOutgoingRelation) relation).getRelationType();
-              if (type!= null) {
+              if (type != null) {
                 String typeName = type.getReqIFLongName();
                 if (typeName != null && !typeName.isEmpty()) {
                   prefix = "[" + typeName + "] ";
@@ -211,11 +221,11 @@ public class CapellaElementSection extends AbstractSection {
     }
   }
 
-	/**
-	 * 
+  /**
+   * 
    */
-	public List<AbstractSemanticField> getSemanticFields() {
-		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
-		return abstractSemanticFields;
-	}
+  public List<AbstractSemanticField> getSemanticFields() {
+    List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
+    return abstractSemanticFields;
+  }
 }
