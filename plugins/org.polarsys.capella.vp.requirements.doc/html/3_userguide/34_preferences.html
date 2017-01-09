@@ -21,10 +21,16 @@
 <h2>Requirement label</h2>
 <p>
 The label of the requirements can be customized through an Acceleo expression.
-The default expression allows to show as its label the value of a requirement's attribute named "IE PUID".
+The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:
 </p>
+<p>
+<i>IE_PUID? (Text|LongName|ChapterName)</i>
 
-<img src="../../images/preferences_acceleo.png" alt="Requirements Label Provider" title="Requirements Label Provider"/>
+</p>
+<p>
+The length of requirement's label can be specified (default = 80, nothing = full label , x = size and "..." )
+It is also possible to truncate the displayed requirement label if the length exceed
+</p>
 
 <h2>Importer scope</h2>
 <p>
