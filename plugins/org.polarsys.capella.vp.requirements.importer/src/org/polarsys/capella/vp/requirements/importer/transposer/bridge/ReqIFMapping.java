@@ -17,6 +17,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringEscapeUtils;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.impl.MappingExecution;
@@ -393,6 +395,10 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     try {
       content = ReqIF10XhtmlUtil.getXhtmlString(((AttributeValueXHTML) value).getTheValue());
       content = content.replaceAll("<[^>]*>", "").replaceAll("\r\n", " ").trim();
+      //Decode special characters
+      content = URI.decode(content);
+      //Unescape HTML special character entities
+      content = StringEscapeUtils.unescapeHtml(content);
     } catch (IOException ex) {
       ex.printStackTrace();
     }
