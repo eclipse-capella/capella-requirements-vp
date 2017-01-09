@@ -11,5 +11,41 @@
        Thales - initial API and implementation
 -->
 <plugin>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonFilter
+      		activeByDefault="true"
+            description="Hides all Requirement VP Types"
+            id="capella.project.explorer.filters.type"
+            name="Requirement VP Types">
+         <filterExpression>
+         	<instanceof
+                  value="org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder">
+            </instanceof>
+         </filterExpression>
+      </commonFilter>
+      <commonFilter
+      		activeByDefault="true"
+            description="Hides all Requirement VP Attributes"
+            id="capella.project.explorer.filters.attribute"
+            name="Requirement VP Attributes">
+         <filterExpression>
+         	<instanceof
+                  value="org.polarsys.kitalpha.vp.requirements.Requirements.Attribute">
+            </instanceof>         
+         </filterExpression>
+      </commonFilter>
+      <commonFilter
+      		activeByDefault="true"
+            description="Hides all Requirement VP Relations"
+            id="capella.project.explorer.filters.relation"
+            name="Requirement VP Relations">
+         <filterExpression>
+         	<instanceof
+                  value="org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation">
+            </instanceof>         
+         </filterExpression>
+      </commonFilter>
+   </extension>
 
 </plugin>
