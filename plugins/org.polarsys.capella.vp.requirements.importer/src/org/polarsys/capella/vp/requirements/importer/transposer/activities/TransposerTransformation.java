@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -38,13 +38,13 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
-import org.polarsys.capella.core.compare.CapellaMergePolicy;
 import org.polarsys.capella.core.model.handler.helpers.HoldingResourceHelper;
 import org.polarsys.capella.core.transition.common.activities.AbstractActivity;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.IRequirementsImporterBridgeConstants;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementsVPBridge;
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFImporterDiffPolicy;
+import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFMergePolicy;
 import org.polarsys.kitalpha.cadence.core.api.parameter.ActivityParameters;
 import org.polarsys.kitalpha.transposer.api.ITransposerWorkflow;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
@@ -62,75 +62,81 @@ public class TransposerTransformation extends AbstractActivity {
   protected IStatus _run(ActivityParameters activityParams) {
 
     final IContext context = (IContext) activityParams.getParameter(ITransposerWorkflow.TRANSPOSER_CONTEXT).getValue();
-    final IEditableModelScope sourceScope = (IEditableModelScope) context.get(IRequirementsImporterBridgeConstants.SOURCE_SCOPE);
-    final IEditableModelScope targetScope = (IEditableModelScope) context.get(IRequirementsImporterBridgeConstants.TARGET_SCOPE);
+    final IEditableModelScope sourceScope = (IEditableModelScope) context
+        .get(IRequirementsImporterBridgeConstants.SOURCE_SCOPE);
+    final IEditableModelScope targetScope = (IEditableModelScope) context
+        .get(IRequirementsImporterBridgeConstants.TARGET_SCOPE);
 
     // Define the set of rules for the transformation
     ReqIFMapping mapping = new ReqIFMapping(context);
-    
+
     // Incremental bridge
     final RequirementsVPBridge bridge = createBridge(targetScope, mapping);
 
     // Load traces
-    Resource traceResource = getCreateResource(getTraceURI(getTransformationURI(targetScope)), getTransformationDomain(targetScope));
-    IBridgeTrace/*.Editable*/ existingTrace = /*(IBridgeTrace.Editable)*/ getTrace(bridge, traceResource);
+    Resource traceResource = getCreateResource(getTraceURI(getTransformationURI(targetScope)),
+        getTransformationDomain(targetScope));
+    IBridgeTrace/* .Editable */existingTrace = /* (IBridgeTrace.Editable) */getTrace(bridge, traceResource);
 
     // Run transformation
-    //IMappingExecution execution = mapping.createExecution(existingTrace);
-    //((MappingExecution) execution).setTolerantToDuplicates(true); //?
-    //SystemArchitectBridge.temporaryScope = null;
-    //IEditableModelScope tempScope = bridge.createIntermediateDataSet(sourceScope, targetScope);
-    
-    //execution = mapping.executeOn(sourceScope, tempScope, execution, new NullProgressMonitor());
-    
+    // IMappingExecution execution = mapping.createExecution(existingTrace);
+    // ((MappingExecution) execution).setTolerantToDuplicates(true); //?
+    // SystemArchitectBridge.temporaryScope = null;
+    // IEditableModelScope tempScope = bridge.createIntermediateDataSet(sourceScope, targetScope);
+
+    // execution = mapping.executeOn(sourceScope, tempScope, execution, new NullProgressMonitor());
+
     // Do only the merge
-    final IIncrementalBridgeExecution execution2 = bridge.executeOn(sourceScope, targetScope, null/*execution*/, existingTrace/*execution.getTrace()*/, true, new NullProgressMonitor());
+    final IIncrementalBridgeExecution execution2 = bridge.executeOn(sourceScope, targetScope, null/* execution */,
+        existingTrace/* execution.getTrace() */, true, new NullProgressMonitor());
 
     // TODO do here all necessary transformations before to show the diff/merge dialog
-    
+
     bridge.mergeInteractively(execution2, new NullProgressMonitor());
 
     // Save traces and output model
     save(execution2, traceResource, execution2.getTrace(), targetScope);
 
-  	TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
-  	      @Override
-  	      public void run() {
-              HoldingResourceHelper.flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
-  	      }
-  	});
+    TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
+      @Override
+      public void run() {
+        HoldingResourceHelper.flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
+      }
+    });
 
     return Status.OK_STATUS;
   }
 
-  protected RequirementsVPBridge createBridge(IEditableModelScope targetScope, IBridge<IEditableModelScope, IEditableModelScope> bridge) {
-    return new RequirementsVPBridge(targetScope, bridge, new ReqIFImporterDiffPolicy(), new CapellaMergePolicy(), null) {
+  protected RequirementsVPBridge createBridge(IEditableModelScope targetScope,
+      IBridge<IEditableModelScope, IEditableModelScope> bridge) {
+    return new RequirementsVPBridge(targetScope, bridge, new ReqIFImporterDiffPolicy(), new ReqIFMergePolicy(), null) {
       @Override
       protected EMFDiffNode createDiffNode(EComparison comparison, EditingDomain domain) {
         EMFDiffNode diffNode = super.createDiffNode(comparison, domain);
 
-//        diffNode.setCount(UserDifferenceKind.MOVE, false);
-//
-//        for (IDifference diff : comparison.getDifferences(Role.TARGET)) {
-//          if (diff instanceof EReferenceValuePresence) {
-//            EReferenceValuePresence valuePresence = (EReferenceValuePresence) diff;
-//            EReference reference = valuePresence.getFeature();
-//            if (EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS.equals(reference)
-//             || RequirementsPackage.Literals.TYPES_FOLDER__OWNED_TYPES.equals(reference)) {
-//              EObject rootPkg = ReqIFMappingQueries.getTypesFolder(context, targetScope);
-//              EObject value = valuePresence.getValue().getTarget();
-//              if (rootPkg.equals(value) || EObjectExt.isContainedBy(value, rootPkg)) {
-//                diffNode.getUIComparison().getDifferencesToIgnore().add(valuePresence);
-//                diffNode.getUIComparison().getDifferencesToIgnore().addAll((Collection<? extends EMergeableDifference>) valuePresence.getExplicitDependenciesForReference());
-//              }
-//            }
-//          } else if (diff instanceof EElementPresence) {
-//            EElementPresence elementPresence = (EElementPresence) diff;
-//            if (CapellaRequirementsPackage.Literals.CAPELLA_TYPES_FOLDER.equals(elementPresence.getElement().eClass())) {
-//              diffNode.getUIComparison().getDifferencesToIgnore().add(elementPresence);
-//            }
-//          }
-//        }
+        // diffNode.setCount(UserDifferenceKind.MOVE, false);
+        //
+        // for (IDifference diff : comparison.getDifferences(Role.TARGET)) {
+        // if (diff instanceof EReferenceValuePresence) {
+        // EReferenceValuePresence valuePresence = (EReferenceValuePresence) diff;
+        // EReference reference = valuePresence.getFeature();
+        // if (EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS.equals(reference)
+        // || RequirementsPackage.Literals.TYPES_FOLDER__OWNED_TYPES.equals(reference)) {
+        // EObject rootPkg = ReqIFMappingQueries.getTypesFolder(context, targetScope);
+        // EObject value = valuePresence.getValue().getTarget();
+        // if (rootPkg.equals(value) || EObjectExt.isContainedBy(value, rootPkg)) {
+        // diffNode.getUIComparison().getDifferencesToIgnore().add(valuePresence);
+        // diffNode.getUIComparison().getDifferencesToIgnore().addAll((Collection<? extends EMergeableDifference>)
+        // valuePresence.getExplicitDependenciesForReference());
+        // }
+        // }
+        // } else if (diff instanceof EElementPresence) {
+        // EElementPresence elementPresence = (EElementPresence) diff;
+        // if (CapellaRequirementsPackage.Literals.CAPELLA_TYPES_FOLDER.equals(elementPresence.getElement().eClass())) {
+        // diffNode.getUIComparison().getDifferencesToIgnore().add(elementPresence);
+        // }
+        // }
+        // }
 
         return diffNode;
       }
@@ -162,7 +168,7 @@ public class TransposerTransformation extends AbstractActivity {
   }
 
   protected static void setTrace(final Resource traceResource, final IBridgeTrace trace) {
-	TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
+    TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
       @Override
       public void run() {
         traceResource.getContents().clear();
@@ -204,7 +210,7 @@ public class TransposerTransformation extends AbstractActivity {
       trace = BridgetracesFactory.eINSTANCE.createTrace();
     }
 
-    final Trace trace2 = /*EcoreUtil.copy(*/(Trace) trace/*)*/;
+    final Trace trace2 = /* EcoreUtil.copy( */(Trace) trace/* ) */;
     TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
       @Override
       public void run() {
@@ -215,7 +221,7 @@ public class TransposerTransformation extends AbstractActivity {
 
       }
     });
-    //bridge.initializeTrace(trace2);
+    // bridge.initializeTrace(trace2);
     return trace;
   }
 
