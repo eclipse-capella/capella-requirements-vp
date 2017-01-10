@@ -47,6 +47,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
+import org.polarsys.capella.vp.requirements.ui.properties.widgets.FixedPreferredSizeComposite;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -98,7 +99,11 @@ public class RequirementSection extends AbstractAllocationSection {
 
     createRelationConfig(grp);
     
-    transferTreeViewer  = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
+    // Intermediate Composite used to avoid SrollBars of parent ScrolledComposite.
+    FixedPreferredSizeComposite fixedPreferredSizeComposite = new FixedPreferredSizeComposite(grp, SWT.NONE);
+    fixedPreferredSizeComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+    
+    transferTreeViewer = new TransferTreeListViewer(fixedPreferredSizeComposite, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
       @Override
       protected boolean doHandleAddAllButton() {
         addAllocations(getLeftInput().getValidElements());
@@ -124,14 +129,15 @@ public class RequirementSection extends AbstractAllocationSection {
         removeAllocations(((IStructuredSelection) getRightViewer().getSelection()).toList());
         return super.doHandleRemoveSelectedButton();
       }
-		  
-		};
-	transferTreeViewer.setLeftContentProvider(new DataContentProvider());
+
+    };
+    transferTreeViewer.setLeftContentProvider(new DataContentProvider());
     transferTreeViewer.setRightContentProvider(new DataContentProvider());
-    transferTreeViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+    // Fixed size <=> preferred size of the empty TransferTreeListViewer.
+    fixedPreferredSizeComposite.setPreferredSize(transferTreeViewer.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT));
   }
 
-	protected void addAllocations(Collection<Object> elts) {
+  protected void addAllocations(Collection<Object> elts) {
     final List<CapellaElement> elementsToBeAdded = new ArrayList<CapellaElement>(0);
     for (Object obj : elts) {
       elementsToBeAdded.add((CapellaElement) obj);
