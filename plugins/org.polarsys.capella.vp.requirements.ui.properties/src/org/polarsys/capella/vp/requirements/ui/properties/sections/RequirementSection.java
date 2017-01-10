@@ -12,7 +12,9 @@ package org.polarsys.capella.vp.requirements.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -33,15 +35,15 @@ import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataContentProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.TreeData;
-import org.polarsys.capella.common.ui.toolkit.viewers.transfer.AbstractTransferViewer2;
 import org.polarsys.capella.common.ui.toolkit.viewers.transfer.TransferTreeListViewer;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
@@ -53,13 +55,8 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 /**
  * @author Joao Barata
  */
-public class RequirementSection extends AbstractSection {
+public class RequirementSection extends AbstractAllocationSection {
   
-  public final static int DEFAULT_EXPAND_LEVEL = 4;
-  public final static int DEFAULT_TREE_VIEWER_STYLE = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER;
-  public final static int TRANSFER_TREE_STYLE = AbstractTransferViewer2.SINGLE_SELECTION_VIEWER | AbstractTransferViewer2.ALL_BUTTONS;
-
-  protected TransferTreeListViewer viewer;
   protected EObject requirement;
 
 	/**
@@ -96,10 +93,12 @@ public class RequirementSection extends AbstractSection {
     _rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
     Group grp = getWidgetFactory().createGroup(_rootParentComposite, ICommonConstants.EMPTY_STRING);
-    grp.setLayout(new GridLayout(1, false));
+    grp.setLayout(new GridLayout(2, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
-		viewer = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
+    createRelationConfig(grp);
+    
+    transferTreeViewer  = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
       @Override
       protected boolean doHandleAddAllButton() {
         addAllocations(getLeftInput().getValidElements());
@@ -127,9 +126,10 @@ public class RequirementSection extends AbstractSection {
       }
 		  
 		};
-		viewer.setLeftContentProvider(new DataContentProvider());
-    viewer.setRightContentProvider(new DataContentProvider());
-	}
+	transferTreeViewer.setLeftContentProvider(new DataContentProvider());
+    transferTreeViewer.setRightContentProvider(new DataContentProvider());
+    transferTreeViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+  }
 
 	protected void addAllocations(Collection<Object> elts) {
     final List<CapellaElement> elementsToBeAdded = new ArrayList<CapellaElement>(0);
@@ -148,18 +148,34 @@ public class RequirementSection extends AbstractSection {
         elementsToBeAdded.remove(element);
       }
     }
+    for (EObject elt : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+        CapellaElement element = ((CapellaOutgoingRelation) elt).getSource();
+        if ((element != null) && elementsToBeAdded.contains(element)) {
+          elementsToBeAdded.remove(element);
+        }
+      }
     getExecutionManager().execute(new AbstractReadWriteCommand() {
       public void run() {
         for (CapellaElement elt : elementsToBeAdded) {
-          CapellaIncomingRelation relation = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
+          CapellaRelation relation;
+          if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+        	  CapellaIncomingRelation incomingRelation = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
+              incomingRelation.setTarget(elt);
+              incomingRelation.setSource((Requirement) currentSelection);
+              relation = incomingRelation;
+          } else {
+        	  CapellaOutgoingRelation outgoingRelation = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
+              outgoingRelation.setTarget((Requirement) currentSelection);
+              outgoingRelation.setSource(elt);
+              relation = outgoingRelation;
+          }
           relation.setId(IdGenerator.createId());
-          relation.setTarget(elt);
-          relation.setSource((Requirement) currentSelection);
+          relation.setRelationType(getRelationType());
           ((Requirement) currentSelection).getOwnedRelations().add(relation);
         }
       }
     });
-	}
+  }
 
   protected void removeAllocations(Collection<Object> elts) {
     final List<AbstractRelation> elementsToBeDestroyed = new ArrayList<AbstractRelation>(0);
@@ -174,6 +190,12 @@ public class RequirementSection extends AbstractSection {
         elementsToBeDestroyed.add((AbstractRelation) referencer);
       }
     }
+    for (EObject referencer : EObjectExt.getReferencers(currentSelection, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+        CapellaElement elt = ((CapellaOutgoingRelation) referencer).getSource();
+        if ((elt != null) && elts.contains(elt)) {
+          elementsToBeDestroyed.add((AbstractRelation) referencer);
+        }
+      }
     getExecutionManager().execute(new AbstractReadWriteCommand() {
       public void run() {
         for (AbstractRelation relation : elementsToBeDestroyed) {
@@ -189,15 +211,22 @@ public class RequirementSection extends AbstractSection {
 	public void loadData(EObject capellaElement) {
 		super.loadData(capellaElement);
 		this.requirement = capellaElement;
-    IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
-        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
-    if (query != null) {
-      List<EObject> availableElements = query.getAvailableElements(capellaElement);
-      DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
-      viewer.setLeftLabelProvider(leftLabelProvider);
-      viewer.setLeftInput(new TreeData(availableElements, null));
 
-      List<EObject> currentElements = query.getCurrentElements(capellaElement, false);
+	addRequirementsRelationTypes(capellaElement);
+
+    IBusinessQuery incomingQuery = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
+    IBusinessQuery outgoingQuery = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
+            CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE);
+    if (incomingQuery != null) {
+      List<EObject> availableElements = incomingQuery.getAvailableElements(capellaElement);
+      DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
+      transferTreeViewer.setLeftLabelProvider(leftLabelProvider);
+      transferTreeViewer.setLeftInput(new TreeData(availableElements, null));
+
+      Set<EObject> currentElements = new HashSet<EObject>();
+      currentElements.addAll(incomingQuery.getCurrentElements(capellaElement, false));
+      currentElements.addAll(outgoingQuery.getCurrentElements(capellaElement, false));
       DataLabelProvider rightLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(currentElements)) {
         @Override
         public String getText(Object object) {
@@ -208,7 +237,16 @@ public class RequirementSection extends AbstractSection {
               if (type!= null) {
                 String typeName = type.getReqIFLongName();
                 if (typeName != null && !typeName.isEmpty()) {
-                  prefix = "[" + typeName + "] ";
+                  prefix = "[<- " + typeName + "] ";
+                }
+              }
+            }
+            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
+              RelationType type = ((CapellaOutgoingRelation) relation).getRelationType();
+              if (type!= null) {
+                String typeName = type.getReqIFLongName();
+                if (typeName != null && !typeName.isEmpty()) {
+                  prefix = "[-> " + typeName + "] ";
                 }
               }
             }
@@ -216,8 +254,8 @@ public class RequirementSection extends AbstractSection {
           return prefix + super.getText(object);
         }
       };
-      viewer.setRightLabelProvider(rightLabelProvider);
-      viewer.setRightInput(new TreeData(currentElements, null));
+      transferTreeViewer.setRightLabelProvider(rightLabelProvider);
+      transferTreeViewer.setRightInput(new TreeData(currentElements, null));
     }
   }
 

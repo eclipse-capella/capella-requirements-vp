@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -30,37 +31,27 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataContentProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.TreeData;
-import org.polarsys.capella.common.ui.toolkit.viewers.transfer.AbstractTransferViewer2;
 import org.polarsys.capella.common.ui.toolkit.viewers.transfer.TransferTreeListViewer;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
-import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  *
  */
-public class RepresentationPropertySection extends AbstractSection {
+public class RepresentationPropertySection extends AbstractAllocationSection {
 
-  public final static int DEFAULT_EXPAND_LEVEL = 4;
-  public final static int DEFAULT_TREE_VIEWER_STYLE = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER;
-  public final static int TRANSFER_TREE_STYLE = AbstractTransferViewer2.SINGLE_SELECTION_VIEWER | AbstractTransferViewer2.ALL_BUTTONS;
-
-  protected TransferTreeListViewer viewer;
   private WeakReference<DRepresentation> _representation;
 
   /**
@@ -116,20 +107,24 @@ public class RepresentationPropertySection extends AbstractSection {
     _rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
     Group grp = getWidgetFactory().createGroup(_rootParentComposite, ICommonConstants.EMPTY_STRING);
-    grp.setLayout(new GridLayout(1, false));
+    grp.setLayout(new GridLayout(2, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
-    viewer = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
+    createRelationConfig(grp);
+    
+    transferTreeViewer = new TransferTreeListViewer(grp, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
       @Override
       protected boolean doHandleAddAllButton() {
         Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
         for (Object elt : getLeftInput().getValidElements()) {
-          // FIXME this line shall be replaced by a given selection (new combo box allowing to choose the type)
-          Object type = EObjectExt.getAll(((EObject) elt).eResource().getContents().get(0), RequirementsPackage.Literals.RELATION_TYPE).toArray()[0];
-          elts.add(new Couple<EObject, EObject>((EObject) elt, (EObject) type));
+          elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
         }
-        // FIXME this line shall be replaced by a given selection (new radio button allowing to choose the type)
-        RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+        if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
+        } else {
+          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+        }
+
         return super.doHandleAddAllButton();
       }
 
@@ -143,12 +138,14 @@ public class RepresentationPropertySection extends AbstractSection {
       protected boolean doHandleAddSelectedButton() {
         Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
         for (Object elt : ((IStructuredSelection) getLeftViewer().getSelection()).toList()) {
-          // FIXME this line shall be replaced by a given selection (new combo box allowing to choose the type)
-          Object type = EObjectExt.getAll(((EObject) elt).eResource().getContents().get(0), RequirementsPackage.Literals.RELATION_TYPE).toArray()[0];
-          elts.add(new Couple<EObject, EObject>((EObject) elt, (EObject) type));
+          elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
         }
-        // FIXME this line shall be replaced by a given selection (new radio button allowing to choose the type)
-        RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+        if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
+        } else {
+          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+        }
+
         return super.doHandleAddSelectedButton();
       }
 
@@ -160,8 +157,9 @@ public class RepresentationPropertySection extends AbstractSection {
       }
       
     };
-    viewer.setLeftContentProvider(new DataContentProvider());
-    viewer.setRightContentProvider(new DataContentProvider());
+    transferTreeViewer.setLeftContentProvider(new DataContentProvider());
+    transferTreeViewer.setRightContentProvider(new DataContentProvider());
+    transferTreeViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
   }
 
   /**
@@ -181,13 +179,20 @@ public class RepresentationPropertySection extends AbstractSection {
    * 
    */
   public void loadData() {
+  
+  DRepresentation representation = _representation.get();
+  if (representation instanceof DSemanticDecorator) {
+    DSemanticDecorator semanticDecorator = (DSemanticDecorator) representation;
+    addRequirementsRelationTypes(semanticDecorator.getTarget());
+  }
+
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
         CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
     if (query != null) {
       List<EObject> availableElements = query.getAvailableElements(_representation.get());
       DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
-      viewer.setLeftLabelProvider(leftLabelProvider);
-      viewer.setLeftInput(new TreeData(availableElements, null));
+      transferTreeViewer.setLeftLabelProvider(leftLabelProvider);
+      transferTreeViewer.setLeftInput(new TreeData(availableElements, null));
 
       List<EObject> currentElements = query.getCurrentElements(_representation.get(), false);
       DataLabelProvider rightLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(currentElements)) {
@@ -195,28 +200,27 @@ public class RepresentationPropertySection extends AbstractSection {
         public String getText(Object object) {
           String prefix = ICommonConstants.EMPTY_STRING;
           if (object instanceof Requirement) {
-            RelationType type = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, (Requirement) object);
-            if (type!= null) {
-              String typeName = type.getReqIFLongName();
+            RelationType outgoingRelationType = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, (Requirement) object);
+            if (outgoingRelationType != null) {
+              String typeName = outgoingRelationType.getReqIFLongName();
               if (typeName != null && !typeName.isEmpty()) {
-                prefix = "[" + typeName + "] ";
+                prefix = "[-> " + typeName + "] ";
+              }
+            }
+            RelationType incomingRelationType = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, (Requirement) object);
+            if (incomingRelationType != null) {
+              String typeName = incomingRelationType.getReqIFLongName();
+              if (typeName != null && !typeName.isEmpty()) {
+                prefix = "[<- " + typeName + "] ";
               }
             }
           }
           return prefix + super.getText(object);
         }
       };
-      viewer.setRightLabelProvider(rightLabelProvider);
-      viewer.setRightInput(new TreeData(currentElements, null));
+      transferTreeViewer.setRightLabelProvider(rightLabelProvider);
+      transferTreeViewer.setRightInput(new TreeData(currentElements, null));
+      transferTreeViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
     }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public List<AbstractSemanticField> getSemanticFields() {
-    List<AbstractSemanticField> fields = new ArrayList<AbstractSemanticField>();
-    return fields;
   }
 }
