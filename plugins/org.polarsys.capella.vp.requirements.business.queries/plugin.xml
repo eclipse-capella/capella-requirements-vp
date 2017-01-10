@@ -18,6 +18,14 @@
          id="org.polarsys.capella.vp.requirements.business.queries.Requirement_CapellaIncomingRelation_CapellaElement">
    </MDEBusinessQueries>
    <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.Requirement_CapellaOutgoingRelation_CapellaElement"
+         id="org.polarsys.capella.vp.requirements.business.queries.Requirement_CapellaOutgoingRelation_CapellaElement">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.CapellaElement_CapellaIncomingRelation_Requirement"
+         id="org.polarsys.capella.vp.requirements.business.queries.CapellaElement_CapellaIncomingRelation_Requirement">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
          class="org.polarsys.capella.vp.requirements.business.queries.CapellaElement_CapellaOutgoingRelation_Requirement"
          id="org.polarsys.capella.vp.requirements.business.queries.CapellaElement_CapellaOutgoingRelation_Requirement">
    </MDEBusinessQueries>
