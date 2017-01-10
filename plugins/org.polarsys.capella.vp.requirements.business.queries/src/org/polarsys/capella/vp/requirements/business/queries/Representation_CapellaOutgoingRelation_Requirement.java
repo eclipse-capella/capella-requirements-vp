@@ -153,7 +153,7 @@ public class Representation_CapellaOutgoingRelation_Requirement implements IBusi
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     if (element instanceof DRepresentation) {
       List<EObject> result = new ArrayList<EObject>();
-      for (Couple<Requirement, RelationType> allocation : RelationAnnotationHelper.getAllocations((DRepresentation) element)) {
+      for (Couple<Requirement, RelationType> allocation : RelationAnnotationHelper.getAllocations((DRepresentation) element, RelationAnnotationHelper.OutgoingRelationAnnotation)) {
         result.add(allocation.getKey());
       }
       return result;

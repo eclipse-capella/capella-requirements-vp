@@ -128,7 +128,8 @@ public class RepresentationPropertySection extends AbstractSection {
           Object type = EObjectExt.getAll(((EObject) elt).eResource().getContents().get(0), RequirementsPackage.Literals.RELATION_TYPE).toArray()[0];
           elts.add(new Couple<EObject, EObject>((EObject) elt, (EObject) type));
         }
-        RelationAnnotationHelper.addAllocations(_representation.get(), elts);
+        // FIXME this line shall be replaced by a given selection (new radio button allowing to choose the type)
+        RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
         return super.doHandleAddAllButton();
       }
 
@@ -146,7 +147,8 @@ public class RepresentationPropertySection extends AbstractSection {
           Object type = EObjectExt.getAll(((EObject) elt).eResource().getContents().get(0), RequirementsPackage.Literals.RELATION_TYPE).toArray()[0];
           elts.add(new Couple<EObject, EObject>((EObject) elt, (EObject) type));
         }
-        RelationAnnotationHelper.addAllocations(_representation.get(), elts);
+        // FIXME this line shall be replaced by a given selection (new radio button allowing to choose the type)
+        RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
         return super.doHandleAddSelectedButton();
       }
 
@@ -193,7 +195,7 @@ public class RepresentationPropertySection extends AbstractSection {
         public String getText(Object object) {
           String prefix = ICommonConstants.EMPTY_STRING;
           if (object instanceof Requirement) {
-            RelationType type = RelationAnnotationHelper.getAllocationType(_representation.get(), (Requirement) object);
+            RelationType type = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, (Requirement) object);
             if (type!= null) {
               String typeName = type.getReqIFLongName();
               if (typeName != null && !typeName.isEmpty()) {

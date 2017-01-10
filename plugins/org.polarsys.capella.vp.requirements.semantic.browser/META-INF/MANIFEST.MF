@@ -6,7 +6,8 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.emf.ecore,
  org.polarsys.capella.common.ui.toolkit.browser,
- org.polarsys.capella.vp.requirements.model.edit
+ org.polarsys.capella.vp.requirements.model.edit,
+ org.polarsys.capella.vp.requirements.model.helpers
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.polarsys.capella.vp.requirements.semantic.browser.queries
