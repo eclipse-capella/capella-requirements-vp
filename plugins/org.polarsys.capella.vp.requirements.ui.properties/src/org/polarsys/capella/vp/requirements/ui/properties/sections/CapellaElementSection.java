@@ -184,7 +184,9 @@ public class CapellaElementSection extends AbstractAllocationSection {
   protected void addAllocations(Collection<Object> elts) {
     final List<Requirement> elementsToBeAdded = new ArrayList<Requirement>(0);
     for (Object obj : elts) {
-      elementsToBeAdded.add((Requirement) obj);
+      if (obj instanceof Requirement) {
+    	elementsToBeAdded.add((Requirement) obj);
+      }
     }
     final EObject currentSelection;
     // When the section is not initialized for a Property view, the selection is not set
