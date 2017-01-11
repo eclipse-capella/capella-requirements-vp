@@ -25,4 +25,8 @@ public class RequirementsPreferencesConstants {
   
   public static final String REQUIREMENT_DEFAULT_LABEL_MAX_LEN = "80";
 
+  public static final String VALUE_LABEL_MAX_LEN = "value.label.max.len";
+  
+  public static final String VALUE_DEFAULT_LABEL_MAX_LEN = "80";
+  
 }

@@ -28,6 +28,8 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_EXPRESSION);
     store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN,
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_MAX_LEN);
+    store.setDefault(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN,
+        RequirementsPreferencesConstants.VALUE_DEFAULT_LABEL_MAX_LEN);
   }
   
 }
