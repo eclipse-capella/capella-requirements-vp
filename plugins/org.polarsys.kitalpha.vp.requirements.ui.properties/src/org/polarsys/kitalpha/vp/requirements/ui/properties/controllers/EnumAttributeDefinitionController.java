@@ -10,20 +10,21 @@
  *******************************************************************************/
 package org.polarsys.kitalpha.vp.requirements.ui.properties.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
 
 public class EnumAttributeDefinitionController extends SimpleSemanticFieldController {
-  /**
-   * {@inheritDoc}
-   */
   @Override
-  public EObject loadValue(EObject semanticElement, EStructuralFeature semanticFeature) {
-    EObject loadValue = super.loadValue(semanticElement, semanticFeature);
-    if (!(loadValue instanceof AttributeDefinitionEnumeration))
-      return null;
-    return loadValue;
+  public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
+    List<EObject> eObjs = new ArrayList<EObject>(); 
+    for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature))
+      if (eObj instanceof AttributeDefinitionEnumeration)
+        eObjs.add(eObj);
+    return eObjs;
   }
 }

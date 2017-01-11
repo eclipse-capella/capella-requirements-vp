@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -26,6 +25,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.RequirementController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -74,11 +74,11 @@ public class InternalRelationSection extends AbstractSection {
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     sourceField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("InternalRelation.SourceLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+      Messages.getString("InternalRelation.SourceLabel"), getWidgetFactory(), new RequirementController()); //$NON-NLS-1$
     sourceField.setDisplayedInWizard(displayedInWizard);
 
     targetField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("InternalRelation.TargetLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+      Messages.getString("InternalRelation.TargetLabel"), getWidgetFactory(), new RequirementController()); //$NON-NLS-1$
     targetField.setDisplayedInWizard(displayedInWizard);
 	}
 
