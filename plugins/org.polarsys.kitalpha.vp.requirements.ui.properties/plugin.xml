@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <?eclipse version="3.4"?>
 <!--
-  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -141,6 +141,15 @@
                type="org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder">
               </input>
 		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute">
+              </input>
+		    </propertySection>
 		</propertySections>
 </extension>
 <extension
@@ -252,6 +261,15 @@
 		        tab="Requirements VP">
               <input
                type="org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumerationAttributeSection"
+		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute">
               </input>
 		    </propertySection>
 		</propertySections>

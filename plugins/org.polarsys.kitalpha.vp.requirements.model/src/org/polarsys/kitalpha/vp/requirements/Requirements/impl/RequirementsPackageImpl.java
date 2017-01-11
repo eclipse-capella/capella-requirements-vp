@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -17,17 +17,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
@@ -204,6 +206,34 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * @generated
 	 */
 	private EClass attributeDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attributeDefinitionEnumerationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumerationValueAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumerationDataTypeDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -735,6 +765,69 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAttributeDefinitionEnumeration() {
+		return attributeDefinitionEnumerationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttributeDefinitionEnumeration_MultiValued() {
+		return (EAttribute) attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnumerationValueAttribute() {
+		return enumerationValueAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnumerationValueAttribute_Values() {
+		return (EReference) enumerationValueAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnumerationDataTypeDefinition() {
+		return enumerationDataTypeDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnumerationDataTypeDefinition_SpecifiedValues() {
+		return (EReference) enumerationDataTypeDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnumValue() {
+		return enumValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RequirementsFactory getRequirementsFactory() {
 		return (RequirementsFactory) getEFactoryInstance();
 	}
@@ -830,6 +923,17 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 
 		attributeDefinitionEClass = createEClass(ATTRIBUTE_DEFINITION);
 		createEReference(attributeDefinitionEClass, ATTRIBUTE_DEFINITION__DEFINITION_TYPE);
+
+		attributeDefinitionEnumerationEClass = createEClass(ATTRIBUTE_DEFINITION_ENUMERATION);
+		createEAttribute(attributeDefinitionEnumerationEClass, ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED);
+
+		enumerationValueAttributeEClass = createEClass(ENUMERATION_VALUE_ATTRIBUTE);
+		createEReference(enumerationValueAttributeEClass, ENUMERATION_VALUE_ATTRIBUTE__VALUES);
+
+		enumerationDataTypeDefinitionEClass = createEClass(ENUMERATION_DATA_TYPE_DEFINITION);
+		createEReference(enumerationDataTypeDefinitionEClass, ENUMERATION_DATA_TYPE_DEFINITION__SPECIFIED_VALUES);
+
+		enumValueEClass = createEClass(ENUM_VALUE);
 	}
 
 	/**
@@ -881,6 +985,10 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		relationTypeEClass.getESuperTypes().add(this.getAbstractType());
 		dataTypeDefinitionEClass.getESuperTypes().add(this.getReqIFElement());
 		attributeDefinitionEClass.getESuperTypes().add(this.getReqIFElement());
+		attributeDefinitionEnumerationEClass.getESuperTypes().add(this.getAttributeDefinition());
+		enumerationValueAttributeEClass.getESuperTypes().add(this.getAttribute());
+		enumerationDataTypeDefinitionEClass.getESuperTypes().add(this.getDataTypeDefinition());
+		enumValueEClass.getESuperTypes().add(this.getReqIFElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(identifiableElementEClass, IdentifiableElement.class, "IdentifiableElement", IS_ABSTRACT, //$NON-NLS-1$
@@ -1033,6 +1141,27 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAttributeDefinition_DefinitionType(), this.getDataTypeDefinition(), null, "definitionType", //$NON-NLS-1$
 				null, 0, 1, AttributeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class,
+				"AttributeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getAttributeDefinitionEnumeration_MultiValued(), ecorePackage.getEBoolean(), "multiValued", null, //$NON-NLS-1$
+				0, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumerationValueAttributeEClass, EnumerationValueAttribute.class, "EnumerationValueAttribute", //$NON-NLS-1$
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnumerationValueAttribute_Values(), this.getEnumValue(), null, "values", null, 0, -1, //$NON-NLS-1$
+				EnumerationValueAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumerationDataTypeDefinitionEClass, EnumerationDataTypeDefinition.class,
+				"EnumerationDataTypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEnumerationDataTypeDefinition_SpecifiedValues(), this.getEnumValue(), null, "specifiedValues", //$NON-NLS-1$
+				null, 0, -1, EnumerationDataTypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

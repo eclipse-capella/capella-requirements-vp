@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -1689,6 +1689,289 @@ public interface RequirementsPackage extends EPackage {
 	int ATTRIBUTE_DEFINITION_OPERATION_COUNT = REQ_IF_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl <em>Attribute Definition Enumeration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeDefinitionEnumeration()
+	 * @generated
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__ID = ATTRIBUTE_DEFINITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__REQ_IF_IDENTIFIER = ATTRIBUTE_DEFINITION__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__REQ_IF_DESCRIPTION = ATTRIBUTE_DEFINITION__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__REQ_IF_LONG_NAME = ATTRIBUTE_DEFINITION__REQ_IF_LONG_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Definition Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__DEFINITION_TYPE = ATTRIBUTE_DEFINITION__DEFINITION_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multi Valued</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED = ATTRIBUTE_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Definition Enumeration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION_FEATURE_COUNT = ATTRIBUTE_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Attribute Definition Enumeration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION_OPERATION_COUNT = ATTRIBUTE_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationValueAttributeImpl <em>Enumeration Value Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationValueAttributeImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationValueAttribute()
+	 * @generated
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE__DEFINITION = ATTRIBUTE__DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Definition Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE__DEFINITION_PROXY = ATTRIBUTE__DEFINITION_PROXY;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE__VALUES = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Enumeration Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Enumeration Value Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationDataTypeDefinitionImpl <em>Enumeration Data Type Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationDataTypeDefinitionImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationDataTypeDefinition()
+	 * @generated
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION = 23;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__ID = DATA_TYPE_DEFINITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__REQ_IF_IDENTIFIER = DATA_TYPE_DEFINITION__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__REQ_IF_DESCRIPTION = DATA_TYPE_DEFINITION__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__REQ_IF_LONG_NAME = DATA_TYPE_DEFINITION__REQ_IF_LONG_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Specified Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__SPECIFIED_VALUES = DATA_TYPE_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Enumeration Data Type Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION_FEATURE_COUNT = DATA_TYPE_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Enumeration Data Type Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION_OPERATION_COUNT = DATA_TYPE_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumValueImpl <em>Enum Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumValueImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumValue()
+	 * @generated
+	 */
+	int ENUM_VALUE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__ID = REQ_IF_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__REQ_IF_IDENTIFIER = REQ_IF_ELEMENT__REQ_IF_IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__REQ_IF_DESCRIPTION = REQ_IF_ELEMENT__REQ_IF_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Long Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__REQ_IF_LONG_NAME = REQ_IF_ELEMENT__REQ_IF_LONG_NAME;
+
+	/**
+	 * The number of structural features of the '<em>Enum Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE_FEATURE_COUNT = REQ_IF_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Enum Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE_OPERATION_COUNT = REQ_IF_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement <em>Identifiable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2229,6 +2512,79 @@ public interface RequirementsPackage extends EPackage {
 	EReference getAttributeDefinition_DefinitionType();
 
 	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration <em>Attribute Definition Enumeration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Definition Enumeration</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration
+	 * @generated
+	 */
+	EClass getAttributeDefinitionEnumeration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration#isMultiValued <em>Multi Valued</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Multi Valued</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration#isMultiValued()
+	 * @see #getAttributeDefinitionEnumeration()
+	 * @generated
+	 */
+	EAttribute getAttributeDefinitionEnumeration_MultiValued();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute <em>Enumeration Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enumeration Value Attribute</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute
+	 * @generated
+	 */
+	EClass getEnumerationValueAttribute();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Values</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute#getValues()
+	 * @see #getEnumerationValueAttribute()
+	 * @generated
+	 */
+	EReference getEnumerationValueAttribute_Values();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition <em>Enumeration Data Type Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enumeration Data Type Definition</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition
+	 * @generated
+	 */
+	EClass getEnumerationDataTypeDefinition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition#getSpecifiedValues <em>Specified Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Specified Values</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition#getSpecifiedValues()
+	 * @see #getEnumerationDataTypeDefinition()
+	 * @generated
+	 */
+	EReference getEnumerationDataTypeDefinition_SpecifiedValues();
+
+	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue <em>Enum Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum Value</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue
+	 * @generated
+	 */
+	EClass getEnumValue();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2700,6 +3056,72 @@ public interface RequirementsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ATTRIBUTE_DEFINITION__DEFINITION_TYPE = eINSTANCE.getAttributeDefinition_DefinitionType();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl <em>Attribute Definition Enumeration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeDefinitionEnumeration()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_DEFINITION_ENUMERATION = eINSTANCE.getAttributeDefinitionEnumeration();
+
+		/**
+		 * The meta object literal for the '<em><b>Multi Valued</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED = eINSTANCE
+				.getAttributeDefinitionEnumeration_MultiValued();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationValueAttributeImpl <em>Enumeration Value Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationValueAttributeImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationValueAttribute()
+		 * @generated
+		 */
+		EClass ENUMERATION_VALUE_ATTRIBUTE = eINSTANCE.getEnumerationValueAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUMERATION_VALUE_ATTRIBUTE__VALUES = eINSTANCE.getEnumerationValueAttribute_Values();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationDataTypeDefinitionImpl <em>Enumeration Data Type Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationDataTypeDefinitionImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationDataTypeDefinition()
+		 * @generated
+		 */
+		EClass ENUMERATION_DATA_TYPE_DEFINITION = eINSTANCE.getEnumerationDataTypeDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Specified Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUMERATION_DATA_TYPE_DEFINITION__SPECIFIED_VALUES = eINSTANCE
+				.getEnumerationDataTypeDefinition_SpecifiedValues();
+
+		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumValueImpl <em>Enum Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumValueImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumValue()
+		 * @generated
+		 */
+		EClass ENUM_VALUE = eINSTANCE.getEnumValue();
 
 	}
 

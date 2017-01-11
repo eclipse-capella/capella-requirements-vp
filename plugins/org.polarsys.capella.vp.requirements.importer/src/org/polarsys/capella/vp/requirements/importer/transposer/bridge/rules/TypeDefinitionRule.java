@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,8 @@ import java.util.Map;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.EnumValue;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
@@ -33,13 +35,34 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
   public TupleNP<Object> createTarget(DatatypeDefinition source, IQueryExecution queryExecution) {
     Map<String, Object> createdElements = new HashMap<String, Object>();
 
+    if (source instanceof DatatypeDefinitionEnumeration) {
+      DatatypeDefinitionEnumeration srcAttEnumDef = (DatatypeDefinitionEnumeration) source;
+      org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition attEnumDef = RequirementsFactory.eINSTANCE
+          .createEnumerationDataTypeDefinition();
+      createdElements.put(srcAttEnumDef.getIdentifier(), attEnumDef);
+
+      attEnumDef.setId(ReqIFMappingQueries.generateId());
+      attEnumDef.setReqIFIdentifier(srcAttEnumDef.getIdentifier());
+      attEnumDef.setReqIFLongName(srcAttEnumDef.getLongName());
+      
+      for (EnumValue srcEnumValue : srcAttEnumDef.getSpecifiedValues())
+      {
+        org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue enumValue = RequirementsFactory.eINSTANCE.createEnumValue();
+        createdElements.put(srcEnumValue.getIdentifier(), enumValue);
+        enumValue.setId(ReqIFMappingQueries.generateId());
+        enumValue.setReqIFIdentifier(srcEnumValue.getIdentifier());
+        enumValue.setReqIFLongName(srcEnumValue.getLongName());
+        attEnumDef.getSpecifiedValues().add(enumValue);
+      }
+      return new TupleNP<Object>(attEnumDef, createdElements);
+    }
+    
     DataTypeDefinition type = RequirementsFactory.eINSTANCE.createDataTypeDefinition();
     createdElements.put(source.getIdentifier(), type);
 
     type.setId(ReqIFMappingQueries.generateId());
     type.setReqIFIdentifier(source.getIdentifier());
     type.setReqIFLongName(source.getLongName());
-
     return new TupleNP<Object>(type, createdElements);
   }
 

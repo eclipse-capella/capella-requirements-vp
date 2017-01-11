@@ -17,3 +17,7 @@ These followings icons are made available under the terms of the Eclipse Public 
 /icons/full/obj16/RequirementType.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/RequirementType.gif
 /icons/full/obj16/StringValueAttribute.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/StringValueAttribute.gif
 /icons/full/obj16/TypeFolder.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/TypeFolder.gif
+/icons/full/obj16/EnumerationDataTypeDefinition.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/EnumerationDataTypeDefinition.gif
+/icons/full/obj16/EnumValue.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/EnumValue.gif
+/icons/full/obj16/EnumerationValueAttribute.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/Attribute.gif
+/icons/full/obj16/AttributeDefinitionEnumeration.gif - org.polarsys.kitalpha.vp.requirements.vpdsl - org.polarsys.kitalpha.vp.requirements.vpdsl/icons/AttributeDefinition.gif

@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -454,6 +454,98 @@ public class RequirementsItemProviderAdapterFactory extends RequirementsAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttributeDefinitionEnumerationItemProvider attributeDefinitionEnumerationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttributeDefinitionEnumerationAdapter() {
+		if (attributeDefinitionEnumerationItemProvider == null) {
+			attributeDefinitionEnumerationItemProvider = new AttributeDefinitionEnumerationItemProvider(this);
+		}
+
+		return attributeDefinitionEnumerationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumerationValueAttributeItemProvider enumerationValueAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumerationValueAttributeAdapter() {
+		if (enumerationValueAttributeItemProvider == null) {
+			enumerationValueAttributeItemProvider = new EnumerationValueAttributeItemProvider(this);
+		}
+
+		return enumerationValueAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumerationDataTypeDefinitionItemProvider enumerationDataTypeDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumerationDataTypeDefinitionAdapter() {
+		if (enumerationDataTypeDefinitionItemProvider == null) {
+			enumerationDataTypeDefinitionItemProvider = new EnumerationDataTypeDefinitionItemProvider(this);
+		}
+
+		return enumerationDataTypeDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumValueItemProvider enumValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumValueAdapter() {
+		if (enumValueItemProvider == null) {
+			enumValueItemProvider = new EnumValueItemProvider(this);
+		}
+
+		return enumValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,6 +701,14 @@ public class RequirementsItemProviderAdapterFactory extends RequirementsAdapterF
 			dataTypeDefinitionItemProvider.dispose();
 		if (attributeDefinitionItemProvider != null)
 			attributeDefinitionItemProvider.dispose();
+		if (attributeDefinitionEnumerationItemProvider != null)
+			attributeDefinitionEnumerationItemProvider.dispose();
+		if (enumerationValueAttributeItemProvider != null)
+			enumerationValueAttributeItemProvider.dispose();
+		if (enumerationDataTypeDefinitionItemProvider != null)
+			enumerationDataTypeDefinitionItemProvider.dispose();
+		if (enumValueItemProvider != null)
+			enumValueItemProvider.dispose();
 	}
 
 }

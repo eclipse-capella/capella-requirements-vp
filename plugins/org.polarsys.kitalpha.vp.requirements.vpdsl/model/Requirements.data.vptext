@@ -164,4 +164,29 @@ Data Requirements.data {
 		Associations:
 		    definitionType refers [0,1] DataTypeDefinition
 	}
+	Class AttributeDefinitionEnumeration {
+		icon: "AttributeDefinition.gif"
+		superClass AttributeDefinition
+		
+		Attributes:
+			multiValued type ecore.EBoolean
+	}
+	Class EnumerationValueAttribute {
+		icon: "Attribute.gif"
+		superClass Attribute
+		
+		Associations:
+			^values refers [0,*] EnumValue
+	}
+	Class EnumerationDataTypeDefinition {
+		icon: "EnumerationDataTypeDefinition.gif"
+		superClass DataTypeDefinition
+		
+		Associations:
+			specifiedValues contains [0,*] EnumValue
+	}
+	Class EnumValue {
+		icon: "EnumValue.gif"
+		superClass ReqIFElement
+	}
 }

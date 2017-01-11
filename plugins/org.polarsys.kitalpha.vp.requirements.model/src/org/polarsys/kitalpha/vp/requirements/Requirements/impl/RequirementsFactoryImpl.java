@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -103,6 +103,14 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 			return createDataTypeDefinition();
 		case RequirementsPackage.ATTRIBUTE_DEFINITION:
 			return createAttributeDefinition();
+		case RequirementsPackage.ATTRIBUTE_DEFINITION_ENUMERATION:
+			return createAttributeDefinitionEnumeration();
+		case RequirementsPackage.ENUMERATION_VALUE_ATTRIBUTE:
+			return createEnumerationValueAttribute();
+		case RequirementsPackage.ENUMERATION_DATA_TYPE_DEFINITION:
+			return createEnumerationDataTypeDefinition();
+		case RequirementsPackage.ENUM_VALUE:
+			return createEnumValue();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -256,6 +264,46 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	public AttributeDefinition createAttributeDefinition() {
 		AttributeDefinitionImpl attributeDefinition = new AttributeDefinitionImpl();
 		return attributeDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeDefinitionEnumeration createAttributeDefinitionEnumeration() {
+		AttributeDefinitionEnumerationImpl attributeDefinitionEnumeration = new AttributeDefinitionEnumerationImpl();
+		return attributeDefinitionEnumeration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumerationValueAttribute createEnumerationValueAttribute() {
+		EnumerationValueAttributeImpl enumerationValueAttribute = new EnumerationValueAttributeImpl();
+		return enumerationValueAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumerationDataTypeDefinition createEnumerationDataTypeDefinition() {
+		EnumerationDataTypeDefinitionImpl enumerationDataTypeDefinition = new EnumerationDataTypeDefinitionImpl();
+		return enumerationDataTypeDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumValue createEnumValue() {
+		EnumValueImpl enumValue = new EnumValueImpl();
+		return enumValue;
 	}
 
 	/**
