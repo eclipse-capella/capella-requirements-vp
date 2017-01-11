@@ -175,47 +175,53 @@ public class RequirementSection extends AbstractAllocationSection {
   }
 
 	/**
-	 * @param capellaElement
+	 * @param requirement
 	 */
-	public void loadData(EObject capellaElement) {
-		super.loadData(capellaElement);
-		this.requirement = capellaElement;
+	public void loadData(final EObject requirement) {
+		super.loadData(requirement);
+		this.requirement = requirement;
 
-	addRequirementsRelationTypes(capellaElement);
+	addRequirementsRelationTypes(requirement);
 
     IBusinessQuery incomingQuery = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
         CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
     IBusinessQuery outgoingQuery = BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
             CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE);
     if (incomingQuery != null) {
-      List<EObject> availableElements = incomingQuery.getAvailableElements(capellaElement);
+      List<EObject> availableElements = incomingQuery.getAvailableElements(requirement);
       DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
       transferTreeViewer.setLeftLabelProvider(leftLabelProvider);
       transferTreeViewer.setLeftInput(new TreeData(availableElements, null));
 
       Set<EObject> currentElements = new HashSet<EObject>();
-      currentElements.addAll(incomingQuery.getCurrentElements(capellaElement, false));
-      currentElements.addAll(outgoingQuery.getCurrentElements(capellaElement, false));
+      currentElements.addAll(incomingQuery.getCurrentElements(requirement, false));
+      currentElements.addAll(outgoingQuery.getCurrentElements(requirement, false));
       DataLabelProvider rightLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(currentElements)) {
         @Override
         public String getText(Object object) {
           String prefix = ICommonConstants.EMPTY_STRING;
           if (object instanceof CapellaElement) {
-            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
-              RelationType type = ((CapellaIncomingRelation) relation).getRelationType();
-              if (type!= null) {
-                String typeName = type.getReqIFLongName();
-                if (typeName != null && !typeName.isEmpty()) {
-                  prefix = "[<- " + typeName + "] ";
+            for (EObject referencer : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
+              if (referencer instanceof CapellaIncomingRelation) {
+            	CapellaIncomingRelation relation = (CapellaIncomingRelation) referencer;
+            	RelationType type = relation.getRelationType();
+                if (type!= null && relation.getSource() == requirement) {
+                  String typeName = type.getReqIFLongName();
+                  if (typeName != null && !typeName.isEmpty()) {
+                    prefix = "[<- " + typeName + "] ";
+                  }
                 }
               }
             }
-            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
-              RelationType type = ((CapellaOutgoingRelation) relation).getRelationType();
-              if (type!= null) {
-                String typeName = type.getReqIFLongName();
-                if (typeName != null && !typeName.isEmpty()) {
-                  prefix = "[-> " + typeName + "] ";
+            for (EObject referencer : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE)) {
+              if (referencer instanceof CapellaOutgoingRelation) {
+            	CapellaOutgoingRelation relation = (CapellaOutgoingRelation) referencer;
+            	RelationType type = relation.getRelationType();
+                if (type!= null && relation.getTarget() == requirement) {
+                  String typeName = type.getReqIFLongName();
+                  if (typeName != null && !typeName.isEmpty()) {
+                    prefix = "[-> " + typeName + "] ";
+                  }
                 }
               }
             }
