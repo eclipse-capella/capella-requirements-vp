@@ -125,7 +125,7 @@ public class RequirementSection extends AbstractAllocationSection {
       public void run() {
         for (CapellaElement elt : elementsToBeAdded) {
           CapellaRelation relation;
-          if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+          if (getRelationDirection() == RelationDirectionKind.OUT) {
         	  CapellaIncomingRelation incomingRelation = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
               incomingRelation.setTarget(elt);
               incomingRelation.setSource((Requirement) currentSelection);
@@ -206,7 +206,7 @@ public class RequirementSection extends AbstractAllocationSection {
                 if (type!= null && relation.getSource() == requirement) {
                   String typeName = type.getReqIFLongName();
                   if (typeName != null && !typeName.isEmpty()) {
-                    prefix = "[<- " + typeName + "] ";
+                    prefix = "[-> " + typeName + "] ";
                   }
                 }
               }
@@ -218,7 +218,7 @@ public class RequirementSection extends AbstractAllocationSection {
                 if (type!= null && relation.getTarget() == requirement) {
                   String typeName = type.getReqIFLongName();
                   if (typeName != null && !typeName.isEmpty()) {
-                    prefix = "[-> " + typeName + "] ";
+                    prefix = "[<- " + typeName + "] ";
                   }
                 }
               }

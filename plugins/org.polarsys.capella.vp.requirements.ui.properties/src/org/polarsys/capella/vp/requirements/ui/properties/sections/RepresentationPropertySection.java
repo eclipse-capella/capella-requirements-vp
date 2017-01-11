@@ -118,7 +118,7 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     for (Object elt : transferTreeViewer.getLeftInput().getValidElements()) {
       elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
     }
-    if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+    if (getRelationDirection() == RelationDirectionKind.IN) {
       RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
     } else {
       RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
@@ -136,7 +136,7 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     for (Object elt : ((IStructuredSelection) transferTreeViewer.getLeftViewer().getSelection()).toList()) {
       elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
     }
-    if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+    if (getRelationDirection() == RelationDirectionKind.IN) {
       RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
     } else {
       RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);

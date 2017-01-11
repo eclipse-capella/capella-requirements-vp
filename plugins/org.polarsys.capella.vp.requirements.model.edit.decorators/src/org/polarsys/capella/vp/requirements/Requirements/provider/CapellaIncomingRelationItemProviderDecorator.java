@@ -39,9 +39,9 @@ public class CapellaIncomingRelationItemProviderDecorator extends
 
     RelationType type = relation.getRelationType();
     if (type != null) {
-      return "[" + type.getReqIFLongName() + "] from " + EObjectLabelProviderHelper.getText(relation.getTarget());
+      return "[" + type.getReqIFLongName() + "] to " + EObjectLabelProviderHelper.getText(relation.getTarget());
     }
 
-    return "[Capella Incoming Relation] from " + EObjectLabelProviderHelper.getText(relation.getTarget());
+    return "[Capella Incoming Relation] to " + EObjectLabelProviderHelper.getText(relation.getTarget());
   }
 }

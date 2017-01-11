@@ -54,25 +54,21 @@ public abstract class AbstractAllocationSection extends AbstractSection {
   protected EObject capellaElement;
 
   enum RelationDirectionKind {
-    INCOMING,
-    OUTGOING,
+    IN,
+    OUT,
   }
 
   protected void createRelationConfig(Group grp) {
-	// group on top of section
-//	Group relationConfigGrp = getWidgetFactory().createGroup(grp, ICommonConstants.EMPTY_STRING);
-//	relationConfigGrp.setLayout(new GridLayout(2, false));
-//	relationConfigGrp.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 	// relation direction radio button group:
 	relationDirectionGroup = getWidgetFactory().createGroup(grp, "Relation direction:");
 	relationDirectionGroup.setLayout(new GridLayout(2, true));
 	// - incoming radio button
 	Button incoming = getWidgetFactory().createButton(relationDirectionGroup, "In-link", SWT.RADIO);
-	incoming.setData(RelationDirectionKind.INCOMING);
+	incoming.setData(RelationDirectionKind.IN);
 	// - outgoing radio button
 	Button outgoing = getWidgetFactory().createButton(relationDirectionGroup, "Out-link", SWT.RADIO);
-	outgoing.setData(RelationDirectionKind.OUTGOING);
+	outgoing.setData(RelationDirectionKind.OUT);
 	outgoing.setSelection(true);
 
 	// relation type combo-box group:

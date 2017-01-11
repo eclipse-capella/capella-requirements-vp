@@ -182,7 +182,7 @@ public class CapellaElementSection extends AbstractAllocationSection {
       public void run() {
         for (Requirement requirement : elementsToBeAdded) {
           CapellaRelation relation;
-          if (getRelationDirection() == RelationDirectionKind.OUTGOING) {
+          if (getRelationDirection() == RelationDirectionKind.OUT) {
             CapellaOutgoingRelation outgoingRelation = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
             outgoingRelation.setTarget(requirement);
             outgoingRelation.setSource((CapellaElement) currentSelection);
