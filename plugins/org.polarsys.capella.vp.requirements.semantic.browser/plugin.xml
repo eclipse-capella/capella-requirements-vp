@@ -400,7 +400,7 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.requirement.typed"
 	            isTopLevel="true"
-	            name="Requirement">
+	            name="Allocating Requirements">
 	         <targetBrowserId
 	               id="ReferencingElementBrowser">
 	         </targetBrowserId>
@@ -448,7 +448,7 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.representation.outgoing.requirement"
 	            isTopLevel="true"
-	            name="Requirement">
+	            name="Allocated Requirements">
 	         <targetBrowserId
 	               id="ReferencedElementBrowser">
 	         </targetBrowserId>
@@ -464,7 +464,7 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.representation.incoming.requirement"
 	            isTopLevel="true"
-	            name="Requirement">
+	            name="Allocating Requirements">
 	         <targetBrowserId
 	               id="ReferencingElementBrowser">
 	         </targetBrowserId>
@@ -474,6 +474,54 @@
 	         <categoryQuery>
 	            <basicQuery
 	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.RepresentationIncomingRelationQuery">
+	            </basicQuery>
+	         </categoryQuery>
+	      </category>
+	      <category
+	            id="org.polarsys.kitalpha.vp.requirements.enumerationvalue.definition"
+	            isTopLevel="true"
+	            name="Definition">
+	         <targetBrowserId
+	               id="ReferencedElementBrowser">
+	         </targetBrowserId>
+	         <availableForType
+	               class="org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute">
+	         </availableForType>
+	         <categoryQuery>
+	            <basicQuery
+	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.EnumerationValueAttributeDefinitionQuery">
+	            </basicQuery>
+	         </categoryQuery>
+	      </category>
+	      <category
+	            id="org.polarsys.kitalpha.vp.requirements.enumerationvalue.values"
+	            isTopLevel="true"
+	            name="Values">
+	         <targetBrowserId
+	               id="ReferencedElementBrowser">
+	         </targetBrowserId>
+	         <availableForType
+	               class="org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute">
+	         </availableForType>
+	         <categoryQuery>
+	            <basicQuery
+	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.EnumerationValueAttributeValuesQuery">
+	            </basicQuery>
+	         </categoryQuery>
+	      </category>
+	      <category
+	            id="org.polarsys.kitalpha.vp.requirements.enumerationdatatype.definition"
+	            isTopLevel="true"
+	            name="Specified Values">
+	         <targetBrowserId
+	               id="CurrentElementBrowser">
+	         </targetBrowserId>
+	         <availableForType
+	               class="org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition">
+	         </availableForType>
+	         <categoryQuery>
+	            <basicQuery
+	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.EnumerationDataTypeDefinitionOwnedValuesQuery">
 	            </basicQuery>
 	         </categoryQuery>
 	      </category>
