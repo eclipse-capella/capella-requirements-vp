@@ -98,7 +98,7 @@ public class CapellaElementSection extends AbstractAllocationSection {
   /**
    * @param capellaElement
    */
-  public void loadData(EObject capellaElement) {
+  public void loadData(final EObject capellaElement) {
     super.loadData(capellaElement);
     this.capellaElement = capellaElement;
 
@@ -120,21 +120,27 @@ public class CapellaElementSection extends AbstractAllocationSection {
         public String getText(Object object) {
           String prefix = ICommonConstants.EMPTY_STRING;
           if (object instanceof Requirement) {
-            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
-              RelationType type = ((CapellaOutgoingRelation) relation).getRelationType();
-              if (type!= null) {
-                String typeName = type.getReqIFLongName();
-                if (typeName != null && !typeName.isEmpty()) {
-                  prefix = "[-> " + typeName + "] ";
+            for (EObject referencer : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET)) {
+              if (referencer instanceof CapellaOutgoingRelation) {
+            	CapellaOutgoingRelation relation = (CapellaOutgoingRelation) referencer;
+                RelationType type = relation.getRelationType();
+                if (type!= null && relation.getSource() == capellaElement) {
+                  String typeName = type.getReqIFLongName();
+                  if (typeName != null && !typeName.isEmpty()) {
+                    prefix = "[-> " + typeName + "] ";
+                  }
                 }
               }
             }
-            for (EObject relation : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
-              RelationType type = ((CapellaIncomingRelation) relation).getRelationType();
-              if (type!= null) {
-                String typeName = type.getReqIFLongName();
-                if (typeName != null && !typeName.isEmpty()) {
-                  prefix = "[<- " + typeName + "] ";
+            for (EObject referencer : EObjectExt.getReferencers((EObject) object, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE)) {
+              if (referencer instanceof CapellaIncomingRelation) {
+            	  CapellaIncomingRelation relation = (CapellaIncomingRelation) referencer;
+                  RelationType type = relation.getRelationType();
+            	if (type!= null && relation.getTarget() == capellaElement) {
+                  String typeName = type.getReqIFLongName();
+                  if (typeName != null && !typeName.isEmpty()) {
+                    prefix = "[<- " + typeName + "] ";
+                  }
                 }
               }
             }
