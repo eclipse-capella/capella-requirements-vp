@@ -8,6 +8,7 @@ Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.core.ui.properties,
  org.polarsys.kitalpha.vp.requirements.model
 Export-Package: org.polarsys.kitalpha.vp.requirements.ui.properties,
+ org.polarsys.kitalpha.vp.requirements.ui.properties.controllers,
  org.polarsys.kitalpha.vp.requirements.ui.properties.fields,
  org.polarsys.kitalpha.vp.requirements.ui.properties.sections
 Bundle-Vendor: %bundleVendor

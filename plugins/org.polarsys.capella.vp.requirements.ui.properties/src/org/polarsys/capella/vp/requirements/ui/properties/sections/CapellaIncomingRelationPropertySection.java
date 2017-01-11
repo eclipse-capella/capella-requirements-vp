@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -26,6 +25,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingR
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.ui.properties.Messages;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.RequirementController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -74,11 +74,11 @@ public class CapellaIncomingRelationPropertySection extends AbstractSection {
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     sourceField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("CapellaIncomingRelation.SourceLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+      Messages.getString("CapellaIncomingRelation.SourceLabel"), getWidgetFactory(), new RequirementController()); //$NON-NLS-1$
     sourceField.setDisplayedInWizard(displayedInWizard);
 
     targetField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("CapellaIncomingRelation.TargetLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+      Messages.getString("CapellaIncomingRelation.TargetLabel"), getWidgetFactory(), new RequirementController()); //$NON-NLS-1$
     targetField.setDisplayedInWizard(displayedInWizard);
 	}
 
