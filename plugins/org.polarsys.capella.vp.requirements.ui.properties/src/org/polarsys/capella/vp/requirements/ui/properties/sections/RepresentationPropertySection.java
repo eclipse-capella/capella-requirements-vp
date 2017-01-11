@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,22 +34,19 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
-import org.polarsys.capella.common.ui.toolkit.viewers.data.DataContentProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.TreeData;
-import org.polarsys.capella.common.ui.toolkit.viewers.transfer.TransferTreeListViewer;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
-import org.polarsys.capella.vp.requirements.ui.properties.widgets.FixedPreferredSizeComposite;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
- *
+ * @author Joao Barata
  */
 public class RepresentationPropertySection extends AbstractAllocationSection {
 
@@ -112,60 +109,44 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
     createRelationConfig(grp);
-    
-    // Intermediate Composite used to avoid SrollBars of parent ScrolledComposite.
-    FixedPreferredSizeComposite fixedPreferredSizeComposite = new FixedPreferredSizeComposite(grp, SWT.NONE);
-    fixedPreferredSizeComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
-    
-    transferTreeViewer = new TransferTreeListViewer(fixedPreferredSizeComposite, TRANSFER_TREE_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_TREE_VIEWER_STYLE, DEFAULT_EXPAND_LEVEL, DEFAULT_EXPAND_LEVEL) {
-      @Override
-      protected boolean doHandleAddAllButton() {
-        Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
-        for (Object elt : getLeftInput().getValidElements()) {
-          elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
-        }
-        if (getRelationDirection() == RelationDirectionKind.INCOMING) {
-          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
-        } else {
-          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
-        }
+    createTransferTreeListViewer(grp);
+  }
 
-        return super.doHandleAddAllButton();
-      }
+  @Override
+  protected void handleAddAllButton() {
+    Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
+    for (Object elt : transferTreeViewer.getLeftInput().getValidElements()) {
+      elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
+    }
+    if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
+    } else {
+      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+    }
+  }
 
-      @Override
-      protected boolean doHandleRemoveAllButton() {
-        RelationAnnotationHelper.removeAllocations(_representation.get(), getRightInput().getValidElements());
-        return super.doHandleRemoveAllButton();
-      }
+  @Override
+  protected void handleRemoveAllButton() {
+    RelationAnnotationHelper.removeAllocations(_representation.get(), transferTreeViewer.getRightInput().getValidElements());
+  }
 
-      @Override
-      protected boolean doHandleAddSelectedButton() {
-        Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
-        for (Object elt : ((IStructuredSelection) getLeftViewer().getSelection()).toList()) {
-          elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
-        }
-        if (getRelationDirection() == RelationDirectionKind.INCOMING) {
-          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
-        } else {
-          RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
-        }
+  @Override
+  protected void handleAddSelectedButton() {
+    Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
+    for (Object elt : ((IStructuredSelection) transferTreeViewer.getLeftViewer().getSelection()).toList()) {
+      elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
+    }
+    if (getRelationDirection() == RelationDirectionKind.INCOMING) {
+      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
+    } else {
+      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
+    }
+  }
 
-        return super.doHandleAddSelectedButton();
-      }
-
-      @SuppressWarnings("unchecked")
-      @Override
-      protected boolean doHandleRemoveSelectedButton() {
-        RelationAnnotationHelper.removeAllocations(_representation.get(), ((IStructuredSelection) getRightViewer().getSelection()).toList());
-        return super.doHandleRemoveSelectedButton();
-      }
-      
-    };
-    transferTreeViewer.setLeftContentProvider(new DataContentProvider());
-    transferTreeViewer.setRightContentProvider(new DataContentProvider());
-    // Fixed size <=> preferred size of the empty TransferTreeListViewer.
-    fixedPreferredSizeComposite.setPreferredSize(transferTreeViewer.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT));
+  @SuppressWarnings("unchecked")
+  @Override
+  protected void handleRemoveSelectedButton() {
+    RelationAnnotationHelper.removeAllocations(_representation.get(), ((IStructuredSelection) transferTreeViewer.getRightViewer().getSelection()).toList());
   }
 
   /**
