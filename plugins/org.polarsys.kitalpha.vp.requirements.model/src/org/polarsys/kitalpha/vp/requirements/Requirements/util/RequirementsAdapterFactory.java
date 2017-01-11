@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -186,6 +186,26 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseAttributeDefinition(AttributeDefinition object) {
 			return createAttributeDefinitionAdapter();
+		}
+
+		@Override
+		public Adapter caseAttributeDefinitionEnumeration(AttributeDefinitionEnumeration object) {
+			return createAttributeDefinitionEnumerationAdapter();
+		}
+
+		@Override
+		public Adapter caseEnumerationValueAttribute(EnumerationValueAttribute object) {
+			return createEnumerationValueAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseEnumerationDataTypeDefinition(EnumerationDataTypeDefinition object) {
+			return createEnumerationDataTypeDefinitionAdapter();
+		}
+
+		@Override
+		public Adapter caseEnumValue(EnumValue object) {
+			return createEnumValueAdapter();
 		}
 
 		@Override
@@ -498,6 +518,62 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration <em>Attribute Definition Enumeration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration
+	 * @generated
+	 */
+	public Adapter createAttributeDefinitionEnumerationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute <em>Enumeration Value Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute
+	 * @generated
+	 */
+	public Adapter createEnumerationValueAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition <em>Enumeration Data Type Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition
+	 * @generated
+	 */
+	public Adapter createEnumerationDataTypeDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue <em>Enum Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue
+	 * @generated
+	 */
+	public Adapter createEnumValueAdapter() {
 		return null;
 	}
 

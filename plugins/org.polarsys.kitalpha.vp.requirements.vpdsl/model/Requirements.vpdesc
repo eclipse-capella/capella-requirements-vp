@@ -157,6 +157,25 @@
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.19"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
+    <VP_Classes name="AttributeDefinitionEnumeration" icon="AttributeDefinition.gif">
+      <VP_Class_Attributes name="multiValued">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.20"/>
+    </VP_Classes>
+    <VP_Classes name="EnumerationValueAttribute" icon="Attribute.gif">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="values" cardinality="0..*" type="reference" LocalTarget="//@VP_Data/@VP_Classes.24"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.4"/>
+    </VP_Classes>
+    <VP_Classes name="EnumerationDataTypeDefinition" icon="EnumerationDataTypeDefinition.gif">
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="specifiedValues" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.24"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.19"/>
+    </VP_Classes>
+    <VP_Classes name="EnumValue" icon="EnumValue.gif">
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
+    </VP_Classes>
   </VP_Data>
   <VP_Aspects xsi:type="vpservices:ServiceSet" name="Requirements.services"/>
   <VP_Aspects xsi:type="vpservices:RuleSet" name="Requirements.rules"/>

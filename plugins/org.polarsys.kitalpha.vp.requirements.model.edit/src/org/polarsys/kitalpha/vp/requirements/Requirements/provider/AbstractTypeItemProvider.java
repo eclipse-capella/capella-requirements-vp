@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -152,6 +152,9 @@ public class AbstractTypeItemProvider extends ReqIFElementItemProvider implement
 
 		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ABSTRACT_TYPE__OWNED_ATTRIBUTES,
 				RequirementsFactory.eINSTANCE.createAttributeDefinition()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ABSTRACT_TYPE__OWNED_ATTRIBUTES,
+				RequirementsFactory.eINSTANCE.createAttributeDefinitionEnumeration()));
 
 	}
 

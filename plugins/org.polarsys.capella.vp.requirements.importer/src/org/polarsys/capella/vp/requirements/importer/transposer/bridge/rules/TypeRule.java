@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,6 +25,7 @@ import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.TypeQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
 
@@ -47,13 +48,19 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
     }
     createdElements.put(source.getIdentifier(), type);
 
-    for (org.eclipse.rmf.reqif10.AttributeDefinition definition : source.getSpecAttributes()) {
-      AttributeDefinition attribute = RequirementsFactory.eINSTANCE.createAttributeDefinition();
-      attribute.setId(ReqIFMappingQueries.generateId());
-      attribute.setReqIFLongName(definition.getLongName());
-      attribute.setReqIFIdentifier(definition.getIdentifier());
-      type.getOwnedAttributes().add(attribute);
-      createdElements.put(definition.getIdentifier(), attribute);
+    for (org.eclipse.rmf.reqif10.AttributeDefinition srcDefinition : source.getSpecAttributes()) {
+      AttributeDefinition definition;
+      if (srcDefinition instanceof org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration) {
+        definition = RequirementsFactory.eINSTANCE.createAttributeDefinitionEnumeration();
+        ((AttributeDefinitionEnumeration) definition)
+            .setMultiValued(((org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration) srcDefinition).isMultiValued());
+      } else
+        definition = RequirementsFactory.eINSTANCE.createAttributeDefinition();
+      definition.setId(ReqIFMappingQueries.generateId());
+      definition.setReqIFLongName(srcDefinition.getLongName());
+      definition.setReqIFIdentifier(srcDefinition.getIdentifier());
+      type.getOwnedAttributes().add(definition);
+      createdElements.put(srcDefinition.getIdentifier(), definition);
     }
 
     type.setId(ReqIFMappingQueries.generateId());
@@ -63,7 +70,8 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
     return new TupleNP<Object>(type, createdElements);
   }
 
-  public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv, IMappingExecution ruleEnv) {
+  public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv,
+      IMappingExecution ruleEnv) {
     Object typeInTargetModel = ruleEnv.getOne(spectype);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();

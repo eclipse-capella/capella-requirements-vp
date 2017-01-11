@@ -78,4 +78,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" eSuperTypes="#//ReqIFElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitionType" eType="#//DataTypeDefinition"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionEnumeration" eSuperTypes="#//AttributeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiValued" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationValueAttribute" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//EnumValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationDataTypeDefinition" eSuperTypes="#//DataTypeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedValues" upperBound="-1"
+        eType="#//EnumValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumValue" eSuperTypes="#//ReqIFElement"/>
 </ecore:EPackage>

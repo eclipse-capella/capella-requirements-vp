@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -173,6 +173,42 @@ public interface RequirementsFactory extends EFactory {
 	 * @generated
 	 */
 	AttributeDefinition createAttributeDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Attribute Definition Enumeration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute Definition Enumeration</em>'.
+	 * @generated
+	 */
+	AttributeDefinitionEnumeration createAttributeDefinitionEnumeration();
+
+	/**
+	 * Returns a new object of class '<em>Enumeration Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enumeration Value Attribute</em>'.
+	 * @generated
+	 */
+	EnumerationValueAttribute createEnumerationValueAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Enumeration Data Type Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enumeration Data Type Definition</em>'.
+	 * @generated
+	 */
+	EnumerationDataTypeDefinition createEnumerationDataTypeDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Enum Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum Value</em>'.
+	 * @generated
+	 */
+	EnumValue createEnumValue();
 
 	/**
 	 * Returns the package supported by this factory.

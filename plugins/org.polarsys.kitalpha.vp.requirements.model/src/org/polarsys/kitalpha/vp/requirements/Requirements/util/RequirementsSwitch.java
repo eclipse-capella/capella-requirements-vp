@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -322,6 +322,54 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case RequirementsPackage.ATTRIBUTE_DEFINITION_ENUMERATION: {
+			AttributeDefinitionEnumeration attributeDefinitionEnumeration = (AttributeDefinitionEnumeration) theEObject;
+			T result = caseAttributeDefinitionEnumeration(attributeDefinitionEnumeration);
+			if (result == null)
+				result = caseAttributeDefinition(attributeDefinitionEnumeration);
+			if (result == null)
+				result = caseReqIFElement(attributeDefinitionEnumeration);
+			if (result == null)
+				result = caseIdentifiableElement(attributeDefinitionEnumeration);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RequirementsPackage.ENUMERATION_VALUE_ATTRIBUTE: {
+			EnumerationValueAttribute enumerationValueAttribute = (EnumerationValueAttribute) theEObject;
+			T result = caseEnumerationValueAttribute(enumerationValueAttribute);
+			if (result == null)
+				result = caseAttribute(enumerationValueAttribute);
+			if (result == null)
+				result = caseIdentifiableElement(enumerationValueAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RequirementsPackage.ENUMERATION_DATA_TYPE_DEFINITION: {
+			EnumerationDataTypeDefinition enumerationDataTypeDefinition = (EnumerationDataTypeDefinition) theEObject;
+			T result = caseEnumerationDataTypeDefinition(enumerationDataTypeDefinition);
+			if (result == null)
+				result = caseDataTypeDefinition(enumerationDataTypeDefinition);
+			if (result == null)
+				result = caseReqIFElement(enumerationDataTypeDefinition);
+			if (result == null)
+				result = caseIdentifiableElement(enumerationDataTypeDefinition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RequirementsPackage.ENUM_VALUE: {
+			EnumValue enumValue = (EnumValue) theEObject;
+			T result = caseEnumValue(enumValue);
+			if (result == null)
+				result = caseReqIFElement(enumValue);
+			if (result == null)
+				result = caseIdentifiableElement(enumValue);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -639,6 +687,66 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttributeDefinition(AttributeDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Definition Enumeration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Definition Enumeration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeDefinitionEnumeration(AttributeDefinitionEnumeration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Value Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration Value Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumerationValueAttribute(EnumerationValueAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Data Type Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration Data Type Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumerationDataTypeDefinition(EnumerationDataTypeDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumValue(EnumValue object) {
 		return null;
 	}
 

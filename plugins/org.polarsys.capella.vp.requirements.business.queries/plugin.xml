@@ -33,5 +33,9 @@
          class="org.polarsys.capella.vp.requirements.business.queries.Representation_CapellaOutgoingRelation_Requirement"
          id="org.polarsys.capella.vp.requirements.business.queries.Representation_CapellaOutgoingRelation_Requirement">
    </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue"
+         id="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue">
+   </MDEBusinessQueries>
 </extension>
 </plugin>

@@ -16,6 +16,8 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
@@ -65,6 +67,10 @@ public class RequirementsItemProviderDecoratorAdapterFactory extends DecoratorAd
       return new RequirementTypeItemProviderDecorator(this);
     } else if (target instanceof RelationType) {
       return new RelationTypeItemProviderDecorator(this);
+    } else if (target instanceof EnumerationValueAttribute) {
+      return new EnumerationValueAttributeItemProviderDecorator(this);
+    } else if (target instanceof EnumValue) {
+      return new EnumValueItemProviderDecorator(this);
     }
 		return new ForwardingItemProviderAdapterDecorator(this);
 	}

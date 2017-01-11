@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -165,6 +165,9 @@ public class TypesFolderItemProvider extends ReqIFElementItemProvider implements
 
 		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.TYPES_FOLDER__OWNED_DEFINITION_TYPES,
 				RequirementsFactory.eINSTANCE.createDataTypeDefinition()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.TYPES_FOLDER__OWNED_DEFINITION_TYPES,
+				RequirementsFactory.eINSTANCE.createEnumerationDataTypeDefinition()));
 
 		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.TYPES_FOLDER__OWNED_TYPES,
 				RequirementsFactory.eINSTANCE.createModuleType()));
