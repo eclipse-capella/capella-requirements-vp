@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,7 +20,6 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
-import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequirementQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
@@ -42,7 +41,6 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
     for (AttributeValue value : object.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, requirement));
     }
-    requirement.setId(ReqIFMappingQueries.generateId());
     requirement.setReqIFIdentifier(object.getIdentifier());
     requirement.setReqIFLongName(requirement.getReqIFChapterName());
     return new TupleNP<Object>(requirement, createdElements);

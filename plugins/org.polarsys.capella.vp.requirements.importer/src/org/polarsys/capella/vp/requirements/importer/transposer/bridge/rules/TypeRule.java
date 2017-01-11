@@ -56,14 +56,12 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
             .setMultiValued(((org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration) srcDefinition).isMultiValued());
       } else
         definition = RequirementsFactory.eINSTANCE.createAttributeDefinition();
-      definition.setId(ReqIFMappingQueries.generateId());
       definition.setReqIFLongName(srcDefinition.getLongName());
       definition.setReqIFIdentifier(srcDefinition.getIdentifier());
       type.getOwnedAttributes().add(definition);
       createdElements.put(srcDefinition.getIdentifier(), definition);
     }
 
-    type.setId(ReqIFMappingQueries.generateId());
     type.setReqIFIdentifier(source.getIdentifier());
     type.setReqIFLongName(source.getLongName());
 

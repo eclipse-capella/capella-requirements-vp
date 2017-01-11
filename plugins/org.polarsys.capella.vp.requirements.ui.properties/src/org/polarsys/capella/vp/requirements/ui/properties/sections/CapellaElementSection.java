@@ -30,7 +30,6 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.TransactionHelper;
-import org.polarsys.capella.common.lib.IdGenerator;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.TreeData;
@@ -194,7 +193,6 @@ public class CapellaElementSection extends AbstractAllocationSection {
             incomingRelation.setSource(requirement);
             relation = incomingRelation;
           }
-          relation.setId(IdGenerator.createId());
           relation.setRelationType(getRelationType());
           requirement.getOwnedRelations().add(relation);
         }

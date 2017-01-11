@@ -20,7 +20,6 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
-import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.FolderQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
@@ -41,7 +40,6 @@ public class FolderRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
     for (AttributeValue value : object.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, folder));
     }
-    folder.setId(ReqIFMappingQueries.generateId());
     folder.setReqIFIdentifier(object.getIdentifier());
     return new TupleNP<Object>(folder, createdElements);
   }

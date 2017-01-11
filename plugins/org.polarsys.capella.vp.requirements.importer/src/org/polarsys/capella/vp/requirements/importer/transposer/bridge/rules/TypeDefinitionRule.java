@@ -41,7 +41,6 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
           .createEnumerationDataTypeDefinition();
       createdElements.put(srcAttEnumDef.getIdentifier(), attEnumDef);
 
-      attEnumDef.setId(ReqIFMappingQueries.generateId());
       attEnumDef.setReqIFIdentifier(srcAttEnumDef.getIdentifier());
       attEnumDef.setReqIFLongName(srcAttEnumDef.getLongName());
       
@@ -49,7 +48,6 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
       {
         org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue enumValue = RequirementsFactory.eINSTANCE.createEnumValue();
         createdElements.put(srcEnumValue.getIdentifier(), enumValue);
-        enumValue.setId(ReqIFMappingQueries.generateId());
         enumValue.setReqIFIdentifier(srcEnumValue.getIdentifier());
         enumValue.setReqIFLongName(srcEnumValue.getLongName());
         attEnumDef.getSpecifiedValues().add(enumValue);
@@ -60,7 +58,6 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
     DataTypeDefinition type = RequirementsFactory.eINSTANCE.createDataTypeDefinition();
     createdElements.put(source.getIdentifier(), type);
 
-    type.setId(ReqIFMappingQueries.generateId());
     type.setReqIFIdentifier(source.getIdentifier());
     type.setReqIFLongName(source.getLongName());
     return new TupleNP<Object>(type, createdElements);
@@ -80,5 +77,4 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
       }
     }
   }
-
 }

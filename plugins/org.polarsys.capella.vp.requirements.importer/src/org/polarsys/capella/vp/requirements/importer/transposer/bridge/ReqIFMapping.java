@@ -214,8 +214,6 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     String longName = definition.getLongName();
     if (reqTypes.contains(longName)) {
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
-      pv.setId(ReqIFMappingQueries.generateId());
-      // pv.setKey(longName);
       pv.setValue(getContent((AttributeValueXHTML) value));
       target.getOwnedAttributes().add(pv);
       createdObjects.put(longName, pv);
@@ -272,8 +270,6 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       String longName = definition.getLongName();
       if (reqTypes.contains(longName)) {
         Attribute attribute = (Attribute) RequirementsFactory.eINSTANCE.create(attributeType);
-        attribute.setId(ReqIFMappingQueries.generateId());
-        // attribute.setKey(longName);
         if (srcValueRef instanceof EAttribute && tgtValueRef instanceof EAttribute) {
           Object value = srcValue.eGet(srcValueRef);
           if (value instanceof BigInteger) {
