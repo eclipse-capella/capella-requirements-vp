@@ -67,11 +67,13 @@ public abstract class IdentifiableElementImpl extends EObjectImpl implements Ide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IdentifiableElementImpl() {
 
 		super();
+
+    setId(UUID.randomUUID().toString());
 
 	}
 
@@ -88,13 +90,10 @@ public abstract class IdentifiableElementImpl extends EObjectImpl implements Ide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 
 	public String getId() {
-    if (null == id) {
-      id = UUID.randomUUID().toString();
-    }
 		return id;
 	}
 
