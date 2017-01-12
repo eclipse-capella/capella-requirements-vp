@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,9 +23,11 @@ import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.EnumDataTypeController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -83,6 +85,11 @@ public class AttributeDefinitionSection extends AbstractSection {
 		super.loadData(capellaElement);
 
     reqIFElementGroup.loadData(capellaElement);
+    if (capellaElement instanceof AttributeDefinitionEnumeration)
+      definitionField.setController(new EnumDataTypeController());
+    else
+      definitionField.setController(new SimpleSemanticFieldController());
+      
     definitionField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getAttributeDefinition_DefinitionType());
   }
 
