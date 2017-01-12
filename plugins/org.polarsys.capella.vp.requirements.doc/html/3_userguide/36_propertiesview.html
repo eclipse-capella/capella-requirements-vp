@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!--
-  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -15,6 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
 	<title>Properties View</title>
 </head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+</style>
 <body>
 <h1>Properties View</h1>
 
@@ -23,6 +30,61 @@
 </p>
 
 <img src="../../images/propertiesview_requirementsallocation.png" alt="Requirements Allocation" title="Requirements Allocation"/>
+
+<p>
+When you allocate a requirement to or from a capella element, a relation is created under the requirement.
+</p>
+<p>
+Depending on which of the requirement or the capella element is the source or the target, the relation can be:<br/>
+</p>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Target</th>
+    <th>Relation</th>
+  </tr>
+  <tr>
+    <td>Requirement</td>
+    <td>CapellaElement</td>
+    <td>CapellaIncomingRelation</td>
+  </tr>
+  <tr>
+    <td>CapellaElement</td>
+    <td>Requirement</td>
+    <td>CapellaOutgoingRelation</td>
+  </tr>
+  <tr>
+    <td>Requirement</td>
+    <td>Requirement</td>
+    <td>InternalRelation</td>
+  </tr>
+</table> 
+
+<img src="../../images/requirement_relations.png" alt="Requirements Relations" title="Requirements Relations"/>
+
+
+<p>
+So, using the requirement allocation, depending on your current element and the direction of the relation, a different relation is created:
+</p>
+
+<table>
+  <tr>
+    <th>Context</th>
+    <th>In-link</th>
+    <th>Out-link</th>
+  </tr>
+  <tr>
+    <td>CapellaElement (allocating Requirement)</td>
+    <td>CapellaIncomingRelation</td>
+    <td>CapellaOutgoingRelation</td>
+  </tr>
+  <tr>
+    <td>Requirement (allocating CapellaElement)</td>
+    <td>CapellaOutgoingRelation</td>
+    <td>CapellaIncomingRelation</td>
+  </tr>
+</table> 
 
 </body>
 </html>
