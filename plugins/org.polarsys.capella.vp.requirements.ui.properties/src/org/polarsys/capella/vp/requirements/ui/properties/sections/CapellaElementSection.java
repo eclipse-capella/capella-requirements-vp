@@ -43,7 +43,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingR
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
-import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
+import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -59,7 +59,7 @@ public class CapellaElementSection extends AbstractAllocationSection {
   public boolean select(Object eObject) {
     EObject eObjectToTest = super.selection(eObject);
 
-    if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
+    if (ViewpointHelper.isViewpointActive(eObjectToTest) && eObjectToTest instanceof CapellaElement) {
       return true;
     }
     return false;
