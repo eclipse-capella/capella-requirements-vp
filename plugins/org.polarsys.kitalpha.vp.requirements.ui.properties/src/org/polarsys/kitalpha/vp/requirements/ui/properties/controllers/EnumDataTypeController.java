@@ -15,16 +15,17 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
 
-public class EnumDataTypeController extends SimpleSemanticFieldController {
+public class EnumDataTypeController extends LocalProjectFilteringController {
   @Override
   public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> eObjs = new ArrayList<EObject>(); 
-    for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature))
-      if (eObj instanceof EnumerationDataTypeDefinition)
+    for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature)) {
+      if (eObj instanceof EnumerationDataTypeDefinition) {
         eObjs.add(eObj);
+      }
+    }
     return eObjs;
   }
 }

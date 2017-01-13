@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -27,7 +26,9 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnu
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.DataTypeController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.EnumDataTypeController;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.LocalProjectFilteringController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -74,7 +75,7 @@ public class AttributeDefinitionSection extends AbstractSection {
     reqIFElementGroup = new BasicReqIFElementGroup(_rootParentComposite, getWidgetFactory(), true);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
-    definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+    definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new LocalProjectFilteringController()); //$NON-NLS-1$
     definitionField.setDisplayedInWizard(displayedInWizard);
 	}
 
@@ -88,7 +89,7 @@ public class AttributeDefinitionSection extends AbstractSection {
     if (capellaElement instanceof AttributeDefinitionEnumeration)
       definitionField.setController(new EnumDataTypeController());
     else
-      definitionField.setController(new SimpleSemanticFieldController());
+      definitionField.setController(new DataTypeController());
       
     definitionField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getAttributeDefinition_DefinitionType());
   }

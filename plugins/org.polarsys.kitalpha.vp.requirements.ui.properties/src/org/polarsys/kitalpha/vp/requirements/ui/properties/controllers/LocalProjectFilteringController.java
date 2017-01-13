@@ -15,14 +15,25 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
+import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.model.helpers.ProjectExt;
+import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 
-public class EnumAttributeDefinitionController extends LocalProjectFilteringController {
+/**
+ * A SimpleSemanticController that will allow only elements of the current Project/Library as open values.
+ */
+public class LocalProjectFilteringController extends SimpleSemanticFieldController {
+  /**
+   * Call the expected BusinessQuery then remove elements that do not belong to the current Project/Library. 
+   */
   @Override
-  public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
+  public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) { 
+    Project projectOfInitialElement = ProjectExt.getProject(semanticElement);
     List<EObject> eObjs = new ArrayList<EObject>(); 
     for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature)) {
-      if (eObj instanceof AttributeDefinitionEnumeration) {
+      Project projectOfProposedElement = ProjectExt.getProject(eObj);
+      // Keep only elements of my Project (or Library...).
+      if (projectOfInitialElement.equals(projectOfProposedElement)) {
         eObjs.add(eObj);
       }
     }
