@@ -32,9 +32,13 @@ table, th, td {
 <img src="../../images/propertiesview_requirementsallocation.png" alt="Requirements Allocation" title="Requirements Allocation"/>
 
 <p>
-When you allocate a requirement to or from a capella element, a relation is created under the requirement.
+Example of Requirements and their relations to/from Capella Elements:
 </p>
+
+<img src="../../images/requirement_example.png" alt="Requirements Example" title="Requirements Example"/>
+
 <p>
+When you allocate a requirement to or from a capella element, a relation is created under the requirement.<br/>
 Depending on which of the requirement or the capella element is the source or the target, the relation can be:<br/>
 </p>
 
@@ -43,21 +47,25 @@ Depending on which of the requirement or the capella element is the source or th
     <th>Source</th>
     <th>Target</th>
     <th>Relation</th>
+    <th>In example</th>
   </tr>
   <tr>
     <td>Requirement</td>
     <td>CapellaElement</td>
     <td>CapellaIncomingRelation</td>
+    <td>is allocated to</td>
   </tr>
   <tr>
     <td>CapellaElement</td>
     <td>Requirement</td>
     <td>CapellaOutgoingRelation</td>
+    <td>satisfies</td>
   </tr>
   <tr>
     <td>Requirement</td>
     <td>Requirement</td>
     <td>InternalRelation</td>
+    <td>refines</td>
   </tr>
 </table> 
 
