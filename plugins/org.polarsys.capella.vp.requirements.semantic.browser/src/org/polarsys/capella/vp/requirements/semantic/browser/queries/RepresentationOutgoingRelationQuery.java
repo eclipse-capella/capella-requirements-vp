@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.polarsys.capella.common.helpers.query.IQuery;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
@@ -23,13 +22,13 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 /**
  * @author Joao Barata
  */
-public class RepresentationOutgoingRelationQuery implements IQuery {
+public class RepresentationOutgoingRelationQuery extends AbstractViewpointQuery {
 
 	/**
 	 * @param object: The model element for which the semantic browser extension is generated
 	 * @return List of object to display in the parent category
 	 */
-	public List<Object> compute(Object object) {
+	public List<Object> computeQuery(Object object) {
 		List<Object> result = new ArrayList<Object>();
     DRepresentationDescriptor representation = (DRepresentationDescriptor) object;
 

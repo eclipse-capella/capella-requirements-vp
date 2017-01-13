@@ -14,25 +14,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute;
+import org.polarsys.capella.common.helpers.query.IQuery;
+import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
 
 /**
  * @author Joao Barata
  */
-public class EnumerationValueAttributeDefinitionQuery extends AbstractViewpointQuery {
+public abstract class AbstractViewpointQuery implements IQuery {
 
-	/**
-	 * @param object: The model element for which the semantic browser extension is generated
-	 * @return List of object to display in the parent category
-	 */
-	public List<Object> computeQuery(Object object) {
-		List<Object> result = new ArrayList<Object>();
-		EnumerationValueAttribute attribute = (EnumerationValueAttribute) object;
+  /**
+   * @param object: The model element for which the semantic browser extension is generated
+   * @return List of object to display in the parent category
+   */
+  public List<Object> compute(Object object) {
+    List<Object> result = new ArrayList<Object>();
 
-		EObject definition = attribute.getDefinition();
-		if (definition != null)
-			result.add(definition);
+    if (object instanceof EObject && ViewpointHelper.isViewpointActive((EObject) object)) {
+        result.addAll(computeQuery(object));
+    }
 
-		return result;
-	}
+    return result;
+  }
+
+  public abstract List<Object> computeQuery(Object object);
 }

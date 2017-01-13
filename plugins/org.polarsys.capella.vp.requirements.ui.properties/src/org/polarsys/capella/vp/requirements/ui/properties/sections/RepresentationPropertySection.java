@@ -41,7 +41,7 @@ import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesPro
 import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
-import org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin;
+import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
@@ -59,7 +59,7 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
   public boolean select(Object toTest) {
     EObject eObjectToTest = super.selection(toTest);
 
-    if (CapellaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) &&
+    if (ViewpointHelper.isViewpointActive(eObjectToTest) &&
         (eObjectToTest instanceof DRepresentationDescriptor) || (eObjectToTest instanceof DRepresentation) || (eObjectToTest instanceof IDDiagramEditPart))
     {
       return true;
