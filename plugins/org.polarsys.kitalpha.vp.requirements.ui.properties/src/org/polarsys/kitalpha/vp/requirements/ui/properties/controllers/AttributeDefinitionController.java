@@ -15,14 +15,15 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
 
-public class EnumAttributeDefinitionController extends LocalProjectFilteringController {
+public class AttributeDefinitionController extends LocalProjectFilteringController {
   @Override
   public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> eObjs = new ArrayList<EObject>(); 
     for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature)) {
-      if (eObj instanceof AttributeDefinitionEnumeration) {
+      if (eObj instanceof AttributeDefinition && !(eObj instanceof AttributeDefinitionEnumeration)) {
         eObjs.add(eObj);
       }
     }

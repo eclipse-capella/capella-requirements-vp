@@ -25,7 +25,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
-import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.RequirementController;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.LocalProjectFilteringController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -73,7 +73,7 @@ public class RequirementSection extends AbstractSection {
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     typeField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("Requirement.TypeLabel"), getWidgetFactory(), new RequirementController()); //$NON-NLS-1$
+      Messages.getString("Requirement.TypeLabel"), getWidgetFactory(), new LocalProjectFilteringController()); //$NON-NLS-1$
     typeField.setDisplayedInWizard(displayedInWizard);
 	}
 

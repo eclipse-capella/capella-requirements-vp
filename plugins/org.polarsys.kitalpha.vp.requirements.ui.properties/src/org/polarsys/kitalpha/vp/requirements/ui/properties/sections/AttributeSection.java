@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.SimpleSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -26,6 +25,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.AttributeDefinitionController;
 
 /**
  * @author Joao Barata
@@ -68,7 +68,7 @@ public abstract class AttributeSection extends AbstractSection {
     boolean displayedInWizard = isDisplayedInWizard();
 
     definitionField = new SimpleSemanticField(getReferencesGroup(),
-      Messages.getString("Attribute.DefinitionLabel"), getWidgetFactory(), new SimpleSemanticFieldController()); //$NON-NLS-1$
+      Messages.getString("Attribute.DefinitionLabel"), getWidgetFactory(), new AttributeDefinitionController()); //$NON-NLS-1$
     definitionField.setDisplayedInWizard(displayedInWizard);
 	}
 
