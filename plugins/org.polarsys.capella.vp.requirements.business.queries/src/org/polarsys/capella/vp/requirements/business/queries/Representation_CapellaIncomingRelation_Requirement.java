@@ -35,7 +35,7 @@ public class Representation_CapellaIncomingRelation_Requirement extends Represen
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     if (element instanceof DRepresentation) {
       List<EObject> result = new ArrayList<EObject>();
-      for (Couple<Requirement, RelationType> allocation : RelationAnnotationHelper.getAllocations((DRepresentation) element, RelationAnnotationHelper.IncomingRelationAnnotation)) {
+      for (Couple<Requirement, RelationType> allocation : RelationAnnotationHelper.getAllocations((DRepresentation) element, RelationAnnotationHelper.IncomingRelationAnnotation).values()) {
         result.add(allocation.getKey());
       }
       return result;
