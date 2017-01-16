@@ -356,6 +356,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		capellaRelationEClass.getESuperTypes().add(theRequirementsPackage.getAbstractRelation());
 		capellaIncomingRelationEClass.getESuperTypes().add(this.getCapellaRelation());
 		capellaOutgoingRelationEClass.getESuperTypes().add(this.getCapellaRelation());
+		capellaOutgoingRelationEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(capellaTypesFolderEClass, CapellaTypesFolder.class, "CapellaTypesFolder", !IS_ABSTRACT, //$NON-NLS-1$
@@ -409,6 +410,9 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		addAnnotation(capellaModuleEClass, source,
 				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.1.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
+		addAnnotation(capellaOutgoingRelationEClass, source,
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.1.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				});
 	}
 
 	/**
@@ -424,6 +428,9 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		});
 		addAnnotation(capellaModuleEClass, source, new String[] { "Mapping", //$NON-NLS-1$
 				" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture" //$NON-NLS-1$
+		});
+		addAnnotation(capellaOutgoingRelationEClass, source, new String[] { "Mapping", //$NON-NLS-1$
+				" platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement" //$NON-NLS-1$
 		});
 	}
 

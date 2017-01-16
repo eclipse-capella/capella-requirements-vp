@@ -38,6 +38,7 @@ Data CapellaRequirements.data {
 	}
 	Class CapellaOutgoingRelation {
 		icon: "CapellaRelation.gif"
+		extends capellacore.CapellaElement
 		superClass CapellaRelation
 
 		Associations:
