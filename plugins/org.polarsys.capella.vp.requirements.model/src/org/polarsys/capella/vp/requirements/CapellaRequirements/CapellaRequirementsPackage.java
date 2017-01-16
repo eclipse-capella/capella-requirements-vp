@@ -476,13 +476,22 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_OUTGOING_RELATION__RELATION_TYPE_PROXY = CAPELLA_RELATION__RELATION_TYPE_PROXY;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS = CAPELLA_RELATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION__SOURCE = CAPELLA_RELATION_FEATURE_COUNT + 0;
+	int CAPELLA_OUTGOING_RELATION__SOURCE = CAPELLA_RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -491,7 +500,7 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION__TARGET = CAPELLA_RELATION_FEATURE_COUNT + 1;
+	int CAPELLA_OUTGOING_RELATION__TARGET = CAPELLA_RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Capella Outgoing Relation</em>' class.
@@ -500,7 +509,7 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION_FEATURE_COUNT = CAPELLA_RELATION_FEATURE_COUNT + 2;
+	int CAPELLA_OUTGOING_RELATION_FEATURE_COUNT = CAPELLA_RELATION_FEATURE_COUNT + 3;
 
 	/**
 	 * Returns the meta object for class '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder <em>Capella Types Folder</em>}'.

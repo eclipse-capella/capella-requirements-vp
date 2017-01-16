@@ -14,6 +14,7 @@ package org.polarsys.capella.vp.requirements.CapellaRequirements;
 
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 
+import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
@@ -30,11 +31,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * </ul>
  *
  * @see org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage#getCapellaOutgoingRelation()
- * @model
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/core/1.1.0#//CapellaElement'"
+ *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement'"
  * @generated
  */
 
-public interface CapellaOutgoingRelation extends CapellaRelation {
+public interface CapellaOutgoingRelation extends CapellaRelation, ElementExtension {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

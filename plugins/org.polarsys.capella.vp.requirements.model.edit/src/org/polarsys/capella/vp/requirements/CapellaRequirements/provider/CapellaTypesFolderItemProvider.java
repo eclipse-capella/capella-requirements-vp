@@ -190,6 +190,17 @@ public class CapellaTypesFolderItemProvider extends TypesFolderItemProvider impl
 		}
 		// end-extension-code
 
+		// begin-extension-code
+		{
+			CommandParameter commandParameter = createChildParameter(
+					EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+					CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation());
+			if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+				newChildDescriptors.add(commandParameter);
+			}
+		}
+		// end-extension-code
+
 	}
 
 }

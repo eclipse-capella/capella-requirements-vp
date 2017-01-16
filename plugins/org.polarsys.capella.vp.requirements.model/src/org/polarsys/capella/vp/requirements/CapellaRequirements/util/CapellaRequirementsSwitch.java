@@ -168,9 +168,15 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseCapellaRelation(capellaOutgoingRelation);
 			if (result == null)
+				result = caseElementExtension(capellaOutgoingRelation);
+			if (result == null)
 				result = caseAbstractRelation(capellaOutgoingRelation);
 			if (result == null)
+				result = caseExtensibleElement(capellaOutgoingRelation);
+			if (result == null)
 				result = caseReqIFElement(capellaOutgoingRelation);
+			if (result == null)
+				result = caseElement(capellaOutgoingRelation);
 			if (result == null)
 				result = caseIdentifiableElement(capellaOutgoingRelation);
 			if (result == null)
