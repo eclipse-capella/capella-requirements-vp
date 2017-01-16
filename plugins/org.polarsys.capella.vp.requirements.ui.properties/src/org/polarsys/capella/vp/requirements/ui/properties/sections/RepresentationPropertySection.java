@@ -13,7 +13,9 @@ package org.polarsys.capella.vp.requirements.ui.properties.sections;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -173,15 +175,19 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     addRequirementsRelationTypes(semanticDecorator.getTarget());
   }
 
-    IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
+    IBusinessQuery outgoingQuery = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
         CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-    if (query != null) {
-      List<EObject> availableElements = query.getAvailableElements(_representation.get());
+    IBusinessQuery incomingQuery = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+    if (outgoingQuery != null) {
+      List<EObject> availableElements = outgoingQuery.getAvailableElements(_representation.get());
       DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
       transferTreeViewer.setLeftLabelProvider(leftLabelProvider);
       transferTreeViewer.setLeftInput(new TreeData(availableElements, null));
 
-      List<EObject> currentElements = query.getCurrentElements(_representation.get(), false);
+      Set<EObject> currentElements = new HashSet<EObject>();
+      currentElements.addAll(outgoingQuery.getCurrentElements(_representation.get(), false));
+      currentElements.addAll(incomingQuery.getCurrentElements(_representation.get(), false));
       DataLabelProvider rightLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(currentElements)) {
         @Override
         public String getText(Object object) {
