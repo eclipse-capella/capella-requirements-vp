@@ -16,6 +16,8 @@ import org.eclipse.emf.diffmerge.api.scopes.IFeaturedModelScope;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.compare.CapellaMergePolicy;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -36,8 +38,15 @@ public class ReqIFMergePolicy extends CapellaMergePolicy {
     if (element_p instanceof Attribute) {
       Attribute attribute = (Attribute) element_p;
       if (attribute.getDefinition() != null && attribute.getDefinition().getDefinitionType() != null) {
+        // Take the AttributeDefinition along with the Attribute
         result.add(attribute.getDefinition());
-        result.add(attribute.getDefinition().getDefinitionType());
+        // Take the DataTypeDefinition along with the AttributeDefinition
+        DataTypeDefinition dataTypeDefinition = attribute.getDefinition().getDefinitionType();
+        result.add(dataTypeDefinition);
+        // If the DataTypeDefinition is an EnumerationDataTypeDefinition, take EnumValues with it
+        if (dataTypeDefinition instanceof EnumerationDataTypeDefinition) {
+          result.addAll(((EnumerationDataTypeDefinition) dataTypeDefinition).getSpecifiedValues());
+        }
       }
     } else if (element_p instanceof Module) {
       Module module = (Module) element_p;

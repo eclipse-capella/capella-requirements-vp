@@ -182,7 +182,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
             RequirementsPackage.Literals.INTERNAL_RELATION));
 
     EClassCategory typesFolderEClassCategory = new EClassCategory(RequirementsPackage.Literals.TYPES_FOLDER,
-        Messages.Categories_Types, RequirementsPackage.Literals.DATA_TYPE_DEFINITION,
+        Messages.Categories_Types, RequirementsPackage.Literals.ENUM_VALUE, RequirementsPackage.Literals.DATA_TYPE_DEFINITION,
         RequirementsPackage.Literals.ATTRIBUTE_DEFINITION, RequirementsPackage.Literals.ABSTRACT_TYPE,
         RequirementsPackage.Literals.TYPES_FOLDER);
     typesFolderEClassCategory.setActive(true); /* Types Folder are now filtered */
