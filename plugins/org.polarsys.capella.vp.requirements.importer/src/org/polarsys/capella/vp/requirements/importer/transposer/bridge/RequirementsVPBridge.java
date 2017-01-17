@@ -32,12 +32,14 @@ import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFact
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
 import org.eclipse.emf.diffmerge.diffdata.impl.EComparisonImpl;
+import org.eclipse.emf.diffmerge.ui.viewers.AbstractComparisonViewer;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.DifferenceCategorySet;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.swt.widgets.Composite;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -216,5 +218,8 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
       }
     });
   }
-
+  
+  protected AbstractComparisonViewer createComparisonViewer(Composite parent) {
+    return new RequirementsComparisonViewer(parent);
+  }
 }

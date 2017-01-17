@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--
-  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -38,7 +38,18 @@ The 2 horizontal sections correspond to 2 levels of detail. The top section focu
 For example, if a modified element (in purple) is being clicked in the Synthesis section, then the Details section displays all the attributes and references of that element that have differences. The corresponding values are displayed in the middle and right parts of the Details section according to the model they belong to. These sub-sections are called the Value sections. For instance, in the snapshot above, element "N2" is selected in the Synthesis section; the Details section shows that it has a difference on its name: the name is "N2" in the left model and "N2-Container" in the right model as shown in the Value sections.
       </p>
       
-      
+      <p>
+<b>Iterative import</b><br>
+By default the following options are checked for the merge operation.
+      </p>
+       <p>
+<img src="../../images/MergeOperation.png" alt="Merge Operation" title="Merge Operation">
+      </p>
+      <p>
+It's highly recommended to keep those options check if you have created requirements manually into your model.
+You may loose manually added requirements if you uncheck those options.
+      </p>
+   
       <p>
 <b>Filtering Capability</b><br>
 
