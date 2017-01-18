@@ -36,11 +36,12 @@ public class EnumerationValueAttribute_Values_EnumValue implements IBusinessQuer
 
     if (element instanceof EnumerationValueAttribute) {
       AttributeDefinition attDef = ((EnumerationValueAttribute) element).getDefinition();
-      DataTypeDefinition definitionType = attDef.getDefinitionType();
-      if (definitionType instanceof EnumerationDataTypeDefinition)
-        availableElements.addAll(((EnumerationDataTypeDefinition) definitionType).getSpecifiedValues());
+      if(attDef != null){
+        DataTypeDefinition definitionType = attDef.getDefinitionType();
+        if (definitionType instanceof EnumerationDataTypeDefinition)
+          availableElements.addAll(((EnumerationDataTypeDefinition) definitionType).getSpecifiedValues());        
+      }
     }
-
     return availableElements;
   }
 
