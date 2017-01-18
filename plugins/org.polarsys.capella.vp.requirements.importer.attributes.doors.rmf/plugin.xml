@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <!--
-  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -19,19 +19,19 @@
              mandatory="false">
           <attribute
                 name="IE Capability Number"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
          <attribute
                 name="IE Checked Object"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE DocProperties Author"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE DocProperties Company"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE IVV Method"
@@ -39,55 +39,55 @@
           </attribute>
           <attribute
                 name="IE IVV Non Regression"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE IVV Procedure Number"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE IVV Responsible"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE IVV Skills"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE IVV Type"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE Object Type"
                 defaultValue="true">
           </attribute>
           <attribute
-                name="IE PUID"
-                defaultValue="true">
-          </attribute>
-          <attribute
                 name="IE Rationale"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE Release"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE Req Obsolete"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE Req Status"
                 defaultValue="true">
           </attribute>
           <attribute
-                name="IE Requirement Number"
+                name="IE Req Version"
                 defaultValue="true">
           </attribute>
           <attribute
+                name="IE Requirement Number"
+                defaultValue="false">
+          </attribute>
+          <attribute
                 name="IE StyleList"
-                defaultValue="true">
+                defaultValue="false">
           </attribute>
           <attribute
                 name="IE Test Method Expected"
@@ -95,7 +95,35 @@
           </attribute>
           <attribute
                 name="IE WordExportSettings"
+                defaultValue="false">
+          </attribute>
+          <attribute
+                name="Object Heading"
                 defaultValue="true">
+          </attribute>
+          <attribute
+                name="Object Short Text"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="Object Text"
+                defaultValue="true">
+          </attribute>
+          <attribute
+                name="RCM Version"
+                defaultValue="true">
+          </attribute>
+       </attributesProvider>
+    </extension>
+    <extension
+          point="org.polarsys.capella.vp.requirements.importer.extension.attributesProvider">
+       <attributesProvider
+             category="Doors RMF mandatory attributes"
+             id="doors.rmf.mandatory"
+             mandatory="true">
+          <attribute
+                defaultValue="true"
+                name="IE PUID">
           </attribute>
        </attributesProvider>
     </extension>
