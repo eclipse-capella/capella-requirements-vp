@@ -32,7 +32,7 @@ public class RepresentationOutgoingRelationQuery extends AbstractViewpointQuery 
 		List<Object> result = new ArrayList<Object>();
     DRepresentationDescriptor representation = (DRepresentationDescriptor) object;
 
-    for (Couple<Requirement, RelationType> requirement : RelationAnnotationHelper.getAllocations(representation.getRepresentation(), RelationAnnotationHelper.OutgoingRelationAnnotation)) {
+    for (Couple<Requirement, RelationType> requirement : RelationAnnotationHelper.getAllocations(representation.getRepresentation(), RelationAnnotationHelper.OutgoingRelationAnnotation).values()) {
       if (requirement != null)
         result.add(requirement.getKey());
     }

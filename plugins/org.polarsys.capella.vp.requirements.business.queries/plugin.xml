@@ -41,5 +41,13 @@
          class="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue"
          id="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue">
    </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.Requirement_InternalRelationTarget_Requirement"
+         id="org.polarsys.capella.vp.requirements.business.queries.Requirement_InternalRelationTarget_CapellaElement">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType"
+         id="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType">
+   </MDEBusinessQueries>
 </extension>
 </plugin>

@@ -13,19 +13,17 @@ package org.polarsys.capella.vp.requirements.ui.properties.sections;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -33,24 +31,34 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.capella.common.mdsofa.common.misc.Couple;
-import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
-import org.polarsys.capella.common.ui.toolkit.viewers.data.TreeData;
-import org.polarsys.capella.core.business.queries.IBusinessQuery;
-import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
-import org.polarsys.capella.core.ui.properties.providers.CapellaTransfertViewerLabelProvider;
-import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
+import org.polarsys.capella.core.ui.properties.CapellaUIPropertiesPlugin;
+import org.polarsys.capella.core.ui.properties.IImageKeys;
+import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
+import org.polarsys.capella.core.ui.properties.fields.ReferenceTableField;
+import org.polarsys.capella.core.ui.properties.helpers.DialogHelper;
+import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
+import org.polarsys.capella.core.ui.properties.viewers.AbstractPropertyValueCellEditorProvider;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
+import org.polarsys.capella.vp.requirements.ui.properties.controllers.DiagramIncomingLink;
+import org.polarsys.capella.vp.requirements.ui.properties.controllers.DiagramOutgoingLink;
+import org.polarsys.capella.vp.requirements.ui.properties.controllers.RepresentationIncomingLinkController;
+import org.polarsys.capella.vp.requirements.ui.properties.controllers.RepresentationOutgoingLinkController;
+import org.polarsys.capella.vp.requirements.ui.properties.labelproviders.RelationTypeColumnLabelProvider;
+import org.polarsys.capella.vp.requirements.ui.properties.labelproviders.RequirementColumnLabelProvider;
+import org.polarsys.capella.vp.requirements.ui.properties.widgets.RelationTypeTableDelegatedViewer;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  * @author Joao Barata
  */
-public class RepresentationPropertySection extends AbstractAllocationSection {
+public class RepresentationPropertySection extends AbstractSection {
 
   private WeakReference<DRepresentation> _representation;
 
@@ -61,9 +69,8 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
   public boolean select(Object toTest) {
     EObject eObjectToTest = super.selection(toTest);
 
-    if (ViewpointHelper.isViewpointActive(eObjectToTest) &&
-        (eObjectToTest instanceof DRepresentationDescriptor) || (eObjectToTest instanceof DRepresentation) || (eObjectToTest instanceof IDDiagramEditPart))
-    {
+    if (ViewpointHelper.isViewpointActive(eObjectToTest) && (eObjectToTest instanceof DRepresentationDescriptor)
+        || (eObjectToTest instanceof DRepresentation) || (eObjectToTest instanceof IDDiagramEditPart)) {
       return true;
     }
     return false;
@@ -86,12 +93,14 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
           _representation = new WeakReference<DRepresentation>((DRepresentation) firstElement);
         } else if (firstElement instanceof IDDiagramEditPart) {
           IDDiagramEditPart diagramEditPart = (IDDiagramEditPart) firstElement;
-          _representation = new WeakReference<DRepresentation>((DRepresentation) ((Diagram) diagramEditPart.getModel()).getElement());
+          _representation = new WeakReference<DRepresentation>(
+              (DRepresentation) ((Diagram) diagramEditPart.getModel()).getElement());
         } else {
           _representation = null;
         }
       }
-      loadData();
+      if (_representation != null)
+        loadData(_representation.get());
     }
   }
 
@@ -110,45 +119,18 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     grp.setLayout(new GridLayout(2, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
-    createRelationConfig(grp);
-    createTransferTreeListViewer(grp);
+    setUpFields(grp);
   }
 
+  /**
+   * @param representation
+   */
   @Override
-  protected void handleAddAllButton() {
-    Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
-    for (Object elt : transferTreeViewer.getLeftInput().getValidElements()) {
-      elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
-    }
-    if (getRelationDirection() == RelationDirectionKind.IN) {
-      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
-    } else {
-      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
-    }
-  }
+  public void loadData(final EObject representation) {
+    super.loadData(representation);
 
-  @Override
-  protected void handleRemoveAllButton() {
-    RelationAnnotationHelper.removeAllocations(_representation.get(), transferTreeViewer.getRightInput().getValidElements());
-  }
-
-  @Override
-  protected void handleAddSelectedButton() {
-    Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject,EObject>>();
-    for (Object elt : ((IStructuredSelection) transferTreeViewer.getLeftViewer().getSelection()).toList()) {
-      elts.add(new Couple<EObject, EObject>((EObject) elt, getRelationType()));
-    }
-    if (getRelationDirection() == RelationDirectionKind.IN) {
-      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, elts);
-    } else {
-      RelationAnnotationHelper.addAllocations(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, elts);
-    }
-  }
-
-  @SuppressWarnings("unchecked")
-  @Override
-  protected void handleRemoveSelectedButton() {
-    RelationAnnotationHelper.removeAllocations(_representation.get(), ((IStructuredSelection) transferTreeViewer.getRightViewer().getSelection()).toList());
+    incomingTableField.loadData(representation, RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations());
+    outgoingTableField.loadData(representation, RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations());
   }
 
   /**
@@ -164,56 +146,150 @@ public class RepresentationPropertySection extends AbstractAllocationSection {
     }
   }
 
-  /**
-   * 
-   */
-  public void loadData() {
-  
-  DRepresentation representation = _representation.get();
-  if (representation instanceof DSemanticDecorator) {
-    DSemanticDecorator semanticDecorator = (DSemanticDecorator) representation;
-    addRequirementsRelationTypes(semanticDecorator.getTarget());
-  }
+  private ReferenceTableField incomingTableField;
 
-    IBusinessQuery outgoingQuery = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
-        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-    IBusinessQuery incomingQuery = BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
-        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
-    if (outgoingQuery != null) {
-      List<EObject> availableElements = outgoingQuery.getAvailableElements(_representation.get());
-      DataLabelProvider leftLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(availableElements));
-      transferTreeViewer.setLeftLabelProvider(leftLabelProvider);
-      transferTreeViewer.setLeftInput(new TreeData(availableElements, null));
+  protected final String[] _columnProperties = { "Source element", "Relation type" };
 
-      Set<EObject> currentElements = new HashSet<EObject>();
-      currentElements.addAll(outgoingQuery.getCurrentElements(_representation.get(), false));
-      currentElements.addAll(incomingQuery.getCurrentElements(_representation.get(), false));
-      DataLabelProvider rightLabelProvider =  new CapellaTransfertViewerLabelProvider(TransactionHelper.getEditingDomain(currentElements)) {
-        @Override
-        public String getText(Object object) {
-          String prefix = ICommonConstants.EMPTY_STRING;
-          if (object instanceof Requirement) {
-            RelationType outgoingRelationType = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.OutgoingRelationAnnotation, (Requirement) object);
-            if (outgoingRelationType != null) {
-              String typeName = outgoingRelationType.getReqIFLongName();
-              if (typeName != null && !typeName.isEmpty()) {
-                prefix = "[-> " + typeName + "] ";
-              }
-            }
-            RelationType incomingRelationType = RelationAnnotationHelper.getAllocationType(_representation.get(), RelationAnnotationHelper.IncomingRelationAnnotation, (Requirement) object);
-            if (incomingRelationType != null) {
-              String typeName = incomingRelationType.getReqIFLongName();
-              if (typeName != null && !typeName.isEmpty()) {
-                prefix = "[<- " + typeName + "] ";
-              }
+  private ReferenceTableField outgoingTableField;
+
+  protected final String[] outgoingColumnProperties = { "Target element", "Relation type" };
+
+  protected void setUpFields(Group grp) {
+    incomingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Incoming links",
+        new RepresentationIncomingLinkController(),
+        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
+          @Override
+          protected String[] getColumnProperties() {
+            return _columnProperties;
+          }
+
+          @Override
+          protected boolean createViewerColumns() {
+            createTableViewerColumn(0, new RequirementColumnLabelProvider());
+            createTableViewerColumn(1, new RelationTypeColumnLabelProvider());
+            return true;
+          }
+        }) {
+      protected List<EObject> getReferencedElementsByContainedOnes() {
+        return _controller.loadValues(_representation.get(), _semanticFeature);
+      }
+
+      protected void handleBrowse() {
+        AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
+          public void run() {
+            List<EObject> availableElements = _controller.readOpenValues(_representation.get(), _semanticFeature, true);
+            List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
+                availableElements);
+            if (null != allResults) {
+              _controller.writeOpenValues(_representation.get(), _semanticFeature, allResults);
             }
           }
-          return prefix + super.getText(object);
+        };
+        TransactionHelper.getExecutionManager(_representation.get()).execute(command);
+        refreshViewer();
+      }
+
+      protected void handleDelete() {
+        if (null != _delegatedViewer) {
+          ColumnViewer columnViewer = _delegatedViewer.getColumnViewer();
+          if (null != columnViewer) {
+            final List<EObject> selectedReferencedElements = ((IStructuredSelection) columnViewer.getSelection())
+                .toList();
+            if (!selectedReferencedElements.isEmpty()) {
+
+              for (EObject eObj : selectedReferencedElements) {
+                if (eObj instanceof DiagramIncomingLink) {
+                  RelationAnnotationHelper.removeAllocation(_representation.get(),
+                      RelationAnnotationHelper.IncomingRelationAnnotation, ((DiagramIncomingLink) eObj).getId());
+                }
+              }
+
+              refreshViewer();
+            }
+          }
         }
-      };
-      transferTreeViewer.setRightLabelProvider(rightLabelProvider);
-      transferTreeViewer.setRightInput(new TreeData(currentElements, null));
-      transferTreeViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
-    }
+      }
+
+      @Override
+      protected void createCustomActions(Composite parent) {
+        _browseBtn = createTableButton(parent,
+            CapellaUIPropertiesPlugin.getDefault().getImage(IImageKeys.IMG_ADD_BUTTON), new Runnable() {
+              public void run() {
+                handleBrowse();
+              }
+            });
+      }
+    };
+
+    outgoingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Outgoing links",
+        new RepresentationOutgoingLinkController(),
+        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
+          @Override
+          protected String[] getColumnProperties() {
+            return outgoingColumnProperties;
+          }
+
+          @Override
+          protected boolean createViewerColumns() {
+            createTableViewerColumn(0, new RequirementColumnLabelProvider());
+            createTableViewerColumn(1, new RelationTypeColumnLabelProvider());
+            return true;
+          }
+        }) {
+      protected List<EObject> getReferencedElementsByContainedOnes() {
+        return _controller.loadValues(_representation.get(), _semanticFeature);
+      }
+
+      protected void handleBrowse() {
+        AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
+          public void run() {
+            List<EObject> availableElements = _controller.readOpenValues(_representation.get(), _semanticFeature, true);
+            List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
+                availableElements);
+            if (null != allResults) {
+              _controller.writeOpenValues(_representation.get(), _semanticFeature, allResults);
+            }
+          }
+        };
+        TransactionHelper.getExecutionManager(_representation.get()).execute(command);
+        refreshViewer();
+      }
+
+      protected void handleDelete() {
+        if (null != _delegatedViewer) {
+          ColumnViewer columnViewer = _delegatedViewer.getColumnViewer();
+          if (null != columnViewer) {
+            final List<EObject> selectedReferencedElements = ((IStructuredSelection) columnViewer.getSelection())
+                .toList();
+            if (!selectedReferencedElements.isEmpty()) {
+
+              for (EObject eObj : selectedReferencedElements) {
+                if (eObj instanceof DiagramOutgoingLink) {
+                  RelationAnnotationHelper.removeAllocation(_representation.get(),
+                      RelationAnnotationHelper.OutgoingRelationAnnotation, ((DiagramOutgoingLink) eObj).getId());
+                }
+              }
+
+              refreshViewer();
+            }
+          }
+        }
+      }
+
+      @Override
+      protected void createCustomActions(Composite parent) {
+        _browseBtn = createTableButton(parent,
+            CapellaUIPropertiesPlugin.getDefault().getImage(IImageKeys.IMG_ADD_BUTTON), new Runnable() {
+              public void run() {
+                handleBrowse();
+              }
+            });
+      }
+    };
+  }
+
+  @Override
+  public List<AbstractSemanticField> getSemanticFields() {
+    return Collections.emptyList();
   }
 }

@@ -30,6 +30,9 @@ import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.core.model.handler.helpers.RepresentationHelper;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
@@ -53,11 +56,14 @@ public class RelationAnnotationHelper {
    * @param representation
    * @param relationType
    */
-  public static List<Couple<Requirement, RelationType>> getAllocations(DRepresentation representation, String relationType) {
-    ArrayList<Couple<Requirement, RelationType>> result = new ArrayList<Couple<Requirement, RelationType>>();
+  public static Map<String, Couple<Requirement, RelationType>> getAllocations(DRepresentation representation,
+      String relationType) {
+    Map<String, Couple<Requirement, RelationType>> result = new HashMap<>();
     DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
     if (null != annotation) {
-      for (String elementURIs : annotation.getDetails().values()) {
+      for (Entry<String, String> detail : annotation.getDetails()) {
+        String id = detail.getKey();
+        String elementURIs = detail.getValue();
         if ((elementURIs != null) && !elementURIs.isEmpty()) {
           try {
             String[] elementURI = elementURIs.split(idseparator);
@@ -66,19 +72,26 @@ public class RelationAnnotationHelper {
             if ((reqURI != null) && reqURI.hasFragment()) {
               reqId = reqURI.fragment();
             }
-            String typeId = elementURI[1];
-            URI typeURI = URI.createURI(typeId);
-            if ((typeURI != null) && typeURI.hasFragment()) {
-              typeId = typeURI.fragment();
+            String typeId = null;
+            if (elementURI.length > 1)
+              typeId = elementURI[1];
+            if (typeId != null) {
+              URI typeURI = URI.createURI(typeId);
+              if ((typeURI != null) && typeURI.hasFragment()) {
+                typeId = typeURI.fragment();
+              }
             }
 
-            if ((reqId != null) && (typeId != null) && !reqId.isEmpty() && !typeId.isEmpty()) {
+            if ((reqId != null) && !reqId.isEmpty()) {
               for (Resource resource : RepresentationHelper.getSemanticResources(representation)) {
                 if (resource != null) {
                   EObject reqObj = resource.getEObject(reqId);
-                  EObject typeObj = resource.getEObject(typeId);
-                  if (reqObj instanceof Requirement && typeObj instanceof RelationType) {
-                    result.add(new Couple<Requirement, RelationType>((Requirement) reqObj, (RelationType) typeObj));
+                  EObject typeObj = null;
+                  if (typeId != null && !typeId.isEmpty())
+                    typeObj = resource.getEObject(typeId);
+                  if (reqObj instanceof Requirement) {
+                    result.put(id, new Couple<Requirement, RelationType>((Requirement) reqObj,
+                        (typeObj != null && typeObj instanceof RelationType) ? (RelationType) typeObj : null));
                   }
                 }
               }
@@ -97,9 +110,10 @@ public class RelationAnnotationHelper {
    * @param relationType
    * @param requirement
    */
-  public static RelationType getAllocationType(DRepresentation representation, String relationType, Requirement requirement) {
+  public static RelationType getAllocationType(DRepresentation representation, String relationType,
+      Requirement requirement) {
     RelationType type = null;
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType)) {
+    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
       if (allocation.getKey().equals(requirement)) {
         return allocation.getValue();
       }
@@ -112,12 +126,13 @@ public class RelationAnnotationHelper {
    * @param relationType
    * @param elements
    */
-  public static void addAllocations(final DRepresentation representation, final String relationType, final Collection<Couple<EObject, EObject>> elements) {
+  public static void addAllocations(final DRepresentation representation, final String relationType,
+      final Collection<Couple<EObject, EObject>> elements) {
     final Map<Requirement, RelationType> elementsToBeAdded = new HashMap<Requirement, RelationType>(0);
     for (Couple<EObject, EObject> obj : elements) {
       elementsToBeAdded.put((Requirement) obj.getKey(), (RelationType) obj.getValue());
     }
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType)) {
+    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
       Requirement requirement = allocation.getKey();
       if (elementsToBeAdded.containsKey(requirement)) {
         elementsToBeAdded.remove(requirement);
@@ -131,8 +146,10 @@ public class RelationAnnotationHelper {
         }
         for (Entry<Requirement, RelationType> entry : elementsToBeAdded.entrySet()) {
           String reqId = entry.getKey().getId();
-          String typeId = entry.getValue().getId();
-          annotation.getDetails().put(EcoreUtil.generateUUID(), reqId + idseparator + typeId);
+          String typeId = null;
+          if (entry.getValue() != null)
+            typeId = entry.getValue().getId();
+          annotation.getDetails().put(EcoreUtil.generateUUID(), reqId + (typeId == null ? "" : idseparator + typeId));
         }
       }
     });
@@ -152,9 +169,10 @@ public class RelationAnnotationHelper {
    * @param relationType
    * @param elements
    */
-  public static void removeAllocations(final DRepresentation representation, final String relationType, Collection<Object> elements) {
+  public static void removeAllocations(final DRepresentation representation, final String relationType,
+      Collection<Object> elements) {
     final List<Requirement> elementsToBeDestroyed = new ArrayList<Requirement>(0);
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType)) {
+    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
       Requirement requirement = allocation.getKey();
       if (elements.contains(requirement)) {
         elementsToBeDestroyed.add(requirement);
@@ -187,5 +205,61 @@ public class RelationAnnotationHelper {
       }
     }
     return keys;
+  }
+
+  /**
+   * @param representation
+   * @param relationType
+   * @param element
+   */
+  public static void addAllocation(final DRepresentation representation, final String relationType,
+      final Couple<EObject, EObject> element) {
+    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+      public void run() {
+        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
+        if (annotation == null) {
+          annotation = RepresentationHelper.createAnnotation(relationType, representation);
+        }
+        String reqId = ((Requirement) element.getKey()).getId();
+        String typeId = null;
+        if ((RelationType) element.getValue() != null)
+          typeId = ((RelationType) element.getValue()).getId();
+        annotation.getDetails().put(EcoreUtil.generateUUID(), reqId + (typeId == null ? "" : idseparator + typeId));
+      }
+    });
+  }
+
+  /**
+   * @param representation
+   * @param relationType
+   * @param elements
+   */
+  public static void removeAllocation(final DRepresentation representation, final String relationType,
+      final String id) {
+    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+      public void run() {
+        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
+        if (annotation != null) {
+          annotation.getDetails().removeKey(id);
+        }
+      }
+    });
+  }
+
+  public static void updateAllocation(DRepresentation semanticElement, AbstractRelation relation, String id) {
+    String relationType = null;
+    Requirement requirement = null;
+    if (relation instanceof CapellaIncomingRelation) {
+      relationType = IncomingRelationAnnotation;
+      requirement = ((CapellaIncomingRelation) relation).getSource();
+    } else if (relation instanceof CapellaOutgoingRelation) {
+      relationType = OutgoingRelationAnnotation;
+      requirement = ((CapellaOutgoingRelation) relation).getTarget();
+    }
+    if (requirement != null && relationType != null) {
+      removeAllocation(semanticElement, relationType, id);
+      addAllocation(semanticElement, relationType,
+          new Couple<EObject, EObject>(requirement, relation.getRelationType()));
+    }
   }
 }
