@@ -19,7 +19,6 @@ import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
-import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
@@ -27,7 +26,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
  */
-public class CapellaElementIncomingLinkController extends AbstractMultipleSemanticFieldController {
+public class CapellaElementIncomingLinkController extends AbstractAllocationController {
   /**
    * Override this to display elements on Browse wizard
    */

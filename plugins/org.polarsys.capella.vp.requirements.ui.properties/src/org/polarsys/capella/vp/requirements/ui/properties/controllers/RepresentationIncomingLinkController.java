@@ -24,7 +24,6 @@ import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
-import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
@@ -32,7 +31,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
  */
-public class RepresentationIncomingLinkController extends AbstractMultipleSemanticFieldController {
+public class RepresentationIncomingLinkController extends AbstractAllocationController {
   /**
    * Override this to display elements on Browse wizard
    */
@@ -71,8 +70,10 @@ public class RepresentationIncomingLinkController extends AbstractMultipleSemant
     List<EObject> result = new ArrayList<EObject>();
     if (semanticElement instanceof DRepresentation) {
       for (Entry<String, Couple<Requirement, RelationType>> allocation : RelationAnnotationHelper
-          .getAllocations((DRepresentation) semanticElement, RelationAnnotationHelper.IncomingRelationAnnotation).entrySet()) {
-        DiagramIncomingLink tempIncomingLink = new DiagramIncomingLink((DRepresentation) semanticElement, allocation.getKey());
+          .getAllocations((DRepresentation) semanticElement, RelationAnnotationHelper.IncomingRelationAnnotation)
+          .entrySet()) {
+        DiagramIncomingLink tempIncomingLink = new DiagramIncomingLink((DRepresentation) semanticElement,
+            allocation.getKey());
         tempIncomingLink.setSource(allocation.getValue().getKey());
         tempIncomingLink.setRelationType(allocation.getValue().getValue());
 

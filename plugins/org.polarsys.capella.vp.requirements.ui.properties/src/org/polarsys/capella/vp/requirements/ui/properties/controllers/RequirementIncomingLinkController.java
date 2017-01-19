@@ -18,7 +18,6 @@ import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
-import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
@@ -27,7 +26,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  */
-public class RequirementIncomingLinkController extends AbstractMultipleSemanticFieldController {
+public class RequirementIncomingLinkController extends AbstractAllocationController {
   /**
    * {@inheritDoc}
    */

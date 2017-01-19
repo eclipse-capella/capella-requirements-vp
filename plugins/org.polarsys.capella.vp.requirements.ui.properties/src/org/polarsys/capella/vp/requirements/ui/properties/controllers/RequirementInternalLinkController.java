@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
-import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
@@ -25,11 +24,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  */
-public class RequirementInternalLinkController extends AbstractMultipleSemanticFieldController {
+public class RequirementInternalLinkController extends AbstractAllocationController {
 
   @Override
   protected IBusinessQuery getReadOpenValuesQuery(EObject semanticElement) {
-    return BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT, RequirementsPackage.Literals.INTERNAL_RELATION__TARGET);
+    return BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
+        RequirementsPackage.Literals.INTERNAL_RELATION__TARGET);
   }
 
   @Override
@@ -49,7 +49,7 @@ public class RequirementInternalLinkController extends AbstractMultipleSemanticF
     }
     return null;
   }
-  
+
   @Override
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     return EObjectExt.getReferencers(semanticElement, RequirementsPackage.Literals.INTERNAL_RELATION__SOURCE);

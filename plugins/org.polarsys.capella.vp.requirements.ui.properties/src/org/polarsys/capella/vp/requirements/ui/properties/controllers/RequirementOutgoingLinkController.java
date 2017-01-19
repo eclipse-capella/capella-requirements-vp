@@ -18,7 +18,6 @@ import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
-import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
@@ -27,15 +26,16 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  */
-public class RequirementOutgoingLinkController extends AbstractMultipleSemanticFieldController {
+public class RequirementOutgoingLinkController extends AbstractAllocationController {
   /**
    * Override this to display elements on Browse wizard
    */
   @Override
   protected IBusinessQuery getReadOpenValuesQuery(EObject semanticElement) {
-    return BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
+    return BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
   }
-  
+
   /**
    * Override this to process returned elements from Browse wizard
    */
@@ -56,12 +56,13 @@ public class RequirementOutgoingLinkController extends AbstractMultipleSemanticF
     }
     return null;
   }
-  
+
   /**
    * Override this to diplay elements on the table
    */
   @Override
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
-    return EObjectExt.getReferencers(semanticElement, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+    return EObjectExt.getReferencers(semanticElement,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
   }
 }
