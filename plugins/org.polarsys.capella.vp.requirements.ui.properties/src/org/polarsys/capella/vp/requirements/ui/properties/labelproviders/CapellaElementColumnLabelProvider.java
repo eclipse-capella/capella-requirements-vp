@@ -14,6 +14,7 @@ import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 
@@ -22,10 +23,13 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingR
   public class CapellaElementColumnLabelProvider extends ColumnLabelProvider {
     @Override
     public String getText(Object element) {
-      if (element instanceof CapellaOutgoingRelation)
-        return ((CapellaOutgoingRelation) element).getSource().getLabel();
-      else if (element instanceof CapellaIncomingRelation)
-        return ((CapellaIncomingRelation) element).getTarget().getLabel();
+      if (element instanceof CapellaOutgoingRelation) {
+        CapellaElement source = ((CapellaOutgoingRelation) element).getSource();
+        return source != null ? source.getLabel() : ICommonConstants.EMPTY_STRING;
+      } else if (element instanceof CapellaIncomingRelation) {
+        CapellaElement target = ((CapellaIncomingRelation) element).getTarget();
+        return target != null ? target.getLabel() : ICommonConstants.EMPTY_STRING;
+      }
       return ICommonConstants.EMPTY_STRING;
     }
 

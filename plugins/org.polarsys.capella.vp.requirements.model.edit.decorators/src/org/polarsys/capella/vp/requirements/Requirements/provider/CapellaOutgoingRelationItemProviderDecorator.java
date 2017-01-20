@@ -37,11 +37,14 @@ public class CapellaOutgoingRelationItemProviderDecorator extends
   public String getText(Object object) {
 	  CapellaOutgoingRelation relation = (CapellaOutgoingRelation) object;
 
+	  StringBuilder builder = new StringBuilder();
     RelationType type = relation.getRelationType();
     if (type != null) {
-      return "[" + type.getReqIFLongName() + "] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+      builder.append("[" + type.getReqIFLongName() + "] ");
+    }else{
+      builder.append("[undefined] ");
     }
-
-    return "[Capella Outgoing Relation] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+    builder.append(EObjectLabelProviderHelper.getText(relation.getTarget()));
+    return builder.toString() ;
   }
 }

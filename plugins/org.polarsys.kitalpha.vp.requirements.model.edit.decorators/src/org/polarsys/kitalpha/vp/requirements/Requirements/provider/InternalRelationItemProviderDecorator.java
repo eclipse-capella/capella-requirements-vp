@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 
 /**
@@ -37,11 +38,17 @@ public class InternalRelationItemProviderDecorator extends
   public String getText(Object object) {
     InternalRelation relation = (InternalRelation) object;
 
+    StringBuilder builder = new StringBuilder();
     RelationType type = relation.getRelationType();
+    Requirement target = relation.getTarget();
     if (type != null) {
-      return "[" + type.getReqIFLongName() + "] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+      builder.append("[" + type.getReqIFLongName() + "] " );
+    }else{
+      builder.append("[undefined] ");
     }
-
-    return super.getText(object);
+    if(target != null){
+      builder.append(EObjectLabelProviderHelper.getText(target));
+    }
+return builder.toString();
   }
 }

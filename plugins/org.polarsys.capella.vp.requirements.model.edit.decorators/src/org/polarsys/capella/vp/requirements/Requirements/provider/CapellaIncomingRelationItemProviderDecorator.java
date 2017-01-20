@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
@@ -37,11 +38,14 @@ public class CapellaIncomingRelationItemProviderDecorator extends
   public String getText(Object object) {
 	  CapellaIncomingRelation relation = (CapellaIncomingRelation) object;
 
+	  StringBuilder builder = new StringBuilder();
     RelationType type = relation.getRelationType();
     if (type != null) {
-      return "[" + type.getReqIFLongName() + "] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+      builder.append("[" + type.getReqIFLongName() + "] ");
+    }else{
+      builder.append("[undefined] ");
     }
-
-    return "[Capella Incoming Relation] " + EObjectLabelProviderHelper.getText(relation.getTarget());
+    builder.append(EObjectLabelProviderHelper.getText(relation.getTarget()));
+    return builder.toString();
   }
 }
