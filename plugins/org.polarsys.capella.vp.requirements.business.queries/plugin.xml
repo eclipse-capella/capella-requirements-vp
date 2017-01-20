@@ -49,5 +49,29 @@
          class="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType"
          id="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType">
    </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.BooleanValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.BooleanValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.DateValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.DateValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.IntegerValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.IntegerValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.RealValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.RealValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.StringValueAttribute_Definition_AttributeDefinition"
+         id="org.polarsys.capella.vp.requirements.business.queries.StringValueAttribute_Definition_AttributeDefinition">
+   </MDEBusinessQueries>
 </extension>
 </plugin>
