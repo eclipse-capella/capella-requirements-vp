@@ -15,11 +15,14 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -35,6 +38,7 @@ import org.polarsys.kitalpha.emde.extension.edit.ExtensionItemProviderAdapter;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.copypaste.SharedInitializeCopyCommand;
 
 /**
  * This is the item provider adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement} object.
@@ -165,6 +169,16 @@ public class IdentifiableElementItemProvider extends ExtensionItemProviderAdapte
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+		return new SharedInitializeCopyCommand(domain, owner, helper);
 	}
 
 }

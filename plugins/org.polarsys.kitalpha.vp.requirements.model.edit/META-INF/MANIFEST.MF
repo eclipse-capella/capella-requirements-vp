@@ -8,7 +8,8 @@ Bundle-Activator: org.polarsys.kitalpha.vp.requirements.Requirements.provider.Re
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.polarsys.kitalpha.vp.requirements.Requirements.provider
+Export-Package: org.polarsys.kitalpha.vp.requirements.Requirements.copypaste,
+ org.polarsys.kitalpha.vp.requirements.Requirements.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.kitalpha.vp.requirements.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
