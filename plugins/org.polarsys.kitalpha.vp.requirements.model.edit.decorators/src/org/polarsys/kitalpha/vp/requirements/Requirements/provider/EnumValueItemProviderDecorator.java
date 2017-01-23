@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 
@@ -32,6 +33,6 @@ public class EnumValueItemProviderDecorator extends
 	@Override
   public String getText(Object object) {
     String text = ((EnumValue) object).getReqIFLongName();
-    return (text != null) ? text : "[" + ((EObject) object).eClass().getName() + "]";
+    return (text != null && !text.isEmpty()) ? text : "[" + EObjectLabelProviderHelper.getMetaclassLabel((EObject)object, false)+ "]";
   }
 }

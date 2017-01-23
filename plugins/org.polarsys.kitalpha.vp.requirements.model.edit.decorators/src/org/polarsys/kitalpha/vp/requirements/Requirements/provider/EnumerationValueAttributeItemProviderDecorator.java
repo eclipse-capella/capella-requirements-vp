@@ -11,11 +11,13 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
@@ -34,20 +36,28 @@ public class EnumerationValueAttributeItemProviderDecorator extends ItemProvider
   public String getText(Object object) {
     EnumerationValueAttribute attribute = (EnumerationValueAttribute) object;
 
+    StringBuilder result = new StringBuilder();
     AttributeDefinition definition = attribute.getDefinition();
     if (definition != null) {
-      String strEnumValues = "";
-      for (int i = 0; i < attribute.getValues().size(); i++) {
-        strEnumValues += (attribute.getValues().get(i).getReqIFLongName());
-        if (i != attribute.getValues().size() - 1)
-          strEnumValues += ", ";
-      }
-      return reduceValueLabelLen("[" + definition.getReqIFLongName() + "] " + strEnumValues,
-          RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-              .getString(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN));
+      result.append("[" + definition.getReqIFLongName() + "]");
+    } else {
+      result.append("[" + EObjectLabelProviderHelper.getMetaclassLabel((EObject)object, false) + "]");
     }
 
-    return super.getText(object);
+    result.append(" ");
+    
+    String strEnumValues = "";
+    for (int i = 0; i < attribute.getValues().size(); i++) {
+      result.append(attribute.getValues().get(i).getReqIFLongName());
+      if (i != attribute.getValues().size() - 1)
+        result.append(", ");
+    }
+    
+    result.append(strEnumValues);
+
+    return reduceValueLabelLen(result.toString(),
+        RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+        .getString(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN));
   }
 
   /**
