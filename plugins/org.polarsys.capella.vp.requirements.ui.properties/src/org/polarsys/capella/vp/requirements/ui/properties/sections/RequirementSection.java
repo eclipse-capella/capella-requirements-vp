@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -37,6 +39,7 @@ import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.core.ui.properties.viewers.AbstractPropertyValueCellEditorProvider;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
 import org.polarsys.capella.vp.requirements.ui.properties.controllers.RequirementIncomingLinkController;
 import org.polarsys.capella.vp.requirements.ui.properties.controllers.RequirementOutgoingLinkController;
@@ -122,10 +125,10 @@ public class RequirementSection extends AbstractSection {
 
   protected final String[] outgoingColumnProperties = { "Target element", "Relation type" };
 
-  protected void setUpFields(Group grp) {
+  protected void setUpFields(final Group grp) {
     incomingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Incoming links",
-        new RequirementIncomingLinkController(),
-        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
+        new RequirementIncomingLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(),
+            new AbstractPropertyValueCellEditorProvider()) {
           @Override
           protected String[] getColumnProperties() {
             return _columnProperties;
@@ -136,6 +139,21 @@ public class RequirementSection extends AbstractSection {
             createTableViewerColumn(0, new CapellaElementColumnLabelProvider());
             createTableViewerColumn(1, new RelationTypeColumnLabelProvider());
             return true;
+          }
+
+          @Override
+          public StructuredSelection getSelectedObjectFromSelection(TableItem[] inSelection) {
+            if (inSelection != null && inSelection.length > 0) {
+              CapellaRelation relation = (CapellaRelation) inSelection[0].getData();
+              Object elementToDisplay_p = null;
+              if (relation instanceof CapellaOutgoingRelation) {
+                elementToDisplay_p = ((CapellaOutgoingRelation) relation).getSource();
+              } else {
+                elementToDisplay_p = ((CapellaIncomingRelation) relation).getTarget();
+              }
+              return new StructuredSelection(elementToDisplay_p);
+            }
+            return null;
           }
         }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
@@ -193,8 +211,8 @@ public class RequirementSection extends AbstractSection {
     };
 
     outgoingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Outgoing links",
-        new RequirementOutgoingLinkController(),
-        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
+        new RequirementOutgoingLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(),
+            new AbstractPropertyValueCellEditorProvider()) {
           @Override
           protected String[] getColumnProperties() {
             return outgoingColumnProperties;
@@ -205,6 +223,21 @@ public class RequirementSection extends AbstractSection {
             createTableViewerColumn(0, new CapellaElementColumnLabelProvider());
             createTableViewerColumn(1, new RelationTypeColumnLabelProvider());
             return true;
+          }
+
+          @Override
+          public StructuredSelection getSelectedObjectFromSelection(TableItem[] inSelection) {
+            if (inSelection != null && inSelection.length > 0) {
+              CapellaRelation relation = (CapellaRelation) inSelection[0].getData();
+              Object elementToDisplay_p = null;
+              if (relation instanceof CapellaOutgoingRelation) {
+                elementToDisplay_p = ((CapellaOutgoingRelation) relation).getSource();
+              } else {
+                elementToDisplay_p = ((CapellaIncomingRelation) relation).getTarget();
+              }
+              return new StructuredSelection(elementToDisplay_p);
+            }
+            return null;
           }
         }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
@@ -251,7 +284,7 @@ public class RequirementSection extends AbstractSection {
           }
         }
       }
-      
+
       @Override
       protected void createCustomActions(Composite parent) {
         _browseBtn = createTableButton(parent,

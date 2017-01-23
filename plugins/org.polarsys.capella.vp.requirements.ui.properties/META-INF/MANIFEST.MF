@@ -12,9 +12,12 @@ Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.vp.requirements.model.helpers,
  org.eclipse.emf.edit,
  org.polarsys.kitalpha.vp.requirements.model.edit.decorators,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.polarsys.capella.core.platform.sirius.ui.navigator,
+ org.polarsys.capella.core.ui.semantic.browser
 Export-Package: org.polarsys.capella.vp.requirements.ui.properties,
  org.polarsys.capella.vp.requirements.ui.properties.sections
 Bundle-Vendor: %bundleVendor
 Bundle-Localization: plugin
 Bundle-Activator: org.polarsys.capella.vp.requirements.ui.properties.CapellaRequirementsUIPropertiesPlugin
+Import-Package: org.polarsys.capella.core.platform.sirius.ui.actions
