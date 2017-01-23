@@ -28,7 +28,7 @@ import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsU
 import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.DataTypeController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.EnumDataTypeController;
-import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.LocalProjectFilteringController;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.controllers.LocalBlockArchitectureFilteringController;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.fields.BasicReqIFElementGroup;
 
 /**
@@ -75,7 +75,7 @@ public class AttributeDefinitionSection extends AbstractSection {
     reqIFElementGroup = new BasicReqIFElementGroup(_rootParentComposite, getWidgetFactory(), true);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
-    definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new LocalProjectFilteringController()); //$NON-NLS-1$
+    definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new LocalBlockArchitectureFilteringController()); //$NON-NLS-1$
     definitionField.setDisplayedInWizard(displayedInWizard);
 	}
 

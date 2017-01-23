@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
 
 public class EnumDataTypeController extends LocalProjectFilteringController {
@@ -23,7 +24,9 @@ public class EnumDataTypeController extends LocalProjectFilteringController {
     List<EObject> eObjs = new ArrayList<EObject>(); 
     for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature)) {
       if (eObj instanceof EnumerationDataTypeDefinition) {
-        eObjs.add(eObj);
+        if (BlockArchitectureExt.getRootAndPreviousBlockArchitectures(semanticElement).contains(BlockArchitectureExt.getRootBlockArchitecture(eObj))) {
+    	  eObjs.add(eObj);
+    	}
       }
     }
     return eObjs;

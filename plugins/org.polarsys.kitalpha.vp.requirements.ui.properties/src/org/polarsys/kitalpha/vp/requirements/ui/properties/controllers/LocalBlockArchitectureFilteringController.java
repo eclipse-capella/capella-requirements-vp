@@ -16,19 +16,16 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
-import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
-import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
+import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 
-public class DataTypeController extends LocalProjectFilteringController {
+public class LocalBlockArchitectureFilteringController extends SimpleSemanticFieldController {
   @Override
   public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> eObjs = new ArrayList<EObject>(); 
     for (EObject eObj : super.readOpenValues(semanticElement, semanticFeature)) {
-      if (eObj instanceof DataTypeDefinition && !(eObj instanceof EnumerationDataTypeDefinition)) {
-        if (BlockArchitectureExt.getRootAndPreviousBlockArchitectures(semanticElement).contains(BlockArchitectureExt.getRootBlockArchitecture(eObj))) {
-          eObjs.add(eObj);
-        }
-      }
+    	if (BlockArchitectureExt.getRootAndPreviousBlockArchitectures(semanticElement).contains(BlockArchitectureExt.getRootBlockArchitecture(eObj))) {
+    		eObjs.add(eObj);
+    	}
     }
     return eObjs;
   }
