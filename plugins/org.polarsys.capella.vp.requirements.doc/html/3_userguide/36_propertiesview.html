@@ -23,76 +23,35 @@ table, th, td {
 }
 </style>
 <body>
-<h1>Properties View</h1>
+<h1>Requirement Allocation Views</h1>
 
 <p>
-...
+Requirement allocation views should allow to specify i) relations between requirements and Capella elements and ii) relations between requirements themselves. Respectively, there are two Property views dedicated for these purposes: The Requirements Allocation view and the Internal Requirements Allocation view. 
 </p>
 
-<img src="../../images/propertiesview_requirementsallocation.png" alt="Requirements Allocation" title="Requirements Allocation"/>
+<h2>Requirements Allocation</h2>
+<p>The Requirements Allocation view show all incoming and outgoing relations for an element. This element could be a Requirement, a Capella element or a Diagram. The addition of a relation can be done in three steps as demonstrated with the following example</p>
+
+<ul>
+<li>Click on the Plus button to show target elements</li>
+<img src="../../images/Allocation_Step1.png" alt="Requirements Allocation Step 1" title="Click on the Plus button to show target elements"/>
+<li>Select multiple elements to which we want to create relations</li>
+<img src="../../images/Allocation_Step2.png" alt="Requirements Allocation Step 2" title="Select multiple elements to which we will create relations"/>
+<li>Choose the Relation Type of each added relation</li>
+<img src="../../images/Allocation_Step3.png" alt="Requirements Allocation Step 3" title="Choose the Relation Type of each added relation"/>
+</ul> 
+
+<h2>Internal Requirements Allocation</h2>
+<p>The Internal Requirements Allocation view show all relations coming from one Requirement to another Requirement.</p>
+<img src="../../images/InternalAllocation_Step1.png" alt="Internal Requirements Allocation View" title="Internal Requirements Allocation View"/>
+<p>Multiple Requirements can be chosen to create new Relations</p>
+<img src="../../images/InternalAllocation_Step2.png" alt="Internal Requirements Allocation Wizard" title="Internal Requirements Allocation Wizard"/>
 
 <p>
-Example of Requirements and their relations to/from Capella Elements:
+Technically, relations are stored under the source element of the relation. Also note that relations are technical elements and they are filtered by default. In order to see relations in Capella project explorer, the default filter must be deactivated. Following is an example of Requirements and their relations to/from Capella Elements:
 </p>
 
 <img src="../../images/requirement_example.png" alt="Requirements Example" title="Requirements Example"/>
-
-<p>
-When you allocate a requirement to or from a capella element, a relation is created under the requirement.<br/>
-Depending on which of the requirement or the capella element is the source or the target, the relation can be:<br/>
-</p>
-
-<table>
-  <tr>
-    <th>Source</th>
-    <th>Target</th>
-    <th>Relation</th>
-    <th>In example</th>
-  </tr>
-  <tr>
-    <td>Requirement</td>
-    <td>CapellaElement</td>
-    <td>CapellaIncomingRelation</td>
-    <td>is allocated to</td>
-  </tr>
-  <tr>
-    <td>CapellaElement</td>
-    <td>Requirement</td>
-    <td>CapellaOutgoingRelation</td>
-    <td>satisfies</td>
-  </tr>
-  <tr>
-    <td>Requirement</td>
-    <td>Requirement</td>
-    <td>InternalRelation</td>
-    <td>refines</td>
-  </tr>
-</table> 
-
-<img src="../../images/requirement_relations.png" alt="Requirements Relations" title="Requirements Relations"/>
-
-
-<p>
-So, using the requirement allocation, depending on your current element and the direction of the relation, a different relation is created:
-</p>
-
-<table>
-  <tr>
-    <th>Context</th>
-    <th>In-link</th>
-    <th>Out-link</th>
-  </tr>
-  <tr>
-    <td>CapellaElement (allocating Requirement)</td>
-    <td>CapellaIncomingRelation</td>
-    <td>CapellaOutgoingRelation</td>
-  </tr>
-  <tr>
-    <td>Requirement (allocating CapellaElement)</td>
-    <td>CapellaOutgoingRelation</td>
-    <td>CapellaIncomingRelation</td>
-  </tr>
-</table> 
 
 </body>
 </html>

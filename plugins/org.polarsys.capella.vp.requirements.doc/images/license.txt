@@ -9,6 +9,10 @@ These followings icons are made available under the terms of the Eclipse Public 
 /images/overview.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/overview.png
 /images/categories.png - org.eclipse.emf.diffmerge.ui - org.eclipse.emf.diffmerge.ui/icons/full/filter.gif
 /images/preferences_importer_scope2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_importer_scope2.png
-/images/propertiesview_requirementsallocation.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/propertiesview_requirementsallocation.png
 /images/semanticbrowser.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/semanticbrowser.png
 /images/viewpointmanager.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/viewpointmanager.png
+/images/Allocation_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step1.png
+/images/Allocation_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step2.png
+/images/Allocation_Step3.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step3.png
+/images/InternalAllocation_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step1.png
+/images/InternalAllocation_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step2.png
