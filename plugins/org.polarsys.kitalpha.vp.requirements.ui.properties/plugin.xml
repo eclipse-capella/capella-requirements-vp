@@ -104,6 +104,18 @@
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
 		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DataTypeDefinitionSection"
 		        tab="Requirements VP">
+		      <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        tab="Requirements VP">
+		      <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue">
+              </input>
 		    </propertySection>
 		    <propertySection
 		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.InternalRelationSection"
@@ -225,6 +237,15 @@
 		        tab="Requirements VP">
               <input
                type="org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.EnumValueSection"
+		        tab="Requirements VP">
+		      <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue">
               </input>
 		    </propertySection>
 		    <propertySection
