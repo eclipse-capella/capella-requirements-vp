@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.properties.widgets;
 
+import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -21,11 +22,14 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.PartSite;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.polarsys.capella.common.ui.toolkit.browser.view.ISemanticBrowserViewPart;
 import org.polarsys.capella.core.platform.sirius.ui.navigator.view.CapellaCommonNavigator;
@@ -64,8 +68,7 @@ public class TableviewUIExtender {
   private void createDisplayInStatusBar(final Table table) {
     table.addListener(SWT.MouseExit, new Listener() {
       public void handleEvent(Event e) {
-        ((IViewSite) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart().getSite())
-            .getActionBars().getStatusLineManager().setMessage(null, null);
+        displayInStatusBar(null);
       }
     });
 
@@ -96,8 +99,25 @@ public class TableviewUIExtender {
       elementImage = capellaNavigatorLabelProvider.getImage(structuredSelection.getFirstElement());
       elementDescription = capellaNavigatorLabelProvider.getDescription(structuredSelection.getFirstElement());
     }
-    ((IViewSite) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart().getSite())
-        .getActionBars().getStatusLineManager().setMessage(elementImage, elementDescription);
+
+    IStatusLineManager currentStatusLineManager = getCurrentStatusLineManager();
+    if (currentStatusLineManager != null) {
+      currentStatusLineManager.setMessage(elementImage, elementDescription);
+    }
+  }
+
+  private IStatusLineManager getCurrentStatusLineManager() {
+    IWorkbenchPartSite currentSite = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+        .getActivePart().getSite();
+
+    if (currentSite instanceof IViewSite) {
+      return ((IViewSite) currentSite).getActionBars().getStatusLineManager();
+    } else if (currentSite instanceof PartSite) {
+      return ((PartSite) currentSite).getActionBars().getStatusLineManager();
+    } else if (currentSite instanceof IEditorSite) {
+      return ((IEditorSite) currentSite).getActionBars().getStatusLineManager();
+    }
+    return null;
   }
 
   /**
