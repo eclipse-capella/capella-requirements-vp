@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -43,38 +45,39 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.ui.properties.KitalphaRequirementsUIPropertiesPlugin;
 
 public class InternalAllocationRequirementSection extends AbstractAllocationSection {
-  
+
   protected EObject requirement;
 
-	/**
-	 * @param eObject current object
-	 */
-	public boolean select(Object eObject) {
-		EObject eObjectToTest = super.selection(eObject);
+  /**
+   * @param eObject
+   *          current object
+   */
+  public boolean select(Object eObject) {
+    EObject eObjectToTest = super.selection(eObject);
 
-		if (KitalphaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof Requirement) {
-			return true;
-		}
-		return false;
-	}
+    if (KitalphaRequirementsUIPropertiesPlugin.isViewpointActive(eObjectToTest) && eObjectToTest instanceof Requirement) {
+      return true;
+    }
+    return false;
+  }
 
-	/**
-	* @param part
-	* @param selection
-	*/
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		EObject newEObject = super.setInputSelection(part, selection);
-		if (newEObject instanceof Requirement) {
-			loadData(newEObject);
-		}
-	}
+  /**
+   * @param part
+   * @param selection
+   */
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+    if (newEObject instanceof Requirement) {
+      loadData(newEObject);
+    }
+  }
 
-	/**
-	 * @param parent
-	 * @param aTabbedPropertySheetPage
-	 */
-	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		super.createControls(parent, aTabbedPropertySheetPage);
+  /**
+   * @param parent
+   * @param aTabbedPropertySheetPage
+   */
+  public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+    super.createControls(parent, aTabbedPropertySheetPage);
 
     _rootParentComposite.setLayout(new GridLayout());
     _rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
@@ -86,37 +89,32 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
     setUpFields(grp);
   }
 
-	/**
-	 * @param requirement
-	 */
-	public void loadData(final EObject requirement) {
-		super.loadData(requirement);
-		this.requirement = requirement;
-		
-		internalTableField.loadData(requirement, RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations());
+  /**
+   * @param requirement
+   */
+  public void loadData(final EObject requirement) {
+    super.loadData(requirement);
+    this.requirement = requirement;
+
+    internalTableField.loadData(requirement, RequirementsPackage.eINSTANCE.getRequirement_OwnedRelations());
   }
 
-	/**
+  /**
 	 * 
    */
-	public List<AbstractSemanticField> getSemanticFields() {
-		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
-		return abstractSemanticFields;
-	}
-  
-  
-	private ReferenceTableField internalTableField;
+  public List<AbstractSemanticField> getSemanticFields() {
+    List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
+    return abstractSemanticFields;
+  }
 
-	protected final String[] internalColumnProperties = {
-  "Target element",
-  "Relation type"
-  };
+  private ReferenceTableField internalTableField;
 
+  protected final String[] internalColumnProperties = { "Target element", "Relation type" };
 
   protected void setUpFields(Group grp) {
-    internalTableField = new ReferenceTableField(
-        grp, getWidgetFactory(), null, "Internal links",
-        new RequirementInternalLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
+    internalTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Internal links",
+        new RequirementInternalLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(),
+            new AbstractPropertyValueCellEditorProvider()) {
           /**
            * {@inheritDoc}
            */
@@ -124,6 +122,7 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
           protected String[] getColumnProperties() {
             return internalColumnProperties;
           }
+
           /**
            * {@inheritDoc}
            */
@@ -131,8 +130,23 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
           protected boolean createViewerColumns() {
             createTableViewerColumn(0, new RequirementColumnLabelProvider());
             createTableViewerColumn(1, new RelationTypeColumnLabelProvider());
+
             return true;
           }
+
+          @Override
+          public StructuredSelection getSelectedObjectFromSelection(TableItem[] inSelection) {
+            if (inSelection != null && inSelection.length > 0) {
+              InternalRelation relation = (InternalRelation) inSelection[0].getData();
+              Object elementToDisplay_p = null;
+              if (relation instanceof InternalRelation) {
+                elementToDisplay_p = ((InternalRelation) relation).getTarget();
+              }
+              return new StructuredSelection(elementToDisplay_p);
+            }
+            return null;
+          }
+
           /**
            * {@inheritDoc}
            */
@@ -144,30 +158,31 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
               }
             });
           }
-        }){
+        }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
         return _controller.loadValues(_semanticElement, _semanticFeature);
       }
-      
+
       /**
        * Handle Browse button.
        */
       protected void handleBrowse() {
         AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
           public void run() {
-              List<EObject> availableElements = _controller.readOpenValues(_semanticElement, _semanticFeature, true);
-              //We do not want to create an internal relation to the requirement itself
-              availableElements.remove(_semanticElement);
-              List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn, availableElements);
-              if (null != allResults) {
-                _controller.writeOpenValues(_semanticElement, _semanticFeature, allResults);
-              }
+            List<EObject> availableElements = _controller.readOpenValues(_semanticElement, _semanticFeature, true);
+            // We do not want to create an internal relation to the requirement itself
+            availableElements.remove(_semanticElement);
+            List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
+                availableElements);
+            if (null != allResults) {
+              _controller.writeOpenValues(_semanticElement, _semanticFeature, allResults);
+            }
           }
         };
         TransactionHelper.getExecutionManager(_semanticElement).execute(command);
         refreshViewer();
       }
-      
+
       protected void handleDelete() {
         if (null != _delegatedViewer) {
           ColumnViewer columnViewer = _delegatedViewer.getColumnViewer();
@@ -193,7 +208,7 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
           }
         }
       }
-      
+
       @Override
       protected void createCustomActions(Composite parent) {
         _browseBtn = createTableButton(parent,
@@ -203,7 +218,7 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
               }
             });
       }
-        
+
     };
   }
 }
