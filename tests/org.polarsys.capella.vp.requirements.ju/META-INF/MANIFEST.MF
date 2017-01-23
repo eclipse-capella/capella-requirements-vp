@@ -8,7 +8,11 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.af,
  org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.importer.extension,
- org.polarsys.capella.vp.requirements.importer.preferences
+ org.polarsys.capella.vp.requirements.importer.preferences,
+ org.polarsys.capella.vp.requirements.model,
+ org.polarsys.capella.test.validation.rules.ju,
+ org.polarsys.capella.common.re.gen,
+ org.polarsys.capella.vp.requirements.validation
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,

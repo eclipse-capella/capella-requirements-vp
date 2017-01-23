@@ -47,6 +47,7 @@ public class RequirementIncomingLinkController extends AbstractAllocationControl
           CapellaOutgoingRelation incomingLink = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
           incomingLink.setSource(capellaElement);
           incomingLink.setTarget(requirement);
+          incomingLink.setRelationType(getDefaultType(incomingLink));
           capellaElement.getOwnedExtensions().add(incomingLink);
         }
       }

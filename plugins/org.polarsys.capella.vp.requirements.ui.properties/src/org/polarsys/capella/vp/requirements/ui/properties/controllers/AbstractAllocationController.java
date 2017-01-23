@@ -14,7 +14,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.capella.core.business.queries.IBusinessQuery;
+import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
 import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 public abstract class AbstractAllocationController extends AbstractMultipleSemanticFieldController {
   /**
@@ -27,5 +32,20 @@ public abstract class AbstractAllocationController extends AbstractMultipleSeman
     List<EObject> currentElements = getReadOpenValuesQuery(semanticElement).getCurrentElements(semanticElement, false);
     readOpenValues.addAll(currentElements);
     return readOpenValues;
+  }
+
+  /**
+   *
+   * @param relation
+   * @return the default relation type if exists, otherwise null
+   */
+  public RelationType getDefaultType(AbstractRelation relation) {
+    IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+        RequirementsPackage.eINSTANCE.getAbstractRelation(),
+        RequirementsPackage.eINSTANCE.getAbstractRelation_RelationType());
+    List<EObject> availableElements = query.getAvailableElements(relation);
+    if (availableElements.size() == 1)
+      return (RelationType) availableElements.get(0);
+    return null;
   }
 }

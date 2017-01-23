@@ -43,6 +43,7 @@ public class RequirementInternalLinkController extends AbstractAllocationControl
           InternalRelation internalLink = RequirementsFactory.eINSTANCE.createInternalRelation();
           internalLink.setSource(sourceRequirement);
           internalLink.setTarget(targetRequirment);
+          internalLink.setRelationType(getDefaultType(internalLink));
           sourceRequirement.getOwnedRelations().add(internalLink);
         }
       }

@@ -77,6 +77,7 @@
     <module>plugins/org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
     <module>plugins/org.polarsys.capella.vp.requirements.ui.properties</module>
     <module>plugins/org.polarsys.capella.vp.requirements.vpdsl</module>
+    <module>plugins/org.polarsys.capella.vp.requirements.validation</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.af</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.design</module>

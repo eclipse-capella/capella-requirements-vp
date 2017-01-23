@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?eclipse version="3.4"?>
+<!--
+  Copyright (c) 2017 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="capella.category/requirements"
+            mandatory="false"
+            name="Constraints for Requirement Viewpoint">
+      </category>
+      <constraintProvider>
+         <package
+               namespaceUri="http://www.polarsys.org/capella/requirements">
+         </package>
+         <package
+               namespaceUri="http://www.polarsys.org/kitalpha/requirements">
+         </package>
+         <constraints
+               categories="capella.category/requirements">
+            <constraint
+                  class="org.polarsys.capella.vp.requirements.validation.REQ_Relation_01_Relation"
+                  id="REQ_Relation_01"
+                  isEnabledByDefault="true"
+                  lang="java"
+                  mode="Batch"
+                  name="REQ_Relation_01 - Relation"
+                  severity="WARNING"
+                  statusCode="1">
+               <message>
+                  The Relation Type of {0} must be set.
+               </message>
+               <target
+                     class="CapellaOutgoingRelation">
+               </target>
+               <target
+                     class="CapellaIncomingRelation">
+               </target>
+               <target
+                     class="InternalRelation">
+               </target>
+               <description>
+                  This rule checks that a Relation has its Relation Type set with a non null value
+               </description>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+</plugin>

@@ -32,9 +32,10 @@ public class CapellaElementIncomingLinkController extends AbstractAllocationCont
    */
   @Override
   protected IBusinessQuery getReadOpenValuesQuery(EObject semanticElement) {
-    return BusinessQueriesProvider.getInstance().getContribution(CapellacorePackage.Literals.CAPELLA_ELEMENT, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+    return BusinessQueriesProvider.getInstance().getContribution(CapellacorePackage.Literals.CAPELLA_ELEMENT,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
   }
-  
+
   /**
    * Override this to process returned elements from Browse wizard
    */
@@ -49,18 +50,20 @@ public class CapellaElementIncomingLinkController extends AbstractAllocationCont
           CapellaIncomingRelation incomingLink = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
           incomingLink.setSource(requirement);
           incomingLink.setTarget(capellaElement);
+          incomingLink.setRelationType(getDefaultType(incomingLink));
           requirement.getOwnedRelations().add(incomingLink);
         }
       }
     }
     return null;
   }
-  
+
   /**
    * Override this to display elements on the table
    */
   @Override
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
-    return EObjectExt.getReferencers(semanticElement, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
+    return EObjectExt.getReferencers(semanticElement,
+        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
   }
 }

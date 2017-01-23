@@ -53,7 +53,9 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
         if (eObj instanceof Requirement) {
           Requirement requirement = (Requirement) eObj;
           Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject, EObject>>();
-          elts.add(new Couple<EObject, EObject>(requirement, null));
+          
+          DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, null, requirement, null);
+          elts.add(new Couple<EObject, EObject>(requirement, getDefaultType(tempOutgoingLink)));
           RelationAnnotationHelper.addAllocations(dRepresentation, RelationAnnotationHelper.OutgoingRelationAnnotation,
               elts);
         }
@@ -72,19 +74,23 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
       for (Entry<String, Couple<Requirement, RelationType>> allocation : RelationAnnotationHelper
           .getAllocations((DRepresentation) semanticElement, RelationAnnotationHelper.OutgoingRelationAnnotation)
           .entrySet()) {
-        DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentation) semanticElement,
-            allocation.getKey());
-        tempOutgoingLink.setTarget(allocation.getValue().getKey());
-        tempOutgoingLink.setRelationType(allocation.getValue().getValue());
-
-        // Choose the element containing the diagram as the source of the temporary link
-        if (semanticElement instanceof DSemanticDecorator
-            && ((DSemanticDecorator) semanticElement).getTarget() instanceof CapellaElement)
-          tempOutgoingLink.setSource((CapellaElement) ((DSemanticDecorator) semanticElement).getTarget());
-
+        DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, allocation.getKey(), allocation.getValue().getKey(), allocation.getValue().getValue());
         result.add(tempOutgoingLink);
       }
     }
     return result;
+  }
+  
+  protected DiagramOutgoingLink createTempOutgoingLink(EObject semanticElement, String id, Requirement requirement,
+      RelationType relationType) {
+    DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentation) semanticElement, id);
+    tempOutgoingLink.setTarget(requirement);
+    tempOutgoingLink.setRelationType(relationType);
+
+    // Choose the element containing the diagram as the source of the temporary link
+    if (semanticElement instanceof DSemanticDecorator
+        && ((DSemanticDecorator) semanticElement).getTarget() instanceof CapellaElement)
+      tempOutgoingLink.setSource((CapellaElement) ((DSemanticDecorator) semanticElement).getTarget());
+    return tempOutgoingLink;
   }
 }

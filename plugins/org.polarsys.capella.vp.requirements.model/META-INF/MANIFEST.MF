@@ -20,5 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.kitalpha.vp.requirements.model;visibility:=reexport,
  org.polarsys.kitalpha.emde.model;visibility:=reexport,
  org.polarsys.capella.core.data.helpers;visibility:=reexport,
- org.polarsys.kitalpha.emde.xmi;visibility:=reexport
+ org.polarsys.kitalpha.emde.xmi;visibility:=reexport,
+ org.polarsys.capella.core.validation
 Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementActivator

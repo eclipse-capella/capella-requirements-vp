@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,7 @@ import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
 
 import junit.framework.Test;
@@ -42,6 +43,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new RequirementsTestCase());
     tests.add(new ImportPreferencesTestCase());
     tests.add(new ImportTestCase());
+    tests.add(new REQ_Relation_01());
     return tests;
   }
 }
