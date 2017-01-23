@@ -21,6 +21,8 @@ import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -30,6 +32,7 @@ import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesPro
 import org.polarsys.capella.core.ui.properties.viewers.ICellEditorProvider;
 import org.polarsys.capella.core.ui.properties.viewers.TableDelegatedViewer;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
+import org.polarsys.capella.vp.requirements.ui.properties.TableDelegatedViewerComparator;
 import org.polarsys.capella.vp.requirements.ui.properties.controllers.DiagramIncomingLink;
 import org.polarsys.capella.vp.requirements.ui.properties.controllers.DiagramOutgoingLink;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
@@ -37,23 +40,40 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 public class RelationTypeTableDelegatedViewer extends TableDelegatedViewer {
+  
+  private TableDelegatedViewerComparator comparator;
+  private TableViewer viewer;
+  private TableViewerColumn viewerColumn;
 
   public RelationTypeTableDelegatedViewer(TabbedPropertySheetWidgetFactory widgetFactory,
       ICellEditorProvider cellEditorProvider) {
-    super(widgetFactory, cellEditorProvider);
+    super(widgetFactory, cellEditorProvider);  
   }
-
+  
   /**
    * @param colNumber
    * @param labelProvider
    * @return
    */
   protected TableViewerColumn createTableViewerColumn(int colNumber, ColumnLabelProvider labelProvider) {
+    
+    initTableViewerColumnCreation();
+    
+    // Requirement column
+    if (colNumber == 0){
+      TableColumn column = viewerColumn.getColumn();
+      column.setText(getColumnProperties()[colNumber]);
+      column.setWidth(DEFAULT_COLUMN_BOUND);
+      column.setResizable(true);
+      column.setMoveable(true);
+      column.addSelectionListener(getSelectionAdapter(column, colNumber));
+      viewerColumn.setLabelProvider(labelProvider);
+      return viewerColumn;
+    }
+    
+    // Relation Type column
     if (colNumber == 1) {
-      TableViewerColumn viewerColumn = new TableViewerColumn((TableViewer) getColumnViewer(), SWT.NONE);
-
       viewerColumn.setEditingSupport(new EditingSupport(getColumnViewer()) {
-
         @Override
         protected void setValue(Object element, final Object value) {
           if (element instanceof AbstractRelation) {
@@ -136,9 +156,36 @@ public class RelationTypeTableDelegatedViewer extends TableDelegatedViewer {
       column.setWidth(DEFAULT_COLUMN_BOUND);
       column.setResizable(true);
       column.setMoveable(true);
+      column.addSelectionListener(getSelectionAdapter(column, colNumber));
       viewerColumn.setLabelProvider(labelProvider);
       return viewerColumn;
     }
+    
+    // Default case
     return super.createTableViewerColumn(colNumber, labelProvider);
+  }
+  
+  private void initTableViewerColumnCreation() {
+    this.viewerColumn = new TableViewerColumn((TableViewer) getColumnViewer(), SWT.NONE);
+    this.comparator = new TableDelegatedViewerComparator();
+    viewer = (TableViewer) getColumnViewer();
+    // restore the comparator
+    viewer.setComparator(comparator);
+  }
+
+  private SelectionAdapter getSelectionAdapter(final TableColumn column,
+      final int index){
+    SelectionAdapter selectionAdapter = new SelectionAdapter() {
+
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        comparator.setColumn(index);
+        int dir = comparator.getDirection();
+        viewer.getTable().setSortDirection(dir);
+        viewer.getTable().setSortColumn(column);
+        viewer.refresh();
+      }
+    };
+    return selectionAdapter; 
   }
 }
