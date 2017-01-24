@@ -16,3 +16,6 @@ These followings icons are made available under the terms of the Eclipse Public 
 /images/Allocation_Step3.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step3.png
 /images/InternalAllocation_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step1.png
 /images/InternalAllocation_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step2.png
+/images/AllocationQueries_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step1.png
+/images/AllocationQueries_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step2.png
+/images/AllocationQueries_Step3.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step3.png

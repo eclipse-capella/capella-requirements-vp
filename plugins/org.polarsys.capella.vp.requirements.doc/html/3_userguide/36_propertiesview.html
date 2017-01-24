@@ -56,5 +56,24 @@ Technically, relations are stored under the source element of the relation. Also
 
 <img src="../../images/requirement_example.png" alt="Requirements Example" title="Requirements Example"/>
 
+<h2>Relations between elements stored in different layers</h2>
+Certain rules are applied when creating relations between Requirements and Capella elements (and vice versa), especially when they are stored in different layers. In general, a relation is valid if its target comes from the same layer or another upper layer than its source. Therefore,
+<ol>
+<li>For outgoing links, target elements are limited to those stored in the current layer and the upper ones</li>
+<li>For incoming links, source elements are limited to those stored in the current layer and the lower ones</li>
+<li>For internal links, target elements are limited to those stored in the current layer and the upper ones</li>
+</ol>
+
+The following is an example of creating different types of relations from a Requirement.
+<ul>
+<li>For a Requirement stored at System Analysis layer, available target elements for an outgoing link can only come from System Analysis layer and upper ones (Operational Analysis)</li>
+<img src="../../images/AllocationQueries_Step1.png" alt="Allocation Queries Step 1" title="Creating outgoing links"/>
+<li>Available source elements for an incoming link can only come from System Analysis layer and lower ones (Logical Architecture, Physical Architecture and EPBS Architecture)</li>
+<img src="../../images/AllocationQueries_Step2.png" alt="Allocation Queries Step 2" title="Creating incoming links"/>
+<li>Similarly, available target elements for an internal link can only come from System Analysis layer and upper ones</li>
+<img src="../../images/AllocationQueries_Step3.png" alt="Allocation Queries Step 3" title="Creating internal links"/>
+</ul> 
+
+
 </body>
 </html>
