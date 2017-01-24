@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.ui.properties.controllers.SimpleSemanticFieldController;
 
-public class LocalBlockArchitectureFilteringController extends SimpleSemanticFieldController {
+public class CurrentOrUpperBlockArchitectureFilteringController extends SimpleSemanticFieldController {
   @Override
   public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> eObjs = new ArrayList<EObject>(); 
