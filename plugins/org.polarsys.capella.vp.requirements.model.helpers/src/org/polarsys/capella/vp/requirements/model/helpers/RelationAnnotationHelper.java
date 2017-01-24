@@ -42,7 +42,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 public class RelationAnnotationHelper {
 
   /**
-   *
+   * Constants used in DAnnotation.source to distinguish IncomingRelation and OutgoingRelation. 
    */
   public static final String OutgoingRelationAnnotation = "http://www.polarsys.org/capella/vp/requirements/OutgoingRelation"; //$NON-NLS-1$
   public static final String IncomingRelationAnnotation = "http://www.polarsys.org/capella/vp/requirements/IncomingRelation"; //$NON-NLS-1$
@@ -54,7 +54,7 @@ public class RelationAnnotationHelper {
 
   /**
    * @param representation
-   * @param relationType
+   * @param relationType one of the constants IncomingRelationAnnotation or OutgoingRelationAnnotation 
    */
   public static Map<String, Couple<Requirement, RelationType>> getAllocations(DRepresentation representation,
       String relationType) {
