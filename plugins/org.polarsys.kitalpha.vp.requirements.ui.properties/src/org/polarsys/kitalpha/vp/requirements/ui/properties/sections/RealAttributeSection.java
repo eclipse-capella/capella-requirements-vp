@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,58 +19,74 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
+import org.polarsys.capella.core.ui.properties.fields.RealValueGroup;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
 
 /**
  * @author Joao Barata
  */
 public class RealAttributeSection extends AttributeSection {
 
-	/**
-	 * @param eObject current object
-	 */
-	public boolean select(Object eObject) {
-		EObject eObjectToTest = super.selection(eObject);
+  protected RealValueGroup valueField;
 
-		if (super.select(eObject) && eObjectToTest instanceof RealValueAttribute) {
-			return true;
-		}
-		return false;
-	}
+  /**
+   * @param eObject
+   *          current object
+   */
+  public boolean select(Object eObject) {
+    EObject eObjectToTest = super.selection(eObject);
 
-	/**
-	* @param part
-	* @param selection
-	*/
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		EObject newEObject = super.setInputSelection(part, selection);
-
-		if (newEObject instanceof RealValueAttribute) {
-			loadData(newEObject);
-		}
-	}
-
-	/**
-	 * @param parent
-	 * @param aTabbedPropertySheetPage
-	 */
-	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		super.createControls(parent, aTabbedPropertySheetPage);
-	}
-
-	/**
-	 * @param capellaElement
-	 */
-	public void loadData(EObject capellaElement) {
-		super.loadData(capellaElement);
+    if (super.select(eObject) && eObjectToTest instanceof RealValueAttribute) {
+      return true;
+    }
+    return false;
   }
 
-	/**
+  /**
+   * @param part
+   * @param selection
+   */
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+
+    if (newEObject instanceof RealValueAttribute) {
+      loadData(newEObject);
+    }
+  }
+
+  /**
+   * @param parent
+   * @param aTabbedPropertySheetPage
+   */
+  public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+    super.createControls(parent, aTabbedPropertySheetPage);
+
+    boolean displayedInWizard = isDisplayedInWizard();
+
+    valueField = new RealValueGroup(getReferencesGroup(),
+        Messages.getString("Attribute.ValueLabel"), getWidgetFactory(), true, true); //$NON-NLS-1$
+    valueField.setDisplayedInWizard(displayedInWizard);
+  }
+
+  /**
+   * @param capellaElement
+   */
+  public void loadData(EObject capellaElement) {
+    super.loadData(capellaElement);
+
+    valueField.loadData(capellaElement, RequirementsPackage.eINSTANCE.getRealValueAttribute_Value());
+  }
+
+  /**
 	 * 
    */
-	public List<AbstractSemanticField> getSemanticFields() {
-		List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
+  public List<AbstractSemanticField> getSemanticFields() {
+    List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
 
-		return abstractSemanticFields;
-	}
+    abstractSemanticFields.add(valueField);
+
+    return abstractSemanticFields;
+  }
 }
