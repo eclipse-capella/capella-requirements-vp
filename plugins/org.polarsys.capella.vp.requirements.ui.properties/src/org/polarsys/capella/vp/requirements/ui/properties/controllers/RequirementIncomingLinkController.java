@@ -33,7 +33,7 @@ public class RequirementIncomingLinkController extends AbstractAllocationControl
   @Override
   protected IBusinessQuery getReadOpenValuesQuery(EObject semanticElement) {
     return BusinessQueriesProvider.getInstance().getContribution(RequirementsPackage.Literals.REQUIREMENT,
-        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET);
+        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE);
   }
 
   @Override

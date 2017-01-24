@@ -17,7 +17,10 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
@@ -28,6 +31,31 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  */
 public class Representation_CapellaOutgoingRelation_Requirement extends Representation_CapellaRelation_Requirement {
 
+ /**
+   * @see org.polarsys.capella.core.business.queries.ui.business.queries.IBusinessQuery#getAvailableElements(EObject)
+   */
+  @Override
+	public List<EObject> getAvailableElements(EObject object) {
+	  
+  EObject element = null;
+    if (object instanceof DSemanticDecorator) {
+      element = ((DSemanticDecorator) object).getTarget();
+    }
+	  
+    List<EObject> availableElements = new ArrayList<EObject>();
+    
+    BlockArchitecture currentBlock = BlockArchitectureExt.getRootBlockArchitecture(element);
+    
+    for (BlockArchitecture currentAndPreviousBlock : BlockArchitectureExt.getAllAllocatedArchitectures(currentBlock)) {
+      availableElements.addAll(getRequirements(currentAndPreviousBlock));
+    }
+    
+    availableElements.removeAll(getCurrentElements(element, false));
+    availableElements.remove(element);
+
+    return availableElements;
+  }
+	  
   /**
    * @see org.polarsys.capella.core.business.queries.ui.business.queries.IBusinessQuery#getCurrentElements(EObject, boolean)
    */
