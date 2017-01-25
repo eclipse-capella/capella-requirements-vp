@@ -70,11 +70,11 @@
 <unit id="org.polarsys.capella.detachment.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.patterns.feature.feature.group" version="0.0.0"/>
 <unit id="org.polarsys.capella.shared.feature.feature.group" version="0.0.0"/>
-<repository location="https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella/site.p2"/>
+<repository location="https://hudson.polarsys.org/capella/job/capella-v1.1.x/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella/site.p2"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.polarsys.capella.test.feature.feature.group" version="0.0.0"/>
-<repository location="https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella.test.feature/site.p2"/>
+<repository location="https://hudson.polarsys.org/capella/job/capella-v1.1.x/lastSuccessfulBuild/artifact/result/publish/org.polarsys.capella.test.feature/site.p2"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.diffmerge.sdk.feature.feature.group" version="0.0.0"/>
