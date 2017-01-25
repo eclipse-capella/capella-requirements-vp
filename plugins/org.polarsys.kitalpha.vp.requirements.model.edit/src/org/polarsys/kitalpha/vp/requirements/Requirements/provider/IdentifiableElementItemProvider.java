@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -18,7 +18,6 @@ import java.util.List;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CopyCommand.Helper;
@@ -33,12 +32,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.polarsys.kitalpha.emde.extension.edit.ExtensionItemProviderAdapter;
-
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
-import org.polarsys.kitalpha.vp.requirements.Requirements.copypaste.SharedInitializeCopyCommand;
+import org.polarsys.kitalpha.vp.requirements.model.helpers.SharedInitializeCopyCommandHelper;
 
 /**
  * This is the item provider adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement} object.
@@ -49,6 +46,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.copypaste.SharedInitia
  */
 public class IdentifiableElementItemProvider extends ExtensionItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,7 +168,7 @@ public class IdentifiableElementItemProvider extends ExtensionItemProviderAdapte
 	public ResourceLocator getResourceLocator() {
 		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +176,10 @@ public class IdentifiableElementItemProvider extends ExtensionItemProviderAdapte
 	 */
 	@Override
 	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
-		return new SharedInitializeCopyCommand(domain, owner, helper);
+		Command cmd = SharedInitializeCopyCommandHelper.getInstance().doSharedInitializeCopyCommand(domain, owner, helper);
+		if (null != cmd) {
+			return cmd;
+		}
+		return super.createInitializeCopyCommand(domain, owner, helper);
 	}
-
 }

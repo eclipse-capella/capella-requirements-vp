@@ -84,6 +84,7 @@
     <module>plugins/org.polarsys.kitalpha.vp.requirements.model</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.model.edit</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.model.edit.decorators</module>
+    <module>plugins/org.polarsys.kitalpha.vp.requirements.model.helpers</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.ui</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.ui.properties</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.vpdsl</module>
