@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.polarsys.kitalpha.vp.requirements.ui.properties;
 import org.eclipse.emf.ecore.EObject;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.polarsys.kitalpha.ad.services.manager.InvalidContextException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 /**
@@ -25,9 +26,14 @@ public class KitalphaRequirementsUIPropertiesPlugin implements BundleActivator {
   /**
    * @return true is the AF viewpoint is active, false otherwise
    */
-  public static boolean isViewpointActive(EObject modelElement) {
-    return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(KitalphaRequirementsUIPropertiesPlugin.VIEWPOINT_ID) &&
-      !ViewpointManager.getInstance(modelElement).isInactive(KitalphaRequirementsUIPropertiesPlugin.VIEWPOINT_ID) : false;
+  public static boolean isViewpointActive(EObject element) {
+    try {
+      return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID) &&
+        !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
+    } catch (InvalidContextException ex) {
+      // element is invalid, silent failure
+    }
+    return false;
   }
 
   /**

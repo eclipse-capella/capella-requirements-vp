@@ -11,6 +11,7 @@
 package org.polarsys.capella.vp.requirements.model.helpers;
 
 import org.eclipse.emf.ecore.EObject;
+import org.polarsys.kitalpha.ad.services.manager.InvalidContextException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 /**
@@ -23,9 +24,14 @@ public class ViewpointHelper {
   /**
    * @return true is the AF viewpoint is active, false otherwise
    */
-  public static boolean isViewpointActive(EObject modelElement) {
-    return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
-      !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID) : false;
+  public static boolean isViewpointActive(EObject element) {
+    try {
+      return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID) &&
+        !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
+    } catch (InvalidContextException ex) {
+      // element is invalid, silent failure
+    }
+    return false;
   }
 
 }

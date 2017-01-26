@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,22 +15,12 @@ import java.util.List;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
-import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
+import org.polarsys.capella.vp.requirements.model.helpers.ViewpointHelper;
 
 /**
  * @author Joao Barata
  */
 public class RequirementsVPPropertyTester extends PropertyTester {
-
-  public static final String VIEWPOINT_ID = "org.polarsys.capella.vp.requirements"; //$NON-NLS-1$
-
-  /**
-   * @return true is the AF viewpoint is active, false otherwise
-   */
-  public static boolean isViewpointActive(EObject modelElement) {
-    return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
-      !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID) : false;
-  }
 
   /**
    * @see org.eclipse.core.expressions.IPropertyTester#test(java.lang.Object, java.lang.String, java.lang.Object[], java.lang.Object)
@@ -41,7 +31,7 @@ public class RequirementsVPPropertyTester extends PropertyTester {
         boolean result = true;
         for (Object obj : (List<?>) object) {
           if (obj instanceof BlockArchitecture) {
-            result &= isViewpointActive((EObject) obj);
+            result &= ViewpointHelper.isViewpointActive((EObject) obj);
           } else {
             result = false;
           }
@@ -49,7 +39,7 @@ public class RequirementsVPPropertyTester extends PropertyTester {
         return result && !((List<?>) object).isEmpty();
       }
       else if (object instanceof BlockArchitecture) {
-        return isViewpointActive((EObject) object);
+        return ViewpointHelper.isViewpointActive((EObject) object);
       }
     }
     return false;
