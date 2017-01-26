@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,10 +15,10 @@ import org.eclipse.emf.diffmerge.api.Role;
 import org.eclipse.emf.diffmerge.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.bridge.api.IBridge;
-import org.polarsys.capella.core.compare.CapellaMergePolicy;
 import org.polarsys.capella.vp.requirements.importer.transposer.activities.TransposerTransformation;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementsVPBridge;
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFImporterDiffPolicy;
+import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFMergePolicy;
 
 /**
  * @author Joao Barata
@@ -40,7 +40,7 @@ public class TestTransposerTransformation extends TransposerTransformation {
       }
     };
 
-    return new RequirementsVPBridge(targetScope, bridge, new ReqIFImporterDiffPolicy(), new CapellaMergePolicy(), selector) {
+    return new RequirementsVPBridge(targetScope, bridge, new ReqIFImporterDiffPolicy(), new ReqIFMergePolicy(), selector) {
       @Override
       protected boolean isAlwaysInteractive() {
         return false;
