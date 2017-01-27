@@ -12,7 +12,9 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.model,
  org.polarsys.capella.test.validation.rules.ju,
  org.polarsys.capella.common.re.gen,
- org.polarsys.capella.vp.requirements.validation
+ org.polarsys.capella.vp.requirements.validation,
+ org.polarsys.capella.vp.requirements.business.queries,
+ org.polarsys.capella.test.business.queries.ju
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,

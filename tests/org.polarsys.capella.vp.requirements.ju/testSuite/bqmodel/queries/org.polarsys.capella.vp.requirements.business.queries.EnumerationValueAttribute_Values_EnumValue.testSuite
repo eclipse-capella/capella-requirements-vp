@@ -1,0 +1,51 @@
+/*******************************************************************************
+ * Copyright (c) 2006, 2017 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Thales - initial API and implementation
+ *******************************************************************************/
+ 
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getAvailableElements
+inputId = 60b5014f-91ee-4b23-9a56-fa8c0e8c3d58
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getCurrentElements
+inputId = 60b5014f-91ee-4b23-9a56-fa8c0e8c3d58
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getAvailableElements
+inputId = a1573e0b-767a-4fc9-9a27-59036effa7bd
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getCurrentElements
+inputId = a1573e0b-767a-4fc9-9a27-59036effa7bd
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getAvailableElements
+inputId = e37a83d7-8d78-4f2c-9509-4bb270ce43a9
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getCurrentElements
+inputId = e37a83d7-8d78-4f2c-9509-4bb270ce43a9
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getAvailableElements
+inputId = e5ae4760-4633-4d9a-a392-3bbcfc9c30c8
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Values_EnumValue-getCurrentElements
+inputId = e5ae4760-4633-4d9a-a392-3bbcfc9c30c8
+resultIds = {
+}
+
