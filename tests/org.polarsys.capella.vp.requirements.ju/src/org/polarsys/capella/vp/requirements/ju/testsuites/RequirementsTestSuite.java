@@ -19,6 +19,18 @@ import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCa
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.BooleanValueAttribute_Definition_AttributeDefinition;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.CapellaElement_CapellaIncomingRelation_Requirement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.CapellaElement_CapellaOutgoingRelation_Requirement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.DateValueAttribute_Definition_AttributeDefinition;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.EnumerationValueAttribute_Definition_AttributeDefinition;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.EnumerationValueAttribute_Values_EnumValue;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.IntegerValueAttribute_Definition_AttributeDefinition;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.RealValueAttribute_Definition_AttributeDefinition;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_CapellaIncomingRelation_CapellaElement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_CapellaOutgoingRelation_CapellaElement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_InternalRelationTarget_Requirement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.StringValueAttribute_Definition_AttributeDefinition;
 
 import junit.framework.Test;
 
@@ -40,10 +52,25 @@ public class RequirementsTestSuite extends BasicTestSuite {
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
+
+    tests.add(new BooleanValueAttribute_Definition_AttributeDefinition());
+    tests.add(new CapellaElement_CapellaIncomingRelation_Requirement());
+    tests.add(new CapellaElement_CapellaOutgoingRelation_Requirement());
+    tests.add(new DateValueAttribute_Definition_AttributeDefinition());
+    tests.add(new EnumerationValueAttribute_Definition_AttributeDefinition());
+    tests.add(new EnumerationValueAttribute_Values_EnumValue());
+    tests.add(new IntegerValueAttribute_Definition_AttributeDefinition());
+    tests.add(new RealValueAttribute_Definition_AttributeDefinition());
+    tests.add(new Requirement_CapellaIncomingRelation_CapellaElement());
+    tests.add(new Requirement_CapellaOutgoingRelation_CapellaElement());
+    tests.add(new Requirement_InternalRelationTarget_Requirement());
+    tests.add(new StringValueAttribute_Definition_AttributeDefinition());
+
     tests.add(new RequirementsTestCase());
     tests.add(new ImportPreferencesTestCase());
     tests.add(new ImportTestCase());
     tests.add(new REQ_Relation_01());
+
     return tests;
   }
 }

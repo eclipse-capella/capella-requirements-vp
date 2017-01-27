@@ -1,0 +1,55 @@
+/*******************************************************************************
+ * Copyright (c) 2006, 2017 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Thales - initial API and implementation
+ *******************************************************************************/
+ 
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getAvailableElements
+inputId = 60b5014f-91ee-4b23-9a56-fa8c0e8c3d58
+resultIds = {
+    59e1dfb3-9189-4120-a6a4-d0fb12ee1839
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getCurrentElements
+inputId = 60b5014f-91ee-4b23-9a56-fa8c0e8c3d58
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getAvailableElements
+inputId = a1573e0b-767a-4fc9-9a27-59036effa7bd
+resultIds = {
+    5ca7b3d0-944d-47bb-93ed-425e1d3fa82e
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getCurrentElements
+inputId = a1573e0b-767a-4fc9-9a27-59036effa7bd
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getAvailableElements
+inputId = e37a83d7-8d78-4f2c-9509-4bb270ce43a9
+resultIds = {
+    756b1983-e532-4325-bce7-0e7825460cc1
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getCurrentElements
+inputId = e37a83d7-8d78-4f2c-9509-4bb270ce43a9
+resultIds = {
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getAvailableElements
+inputId = e5ae4760-4633-4d9a-a392-3bbcfc9c30c8
+resultIds = {
+    837622a2-4a7b-4149-b13a-87d8484a98d0
+}
+
+queryIdentifier = org.polarsys.capella.vp.requirements.business.queries.EnumerationValueAttribute_Definition_AttributeDefinition-getCurrentElements
+inputId = e5ae4760-4633-4d9a-a392-3bbcfc9c30c8
+resultIds = {
+}
+
