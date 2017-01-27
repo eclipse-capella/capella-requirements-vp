@@ -47,5 +47,21 @@
          </filterExpression>
       </commonFilter>
    </extension>
-
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="org.polarsys.capella.patterns.ui.viewerContribution.showHideRequirements"
+            targetID="org.polarsys.capella.core.ui.semantic.browser.view.SemanticBrowserID">
+         <action
+               class="org.polarsys.capella.vp.requirements.ui.semanticbrowser.actions.ShowHideRequirements"
+               icon="icons/full/etool16/requirements.gif"
+               id="org.polarsys.capella.vp.requirements.ui.actions.showHideRequirements"
+               label="Show requirements in the semantic browser"
+               state="false"
+               style="toggle"
+               toolbarPath="additions"
+               tooltip="Show requirements in the semantic browser">
+         </action>
+      </viewContribution>
+   </extension>
 </plugin>

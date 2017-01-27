@@ -29,7 +29,7 @@ public abstract class AbstractViewpointQuery implements IQuery {
   public List<Object> compute(Object object) {
     List<Object> result = new ArrayList<Object>();
 
-    if (object instanceof EObject && ViewpointHelper.isViewpointActive((EObject) object)) {
+    if (object instanceof EObject && ViewpointHelper.isViewpointActive((EObject) object) && QueriesStateProvider.getInstance().areQueriesEnabled()) {
         result.addAll(computeQuery(object));
     }
 
