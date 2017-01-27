@@ -6,6 +6,8 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.polarsys.capella.vp.requirements.model,
  org.polarsys.kitalpha.ad.services,
- org.polarsys.capella.core.ui.properties
+ org.polarsys.capella.core.ui.semantic.browser,
+ org.polarsys.capella.vp.requirements.semantic.browser
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Export-Package: org.polarsys.capella.vp.requirements.ui.semanticbrowser.actions
