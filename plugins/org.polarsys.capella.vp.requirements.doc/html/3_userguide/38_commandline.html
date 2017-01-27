@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
+	<title>Command line Importer</title>
+</head>
+<body>
+<h1>Command line Importer</h1>
+
+<p>The Capella Requirements viewpoint provides the capability to launch a ReqIF file import from command line.</p>
+
+<h2>Mandatory parameters:</h2>
+<p>-appid: id of the command line application to be launched.</p>
+<p>-filepath: aird file path (relative to the workspace).</p>
+
+<h2>Optional parameters:</h2>
+<p>-data: path to be used for the workspace.</p>
+<p>-import: defines a list of projects to import into the workspace before doing the actual job (the list of projects is a '|' separated list).</p>
+
+<br/>
+<table border="1"><tr>
+<td><p><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></p></td>
+<td><p>Default behavior of the command line support checks that the specified workspace is not in use by another instance of Eclipse.</p></td>
+</tr></table>
+
+<br/>
+<table border="1"><tr>
+<td><p><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></p></td>
+<td><p>If the path to the aird file, or the path to the workspace, or the path to the log file contains white space, it should be in quotes (eg: <b>-data &ldquo;D: \Application Data\workspace&rdquo;)</b></p></td>
+</tr></table>
+
+<h2>Import example</h2>
+<p>This command imports the file <i>d:/test.reqif</i> into the <i>&lt;workspacePath&gt;</i>/test/test.aird file. The project <i>test</i> is an existing project into the specified workspace. An <i>importcontext </i>parameter allows to specify the URI of the model element on which the import will be applied.</p>
+
+<p><i>&lt;</i><i>CapellaInstallationPath&gt;/eclipse.exe -nosplash </i></p>
+<p><i>-application </i><i>org.polarsys.capella.core.commandline.core</i></p>
+<p><i>-appid </i><i>org.polarsys.capella.vp.requirements.importer.commandline</i></p>
+<p><i>-data &lt;workspacePath&gt; </i></p>
+<p><i>-filepath /test/test.aird</i></p>
+<p><i>-reqifpath d:/test.reqif</i></p>
+<p><i>-importcontext &quot;test/test.melodymodeller#971d9934-9780-4e41-b02e-312d0eac3223</i></p>
+
+</body>
+</html>
