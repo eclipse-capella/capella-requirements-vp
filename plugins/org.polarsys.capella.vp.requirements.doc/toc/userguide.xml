@@ -15,16 +15,16 @@
    </topic>
    <topic href="html/3_userguide/32_viewpointmanager.html" label="Viewpoint Manager">
    </topic>
-   <topic href="html/3_userguide/33_diffmerge.html" label="Diff/Merge Dialog">
+   <topic href="html/3_userguide/33_reqifimport.html" label="ReqIF Import in Capella">
    </topic>
    <topic href="html/3_userguide/34_preferences.html" label="Preferences">
    </topic>
-   <topic href="html/3_userguide/35_semanticbrowser.html" label="Semantic Browser">
+   <topic href="html/3_userguide/35_propertiesview.html" label="Properties View">
    </topic>
-   <topic href="html/3_userguide/36_propertiesview.html" label="Properties View">
+   <topic href="html/3_userguide/36_addnewrelationtype.html" label="Add a new Relation Type">
    </topic>
-   <topic href="html/3_userguide/38_addnewrelationtype.html" label="Add a new Relation Type">
+   <topic href="html/3_userguide/37_semanticbrowser.html" label="Semantic Browser">
    </topic>
-   <topic href="html/3_userguide/37_commandline.html" label="Command line Importer">
+   <topic href="html/3_userguide/38_commandline.html" label="Command line Importer">
    </topic>
 </toc>

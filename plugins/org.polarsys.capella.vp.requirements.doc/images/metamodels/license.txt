@@ -6,6 +6,7 @@ These followings icons are made available under the terms of the Eclipse Public 
 
 /images/CapellaRequirements_class_diagram.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/CapellaRequirements_class_diagram.jpg
 /images/CapellaRequirements_package_dependencies.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/CapellaRequirements_package_dependencies.jpg
+/images/Enumerations_class_diagram.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Enumerations_class_diagram.jpg
 /images/Requirements_class_diagram.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Requirements_class_diagram.jpg
 /images/Requirements_package_dependencies.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Requirements_package_dependencies.jpg
 /images/TypeDefinitions_class_diagram.jpg - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/TypeDefinitions_class_diagram.jpg
