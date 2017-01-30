@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Menu;
@@ -146,7 +147,11 @@ public class RelationTypeTableDelegatedViewer extends TableDelegatedViewer {
               relationTypeNames[i] = ((RelationType) relationTypes.get(i)).getReqIFLongName();
 
           }
-          return new ComboBoxCellEditor(_table, relationTypeNames);
+
+          ComboBoxCellEditor cellEditor = new ComboBoxCellEditor(_table, relationTypeNames);
+          CCombo combo = (CCombo) cellEditor.getControl();
+          combo.setEditable(false);
+          return cellEditor;
         }
 
         @Override
