@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
  org.polarsys.capella.core.model.handler,
  org.polarsys.capella.vp.requirements.model,
- org.polarsys.kitalpha.ad.services
+ org.polarsys.kitalpha.ad.services,
+ org.polarsys.capella.shared.id.handler
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.capella.vp.requirements.model.helpers
