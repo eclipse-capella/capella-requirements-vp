@@ -26,7 +26,12 @@ table, th, td {
 <h1>Requirement Allocation Views</h1>
 
 <p>
-Requirement allocation views should allow to specify i) relations between requirements and Capella elements and ii) relations between requirements themselves. Respectively, there are two Property views dedicated for these purposes: The Requirements Allocation view and the Internal Requirements Allocation view. 
+Requirement allocation views should allow to specify :
+<ul>
+	<li>relations between Requirements and Capella elements</li>
+	<li>relations between Requirements themselves (feature coming from ReqIf known as internal relation)</li>
+</u>
+ Respectively, there are two Property views dedicated for these purposes: The Requirements Allocation view and the Internal Requirements Allocation view. 
 </p>
 
 <h2>Requirements Allocation</h2>
@@ -66,7 +71,7 @@ Certain rules are applied when creating relations between Requirements and Capel
 <li>For incoming links, source elements are limited to those stored in the current layer and the lower ones</li>
 <li>For internal links, target elements are limited to those stored in the current layer and the upper ones</li>
 </ol>
-
+<p><i>Some limitations should be noted for Libraries (see the suitable part of <a href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/4_knownissues/4.1_limitations.html">Limitations</a> section).</i></p>
 </br>
 
 The following is an example of creating different types of relations from a Requirement.
@@ -80,8 +85,6 @@ The following is an example of creating different types of relations from a Requ
 <li>Similarly, available <b>target elements</b> for an internal link can only come from System Analysis layer and upper ones</li>
 <img src="../../images/AllocationQueries_Step3.png" alt="Allocation Queries Step 3" title="Creating internal links"/>
 </br>
-</ul> 
-
-
+</ul>
 </body>
 </html>

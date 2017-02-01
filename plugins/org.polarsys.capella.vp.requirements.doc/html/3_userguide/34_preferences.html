@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!--
-  Copyright (c) 2016 THALES GLOBAL SERVICES.
+  Copyright (c) 2017 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -17,15 +17,16 @@
 </head>
 <body>
 <h1>Preferences</h1>
-
 <h2>Requirement label</h2>
+
 <p>
-The label of the requirements can be customized through an Acceleo expression.
+The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page. Click <strong>Window > Preferences > Capella > Requirements</strong> to open this preference page.</p>
+<img src="../../images/preferences_requirements.png" alt="Requirements Preferences " title="Requirements Preferences"/>
+<p>
 The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:
 </p>
 <p>
 <i>IE_PUID? (Text|LongName|ChapterName)</i>
-
 </p>
 <p>
 The length of requirement's label can be specified (default = 80, nothing = full label , x = size and "..." )
@@ -39,9 +40,23 @@ The scope of data to import can be customized in the Importer preference page:
 
 <img src="../../images/preferences_importer_scope2.png" alt="Importer Scope" title="Importer Scope"/>
 
-<p>
-To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).<br/>
-</p>
+<p>To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).</p>
+
+<h3>Default configuration</h3>
+The recommanded default set of attributes to be imported is the following one :
+<pre>
+IE PUID
+IE Object Type
+Object Text
+Object Heading
+Object Short Text
+IE Req Status
+IE Test Method Expected
+IE IVV Method
+RCM Version
+IE Req Version
+</pre>
+
 <h3>Add custom attributes</h3>
 There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.
 
