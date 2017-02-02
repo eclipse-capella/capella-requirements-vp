@@ -71,5 +71,14 @@ The scope of the data can be customized using the <i><img src="../../images/cate
       <p>
 See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation</a> for more detailed information.
       </p>
+      
+<b>Reference merging rules</b>
+<p>The merge policy is based the following main rules. Thus, are take into account within the merge:</p>
+<ul>
+	<li>For each <b>Attribute</b>, the <b>Attribute Definition</b> along with the Attribute</li>
+	<li>For each <b>Module</b>, the <b>Module Type</b> along with the module</li>
+	<li>For each <b>Internal Relation</b>, the <b>Source/Target</b> along with the Internal Relation and their owned Attributes</li>
+	<li>For each <b>Requirement</b>, the <b>Requirement Type</b> along with the Requirement Type</li>
+</ul>
    </body>
 </html>
