@@ -13,7 +13,7 @@ package org.polarsys.capella.vp.requirements.ui.properties.labelproviders;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.common.ui.services.helper.EObjectImageProviderHelper;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
@@ -39,9 +39,9 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingR
     @Override
     public Image getImage(Object element) {
       if (element instanceof CapellaOutgoingRelation)
-        return EObjectLabelProviderHelper.getImage(((CapellaOutgoingRelation) element).getSource());
+        return EObjectImageProviderHelper.getImage(((CapellaOutgoingRelation) element).getSource());
       else if (element instanceof CapellaIncomingRelation)
-        return EObjectLabelProviderHelper.getImage(((CapellaIncomingRelation) element).getTarget());
+        return EObjectImageProviderHelper.getImage(((CapellaIncomingRelation) element).getTarget());
       return super.getImage(element);
     }
   }

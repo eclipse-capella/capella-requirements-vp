@@ -14,7 +14,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.common.ui.services.helper.EObjectImageProviderHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
@@ -49,11 +49,11 @@ public class RequirementColumnLabelProvider extends ColumnLabelProvider {
   @Override
   public Image getImage(Object element) {
     if (element instanceof CapellaOutgoingRelation)
-      return EObjectLabelProviderHelper.getImage(((CapellaOutgoingRelation) element).getTarget());
+      return EObjectImageProviderHelper.getImage(((CapellaOutgoingRelation) element).getTarget());
     else if (element instanceof CapellaIncomingRelation)
-      return EObjectLabelProviderHelper.getImage(((CapellaIncomingRelation) element).getSource());
+      return EObjectImageProviderHelper.getImage(((CapellaIncomingRelation) element).getSource());
     else if (element instanceof InternalRelation)
-      return EObjectLabelProviderHelper.getImage(((InternalRelation) element).getTarget());
+      return EObjectImageProviderHelper.getImage(((InternalRelation) element).getTarget());
     return super.getImage(element);
   }
 }

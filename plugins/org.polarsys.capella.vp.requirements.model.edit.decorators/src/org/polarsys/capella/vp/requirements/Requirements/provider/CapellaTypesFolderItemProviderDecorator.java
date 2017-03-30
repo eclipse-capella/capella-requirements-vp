@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.polarsys.capella.common.ui.services.helper.EObjectLabelProviderHelper;
+import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
 import org.polarsys.capella.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
 

@@ -70,7 +70,7 @@ public class CapellaIncomingRelationPropertySection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    reqIFElementGroup = new BasicReqIFElementGroup(_rootParentComposite, getWidgetFactory(), true);
+    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), true);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     sourceField = new SimpleSemanticField(getReferencesGroup(),

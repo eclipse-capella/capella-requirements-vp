@@ -18,14 +18,15 @@
     <maven>3.0</maven>
   </prerequisites>
 
-  <groupId>org.polarsys.capella.vp.requirements.group</groupId>
-  <artifactId>org.polarsys.capella.vp.requirements.parent</artifactId>
-  <version>0.5.0-SNAPSHOT</version>
+  <name>Capella Requirements Viewpoint</name>
+  <groupId>org.polarsys</groupId>
+  <artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
+  <version>0.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>0.24.0</tycho-version>
-    <tycho-extras-version>0.24.0</tycho-extras-version>
+    <tycho-version>0.26.0</tycho-version>
+    <tycho-extras-version>0.26.0</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
 	<antrun-version>1.7</antrun-version>
 	<sonar-version>3.0.2</sonar-version>
@@ -36,7 +37,7 @@
     <tycho.testArgLine>-Xms256m -Xmx1024m</tycho.testArgLine>
 
 	<!-- for packaging -->
-	<eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
+	<eclipse-repo.url>http://download.eclipse.org/releases/neon</eclipse-repo.url>
 	<packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
 
 	<!-- for sonar -->
@@ -89,7 +90,7 @@
     <module>plugins/org.polarsys.kitalpha.vp.requirements.ui.properties</module>
     <module>plugins/org.polarsys.kitalpha.vp.requirements.vpdsl</module>
     <module>tests/org.polarsys.capella.vp.requirements.ju</module>
-    <module>releng/org.polarsys.capella.vp.requirements.update</module>
+    <module>releng/org.polarsys.capella.vp.requirements.site</module>
   </modules>
 
   <build>
@@ -127,10 +128,10 @@
         <configuration>
 			<target>
 				<artifact>
-					<groupId>org.polarsys.capella.vp.requirements.group</groupId>
-					<artifactId>org.polarsys.capella.vp.requirements.update</artifactId>
-					<version>0.5.0-SNAPSHOT</version>
-					<classifier>tp/capella</classifier>
+					<groupId>org.polarsys</groupId>
+					<artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
+					<version>0.6.0-SNAPSHOT</version>
+					<classifier>releng/org.polarsys.capella.vp.requirements.target/tp/capella.target-definition</classifier>
 				</artifact>
 			</target>
           <environments>

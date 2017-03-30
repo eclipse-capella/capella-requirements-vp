@@ -11,7 +11,6 @@
 package org.polarsys.capella.vp.requirements.model.helpers;
 
 import org.eclipse.emf.ecore.EObject;
-import org.polarsys.kitalpha.ad.services.manager.InvalidContextException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 /**
@@ -28,7 +27,7 @@ public class ViewpointHelper {
     try {
       return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID) &&
         !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
-    } catch (InvalidContextException ex) {
+    } catch (IllegalArgumentException ex) {
       // element is invalid, silent failure
     }
     return false;

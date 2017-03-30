@@ -90,10 +90,10 @@ public class RequirementSection extends AbstractSection {
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
-    _rootParentComposite.setLayout(new GridLayout());
-    _rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+    rootParentComposite.setLayout(new GridLayout());
+    rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-    Group grp = getWidgetFactory().createGroup(_rootParentComposite, ICommonConstants.EMPTY_STRING);
+    Group grp = getWidgetFactory().createGroup(rootParentComposite, ICommonConstants.EMPTY_STRING);
     grp.setLayout(new GridLayout(2, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
