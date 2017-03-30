@@ -21,7 +21,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.kitalpha.transposer.core,
  org.polarsys.capella.core.model.handler,
  org.polarsys.capella.vp.requirements.importer.extension,
- org.apache.commons.lang
+ org.apache.commons.lang,
+ org.polarsys.capella.common.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.polarsys.capella.vp.requirements.importer,
