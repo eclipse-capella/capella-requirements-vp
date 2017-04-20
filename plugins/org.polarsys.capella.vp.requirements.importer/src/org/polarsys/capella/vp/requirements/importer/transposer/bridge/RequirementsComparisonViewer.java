@@ -12,14 +12,14 @@ package org.polarsys.capella.vp.requirements.importer.transposer.bridge;
 
 import java.util.List;
 
-import org.eclipse.emf.diffmerge.bridge.interactive.BridgeComparisonViewer;
+import org.eclipse.emf.diffmerge.bridge.interactive.UpdateViewer;
 import org.eclipse.emf.diffmerge.diffdata.EMatch;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
 import org.eclipse.emf.diffmerge.ui.viewers.MergeChoiceData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 
-public class RequirementsComparisonViewer extends BridgeComparisonViewer {
+public class RequirementsComparisonViewer extends UpdateViewer {
 
 
   public RequirementsComparisonViewer(Composite parent) {
