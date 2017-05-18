@@ -228,8 +228,9 @@ public class ReqIFMappingQueries {
             // }
           }
         }
+        // Temporary fix for Capella
+        // Need to be configurable through the preferences
       }
-      return (foundIEPUID && foundIEObjectType);
     }
     return true;
   }
