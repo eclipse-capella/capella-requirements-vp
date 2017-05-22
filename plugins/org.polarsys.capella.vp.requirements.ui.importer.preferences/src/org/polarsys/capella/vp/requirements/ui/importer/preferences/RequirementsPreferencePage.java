@@ -12,6 +12,7 @@ package org.polarsys.capella.vp.requirements.ui.importer.preferences;
 
 import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
+import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.SWT;
@@ -84,6 +85,12 @@ public class RequirementsPreferencePage extends AbstractDefaultPreferencePage {
     maxValueLenFieldEditor.getTextControl(grpValue)
         .addModifyListener(new NumberFieldModifyListener(maxValueLenFieldEditor.getTextControl(grpValue)));
     addField(maxValueLenFieldEditor);
+    
+    final Composite grpOther = createGroup("Other configuration items",
+            "", parentGroup);
+        final BooleanFieldEditor forceDoorsRmfUsageBooleanEditor = new BooleanFieldEditor(
+            RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE, "Force DOORS RMF usage check while importing requirements", grpOther);
+        addField(forceDoorsRmfUsageBooleanEditor);
 
   }
 

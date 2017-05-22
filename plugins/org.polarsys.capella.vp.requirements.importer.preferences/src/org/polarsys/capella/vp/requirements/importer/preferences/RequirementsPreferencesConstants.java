@@ -28,5 +28,13 @@ public class RequirementsPreferencesConstants {
   public static final String VALUE_LABEL_MAX_LEN = "value.label.max.len";
   
   public static final String VALUE_DEFAULT_LABEL_MAX_LEN = "80";
+  /**
+   * Preference used to enforce requirements check with Doors and RMF plugin
+   */
+  public static final String PREFERENCE_FORCE_DOORS_RMF_USAGE = "requirement.label.doors.rmf";
+  /**
+   * Default value
+   */
+  public static final String DEFAULT_VALUE_FORCE_DOORS_RMF_USAGE = "false";
   
 }
