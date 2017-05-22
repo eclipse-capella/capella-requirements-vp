@@ -46,6 +46,8 @@ import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
@@ -228,8 +230,13 @@ public class ReqIFMappingQueries {
             // }
           }
         }
-        // Temporary fix for Capella
-        // Need to be configurable through the preferences
+      }
+      
+      Boolean forceDoorsRmfUsage = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+  	        .getBoolean(RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE);
+      // In case of using Doors with RMF plugin, attribute PE UID is mandatory
+      if(forceDoorsRmfUsage) {
+    	  return (foundIEPUID && foundIEObjectType);
       }
     }
     return true;

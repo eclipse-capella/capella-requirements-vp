@@ -30,6 +30,8 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_MAX_LEN);
     store.setDefault(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN,
         RequirementsPreferencesConstants.VALUE_DEFAULT_LABEL_MAX_LEN);
+    store.setDefault(RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE,
+            RequirementsPreferencesConstants.DEFAULT_VALUE_FORCE_DOORS_RMF_USAGE);
   }
   
 }
