@@ -25,12 +25,11 @@ public class ViewpointHelper {
    */
   public static boolean isViewpointActive(EObject element) {
     try {
-      return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID) &&
-        !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
+      return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID)
+          && !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
     } catch (IllegalArgumentException ex) {
       // element is invalid, silent failure
     }
     return false;
   }
-
 }
