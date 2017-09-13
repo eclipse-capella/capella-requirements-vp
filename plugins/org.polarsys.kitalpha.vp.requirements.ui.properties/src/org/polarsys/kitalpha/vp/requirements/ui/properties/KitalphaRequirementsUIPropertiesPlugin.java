@@ -13,7 +13,6 @@ package org.polarsys.kitalpha.vp.requirements.ui.properties;
 import org.eclipse.emf.ecore.EObject;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.polarsys.kitalpha.ad.services.manager.InvalidContextException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 /**
@@ -27,13 +26,8 @@ public class KitalphaRequirementsUIPropertiesPlugin implements BundleActivator {
    * @return true is the AF viewpoint is active, false otherwise
    */
   public static boolean isViewpointActive(EObject element) {
-    try {
       return (element != null) ? ViewpointManager.getInstance(element).isReferenced(VIEWPOINT_ID) &&
         !ViewpointManager.getInstance(element).isInactive(VIEWPOINT_ID) : false;
-    } catch (InvalidContextException ex) {
-      // element is invalid, silent failure
-    }
-    return false;
   }
 
   /**
