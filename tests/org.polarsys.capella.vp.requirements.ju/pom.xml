@@ -17,13 +17,13 @@
 	<parent>
 		<groupId>org.polarsys.capella.vp.requirements.group</groupId>
 		<artifactId>org.polarsys.capella.vp.requirements.parent</artifactId>
-		<version>0.5.1-SNAPSHOT</version>
+		<version>0.5.2-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
 
 	<artifactId>org.polarsys.capella.vp.requirements.ju</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
-	<version>0.5.1-SNAPSHOT</version>
+	<version>0.5.2-SNAPSHOT</version>
 
 	<build>
 		<plugins>

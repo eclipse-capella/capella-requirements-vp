@@ -17,12 +17,12 @@
   <parent>
    <groupId>org.polarsys.capella.vp.requirements.group</groupId>
    <artifactId>org.polarsys.capella.vp.requirements.parent</artifactId>
-   <version>0.5.1-SNAPSHOT</version>
+   <version>0.5.2-SNAPSHOT</version>
    <relativePath>../../</relativePath>
  </parent>
 
   <artifactId>org.polarsys.capella.vp.requirements.importer.commandline</artifactId>
   <packaging>eclipse-plugin</packaging>
-  <version>0.5.1-SNAPSHOT</version>
+  <version>0.5.2-SNAPSHOT</version>
 
 </project>
