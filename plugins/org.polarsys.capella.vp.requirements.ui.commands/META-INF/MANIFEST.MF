@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ui.commands;singleton:=true
-Bundle-Version: 0.6.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPUICommandsPlugin
 Require-Bundle: org.eclipse.core.expressions,
  org.eclipse.core.resources,
@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.core.expressions,
  org.polarsys.capella.vp.requirements.model.helpers,
  org.polarsys.capella.vp.requirements.reqif.resource.obfuscator,
  org.polarsys.kitalpha.ad.services
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.polarsys.capella.vp.requirements.ui.commands,
  org.polarsys.capella.vp.requirements.ui.commands.importer,
  org.polarsys.capella.vp.requirements.ui.commands.obfuscator

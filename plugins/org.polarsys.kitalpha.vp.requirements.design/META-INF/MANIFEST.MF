@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.kitalpha.vp.requirements.design;singleton:=true
-Bundle-Version: 0.6.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: org.polarsys.kitalpha.vp.requirements.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -12,6 +12,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram,
  org.polarsys.kitalpha.vp.requirements.model
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

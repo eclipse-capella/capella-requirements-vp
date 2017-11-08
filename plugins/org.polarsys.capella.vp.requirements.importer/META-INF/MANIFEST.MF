@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.importer;singleton:=true
-Bundle-Version: 0.6.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: org.polarsys.capella.vp.requirements.importer.RequirementsVPPlugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.diffmerge.bridge;visibility:=reexport,
@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.lang,
  org.polarsys.capella.common.ui
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.importer.transposer.activities,
  org.polarsys.capella.vp.requirements.importer.transposer.bridge,
