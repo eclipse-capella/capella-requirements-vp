@@ -50,7 +50,7 @@ public class ModuleRule extends AbstractRule<Specification, TupleNP<Object>> {
     EObject tgt = ReqIFMappingQueries.getTargetBlockArchitecture(getMapping().getContext(),
         getMapping().getTemporaryScope());
     if (tgt != null) {
-      Object type = ruleEnv.getOne(specification.getType());
+      Object type = ruleEnv.getOne(specification.getType(), ModuleType.class);
       if (type instanceof TupleNP<?>) {
         type = ((TupleNP<?>) type).getRoot();
       }

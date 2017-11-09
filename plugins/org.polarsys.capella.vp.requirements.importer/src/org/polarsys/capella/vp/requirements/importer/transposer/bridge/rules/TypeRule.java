@@ -70,7 +70,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
 
   public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object typeInTargetModel = ruleEnv.getOne(spectype);
+    Object typeInTargetModel = ruleEnv.getOne(spectype, AbstractType.class);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();
     }

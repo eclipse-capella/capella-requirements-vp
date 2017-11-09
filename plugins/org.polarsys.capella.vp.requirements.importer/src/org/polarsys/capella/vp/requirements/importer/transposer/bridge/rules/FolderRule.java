@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -46,12 +47,12 @@ public class FolderRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
 
   public void defineTarget(SpecHierarchy hierarchy, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object obj = ruleEnv.getOne(hierarchy.eContainer());
+    Object obj = ruleEnv.getOne(hierarchy.eContainer(), EObject.class);
     if (obj instanceof TupleNP<?>) {
       obj = ((TupleNP<?>) obj).getRoot();
     }
 
-    Object type = ruleEnv.getOne(hierarchy.getObject().getType());
+    Object type = ruleEnv.getOne(hierarchy.getObject().getType(), RequirementType.class);
     if (type instanceof TupleNP<?>) {
       type = ((TupleNP<?>) type).getRoot();
     }

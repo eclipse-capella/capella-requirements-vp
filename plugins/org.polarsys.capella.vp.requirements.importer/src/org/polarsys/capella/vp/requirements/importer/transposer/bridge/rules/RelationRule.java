@@ -50,14 +50,14 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
     SpecObject sourceObject = specRelation.getSource();
     SpecHierarchy sourceHierarchy = ReqIFMappingQueries.getHierarchyFromObject(sourceObject);
 
-    Object relationSourceInTargetModel = ruleEnv.getOne(sourceHierarchy);
+    Object relationSourceInTargetModel = ruleEnv.getOne(sourceHierarchy, Requirement.class);
     if (relationSourceInTargetModel instanceof TupleNP<?>) {
       relationSourceInTargetModel = ((TupleNP<?>) relationSourceInTargetModel).getRoot();
     }
 
     SpecObject targetObject = specRelation.getTarget();
     SpecHierarchy targetHierarchy = ReqIFMappingQueries.getHierarchyFromObject(targetObject);
-    Object relationTargetInTargetModel = ruleEnv.getOne(targetHierarchy);
+    Object relationTargetInTargetModel = ruleEnv.getOne(targetHierarchy, Requirement.class);
     if (relationTargetInTargetModel instanceof TupleNP<?>) {
       relationTargetInTargetModel = ((TupleNP<?>) relationTargetInTargetModel).getRoot();
     }
@@ -67,7 +67,7 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
       relation.setSource((Requirement) relationSourceInTargetModel);
       relation.setTarget((Requirement) relationTargetInTargetModel);
 
-      Object type = ruleEnv.getOne(specRelation.getType());
+      Object type = ruleEnv.getOne(specRelation.getType(), RelationType.class);
       if (type instanceof TupleNP<?>) {
         type = ((TupleNP<?>) type).getRoot();
       }

@@ -28,6 +28,7 @@ import org.eclipse.emf.diffmerge.bridge.mapping.impl.emf.EMFMappingBridge;
 import org.eclipse.emf.diffmerge.bridge.mapping.operations.MappingBridgeOperation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
@@ -139,11 +140,11 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         datatype = ((AttributeDefinitionXHTML) attribute).getType();
       }
 
-      Object attr = ruleEnv.getOne(attribute.eContainer());
+      Object attr = ruleEnv.getOne(attribute.eContainer(), EObject.class);
       if (attr instanceof TupleNP<?>) {
         attr = ((TupleNP<?>) attr).get(attribute.getIdentifier());
       }
-      Object def = ruleEnv.getOne(datatype);
+      Object def = ruleEnv.getOne(datatype, EObject.class);
       if (def instanceof TupleNP<?>) {
         def = ((TupleNP<?>) def).get(datatype.getIdentifier());
       }
@@ -179,11 +180,11 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       } else if (attribute instanceof AttributeValueXHTML) {
         definition = ((AttributeValueXHTML) attribute).getDefinition();
       }
-      Object attr = ruleEnv.getOne(hierarchy != null ? hierarchy : element);
+      Object attr = ruleEnv.getOne(hierarchy != null ? hierarchy : element, EObject.class);
       if (attr instanceof TupleNP<?>) {
         attr = ((TupleNP<?>) attr).get(definition.getLongName());
       }
-      Object def = ruleEnv.getOne(definition.eContainer());
+      Object def = ruleEnv.getOne(definition.eContainer(), EObject.class);
       if (def instanceof TupleNP<?>) {
         def = ((TupleNP<?>) def).get(definition.getIdentifier());
       }
@@ -195,7 +196,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       }
       if (attr instanceof EnumerationValueAttribute) {
         for (org.eclipse.rmf.reqif10.EnumValue enumValue : enumValueList) {
-          Object value = ruleEnv.getOne(enumValue.eContainer());
+          Object value = ruleEnv.getOne(enumValue.eContainer(), EObject.class);
           if (value instanceof TupleNP<?>) {
             value = ((TupleNP<?>) value).get(enumValue.getIdentifier());
           }

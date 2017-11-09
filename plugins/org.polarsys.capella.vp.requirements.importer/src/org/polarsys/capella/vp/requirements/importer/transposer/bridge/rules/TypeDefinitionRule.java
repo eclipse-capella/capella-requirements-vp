@@ -65,7 +65,7 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
 
   public void defineTarget(DatatypeDefinition datatypedefinition, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object typeInTargetModel = ruleEnv.getOne(datatypedefinition);
+    Object typeInTargetModel = ruleEnv.getOne(datatypedefinition, DataTypeDefinition.class);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();
     }
