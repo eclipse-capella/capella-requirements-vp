@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2017 THALES GLOBAL SERVICES. All rights reserved. This 
+	program and the accompanying materials are made available under the terms 
+	of the Eclipse Public License v1.0 which accompanies this distribution, and 
+	is available at http://www.eclipse.org/legal/epl-v10.html Contributors: Thales 
+	- initial API and implementation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.polarsys</groupId>
+		<artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
+		<version>0.9.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<artifactId>org.polarsys.capella.core.plugins</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>org.polarsys.capella.vp.requirements</module>
+		<module>org.polarsys.capella.vp.requirements.af</module>
+		<module>org.polarsys.capella.vp.requirements.business.queries</module>
+		<module>org.polarsys.capella.vp.requirements.design</module>
+		<module>org.polarsys.capella.vp.requirements.doc</module>
+		<module>org.polarsys.capella.vp.requirements.importer</module>
+		<module>org.polarsys.capella.vp.requirements.importer.attributes.doors.rmf</module>
+		<module>org.polarsys.capella.vp.requirements.importer.commandline</module>
+		<module>org.polarsys.capella.vp.requirements.importer.extension</module>
+		<module>org.polarsys.capella.vp.requirements.importer.preferences</module>
+		<module>org.polarsys.capella.vp.requirements.model</module>
+		<module>org.polarsys.capella.vp.requirements.model.edit</module>
+		<module>org.polarsys.capella.vp.requirements.model.edit.decorators</module>
+		<module>org.polarsys.capella.vp.requirements.model.helpers</module>
+		<module>org.polarsys.capella.vp.requirements.reqif.resource.obfuscator</module>
+		<module>org.polarsys.capella.vp.requirements.semantic.browser</module>
+		<module>org.polarsys.capella.vp.requirements.ui</module>
+		<module>org.polarsys.capella.vp.requirements.ui.commands</module>
+		<module>org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
+		<module>org.polarsys.capella.vp.requirements.ui.properties</module>
+		<module>org.polarsys.capella.vp.requirements.validation</module>
+		<module>org.polarsys.capella.vp.requirements.vpdsl</module>
+		<module>org.polarsys.kitalpha.vp.requirements</module>
+		<module>org.polarsys.kitalpha.vp.requirements.af</module>
+		<module>org.polarsys.kitalpha.vp.requirements.design</module>
+		<module>org.polarsys.kitalpha.vp.requirements.model</module>
+		<module>org.polarsys.kitalpha.vp.requirements.model.edit</module>
+		<module>org.polarsys.kitalpha.vp.requirements.model.edit.decorators</module>
+		<module>org.polarsys.kitalpha.vp.requirements.model.helpers</module>
+		<module>org.polarsys.kitalpha.vp.requirements.ui</module>
+		<module>org.polarsys.kitalpha.vp.requirements.ui.properties</module>
+		<module>org.polarsys.kitalpha.vp.requirements.vpdsl</module>
+	</modules>
+</project>

@@ -47,50 +47,15 @@
   </properties>
 
   <modules>
-    <module>features/org.polarsys.capella.vp.requirements.af.feature</module>
-    <module>features/org.polarsys.capella.vp.requirements.feature</module>
-    <module>features/org.polarsys.capella.vp.requirements.importer.feature</module>
-    <module>features/org.polarsys.capella.vp.requirements.representation.feature</module>
-    <module>features/org.polarsys.capella.vp.requirements.thirdparty.feature</module>
-    <module>features/org.polarsys.capella.vp.requirements.ui.feature</module>
-    <module>features/org.polarsys.kitalpha.vp.requirements.af.feature</module>
-    <module>features/org.polarsys.kitalpha.vp.requirements.feature</module>
-    <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
-    <module>features/org.polarsys.kitalpha.vp.requirements.ui.feature</module>
-    <module>plugins/org.polarsys.capella.vp.requirements</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.af</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.business.queries</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.design</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.doc</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.importer</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.importer.attributes.doors.rmf</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.importer.commandline</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.importer.extension</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.importer.preferences</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.model</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.model.edit</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.model.edit.decorators</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.model.helpers</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.reqif.resource.obfuscator</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.semantic.browser</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.ui</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.ui.commands</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.ui.properties</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.vpdsl</module>
-    <module>plugins/org.polarsys.capella.vp.requirements.validation</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.af</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.design</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.model</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.model.edit</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.model.edit.decorators</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.model.helpers</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.ui</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.ui.properties</module>
-    <module>plugins/org.polarsys.kitalpha.vp.requirements.vpdsl</module>
+    <module>features</module>
+    <module>plugins</module>
+    
+    <!-- Test -->
     <module>tests/org.polarsys.capella.vp.requirements.ju</module>
+    
+    <!-- Releng -->
     <module>releng/org.polarsys.capella.vp.requirements.site</module>
+    
   </modules>
 
   <build>
