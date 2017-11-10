@@ -14,7 +14,7 @@
 		<relativePath>../</relativePath>
 	</parent>
 	<groupId>org.polarsys</groupId>
-	<artifactId>org.polarsys.capella.core.plugins</artifactId>
+	<artifactId>org.polarsys.capella.addon.vp.requirements.plugins</artifactId>
 	<packaging>pom</packaging>
 	<modules>
 		<module>org.polarsys.capella.vp.requirements</module>
