@@ -13,7 +13,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
+  
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
@@ -25,37 +25,57 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>0.26.0</tycho-version>
-    <tycho-extras-version>0.26.0</tycho-extras-version>
-    <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
+    <tycho-version>1.0.0</tycho-version>
+    <tycho-extras-version>1.0.0</tycho-extras-version>
 	<antrun-version>1.7</antrun-version>
 	<sonar-version>3.0.2</sonar-version>
 	<jacoco-version>0.7.4.201502262128</jacoco-version>
 
-	<!-- for junit -->
+    <!-- for tycho -->
+    <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
+
+    <!-- for packaging -->
+    <eclipse-repo.url>http://download.eclipse.org/releases/neon</eclipse-repo.url>
+    <packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
+
+    <!-- for junit -->
     <capella-product-id>org.polarsys.capella.core.platform.sirius.ui.perspective.product</capella-product-id>
-    <tycho.testArgLine>-Xms256m -Xmx1024m</tycho.testArgLine>
+    <tycho.testArgLine>-Xms256m -Xmx1024m ${os-jvm-flags}</tycho.testArgLine>
+    <tests.ignoreFailures>true</tests.ignoreFailures>
+    <os-jvm-flags />
 
-	<!-- for packaging -->
-	<eclipse-repo.url>http://download.eclipse.org/releases/neon</eclipse-repo.url>
-	<packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
-
-	<!-- for sonar -->
-	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-	<sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
-	<sonar.jacoco.itReportPath>${project.basedir}/../../target/jacoco-it.exec</sonar.jacoco.itReportPath>
+    <!-- for sonar -->
+    <sonar.skipDesign>true</sonar.skipDesign>
+    <sonar.dynamic>reuseReports</sonar.dynamic>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+    <sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.jacoco.itReportPath>${project.basedir}/../../target/jacoco-it.exec</sonar.jacoco.itReportPath>
+    <sonar.java.source>8</sonar.java.source>
   </properties>
 
   <modules>
-    <module>features</module>
+    <!-- features -->
+    <module>features/org.polarsys.capella.vp.requirements.af.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.importer.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.representation.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.thirdparty.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.ui.feature</module>
+    <module>features/org.polarsys.kitalpha.vp.requirements.af.feature</module>
+    <module>features/org.polarsys.kitalpha.vp.requirements.feature</module>
+    <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
+    <module>features/org.polarsys.kitalpha.vp.requirements.ui.feature</module>
+
+    <!-- plugins -->
     <module>plugins</module>
-    
+
     <!-- Test -->
     <module>tests/org.polarsys.capella.vp.requirements.ju</module>
-    
+
     <!-- Releng -->
     <module>releng/org.polarsys.capella.vp.requirements.site</module>
-    
+
   </modules>
 
   <build>
