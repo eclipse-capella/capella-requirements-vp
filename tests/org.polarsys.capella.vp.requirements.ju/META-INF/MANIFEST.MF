@@ -14,7 +14,9 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.common.re.gen,
  org.polarsys.capella.vp.requirements.validation,
  org.polarsys.capella.vp.requirements.business.queries,
- org.polarsys.capella.test.business.queries.ju
+ org.polarsys.capella.test.business.queries.ju,
+ org.polarsys.capella.core.platform.sirius.ui.navigator,
+ org.eclipse.ui.navigator
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,
