@@ -80,5 +80,19 @@ See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation<
 	<li>For each <b>Internal Relation</b>, the <b>Source/Target</b> along with the Internal Relation and their owned Attributes</li>
 	<li>For each <b>Requirement</b>, the <b>Requirement Type</b> along with the Requirement Type</li>
 </ul>
+
+<b>Add non-referenced attribute definition</b>
+<p>By default, non-referenced attribute definitions are not imported into Capella model. To explicitly ask Requirement Viewpoint to import these attribute definitions, you could do the following steps:</p>
+<ul>
+	<li>In the <b>Model Update</b> dialog, deactivate the <b>Type definitions</b> filter</li>
+	  <p>
+		<img src="../../images/NonReferencedAttributeDefinition_Step1.png" alt="Deactivate Type definitions filter" title="Deactivate Type definitions filter">
+      </p> 
+	<li>Do a "Copy to the right action" on Requirement Modules</li>
+	<li>Under the <b>Types Folder</b> element, choose the attribute definition to put to the Resulting model</li>
+	  <p>
+		<img src="../../images/NonReferencedAttributeDefinition_Step2.png" alt="Copy attribute definition" title="Copy attribute definition">
+      </p>
+</ul>
    </body>
 </html>
