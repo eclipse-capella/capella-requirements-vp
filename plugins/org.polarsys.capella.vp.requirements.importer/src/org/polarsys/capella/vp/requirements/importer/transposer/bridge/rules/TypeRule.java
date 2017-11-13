@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
+import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -70,7 +71,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
 
   public void defineTarget(SpecType spectype, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object typeInTargetModel = ruleEnv.getOne(spectype, AbstractType.class);
+    Object typeInTargetModel = ruleEnv.getOne(spectype, ITuple.class);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();
     }

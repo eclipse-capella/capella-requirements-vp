@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
+import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -50,14 +51,14 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
     SpecObject sourceObject = specRelation.getSource();
     SpecHierarchy sourceHierarchy = ReqIFMappingQueries.getHierarchyFromObject(sourceObject);
 
-    Object relationSourceInTargetModel = ruleEnv.getOne(sourceHierarchy, Requirement.class);
+    Object relationSourceInTargetModel = ruleEnv.getOne(sourceHierarchy, ITuple.class);
     if (relationSourceInTargetModel instanceof TupleNP<?>) {
       relationSourceInTargetModel = ((TupleNP<?>) relationSourceInTargetModel).getRoot();
     }
 
     SpecObject targetObject = specRelation.getTarget();
     SpecHierarchy targetHierarchy = ReqIFMappingQueries.getHierarchyFromObject(targetObject);
-    Object relationTargetInTargetModel = ruleEnv.getOne(targetHierarchy, Requirement.class);
+    Object relationTargetInTargetModel = ruleEnv.getOne(targetHierarchy, ITuple.class);
     if (relationTargetInTargetModel instanceof TupleNP<?>) {
       relationTargetInTargetModel = ((TupleNP<?>) relationTargetInTargetModel).getRoot();
     }
@@ -67,7 +68,7 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
       relation.setSource((Requirement) relationSourceInTargetModel);
       relation.setTarget((Requirement) relationTargetInTargetModel);
 
-      Object type = ruleEnv.getOne(specRelation.getType(), RelationType.class);
+      Object type = ruleEnv.getOne(specRelation.getType(), ITuple.class);
       if (type instanceof TupleNP<?>) {
         type = ((TupleNP<?>) type).getRoot();
       }

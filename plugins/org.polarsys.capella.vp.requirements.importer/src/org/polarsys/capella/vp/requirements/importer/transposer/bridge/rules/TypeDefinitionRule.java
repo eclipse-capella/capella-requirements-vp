@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
+import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
@@ -65,7 +66,7 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
 
   public void defineTarget(DatatypeDefinition datatypedefinition, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object typeInTargetModel = ruleEnv.getOne(datatypedefinition, DataTypeDefinition.class);
+    Object typeInTargetModel = ruleEnv.getOne(datatypedefinition, ITuple.class);
     if (typeInTargetModel instanceof TupleNP<?>) {
       typeInTargetModel = ((TupleNP<?>) typeInTargetModel).getRoot();
     }

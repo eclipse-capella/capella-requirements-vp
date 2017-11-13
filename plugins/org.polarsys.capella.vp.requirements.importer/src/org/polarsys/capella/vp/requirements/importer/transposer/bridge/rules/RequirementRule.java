@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -49,12 +49,12 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
 
   public void defineTarget(SpecHierarchy hierarchy, TupleNP<Object> target, IQueryExecution queryEnv,
       IMappingExecution ruleEnv) {
-    Object obj = ruleEnv.getOne(hierarchy.eContainer(), EObject.class);
+    Object obj = ruleEnv.getOne(hierarchy.eContainer(), ITuple.class);
     if (obj instanceof TupleNP<?>) {
       obj = ((TupleNP<?>) obj).getRoot();
     }
 
-    Object type = ruleEnv.getOne(hierarchy.getObject().getType(), RequirementType.class);
+    Object type = ruleEnv.getOne(hierarchy.getObject().getType(), ITuple.class);
     if (type instanceof TupleNP<?>) {
       type = ((TupleNP<?>) type).getRoot();
     }

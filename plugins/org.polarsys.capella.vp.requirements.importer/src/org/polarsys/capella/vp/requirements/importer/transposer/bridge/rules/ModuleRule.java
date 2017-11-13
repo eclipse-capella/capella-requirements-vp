@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IQueryExecution;
+import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Specification;
@@ -50,7 +51,7 @@ public class ModuleRule extends AbstractRule<Specification, TupleNP<Object>> {
     EObject tgt = ReqIFMappingQueries.getTargetBlockArchitecture(getMapping().getContext(),
         getMapping().getTemporaryScope());
     if (tgt != null) {
-      Object type = ruleEnv.getOne(specification.getType(), ModuleType.class);
+      Object type = ruleEnv.getOne(specification.getType(), ITuple.class);
       if (type instanceof TupleNP<?>) {
         type = ((TupleNP<?>) type).getRoot();
       }
