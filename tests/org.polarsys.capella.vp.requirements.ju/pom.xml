@@ -60,6 +60,11 @@
 								<id>org.polarsys.capella.rcp.feature</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.polarsys.capella.vp.requirements.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
 						</extraRequirements>
 					</dependency-resolution>
 				</configuration>

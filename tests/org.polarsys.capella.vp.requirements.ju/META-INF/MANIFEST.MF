@@ -16,7 +16,12 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.business.queries,
  org.polarsys.capella.test.business.queries.ju,
  org.polarsys.capella.core.platform.sirius.ui.navigator,
- org.eclipse.ui.navigator
+ org.eclipse.ui.navigator,
+ org.eclipse.emf.diffmerge.ui,
+ org.polarsys.capella.core.compare,
+ org.eclipse.emf.diffmerge,
+ org.polarsys.kitalpha.ad.metadata.model,
+ org.polarsys.capella.core.data.gen
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,
