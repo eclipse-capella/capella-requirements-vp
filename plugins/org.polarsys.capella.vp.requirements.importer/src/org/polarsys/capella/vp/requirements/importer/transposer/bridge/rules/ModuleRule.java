@@ -23,6 +23,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementEMFSYmbolFunction;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.ModuleQuery;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -37,7 +38,7 @@ public class ModuleRule extends AbstractRule<Specification, TupleNP<Object>> {
   public TupleNP<Object> createTarget(Specification specification, IQueryExecution queryExecution) {
     Map<String, Object> createdElements = new HashMap<String, Object>();
     CapellaModule module = CapellaRequirementsFactory.eINSTANCE.createCapellaModule();
-    createdElements.put(specification.getIdentifier(), module);
+    createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(specification), module);
     for (AttributeValue value : specification.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, module));
     }

@@ -21,6 +21,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementEMFSYmbolFunction;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RequirementQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
@@ -37,7 +38,7 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
   public TupleNP<Object> createTarget(SpecHierarchy hierarchy, IQueryExecution queryExecution) {
     Map<String, Object> createdElements = new HashMap<String, Object>();
     Requirement requirement = RequirementsFactory.eINSTANCE.createRequirement();
-    createdElements.put(hierarchy.getIdentifier(), requirement);
+    createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(hierarchy), requirement);
     SpecObject object = hierarchy.getObject();
     for (AttributeValue value : object.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, requirement));

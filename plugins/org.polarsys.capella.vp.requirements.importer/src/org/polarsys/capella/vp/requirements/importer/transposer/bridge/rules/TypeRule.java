@@ -22,6 +22,7 @@ import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementEMFSYmbolFunction;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.TypeQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
@@ -47,7 +48,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
     } else if (source instanceof SpecObjectType) {
       type = RequirementsFactory.eINSTANCE.createRequirementType();
     }
-    createdElements.put(source.getIdentifier(), type);
+    createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(source), type);
 
     for (org.eclipse.rmf.reqif10.AttributeDefinition srcDefinition : source.getSpecAttributes()) {
       AttributeDefinition definition;
@@ -60,7 +61,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       definition.setReqIFLongName(srcDefinition.getLongName());
       definition.setReqIFIdentifier(srcDefinition.getIdentifier());
       type.getOwnedAttributes().add(definition);
-      createdElements.put(srcDefinition.getIdentifier(), definition);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(srcDefinition), definition);
     }
 
     type.setReqIFIdentifier(source.getIdentifier());

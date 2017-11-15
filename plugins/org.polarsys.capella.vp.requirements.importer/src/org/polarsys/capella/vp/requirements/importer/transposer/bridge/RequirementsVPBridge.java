@@ -25,7 +25,6 @@ import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.api.scopes.IModelScope;
 import org.eclipse.emf.diffmerge.bridge.api.IBridge;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
-import org.eclipse.emf.diffmerge.bridge.impl.emf.EMFSymbolFunction;
 import org.eclipse.emf.diffmerge.bridge.incremental.BridgeTraceBasedMatchPolicy;
 import org.eclipse.emf.diffmerge.bridge.interactive.EMFInteractiveBridge;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFactory;
@@ -83,7 +82,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
       IBridgeTrace existingTrace, IProgressMonitor monitor) {
     EComparison result = new EComparisonImpl(existing, created);
     IMatchPolicy matchPolicy = new BridgeTraceBasedMatchPolicy(created, createdTrace, existingTrace) {
-
+      
       @Override
       public Object getMatchID(EObject element, IModelScope scope) {
         Object trace = super.getMatchID(element, scope);
@@ -195,28 +194,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   }
 
   public void initializeTrace(Trace trace) {
-    trace.setSymbolFunction(new EMFSymbolFunction() {
-      @Override
-      protected String getEObjectSymbol(EObject element) {
-        // if (element instanceof ReqIFElement) {
-        // return ((ReqIFElement) element).getReqIF_Identifier();
-        // }
-        // else if (element instanceof Identifiable) {
-        // return ((Identifiable) element).getIdentifier();
-        // }
-        // else if (element instanceof ModelElement) {
-        // return ((ModelElement) element).getId();
-        // }
-        // else if (element instanceof DynamicEObjectImpl) {
-        // try {
-        // return element.eGet(element.eClass().getEStructuralFeature("identity")).toString();
-        // } catch (Exception e) {
-        // // oups
-        // }
-        // }
-        return super.getEObjectSymbol(element);
-      }
-    });
+    trace.setSymbolFunction(RequirementEMFSYmbolFunction.getInstance());
   }
   
   protected AbstractComparisonViewer createComparisonViewer(Composite parent) {

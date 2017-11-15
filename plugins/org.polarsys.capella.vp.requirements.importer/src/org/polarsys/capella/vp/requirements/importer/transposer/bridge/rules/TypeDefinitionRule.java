@@ -21,6 +21,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementEMFSYmbolFunction;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.TypeDefinitionQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
@@ -40,7 +41,7 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
       DatatypeDefinitionEnumeration srcAttEnumDef = (DatatypeDefinitionEnumeration) source;
       org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition attEnumDef = RequirementsFactory.eINSTANCE
           .createEnumerationDataTypeDefinition();
-      createdElements.put(srcAttEnumDef.getIdentifier(), attEnumDef);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(srcAttEnumDef), attEnumDef);
 
       attEnumDef.setReqIFIdentifier(srcAttEnumDef.getIdentifier());
       attEnumDef.setReqIFLongName(srcAttEnumDef.getLongName());
@@ -48,7 +49,7 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
       for (EnumValue srcEnumValue : srcAttEnumDef.getSpecifiedValues())
       {
         org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue enumValue = RequirementsFactory.eINSTANCE.createEnumValue();
-        createdElements.put(srcEnumValue.getIdentifier(), enumValue);
+        createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(srcEnumValue), enumValue);
         enumValue.setReqIFIdentifier(srcEnumValue.getIdentifier());
         enumValue.setReqIFLongName(srcEnumValue.getLongName());
         attEnumDef.getSpecifiedValues().add(enumValue);
@@ -57,7 +58,7 @@ public class TypeDefinitionRule extends AbstractRule<DatatypeDefinition, TupleNP
     }
     
     DataTypeDefinition type = RequirementsFactory.eINSTANCE.createDataTypeDefinition();
-    createdElements.put(source.getIdentifier(), type);
+    createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(source), type);
 
     type.setReqIFIdentifier(source.getIdentifier());
     type.setReqIFLongName(source.getLongName());

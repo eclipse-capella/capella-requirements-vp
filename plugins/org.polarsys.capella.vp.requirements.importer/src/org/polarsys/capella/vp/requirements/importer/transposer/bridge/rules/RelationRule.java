@@ -21,6 +21,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapping;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMappingQueries;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementEMFSYmbolFunction;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.TupleNP;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.RelationQuery;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
@@ -41,7 +42,7 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
     targetRelation.setReqIFIdentifier(source.getIdentifier());
     targetRelation.setRelationTypeProxy(source.getType().getLongName());
 
-    createdElements.put(source.getIdentifier(), targetRelation);
+    createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(source), targetRelation);
     return new TupleNP<Object>(targetRelation, createdElements);
   }
 

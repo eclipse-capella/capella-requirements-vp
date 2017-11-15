@@ -19,6 +19,7 @@ import org.polarsys.capella.vp.requirements.ju.misc.PropertyViewTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase2;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.BooleanValueAttribute_Definition_AttributeDefinition;
@@ -76,6 +77,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new PropertyViewTestCase());
     
     tests.add(new ModelDiffTestCase());
+    tests.add(new ModelDiffTestCase2());
     return tests;
   }
 }
