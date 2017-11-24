@@ -15,11 +15,11 @@ include "http://git.polarsys.org/c/capella/capella.git/plain/releng/plugins/org.
 with source, requirements
 
 location "https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
-	org.polarsys.capella.rcp.feature.feature.group
+	org.polarsys.capella.rcp.feature.feature.group lazy
 }
 
 location "https://hudson.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {
-	org.polarsys.capella.test.feature.feature.group
+	org.polarsys.capella.test.feature.feature.group lazy
 }
 
 location "http://download.eclipse.org/diffmerge/releases/0.9.0/edm-coevolution-site" {
