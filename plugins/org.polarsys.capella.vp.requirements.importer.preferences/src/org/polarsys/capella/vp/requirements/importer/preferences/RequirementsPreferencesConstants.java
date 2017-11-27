@@ -17,7 +17,7 @@ public class RequirementsPreferencesConstants {
 
   public static final String REQUIREMENT_LABEL_EXPRESSION = "requirement.label.expression";
   
-  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "aql:OrderedSet{self.ownedAttributes->select( a | a.definition.ReqIFLongName == 'IE PUID').value, OrderedSet{self.ReqIFText, self.ReqIFLongName, self.ReqIFChapterName}->select(s | s != 'null' and s.size() > 0)->add('')->first()}->sep(' ')";
+  public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "aql:OrderedSet{self.ownedAttributes->select( a | a.definition.ReqIFLongName == 'IE PUID').value, OrderedSet{self.ReqIFText, self.ReqIFLongName, self.ReqIFChapterName}->select(s | s != 'null' and s.size() > 0)->add(OrderedSet{''})->first()}->sep(' ')";
 
   public static final String REQUIREMENT_PROPERTIES_FILES = "requirement.properties.files";
   
