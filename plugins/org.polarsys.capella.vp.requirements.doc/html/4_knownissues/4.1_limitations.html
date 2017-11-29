@@ -18,6 +18,21 @@
 <body>
 <h1>Limitations</h1>
 
+<h2>Export ReqIf limitation with DOORS</h2>
+<ul>
+	<li>Links exported in the ReqIf format with DOORS have different identifiers between exports. 
+	This makes the Requirement viewpoint not able to recognize that you are importing the same links that have been previously imported to Capella model.
+	<b>This is not a blocking issue.</b> You can simply merge links from the Candidate model to the Resulting model in the Model Update dialog</li>
+	<li>
+		ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. 
+		This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module.
+		Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.
+		<img src="../../images/ExportReqIfBaseline.png" alt="Export ReqIf limitation with baselines" title="Export ReqIf limitation with baselines"/>
+	</li>
+	<br/>
+	The above issues have been tracked with IBM's DOORS tickets.
+</ul>
+
 <h2>Import limitation</h2>
 <ul>
 <li>OLE elements or images are not imported in Capella even if they are present in the ReqIF source file.</li>
