@@ -33,3 +33,7 @@ location "http://download.eclipse.org/rmf/updates/releases/0.13.0" {
 location "http://download.eclipse.org/sphinx/releases/0.8.x" {
 	org.eclipse.sphinx.emf.serialization.feature.group
 }
+
+location "http://download.eclipse.org/modeling/emf/cdo/drops/R20160607-1209/" {
+    org.eclipse.emf.cdo.sdk.feature.group
+}

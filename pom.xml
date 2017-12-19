@@ -57,6 +57,7 @@
 
   <modules>
     <!-- features -->
+    <module>features/org.polarsys.capella.vp.requirements.cdo.feature</module>
     <module>features/org.polarsys.capella.vp.requirements.af.feature</module>
     <module>features/org.polarsys.capella.vp.requirements.feature</module>
     <module>features/org.polarsys.capella.vp.requirements.importer.feature</module>

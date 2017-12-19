@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+  Copyright (c) 2017 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
+	<title>Team for Capella</title>
+</head>
+<body>
+
+<h1>Team for Capella</h1>
+
+<p>In the context of Team for Capella product, the import from a connected project is not supported</p>
+
+<p>The recommended process is : </p>
+
+<h3>Initial Import Reqif</h3>
+<li>Launch Reqif Import on a local project</li>
+<li>Export the project to the server.</li>
+<li>Backup the .melodymodeller.bridgetraces file for the next import since the file created while the reqif import is not exported to the server.</li>
+
+<h3>Once model is exported to the server, to import Reqif again:</h3>
+<li>Import the remote project to a local project</li>
+<li>Put inside the project the .melodymodeller.bridgetraces file kept from the previous import</li>
+<li>Launch Reqif Import on the local project</li>
+<li>Re-Export the project to the server. </li>
+<li>Backup the .melodymodeller.bridgetraces file for the next import</li>
+</body>
+</html>
