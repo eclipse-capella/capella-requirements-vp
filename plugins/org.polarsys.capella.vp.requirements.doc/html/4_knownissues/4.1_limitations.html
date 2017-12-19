@@ -20,17 +20,28 @@
 
 <h2>Export ReqIf limitation with DOORS</h2>
 <ul>
-	<li>Links exported in the ReqIf format with DOORS have different identifiers between exports. 
-	This makes the Requirement viewpoint not able to recognize that you are importing the same links that have been previously imported to Capella model.
-	<b>This is not a blocking issue.</b> You can simply merge links from the Candidate model to the Resulting model in the Model Update dialog</li>
+	<li>
+		ReqIf file exported from a base-lined DOORS module does not contain any link. If you intend to export links to ReqIf, the current module should be used instead of baselined one. This issue will be fixed in DOORS 9.6.1.11.
+	</li>
 	<li>
 		ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. 
 		This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module.
 		Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.
 		<img src="../../images/ExportReqIfBaseline.png" alt="Export ReqIf limitation with baselines" title="Export ReqIf limitation with baselines"/>
+		<br/>
+		However, if you must use the base-lined modules, a workaround is to make sure that elements from base-lined modules have the same identifiers by removing the baseline part in all elements' identifiers. Note that this workaround only works with base-lined modules, comparing a base-lined one with the current module is still not possible.
+		<img src="../../images/RemoveBaselineFromIdentifier.png" alt="Remove baseline from identifier" title="Remove baseline from identifier"/>
+		<br/>
+	</li>
+	<li>
+		Some attributes are exported from DOORS as an ATTRIBUTE-DEFINITION but not referenced from any module (as an ATTRIBUTE-VALUE). This has been tracked down with <a href="https://bugs.polarsys.org/show_bug.cgi?id=1883">Bug 1883</a>
+	</li>
+	<li>Links exported in the ReqIf format with DOORS have different identifiers between exports. 
+		This makes the Requirement viewpoint not able to recognize that you are importing the same links that have been previously imported to Capella model.
+		<b>This is not a blocking issue.</b> You can simply merge links from the Candidate model to the Resulting model in the Model Update dialog. This has been tracked down with <a href="https://bugs.polarsys.org/show_bug.cgi?id=1882">Bug 1882</a>
 	</li>
 	<br/>
-	The above issues have been tracked with IBM's DOORS tickets.
+	The above issues have been tracked with the following IBM's DOORS ticket: <a href="https://www-947.ibm.com/support/servicerequest/problemDescriptionSelect.action?srNumber=87227&branch=660&retainCountryCode=706&sourceAppl=XSR&sourceNode=prNode5&sourceTranId=36161512141233947&draft=0">Ticket</a>.
 </ul>
 
 <h2>Import limitation</h2>
