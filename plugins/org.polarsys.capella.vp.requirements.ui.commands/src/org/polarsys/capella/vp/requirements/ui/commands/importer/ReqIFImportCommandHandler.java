@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,18 +45,19 @@ public class ReqIFImportCommandHandler extends AbstractUiHandler {
             run(file, (BlockArchitecture) semanticElement);
           }
         } else {
-          RequirementsVPUICommandsPlugin.getDefault().getLog().log(new Status(Status.ERROR, RequirementsVPUICommandsPlugin.PLUGIN_ID, "Invalid selection"));
+          RequirementsVPUICommandsPlugin.getDefault().getLog()
+              .log(new Status(Status.ERROR, RequirementsVPUICommandsPlugin.PLUGIN_ID, "Invalid selection"));
         }
       }
     }
     return null;
   }
 
-//  @Override
-//  public void setEnabled(Object evaluationContext) {
-//    Object ctx = ((IEvaluationContext) evaluationContext).getVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME);
-//    setBaseEnabled(isAllowedContext(ctx));
-//  }
+  // @Override
+  // public void setEnabled(Object evaluationContext) {
+  // Object ctx = ((IEvaluationContext) evaluationContext).getVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME);
+  // setBaseEnabled(isAllowedContext(ctx));
+  // }
 
   protected Shell getActiveShell(ExecutionEvent event) {
     IWorkbenchPart part = (IWorkbenchPart) getVariableValue(event, ACTIVE_PART_VARIABLE);
@@ -79,8 +80,8 @@ public class ReqIFImportCommandHandler extends AbstractUiHandler {
 
   protected URI getReqIFFileURI(ExecutionEvent event) {
     FileDialog fileDialog = new FileDialog(getActiveShell(event), SWT.SINGLE);
-    fileDialog.setFilterExtensions(new String[] { "*.reqif", "*.*" });
-    fileDialog.setFilterNames(new String[] { "ReqIF files", "All files" });
+    fileDialog.setFilterExtensions(new String[] { "*.reqif" });
+    fileDialog.setFilterNames(new String[] { "ReqIF files" });
     String filepath = fileDialog.open();
     if (filepath != null) {
       return URI.createFileURI(filepath);
@@ -88,34 +89,34 @@ public class ReqIFImportCommandHandler extends AbstractUiHandler {
     return null;
   }
 
-//  public static final String VIEWPOINT_ID = "org.polarsys.capella.vp.requirements"; //$NON-NLS-1$
+  // public static final String VIEWPOINT_ID = "org.polarsys.capella.vp.requirements"; //$NON-NLS-1$
 
   /**
    * @return true is the AF viewpoint is active, false otherwise
    */
-//  public static boolean isViewpointActive(EObject modelElement) {
-//    return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
-//      !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID) : false;
-//  }
+  // public static boolean isViewpointActive(EObject modelElement) {
+  // return (modelElement != null) ? ViewpointManager.getInstance(modelElement).isReferenced(VIEWPOINT_ID) &&
+  // !ViewpointManager.getInstance(modelElement).isInactive(VIEWPOINT_ID) : false;
+  // }
 
   /**
    *
    */
-//  public boolean isAllowedContext(Object object) {
-//    if (object instanceof IStructuredSelection) {
-//      boolean result = true;
-//      for (Object obj : ((IStructuredSelection) object).toList()) {
-//        if (obj instanceof BlockArchitecture) {
-//          result &= isViewpointActive((EObject) obj);
-//        } else {
-//          result = false;
-//        }
-//      }
-//      return result;
-//    }
-//    else if (object instanceof BlockArchitecture) {
-//      return isViewpointActive((EObject) object);
-//    }
-//    return false;
-//  }
+  // public boolean isAllowedContext(Object object) {
+  // if (object instanceof IStructuredSelection) {
+  // boolean result = true;
+  // for (Object obj : ((IStructuredSelection) object).toList()) {
+  // if (obj instanceof BlockArchitecture) {
+  // result &= isViewpointActive((EObject) obj);
+  // } else {
+  // result = false;
+  // }
+  // }
+  // return result;
+  // }
+  // else if (object instanceof BlockArchitecture) {
+  // return isViewpointActive((EObject) object);
+  // }
+  // return false;
+  // }
 }
