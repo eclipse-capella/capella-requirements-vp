@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -40,8 +40,8 @@ public class RequirementsImportLauncher extends ActivitiesLauncher {
     activities = new HashMap<String, String[]>();
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__INITIALIZATION, new String[] { InitializeTransformation.getId() });
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__TRANSPOSITION, new String[] {});
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE, new String[] { TriggerDiffMerge.getId() });
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__FINALIZATION, new String[] { TransposerTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE, new String[] { TriggerDiffMerge.getId(), TransposerTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__FINALIZATION, new String[] { });
   }
 
   public void launch(URI model, BlockArchitecture target, IProgressMonitor monitor) {
