@@ -11,6 +11,7 @@
 package org.polarsys.capella.vp.requirements.ju.transposer;
 
 import org.polarsys.capella.core.transition.common.launcher.IDefaultWorkflow;
+import org.polarsys.capella.vp.requirements.importer.transposer.activities.TriggerDiffMerge;
 import org.polarsys.capella.vp.requirements.importer.transposer.launcher.RequirementsImportLauncher;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
@@ -21,7 +22,7 @@ public class TestRequirementsImportLauncher extends RequirementsImportLauncher {
 
   public TestRequirementsImportLauncher() {
     super();
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__FINALIZATION, new String[] { TestTransposerTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE, new String[] { TriggerDiffMerge.getId(), TestTransposerTransformation.getId() });
   }
   
   public IContext getContext() {
