@@ -12,6 +12,7 @@ package org.polarsys.capella.vp.requirements.ju.testcases;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -24,22 +25,24 @@ import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.capella.test.framework.helpers.IResourceHelpers;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.RelationIdentifierCategory;
 import org.polarsys.capella.vp.requirements.ju.transposer.TestRequirementsImportLauncher;
 import org.polarsys.capella.vp.requirements.ju.transposer.TestTransposerTransformation;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 /**
  * 
- * This test case imports the Sample1.reqif model into emptymodelWithImportedReqif which contains already Sample.reqif
- * The difference between Sample.reqif and Sample1.reqif is that the Spec Hierarchies have different IDs. We should
- * indeed only care about Spec Object's ID
+ * This test case imports the Sample2.reqif model into MultipleImports which contains already Sample1.reqif and check
+ * that there are no difference. The differences between Sample1.reqif and Sample2.reqif are: 
+ * 1. The Spec Hierarchies have different IDs. We should indeed only care about Spec Object's ID 
+ * 2. The Relations have different IDs (due to DOORS's limitation). We should filter out these differences
  * 
  */
 public class ModelDiffTestCase2 extends BasicTestCase {
 
   private static final String systemAnalysis = "24658239-7734-4c39-9402-83325c52d04c";
   private static final String inputFileName = "model/inputs/Sample1.reqif";
-  private static final String projectTestName = "emptymodelWithImportedReqif";
+  private static final String projectTestName = "MultipleImports";
 
   /**
    * @see org.polarsys.capella.test.framework.api.BasicTestArtefact#getRequiredTestModels()
@@ -73,6 +76,15 @@ public class ModelDiffTestCase2 extends BasicTestCase {
     IContext context = testRequirementsImportLauncher.getContext();
     List<IDifference> differencesFromReferenceScope = (List<IDifference>) context
         .get(TestTransposerTransformation.COMPARE_RESULT);
+
+    // Take into account the Relation Identifier filter category
+    Iterator<IDifference> iterator = differencesFromReferenceScope.iterator();
+    while (iterator.hasNext()) {
+      IDifference diff = iterator.next();
+      if ((new RelationIdentifierCategory()).covers(diff, null))
+        iterator.remove();
+    }
+
     if (differencesFromReferenceScope.size() > 0) {
       fail("There should not be any differences when Sample1.reqif is imported to Capella model");
     }

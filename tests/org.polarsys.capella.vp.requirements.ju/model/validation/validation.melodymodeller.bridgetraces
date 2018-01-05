@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.diffmerge.bridge.traces.gen:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.emf.diffmerge.bridge.traces.gen="http://www.eclipse.org/emf/diffmerge/bridge/1.0.0/traces">
+  <targetToCause key="9a844f27-89bb-4bb2-9516-79e926ea851c" value="Source[_dESzoMkiEee8KsfWrp9EJQ]_Rule[Module]|_dESzoMkiEee8KsfWrp9EJQ"/>
+  <targetToCause key="0dd207c5-046b-43d0-ac1f-cf112877769f" value="Source[_xen_QMkhEee8KsfWrp9EJQ]_Rule[Requirement]|_xen_QMkhEee8KsfWrp9EJQ"/>
+  <targetToCause key="f7448243-79fd-4e49-bdc5-56ccb77c3f7b" value="Source[_xen_QMkhEee8KsfWrp9EJQ]_Rule[Requirement]|IE PUID"/>
+  <targetToCause key="32f3710c-f83b-4eec-b9d1-fee9d0c74f69" value="Source[_xen_QMkhEee8KsfWrp9EJQ]_Rule[Requirement]|IE Object Type"/>
+  <targetToCause key="18c7925c-802b-4094-97f1-3fdc5282bb3d" value="Source[_xen_QMkhEee8KsfWrp9EJQ+_we1mYPIXEee7hfk_gkTvOQ+_YxPTMPIYEee7hfk_gkTvOQ]_Rule[Relation]|_xen_QMkhEee8KsfWrp9EJQ+_we1mYPIXEee7hfk_gkTvOQ+_YxPTMPIYEee7hfk_gkTvOQ"/>
+  <targetToCause key="4cea2942-7a0e-40a0-a056-1b4285740e9f" value="Source[_we1mYPIXEee7hfk_gkTvOQ]_Rule[Requirement]|_we1mYPIXEee7hfk_gkTvOQ"/>
+  <targetToCause key="3351414f-9b91-4c8f-91a0-d9ebe17cf65a" value="Source[_we1mYPIXEee7hfk_gkTvOQ]_Rule[Requirement]|IE PUID"/>
+  <targetToCause key="900ec856-aefc-487a-a0b6-3e19b60ae4d0" value="Source[_we1mYPIXEee7hfk_gkTvOQ]_Rule[Requirement]|IE Object Type"/>
+  <targetToCause key="cfb1e025-fdf9-4771-b0ce-136580961427" value="Source[_i6FNMMkgEee8KsfWrp9EJQ]_Rule[TypeDefinition]|_i6FNMMkgEee8KsfWrp9EJQ"/>
+  <targetToCause key="49e4d786-cd06-4a5b-8097-d1f2884dc5c9" value="Source[_ahyOEMk3Eee5A_N9aQFa1w]_Rule[TypeDefinition]|_ahyOEMk3Eee5A_N9aQFa1w"/>
+  <targetToCause key="86767d18-aaca-442d-9f99-a71126ac391a" value="Source[_ahyOEMk3Eee5A_N9aQFa1w]_Rule[TypeDefinition]|_gXZ9oMk3Eee5A_N9aQFa1w"/>
+  <targetToCause key="fd3c7dba-46e8-4df2-ab7b-a002dccbbc86" value="Source[_ahyOEMk3Eee5A_N9aQFa1w]_Rule[TypeDefinition]|_hGeDEMk3Eee5A_N9aQFa1w"/>
+  <targetToCause key="f055dd8c-0c1e-4829-a233-926fb53d9086" value="Source[_ahyOEMk3Eee5A_N9aQFa1w]_Rule[TypeDefinition]|_hZP1IMk3Eee5A_N9aQFa1w"/>
+  <targetToCause key="c1c74140-378d-441f-827b-b59560982d8a" value="Source[_LaeSsMkhEee8KsfWrp9EJQ]_Rule[Type]|_LaeSsMkhEee8KsfWrp9EJQ"/>
+  <targetToCause key="13e7fb5c-491a-479f-b87e-dfb39caf71f2" value="Source[_LaeSsMkhEee8KsfWrp9EJQ]_Rule[Type]|_cf7-0MkhEee8KsfWrp9EJQ"/>
+  <targetToCause key="d6a4e8f1-d79c-421f-ade8-2a9bab4b1146" value="Source[_LaeSsMkhEee8KsfWrp9EJQ]_Rule[Type]|_25YvEMkyEee5A_N9aQFa1w"/>
+  <targetToCause key="e917ac3e-ba0a-4064-a805-5596f344224f" value="Source[_LaeSsMkhEee8KsfWrp9EJQ]_Rule[Type]|_0VDX0Mk3Eee5A_N9aQFa1w"/>
+  <targetToCause key="88f66be4-c94a-4c15-8c4e-91d8b11380cb" value="Source[_YxPTMPIYEee7hfk_gkTvOQ]_Rule[Type]|_YxPTMPIYEee7hfk_gkTvOQ"/>
+  <targetToCause key="175228d1-5f69-4035-855d-37730936d2af" value="Source[_NAXScMkhEee8KsfWrp9EJQ]_Rule[Type]|_NAXScMkhEee8KsfWrp9EJQ"/>
+  <targetToCause key="060352a3-3efe-4d5f-ab29-54eff501b280" value="Source[_NAXScMkhEee8KsfWrp9EJQ]_Rule[Type]|_jLB90MkhEee8KsfWrp9EJQ"/>
+</org.eclipse.emf.diffmerge.bridge.traces.gen:Trace>

@@ -24,12 +24,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.vp.requirements.importer.extension,
  org.apache.commons.lang,
  org.polarsys.capella.common.ui,
- org.polarsys.capella.vp.requirements.importer.preferences
+ org.polarsys.capella.vp.requirements.importer.preferences,
+ org.polarsys.kitalpha.vp.requirements.model.edit
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.importer.transposer.activities,
  org.polarsys.capella.vp.requirements.importer.transposer.bridge,
+ org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories,
  org.polarsys.capella.vp.requirements.importer.transposer.launcher,
  org.polarsys.capella.vp.requirements.importer.transposer.policies
 Bundle-Localization: plugin

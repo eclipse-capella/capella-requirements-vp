@@ -25,6 +25,9 @@
          <package
                namespaceUri="http://www.polarsys.org/kitalpha/requirements">
          </package>
+         <package
+               namespaceUri="http://www.polarsys.org/capella/core/core/1.2.0">
+         </package>         
          <constraints
                categories="capella.category/requirements">
             <constraint
@@ -50,6 +53,28 @@
                </target>
                <description>
                   This rule checks that a Relation has its Relation Type set with a non null value
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.vp.requirements.validation.REQ_Relation_02"
+                  id="REQ_Relation_02"
+                  isEnabledByDefault="true"
+                  lang="java"
+                  mode="Batch"
+                  name="REQ_Relation_02"
+                  severity="ERROR"
+                  statusCode="1">
+               <message>
+                  {0}
+               </message>
+               <target
+                     class="CapellaElement">
+               </target>
+               <target
+                     class="Requirement">
+               </target>
+               <description>
+                  This rule checks that a relation of a given type between the same source and target must be unique.
                </description>
             </constraint>
          </constraints>

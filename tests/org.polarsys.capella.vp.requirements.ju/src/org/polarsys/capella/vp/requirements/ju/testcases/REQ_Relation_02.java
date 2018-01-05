@@ -15,9 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.polarsys.capella.test.framework.api.OracleDefinition;
-import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
-public class REQ_Relation_01 extends RequirementValidationRuleTestCase {
+public class REQ_Relation_02 extends RequirementValidationRuleTestCase {
 
 	@Override
 	protected String getRequiredTestModel() {
@@ -26,18 +26,18 @@ public class REQ_Relation_01 extends RequirementValidationRuleTestCase {
 
 	@Override
 	protected EClass getTargetedEClass() {
-		return CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION;
+		return RequirementsPackage.Literals.REQUIREMENT;
 	}
 
 	@Override
 	protected String getRuleID() {
-		return "org.polarsys.capella.vp.requirements.validation.REQ_Relation_01"; //$NON-NLS-1$
+		return "org.polarsys.capella.vp.requirements.validation.REQ_Relation_02"; //$NON-NLS-1$
 	}
 
 	@Override
 	protected List<OracleDefinition> getOracleDefinitions() {
 		return Arrays.asList(new OracleDefinition [] {
-				new OracleDefinition("33550190-9e41-44cb-9cc0-a041f510865c", 1) //$NON-NLS-1$
+				new OracleDefinition("0dd207c5-046b-43d0-ac1f-cf112877769f", 1) //$NON-NLS-1$
 			});
 	}
 
