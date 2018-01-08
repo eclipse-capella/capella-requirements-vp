@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -12,7 +12,10 @@
 
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -26,6 +29,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionImpl#getDefinitionType <em>Definition Type</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionImpl#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,7 +40,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+	public static final String copyright = " Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,6 +104,58 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
+	public Attribute getDefaultValue() {
+
+		return (Attribute) eDynamicGet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public NotificationChain basicSetDefaultValue(Attribute newDefaultValue, NotificationChain msgs) {
+
+		msgs = eDynamicInverseAdd((InternalEObject) newDefaultValue,
+				RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE, msgs);
+
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setDefaultValue(Attribute newDefaultValue) {
+
+		eDynamicSet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE, newDefaultValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE:
+			return basicSetDefaultValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -107,6 +163,8 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 			if (resolve)
 				return getDefinitionType();
 			return basicGetDefinitionType();
+		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE:
+			return getDefaultValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,6 +179,9 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 		switch (featureID) {
 		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFINITION_TYPE:
 			setDefinitionType((DataTypeDefinition) newValue);
+			return;
+		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE:
+			setDefaultValue((Attribute) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,6 +198,9 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFINITION_TYPE:
 			setDefinitionType((DataTypeDefinition) null);
 			return;
+		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE:
+			setDefaultValue((Attribute) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -151,6 +215,8 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 		switch (featureID) {
 		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFINITION_TYPE:
 			return basicGetDefinitionType() != null;
+		case RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE:
+			return getDefaultValue() != null;
 		}
 		return super.eIsSet(featureID);
 	}

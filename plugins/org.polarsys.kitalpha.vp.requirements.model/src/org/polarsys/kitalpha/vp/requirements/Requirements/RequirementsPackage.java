@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -1671,13 +1671,22 @@ public interface RequirementsPackage extends EPackage {
 	int ATTRIBUTE_DEFINITION__DEFINITION_TYPE = REQ_IF_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION__DEFAULT_VALUE = REQ_IF_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Attribute Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_DEFINITION_FEATURE_COUNT = REQ_IF_ELEMENT_FEATURE_COUNT + 1;
+	int ATTRIBUTE_DEFINITION_FEATURE_COUNT = REQ_IF_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Attribute Definition</em>' class.
@@ -1742,6 +1751,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE_DEFINITION_ENUMERATION__DEFINITION_TYPE = ATTRIBUTE_DEFINITION__DEFINITION_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE = ATTRIBUTE_DEFINITION__DEFAULT_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Multi Valued</b></em>' attribute.
@@ -2512,6 +2530,17 @@ public interface RequirementsPackage extends EPackage {
 	EReference getAttributeDefinition_DefinitionType();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default Value</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition#getDefaultValue()
+	 * @see #getAttributeDefinition()
+	 * @generated
+	 */
+	EReference getAttributeDefinition_DefaultValue();
+
+	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration <em>Attribute Definition Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3056,6 +3085,14 @@ public interface RequirementsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ATTRIBUTE_DEFINITION__DEFINITION_TYPE = eINSTANCE.getAttributeDefinition_DefinitionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_DEFINITION__DEFAULT_VALUE = eINSTANCE.getAttributeDefinition_DefaultValue();
 
 		/**
 		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl <em>Attribute Definition Enumeration</em>}' class.
