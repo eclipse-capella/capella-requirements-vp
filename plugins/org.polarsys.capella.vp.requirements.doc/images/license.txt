@@ -34,3 +34,5 @@ These followings icons are made available under the terms of the Eclipse Public 
 /images/NonReferencedAttributeDefinition_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/NonReferencedAttributeDefinition_Step2.png
 /images/ExportReqIfBaseline.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/ExportReqIfBaseline.png
 /images/RemoveBaselineFromIdentifier.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/RemoveBaselineFromIdentifier.png
+/images/REQ_001.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/REQ_001.png
+/images/REQ_002.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/REQ_002.png
