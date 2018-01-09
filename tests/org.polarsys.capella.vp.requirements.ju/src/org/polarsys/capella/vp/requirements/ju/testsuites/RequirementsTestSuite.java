@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,6 +20,7 @@ import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCa
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase2;
+import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase3;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_02;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
@@ -80,6 +81,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     
     tests.add(new ModelDiffTestCase());
     tests.add(new ModelDiffTestCase2());
+    tests.add(new ModelDiffTestCase3());
     return tests;
   }
 }
