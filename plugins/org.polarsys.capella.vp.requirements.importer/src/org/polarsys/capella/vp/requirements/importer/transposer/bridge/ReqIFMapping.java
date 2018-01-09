@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
@@ -124,20 +125,49 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   public void synchronizeAttributeDefinitions(IMappingExecution ruleEnv, SpecType spectype) {
     for (org.eclipse.rmf.reqif10.AttributeDefinition attribute : spectype.getSpecAttributes()) {
       org.eclipse.rmf.reqif10.DatatypeDefinition datatype = null;
+      org.eclipse.rmf.reqif10.AttributeDefinition valueDef = null;
       if (attribute instanceof AttributeDefinitionEnumeration) {
         datatype = ((AttributeDefinitionEnumeration) attribute).getType();
+        AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();          
+        }
       } else if (attribute instanceof AttributeDefinitionBoolean) {
         datatype = ((AttributeDefinitionBoolean) attribute).getType();
+        AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();
+        }
       } else if (attribute instanceof AttributeDefinitionDate) {
         datatype = ((AttributeDefinitionDate) attribute).getType();
+        AttributeValueDate defaultValue = ((AttributeDefinitionDate) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();
+        }
       } else if (attribute instanceof AttributeDefinitionInteger) {
         datatype = ((AttributeDefinitionInteger) attribute).getType();
+        AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attribute).getDefaultValue();
+        if(defaultValue !=  null){
+          valueDef = defaultValue.getDefinition();
+        }
       } else if (attribute instanceof AttributeDefinitionReal) {
         datatype = ((AttributeDefinitionReal) attribute).getType();
+        AttributeValueReal defaultValue = ((AttributeDefinitionReal) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();
+        }
       } else if (attribute instanceof AttributeDefinitionString) {
         datatype = ((AttributeDefinitionString) attribute).getType();
+        AttributeValueString defaultValue = ((AttributeDefinitionString) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();
+        }
       } else if (attribute instanceof AttributeDefinitionXHTML) {
         datatype = ((AttributeDefinitionXHTML) attribute).getType();
+        AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attribute).getDefaultValue();
+        if(defaultValue != null){
+          valueDef = defaultValue.getDefinition();
+        }
       }
 
       Object attr = ruleEnv.getOne(attribute.eContainer(), ITuple.class);
@@ -152,6 +182,35 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
           && def instanceof DataTypeDefinition) {
         ((org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition) attr)
             .setDefinitionType((DataTypeDefinition) def);
+      }
+      
+      if(valueDef != null){
+        Object searchedDefinition = null;
+        Object specTypeTuple = ruleEnv.getOne(valueDef.eContainer(), ITuple.class);
+        if (specTypeTuple instanceof TupleNP<?>) {
+          searchedDefinition = ((TupleNP<?>) specTypeTuple).get(valueDef.getIdentifier());
+        }
+        // Set the defaultValue.definition
+        if (attr instanceof org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition
+            && searchedDefinition instanceof org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition) {
+          ((org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition) attr)
+          .getDefaultValue().setDefinition((org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition)searchedDefinition);
+        }
+        // For an AttributeDefinitionEnumeration add the enumeration values
+        if (attribute instanceof AttributeDefinitionEnumeration) {
+          // Get the tuple related to the DatatypeDefinitionEnumeration
+          Object tuple = ruleEnv.getOne(((AttributeDefinitionEnumeration) attribute).getType(), ITuple.class);
+          if (tuple instanceof TupleNP<?>) {
+            AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attribute).getDefaultValue();
+            EList<org.eclipse.rmf.reqif10.EnumValue> values = defaultValue.getValues();
+            for (org.eclipse.rmf.reqif10.EnumValue value : values) {
+              Object x = ((TupleNP<?>) tuple).get(value.getIdentifier());
+              if (x instanceof EnumValue)
+                ((EnumerationValueAttribute) ((org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition) attr)
+                    .getDefaultValue()).getValues().add((EnumValue) x);
+            }
+          }
+        }
       }
     }
   }

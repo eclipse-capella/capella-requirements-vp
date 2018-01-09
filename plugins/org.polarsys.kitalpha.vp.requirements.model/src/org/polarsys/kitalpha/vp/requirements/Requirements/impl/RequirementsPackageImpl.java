@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -765,6 +765,15 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAttributeDefinition_DefaultValue() {
+		return (EReference) attributeDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAttributeDefinitionEnumeration() {
 		return attributeDefinitionEnumerationEClass;
 	}
@@ -923,6 +932,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 
 		attributeDefinitionEClass = createEClass(ATTRIBUTE_DEFINITION);
 		createEReference(attributeDefinitionEClass, ATTRIBUTE_DEFINITION__DEFINITION_TYPE);
+		createEReference(attributeDefinitionEClass, ATTRIBUTE_DEFINITION__DEFAULT_VALUE);
 
 		attributeDefinitionEnumerationEClass = createEClass(ATTRIBUTE_DEFINITION_ENUMERATION);
 		createEAttribute(attributeDefinitionEnumerationEClass, ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED);
@@ -1141,6 +1151,9 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		initEReference(getAttributeDefinition_DefinitionType(), this.getDataTypeDefinition(), null, "definitionType", //$NON-NLS-1$
 				null, 0, 1, AttributeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributeDefinition_DefaultValue(), this.getAttribute(), null, "defaultValue", null, 0, 1, //$NON-NLS-1$
+				AttributeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class,
 				"AttributeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

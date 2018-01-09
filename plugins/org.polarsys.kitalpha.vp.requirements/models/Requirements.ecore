@@ -77,6 +77,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataTypeDefinition" eSuperTypes="#//ReqIFElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" eSuperTypes="#//ReqIFElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitionType" eType="#//DataTypeDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="#//Attribute"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionEnumeration" eSuperTypes="#//AttributeDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiValued" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

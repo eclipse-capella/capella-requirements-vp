@@ -155,6 +155,7 @@
     </VP_Classes>
     <VP_Classes name="AttributeDefinition" icon="AttributeDefinition.gif">
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.19"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="defaultValue" LocalTarget="//@VP_Data/@VP_Classes.4"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="AttributeDefinitionEnumeration" icon="AttributeDefinition.gif">
