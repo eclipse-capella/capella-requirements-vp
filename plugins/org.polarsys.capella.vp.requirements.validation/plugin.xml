@@ -36,7 +36,7 @@
                   isEnabledByDefault="true"
                   lang="java"
                   mode="Batch"
-                  name="REQ_Relation_01 - Relation"
+                  name="REQ_Relation_01 - Null relation type check"
                   severity="WARNING"
                   statusCode="1">
                <message>
@@ -57,7 +57,7 @@
             </constraint>
             <constraint
                   class="org.polarsys.capella.vp.requirements.validation.REQ_Relation_02"
-                  id="REQ_Relation_02"
+                  id="REQ_Relation_02 - Unique relation type check"
                   isEnabledByDefault="true"
                   lang="java"
                   mode="Batch"
