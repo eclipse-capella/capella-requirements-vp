@@ -57,11 +57,11 @@
             </constraint>
             <constraint
                   class="org.polarsys.capella.vp.requirements.validation.REQ_Relation_02"
-                  id="REQ_Relation_02 - Unique relation type check"
+                  id="REQ_Relation_02"
                   isEnabledByDefault="true"
                   lang="java"
                   mode="Batch"
-                  name="REQ_Relation_02"
+                  name="REQ_Relation_02 - Unique relation type check"
                   severity="ERROR"
                   statusCode="1">
                <message>
