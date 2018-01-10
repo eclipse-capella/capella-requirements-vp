@@ -80,7 +80,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
             .setMultiValued(((org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration) srcDefinition).isMultiValued());
       } else
         definition = RequirementsFactory.eINSTANCE.createAttributeDefinition();
-      setDefaultValue(srcDefinition, definition);
+      setDefaultValue(srcDefinition, definition, createdElements);
       definition.setReqIFLongName(srcDefinition.getLongName());
       definition.setReqIFIdentifier(srcDefinition.getIdentifier());
       type.getOwnedAttributes().add(definition);
@@ -94,92 +94,109 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
   }
 
   private void setDefaultValue(org.eclipse.rmf.reqif10.AttributeDefinition srcDefinition, 
-      AttributeDefinition trgtDefinition) {
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     if (srcDefinition instanceof org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration) {
-      handleAttibuteDefEnumeration((org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration)srcDefinition, trgtDefinition);
+      handleAttibuteDefEnumeration((org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration)srcDefinition, trgtDefinition, createdElements);
     } else if (srcDefinition instanceof AttributeDefinitionXHTML) {
-      handleAttributeDefXHTML((AttributeDefinitionXHTML)srcDefinition, trgtDefinition);
+      handleAttributeDefXHTML((AttributeDefinitionXHTML)srcDefinition, trgtDefinition, createdElements);
     } else if (srcDefinition instanceof AttributeDefinitionBoolean) {
-      handleAttributeDefBoolean((AttributeDefinitionBoolean)srcDefinition, trgtDefinition);
+      handleAttributeDefBoolean((AttributeDefinitionBoolean)srcDefinition, trgtDefinition, createdElements);
     } else if(srcDefinition instanceof AttributeDefinitionDate){
-      handleAttributeDefDate((AttributeDefinitionDate)srcDefinition, trgtDefinition);
+      handleAttributeDefDate((AttributeDefinitionDate)srcDefinition, trgtDefinition, createdElements);
     } else if(srcDefinition instanceof AttributeDefinitionInteger){
-      handleAttributeDefInteger((AttributeDefinitionInteger)srcDefinition, trgtDefinition);
+      handleAttributeDefInteger((AttributeDefinitionInteger)srcDefinition, trgtDefinition, createdElements);
     } else if(srcDefinition instanceof AttributeDefinitionReal){
-      handleAttributeDefReal((AttributeDefinitionReal)srcDefinition, trgtDefinition);
+      handleAttributeDefReal((AttributeDefinitionReal)srcDefinition, trgtDefinition, createdElements);
     } else if(srcDefinition instanceof AttributeDefinitionString){
-      handleAttributeDefString((AttributeDefinitionString)srcDefinition, trgtDefinition);
+      handleAttributeDefString((AttributeDefinitionString)srcDefinition, trgtDefinition, createdElements);
     } else {
       throw new UnsupportedOperationException("ReqIF AttributeDefinition of type '" + srcDefinition.eClass().getName() + "' is not supported!");
     }
   }
 
-  private void handleAttibuteDefEnumeration(org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration srcAttributeDefEnumeration, 
-      AttributeDefinition trgtDefinition) {
+  private void handleAttibuteDefEnumeration(
+      org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration srcAttributeDefEnumeration,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueEnumeration defaultValue = srcAttributeDefEnumeration.getDefaultValue();
     if (defaultValue != null) {
       EnumerationValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createEnumerationValueAttribute();
-      // The enumeration values are handled in the ReqIFMapping#synchronizeAttributeDefinitions(IMappingExecution, SpecType)
+      // The enumeration values are handled in the ReqIFMapping#synchronizeAttributeDefinitions(IMappingExecution,
+      // SpecType)
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcAttributeDefEnumeration.getLongName(), valueAttribute);
     }
   }
-  private void handleAttributeDefXHTML(org.eclipse.rmf.reqif10.AttributeDefinitionXHTML srcAttributeDefXHTML, AttributeDefinition trgtDefinition) {
+  
+  private void handleAttributeDefXHTML(org.eclipse.rmf.reqif10.AttributeDefinitionXHTML srcAttributeDefXHTML,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueXHTML defaultValue = srcAttributeDefXHTML.getDefaultValue();
-    if(defaultValue != null){
-      StringValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createStringValueAttribute();
+    if (defaultValue != null) {
+      StringValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       EObject xhtml = defaultValue.getTheValue().getXhtml();
-      valueAttribute.setValue(getMixedText((FeatureMap)xhtml.eGet(xhtml.eClass().getEStructuralFeature("mixed"))));
+      valueAttribute.setValue(getMixedText((FeatureMap) xhtml.eGet(xhtml.eClass().getEStructuralFeature("mixed"))));
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcAttributeDefXHTML.getLongName(), valueAttribute);
     }
   }
 
-  private void handleAttributeDefBoolean(org.eclipse.rmf.reqif10.AttributeDefinitionBoolean srcAttributeDefBoolean, AttributeDefinition trgtDefinition) {
+  private void handleAttributeDefBoolean(org.eclipse.rmf.reqif10.AttributeDefinitionBoolean srcAttributeDefBoolean,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueBoolean defaultValue = srcAttributeDefBoolean.getDefaultValue();
-    if(defaultValue != null){
-      BooleanValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createBooleanValueAttribute();
+    if (defaultValue != null) {
+      BooleanValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createBooleanValueAttribute();
       valueAttribute.setValue(defaultValue.isTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcAttributeDefBoolean.getLongName(), valueAttribute);
     }
   }
 
-  private void handleAttributeDefDate(org.eclipse.rmf.reqif10.AttributeDefinitionDate srcDefinition, AttributeDefinition trgtDefinition) {
+  private void handleAttributeDefDate(org.eclipse.rmf.reqif10.AttributeDefinitionDate srcDefinition,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueDate defaultValue = srcDefinition.getDefaultValue();
-    if(defaultValue !=  null){
-      DateValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createDateValueAttribute();
+    if (defaultValue != null) {
+      DateValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createDateValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue().getTime());
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcDefinition.getLongName(), valueAttribute);
     }
   }
-  
-  private void handleAttributeDefInteger(org.eclipse.rmf.reqif10.AttributeDefinitionInteger srcDefinition, AttributeDefinition trgtDefinition) {
+
+  private void handleAttributeDefInteger(org.eclipse.rmf.reqif10.AttributeDefinitionInteger srcDefinition,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueInteger defaultValue = srcDefinition.getDefaultValue();
-    if(defaultValue != null){
-      IntegerValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createIntegerValueAttribute();
+    if (defaultValue != null) {
+      IntegerValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createIntegerValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue().intValue());
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcDefinition.getLongName(), valueAttribute);
     }
   }
-  
-  private void handleAttributeDefReal(org.eclipse.rmf.reqif10.AttributeDefinitionReal srcDefinition, AttributeDefinition trgtDefinition) {
+
+  private void handleAttributeDefReal(org.eclipse.rmf.reqif10.AttributeDefinitionReal srcDefinition,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueReal defaultValue = srcDefinition.getDefaultValue();
-    if(defaultValue != null){
-      RealValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createRealValueAttribute();
+    if (defaultValue != null) {
+      RealValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createRealValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcDefinition.getLongName(), valueAttribute);
     }
   }
-  
-  private void handleAttributeDefString(org.eclipse.rmf.reqif10.AttributeDefinitionString srcDefinition, AttributeDefinition trgtDefinition) {
+
+  private void handleAttributeDefString(org.eclipse.rmf.reqif10.AttributeDefinitionString srcDefinition,
+      AttributeDefinition trgtDefinition, Map<String, Object> createdElements) {
     AttributeValueString defaultValue = srcDefinition.getDefaultValue();
-    if(defaultValue != null){
-      StringValueAttribute valueAttribute =  RequirementsFactory.eINSTANCE.createStringValueAttribute();
+    if (defaultValue != null) {
+      StringValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
+      createdElements.put(srcDefinition.getLongName(), valueAttribute);
     }
   }
   
   private String getMixedText(FeatureMap mixed) {
-    Object textObject = mixed.get(org.eclipse.emf.ecore.xml.type.XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(), true);
+    Object textObject = mixed.get(org.eclipse.emf.ecore.xml.type.XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(),
+        true);
     if (textObject instanceof FeatureMapUtil.FeatureEList<?>) {
       FeatureMapUtil.FeatureEList<?> featureEList = (FeatureMapUtil.FeatureEList<?>) textObject;
       if (featureEList.size() != 0) {
