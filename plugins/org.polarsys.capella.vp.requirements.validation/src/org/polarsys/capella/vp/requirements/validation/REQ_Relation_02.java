@@ -72,11 +72,13 @@ public class REQ_Relation_02 extends AbstractValidationRule {
         if (relation instanceof InternalRelation) {
           UniqueRelation uniqueRelation = new UniqueRelation(((InternalRelation) relation).getSource(),
               ((InternalRelation) relation).getTarget(), relation.getRelationType());
-          updateRelationCountMap(relationCountMap, uniqueRelation);
+          if (isUniqueRelationValid(uniqueRelation))
+            updateRelationCountMap(relationCountMap, uniqueRelation);
         } else if (relation instanceof CapellaIncomingRelation) {
           UniqueRelation uniqueRelation = new UniqueRelation(((CapellaIncomingRelation) relation).getSource(),
               ((CapellaIncomingRelation) relation).getTarget(), relation.getRelationType());
-          updateRelationCountMap(relationCountMap, uniqueRelation);
+          if (isUniqueRelationValid(uniqueRelation))
+            updateRelationCountMap(relationCountMap, uniqueRelation);
         }
       }
     } else if (target instanceof CapellaElement) {
@@ -85,7 +87,8 @@ public class REQ_Relation_02 extends AbstractValidationRule {
         if (ext instanceof CapellaOutgoingRelation) {
           UniqueRelation uniqueRelation = new UniqueRelation(((CapellaOutgoingRelation) ext).getSource(),
               ((CapellaOutgoingRelation) ext).getTarget(), ((CapellaOutgoingRelation) ext).getRelationType());
-          updateRelationCountMap(relationCountMap, uniqueRelation);
+          if (isUniqueRelationValid(uniqueRelation))
+            updateRelationCountMap(relationCountMap, uniqueRelation);
         }
       }
     }
@@ -105,6 +108,17 @@ public class REQ_Relation_02 extends AbstractValidationRule {
       relationCountMap.put(uniqueRelation, 1);
   }
 
+  /**
+   * Check if a relation's source, target and type are not null
+   * 
+   * @param relationCountMap
+   * @param uniqueRelation
+   */
+  protected boolean isUniqueRelationValid(UniqueRelation uniqueRelation) {
+    return uniqueRelation.getSourceElement() != null && uniqueRelation.getTargetElement() != null
+        && uniqueRelation.getRelationType() != null;
+  }
+  
   /**
    * 
    * A representation of a requirement relation that is unique based on source element, target element and relation type

@@ -37,7 +37,7 @@
                   lang="java"
                   mode="Batch"
                   name="REQ_Relation_01 - Null relation type check"
-                  severity="WARNING"
+                  severity="ERROR"
                   statusCode="1">
                <message>
                   The Relation Type of {0} must be set.
