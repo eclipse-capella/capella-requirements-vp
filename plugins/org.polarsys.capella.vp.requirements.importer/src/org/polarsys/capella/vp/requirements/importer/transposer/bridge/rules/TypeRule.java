@@ -123,7 +123,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       // The enumeration values are handled in the ReqIFMapping#synchronizeAttributeDefinitions(IMappingExecution,
       // SpecType)
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcAttributeDefEnumeration.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
   
@@ -135,7 +135,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       EObject xhtml = defaultValue.getTheValue().getXhtml();
       valueAttribute.setValue(getMixedText((FeatureMap) xhtml.eGet(xhtml.eClass().getEStructuralFeature("mixed"))));
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcAttributeDefXHTML.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
 
@@ -146,7 +146,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       BooleanValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createBooleanValueAttribute();
       valueAttribute.setValue(defaultValue.isTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcAttributeDefBoolean.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
 
@@ -157,7 +157,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       DateValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createDateValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue().getTime());
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcDefinition.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
 
@@ -168,7 +168,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       IntegerValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createIntegerValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue().intValue());
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcDefinition.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
 
@@ -179,7 +179,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       RealValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createRealValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcDefinition.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
 
@@ -190,7 +190,7 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       StringValueAttribute valueAttribute = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       valueAttribute.setValue(defaultValue.getTheValue());
       trgtDefinition.setDefaultValue(valueAttribute);
-      createdElements.put(srcDefinition.getLongName(), valueAttribute);
+      createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(defaultValue), valueAttribute);
     }
   }
   
