@@ -241,7 +241,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       }
       Object attr = ruleEnv.getOne(hierarchy != null ? hierarchy : element, ITuple.class);
       if (attr instanceof TupleNP<?>) {
-        attr = ((TupleNP<?>) attr).get(definition.getLongName());
+        attr = ((TupleNP<?>) attr).get(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(attribute));
       }
       Object def = ruleEnv.getOne(definition.eContainer(), ITuple.class);
       if (def instanceof TupleNP<?>) {
@@ -263,7 +263,6 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
             ((EnumerationValueAttribute) attr).getValues().add((EnumValue) value);
           }
         }
-
       }
     }
   }
@@ -276,7 +275,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       StringValueAttribute pv = RequirementsFactory.eINSTANCE.createStringValueAttribute();
       pv.setValue(getContent((AttributeValueXHTML) value));
       target.getOwnedAttributes().add(pv);
-      createdObjects.put(longName, pv);
+      createdObjects.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(value), pv);
     } else {
       System.out.println("[" + value.eClass().getName() + "] Not imported: " + longName);
     }
@@ -340,7 +339,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
           attribute.eSet(tgtValueRef, value);
         }
         target.getOwnedAttributes().add(attribute);
-        createdObjects.put(longName, attribute);
+        createdObjects.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(srcValue), attribute);
       } else {
         System.out.println("[" + srcValue.eClass().getName() + "] Not imported: " + longName);
       }
