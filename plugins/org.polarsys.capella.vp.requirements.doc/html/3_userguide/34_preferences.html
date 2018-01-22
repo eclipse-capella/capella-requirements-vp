@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!--
-  Copyright (c) 2017 THALES GLOBAL SERVICES.
+  Copyright (c) 2018 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -20,7 +20,8 @@
 <h2>Requirement label</h2>
 
 <p>
-The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page. Click <strong>Window > Preferences > Capella > Requirements</strong> to open this preference page.</p>
+The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page (Capella  <font color="blue">></font>  Requirements).<br>
+Click <strong>Window > Preferences > Capella > Requirements</strong> to open this preference page.</p>
 <img src="../../images/preferences_requirements.png" alt="Requirements Preferences " title="Requirements Preferences"/>
 <p>
 The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:
@@ -44,15 +45,18 @@ You should keep this preference unchecked if you are not using IE PUID and IE Ob
 
 <h2>Importer scope</h2>
 <p>
-The scope of data to import can be customized in the Importer preference page:
+The scope of data to import can be customized in the Importer preference page (Capella  <font color="blue">></font>  Requirements <font color="blue">></font> Importer):
 </p>
 
 <img src="../../images/preferences_importer_scope2.png" alt="Importer Scope" title="Importer Scope"/>
 
-<p>To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).</p>
+<p>You are not allowed to rename the set of attributes shipped in the add-on.<br>
+If the DOORS add-on called IRDRMFAO is installed also, all attributes which start with "IE" are also not allowed to be renamed.<br>
+Any change to the attributes name will harm the add-on and prevent it from properly importing your data.<br>
+To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).</p>
 
 <h3>Default configuration</h3>
-The recommended default set of attributes to be imported is the following one :
+The recommended default set of attributes to be imported are the following one :
 <pre>
 IE PUID
 IE Object Type
@@ -76,6 +80,7 @@ Attribute1Name:defaultSelectionState
 Attribute2Name:defaultSelectionState
 </pre>
 Then add the properties file in the first part of the preference dialog by clicking on "Add file".
+Once the added attributes are shown in the tree, you can select the attributes you need to import if they are not selected by default.
 <p>
 In the screenshot above, the following file was used:
 <pre>
@@ -86,7 +91,12 @@ Requirement\ State:false
 </p> 
 <h4>2. Use Eclipse extension points</h4>
 <p>
-The list of attributes to be imported can be enhanced by contributing to a extension point (see Programmer's Guide).
+The list of attributes to be imported can be enhanced by contributing to an extension point (see Programmer's Guide).
 </p>
+
+<table border="1"><tr>
+<td><p><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></p></td>
+<td><p>When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.</p></td>
+</tr></table>
 </body>
 </html>
