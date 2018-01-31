@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (c) 2017 THALES GLOBAL SERVICES.
+  Copyright (c) 2018 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -35,8 +35,6 @@
 	<properties>
 		<tycho-version>0.26.0</tycho-version>
 		<tycho-extras-version>0.26.0</tycho-extras-version>
-		<platform-name>neon</platform-name>
-		<targetPlatform.repository>http://mbarbero.github.com/fr.obeo.releng.targetplatform/p2/latest</targetPlatform.repository>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
 		<converterApplication.name>fr.obeo.releng.targetplatform.targetPlatform.converter</converterApplication.name>
 	</properties>
@@ -50,14 +48,14 @@
 				<configuration>
 					<repositories>
 						<repository>
-							<id>${platform-name}</id>
+							<id>targetplatform-tp</id>
 							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/${platform-name}</url>
+							<url>http://download.eclipse.org/releases/oxygen/201709271000</url>
 						</repository>
 						<repository>
 							<id>targetplatform</id>
 							<layout>p2</layout>
-							<url>${targetPlatform.repository}</url>
+							<url>http://pdulth.github.io/fr.obeo.releng.targetplatform/p2/latest</url>
 						</repository>
 					</repositories>
 					<!-- Set dependencies to launch the application -->
