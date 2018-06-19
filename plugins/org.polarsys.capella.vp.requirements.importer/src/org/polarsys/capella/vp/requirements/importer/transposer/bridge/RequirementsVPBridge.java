@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ import org.eclipse.emf.diffmerge.bridge.api.IBridge;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.incremental.BridgeTraceBasedMatchPolicy;
 import org.eclipse.emf.diffmerge.bridge.interactive.EMFInteractiveBridge;
+import org.eclipse.emf.diffmerge.bridge.interactive.UpdateDialog;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFactory;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -202,5 +204,10 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   
   protected AbstractComparisonViewer createComparisonViewer(Composite parent) {
     return new RequirementsComparisonViewer(parent);
+  }
+  
+  @Override
+  protected UpdateDialog createMergeDialog(EMFDiffNode diffNode_p) {
+    return new RequirementsVPMergeDialog(Display.getDefault().getActiveShell(), getTitle(), diffNode_p);
   }
 }
