@@ -13,7 +13,9 @@ Require-Bundle: org.eclipse.ui,
  org.polarsys.capella.vp.requirements.model,
  org.eclipse.sirius.query.legacy,
  org.polarsys.capella.core.sirius.analysis,
- org.polarsys.capella.core.data.business.queries
+ org.polarsys.capella.core.data.business.queries,
+ org.eclipse.sirius.common,
+ org.polarsys.capella.vp.requirements.ui.commands
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Localization: plugin

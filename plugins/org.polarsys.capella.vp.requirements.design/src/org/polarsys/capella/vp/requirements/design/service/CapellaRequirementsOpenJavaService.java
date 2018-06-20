@@ -16,7 +16,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
@@ -28,6 +33,7 @@ import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
+import org.polarsys.capella.vp.requirements.ui.commands.ReqVPCustomDataHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
@@ -222,22 +228,86 @@ public class CapellaRequirementsOpenJavaService {
 	}
 
 	/**
-	 * Return the title of a Requirement
-	 * 
-	 * @param requirement
-	 * @return
-	 */
-	public String getRequirementTitle(Requirement requirement) {
-		return requirement.getReqIFText();
-	}
+   * Return the title of a Requirement
+   * based on the predefined AQL expression
+   * @param requirement
+   * @return
+   */
+  public String getRequirementTitle(Requirement requirement) {
+    Session session = SessionManager.INSTANCE.getSession(requirement);
+    EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
+    String expression = queriesAnnotation.getDetails()
+        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL);
+    String maxLength = queriesAnnotation.getDetails()
+        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL_LENGTH);
+    return evaluateExpression(session, requirement, expression, maxLength);
+  }
 
-	/**
-	 * Return the content of a Requirement
-	 * 
-	 * @param requirement
-	 * @return
-	 */
-	public String getRequirementContent(Requirement requirement) {
-		return requirement.getReqIFText();
-	}
+  /**
+   * Return the content of a Requirement
+   * based on the predefined AQL expression
+   * @param requirement
+   * @return
+   */
+  public String getRequirementContent(Requirement requirement) {
+    Session session = SessionManager.INSTANCE.getSession(requirement);
+
+    EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
+    String expression = queriesAnnotation.getDetails()
+        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT);
+    String maxLength = queriesAnnotation.getDetails()
+        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
+    return evaluateExpression(session, requirement, expression, maxLength);
+  }
+
+  /**
+   * Compute the string from an AQL expression for a requirement.
+   * @param session
+   * @param requirement
+   * @param expression
+   * @param maxLength
+   * @return
+   */
+  protected String evaluateExpression(Session session, Requirement requirement, String expression, String maxLength) {
+    try {
+      if (session != null && expression != null) {
+        IInterpreter interpreter = session.getInterpreter();
+        if (interpreter != null) {
+          Object value = interpreter.evaluate(requirement, expression);
+          StringBuilder resultBuilder = new StringBuilder();
+          if (value instanceof List<?>) {
+            for (Object item : (List) value) {
+              resultBuilder.append(item);
+            }
+          } else {
+            resultBuilder.append(value);
+          }
+          return reduceString(resultBuilder.toString(), maxLength);
+        }
+      }
+    } catch (EvaluationException ex) {
+      return "<Undefined>";
+    }
+    return "<Undefined>";
+  }
+  
+  /**
+   * If the string is longer than a predefined maximum length, it will be reduced and followed by "..."
+   * @param value
+   * @param maxLengthText
+   * @return
+   */
+  protected String reduceString(String value, String maxLengthText) {
+    if (maxLengthText.length() == 0) {
+      return value;
+    }
+    int maxLen = Integer.parseInt(maxLengthText);
+    if (maxLen == 0) {
+      return value;
+    }
+    if (value.length() > maxLen) {
+      return value.substring(0, maxLen).concat("...");
+    }
+    return value;
+  }
 }

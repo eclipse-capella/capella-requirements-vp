@@ -25,6 +25,17 @@
                style="push">
             <visibleWhen checkEnabled="true"/>
          </command>
+         <command
+               commandId="org.polarsys.capella.vp.requirements.ui.menu.configure.cmd"
+               icon="icons/edit.gif"
+               id="org.polarsys.capella.vp.requirements.ui.menu.configure.cmd"
+               label="%ui.command.configure.label"
+               style="push"
+               tooltip="%ui.command.configure.description">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
          </menu>
       </menuContribution>
    </extension>
@@ -34,6 +45,17 @@
          <activeWhen>
                 <test forcePluginActivation="true" property="org.polarsys.capella.vp.requirements.ui.commands.viewpointActive" value="true"/>
          </activeWhen>
+     </handler>
+     <handler
+           class="org.polarsys.capella.vp.requirements.ui.commands.ReqVPConfigureCommandHandler"
+           commandId="org.polarsys.capella.vp.requirements.ui.menu.configure.cmd">
+        <activeWhen>
+           <test
+                 forcePluginActivation="true"
+                 property="org.polarsys.capella.vp.requirements.ui.commands.viewpointActiveAndSelectingAird"
+                 value="true">
+           </test>
+        </activeWhen>
      </handler>
    </extension>
    <extension point="org.eclipse.ui.commands">
@@ -47,14 +69,27 @@
           description="%ui.command.import.description"
           name="%ui.command.import.label">
     </command>
+    <command
+          categoryId="org.polarsys.capella.vp.requirements.commands"
+          description="Configure AQL queries for displaying the label and content of each requirement"
+          id="org.polarsys.capella.vp.requirements.ui.menu.configure.cmd"
+          name="Configure Requirements Viewpoint">
+    </command>
    </extension>
-   <extension point="org.eclipse.core.expressions.propertyTesters">
+    <extension point="org.eclipse.core.expressions.propertyTesters">
          <propertyTester
              id="org.polarsys.capella.vp.requirements.ui.commands.viewpointActive"
              type="java.lang.Object"
              namespace="org.polarsys.capella.vp.requirements.ui.commands"
              properties="viewpointActive"
              class="org.polarsys.capella.vp.requirements.ui.commands.RequirementsVPPropertyTester">
+         </propertyTester>
+         <propertyTester
+               class="org.polarsys.capella.vp.requirements.ui.commands.ActiveReqVPOnSystemEngineeringPropertyTester"
+               id="org.polarsys.capella.vp.requirements.ui.commands.viewpointActiveAndSelectingAird"
+               namespace="org.polarsys.capella.vp.requirements.ui.commands"
+               properties="viewpointActiveAndSelectingAird"
+               type="java.lang.Object">
          </propertyTester>    
    </extension>
    <extension
