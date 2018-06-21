@@ -46,6 +46,10 @@
          id="org.polarsys.capella.vp.requirements.business.queries.Requirement_InternalRelationTarget_CapellaElement">
    </MDEBusinessQueries>
    <MDEBusinessQueries
+         class="org.polarsys.capella.vp.requirements.business.queries.Requirement_InternalRelationSource_Requirement"
+         id="org.polarsys.capella.vp.requirements.business.queries.Requirement_InternalRelationSource_CapellaElement">
+   </MDEBusinessQueries>
+   <MDEBusinessQueries
          class="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType"
          id="org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType">
    </MDEBusinessQueries>

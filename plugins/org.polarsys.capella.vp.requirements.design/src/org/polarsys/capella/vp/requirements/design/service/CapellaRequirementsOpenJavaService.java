@@ -11,6 +11,7 @@
 package org.polarsys.capella.vp.requirements.design.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,12 +24,14 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  * <!-- begin-user-doc --> This class is an implementation of the Sirius
@@ -58,20 +61,22 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param elementView
 	 * @return
 	 */
-	public List<EObject> getAllRequirementsForElement(EObject context, EObject elementView) {
+	public List<EObject> getAllRequirementsForElement(EObject elementView) {
 		List<EObject> result = new ArrayList<EObject>();
 
-		// if the given element view is a diagram, return requirements of the
-		// diagram and all requirements of all elements of the diagram
+		// if the given element view is a diagram, return all requirements of the
+		// diagram and all requirements of all Capella Elements of the diagram
 		if (elementView instanceof DSemanticDiagram) {
-			result.addAll(getRequirementsForElement(context, elementView, true, true));
+			result.addAll(getRequirementsForElement(elementView, true, true));
 			DSemanticDiagram diagram = (DSemanticDiagram) elementView;
 			for (DDiagramElement diagramElement : diagram.getDiagramElements()) {
-				result.addAll(getRequirementsForElement(context, diagramElement, true, true));
+				if (diagramElement.getTarget() instanceof CapellaElement) {
+					result.addAll(getRequirementsForElement(diagramElement, true, true));
+				}
 			}
-		// if the given element view is a diagram element, return its requirements
+		// if the given element view is a diagram element (of a Capella Element or Requirement), return all of its requirements
 		} else if (elementView instanceof DDiagramElement) {
-			result.addAll(getRequirementsForElement(context, elementView, true, true));
+			result.addAll(getRequirementsForElement(elementView, true, true));
 		}
 		return result;
 	}
@@ -87,7 +92,7 @@ public class CapellaRequirementsOpenJavaService {
 	 *            true if you want all outgoing requirements
 	 * @return
 	 */
-	public List<EObject> getRequirementsForElement(EObject context, EObject elementView, boolean incoming, boolean outgoing) {
+	public List<EObject> getRequirementsForElement(EObject elementView, boolean incoming, boolean outgoing) {
 		List<EObject> result = new ArrayList<EObject>();
 
 		// if the given element view is a diagram
@@ -105,21 +110,39 @@ public class CapellaRequirementsOpenJavaService {
 				        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
 				result.addAll(query.getCurrentElements(diagram, false));
 			}
-		// if the given element view is a diagram element
+		// if the given element view is a diagram element...
 		} else if (elementView instanceof DDiagramElement) {
 			DDiagramElement diagramElement = (DDiagramElement) elementView;
 			EObject element = diagramElement.getTarget();
-			if (incoming) {
-				IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-						CapellacorePackage.Literals.CAPELLA_ELEMENT,
-				        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
-				result.addAll(query.getCurrentElements(element, false));
+			// ... of a Capella Element
+			if (element instanceof CapellaElement) {
+				if (incoming) {
+					IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+							CapellacorePackage.Literals.CAPELLA_ELEMENT,
+					        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+					result.addAll(query.getCurrentElements(element, false));
+				}
+				if (outgoing) {
+					IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+							CapellacorePackage.Literals.CAPELLA_ELEMENT,
+					        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
+					result.addAll(query.getCurrentElements(element, false));
+				}
 			}
-			if (outgoing) {
-				IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-						CapellacorePackage.Literals.CAPELLA_ELEMENT,
-				        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-				result.addAll(query.getCurrentElements(element, false));
+			// ... of a Requirement
+			else if (element instanceof Requirement) {
+				if (incoming) {
+					IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+							RequirementsPackage.Literals.REQUIREMENT,
+							RequirementsPackage.Literals.INTERNAL_RELATION__SOURCE);
+					result.addAll(query.getCurrentElements(element, false));
+				}
+				if (outgoing) {
+					IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+							RequirementsPackage.Literals.REQUIREMENT,
+							RequirementsPackage.Literals.INTERNAL_RELATION__TARGET);
+					result.addAll(query.getCurrentElements(element, false));
+				}
 			}
 		}
 		return result;
@@ -137,8 +160,8 @@ public class CapellaRequirementsOpenJavaService {
 	 *            true if you want all outgoing requirements
 	 * @return
 	 */
-	public List<EObject> getExistingRequirementsInDiagram(EObject context, EObject elementView, DSemanticDiagram diagram, boolean incoming, boolean outgoing) {
-		List<EObject> requirements = getRequirementsForElement(context, elementView, incoming, outgoing);
+	public List<EObject> getExistingRequirementsInDiagram(EObject elementView, DDiagram diagram, boolean incoming, boolean outgoing) {
+		List<EObject> requirements = getRequirementsForElement(elementView, incoming, outgoing);
 
 		// Collect requirements of elementView if they are the target of a diagram element in the diagram
 		return diagram.getDiagramElements().stream().map(diagramElement -> diagramElement.getTarget())
@@ -154,15 +177,31 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param requirementsInDiagram
 	 * @return
 	 */
-	public EObject hideRequirements(EObject context, DDiagram diagram, List<EObject> selectedRequirements, List<EObject> requirementsInDiagram) {
+	public EObject hideRequirements(EObject diagram, Object[] selectedRequirementsArray, List<EObject> requirementsInDiagram) {
 
-		// collect all requirements in requirementsInDiagram but not in selectedRequirements
-		Set<EObject> requirementsToHide = requirementsInDiagram.stream().filter(req -> !selectedRequirements.contains(req)).collect(Collectors.toSet());
+		if (diagram instanceof DDiagram) {
+			DDiagram ddiagram = (DDiagram) diagram;
+			List<Object> selectedRequirements = Arrays.asList(selectedRequirementsArray);
+			
+			// collect all requirements in requirementsInDiagram but not in selectedRequirements
+			Set<EObject> requirementsToHide = requirementsInDiagram.stream().filter(req -> !selectedRequirements.contains(req)).collect(Collectors.toSet());
+			
+			// call removeContainerView for all diagram elements of the diagram where their target is contained in requirementsToHide
+			ddiagram.getDiagramElements().stream().filter(container -> requirementsToHide.contains(container.getTarget())).forEach(DiagramServices.getDiagramServices()::removeContainerView);
+		}
 		
-		// call removeContainerView for all diagram elements of the diagram where their target is contained in requirementsToHide
-		diagram.getDiagramElements().stream().filter(container -> requirementsToHide.contains(container.getTarget())).forEach(DiagramServices.getDiagramServices()::removeContainerView);
-		
-		return context;
+		return diagram;
+	}
+	
+	/**
+	 * Return if the given requirement is a requirement linked to the diagram
+	 * @param requirement
+	 * @param requirement
+	 * @param diagram
+	 * @return
+	 */
+	public boolean isLinkedToTheDiagram(EObject requirement, EObject diagram) {
+		return getRequirementsForElement(diagram, true, true).contains(requirement);
 	}
 
 	/**
