@@ -258,11 +258,19 @@ public class CapellaRequirementsOpenJavaService {
    */
   public String getRequirementTitle(Requirement requirement) {
     Session session = SessionManager.INSTANCE.getSession(requirement);
+    
+    String expression = ReqVPCustomDataHelper.getDefaultLabelExpression();
+    String maxLength = ReqVPCustomDataHelper.getDefaultLabelLength();
+    
     EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
-    String expression = queriesAnnotation.getDetails()
-        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL);
-    String maxLength = queriesAnnotation.getDetails()
-        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL_LENGTH);
+    
+    if (queriesAnnotation != null) {
+      expression = queriesAnnotation.getDetails()
+          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL);
+      maxLength = queriesAnnotation.getDetails()
+          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL_LENGTH);
+    }
+   
     return evaluateExpression(session, requirement, expression, maxLength);
   }
 
@@ -275,11 +283,17 @@ public class CapellaRequirementsOpenJavaService {
   public String getRequirementContent(Requirement requirement) {
     Session session = SessionManager.INSTANCE.getSession(requirement);
 
+    String expression = ReqVPCustomDataHelper.getDefaultContentExpression();
+    String maxLength = ReqVPCustomDataHelper.getDefaultContentLength(); 
+    
     EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
-    String expression = queriesAnnotation.getDetails()
-        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT);
-    String maxLength = queriesAnnotation.getDetails()
-        .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
+    if (queriesAnnotation != null) {
+      expression = queriesAnnotation.getDetails()
+          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT);
+      maxLength = queriesAnnotation.getDetails()
+          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
+    }
+    
     return evaluateExpression(session, requirement, expression, maxLength);
   }
 

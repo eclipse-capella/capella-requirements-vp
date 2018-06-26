@@ -96,4 +96,20 @@ public class ReqVPCustomDataHelper {
     }
     return result;
   }
+  
+  public static String getDefaultLabelExpression() {
+    return Messages.DefaultValueOfLabelExpression;
+  }
+  
+  public static String getDefaultContentExpression() {
+    return Messages.DefaultValueOfContentExpression;
+  }
+  
+  public static String getDefaultContentLength() {
+    return Messages.DefaultValueOfContentMaxLength;
+  }
+  
+  public static String getDefaultLabelLength() {
+    return Messages.DefaultValueOfLabelMaxLength;
+  }
 }
