@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.utils.ListExt;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
@@ -54,7 +55,9 @@ public class CapellaElement_CapellaIncomingRelation_Requirement extends CapellaE
   @Override
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     List<EObject> currentElements = new ArrayList<EObject>();
-
+    if (element instanceof Part) {
+      element = ((Part) element).getAbstractType();
+    }
     for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
       Requirement requirement = ((CapellaIncomingRelation) referencer).getSource();
       if (requirement != null) {
