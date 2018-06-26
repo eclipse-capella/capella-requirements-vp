@@ -36,8 +36,8 @@ public class Requirement_InternalRelationSource_Requirement extends CapellaEleme
     
     BlockArchitecture currentBlock = BlockArchitectureExt.getRootBlockArchitecture(element);
     
-    for (BlockArchitecture currentAndPreviousBlock : BlockArchitectureExt.getAllAllocatedArchitectures(currentBlock)) {
-      availableElements.addAll(getRequirements(currentAndPreviousBlock));
+    for (BlockArchitecture currentAndNextBlock : BlockArchitectureExt.getAllAllocatedArchitectures(currentBlock)) {
+      availableElements.addAll(getRequirements(currentAndNextBlock));
     }
     
     availableElements.removeAll(getCurrentElements(element, false));
@@ -51,7 +51,7 @@ public class Requirement_InternalRelationSource_Requirement extends CapellaEleme
     List<EObject> currentElements = new ArrayList<EObject>();
     
     for (EObject referencer : EObjectExt.getReferencers(element, RequirementsPackage.Literals.INTERNAL_RELATION__TARGET)) {
-      Requirement elt = ((InternalRelation) referencer).getTarget();
+      Requirement elt = ((InternalRelation) referencer).getSource();
       if (elt != null) {
         currentElements.add(elt);
       }
