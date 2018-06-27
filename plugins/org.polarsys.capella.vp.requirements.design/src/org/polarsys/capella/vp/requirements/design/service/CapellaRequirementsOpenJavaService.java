@@ -360,9 +360,8 @@ public class CapellaRequirementsOpenJavaService {
     List<EObject> result = new ArrayList<>();
     if (element instanceof Component) {
       result.addAll(ComponentExt.getRepresentingParts((Component) element));
-    } else {
-      result.add(element);
-    }
+    } 
+    result.add(element);
     return result;
   }
 }

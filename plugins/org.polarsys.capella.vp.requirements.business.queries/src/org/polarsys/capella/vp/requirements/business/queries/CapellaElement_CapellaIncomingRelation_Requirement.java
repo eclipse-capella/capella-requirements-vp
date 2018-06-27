@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.polarsys.capella.common.data.modellingcore.AbstractType;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Part;
@@ -55,19 +56,29 @@ public class CapellaElement_CapellaIncomingRelation_Requirement extends CapellaE
   @Override
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     List<EObject> currentElements = new ArrayList<EObject>();
+    
+    // if it is a part, looking for also all requirements associated with its component.
     if (element instanceof Part) {
-      element = ((Part) element).getAbstractType();
+      AbstractType abstractType = ((Part) element).getAbstractType();
+      currentElements.addAll(findIncomingRequirements(abstractType));
     }
-    for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
-      Requirement requirement = ((CapellaIncomingRelation) referencer).getSource();
-      if (requirement != null) {
-        currentElements.add(requirement);
-      }
-    }
+    
+    currentElements.addAll(findIncomingRequirements(element));
 
     currentElements = ListExt.removeDuplicates(currentElements);
 
     return currentElements;
+  }
+
+  private List<Requirement> findIncomingRequirements(EObject element) {
+    List<Requirement> requirements = new ArrayList<Requirement>();
+    for (EObject referencer : EObjectExt.getReferencers(element, CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET)) {
+      Requirement requirement = ((CapellaIncomingRelation) referencer).getSource();
+      if (requirement != null) {
+        requirements.add(requirement);
+      }
+    }
+    return requirements;
   }
 
   @Override

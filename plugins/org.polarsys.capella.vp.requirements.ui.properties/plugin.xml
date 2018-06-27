@@ -26,6 +26,12 @@
 	        id="Requirements Allocation"
 	        label="Requirements Allocation">
 	    </propertyTab>
+  <propertyTab
+        afterTab="Requirements Allocation"
+        category="semantic &amp; extension"
+        id="Internal Requirements Allocation"
+        label="Internal Requirements Allocation">
+  </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -72,6 +78,15 @@
                type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
               </input>
 		    </propertySection>
+      <propertySection
+            class="org.polarsys.capella.vp.requirements.ui.properties.sections.InternalAllocationRequirementSection"
+            filter="org.polarsys.capella.vp.requirements.ui.properties.sections.InternalAllocationRequirementSection"
+            id="org.polarsys.capella.vp.requirements.ui.properties.sections.InternalAllocationRequirementSection"
+            tab="Internal Requirements Allocation">
+         <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
+         </input>
+      </propertySection>
             <propertySection
                 class="org.polarsys.capella.vp.requirements.ui.properties.sections.RepresentationPropertySection"
                 filter="org.polarsys.capella.vp.requirements.ui.properties.sections.RepresentationPropertySection"
