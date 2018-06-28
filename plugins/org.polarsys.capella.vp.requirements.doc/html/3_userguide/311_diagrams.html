@@ -28,23 +28,52 @@
         in your diagrams. For this, the Requirements layer must be activated (activated by default for new diagrams):</p>
     <img src="../../images/requirements_layer.png" alt="Requirements Layer" title="Requirements Layer" />
 
-    <p>Once activated, a new segment "Requirements" appears in the palette tools:</p>
+    <p>Once activated, a new segment <b>Requirements</b> appears in the palette tools:</p>
     <img src="../../images/requirements_segment.png" alt="Requirements Segment" title="Requirements Segment" />
 
-    <p>In this "Requirements" segment, 3 tools are available to show/hide Requirements and their relations.</p>
-
-    <h4>All Linked Requirements:</h4>
-    <p>On a Capella element, show all of its linked Requirements, incoming and outgoing.
-        <br/> On a Requirement, show all of its internal Requirements, incoming and outgoing.
-        <br/> On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all
-        graphical elements of the diagram, incoming and outgoing.</p>
-
-    <h4>Incoming Requirements:</h4>
-    <p>Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.</p>
-
-    <h4>Outgoing Requirements:</h4>
-    <p>Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.</p>
-
+    <p>In this <b>Requirements</b> segment, 5 new tools are available to manipulate the requirements on a diagram.</p>
+	
+	<ul>
+		<li>
+			<h4>Requirements</h4>
+    		<p>Allow to add or remove a requirement to/from a diagram. This tool does not modify the semantic element.</p>
+		</li>
+		<li>
+			<h4>Requirement Link</h4>
+    		<p>Allow to allocate a requirement to a Capella element represented on the diagram by drawing an edge between them.</p>
+		</li>
+		<li>
+			<h4>All Linked Requirements:</h4>
+    		<p>On a Capella element, show all of its linked Requirements, incoming and outgoing.
+        		<br/> On a Requirement, show all of its internal Requirements, incoming and outgoing.
+        		<br/> On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all
+        		graphical elements of the diagram, incoming and outgoing.
+        	</p>
+        	<table border="1">
+		        <tr>
+		            <td width="50%">
+		                <p>
+		                    <img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"
+		                    />
+		                    If a requirement is related to (incoming or outgoing) the opened diagram, it will be decorated with a little icon on the upper-right corner.
+		                </p>
+		            </td>
+		            <td>
+						<img src="../../images/requirements_diagram_example_diagram_related.png" alt="Decorator for requirement related to a diagram" title="Decorator for requirement related to a diagram" />
+		            </td>
+		        </tr>
+		    </table>
+		</li>
+		<li>
+			<h4>Incoming Requirements:</h4>
+    		<p>Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.</p>
+		</li>
+		<li>
+			<h4>Outgoing Requirements:</h4>
+    		<p>Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.</p>
+		</li>
+	</ul>
+	
 	<h2>Label and content configuration</h2>
     <p>
     	The label and content displayed for each requirement can be computed dynamically by evaluating two predefined AQL expressions.
@@ -62,6 +91,7 @@
     	Users have their own rights to define the AQL expressions and the lengths that fulfill their operational needs. However, if the AQL expression is invalid, in other words, could not be interpreted, the result will be displayed as <b>&lt;undefined&gt;</b>.
     </p>
     <img src="../../images/requirements_diagram_example_special_case.png" alt="Special case of displaying requirements in diagrams" title="Special case of displaying requirements in diagrams" />
+	
 	<p>
 	The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 3 properties in 3 bulleted lines:
     </p>

@@ -285,17 +285,6 @@ public class CapellaRequirementsOpenJavaService {
 	}
 	
 	/**
-	 * Return if the given requirement is a requirement linked to the diagram
-	 * @param requirement
-	 * @param requirement
-	 * @param diagram
-	 * @return
-	 */
-	public boolean isLinkedToTheDiagram(EObject requirement, EObject diagram) {
-		return getRequirementsForElement(diagram, true, true).contains(requirement);
-	}
-
-	/**
 	 * Return the name of the relation type, empty string if not found
 	 * 
 	 * @param relation
@@ -410,16 +399,31 @@ public class CapellaRequirementsOpenJavaService {
     return value;
   }
   
+  /**
+   * Find the source of the outgoing relation with a requirement.
+   * With this relation, the target is a requirement, the source is capella element or diagram.
+   * @param relation
+   * @return
+   */
   public List<EObject> findOutgoingRelationSource(CapellaOutgoingRelation relation) {
     return findRelationEnds(relation.getSource());
   }
   
+  /**
+   * Find the source of the incoming relation with a requirement.
+   * With this relation, the source is a requirement, the target is capella element or diagram.
+   * @param relation
+   * @return
+   */
   public List<EObject> findIncomingRelationTarget(CapellaIncomingRelation relation) {
    return findRelationEnds(relation.getTarget());
   }
   
   private List<EObject> findRelationEnds(CapellaElement element) {
     List<EObject> result = new ArrayList<>();
+    // TODO If in the method getCurrentElements(EObject element, boolean onlyGenerated), 
+    // if the RepresentedInstance of InstanceRole is handled,
+    // we need to add the representing instance roles in the result
     if (element instanceof Component) {
       result.addAll(ComponentExt.getRepresentingParts((Component) element));
     } 
@@ -489,5 +493,22 @@ public class CapellaRequirementsOpenJavaService {
     if (availableElements.size() == 1)
       return (RelationType) availableElements.get(0);
     return null;
+  }
+  /**
+   * Check whether the selected requirement is linked to the current diagram.
+   * @param requirement
+   * @param diagram
+   * @return
+   */
+  public boolean isLinkedToDiagram(Requirement requirement, DSemanticDiagram diagram) {
+    if (requirement != null && diagram != null) {
+      List<EObject> requirements = getRequirementsForDiagram(diagram, true, true);
+      for (EObject currentRequirement : requirements) {
+        if (requirement.equals(currentRequirement)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }

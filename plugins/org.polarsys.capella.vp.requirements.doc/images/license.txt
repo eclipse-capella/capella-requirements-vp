@@ -46,3 +46,4 @@ These followings icons are made available under the terms of the Eclipse Public 
 /images/requirements_configuration_wizard_menu.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_configuration_wizard_menu.png
 /images/requirements_segment.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_segment.png
 /images/requirements_layer.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_layer.png
+/images/requirements_diagram_example_diagram_related.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example_diagram_related.png
