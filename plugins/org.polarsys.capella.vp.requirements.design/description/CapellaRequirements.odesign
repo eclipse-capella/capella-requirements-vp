@@ -584,77 +584,115 @@
             </initialOperation>
             <hook id="org.polarsys.capella.core.sirius.analysis.delete.CapellaDeleteActionHook"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert all incoming and outgoing requirements of the selected element, or of the diagram and all of its elements. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_AllRequirements" label="All Linked Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Creates or deletes graphical objects corresponding to existing Requirements. Removing a Requirement graphical object does not delete it form the model.&#xD;&#xA;This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_Requirements" label="Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
             <elementView name="elementView">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), true, true)"/>
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allRequirements" computationExpression="aql:elementView.getAllRequirementsForElement()"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="visibleRequirementsOnDiagram" computationExpression="aql:elementView.getVisibleRequirementsOnDiagram()"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allAvailableRequirements" computationExpression="aql:elementView.getAllAvailableRequirements()"/>
             </elementView>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:For" expression="var:allRequirements">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:not requirementsInDiagram->includes(i)">
-                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove existing incoming requirements of the selected element. Removing a Requirement graphical object does not delete this Requirement from the model. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_IncomingRequirements" label="Incoming Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
-            <element name="element"/>
-            <elementView name="elementView">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), true, false)"/>
-            </elementView>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectedRequirements" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectLinksFromTransferWizard">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="showHideRequirements" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectLinksFromTransferWizard">
                   <parameters name="context" value="var:elementView"/>
-                  <parameters name="scope" value="aql:elementView.getRequirementsForElement(true, false)"/>
-                  <parameters name="initialSelection" value="var:requirementsInDiagram"/>
+                  <parameters name="scope" value="var:allAvailableRequirements"/>
+                  <parameters name="initialSelection" value="var:visibleRequirementsOnDiagram"/>
                   <parameters name="resultVariable" value="selectedRequirements"/>
-                  <parameters name="wizardMessage" value="Select Requirements to show."/>
+                  <parameters name="wizardMessage" value="Show/Hide Requirements"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:(selectedRequirements != 'WIZARD_CANCELED')">
                   <subModelOperations xsi:type="tool_1:For" expression="var:selectedRequirements">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not visibleRequirementsOnDiagram->includes(i)">
+                      <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, visibleRequirementsOnDiagram)"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Allocate a Requirement to either a CapellaElement or a Requirement. " name="ReqVP_Tool_Requirement_Link" label="Requirement Link" edgeMappings="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@edgeMappings[name='ReqVP_IncomingRelation'] //@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@edgeMappings[name='ReqVP_InternalRelation'] //@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@edgeMappings[name='ReqVP_OutgoingRelation']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Use.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createRequirementLink(target, sourceView, targetView)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Req_Group" label="Req_Group">
+            <tools xsi:type="tool_1:ToolDescription" documentation="Insert all incoming and outgoing requirements of the selected element, or of the diagram and all of its elements. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_AllRequirements" label="All Linked Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+              <element name="element"/>
+              <elementView name="elementView">
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), true, true)"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="allRequirements" computationExpression="aql:elementView.getAllRequirementsForElement()"/>
+              </elementView>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:For" expression="var:allRequirements">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:not requirementsInDiagram->includes(i)">
                       <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove existing outgoing requirements of the selected element. Removing a Requirement graphical object does not delete this Requirement from the model. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_OutgoingRequirements" label="Outgoing Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
-            <element name="element"/>
-            <elementView name="elementView">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), false, true)"/>
-            </elementView>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectedRequirements" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectLinksFromTransferWizard">
-                  <parameters name="context" value="var:elementView"/>
-                  <parameters name="scope" value="aql:elementView.getRequirementsForElement(false, true)"/>
-                  <parameters name="initialSelection" value="var:requirementsInDiagram"/>
-                  <parameters name="resultVariable" value="selectedRequirements"/>
-                  <parameters name="wizardMessage" value="Select Requirements to show."/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:(selectedRequirements != 'WIZARD_CANCELED')">
-                  <subModelOperations xsi:type="tool_1:For" expression="var:selectedRequirements">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:not requirementsInDiagram->includes(i)">
-                      <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
-                    </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove existing outgoing requirements of the selected element. Removing a Requirement graphical object does not delete this Requirement from the model. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_OutgoingRequirements" label="Outgoing Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+              <element name="element"/>
+              <elementView name="elementView">
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), false, true)"/>
+              </elementView>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectedRequirements" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectLinksFromTransferWizard">
+                    <parameters name="context" value="var:elementView"/>
+                    <parameters name="scope" value="aql:elementView.getRequirementsForElement(false, true)"/>
+                    <parameters name="initialSelection" value="var:requirementsInDiagram"/>
+                    <parameters name="resultVariable" value="selectedRequirements"/>
+                    <parameters name="wizardMessage" value="Select Requirements to show."/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
-              </firstModelOperations>
-            </initialOperation>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:(selectedRequirements != 'WIZARD_CANCELED')">
+                    <subModelOperations xsi:type="tool_1:For" expression="var:selectedRequirements">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:not requirementsInDiagram->includes(i)">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove existing incoming requirements of the selected element. Removing a Requirement graphical object does not delete this Requirement from the model. This tool does not modify the semantic model." name="ReqVP_Tool_ShowHide_IncomingRequirements" label="Incoming Requirements" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+              <element name="element"/>
+              <elementView name="elementView">
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainer(diagram::DDiagram)"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="requirementsInDiagram" computationExpression="aql:elementView.getExistingRequirementsInDiagram(elementView.eContainer(diagram::DDiagram), true, false)"/>
+              </elementView>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectedRequirements" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectLinksFromTransferWizard">
+                    <parameters name="context" value="var:elementView"/>
+                    <parameters name="scope" value="aql:elementView.getRequirementsForElement(true, false)"/>
+                    <parameters name="initialSelection" value="var:requirementsInDiagram"/>
+                    <parameters name="resultVariable" value="selectedRequirements"/>
+                    <parameters name="wizardMessage" value="Select Requirements to show."/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:(selectedRequirements != 'WIZARD_CANCELED')">
+                    <subModelOperations xsi:type="tool_1:For" expression="var:selectedRequirements">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:not requirementsInDiagram->includes(i)">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().forceRefresh()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
       </layers>
