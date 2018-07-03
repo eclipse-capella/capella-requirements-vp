@@ -12,6 +12,7 @@ package org.polarsys.capella.vp.requirements.design.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,7 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.description.EdgeMapping;
+import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
@@ -37,6 +39,7 @@ import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesPro
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
@@ -106,12 +109,13 @@ public class CapellaRequirementsOpenJavaService {
    * @param outgoing
    * @return
    */
-  public List<EObject> getVisibleRequirementsOnDiagram(EObject context) {
+  public Collection<EObject> getVisibleRequirementsOnDiagram(EObject context) {
     DDiagram diagram = getDiagram(context);
     if (diagram != null) {
       // Collect and return visible requirements on the given diagram
-      return diagram.getDiagramElements().stream().map(diagramElement -> diagramElement.getTarget())
-          .filter(target -> target instanceof Requirement).collect(Collectors.toList());
+      Set<EObject> collect = diagram.getDiagramElements().stream().map(diagramElement -> diagramElement.getTarget())
+          .filter(target -> target instanceof Requirement).collect(Collectors.toSet());
+      return new ArrayList<>(collect);
 
     }
     return Collections.emptyList();
@@ -444,21 +448,38 @@ public class CapellaRequirementsOpenJavaService {
       CapellaOutgoingRelation relation = createCapellaOutgoingRelation((Requirement)target, (CapellaElement)source);
       createEdge(ReqDesignNameConstants.REQ_VP_OUTGOING_RELATION, sourceView, targetView, relation);
     }
-    // https://bugs.polarsys.org/show_bug.cgi?id=2113
-    // Remove the force refresh when the above bug is fixed
-    CapellaServices.getService().getDiagramContainer(sourceView).refresh();
   }
   
   private DEdge createEdge(String mappingName, EdgeTarget sourceView, EdgeTarget targetView, AbstractRelation relation) {
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(sourceView);
-    EdgeMapping mapping = DiagramServices.getDiagramServices().getEdgeMapping(diagram, mappingName);
+    EdgeMapping mapping = getEdgeMapping(diagram, mappingName);
     return DiagramServices.getDiagramServices().createEdge(mapping, sourceView, targetView, relation);
+  }
+  
+  // https://bugs.polarsys.org/show_bug.cgi?id=2113
+  // Use DiagramServices.getDiagramServices().getEdgeMapping(diagram, mappingName) when the above bug is fixed and delete this method
+  private EdgeMapping getEdgeMapping(final DDiagram diagram, String mappingName) {
+    for(Layer layer : diagram.getActivatedLayers()){
+      for (final EdgeMapping mapping : layer.getAllEdgeMappings()) {
+        if (mapping.getName().equals(mappingName)) {
+          return mapping;
+        }
+      }
+    }
+    return null;
   }
   
   private CapellaOutgoingRelation createCapellaOutgoingRelation(Requirement requirement,
       CapellaElement capellaElement) {
     CapellaOutgoingRelation link = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
-    link.setSource(capellaElement);
+    if(capellaElement instanceof Part && ((Part)capellaElement).getAbstractType() instanceof CapellaElement){
+      CapellaElement type = (CapellaElement)((Part)capellaElement).getAbstractType();
+      link.setSource(type);      
+      type.getOwnedExtensions().add(link);
+    }else{
+      link.setSource(capellaElement);      
+      capellaElement.getOwnedExtensions().add(link);
+    }
     link.setTarget(requirement);
     link.setRelationType(getDefaultType(link));
     capellaElement.getOwnedExtensions().add(link);
@@ -469,7 +490,11 @@ public class CapellaRequirementsOpenJavaService {
       CapellaElement capellaElement) {
     CapellaIncomingRelation link = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
     link.setSource(requirement);
-    link.setTarget(capellaElement);
+    if(capellaElement instanceof Part && ((Part)capellaElement).getAbstractType() instanceof CapellaElement){
+      link.setTarget((CapellaElement)((Part)capellaElement).getAbstractType());      
+    }else{
+      link.setTarget(capellaElement);      
+    }
     link.setRelationType(getDefaultType(link));
     requirement.getOwnedRelations().add(link);
     return link;
