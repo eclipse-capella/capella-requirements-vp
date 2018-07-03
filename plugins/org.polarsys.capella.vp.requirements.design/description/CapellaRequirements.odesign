@@ -749,9 +749,6 @@
             </tools>
           </ownedTools>
         </toolSections>
-        <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Requirement Linked To Diagram Decoration" position="NORTH_EAST" preconditionExpression="service:isLinkedToDiagram(diagram)" imageExpression="org.polarsys.capella.vp.requirements.design/description/images/DiagramDescription.gif" tooltipExpression="The requirement is related to the diagram" domainClass="Requirement"/>
-        </decorationDescriptionsSet>
       </layers>
     </ownedRepresentationExtensions>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.vp.requirements.design.service.CapellaRequirementsOpenJavaService"/>
