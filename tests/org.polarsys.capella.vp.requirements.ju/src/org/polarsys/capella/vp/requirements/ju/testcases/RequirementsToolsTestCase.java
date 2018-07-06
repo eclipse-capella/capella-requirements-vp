@@ -27,6 +27,8 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
   private static String REQ_1 = "fe5ca911-1f2f-40eb-932b-3e4dab3eed86";
   private static String REQ_2 = "269f08ec-513d-41fd-96ec-1ee6c2dbd8cd";
   private static String REQ_3 = "bd488918-1fa9-4278-a9c9-18874d4ddeb2";
+  private static String REQ_4 = "4eff0b4f-cbf5-434b-b021-69b882b6e2f5";
+  private static String REQ_5 = "aae247d0-5cc1-4dba-8a26-a9370c976366";
   
   @Override
   protected String getRequiredTestModel() {
@@ -40,8 +42,8 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
   
     for (DRepresentation representation : DialectManager.INSTANCE.getAllRepresentations(session)) {
       if (representation instanceof DDiagram) {
-    	DDiagram diagram = (DDiagram) representation;
-    		testRequirementsToolsOnDiagram(diagram, sessionContext);
+        DDiagram diagram = (DDiagram) representation;
+        testRequirementsToolsOnDiagram(diagram, sessionContext);
       }
     }
   }
@@ -53,18 +55,18 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
    */
   private String getFirstCapellaElement(RequirementsDiagram diagram) {
     for (DNode node : diagram.getDiagram().getNodes()) {
-    	EObject nodeTarget = node.getTarget();
-    	if (nodeTarget instanceof CapellaElement) {
-    		CapellaElement target = (CapellaElement) nodeTarget;
-    		return target.getId();
-    	}
+      EObject nodeTarget = node.getTarget();
+      if (nodeTarget instanceof CapellaElement) {
+        CapellaElement target = (CapellaElement) nodeTarget;
+        return target.getId();
+      }
     }
     for (DDiagramElementContainer container : diagram.getDiagram().getContainers()) {
-		EObject containerTarget = container.getTarget();
-		if (containerTarget instanceof CapellaElement) {
-			CapellaElement target = (CapellaElement) containerTarget;
-			return target.getId();
-		}
+      EObject containerTarget = container.getTarget();
+      if (containerTarget instanceof CapellaElement) {
+        CapellaElement target = (CapellaElement) containerTarget;
+        return target.getId();
+      }
     }
     return null;
   }
@@ -75,7 +77,7 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
    * @param sessionContext
    */
   private void testRequirementsToolsOnDiagram(DDiagram rep, SessionContext sessionContext) {
-	  
+      
     RequirementsDiagram diagram = new RequirementsDiagram(sessionContext, rep);
     diagram.open();
     
@@ -83,14 +85,14 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
 //    testRequirementsToolsOnGivenElement(diagram, diagram.getDiagramId());
     
     // test on a Requirement
-    testRequirementsToolsOnGivenElement(diagram, REQ_3);
+    testRequirementsToolsOnGivenElement(diagram, REQ_3, REQ_1, REQ_2);
     
     // test on a Capella Element
     String CAPELLA_ELEMENT_1 = getFirstCapellaElement(diagram);
     if (CAPELLA_ELEMENT_1 == null) {
-    	fail("No Capella Element found in this diagram: "+rep.getName());
+      fail("No Capella Element found in this diagram: "+rep.getName());
     } else {
-    	testRequirementsToolsOnGivenElement(diagram, CAPELLA_ELEMENT_1);
+      testRequirementsToolsOnGivenElement(diagram, CAPELLA_ELEMENT_1, REQ_4, REQ_5);
     }
   }
   
@@ -100,52 +102,54 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
    * @param id
    * @param IdIsDiagram
    */
-  private void testRequirementsToolsOnGivenElement(RequirementsDiagram diagram, String id) {
-	  
-	  // show Requirements
-	  if (id.equals(REQ_3)) {
-		  diagram.showRequirements(new String[]{REQ_1, REQ_2, REQ_3});
-	  } else {
-		  diagram.showRequirements(new String[]{REQ_1, REQ_2});
-	  }
-	  
-	  // create Requirement Links
-	  if (!id.equals(diagram.getDiagramId())) {
-		  diagram.createRequirementLink(id, REQ_1);
-		  diagram.createRequirementLink(REQ_2, id);
-	  } else {
-		  // cannot use Requirement Links tool for diagram
-		  
-	  }
-	  
-	  // hide Incoming/Outgoing Requirements
-	  diagram.hideOutgoingRequirements(REQ_1, id);
-	  diagram.hideIncomingRequirements(REQ_2, id);
-	    
-	  // show Incoming/Outgoing Requirements
-	  diagram.showOutgoingRequirements(REQ_1, id);
-	  diagram.showIncomingRequirements(REQ_2, id);
-	  
-	  // hide Requirements
-	  diagram.hideRequirements(new String[]{REQ_1, REQ_2});
-	  
-	  // REQ_3 must stay
-	  if (id.equals(REQ_3)) {
-		  diagram.showRequirements(REQ_3);
-		  diagram.hasView(REQ_3);
-	  }
-	  
-	  // show all Linked Requirements
-	  diagram.hasntView(REQ_1);
-	  diagram.hasntView(REQ_2);
-	  diagram.showAllLinkedRequirements(id);
-	  diagram.hasView(REQ_1);
-	  diagram.hasView(REQ_2);
-	  
-	  // REQ_3 must stay
-	  if (id.equals(REQ_3)) {
-		  diagram.hasView(REQ_3);
-	  }
+  private void testRequirementsToolsOnGivenElement(RequirementsDiagram diagram, String id, String incomingReq, String outgoingReq) {
+      
+    System.out.println("diagram: "+diagram.getDiagram().getName()+", id:"+id);
+    
+    // show Requirements
+    if (id.equals(REQ_3)) {
+      diagram.showRequirements(new String[]{outgoingReq, incomingReq, REQ_3});
+    } else {
+      diagram.showRequirements(new String[]{outgoingReq, incomingReq});
+    }
+    
+    // create Requirement Links
+    if (!id.equals(diagram.getDiagramId())) {
+      diagram.createRequirementLink(id, outgoingReq);
+      diagram.createRequirementLink(incomingReq, id);
+    } else {
+      // cannot use Requirement Links tool for diagram
+      
+    }
+    
+    // hide Incoming/Outgoing Requirements
+    diagram.hideOutgoingRequirements(outgoingReq, id);
+    diagram.hideIncomingRequirements(incomingReq, id);
+      
+    // show Incoming/Outgoing Requirements
+    diagram.showOutgoingRequirements(outgoingReq, id);
+    diagram.showIncomingRequirements(incomingReq, id);
+    
+    // hide Requirements
+    diagram.hideRequirements(new String[]{outgoingReq, incomingReq});
+    
+    // REQ_3 must stay
+    if (id.equals(REQ_3)) {
+      diagram.showRequirements(REQ_3);
+      diagram.hasView(REQ_3);
+    }
+    
+    // show all Linked Requirements
+    diagram.hasntView(outgoingReq);
+    diagram.hasntView(incomingReq);
+    diagram.showAllLinkedRequirements(id);
+    diagram.hasView(outgoingReq);
+    diagram.hasView(incomingReq);
+    
+    // REQ_3 must stay
+    if (id.equals(REQ_3)) {
+      diagram.hasView(REQ_3);
+    }
   }
 }
 

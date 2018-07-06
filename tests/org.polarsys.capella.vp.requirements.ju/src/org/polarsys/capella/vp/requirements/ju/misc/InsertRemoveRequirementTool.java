@@ -27,57 +27,57 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 
 public class InsertRemoveRequirementTool extends InsertRemoveTool {
 
-	protected DiagramContext context;
-	protected Collection<DDiagramElement> elements;
-	protected DDiagramElement newElement;
-	
-	public InsertRemoveRequirementTool(DiagramContext context, String toolName) {
-		super(context, toolName);
-		this.context = context;
-	}
+  protected DiagramContext context;
+  protected Collection<DDiagramElement> elements;
+  protected DDiagramElement newElement;
+  
+  public InsertRemoveRequirementTool(DiagramContext context, String toolName) {
+    super(context, toolName);
+    this.context = context;
+  }
 
-	 public InsertRemoveRequirementTool(DiagramContext context, String toolName, String containerId) {
-	    super(context, toolName, containerId);
-	    this.context = context;
-	}
-	 
-	 private Collection<DDiagramElement> getDiagramOwnedElements() {
-		 return DiagramHelper.getOwnedElements(getExecutionContext().getView(context.getDiagramId()));
-	 }
+  public InsertRemoveRequirementTool(DiagramContext context, String toolName, String containerId) {
+    super(context, toolName, containerId);
+    this.context = context;
+  }
+   
+  private Collection<DDiagramElement> getDiagramOwnedElements() {
+    return DiagramHelper.getOwnedElements(getExecutionContext().getView(context.getDiagramId()));
+  }
 
-	@Override
-	protected void preRunTest() {
-		super.preRunTest();
-		elements = getDiagramOwnedElements();
-	}
-	
-	@Override
-	protected void postRunTest() {
-		super.postRunTest();
-	    Collection<DDiagramElement> newElements = getDiagramOwnedElements();
-	    newElements.removeAll(elements);
-	    
-	    // collect id and associated diagram element for each new element
-	    Map<String, DDiagramElement> IDsOfNewElements = new HashMap<String, DDiagramElement>();
-	    for (DDiagramElement diagramElement : newElements) {
-	    	EObject target = diagramElement.getTarget();
-    		if (target instanceof ModelElement) {
-    			ModelElement element = (ModelElement) target;
-    			IDsOfNewElements.put(element.getId(), diagramElement);
-    		} else if (target instanceof IdentifiableElement) {
-    			IdentifiableElement element = (IdentifiableElement) target;
-    			IDsOfNewElements.put(element.getId(), diagramElement);
-    		}
-	    }
-	    
-	    for (String IDToInsert : Arrays.asList(toInsert)) {
-	    	if (IDsOfNewElements.containsKey(IDToInsert)) {
-	    		DDiagramElement diagramElement = IDsOfNewElements.get(IDToInsert);
-			    getExecutionContext().putView(IDToInsert,diagramElement);
-			    getExecutionContext().putSemanticElement(IDToInsert, diagramElement.getTarget());
-			} else {
-				fail("The id of this element is not an id given in parameters.");
-			}
-	    }
-	}
+  @Override
+  protected void preRunTest() {
+    super.preRunTest();
+    elements = getDiagramOwnedElements();
+  }
+  
+  @Override
+  protected void postRunTest() {
+    super.postRunTest();
+      Collection<DDiagramElement> newElements = getDiagramOwnedElements();
+      newElements.removeAll(elements);
+      
+      // collect id and associated diagram element for each new element
+      Map<String, DDiagramElement> IDsOfNewElements = new HashMap<String, DDiagramElement>();
+      for (DDiagramElement diagramElement : newElements) {
+        EObject target = diagramElement.getTarget();
+        if (target instanceof ModelElement) {
+          ModelElement element = (ModelElement) target;
+          IDsOfNewElements.put(element.getId(), diagramElement);
+        } else if (target instanceof IdentifiableElement) {
+          IdentifiableElement element = (IdentifiableElement) target;
+          IDsOfNewElements.put(element.getId(), diagramElement);
+        }
+      }
+      
+      for (String IDToInsert : Arrays.asList(toInsert)) {
+        if (IDsOfNewElements.containsKey(IDToInsert)) {
+          DDiagramElement diagramElement = IDsOfNewElements.get(IDToInsert);
+          getExecutionContext().putView(IDToInsert,diagramElement);
+          getExecutionContext().putSemanticElement(IDToInsert, diagramElement.getTarget());
+      } else {
+        fail("The id of this element is not an id given in parameters.");
+      }
+    }
+  }
 }
