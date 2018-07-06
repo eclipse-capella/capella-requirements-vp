@@ -31,44 +31,16 @@ public class RequirementsDiagram extends DiagramContext {
     new CreateDEdgeTool(this, CREATE_REQUIREMENT_LINK_TOOL_NAME, sourceId, targetId).run();
   }
   
-  public void showRequirements(final String id) {
+  public void showRequirements(final String... id) {
     new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME).insert(id);
   }
   
-  public void showRequirements(final String[] id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME).insert(id);
-  }
-
-  public void hideRequirements(final String id) {
+  public void hideRequirements(final String... id) {
     new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME).remove(id);
-  }
-  
-  public void hideRequirements(final String[] id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME).remove(id);
-  }
-  
-  public void showRequirements(String id, String containerId) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME, containerId).insert(id);
-  }
-  
-  public void hideRequirements(String id, String containerId) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_REQUIREMENTS_TOOL_NAME, containerId).remove(id);
-  }
-
-  public void showAllLinkedRequirements() {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_ALL_LINKED_REQUIREMENTS_TOOL_NAME).insertAll();
   }
   
   public void showAllLinkedRequirements(String containerId) {
     new InsertRemoveRequirementTool(this, SHOW_HIDE_ALL_LINKED_REQUIREMENTS_TOOL_NAME, containerId).insertAll();
-  }
-  
-  public void showIncomingRequirements(String id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_INCOMING_REQUIREMENTS_TOOL_NAME).insert(id);
-  }
-    
-  public void hideIncomingRequirements(String id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_INCOMING_REQUIREMENTS_TOOL_NAME).remove(id);
   }
   
   public void showIncomingRequirements(String id, String containerId) {
@@ -77,14 +49,6 @@ public class RequirementsDiagram extends DiagramContext {
   
   public void hideIncomingRequirements(String id, String containerId) {
     new InsertRemoveRequirementTool(this, SHOW_HIDE_INCOMING_REQUIREMENTS_TOOL_NAME, containerId).remove(id);
-  }
-  
-  public void showOutgoingRequirements(String id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_OUTGOING_REQUIREMENTS_TOOL_NAME).insert(id);
-  }
-  
-  public void hideOutgoingRequirements(String id) {
-    new InsertRemoveRequirementTool(this, SHOW_HIDE_OUTGOING_REQUIREMENTS_TOOL_NAME).remove(id);
   }
   
   public void showOutgoingRequirements(String id, String containerId) {

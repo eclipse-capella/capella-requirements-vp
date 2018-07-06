@@ -104,13 +104,11 @@ public class RequirementsToolsTestCase extends AbstractDiagramTestCase {
    */
   private void testRequirementsToolsOnGivenElement(RequirementsDiagram diagram, String id, String incomingReq, String outgoingReq) {
       
-    System.out.println("diagram: "+diagram.getDiagram().getName()+", id:"+id);
-    
     // show Requirements
     if (id.equals(REQ_3)) {
-      diagram.showRequirements(new String[]{outgoingReq, incomingReq, REQ_3});
+      diagram.showRequirements(outgoingReq, incomingReq, REQ_3);
     } else {
-      diagram.showRequirements(new String[]{outgoingReq, incomingReq});
+      diagram.showRequirements(outgoingReq, incomingReq);
     }
     
     // create Requirement Links
