@@ -272,11 +272,10 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param requirementsInDiagram
 	 * @return
 	 */
-	public EObject hideRequirements(EObject diagram, Object[] selectedRequirementsArray, List<EObject> requirementsInDiagram) {
+	public EObject hideRequirements(EObject diagram, List<EObject> selectedRequirements, List<EObject> requirementsInDiagram) {
 
 		if (diagram instanceof DDiagram) {
 			DDiagram ddiagram = (DDiagram) diagram;
-			List<Object> selectedRequirements = Arrays.asList(selectedRequirementsArray);
 			
 			// collect all requirements in requirementsInDiagram but not in selectedRequirements
 			Set<EObject> requirementsToHide = requirementsInDiagram.stream().filter(req -> !selectedRequirements.contains(req)).collect(Collectors.toSet());
@@ -286,6 +285,14 @@ public class CapellaRequirementsOpenJavaService {
 		}
 		
 		return diagram;
+	}
+	
+	public List<Object> asList(Object[] array) {
+		return Arrays.asList(array);
+	}
+	
+	public List<Object> asList(List<Object> list) {
+		return list;
 	}
 	
 	/**
