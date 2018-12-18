@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,7 +17,7 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
@@ -47,8 +47,8 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
   @Override
   public List<EObject> writeOpenValues(EObject semanticElement, EStructuralFeature semanticFeature,
       List<EObject> values) {
-    if (semanticElement instanceof DRepresentation) {
-      DRepresentation dRepresentation = (DRepresentation) semanticElement;
+    if (semanticElement instanceof DRepresentationDescriptor) {
+      DRepresentationDescriptor descriptor = (DRepresentationDescriptor) semanticElement;
       for (EObject eObj : values) {
         if (eObj instanceof Requirement) {
           Requirement requirement = (Requirement) eObj;
@@ -56,7 +56,7 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
           
           DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, null, requirement, null);
           elts.add(new Couple<EObject, EObject>(requirement, getDefaultType(tempOutgoingLink)));
-          RelationAnnotationHelper.addAllocations(dRepresentation, RelationAnnotationHelper.OutgoingRelationAnnotation,
+          RelationAnnotationHelper.addAllocations(descriptor, RelationAnnotationHelper.OutgoingRelationAnnotation,
               elts);
         }
       }
@@ -70,9 +70,9 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
   @Override
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> result = new ArrayList<EObject>();
-    if (semanticElement instanceof DRepresentation) {
+    if (semanticElement instanceof DRepresentationDescriptor) {
       for (Entry<String, Couple<Requirement, RelationType>> allocation : RelationAnnotationHelper
-          .getAllocations((DRepresentation) semanticElement, RelationAnnotationHelper.OutgoingRelationAnnotation)
+          .getAllocations((DRepresentationDescriptor) semanticElement, RelationAnnotationHelper.OutgoingRelationAnnotation)
           .entrySet()) {
         DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, allocation.getKey(), allocation.getValue().getKey(), allocation.getValue().getValue());
         result.add(tempOutgoingLink);
@@ -83,7 +83,7 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
   
   protected DiagramOutgoingLink createTempOutgoingLink(EObject semanticElement, String id, Requirement requirement,
       RelationType relationType) {
-    DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentation) semanticElement, id);
+    DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentationDescriptor) semanticElement, id);
     tempOutgoingLink.setTarget(requirement);
     tempOutgoingLink.setRelationType(relationType);
 

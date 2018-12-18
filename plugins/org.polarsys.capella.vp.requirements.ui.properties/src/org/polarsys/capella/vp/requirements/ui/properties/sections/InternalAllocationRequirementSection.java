@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -160,7 +160,7 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
           }
         }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
-        return _controller.loadValues(_semanticElement, _semanticFeature);
+        return _controller.loadValues(semanticElement, semanticFeature);
       }
 
       /**
@@ -169,17 +169,17 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
       protected void handleBrowse() {
         AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
           public void run() {
-            List<EObject> availableElements = _controller.readOpenValues(_semanticElement, _semanticFeature, true);
+            List<EObject> availableElements = _controller.readOpenValues(semanticElement, semanticFeature, true);
             // We do not want to create an internal relation to the requirement itself
-            availableElements.remove(_semanticElement);
+            availableElements.remove(semanticElement);
             List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
                 availableElements);
             if (null != allResults) {
-              _controller.writeOpenValues(_semanticElement, _semanticFeature, allResults);
+              _controller.writeOpenValues(semanticElement, semanticFeature, allResults);
             }
           }
         };
-        TransactionHelper.getExecutionManager(_semanticElement).execute(command);
+        TransactionHelper.getExecutionManager(semanticElement).execute(command);
         refreshViewer();
       }
 
@@ -192,8 +192,8 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
             if (!selectedReferencedElements.isEmpty()) {
               AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
                 public void run() {
-                  if (_semanticElement instanceof Requirement) {
-                    Requirement requirement = (Requirement) _semanticElement;
+                  if (semanticElement instanceof Requirement) {
+                    Requirement requirement = (Requirement) semanticElement;
                     for (EObject eObj : selectedReferencedElements) {
                       if (eObj instanceof InternalRelation) {
                         requirement.getOwnedRelations().remove((InternalRelation) eObj);
@@ -202,7 +202,7 @@ public class InternalAllocationRequirementSection extends AbstractAllocationSect
                   }
                 }
               };
-              TransactionHelper.getExecutionManager(_semanticElement).execute(command);
+              TransactionHelper.getExecutionManager(semanticElement).execute(command);
               refreshViewer();
             }
           }

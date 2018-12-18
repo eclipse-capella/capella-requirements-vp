@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,9 +30,9 @@ public class RepresentationOutgoingRelationQuery extends AbstractViewpointQuery 
 	 */
 	public List<Object> computeQuery(Object object) {
 		List<Object> result = new ArrayList<Object>();
-    DRepresentationDescriptor representation = (DRepresentationDescriptor) object;
+    DRepresentationDescriptor descriptor = (DRepresentationDescriptor) object;
 
-    for (Couple<Requirement, RelationType> requirement : RelationAnnotationHelper.getAllocations(representation.getRepresentation(), RelationAnnotationHelper.OutgoingRelationAnnotation).values()) {
+    for (Couple<Requirement, RelationType> requirement : RelationAnnotationHelper.getAllocations(descriptor, RelationAnnotationHelper.OutgoingRelationAnnotation).values()) {
       if (requirement != null)
         result.add(requirement.getKey());
     }

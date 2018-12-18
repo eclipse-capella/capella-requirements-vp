@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,11 +24,12 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
+import org.polarsys.capella.core.diagram.helpers.DAnnotationHelper;
 import org.polarsys.capella.core.model.handler.helpers.RepresentationHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
@@ -53,15 +54,23 @@ public class RelationAnnotationHelper {
   private static final String idseparator = ";"; //$NON-NLS-1$
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType one of the constants IncomingRelationAnnotation or OutgoingRelationAnnotation 
    */
-  public static Map<String, Couple<Requirement, RelationType>> getAllocations(DRepresentation representation,
-      String relationType) {
+  public static Map<String, Couple<Requirement, RelationType>> getAllocations(final DRepresentationDescriptor descriptor,
+      final String relationType) {
     Map<String, Couple<Requirement, RelationType>> result = new HashMap<>();
-    DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
-    if (null != annotation) {
-      for (Entry<String, String> detail : annotation.getDetails()) {
+    final DAnnotation[] annotation = new DAnnotation[1];
+    AbstractReadWriteCommand getAnnotationCommand = new AbstractReadWriteCommand() {
+      @Override
+      public void run() {
+        annotation[0] = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
+      }
+    };
+    TransactionHelper.getExecutionManager(descriptor).execute(getAnnotationCommand);
+    
+    if (null != annotation[0]) {
+      for (Entry<String, String> detail : annotation[0].getDetails()) {
         String id = detail.getKey();
         String elementURIs = detail.getValue();
         if ((elementURIs != null) && !elementURIs.isEmpty()) {
@@ -83,7 +92,7 @@ public class RelationAnnotationHelper {
             }
 
             if ((reqId != null) && !reqId.isEmpty()) {
-              for (Resource resource : RepresentationHelper.getSemanticResources(representation)) {
+              for (Resource resource : RepresentationHelper.getSemanticResources(descriptor)) {
                 if (resource != null) {
                   EObject reqObj = resource.getEObject(reqId);
                   EObject typeObj = null;
@@ -91,7 +100,7 @@ public class RelationAnnotationHelper {
                     typeObj = resource.getEObject(typeId);
                   if (reqObj instanceof Requirement) {
                     result.put(id, new Couple<Requirement, RelationType>((Requirement) reqObj,
-                        (typeObj != null && typeObj instanceof RelationType) ? (RelationType) typeObj : null));
+                        (typeObj instanceof RelationType) ? (RelationType) typeObj : null));
                   }
                 }
               }
@@ -106,14 +115,14 @@ public class RelationAnnotationHelper {
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType
    * @param requirement
    */
-  public static RelationType getAllocationType(DRepresentation representation, String relationType,
+  public static RelationType getAllocationType(DRepresentationDescriptor descriptor, String relationType,
       Requirement requirement) {
     RelationType type = null;
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
+    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
       if (allocation.getKey().equals(requirement)) {
         return allocation.getValue();
       }
@@ -122,28 +131,25 @@ public class RelationAnnotationHelper {
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType
    * @param elements
    */
-  public static void addAllocations(final DRepresentation representation, final String relationType,
+  public static void addAllocations(final DRepresentationDescriptor descriptor, final String relationType,
       final Collection<Couple<EObject, EObject>> elements) {
-    final Map<Requirement, RelationType> elementsToBeAdded = new HashMap<Requirement, RelationType>(0);
+    final Map<Requirement, RelationType> elementsToBeAdded = new HashMap<>(0);
     for (Couple<EObject, EObject> obj : elements) {
       elementsToBeAdded.put((Requirement) obj.getKey(), (RelationType) obj.getValue());
     }
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
+    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
       Requirement requirement = allocation.getKey();
       if (elementsToBeAdded.containsKey(requirement)) {
         elementsToBeAdded.remove(requirement);
       }
     }
-    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
-        if (annotation == null) {
-          annotation = RepresentationHelper.createAnnotation(relationType, representation);
-        }
+        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
         for (Entry<Requirement, RelationType> entry : elementsToBeAdded.entrySet()) {
           String reqId = entry.getKey().getId();
           String typeId = null;
@@ -156,31 +162,31 @@ public class RelationAnnotationHelper {
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param elements
    */
-  public static void removeAllocations(final DRepresentation representation, Collection<Object> elements) {
-    removeAllocations(representation, IncomingRelationAnnotation, elements);
-    removeAllocations(representation, OutgoingRelationAnnotation, elements);
+  public static void removeAllocations(final DRepresentationDescriptor descriptor, Collection<Object> elements) {
+    removeAllocations(descriptor, IncomingRelationAnnotation, elements);
+    removeAllocations(descriptor, OutgoingRelationAnnotation, elements);
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType
    * @param elements
    */
-  public static void removeAllocations(final DRepresentation representation, final String relationType,
+  public static void removeAllocations(final DRepresentationDescriptor descriptor, final String relationType,
       Collection<Object> elements) {
-    final List<Requirement> elementsToBeDestroyed = new ArrayList<Requirement>(0);
-    for (Couple<Requirement, RelationType> allocation : getAllocations(representation, relationType).values()) {
+    final List<Requirement> elementsToBeDestroyed = new ArrayList<>(0);
+    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
       Requirement requirement = allocation.getKey();
       if (elements.contains(requirement)) {
         elementsToBeDestroyed.add(requirement);
       }
     }
-    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
+        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
         if (annotation != null) {
           for (Requirement requirement : elementsToBeDestroyed) {
             for (String key : getKeysByValue(annotation.getDetails(), requirement.getId())) {
@@ -198,7 +204,7 @@ public class RelationAnnotationHelper {
    * @return
    */
   private static Set<String> getKeysByValue(EMap<String, String> map, String value) {
-    Set<String> keys = new HashSet<String>();
+    Set<String> keys = new HashSet<>();
     for (Entry<String, String> entry : map.entrySet()) {
       if (entry.getValue().startsWith(value + idseparator)) {
         keys.add(entry.getKey());
@@ -208,18 +214,15 @@ public class RelationAnnotationHelper {
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType
    * @param element
    */
-  public static void addAllocation(final DRepresentation representation, final String relationType,
+  public static void addAllocation(final DRepresentationDescriptor descriptor, final String relationType,
       final Couple<EObject, EObject> element) {
-    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
-        if (annotation == null) {
-          annotation = RepresentationHelper.createAnnotation(relationType, representation);
-        }
+        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
         String reqId = ((Requirement) element.getKey()).getId();
         String typeId = null;
         if ((RelationType) element.getValue() != null)
@@ -230,15 +233,15 @@ public class RelationAnnotationHelper {
   }
 
   /**
-   * @param representation
+   * @param descriptor
    * @param relationType
    * @param elements
    */
-  public static void removeAllocation(final DRepresentation representation, final String relationType,
+  public static void removeAllocation(final DRepresentationDescriptor descriptor, final String relationType,
       final String id) {
-    TransactionHelper.getExecutionManager(representation).execute(new AbstractReadWriteCommand() {
+    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = RepresentationHelper.getAnnotation(relationType, representation);
+        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, false);
         if (annotation != null) {
           annotation.getDetails().removeKey(id);
         }
@@ -246,7 +249,7 @@ public class RelationAnnotationHelper {
     });
   }
 
-  public static void updateAllocation(DRepresentation semanticElement, AbstractRelation relation, String id) {
+  public static void updateAllocation(DRepresentationDescriptor descriptor, AbstractRelation relation, String id) {
     String relationType = null;
     Requirement requirement = null;
     if (relation instanceof CapellaIncomingRelation) {
@@ -256,9 +259,9 @@ public class RelationAnnotationHelper {
       relationType = OutgoingRelationAnnotation;
       requirement = ((CapellaOutgoingRelation) relation).getTarget();
     }
-    if (requirement != null && relationType != null) {
-      removeAllocation(semanticElement, relationType, id);
-      addAllocation(semanticElement, relationType,
+    if (requirement != null) {
+      removeAllocation(descriptor, relationType, id);
+      addAllocation(descriptor, relationType,
           new Couple<EObject, EObject>(requirement, relation.getRelationType()));
     }
   }

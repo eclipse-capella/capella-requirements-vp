@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
+import org.polarsys.capella.core.model.handler.helpers.RepresentationHelper;
 import org.polarsys.capella.core.ui.properties.CapellaUIPropertiesPlugin;
 import org.polarsys.capella.core.ui.properties.IImageKeys;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
@@ -60,7 +61,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  */
 public class RepresentationPropertySection extends AbstractSection {
 
-  private WeakReference<DRepresentation> _representation;
+  private WeakReference<DRepresentationDescriptor> descriptor;
 
   /**
    * {@inheritDoc}
@@ -86,21 +87,17 @@ public class RepresentationPropertySection extends AbstractSection {
         Object firstElement = ((IStructuredSelection) selection).getFirstElement();
 
         if (firstElement instanceof DRepresentationDescriptor) {
-          firstElement = ((DRepresentationDescriptor) firstElement).getRepresentation();
-        }
-
-        if (firstElement instanceof DRepresentation) {
-          _representation = new WeakReference<DRepresentation>((DRepresentation) firstElement);
+          descriptor = new WeakReference<DRepresentationDescriptor>((DRepresentationDescriptor) firstElement);
         } else if (firstElement instanceof IDDiagramEditPart) {
           IDDiagramEditPart diagramEditPart = (IDDiagramEditPart) firstElement;
-          _representation = new WeakReference<DRepresentation>(
-              (DRepresentation) ((Diagram) diagramEditPart.getModel()).getElement());
+          descriptor = new WeakReference<DRepresentationDescriptor>(RepresentationHelper
+              .getRepresentationDescriptor((DRepresentation) ((Diagram) diagramEditPart.getModel()).getElement()));
         } else {
-          _representation = null;
+          descriptor = null;
         }
       }
-      if (_representation != null)
-        loadData(_representation.get());
+      if (descriptor != null)
+        loadData(descriptor.get());
     }
   }
 
@@ -140,9 +137,9 @@ public class RepresentationPropertySection extends AbstractSection {
   public void dispose() {
     super.dispose();
 
-    if (null != _representation) {
-      _representation.clear();
-      _representation = null;
+    if (null != descriptor) {
+      descriptor.clear();
+      descriptor = null;
     }
   }
 
@@ -156,8 +153,8 @@ public class RepresentationPropertySection extends AbstractSection {
 
   protected void setUpFields(Group grp) {
     incomingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Incoming links",
-        new RepresentationIncomingLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(),
-            new AbstractPropertyValueCellEditorProvider()) {
+        new RepresentationIncomingLinkController(),
+        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
           @Override
           protected String[] getColumnProperties() {
             return _columnProperties;
@@ -186,21 +183,21 @@ public class RepresentationPropertySection extends AbstractSection {
           }
         }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
-        return _controller.loadValues(_representation.get(), _semanticFeature);
+        return _controller.loadValues(descriptor.get(), semanticFeature);
       }
 
       protected void handleBrowse() {
         AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
           public void run() {
-            List<EObject> availableElements = _controller.readOpenValues(_representation.get(), _semanticFeature, true);
+            List<EObject> availableElements = _controller.readOpenValues(descriptor.get(), semanticFeature, true);
             List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
                 availableElements);
             if (null != allResults) {
-              _controller.writeOpenValues(_representation.get(), _semanticFeature, allResults);
+              _controller.writeOpenValues(descriptor.get(), semanticFeature, allResults);
             }
           }
         };
-        TransactionHelper.getExecutionManager(_representation.get()).execute(command);
+        TransactionHelper.getExecutionManager(descriptor.get()).execute(command);
         refreshViewer();
       }
 
@@ -214,7 +211,7 @@ public class RepresentationPropertySection extends AbstractSection {
 
               for (EObject eObj : selectedReferencedElements) {
                 if (eObj instanceof DiagramIncomingLink) {
-                  RelationAnnotationHelper.removeAllocation(_representation.get(),
+                  RelationAnnotationHelper.removeAllocation(descriptor.get(),
                       RelationAnnotationHelper.IncomingRelationAnnotation, ((DiagramIncomingLink) eObj).getId());
                 }
               }
@@ -237,8 +234,8 @@ public class RepresentationPropertySection extends AbstractSection {
     };
 
     outgoingTableField = new ReferenceTableField(grp, getWidgetFactory(), null, "Outgoing links",
-        new RepresentationOutgoingLinkController(), new RelationTypeTableDelegatedViewer(getWidgetFactory(),
-            new AbstractPropertyValueCellEditorProvider()) {
+        new RepresentationOutgoingLinkController(),
+        new RelationTypeTableDelegatedViewer(getWidgetFactory(), new AbstractPropertyValueCellEditorProvider()) {
           @Override
           protected String[] getColumnProperties() {
             return outgoingColumnProperties;
@@ -267,21 +264,21 @@ public class RepresentationPropertySection extends AbstractSection {
           }
         }) {
       protected List<EObject> getReferencedElementsByContainedOnes() {
-        return _controller.loadValues(_representation.get(), _semanticFeature);
+        return _controller.loadValues(descriptor.get(), semanticFeature);
       }
 
       protected void handleBrowse() {
         AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
           public void run() {
-            List<EObject> availableElements = _controller.readOpenValues(_representation.get(), _semanticFeature, true);
+            List<EObject> availableElements = _controller.readOpenValues(descriptor.get(), semanticFeature, true);
             List<EObject> allResults = (List<EObject>) DialogHelper.openMultiSelectionDialog(_browseBtn,
                 availableElements);
             if (null != allResults) {
-              _controller.writeOpenValues(_representation.get(), _semanticFeature, allResults);
+              _controller.writeOpenValues(descriptor.get(), semanticFeature, allResults);
             }
           }
         };
-        TransactionHelper.getExecutionManager(_representation.get()).execute(command);
+        TransactionHelper.getExecutionManager(descriptor.get()).execute(command);
         refreshViewer();
       }
 
@@ -295,7 +292,7 @@ public class RepresentationPropertySection extends AbstractSection {
 
               for (EObject eObj : selectedReferencedElements) {
                 if (eObj instanceof DiagramOutgoingLink) {
-                  RelationAnnotationHelper.removeAllocation(_representation.get(),
+                  RelationAnnotationHelper.removeAllocation(descriptor.get(),
                       RelationAnnotationHelper.OutgoingRelationAnnotation, ((DiagramOutgoingLink) eObj).getId());
                 }
               }

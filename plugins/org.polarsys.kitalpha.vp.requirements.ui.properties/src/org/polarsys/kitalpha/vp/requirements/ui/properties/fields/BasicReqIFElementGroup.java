@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,7 +39,7 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
   public BasicReqIFElementGroup(Composite parent, TabbedPropertySheetWidgetFactory widgetFactory, boolean onlyName) {
     super(widgetFactory);
 
-    Group textGroup = _widgetFactory.createGroup(parent, ICommonConstants.EMPTY_STRING);
+    Group textGroup = widgetFactory.createGroup(parent, ICommonConstants.EMPTY_STRING);
     textGroup.setLayout(new GridLayout(2, false));
     GridData gd = new GridData(GridData.FILL_HORIZONTAL);
     gd.horizontalSpan = 2;
@@ -57,9 +57,9 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
    * @param textLabel
    */
   private Text createTextField(Group textGroup, String textLabel) {
-    _widgetFactory.createCLabel(textGroup, textLabel);
+    widgetFactory.createCLabel(textGroup, textLabel);
 
-    Text field = _widgetFactory.createText(textGroup, ICommonConstants.EMPTY_STRING);
+    Text field = widgetFactory.createText(textGroup, ICommonConstants.EMPTY_STRING);
     field.addFocusListener(this);
     field.addKeyListener(this);
     field.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -74,13 +74,13 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
   public void loadData(EObject semanticElement) {
     loadData(semanticElement, null);
 
-    if (null != _semanticElement) {
+    if (null != semanticElement) {
       if (null != nameField)
-        setTextValue(nameField, _semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName());
+        setTextValue(nameField, semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName());
       if (null != chapternameField)
-        setTextValue(chapternameField, _semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName());
+        setTextValue(chapternameField, semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName());
       if (null != textField)
-        setTextValue(textField, _semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText());
+        setTextValue(textField, semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText());
     }
   }
 
@@ -90,11 +90,11 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
   @Override
   protected void fillTextField(Text field) {
     if (field.equals(nameField)) {
-      setDataValue(_semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName(), nameField.getText());
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName(), nameField.getText());
     } else if (field.equals(chapternameField)) {
-      setDataValue(_semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName(), chapternameField.getText());
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName(), chapternameField.getText());
     } else if (field.equals(textField)) {
-      setDataValue(_semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText(), textField.getText());
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText(), textField.getText());
     }
   }
 
