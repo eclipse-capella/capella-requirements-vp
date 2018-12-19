@@ -10,19 +10,19 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "http://git.polarsys.org/c/capella/capella.git/plain/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform?h=v1.2.x"
+include "http://git.polarsys.org/c/capella/capella.git/plain/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform?h=master"
 
 with source, requirements
 
-location "https://ci.polarsys.org/capella/job/capella-v1.2.x/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
+location "https://ci.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
 	org.polarsys.capella.rcp.feature.feature.group
 }
 
-location "https://ci.polarsys.org/capella/job/capella-v1.2.x/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {
+location "https://ci.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "http://download.eclipse.org/diffmerge/releases/0.9.0/edm-coevolution-site" {
+location "http://download.eclipse.org/diffmerge/releases/0.11.0/edm-coevolution-site" {
 	org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group
 }
 
@@ -34,6 +34,6 @@ location "http://download.eclipse.org/sphinx/releases/0.8.x" {
 	org.eclipse.sphinx.emf.serialization.feature.group
 }
 
-location "http://download.eclipse.org/modeling/emf/cdo/drops/R20160607-1209/" {
+location "https://download.eclipse.org/modeling/emf/cdo/drops/R20180613-0111/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
