@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -16,8 +16,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.polarsys.capella.common.data.activity.ActivityPackage;
+import org.polarsys.capella.common.data.behavior.BehaviorPackage;
+import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.core.data.capellacommon.CapellacommonPackage;
 
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
@@ -172,7 +176,12 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		CsPackage.eINSTANCE.eClass();
 		FaPackage.eINSTANCE.eClass();
 		InteractionPackage.eINSTANCE.eClass();
+		ModellingcorePackage.eINSTANCE.eClass();
+		BehaviorPackage.eINSTANCE.eClass();
+		ActivityPackage.eINSTANCE.eClass();
 		RequirementsPackage.eINSTANCE.eClass();
+		EmdePackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCapellaRequirementsPackage.createPackageContents();
@@ -405,13 +414,13 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	protected void createConstraintAnnotations() {
 		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$	
 		addAnnotation(capellaTypesFolderEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.2.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.3.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaModuleEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.2.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.3.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaOutgoingRelationEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.2.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.3.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 	}
 

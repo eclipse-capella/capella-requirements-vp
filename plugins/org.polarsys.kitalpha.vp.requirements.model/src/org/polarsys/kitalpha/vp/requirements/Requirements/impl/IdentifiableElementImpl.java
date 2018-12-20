@@ -29,10 +29,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.IdentifiableElementImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -73,7 +73,7 @@ public abstract class IdentifiableElementImpl extends EObjectImpl implements Ide
 
 		super();
 
-    setId(UUID.randomUUID().toString());
+		setId(UUID.randomUUID().toString());
 
 	}
 
@@ -94,6 +94,7 @@ public abstract class IdentifiableElementImpl extends EObjectImpl implements Ide
 	 */
 
 	public String getId() {
+
 		return id;
 	}
 

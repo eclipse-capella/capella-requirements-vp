@@ -20,8 +20,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Enum Value</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

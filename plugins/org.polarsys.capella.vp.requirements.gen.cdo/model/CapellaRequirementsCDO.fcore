@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:domain="http://www.eclipse.org/egf/1.0.0/domain"
+    xmlns:fcore="http://www.eclipse.org/egf/1.0.0/fcore" xmlns:fprod="http://www.eclipse.org/egf/1.0.0/fprod"
+    xmlns:pattern="http://www.eclipse.org/egf/1.0.0/pattern">
+  <fcore:FactoryComponent xmi:id="_6swnAKXPEeaqtbE9krmRDQ" name="RequirementsCDO Launcher">
+    <viewpointContainer xmi:id="_6swnAaXPEeaqtbE9krmRDQ">
+      <viewpoints xmi:type="domain:DomainViewpoint" xmi:id="_6swnAqXPEeaqtbE9krmRDQ"/>
+    </viewpointContainer>
+    <orchestration xmi:type="fprod:ProductionPlan" xmi:id="_6swnA6XPEeaqtbE9krmRDQ">
+      <orchestrationParameterContainer xmi:id="_6swnBKXPEeaqtbE9krmRDQ">
+        <orchestrationParameters xmi:id="_6swnBaXPEeaqtbE9krmRDQ" name="generation extension">
+          <type xmi:type="pattern:TypePatternSubstitution" xmi:id="_6swnBqXPEeaqtbE9krmRDQ"/>
+        </orchestrationParameters>
+      </orchestrationParameterContainer>
+      <invocations xmi:id="_nGVKYARBEemtXofGWy7vQA" name="RequirementsCDO invocation"
+          invokedActivity="#_1bDHsKXNEeaqtbE9krmRDQ">
+        <invocationContractContainer xmi:id="_nGVKYQRBEemtXofGWy7vQA"/>
+      </invocations>
+      <invocations xmi:id="_6swnDqXPEeaqtbE9krmRDQ" name="CapellaRequirementsCDO invocation"
+          invokedActivity="#_6sxOEKXPEeaqtbE9krmRDQ">
+        <invocationContractContainer xmi:id="_6swnD6XPEeaqtbE9krmRDQ"/>
+      </invocations>
+    </orchestration>
+  </fcore:FactoryComponent>
+  <fcore:FactoryComponent xmi:id="_1bDHsKXNEeaqtbE9krmRDQ" name="RequirementsCDO">
+    <viewpointContainer xmi:id="_1bDHsaXNEeaqtbE9krmRDQ">
+      <viewpoints xmi:type="domain:DomainViewpoint" xmi:id="_1bDHsqXNEeaqtbE9krmRDQ">
+        <domains xmi:type="domain:EMFDomain" xmi:id="_1bDuwKXNEeaqtbE9krmRDQ" helperImplementation="org.eclipse.egf.domain.emf.EMFDomainHelper"
+            uri="platform:/resource/org.polarsys.kitalpha.vp.requirements.model/models/Requirements.genmodel"/>
+      </viewpoints>
+    </viewpointContainer>
+    <orchestration xmi:type="fprod:ProductionPlan" xmi:id="_1bDHs6XNEeaqtbE9krmRDQ">
+      <orchestrationParameterContainer xmi:id="_1bDHtKXNEeaqtbE9krmRDQ">
+        <orchestrationParameters xmi:id="_1bDHtaXNEeaqtbE9krmRDQ" name="generation extension"
+            invocationContracts="#_1bFj9KXNEeaqtbE9krmRDQ">
+          <type xmi:type="pattern:TypePatternSubstitution" xmi:id="_1bDHtqXNEeaqtbE9krmRDQ"/>
+        </orchestrationParameters>
+      </orchestrationParameterContainer>
+      <invocations xmi:id="_1bFj8KXNEeaqtbE9krmRDQ" name="EMF Pattern CDO - Factory Override invocation"
+          invokedActivity="fcore:FactoryComponent platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_jgrokOCEEeGKHKVgqEoOmg">
+        <invocationContractContainer xmi:id="_1bFj8aXNEeaqtbE9krmRDQ">
+          <invocationContracts xmi:id="_1bFj8qXNEeaqtbE9krmRDQ" invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSseCEEeGKHKVgqEoOmg">
+            <type xmi:type="domain:TypeDomain" xmi:id="_1bFj86XNEeaqtbE9krmRDQ" domain="#_1bDuwKXNEeaqtbE9krmRDQ"/>
+          </invocationContracts>
+          <invocationContracts xmi:id="_1bFj9KXNEeaqtbE9krmRDQ" orchestrationParameter="#_1bDHtaXNEeaqtbE9krmRDQ"
+              invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSt-CEEeGKHKVgqEoOmg"/>
+        </invocationContractContainer>
+      </invocations>
+    </orchestration>
+  </fcore:FactoryComponent>
+  <fcore:FactoryComponent xmi:id="_6sxOEKXPEeaqtbE9krmRDQ" name="CapellaRequirementsCDO">
+    <viewpointContainer xmi:id="_6sxOEaXPEeaqtbE9krmRDQ">
+      <viewpoints xmi:type="domain:DomainViewpoint" xmi:id="_6sxOEqXPEeaqtbE9krmRDQ">
+        <domains xmi:type="domain:EMFDomain" xmi:id="_6sxOGaXPEeaqtbE9krmRDQ" helperImplementation="org.eclipse.egf.domain.emf.EMFDomainHelper"
+            uri="platform:/resource/org.polarsys.capella.vp.requirements.model/models/CapellaRequirements.genmodel"/>
+      </viewpoints>
+    </viewpointContainer>
+    <orchestration xmi:type="fprod:ProductionPlan" xmi:id="_6sxOE6XPEeaqtbE9krmRDQ">
+      <orchestrationParameterContainer xmi:id="_6sxOFKXPEeaqtbE9krmRDQ">
+        <orchestrationParameters xmi:id="_6sxOFaXPEeaqtbE9krmRDQ" name="generation extension"
+            invocationContracts="#_6szDRKXPEeaqtbE9krmRDQ">
+          <type xmi:type="pattern:TypePatternSubstitution" xmi:id="_6sxOFqXPEeaqtbE9krmRDQ"/>
+        </orchestrationParameters>
+      </orchestrationParameterContainer>
+      <invocations xmi:id="_6szDQKXPEeaqtbE9krmRDQ" name="EMF Pattern CDO - Factory Override invocation"
+          invokedActivity="fcore:FactoryComponent platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_jgrokOCEEeGKHKVgqEoOmg">
+        <invocationContractContainer xmi:id="_6szDQaXPEeaqtbE9krmRDQ">
+          <invocationContracts xmi:id="_6szDQqXPEeaqtbE9krmRDQ" invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSseCEEeGKHKVgqEoOmg">
+            <type xmi:type="domain:TypeDomain" xmi:id="_6szDQ6XPEeaqtbE9krmRDQ" domain="#_6sxOGaXPEeaqtbE9krmRDQ"/>
+          </invocationContracts>
+          <invocationContracts xmi:id="_6szDRKXPEeaqtbE9krmRDQ" orchestrationParameter="#_6sxOFaXPEeaqtbE9krmRDQ"
+              invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSt-CEEeGKHKVgqEoOmg"/>
+        </invocationContractContainer>
+      </invocations>
+    </orchestration>
+  </fcore:FactoryComponent>
+</xmi:XMI>

@@ -10,17 +10,20 @@
   Contributors:
        Thales - initial API and implementation
 -->
+
 <plugin>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated CapellaRequirements -->
       <factory class="org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory" supportedTypes="org.eclipse.emf.edit.provider.IEditingDomainItemProvider                org.eclipse.emf.edit.provider.IStructuredItemContentProvider                org.eclipse.emf.edit.provider.ITreeItemContentProvider                org.eclipse.emf.edit.provider.IItemLabelProvider                org.eclipse.emf.edit.provider.IItemPropertySource" uri="http://www.polarsys.org/capella/requirements"/>
    </extension>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated CapellaRequirements -->
       <extender class="org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory$RequirementsChildCreationExtender" uri="http://www.polarsys.org/kitalpha/requirements"/>
       <extender class="org.polarsys.capella.vp.requirements.CapellaRequirements.provider.CapellaRequirementsItemProviderAdapterFactory$EmdeChildCreationExtender" uri="http://www.polarsys.org/kitalpha/emde/1.0.0"/>
    </extension>

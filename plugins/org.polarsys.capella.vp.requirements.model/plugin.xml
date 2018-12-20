@@ -10,17 +10,20 @@
   Contributors:
        Thales - initial API and implementation
 -->
+
 <plugin>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated CapellaRequirements -->
       <package class="org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage" genModel="models/CapellaRequirements.genmodel" uri="http://www.polarsys.org/capella/requirements"/>
    </extension>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated CapellaRequirements -->
       <parser class="org.polarsys.capella.vp.requirements.CapellaRequirements.util.CapellaRequirementsResourceFactoryImpl" type="capellarequirements"/>
    </extension>
 

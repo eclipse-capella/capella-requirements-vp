@@ -35,11 +35,11 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.TypesFolderImpl#getOwnedDefinitionTypes <em>Owned Definition Types</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.TypesFolderImpl#getOwnedTypes <em>Owned Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

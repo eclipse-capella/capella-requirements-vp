@@ -23,8 +23,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.impl.AbstractRelationI
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Capella Relation</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

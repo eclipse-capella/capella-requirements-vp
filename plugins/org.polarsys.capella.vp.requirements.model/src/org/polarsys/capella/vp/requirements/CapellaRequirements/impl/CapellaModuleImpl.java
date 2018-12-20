@@ -40,10 +40,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaModuleImpl#getOwnedExtensions <em>Owned Extensions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -10,17 +10,20 @@
   Contributors:
        Thales - initial API and implementation
 -->
+
 <plugin>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Requirements -->
       <package class="org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage" genModel="models/Requirements.genmodel" uri="http://www.polarsys.org/kitalpha/requirements"/>
    </extension>
 
    
 <!--@generated-->
   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated Requirements -->
       <parser class="org.polarsys.kitalpha.vp.requirements.Requirements.util.RequirementsResourceFactoryImpl" type="requirements"/>
    </extension>
 

@@ -30,10 +30,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.EnumerationDataTypeDefinitionImpl#getSpecifiedValues <em>Specified Values</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -32,11 +32,11 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaIncomingRelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaIncomingRelationImpl#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

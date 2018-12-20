@@ -24,12 +24,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFIdentifier <em>Req IF Identifier</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFDescription <em>Req IF Description</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl#getReqIFLongName <em>Req IF Long Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

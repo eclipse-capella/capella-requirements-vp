@@ -40,10 +40,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.impl.TypesFolderImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaTypesFolderImpl#getOwnedExtensions <em>Owned Extensions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

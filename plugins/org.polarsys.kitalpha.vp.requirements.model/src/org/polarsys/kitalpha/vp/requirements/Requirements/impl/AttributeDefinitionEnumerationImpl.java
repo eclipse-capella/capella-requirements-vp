@@ -27,10 +27,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeDefinitionEnumerationImpl#isMultiValued <em>Multi Valued</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
