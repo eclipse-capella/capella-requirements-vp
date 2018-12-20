@@ -17,12 +17,11 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.polarsys.capella.common.mdsofa.common.misc.Couple;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
@@ -62,8 +61,11 @@ public class Representation_CapellaOutgoingRelation_Requirement extends Represen
 	public List<EObject> getCurrentElements(EObject element, boolean onlyGenerated) {
     if (element instanceof DRepresentationDescriptor) {
       List<EObject> result = new ArrayList<EObject>();
-      for (Couple<Requirement, RelationType> allocation : RelationAnnotationHelper.getAllocations((DRepresentationDescriptor) element, RelationAnnotationHelper.OutgoingRelationAnnotation).values()) {
-        result.add(allocation.getKey());
+      for (DAnnotation allocation : RelationAnnotationHelper.getAllocations((DRepresentationDescriptor) element, RelationAnnotationHelper.OutgoingRelationAnnotation)) {
+        Requirement requirement = RelationAnnotationHelper.getRequirement(allocation);
+        if (requirement != null) {
+          result.add(requirement);
+        }
       }
       return result;
     }

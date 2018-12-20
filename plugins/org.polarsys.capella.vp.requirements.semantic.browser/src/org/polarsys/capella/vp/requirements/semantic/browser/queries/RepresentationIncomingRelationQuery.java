@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.polarsys.capella.common.mdsofa.common.misc.Couple;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
@@ -32,9 +31,11 @@ public class RepresentationIncomingRelationQuery extends AbstractViewpointQuery 
 		List<Object> result = new ArrayList<Object>();
     DRepresentationDescriptor descriptor = (DRepresentationDescriptor) object;
 
-    for (Couple<Requirement, RelationType> requirement : RelationAnnotationHelper.getAllocations(descriptor, RelationAnnotationHelper.IncomingRelationAnnotation).values()) {
-      if (requirement != null)
-        result.add(requirement.getKey());
+    for (DAnnotation allocation : RelationAnnotationHelper.getAllocations(descriptor, RelationAnnotationHelper.IncomingRelationAnnotation)) {
+      Requirement requirement = RelationAnnotationHelper.getRequirement(allocation);
+      if (requirement != null) {
+        result.add(requirement);
+      }
     }
 
     return result;

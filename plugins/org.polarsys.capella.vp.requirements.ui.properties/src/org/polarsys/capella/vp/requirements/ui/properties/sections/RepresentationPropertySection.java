@@ -21,6 +21,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
+import org.eclipse.sirius.ui.tools.api.views.common.item.ItemWrapper;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.swt.SWT;
@@ -86,6 +87,9 @@ public class RepresentationPropertySection extends AbstractSection {
       if (selection instanceof IStructuredSelection) {
         Object firstElement = ((IStructuredSelection) selection).getFirstElement();
 
+        if (firstElement instanceof ItemWrapper) {
+          firstElement = ((ItemWrapper) firstElement).getWrappedObject();
+        }
         if (firstElement instanceof DRepresentationDescriptor) {
           descriptor = new WeakReference<DRepresentationDescriptor>((DRepresentationDescriptor) firstElement);
         } else if (firstElement instanceof IDDiagramEditPart) {
@@ -208,14 +212,12 @@ public class RepresentationPropertySection extends AbstractSection {
             final List<EObject> selectedReferencedElements = ((IStructuredSelection) columnViewer.getSelection())
                 .toList();
             if (!selectedReferencedElements.isEmpty()) {
-
               for (EObject eObj : selectedReferencedElements) {
                 if (eObj instanceof DiagramIncomingLink) {
                   RelationAnnotationHelper.removeAllocation(descriptor.get(),
-                      RelationAnnotationHelper.IncomingRelationAnnotation, ((DiagramIncomingLink) eObj).getId());
+                      RelationAnnotationHelper.IncomingRelationAnnotation, ((DiagramIncomingLink) eObj).getAnnotation());
                 }
               }
-
               refreshViewer();
             }
           }
@@ -293,7 +295,7 @@ public class RepresentationPropertySection extends AbstractSection {
               for (EObject eObj : selectedReferencedElements) {
                 if (eObj instanceof DiagramOutgoingLink) {
                   RelationAnnotationHelper.removeAllocation(descriptor.get(),
-                      RelationAnnotationHelper.OutgoingRelationAnnotation, ((DiagramOutgoingLink) eObj).getId());
+                      RelationAnnotationHelper.OutgoingRelationAnnotation, ((DiagramOutgoingLink) eObj).getAnnotation());
                 }
               }
 

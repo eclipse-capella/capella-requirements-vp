@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <!--
-  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -432,7 +432,7 @@
 	      <category
 	            id="org.polarsys.kitalpha.vp.requirements.relation.typed"
 	            isTopLevel="true"
-	            name="Relation">
+	            name="Relations">
 	         <targetBrowserId
 	               id="ReferencingElementBrowser">
 	         </targetBrowserId>
@@ -442,6 +442,22 @@
 	         <categoryQuery>
 	            <basicQuery
 	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.RelationTypedQuery">
+	            </basicQuery>
+	         </categoryQuery>
+	      </category>
+	      <category
+	            id="org.polarsys.kitalpha.vp.requirements.relation.typedrepresentation"
+	            isTopLevel="true"
+	            name="Representations">
+	         <targetBrowserId
+	               id="ReferencingElementBrowser">
+	         </targetBrowserId>
+	         <availableForType
+	               class="org.polarsys.kitalpha.vp.requirements.Requirements.RelationType">
+	         </availableForType>
+	         <categoryQuery>
+	            <basicQuery
+	                  class="org.polarsys.capella.vp.requirements.semantic.browser.queries.RelationTypedRepresentationQuery">
 	            </basicQuery>
 	         </categoryQuery>
 	      </category>

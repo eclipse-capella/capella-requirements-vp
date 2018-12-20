@@ -11,16 +11,21 @@
 package org.polarsys.capella.vp.requirements.ui.properties.controllers;
 
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaOutgoingRelationImpl;
 
 public class DiagramOutgoingLink extends CapellaOutgoingRelationImpl {
 
   private DRepresentationDescriptor containingDescriptor;
-  private String id;
+  private DAnnotation annotation;
+
+  public DAnnotation getAnnotation() {
+    return annotation;
+  }
   
-  public DiagramOutgoingLink(DRepresentationDescriptor containingDescriptor, String id) {
+  public DiagramOutgoingLink(DRepresentationDescriptor containingDescriptor, DAnnotation annotation) {
     this.containingDescriptor = containingDescriptor;
-    this.id = id;
+    this.annotation = annotation;
   }
 
   public DRepresentationDescriptor getContainingRepresentation() {
@@ -28,6 +33,6 @@ public class DiagramOutgoingLink extends CapellaOutgoingRelationImpl {
   }
   
   public String getId() {
-    return id;
+    return annotation.getUid();
   }
 }

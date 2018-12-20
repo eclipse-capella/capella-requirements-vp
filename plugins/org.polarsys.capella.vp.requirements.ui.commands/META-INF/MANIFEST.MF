@@ -14,7 +14,12 @@ Require-Bundle: org.eclipse.core.expressions,
  org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.model.helpers,
  org.polarsys.capella.vp.requirements.reqif.resource.obfuscator,
- org.polarsys.kitalpha.ad.services
+ org.polarsys.kitalpha.ad.services,
+ org.polarsys.capella.core.data.migration,
+ org.polarsys.capella.core.diagram.helpers,
+ org.polarsys.capella.core.model.handler,
+ org.polarsys.kitalpha.vp.requirements.model,
+ org.polarsys.capella.vp.requirements.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.polarsys.capella.vp.requirements.ui.commands,
  org.polarsys.capella.vp.requirements.ui.commands.importer,

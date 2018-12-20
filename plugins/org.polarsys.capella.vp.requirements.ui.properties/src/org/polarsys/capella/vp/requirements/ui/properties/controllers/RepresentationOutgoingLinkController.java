@@ -13,13 +13,12 @@ package org.polarsys.capella.vp.requirements.ui.properties.controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
@@ -52,10 +51,10 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
       for (EObject eObj : values) {
         if (eObj instanceof Requirement) {
           Requirement requirement = (Requirement) eObj;
-          Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject, EObject>>();
-          
+          Collection<Couple<Requirement, RelationType>> elts = new ArrayList<>();
+
           DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, null, requirement, null);
-          elts.add(new Couple<EObject, EObject>(requirement, getDefaultType(tempOutgoingLink)));
+          elts.add(new Couple<Requirement, RelationType>(requirement, getDefaultType(tempOutgoingLink)));
           RelationAnnotationHelper.addAllocations(descriptor, RelationAnnotationHelper.OutgoingRelationAnnotation,
               elts);
         }
@@ -71,26 +70,26 @@ public class RepresentationOutgoingLinkController extends AbstractAllocationCont
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> result = new ArrayList<EObject>();
     if (semanticElement instanceof DRepresentationDescriptor) {
-      for (Entry<String, Couple<Requirement, RelationType>> allocation : RelationAnnotationHelper
-          .getAllocations((DRepresentationDescriptor) semanticElement, RelationAnnotationHelper.OutgoingRelationAnnotation)
-          .entrySet()) {
-        DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, allocation.getKey(), allocation.getValue().getKey(), allocation.getValue().getValue());
+      for (DAnnotation allocation : RelationAnnotationHelper.getAllocations((DRepresentationDescriptor) semanticElement,
+          RelationAnnotationHelper.OutgoingRelationAnnotation)) {
+        DiagramOutgoingLink tempOutgoingLink = createTempOutgoingLink(semanticElement, allocation,
+            RelationAnnotationHelper.getRequirement(allocation), RelationAnnotationHelper.getRelationType(allocation));
         result.add(tempOutgoingLink);
       }
     }
     return result;
   }
-  
-  protected DiagramOutgoingLink createTempOutgoingLink(EObject semanticElement, String id, Requirement requirement,
-      RelationType relationType) {
-    DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentationDescriptor) semanticElement, id);
+
+  protected DiagramOutgoingLink createTempOutgoingLink(EObject descriptor, DAnnotation annotation,
+      Requirement requirement, RelationType relationType) {
+    DiagramOutgoingLink tempOutgoingLink = new DiagramOutgoingLink((DRepresentationDescriptor) descriptor, annotation);
     tempOutgoingLink.setTarget(requirement);
     tempOutgoingLink.setRelationType(relationType);
 
     // Choose the element containing the diagram as the source of the temporary link
-    if (semanticElement instanceof DSemanticDecorator
-        && ((DSemanticDecorator) semanticElement).getTarget() instanceof CapellaElement)
-      tempOutgoingLink.setSource((CapellaElement) ((DSemanticDecorator) semanticElement).getTarget());
+    if (((DRepresentationDescriptor) descriptor).getTarget() instanceof CapellaElement) {
+      tempOutgoingLink.setSource((CapellaElement) ((DRepresentationDescriptor) descriptor).getTarget());
+    }
     return tempOutgoingLink;
   }
 }

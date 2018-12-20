@@ -13,13 +13,12 @@ package org.polarsys.capella.vp.requirements.ui.properties.controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
@@ -52,10 +51,9 @@ public class RepresentationIncomingLinkController extends AbstractAllocationCont
       for (EObject eObj : values) {
         if (eObj instanceof Requirement) {
           Requirement requirement = (Requirement) eObj;
-          Collection<Couple<EObject, EObject>> elts = new ArrayList<Couple<EObject, EObject>>();
-
+          Collection<Couple<Requirement, RelationType>> elts = new ArrayList<>();
           DiagramIncomingLink tempIncomingLink = createTempIncomingLink(semanticElement, null, requirement, null);
-          elts.add(new Couple<EObject, EObject>(requirement, getDefaultType(tempIncomingLink)));
+          elts.add(new Couple<Requirement, RelationType>(requirement, getDefaultType(tempIncomingLink)));
           RelationAnnotationHelper.addAllocations(descriptor, RelationAnnotationHelper.IncomingRelationAnnotation,
               elts);
         }
@@ -71,27 +69,26 @@ public class RepresentationIncomingLinkController extends AbstractAllocationCont
   public List<EObject> loadValues(EObject semanticElement, EStructuralFeature semanticFeature) {
     List<EObject> result = new ArrayList<EObject>();
     if (semanticElement instanceof DRepresentationDescriptor) {
-      for (Entry<String, Couple<Requirement, RelationType>> allocation : RelationAnnotationHelper
-          .getAllocations((DRepresentationDescriptor) semanticElement, RelationAnnotationHelper.IncomingRelationAnnotation)
-          .entrySet()) {
-        DiagramIncomingLink tempIncomingLink = createTempIncomingLink(semanticElement, allocation.getKey(),
-            allocation.getValue().getKey(), allocation.getValue().getValue());
+      for (DAnnotation allocation : RelationAnnotationHelper.getAllocations((DRepresentationDescriptor) semanticElement,
+          RelationAnnotationHelper.IncomingRelationAnnotation)) {
+        DiagramIncomingLink tempIncomingLink = createTempIncomingLink(semanticElement, allocation,
+            RelationAnnotationHelper.getRequirement(allocation), RelationAnnotationHelper.getRelationType(allocation));
         result.add(tempIncomingLink);
       }
     }
     return result;
   }
 
-  protected DiagramIncomingLink createTempIncomingLink(EObject semanticElement, String id, Requirement requirement,
-      RelationType relationType) {
-    DiagramIncomingLink tempIncomingLink = new DiagramIncomingLink((DRepresentationDescriptor) semanticElement, id);
+  protected DiagramIncomingLink createTempIncomingLink(EObject descriptor, DAnnotation annotation,
+      Requirement requirement, RelationType type) {
+    DiagramIncomingLink tempIncomingLink = new DiagramIncomingLink((DRepresentationDescriptor) descriptor, annotation);
+
     tempIncomingLink.setSource(requirement);
-    tempIncomingLink.setRelationType(relationType);
+    tempIncomingLink.setRelationType(type);
 
     // Choose the element containing the diagram as the source of the temporary link
-    if (semanticElement instanceof DSemanticDecorator
-        && ((DSemanticDecorator) semanticElement).getTarget() instanceof CapellaElement)
-      tempIncomingLink.setTarget((CapellaElement) ((DSemanticDecorator) semanticElement).getTarget());
+    if (((DRepresentationDescriptor) descriptor).getTarget() instanceof CapellaElement)
+      tempIncomingLink.setTarget((CapellaElement) ((DRepresentationDescriptor) descriptor).getTarget());
     return tempIncomingLink;
   }
 }

@@ -12,25 +12,20 @@ package org.polarsys.capella.vp.requirements.model.helpers;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.sirius.business.api.helper.SiriusUtil;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.mdsofa.common.misc.Couple;
 import org.polarsys.capella.core.diagram.helpers.DAnnotationHelper;
-import org.polarsys.capella.core.model.handler.helpers.RepresentationHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
@@ -43,72 +38,54 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 public class RelationAnnotationHelper {
 
   /**
-   * Constants used in DAnnotation.source to distinguish IncomingRelation and OutgoingRelation. 
+   * Constants used in DAnnotation.source to distinguish IncomingRelation and OutgoingRelation.
    */
   public static final String OutgoingRelationAnnotation = "http://www.polarsys.org/capella/vp/requirements/OutgoingRelation"; //$NON-NLS-1$
   public static final String IncomingRelationAnnotation = "http://www.polarsys.org/capella/vp/requirements/IncomingRelation"; //$NON-NLS-1$
 
   /**
-   *
+   * Retrieve annotations of descriptors referencing the given requirement as incoming relation
    */
-  private static final String idseparator = ";"; //$NON-NLS-1$
+  public static Collection<DAnnotation> getIncomingAnnotations(Requirement requirement) {
+    Collection<DAnnotation> result = new LinkedHashSet<>();
+    for (Setting s : SessionManager.INSTANCE.getSession(requirement).getSemanticCrossReferencer()
+        .getInverseReferences(requirement)) {
+      if (DescriptionPackage.Literals.DANNOTATION__REFERENCES.equals(s.getEStructuralFeature())) {
+        DAnnotation annotation = (DAnnotation) s.getEObject();
+        if (IncomingRelationAnnotation.equals(annotation.getSource())) {
+          result.add(annotation);
+        }
+      }
+    }
+    return result;
+  }
 
   /**
-   * @param descriptor
-   * @param relationType one of the constants IncomingRelationAnnotation or OutgoingRelationAnnotation 
+   * Retrieve annotations of descriptors referencing the given requirement as outgoing relation
    */
-  public static Map<String, Couple<Requirement, RelationType>> getAllocations(final DRepresentationDescriptor descriptor,
-      final String relationType) {
-    Map<String, Couple<Requirement, RelationType>> result = new HashMap<>();
-    final DAnnotation[] annotation = new DAnnotation[1];
-    AbstractReadWriteCommand getAnnotationCommand = new AbstractReadWriteCommand() {
-      @Override
-      public void run() {
-        annotation[0] = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
-      }
-    };
-    TransactionHelper.getExecutionManager(descriptor).execute(getAnnotationCommand);
-    
-    if (null != annotation[0]) {
-      for (Entry<String, String> detail : annotation[0].getDetails()) {
-        String id = detail.getKey();
-        String elementURIs = detail.getValue();
-        if ((elementURIs != null) && !elementURIs.isEmpty()) {
-          try {
-            String[] elementURI = elementURIs.split(idseparator);
-            String reqId = elementURI[0];
-            URI reqURI = URI.createURI(reqId);
-            if ((reqURI != null) && reqURI.hasFragment()) {
-              reqId = reqURI.fragment();
-            }
-            String typeId = null;
-            if (elementURI.length > 1)
-              typeId = elementURI[1];
-            if (typeId != null) {
-              URI typeURI = URI.createURI(typeId);
-              if ((typeURI != null) && typeURI.hasFragment()) {
-                typeId = typeURI.fragment();
-              }
-            }
-
-            if ((reqId != null) && !reqId.isEmpty()) {
-              for (Resource resource : RepresentationHelper.getSemanticResources(descriptor)) {
-                if (resource != null) {
-                  EObject reqObj = resource.getEObject(reqId);
-                  EObject typeObj = null;
-                  if (typeId != null && !typeId.isEmpty())
-                    typeObj = resource.getEObject(typeId);
-                  if (reqObj instanceof Requirement) {
-                    result.put(id, new Couple<Requirement, RelationType>((Requirement) reqObj,
-                        (typeObj instanceof RelationType) ? (RelationType) typeObj : null));
-                  }
-                }
-              }
-            }
-          } catch (IllegalArgumentException exception) {
-            // silent exception.. we just ignore this element
-          }
+  public static Collection<DAnnotation> getOutgoingAnnotations(Requirement requirement) {
+    Collection<DAnnotation> result = new LinkedHashSet<>();
+    for (Setting s : SessionManager.INSTANCE.getSession(requirement).getSemanticCrossReferencer()
+        .getInverseReferences(requirement)) {
+      if (DescriptionPackage.Literals.DANNOTATION__REFERENCES.equals(s.getEStructuralFeature())) {
+        DAnnotation annotation = (DAnnotation) s.getEObject();
+        if (OutgoingRelationAnnotation.equals(annotation.getSource())) {
+          result.add(annotation);
         }
+      }
+    }
+    return result;
+  }
+
+  /**
+   * Retrieve annotations of descriptors typed by the given relation type
+   */
+  public static Collection<DAnnotation> getTypedAnnotations(RelationType type) {
+    Collection<DAnnotation> result = new LinkedHashSet<>();
+    for (Setting s : SessionManager.INSTANCE.getSession(type).getSemanticCrossReferencer().getInverseReferences(type)) {
+      if (DescriptionPackage.Literals.DANNOTATION__REFERENCES.equals(s.getEStructuralFeature())) {
+        DAnnotation annotation = (DAnnotation) s.getEObject();
+        result.add(annotation);
       }
     }
     return result;
@@ -117,17 +94,53 @@ public class RelationAnnotationHelper {
   /**
    * @param descriptor
    * @param relationType
-   * @param requirement
+   *          one of the constants IncomingRelationAnnotation or OutgoingRelationAnnotation
    */
-  public static RelationType getAllocationType(DRepresentationDescriptor descriptor, String relationType,
-      Requirement requirement) {
-    RelationType type = null;
-    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
-      if (allocation.getKey().equals(requirement)) {
-        return allocation.getValue();
+  public static Collection<DAnnotation> getAllocations(final DRepresentationDescriptor descriptor,
+      final String relationType) {
+    return getAnnotations(relationType, descriptor);
+  }
+
+  /**
+   * Returns the descriptor containing the given annotation
+   * 
+   * @return it may return null, even it shall not occur
+   */
+  public static DRepresentationDescriptor getDescriptor(DAnnotation annotation) {
+    return (DRepresentationDescriptor) annotation.eContainer();
+  }
+
+  /**
+   * Returns the requirement associated to the given annotation
+   * 
+   * @return it may return null, even it shall not occur
+   */
+  public static Requirement getRequirement(DAnnotation annotation) {
+    return (Requirement) annotation.getReferences().stream().filter(r -> r instanceof Requirement).findFirst()
+        .orElse(null);
+  }
+
+  /**
+   * Returns the relation type associated to the given annotation
+   * 
+   * @return it may return null, as a relation may not be typed.
+   */
+  public static RelationType getRelationType(DAnnotation annotation) {
+    return (RelationType) annotation.getReferences().stream().filter(r -> r instanceof RelationType).findFirst()
+        .orElse(null);
+  }
+
+  /**
+   * Get all annotations with a given source from a given descriptor
+   */
+  public static Collection<DAnnotation> getAnnotations(String source, DRepresentationDescriptor descriptor) {
+    Collection<DAnnotation> result = new ArrayList<DAnnotation>();
+    for (DAnnotation annotation : descriptor.getEAnnotations()) {
+      if (annotation.getSource() != null && annotation.getSource().equals(source)) {
+        result.add(annotation);
       }
     }
-    return type;
+    return result;
   }
 
   /**
@@ -136,26 +149,17 @@ public class RelationAnnotationHelper {
    * @param elements
    */
   public static void addAllocations(final DRepresentationDescriptor descriptor, final String relationType,
-      final Collection<Couple<EObject, EObject>> elements) {
-    final Map<Requirement, RelationType> elementsToBeAdded = new HashMap<>(0);
-    for (Couple<EObject, EObject> obj : elements) {
-      elementsToBeAdded.put((Requirement) obj.getKey(), (RelationType) obj.getValue());
-    }
-    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
-      Requirement requirement = allocation.getKey();
-      if (elementsToBeAdded.containsKey(requirement)) {
-        elementsToBeAdded.remove(requirement);
-      }
-    }
+      final Collection<Couple<Requirement, RelationType>> elements) {
     TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
-        for (Entry<Requirement, RelationType> entry : elementsToBeAdded.entrySet()) {
-          String reqId = entry.getKey().getId();
-          String typeId = null;
-          if (entry.getValue() != null)
-            typeId = entry.getValue().getId();
-          annotation.getDetails().put(EcoreUtil.generateUUID(), reqId + (typeId == null ? "" : idseparator + typeId));
+        for (Couple<Requirement, RelationType> entry : elements) {
+          DAnnotation annotation = DAnnotationHelper.createAnnotation(relationType, descriptor);
+          EObject requirement = entry.getKey();
+          EObject type = entry.getValue();
+          annotation.getReferences().add(requirement);
+          if (type != null) {
+            annotation.getReferences().add(type);
+          }
         }
       }
     });
@@ -177,40 +181,18 @@ public class RelationAnnotationHelper {
    */
   public static void removeAllocations(final DRepresentationDescriptor descriptor, final String relationType,
       Collection<Object> elements) {
-    final List<Requirement> elementsToBeDestroyed = new ArrayList<>(0);
-    for (Couple<Requirement, RelationType> allocation : getAllocations(descriptor, relationType).values()) {
-      Requirement requirement = allocation.getKey();
-      if (elements.contains(requirement)) {
-        elementsToBeDestroyed.add(requirement);
-      }
-    }
     TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
       public void run() {
-        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
-        if (annotation != null) {
-          for (Requirement requirement : elementsToBeDestroyed) {
-            for (String key : getKeysByValue(annotation.getDetails(), requirement.getId())) {
-              annotation.getDetails().remove(key);
-            }
+        Collection<DAnnotation> annotations = getAnnotations(relationType, descriptor);
+        for (Object requirement : elements) {
+          Collection<DAnnotation> toRemove = annotations.stream().filter(a -> requirement.equals(getRequirement(a)))
+              .collect(Collectors.toList());
+          for (DAnnotation annotation : toRemove) {
+            SiriusUtil.delete(annotation);
           }
         }
       }
     });
-  }
-
-  /**
-   * @param map
-   * @param value
-   * @return
-   */
-  private static Set<String> getKeysByValue(EMap<String, String> map, String value) {
-    Set<String> keys = new HashSet<>();
-    for (Entry<String, String> entry : map.entrySet()) {
-      if (entry.getValue().startsWith(value + idseparator)) {
-        keys.add(entry.getKey());
-      }
-    }
-    return keys;
   }
 
   /**
@@ -219,17 +201,10 @@ public class RelationAnnotationHelper {
    * @param element
    */
   public static void addAllocation(final DRepresentationDescriptor descriptor, final String relationType,
-      final Couple<EObject, EObject> element) {
-    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
-      public void run() {
-        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, true);
-        String reqId = ((Requirement) element.getKey()).getId();
-        String typeId = null;
-        if ((RelationType) element.getValue() != null)
-          typeId = ((RelationType) element.getValue()).getId();
-        annotation.getDetails().put(EcoreUtil.generateUUID(), reqId + (typeId == null ? "" : idseparator + typeId));
-      }
-    });
+      final Couple<Requirement, RelationType> element) {
+    ArrayList<Couple<Requirement, RelationType>> res = new ArrayList<>();
+    res.add(element);
+    addAllocations(descriptor, relationType, res);
   }
 
   /**
@@ -238,18 +213,18 @@ public class RelationAnnotationHelper {
    * @param elements
    */
   public static void removeAllocation(final DRepresentationDescriptor descriptor, final String relationType,
-      final String id) {
-    TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
-      public void run() {
-        DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, descriptor, false);
-        if (annotation != null) {
-          annotation.getDetails().removeKey(id);
+      DAnnotation annotation) {
+    if (annotation != null) {
+      TransactionHelper.getExecutionManager(descriptor).execute(new AbstractReadWriteCommand() {
+        public void run() {
+          SiriusUtil.delete(annotation);
         }
-      }
-    });
+      });
+    }
   }
 
-  public static void updateAllocation(DRepresentationDescriptor descriptor, AbstractRelation relation, String id) {
+  public static void updateAllocation(DRepresentationDescriptor descriptor, AbstractRelation relation,
+      DAnnotation annotation) {
     String relationType = null;
     Requirement requirement = null;
     if (relation instanceof CapellaIncomingRelation) {
@@ -260,9 +235,9 @@ public class RelationAnnotationHelper {
       requirement = ((CapellaOutgoingRelation) relation).getTarget();
     }
     if (requirement != null) {
-      removeAllocation(descriptor, relationType, id);
+      removeAllocation(descriptor, relationType, annotation);
       addAllocation(descriptor, relationType,
-          new Couple<EObject, EObject>(requirement, relation.getRelationType()));
+          new Couple<Requirement, RelationType>(requirement, relation.getRelationType()));
     }
   }
 }

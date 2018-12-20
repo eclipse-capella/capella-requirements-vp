@@ -104,11 +104,11 @@ public class RelationTypeTableDelegatedViewer extends TableDelegatedViewer {
               if (relation instanceof DiagramOutgoingLink) {
                 RelationAnnotationHelper.updateAllocation(
                     ((DiagramOutgoingLink) relation).getContainingRepresentation(), relation,
-                    ((DiagramOutgoingLink) relation).getId());
+                    ((DiagramOutgoingLink) relation).getAnnotation());
               } else if (relation instanceof DiagramIncomingLink) {
                 RelationAnnotationHelper.updateAllocation(
                     ((DiagramIncomingLink) relation).getContainingRepresentation(), relation,
-                    ((DiagramIncomingLink) relation).getId());
+                    ((DiagramIncomingLink) relation).getAnnotation());
               }
             }
           }

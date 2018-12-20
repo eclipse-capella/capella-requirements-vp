@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,11 +20,15 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.ConstraintStatus;
+import org.eclipse.osgi.util.NLS;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.description.DAnnotation;
 import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.validation.rule.AbstractValidationRule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
+import org.polarsys.capella.vp.requirements.model.helpers.RelationAnnotationHelper;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
@@ -40,13 +44,14 @@ public class REQ_Relation_02 extends AbstractValidationRule {
     Map<UniqueRelation, Integer> uniqueRelationCountMap = getUniqueRelationCountMap(target);
     for (Entry<UniqueRelation, Integer> entry : uniqueRelationCountMap.entrySet()) {
       if (entry.getValue() > 1) {
-        String relationTuple = "between SOURCE ("
-            + EObjectLabelProviderHelper.getText(entry.getKey().getSourceElement()) + ") and TARGET ("
-            + EObjectLabelProviderHelper.getText(entry.getKey().getTargetElement()) + ") of the same RELATION TYPE ("
-            + EObjectLabelProviderHelper.getText(entry.getKey().getRelationType()) + ")";
-        IStatus failureStatus = ctx.createFailureStatus(EObjectLabelProviderHelper.getText(target) + " "
-            + EObjectLabelProviderHelper.getMetaclassLabel(target, true) + " contains " + entry.getValue()
-            + " duplicated relations " + relationTuple);
+        String msg = NLS.bind(
+            "''{0}'' [{1}] contains {2} duplicated relations ''{5}'' between source ''{3}'' and target ''{4}''",
+            new String[] { EObjectLabelProviderHelper.getText(target),
+                EObjectLabelProviderHelper.getMetaclassLabel(target, false), "" + entry.getValue(),
+                EObjectLabelProviderHelper.getText(entry.getKey().getSourceElement()),
+                EObjectLabelProviderHelper.getText(entry.getKey().getTargetElement()),
+                EObjectLabelProviderHelper.getText(entry.getKey().getRelationType()) });
+        IStatus failureStatus = ctx.createFailureStatus(msg);
         statuses.add(failureStatus);
       }
     }
@@ -66,33 +71,57 @@ public class REQ_Relation_02 extends AbstractValidationRule {
    */
   protected Map<UniqueRelation, Integer> getUniqueRelationCountMap(EObject target) {
     Map<UniqueRelation, Integer> relationCountMap = new HashMap<>();
+
+    for (UniqueRelation relation : getRelations(target)) {
+      if (isUniqueRelationValid(relation)) {
+        updateRelationCountMap(relationCountMap, relation);
+      }
+    }
+    return relationCountMap;
+  }
+
+  private Collection<UniqueRelation> getRelations(EObject target) {
+    Collection<UniqueRelation> result = new ArrayList<>();
+
     if (target instanceof Requirement) {
       Requirement req = (Requirement) target;
       for (AbstractRelation relation : req.getOwnedRelations()) {
         if (relation instanceof InternalRelation) {
-          UniqueRelation uniqueRelation = new UniqueRelation(((InternalRelation) relation).getSource(),
-              ((InternalRelation) relation).getTarget(), relation.getRelationType());
-          if (isUniqueRelationValid(uniqueRelation))
-            updateRelationCountMap(relationCountMap, uniqueRelation);
+          result.add(new UniqueRelation((InternalRelation) relation));
+
         } else if (relation instanceof CapellaIncomingRelation) {
-          UniqueRelation uniqueRelation = new UniqueRelation(((CapellaIncomingRelation) relation).getSource(),
-              ((CapellaIncomingRelation) relation).getTarget(), relation.getRelationType());
-          if (isUniqueRelationValid(uniqueRelation))
-            updateRelationCountMap(relationCountMap, uniqueRelation);
+          result.add(new UniqueRelation((CapellaIncomingRelation) relation));
         }
       }
+      for (DAnnotation annotation : RelationAnnotationHelper.getIncomingAnnotations(req)) {
+        result.add(new UniqueRelation((DAnnotation) annotation));
+      }
+      for (DAnnotation annotation : RelationAnnotationHelper.getOutgoingAnnotations(req)) {
+        result.add(new UniqueRelation((DAnnotation) annotation));
+      }
+
     } else if (target instanceof CapellaElement) {
       CapellaElement capellaElement = (CapellaElement) target;
       for (ElementExtension ext : capellaElement.getOwnedExtensions()) {
         if (ext instanceof CapellaOutgoingRelation) {
-          UniqueRelation uniqueRelation = new UniqueRelation(((CapellaOutgoingRelation) ext).getSource(),
-              ((CapellaOutgoingRelation) ext).getTarget(), ((CapellaOutgoingRelation) ext).getRelationType());
-          if (isUniqueRelationValid(uniqueRelation))
-            updateRelationCountMap(relationCountMap, uniqueRelation);
+          result.add(new UniqueRelation((CapellaOutgoingRelation) ext));
         }
       }
+
+    } else if (target instanceof DRepresentationDescriptor) {
+      DRepresentationDescriptor descriptor = (DRepresentationDescriptor) target;
+      for (DAnnotation annotation : RelationAnnotationHelper.getAllocations(descriptor,
+          RelationAnnotationHelper.IncomingRelationAnnotation)) {
+        result.add(new UniqueRelation((DAnnotation) annotation));
+      }
+
+      for (DAnnotation annotation : RelationAnnotationHelper.getAllocations(descriptor,
+          RelationAnnotationHelper.OutgoingRelationAnnotation)) {
+        result.add(new UniqueRelation((DAnnotation) annotation));
+      }
     }
-    return relationCountMap;
+
+    return result;
   }
 
   /**
@@ -118,7 +147,7 @@ public class REQ_Relation_02 extends AbstractValidationRule {
     return uniqueRelation.getSourceElement() != null && uniqueRelation.getTargetElement() != null
         && uniqueRelation.getRelationType() != null;
   }
-  
+
   /**
    * 
    * A representation of a requirement relation that is unique based on source element, target element and relation type
@@ -129,6 +158,23 @@ public class REQ_Relation_02 extends AbstractValidationRule {
     EObject target;
     EObject relationType;
 
+    public UniqueRelation(DAnnotation annotation) {
+      this(RelationAnnotationHelper.getDescriptor(annotation), RelationAnnotationHelper.getRequirement(annotation),
+          RelationAnnotationHelper.getRelationType(annotation));
+    }
+    
+    public UniqueRelation(CapellaOutgoingRelation relation) {
+      this(relation.getSource(), relation.getTarget(), relation.getRelationType());
+    }
+    
+    public UniqueRelation(CapellaIncomingRelation relation) {
+      this(relation.getSource(), relation.getTarget(), relation.getRelationType());
+    }
+
+    public UniqueRelation(InternalRelation relation) {
+      this(relation.getSource(), relation.getTarget(), relation.getRelationType());
+    }
+    
     public UniqueRelation(EObject source, EObject target, EObject relationType) {
       this.source = source;
       this.target = target;
