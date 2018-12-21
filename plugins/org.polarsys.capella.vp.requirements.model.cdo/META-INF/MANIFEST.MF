@@ -31,12 +31,7 @@ Import-Package: org.polarsys.capella.common.data.activity,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.polarsys.capella.core.data.gen.cdo;visibility:=reexport,
- org.polarsys.capella.common.data.core.gen.cdo;visibility:=reexport,
- org.polarsys.capella.common.data.behavior.gen.cdo;visibility:=reexport,
- org.polarsys.capella.common.data.activity.gen.cdo;visibility:=reexport,
  org.polarsys.kitalpha.vp.requirements.model.cdo;visibility:=reexport,
- org.polarsys.kitalpha.emde.model.cdo;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
