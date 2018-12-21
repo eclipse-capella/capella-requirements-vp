@@ -18,3 +18,5 @@ Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.vp.requirements.model.edit.decorators
 Bundle-Vendor: %bundleVendor
 Bundle-Localization: plugin
+Bundle-Activator: org.polarsys.capella.vp.requirements.validation.Activator
+Export-Package: org.polarsys.capella.vp.requirements.validation
