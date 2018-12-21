@@ -26,6 +26,8 @@ import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_02;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsCustomDataTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsToolsTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.ValidationRulesRegisteringTest;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.AbstractRelation_RelationType;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.BooleanValueAttribute_Definition_AttributeDefinition;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.CapellaElement_CapellaIncomingRelation_Requirement;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.CapellaElement_CapellaOutgoingRelation_Requirement;
@@ -36,6 +38,7 @@ import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Integer
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.RealValueAttribute_Definition_AttributeDefinition;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_CapellaIncomingRelation_CapellaElement;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_CapellaOutgoingRelation_CapellaElement;
+import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_InternalRelationSource_Requirement;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.Requirement_InternalRelationTarget_Requirement;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.StringValueAttribute_Definition_AttributeDefinition;
 
@@ -60,6 +63,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
 
+    tests.add(new AbstractRelation_RelationType());
     tests.add(new BooleanValueAttribute_Definition_AttributeDefinition());
     tests.add(new CapellaElement_CapellaIncomingRelation_Requirement());
     tests.add(new CapellaElement_CapellaOutgoingRelation_Requirement());
@@ -71,8 +75,11 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new Requirement_CapellaIncomingRelation_CapellaElement());
     tests.add(new Requirement_CapellaOutgoingRelation_CapellaElement());
     tests.add(new Requirement_InternalRelationTarget_Requirement());
+    tests.add(new Requirement_InternalRelationSource_Requirement());
     tests.add(new StringValueAttribute_Definition_AttributeDefinition());
+    
 
+    tests.add(new ValidationRulesRegisteringTest());
     tests.add(new RequirementsTestCase());
     tests.add(new ImportPreferencesTestCase());
     tests.add(new ImportTestCase());

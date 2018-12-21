@@ -1,33 +1,36 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Attributes Provider</title>
-<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/styles.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
 </HEAD>
-<BODY>
+<body>
 <H1 style="text-align:center">Attributes Provider</H1>
 <p></p>
-<h6 class="CaptionFigColumn SchemaHeader">Identifier: </h6>org.polarsys.capella.vp.requirements.importer.extension.attributesProvider<p></p>
-<h6 class="CaptionFigColumn SchemaHeader">Since: </h6>Capella Requirements Viewpoint 0.6.0
+<h3 class="CaptionFigColumn SchemaHeader">Identifier: </h3><code>org.polarsys.capella.vp.requirements.importer.extension.attributesProvider</code><p></p>
+<h3 class="CaptionFigColumn SchemaHeader">Since: </h3><code>Capella Requirements Viewpoint 0.6.0</code>
 <p></p>
 
-<h6 class="CaptionFigColumn SchemaHeader">Description: </h6>This extension point allows to extend the scope of the importer.<p></p>
-<h6 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h6>
+<h3 class="CaptionFigColumn SchemaHeader">Description: </h3><code>This extension point allows to extend the scope of the importer.</code><p></p>
+<h3 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h3>
 <p></p>
-<p class="code SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.attributesProvider">attributesProvider</a>)&gt;</p>
-<p class="code SchemaDtd">&lt;!ATTLIST extension</p>
-<p class="code SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
-<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
-<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+<code>
+<p class="SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.attributesProvider">attributesProvider</a>)&gt;</p>
+<p class="SchemaDtd">&lt;!ATTLIST extension</p>
+<p class="SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
+<p class="SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+</code>
 <p></p>
 <ul class="ConfigMarkupAttlistDesc">
 </ul>
-<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.attributesProvider">attributesProvider</a> (<a href="#e.attribute">attribute</a>)+&gt;</p>
-<p class="code SchemaDtd">&lt;!ATTLIST attributesProvider</p>
-<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
-<p class="code SchemaDtdAttlist">category&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
-<p class="code SchemaDtdAttlist">description&nbsp;CDATA #IMPLIED</p>
-<p class="code SchemaDtdAttlist">mandatory&nbsp;&nbsp;&nbsp;(true | false) &gt;</p>
+<code>
+<br/><p class="SchemaDtd">&lt;!ELEMENT <a name="e.attributesProvider">attributesProvider</a> (<a href="#e.attribute">attribute</a>)+&gt;</p>
+<p class="SchemaDtd">&lt;!ATTLIST attributesProvider</p>
+<p class="SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="SchemaDtdAttlist">category&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
+<p class="SchemaDtdAttlist">description&nbsp;CDATA #IMPLIED</p>
+<p class="SchemaDtdAttlist">mandatory&nbsp;&nbsp;&nbsp;(true | false) &gt;</p>
 <p></p>
 <ul class="ConfigMarkupAttlistDesc">
 <li><b>id</b> - </li>
@@ -35,28 +38,31 @@
 <li><b>description</b> - </li>
 <li><b>mandatory</b> - </li>
 </ul>
-<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.attribute">attribute</a> EMPTY&gt;</p>
-<p class="code SchemaDtd">&lt;!ATTLIST attribute</p>
-<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
-<p class="code SchemaDtdAttlist">defaultValue&nbsp;(true | false) &gt;</p>
+<br/><p class="SchemaDtd">&lt;!ELEMENT <a name="e.attribute">attribute</a> EMPTY&gt;</p>
+<p class="SchemaDtd">&lt;!ATTLIST attribute</p>
+<p class="SchemaDtdAttlist">name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #REQUIRED</p>
+<p class="SchemaDtdAttlist">defaultValue&nbsp;(true | false) &gt;</p>
 <p></p>
 <ul class="ConfigMarkupAttlistDesc">
 <li><b>name</b> - </li>
 <li><b>defaultValue</b> - </li>
 </ul>
-<br><h6 class="CaptionFigColumn SchemaHeader">Examples: </h6>Here is an example of provider that defines some attributes
 
-<pre class="Example"><span class="code SchemaTag">
-   &lt;extension point=</span><span class="code SchemaCstring">&quot;org.polarsys.capella.vp.requirements.importer.extension.attributesProvider&quot;</span><span class="code SchemaTag">&gt;
-      &lt;attributesProvider id=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> category=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> mandatory=</span><span class="code SchemaCstring">&quot;false&quot;</span><span class="code SchemaTag">&gt;
-         &lt;attribute name=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> defaultValue=</span><span class="code SchemaCstring">&quot;true&quot;</span><span class="code SchemaTag">/&gt;
-         &lt;attribute name=</span><span class="code SchemaCstring">&quot;...&quot;</span><span class="code SchemaTag"> defaultValue=</span><span class="code SchemaCstring">&quot;false&quot;</span><span class="code SchemaTag">/&gt;
+</code>
+<br/><h3 class="CaptionFigColumn SchemaHeader">Examples: </h3>Here is an example of provider that defines some attributes
+
+
+<pre class="Example"><span class="SchemaTag">
+   &lt;extension point=</span><span class="SchemaCstring">&quot;org.polarsys.capella.vp.requirements.importer.extension.attributesProvider&quot;</span><span class="SchemaTag">&gt;
+      &lt;attributesProvider id=</span><span class="SchemaCstring">&quot;...&quot;</span><span class="SchemaTag"> category=</span><span class="SchemaCstring">&quot;...&quot;</span><span class="SchemaTag"> mandatory=</span><span class="SchemaCstring">&quot;false&quot;</span><span class="SchemaTag">&gt;
+         &lt;attribute name=</span><span class="SchemaCstring">&quot;...&quot;</span><span class="SchemaTag"> defaultValue=</span><span class="SchemaCstring">&quot;true&quot;</span><span class="SchemaTag">/&gt;
+         &lt;attribute name=</span><span class="SchemaCstring">&quot;...&quot;</span><span class="SchemaTag"> defaultValue=</span><span class="SchemaCstring">&quot;false&quot;</span><span class="SchemaTag">/&gt;
       &lt;/attributesProvider&gt;
    &lt;/extension&gt; 
-</span></span></pre>
+</span></pre>
 <p></p>
 
-<br>
+<br/>
 <p class="note SchemaCopyright">
 Copyright (c) 2016 THALES GLOBAL SERVICES.
 All rights reserved. This program and the accompanying materials
@@ -68,5 +74,5 @@ Contributors:
    Thales - initial API and implementation
 
 </p>
-</BODY>
-</HTML>
+</body>
+</html>
