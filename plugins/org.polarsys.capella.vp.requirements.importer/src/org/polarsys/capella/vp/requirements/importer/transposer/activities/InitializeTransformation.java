@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
@@ -68,7 +69,8 @@ public class InitializeTransformation extends AbstractActivity {
    */
   protected IStatus loadTransformationScope(IContext context) {
     EObject target = (BlockArchitecture) context.get(IRequirementsImporterBridgeConstants.TARGET_ELEMENT);
-    IModelScopeDefinition definition = new ResourceScopeDefinition(target.eResource(), getId(), false);
+    EObject root = EcoreUtil.getRootContainer(target);
+    IModelScopeDefinition definition = new ResourceScopeDefinition(root.eResource(), getId(), false);
     IEditableModelScope targetScope = definition.createScope(definition.getEntrypoint());
     context.put(IRequirementsImporterBridgeConstants.TARGET_SCOPE, targetScope);
     return Status.OK_STATUS;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 THALES GLOBAL SERVICES.
+ * Copyright (c) 2018, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -50,6 +50,7 @@ import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.model.handler.helpers.HoldingResourceHelper;
+import org.polarsys.capella.core.model.helpers.ProjectExt;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.EClassCategory;
@@ -125,7 +126,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
           Resource holdingResource = HoldingResourceHelper.getHoldingResource(TransactionHelper
               .getEditingDomain(targetScope.getContents()));
 
-          Project project = (Project) scope.getContents().get(0);
+          Project project = ProjectExt.getProject(scope.getContents().get(0));
           HoldingResourceHelper.attachToHoldingResource(project, holdingResource);
           removeImportedModules(project);
 

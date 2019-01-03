@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.util.List;
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
 import org.polarsys.capella.vp.requirements.ju.misc.PropertyViewTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.FragmentationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
@@ -91,6 +92,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new ModelDiffTestCase());
     tests.add(new ModelDiffTestCase2());
     tests.add(new ModelDiffTestCase3());
+    tests.add(new FragmentationTestCase());
 
     tests.add(new RequirementsCustomDataTestCase());
     tests.add(new RequirementsToolsTestCase());
