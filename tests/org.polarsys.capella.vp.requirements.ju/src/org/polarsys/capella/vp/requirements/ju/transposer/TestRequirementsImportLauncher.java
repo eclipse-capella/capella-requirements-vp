@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,9 +22,12 @@ public class TestRequirementsImportLauncher extends RequirementsImportLauncher {
 
   public TestRequirementsImportLauncher() {
     super();
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE, new String[] { TriggerDiffMerge.getId(), TestTransposerTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__INITIALIZATION,
+        new String[] { TestInitializeTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE,
+        new String[] { TriggerDiffMerge.getId(), TestInitializeTransformation.getId() });
   }
-  
+
   public IContext getContext() {
     return context;
   }

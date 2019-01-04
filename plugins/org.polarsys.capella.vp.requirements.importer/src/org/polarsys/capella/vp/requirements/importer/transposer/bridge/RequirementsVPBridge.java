@@ -65,12 +65,14 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelScope, IEditableModelScope> {
 
   public static IEditableModelScope temporaryScope = null;
+  IEditableModelScope _sourceScope;
   IEditableModelScope _targetScope;
 
-  public RequirementsVPBridge(IEditableModelScope targetScope,
+  public RequirementsVPBridge(IEditableModelScope sourceScope, IEditableModelScope targetScope,
       IBridge<IEditableModelScope, IEditableModelScope> bridge, IDiffPolicy diffPolicy, IMergePolicy mergePolicy,
       IMergeSelector merger) {
     super(bridge, diffPolicy, mergePolicy, merger);
+    _sourceScope = sourceScope;
     _targetScope = targetScope;
   }
 
@@ -115,16 +117,20 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   protected void initializeTemporaryScope(final IEditableModelScope scope) {
     // We want to create an empty model with same IDs than the target (to avoid reconciliation)
     final IEditableModelScope targetScope = _targetScope;
-    scope.add(EcoreUtil.copy(targetScope.getContents().get(0)));
+    Resource target = EcoreUtil.getRootContainer(targetScope.getContents().get(0)).eResource();
+    // We load the target elements using the source editing domain to avoid blocking the target editing domain during Import
+    Resource targetLoadedInSourceScope= _sourceScope.getContents().get(0).eResource().getResourceSet().getResource(target.getURI(), true);
+    
+    scope.add(targetLoadedInSourceScope.getContents().get(0));
 
     // We remove the imported modules content since we create only elements in this package
-    ExecutionManager manager = TransactionHelper.getExecutionManager(_targetScope.getContents());
+    ExecutionManager manager = TransactionHelper.getExecutionManager(_sourceScope.getContents());
     if (manager != null) {
       manager.execute(new AbstractReadWriteCommand() {
         @Override
         public void run() {
           Resource holdingResource = HoldingResourceHelper.getHoldingResource(TransactionHelper
-              .getEditingDomain(targetScope.getContents()));
+              .getEditingDomain(_sourceScope.getContents()));
 
           Project project = ProjectExt.getProject(scope.getContents().get(0));
           HoldingResourceHelper.attachToHoldingResource(project, holdingResource);

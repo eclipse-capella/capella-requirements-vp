@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,7 +27,7 @@ import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.capella.test.framework.helpers.IResourceHelpers;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.RelationIdentifierCategory;
 import org.polarsys.capella.vp.requirements.ju.transposer.TestRequirementsImportLauncher;
-import org.polarsys.capella.vp.requirements.ju.transposer.TestTransposerTransformation;
+import org.polarsys.capella.vp.requirements.ju.transposer.TestInitializeTransformation;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 /**
@@ -75,7 +75,7 @@ public class ModelDiffTestCase2 extends BasicTestCase {
 
     IContext context = testRequirementsImportLauncher.getContext();
     List<IDifference> differencesFromReferenceScope = (List<IDifference>) context
-        .get(TestTransposerTransformation.COMPARE_RESULT);
+        .get(TestInitializeTransformation.COMPARE_RESULT);
 
     // Take into account the Relation Identifier filter category
     Iterator<IDifference> iterator = differencesFromReferenceScope.iterator();

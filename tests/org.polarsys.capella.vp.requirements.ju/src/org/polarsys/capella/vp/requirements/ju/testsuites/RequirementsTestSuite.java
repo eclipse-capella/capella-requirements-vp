@@ -16,6 +16,7 @@ import java.util.List;
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
 import org.polarsys.capella.vp.requirements.ju.misc.PropertyViewTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.EditableTargetScope;
 import org.polarsys.capella.vp.requirements.ju.testcases.FragmentationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
@@ -93,6 +94,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new ModelDiffTestCase2());
     tests.add(new ModelDiffTestCase3());
     tests.add(new FragmentationTestCase());
+    tests.add(new EditableTargetScope());
 
     tests.add(new RequirementsCustomDataTestCase());
     tests.add(new RequirementsToolsTestCase());
