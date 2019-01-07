@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,7 +47,9 @@ import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.core.data.capellamodeller.util.CapellamodellerResourceFactoryImpl;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.model.handler.command.CapellaResourceHelper;
 import org.polarsys.capella.core.transition.common.activities.AbstractActivity;
 import org.polarsys.capella.vp.requirements.importer.RequirementsVPPlugin;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.IRequirementsImporterBridgeConstants;
@@ -171,7 +173,16 @@ public class InitializeTransformation extends AbstractActivity {
     resourceSet.getPackageRegistry().put(ReqIF10Package.eINSTANCE.getNsURI(), ReqIF10Package.eINSTANCE);
     resourceSet.getPackageRegistry().put(XhtmlPackage.eINSTANCE.getNsURI(), XhtmlPackage.eINSTANCE);
     resourceSet.getPackageRegistry().put(DatatypesPackage.eINSTANCE.getNsURI(), DatatypesPackage.eINSTANCE);
-    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new ReqIF10ResourceFactoryImpl());
+
+    // Capella resources can be loaded using source scope editing domain (see
+    // org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementsVPBridge.initializeTemporaryScope(IEditableModelScope))
+    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+        .put(CapellaResourceHelper.CAPELLA_MODEL_FILE_EXTENSION, new CapellamodellerResourceFactoryImpl());
+    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+        .put(CapellaResourceHelper.CAPELLA_FRAGMENT_FILE_EXTENSION, new CapellamodellerResourceFactoryImpl());
+
+    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+        .put(IRequirementsImporterBridgeConstants.REQIF_MODEL_FILE_EXTENSION, new ReqIF10ResourceFactoryImpl());
 
     URI uri = (URI) context.get(IRequirementsImporterBridgeConstants.CONTEXT_MODEL);
     Resource resource = resourceSet.getResource(uri, true);
