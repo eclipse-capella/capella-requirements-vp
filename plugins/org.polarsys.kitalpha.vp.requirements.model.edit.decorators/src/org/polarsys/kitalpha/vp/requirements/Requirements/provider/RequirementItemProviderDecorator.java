@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.common.tools.api.interpreter.CompoundInterpreter;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.polarsys.capella.common.helpers.TransactionHelper;
@@ -69,23 +70,25 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
     Requirement requirement = (Requirement) object;
     try {
       Session session = getRelatedSession(requirement);
+      IInterpreter interpreter = null;
       if (session != null) {
-        IInterpreter interpreter = session.getInterpreter();
-        if (interpreter != null) {
-          String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-              .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
-          Object value = interpreter.evaluate(requirement, expression);
-          String result = "";
-          if (value instanceof List<?>) {
-            for (Object item : (List) value) {
-              result += item;
-            }
-          } else {
-            result += value;
+        interpreter = session.getInterpreter();
+      } else
+        interpreter = CompoundInterpreter.INSTANCE;
+      if (interpreter != null) {
+        String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
+        Object value = interpreter.evaluate(requirement, expression);
+        String result = "";
+        if (value instanceof List<?>) {
+          for (Object item : (List) value) {
+            result += item;
           }
-          return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-              .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN));
+        } else {
+          result += value;
         }
+        return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
+            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN));
       }
     } catch (EvaluationException ex) {
       return "[Error in label expression] " + super.getText(object);
