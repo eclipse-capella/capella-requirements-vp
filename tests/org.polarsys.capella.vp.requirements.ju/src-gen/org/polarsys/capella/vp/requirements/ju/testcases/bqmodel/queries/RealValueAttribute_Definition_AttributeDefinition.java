@@ -10,23 +10,12 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.polarsys.capella.test.business.queries.ju.BQTestCase;
 
 /**
  * @generated
  */
 public class RealValueAttribute_Definition_AttributeDefinition extends BQTestCase {
-
-  /**
-   * @generated
-   */
-  @Override
-  public List<String> getRequiredTestModels() {
-    return Arrays.asList(new String[] { "bqlibrary", "bqmodel" });
-  }
   
 	/**
 	 * @generated
@@ -42,5 +31,10 @@ public class RealValueAttribute_Definition_AttributeDefinition extends BQTestCas
 	public String getBQFullQualifiedName() {
 		return "org.polarsys.capella.vp.requirements.business.queries.RealValueAttribute_Definition_AttributeDefinition"; //$NON-NLS-1$
 	}
+	
+	@Override
+  public String getLibProjectForTest() {
+    return "bqlibrary";
+  }
 
 }

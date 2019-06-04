@@ -11,7 +11,6 @@
 package org.polarsys.capella.vp.requirements.design.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -81,7 +80,7 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param context
 	 * @return
 	 */
-  public List<EObject> getAllAvailableRequirements(EObject context) {
+  public Collection<EObject> getAllAvailableRequirements(EObject context) {
     EObject element = context;
     if (element instanceof DSemanticDecorator) {
       element = ((DSemanticDecorator) element).getTarget();
@@ -112,13 +111,13 @@ public class CapellaRequirementsOpenJavaService {
   public Collection<EObject> getVisibleRequirementsOnDiagram(EObject context) {
     DDiagram diagram = getDiagram(context);
     if (diagram != null) {
-      // Collect and return visible requirements on the given diagram
-      Set<EObject> collect = diagram.getDiagramElements().stream().map(diagramElement -> diagramElement.getTarget())
-          .filter(target -> target instanceof Requirement).collect(Collectors.toSet());
-      return new ArrayList<>(collect);
+      return diagram.getDiagramElements().stream() //
+          .map(DDiagramElement::getTarget) //
+          .filter(Requirement.class::isInstance) //
+          .collect(Collectors.toSet());
 
     }
-    return Collections.emptyList();
+    return Collections.emptySet();
   }
   
   private DDiagram getDiagram(EObject context) {
@@ -138,7 +137,7 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param elementView
 	 * @return
 	 */
-	public List<EObject> getAllRequirementsForElement(EObject elementView) {
+	public Collection<EObject> getAllRequirementsForElement(EObject elementView) {
 		List<EObject> result = new ArrayList<>();
 
 		// if the given element view is a diagram, return all requirements of the
@@ -169,7 +168,7 @@ public class CapellaRequirementsOpenJavaService {
 	 *            true if you want all outgoing requirements
 	 * @return
 	 */
-  public List<EObject> getRequirementsForElement(EObject elementView, boolean incoming, boolean outgoing) {
+  public Collection<EObject> getRequirementsForElement(EObject elementView, boolean incoming, boolean outgoing) {
     if (elementView instanceof DSemanticDiagram) {
       return getRequirementsForDiagram((DSemanticDiagram)elementView, incoming, outgoing);
     }
@@ -255,12 +254,14 @@ public class CapellaRequirementsOpenJavaService {
 	 *            true if you want all outgoing requirements
 	 * @return
 	 */
-	public List<EObject> getExistingRequirementsInDiagram(EObject elementView, DDiagram diagram, boolean incoming, boolean outgoing) {
-		List<EObject> requirements = getRequirementsForElement(elementView, incoming, outgoing);
+	public Collection<EObject> getExistingRequirementsInDiagram(EObject elementView, DDiagram diagram, boolean incoming, boolean outgoing) {
+		Collection<EObject> requirements = getRequirementsForElement(elementView, incoming, outgoing);
 
 		// Collect requirements of elementView if they are the target of a diagram element in the diagram
-		return diagram.getDiagramElements().stream().map(diagramElement -> diagramElement.getTarget())
-				.filter(target -> requirements.contains(target)).collect(Collectors.toList());
+		return diagram.getDiagramElements().stream() //
+		    .map(DDiagramElement::getTarget) //
+				.filter(requirements::contains) //
+				.collect(Collectors.toList());
 	}
 
 	/**
@@ -272,27 +273,25 @@ public class CapellaRequirementsOpenJavaService {
 	 * @param requirementsInDiagram
 	 * @return
 	 */
-	public EObject hideRequirements(EObject diagram, List<EObject> selectedRequirements, List<EObject> requirementsInDiagram) {
+	public EObject hideRequirements(EObject diagram, Collection<EObject> selectedRequirements, Collection<EObject> requirementsInDiagram) {
 
-		if (diagram instanceof DDiagram) {
-			DDiagram ddiagram = (DDiagram) diagram;
-			
-			// collect all requirements in requirementsInDiagram but not in selectedRequirements
-			Set<EObject> requirementsToHide = requirementsInDiagram.stream().filter(req -> !selectedRequirements.contains(req)).collect(Collectors.toSet());
-			
-			// call removeContainerView for all diagram elements of the diagram where their target is contained in requirementsToHide
-			ddiagram.getDiagramElements().stream().filter(container -> requirementsToHide.contains(container.getTarget())).forEach(DiagramServices.getDiagramServices()::removeContainerView);
-		}
+    if (diagram instanceof DDiagram) {
+      DDiagram ddiagram = (DDiagram) diagram;
+
+      // collect all requirements in requirementsInDiagram but not in selectedRequirements
+      Set<EObject> requirementsToHide = requirementsInDiagram.stream()
+          .filter(req -> !selectedRequirements.contains(req)) //
+          .collect(Collectors.toSet());
+
+      // call removeContainerView for all diagram elements of the diagram where their target is contained in
+      // requirementsToHide
+      DiagramServices diagramService = DiagramServices.getDiagramServices();
+      ddiagram.getDiagramElements().stream() //
+          .filter(container -> requirementsToHide.contains(container.getTarget())) //
+          .forEach(diagramService::removeContainerView);
+    }
 		
 		return diagram;
-	}
-	
-	public List<Object> asList(Object[] array) {
-		return Arrays.asList(array);
-	}
-	
-	public List<Object> asList(List<Object> list) {
-		return list;
 	}
 	
 	/**
@@ -416,7 +415,7 @@ public class CapellaRequirementsOpenJavaService {
    * @param relation
    * @return
    */
-  public List<EObject> findOutgoingRelationSource(CapellaOutgoingRelation relation) {
+  public Collection<EObject> findOutgoingRelationSource(CapellaOutgoingRelation relation) {
     return findRelationEnds(relation.getSource());
   }
   
@@ -426,7 +425,7 @@ public class CapellaRequirementsOpenJavaService {
    * @param relation
    * @return
    */
-  public List<EObject> findIncomingRelationTarget(CapellaIncomingRelation relation) {
+  public Collection<EObject> findIncomingRelationTarget(CapellaIncomingRelation relation) {
    return findRelationEnds(relation.getTarget());
   }
   

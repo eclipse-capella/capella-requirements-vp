@@ -665,7 +665,7 @@
                       <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().hideRequirements(selectedRequirements.asList(), visibleRequirementsOnDiagram)"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.getDiagramContainer().hideRequirements(selectedRequirements, visibleRequirementsOnDiagram)"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -718,7 +718,7 @@
                         <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
                       </subModelOperations>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements.asList(), requirementsInDiagram)"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -744,7 +744,7 @@
                         <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='CapellaRequirements_ID']/@ownedRepresentationExtensions[name='CapellaViewpoints']/@layers[name='ReqVP_Requirements_Layer']/@containerMappings[name='ReqVP_Requirement']" containerViewExpression="var:diagram"/>
                       </subModelOperations>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements.asList(), requirementsInDiagram)"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.hideRequirements(selectedRequirements, requirementsInDiagram)"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>

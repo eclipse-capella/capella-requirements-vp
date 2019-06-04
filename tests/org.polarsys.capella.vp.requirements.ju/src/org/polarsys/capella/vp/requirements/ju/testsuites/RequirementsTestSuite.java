@@ -15,7 +15,6 @@ import java.util.List;
 
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
-import org.polarsys.capella.vp.requirements.ju.misc.PropertyViewTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.EditableTargetScope;
 import org.polarsys.capella.vp.requirements.ju.testcases.FragmentationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
@@ -23,10 +22,10 @@ import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase2;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase3;
+import org.polarsys.capella.vp.requirements.ju.testcases.PropertyViewTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_02;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsCustomDataTestCase;
-import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsToolsTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ValidationRulesRegisteringTest;
 import org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries.AbstractRelation_RelationType;
@@ -82,7 +81,6 @@ public class RequirementsTestSuite extends BasicTestSuite {
     
 
     tests.add(new ValidationRulesRegisteringTest());
-    tests.add(new RequirementsTestCase());
     tests.add(new ImportPreferencesTestCase());
     tests.add(new ImportTestCase());
     tests.add(new REQ_Relation_01());

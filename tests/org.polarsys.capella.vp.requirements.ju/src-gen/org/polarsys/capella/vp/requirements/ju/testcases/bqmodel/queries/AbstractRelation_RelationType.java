@@ -10,23 +10,12 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ju.testcases.bqmodel.queries;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.polarsys.capella.test.business.queries.ju.BQTestCase;
 
 /**
  * @generated
  */
 public class AbstractRelation_RelationType extends BQTestCase {
-
-  /**
-   * @generated
-   */
-  @Override
-  public List<String> getRequiredTestModels() {
-    return Arrays.asList(new String[] { "bqlibrary", "bqmodel" });
-  }
   
   /**
    * @generated
@@ -43,4 +32,8 @@ public class AbstractRelation_RelationType extends BQTestCase {
     return "org.polarsys.capella.vp.requirements.business.queries.AbstractRelation_RelationType"; //$NON-NLS-1$
   }
 
+  @Override
+  public String getLibProjectForTest() {
+    return "bqlibrary";
+  }
 }
