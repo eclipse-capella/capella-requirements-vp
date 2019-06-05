@@ -3,13 +3,13 @@
    <description url="http://www.polarsys.org/capella">
       Capella Requirements Viewpoint
    </description>
-   <feature id="org.polarsys.capella.vp.requirements.feature" version="0.10.0.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.feature" version="0.10.1.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
-   <feature id="org.polarsys.capella.vp.requirements.feature.source" version="0.10.0.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.feature.source" version="0.10.1.qualifier">
       <category name="org.polarsys.capella.vp.requirements.source"/>
    </feature>
-   <feature id="org.polarsys.capella.vp.requirements.cdo.feature" version="0.10.0.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.cdo.feature" version="0.10.1.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
    <category-def name="org.polarsys.capella.vp.requirements" label="Capella Requirements Viewpoint"/>
