@@ -7,7 +7,13 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.polarsys.capella.vp.requirements.model,
  org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.core.ui.semantic.browser,
- org.polarsys.capella.vp.requirements.semantic.browser
+ org.polarsys.capella.vp.requirements.semantic.browser,
+ org.polarsys.capella.common.ui.massactions,
+ org.polarsys.capella.common.ui.massactions.core,
+ org.polarsys.kitalpha.massactions,
+ org.polarsys.kitalpha.massactions.core,
+ org.polarsys.capella.vp.requirements.model.helpers
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.polarsys.capella.vp.requirements.ui.semanticbrowser.actions
+Export-Package: org.polarsys.capella.vp.requirements.ui.massactions,
+ org.polarsys.capella.vp.requirements.ui.semanticbrowser.actions

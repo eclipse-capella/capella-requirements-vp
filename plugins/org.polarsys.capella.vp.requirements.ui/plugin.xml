@@ -64,4 +64,15 @@
          </action>
       </viewContribution>
    </extension>
+   <extension
+         point="org.polarsys.kitalpha.massactions.core.columnprovider">
+      <columnProvider
+            class="org.polarsys.capella.vp.requirements.ui.massactions.RequirementAttributesProvider"
+            kind="editing">
+      </columnProvider>
+      <columnProvider
+            class="org.polarsys.capella.vp.requirements.ui.massactions.RequirementAttributesProvider"
+            kind="visualization">
+      </columnProvider>
+   </extension>
 </plugin>

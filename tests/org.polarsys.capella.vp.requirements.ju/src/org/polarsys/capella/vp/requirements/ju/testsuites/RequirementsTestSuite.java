@@ -19,6 +19,7 @@ import org.polarsys.capella.vp.requirements.ju.testcases.EditableTargetScope;
 import org.polarsys.capella.vp.requirements.ju.testcases.FragmentationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportPreferencesTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ImportTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.MassActionAttributes;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase2;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase3;
@@ -64,6 +65,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
 
+    tests.add(new MassActionAttributes());
     tests.add(new AbstractRelation_RelationType());
     tests.add(new BooleanValueAttribute_Definition_AttributeDefinition());
     tests.add(new CapellaElement_CapellaIncomingRelation_Requirement());

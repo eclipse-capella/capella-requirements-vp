@@ -10,15 +10,15 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "http://git.polarsys.org/c/capella/capella.git/plain/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform?h=master"
+include "http://git.polarsys.org/c/capella/capella.git/plain/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform?h=v1.3.x"
 
 with source, requirements
 
-location "https://ci.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
+location "https://ci.polarsys.org/capella/job/capella-master/1996/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
 	org.polarsys.capella.rcp.feature.feature.group
 }
 
-location "https://ci.polarsys.org/capella/job/capella-master/lastSuccessfulBuild/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {
+location "https://ci.polarsys.org/capella/job/capella-master/1996/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {
 	org.polarsys.capella.test.feature.feature.group
 }
 

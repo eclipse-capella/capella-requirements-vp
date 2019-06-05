@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Capella_Version_1.3.1-->
+<org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
+    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/1.3.0"
+    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/1.3.0"
+    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/1.3.0"
+    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/1.3.0"
+    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/1.3.0"
+    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/1.3.0"
+    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/1.3.0"
+    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/1.3.0"
+    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/1.3.0"
+    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/1.3.0"
+    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/1.3.0"
+    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/1.3.0"
+    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/1.3.0"
+    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/1.3.0"
+    id="18b4ffb8-7935-4364-abbc-fa8fab4ab2ba"
+    name="attributes">
+  <ownedExtensions xsi:type="libraries:ModelInformation" id="2061c5d5-59aa-4d81-a5db-f61e362fc4bb"/>
+  <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+      id="098ead4e-a334-486d-85cc-01d88914bc69" name="ProgressStatus">
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="f338882a-c10c-43ab-94d3-353b5bf8b349" name="DRAFT"/>
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="ad43edca-6973-44b4-ada9-ff20c416948a" name="TO_BE_REVIEWED"/>
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="3c300806-66b0-4d85-98b3-92c9b3a53200" name="TO_BE_DISCUSSED"/>
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="445c3530-732d-4634-bf98-ad8f4e49d3c9" name="REWORK_NECESSARY"/>
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="c261910b-ad11-4df6-a4cd-d6aa8ac74e7b" name="UNDER_REWORK"/>
+    <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+        id="73ccce7b-9d2b-4633-a831-7faa30fffd72" name="REVIEWED_OK"/>
+  </ownedEnumerationPropertyTypes>
+  <keyValuePairs xsi:type="org.polarsys.capella.core.data.capellacore:KeyValue" id="fe4d159a-209d-4b18-9425-8b264b14caff"
+      key="projectApproach" value="SingletonComponents"/>
+  <ownedModelRoots xsi:type="org.polarsys.capella.core.data.capellamodeller:SystemEngineering"
+      id="97440e4e-8f84-4bd5-a895-fde1111d2c60" name="attributes">
+    <ownedArchitectures xsi:type="org.polarsys.capella.core.data.oa:OperationalAnalysis"
+        id="a5488383-198a-444a-9614-bcdfbfaafe18" name="Operational Analysis">
+      <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalActivityPkg"
+          id="b3ec4c75-418d-482c-bf3a-24df4d545594" name="Operational Activities">
+        <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
+            id="4ec16672-a0dd-426a-ae4f-6e6f67d0e7ea" name="Root Operational Activity"/>
+      </ownedFunctionPkg>
+      <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg"
+          id="04a5ad7b-bfbd-4ef8-adef-71695bca63ff" name="Operational Capabilities"/>
+      <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
+          id="667d5051-299b-44b5-9d05-44c65da6764f" name="Interfaces"/>
+      <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
+          id="e9a0c3bd-1f75-4f69-8d93-04f54e4d1a13" name="Data"/>
+      <ownedOperationalContext xsi:type="org.polarsys.capella.core.data.oa:OperationalContext"
+          id="fa17e096-c30f-488f-b077-7b90e15a9f67" name="Operational Context"/>
+      <ownedRolePkg xsi:type="org.polarsys.capella.core.data.oa:RolePkg" id="eaadd321-9b00-4088-ad7c-047f20f9b4f6"
+          name="Roles"/>
+      <ownedEntityPkg xsi:type="org.polarsys.capella.core.data.oa:EntityPkg" id="28e60759-918d-4763-a92b-0ad9a91999e5"
+          name="Operational Entities"/>
+    </ownedArchitectures>
+    <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
+        id="002b009f-5f48-446c-b2ec-2254a0a60764" name="System Analysis">
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="9c6eb993-2398-4d92-8aab-4b818c0a6e9d">
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="8df4129a-fea2-490c-9ffc-fa5e68882a2d"
+            ReqIFLongName="Boolean"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="8d704eae-a087-4868-9b68-97e9f2aa0917"
+            ReqIFLongName="String"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="39a67447-f6a3-46fb-a55f-f5a1608ce835"
+            ReqIFLongName="Date"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="613125b8-5fd7-4951-9ae0-4402eee27e86"
+            ReqIFLongName="Boolean"/>
+        <ownedDefinitionTypes xsi:type="Requirements:EnumerationDataTypeDefinition"
+            id="4ab26596-4756-4a15-975c-dba5fe8b2601" ReqIFLongName="Enum">
+          <specifiedValues xsi:type="Requirements:EnumValue" id="5003f075-e57e-45ea-985d-2a11ede3b61d"
+              ReqIFLongName="A"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="be317007-51d2-4ca0-a21e-2eacf33c6357"
+              ReqIFLongName="B"/>
+        </ownedDefinitionTypes>
+        <ownedDefinitionTypes xsi:type="Requirements:EnumerationDataTypeDefinition"
+            id="1f5c46e1-c818-43d0-adb7-1d2ec989b2a1" ReqIFLongName="Enum2">
+          <specifiedValues xsi:type="Requirements:EnumValue" id="9e12725b-f62b-417b-97fc-98bc92231690"
+              ReqIFLongName="C"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="bf4598ab-445e-47c7-8f1e-88f0e61065a8"
+              ReqIFLongName="D"/>
+        </ownedDefinitionTypes>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="75f8c7b6-81d4-4d00-a43f-8431d2362657"
+            ReqIFLongName="Other"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="9dc18f31-d046-4db6-b60e-e81d884dcd7f"
+            ReqIFLongName="stringFrancais"/>
+        <ownedTypes xsi:type="Requirements:RequirementType" id="6b227995-a180-484a-b371-fe9ee6c07ab2"
+            ReqIFLongName="Req">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="7244d94f-4d76-42f9-aeb6-7a7fb352193e"
+              ReqIFDescription="" ReqIFLongName="Bool1" definitionType="#8df4129a-fea2-490c-9ffc-fa5e68882a2d"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="e3ff7807-bbd2-4128-ab5a-e5bb67a54309"
+              ReqIFDescription="" ReqIFLongName="Bool2" definitionType="#613125b8-5fd7-4951-9ae0-4402eee27e86"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="75324161-4f0d-4ffd-b059-d1f084285343"
+              ReqIFDescription="" ReqIFLongName="Bool3" definitionType="#8d704eae-a087-4868-9b68-97e9f2aa0917"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="c4a84e42-eb7c-4b18-a88f-3682c68fe7e4"
+              ReqIFLongName="Req_String1" definitionType="#8d704eae-a087-4868-9b68-97e9f2aa0917"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="f119215a-a66c-4055-9f20-16fb6b540fc2" ReqIFLongName="Enum" definitionType="#4ab26596-4756-4a15-975c-dba5fe8b2601"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="bafbf432-553a-4286-8ead-43ceed9f136a" ReqIFLongName="Enum_1" definitionType="#4ab26596-4756-4a15-975c-dba5fe8b2601"/>
+        </ownedTypes>
+        <ownedTypes xsi:type="Requirements:RequirementType" id="e1db5d1b-5a01-4f15-b5b4-a35bb8909fc8"
+            ReqIFLongName="Req2">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="7d9a0c3d-1725-4116-b0f6-44cb3fa31bcb"
+              ReqIFLongName="Req2_String1" definitionType="#8d704eae-a087-4868-9b68-97e9f2aa0917"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="254015c2-27ab-4731-87ea-882f58dd7f00" ReqIFLongName="Enum" definitionType="#1f5c46e1-c818-43d0-adb7-1d2ec989b2a1"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="db937965-bbf9-4c7a-b552-4cace14bddb2"
+              ReqIFLongName="Bool1" definitionType="#8df4129a-fea2-490c-9ffc-fa5e68882a2d"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="f65ab475-b6af-4a75-b6ba-9c0e49b30c89"
+              ReqIFLongName="Bool2" definitionType="#613125b8-5fd7-4951-9ae0-4402eee27e86"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="34325c3f-5677-406d-9be7-7cef25ab9032"
+              ReqIFDescription="" ReqIFLongName="Bool3" definitionType="#9dc18f31-d046-4db6-b60e-e81d884dcd7f"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="ef9301ee-c5bc-4561-91fb-be4c777c4367"
+              ReqIFLongName="Req2_Date" definitionType="#39a67447-f6a3-46fb-a55f-f5a1608ce835"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="9f259f8a-6a19-450a-8001-8d8b973d9f42"
+              ReqIFLongName="Req2_Other" definitionType="#75f8c7b6-81d4-4d00-a43f-8431d2362657"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="8ca65755-f48f-40b8-8c43-30e9e36ba350"
+              ReqIFLongName="Req2_Null"/>
+        </ownedTypes>
+        <ownedTypes xsi:type="Requirements:ModuleType" id="ee5843f2-41f6-410f-8abd-d398ff98e9e3"
+            ReqIFLongName="Mod">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="4f1b6c56-9d0c-4d27-bb56-a75a2f345e7a"
+              ReqIFLongName="Bool" definitionType="#613125b8-5fd7-4951-9ae0-4402eee27e86"/>
+        </ownedTypes>
+      </ownedExtensions>
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="ae0196dd-6287-477a-93ad-46ede77d497d"
+          moduleType="#ee5843f2-41f6-410f-8abd-d398ff98e9e3">
+        <ownedRequirements xsi:type="Requirements:Requirement" id="77675242-1015-4e81-a1de-f527f9c8a268"
+            ReqIFLongName="A" requirementType="#6b227995-a180-484a-b371-fe9ee6c07ab2">
+          <ownedAttributes xsi:type="Requirements:BooleanValueAttribute" id="fc128316-eb85-4a30-965c-40356c160c80"
+              definition="#7244d94f-4d76-42f9-aeb6-7a7fb352193e"/>
+          <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="a30f5dcd-0d01-41a3-83d1-b6ff58f995fc"
+              definition="#c4a84e42-eb7c-4b18-a88f-3682c68fe7e4" value="dd"/>
+          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="e9b52d20-b63d-4a6f-a703-8976bc7fff60"
+              definition="#f119215a-a66c-4055-9f20-16fb6b540fc2" values="#5003f075-e57e-45ea-985d-2a11ede3b61d"/>
+        </ownedRequirements>
+        <ownedRequirements xsi:type="Requirements:Requirement" id="72aec6ad-60f4-4284-83ea-0a6c04d15deb"
+            ReqIFLongName="B" requirementType="#e1db5d1b-5a01-4f15-b5b4-a35bb8909fc8">
+          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="6c67c154-9163-481d-aa0d-5c670729175d"
+              definition="#254015c2-27ab-4731-87ea-882f58dd7f00" values="#9e12725b-f62b-417b-97fc-98bc92231690"/>
+        </ownedRequirements>
+      </ownedExtensions>
+      <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemFunctionPkg"
+          id="894e749d-3f49-419a-b950-a2ec772683e7" name="System Functions">
+        <ownedSystemFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+            id="2107ba70-4c31-49e7-9c88-bc9e72454463" name="Root System Function">
+          <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+              id="a3dc00de-eb81-45a5-8e59-288f26eafe95" targetElement="#4ec16672-a0dd-426a-ae4f-6e6f67d0e7ea"
+              sourceElement="#2107ba70-4c31-49e7-9c88-bc9e72454463"/>
+        </ownedSystemFunctions>
+      </ownedFunctionPkg>
+      <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.ctx:CapabilityPkg"
+          id="9e7cacf6-8b1a-4572-b117-cfd4df327cfd" name="Capabilities"/>
+      <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
+          id="d6b885cf-230c-4b5c-adec-594148d7b023" name="Interfaces"/>
+      <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
+          id="44ae90cf-55b6-476b-ae05-60cb74314589" name="Data">
+        <ownedDataPkgs xsi:type="org.polarsys.capella.core.data.information:DataPkg"
+            id="fff0e055-cf78-4f17-a155-7213caaa4dae" name="Predefined Types">
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:BooleanType"
+              id="c677fe55-8b19-4313-85dd-810a97a87c0e" name="Boolean" visibility="PUBLIC">
+            <ownedLiterals xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralBooleanValue"
+                id="460163b9-69a6-4ed1-9882-77501ee2d3ea" name="True" abstractType="#c677fe55-8b19-4313-85dd-810a97a87c0e"
+                value="true"/>
+            <ownedLiterals xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralBooleanValue"
+                id="f863b791-4cb7-44a7-9b98-7b9a35b3698a" name="False" abstractType="#c677fe55-8b19-4313-85dd-810a97a87c0e"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="765e1ae3-0e5b-41e5-ac58-31c2b6410cb4" name="Byte" visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="4eb091eb-fad6-4a82-93ef-d6abf7565c6c" name="" abstractType="#765e1ae3-0e5b-41e5-ac58-31c2b6410cb4"
+                value="0"/>
+            <ownedMaxValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="bb4e6dbb-cdfc-4fbf-81ee-5a63dc50bac3" name="" abstractType="#765e1ae3-0e5b-41e5-ac58-31c2b6410cb4"
+                value="255"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:StringType"
+              id="fc700f76-4a22-4e95-9e51-107ef80d3e33" name="Char" visibility="PUBLIC">
+            <ownedMinLength xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="147e5437-ee62-4963-b2eb-392db6f3e53a" name="" abstractType="#67c7e002-d6e1-41b4-9e1f-f56c90e24c61"
+                value="1"/>
+            <ownedMaxLength xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="29d5f101-ace7-4c5e-a1f7-81a6c84e1967" name="" abstractType="#67c7e002-d6e1-41b4-9e1f-f56c90e24c61"
+                value="1"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="6df66e3a-ea44-4712-97c0-2ac4ba464b8b" name="Double" discrete="false"
+              visibility="PUBLIC" kind="FLOAT"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="5dbf30f2-86d9-4290-a244-3c733c097bed" name="Float" discrete="false"
+              visibility="PUBLIC" kind="FLOAT"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="48c025d6-1f22-4c03-b479-f1f09ad64df1" name="Hexadecimal" visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="d28056b2-847e-404d-9146-3f4cacdde69f" name="" abstractType="#48c025d6-1f22-4c03-b479-f1f09ad64df1"
+                value="0"/>
+            <ownedMaxValue xsi:type="org.polarsys.capella.core.data.information.datavalue:BinaryExpression"
+                id="91f7266e-ea78-4943-807f-b4c818109029" abstractType="#48c025d6-1f22-4c03-b479-f1f09ad64df1"
+                operator="SUB">
+              <ownedLeftOperand xsi:type="org.polarsys.capella.core.data.information.datavalue:BinaryExpression"
+                  id="b4280ed9-c99f-4019-bd38-f8361db1de12" operator="POW">
+                <ownedLeftOperand xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                    id="b4bde949-2ab8-4187-83f9-bc438283303e" value="2"/>
+                <ownedRightOperand xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                    id="642e43fa-b566-421a-867a-dd8ebeb56daa" value="64"/>
+              </ownedLeftOperand>
+              <ownedRightOperand xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                  id="18610b09-62ec-46b4-abce-9b93a049803a" value="1"/>
+            </ownedMaxValue>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="5954dc11-1818-4a4b-982c-ec9ddf7d0ab4" name="Integer" visibility="PUBLIC"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="db1a15d2-b1e7-498f-9239-ec8686b5f358" name="Long" visibility="PUBLIC"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="8d494b0f-1d4b-4ea2-be58-affbc09a93a4" name="LongLong" visibility="PUBLIC"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="aee51eb6-2dfd-4045-852d-fddac01d1e69" name="Short" visibility="PUBLIC"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:StringType"
+              id="2bc17649-4eb9-436d-9e38-b44b18841195" name="String" visibility="PUBLIC"/>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="f13fcabf-d15a-4736-8b1c-ca3fbf7db22a" name="UnsignedInteger" maxInclusive="false"
+              visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="c3e7a65c-cc73-474f-8c04-097004328c30" name="" abstractType="#f13fcabf-d15a-4736-8b1c-ca3fbf7db22a"
+                value="0"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="67c7e002-d6e1-41b4-9e1f-f56c90e24c61" name="UnsignedShort" maxInclusive="false"
+              visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="686ade27-bfe0-4ff3-bac8-9c276730d552" name="" abstractType="#67c7e002-d6e1-41b4-9e1f-f56c90e24c61"
+                value="0"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="22540ff0-8537-4213-9fef-2f9c67b84e47" name="UnsignedLong" maxInclusive="false"
+              visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="e43d4dca-767c-4ec0-96bd-f15f4348b5bd" name="" abstractType="#22540ff0-8537-4213-9fef-2f9c67b84e47"
+                value="0"/>
+          </ownedDataTypes>
+          <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:NumericType"
+              id="727b08b9-35d8-4b39-a94f-e7a49776e5ce" name="UnsignedLongLong" maxInclusive="false"
+              visibility="PUBLIC">
+            <ownedMinValue xsi:type="org.polarsys.capella.core.data.information.datavalue:LiteralNumericValue"
+                id="ed33c021-356f-4edf-ac06-393da4d8c33d" name="" abstractType="#727b08b9-35d8-4b39-a94f-e7a49776e5ce"
+                value="0"/>
+          </ownedDataTypes>
+        </ownedDataPkgs>
+      </ownedDataPkg>
+      <ownedSystemContext xsi:type="org.polarsys.capella.core.data.ctx:SystemContext"
+          id="de51ae47-911f-49ce-a1b0-169561878c04" name="System Context">
+        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="eee3abc6-a169-42f8-b423-5365f8abce08"
+            name="System" abstractType="#709a1770-6eba-4cca-bf11-056cb369239a"/>
+      </ownedSystemContext>
+      <ownedSystem xsi:type="org.polarsys.capella.core.data.ctx:System" id="709a1770-6eba-4cca-bf11-056cb369239a"
+          name="System">
+        <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
+            id="b66b801e-cffa-4d40-ba0b-cf955564a4b2" name="System State Machine">
+          <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+              id="7f07a2e3-773b-43a4-b02a-302e03b0f7fb" name="Default Region"/>
+        </ownedStateMachines>
+      </ownedSystem>
+      <ownedActorPkg xsi:type="org.polarsys.capella.core.data.ctx:ActorPkg" id="169bc9dd-846e-4c99-96eb-543b00e76299"
+          name="Actors"/>
+      <ownedMissionPkg xsi:type="org.polarsys.capella.core.data.ctx:MissionPkg" id="2865c857-b562-46b8-a3df-2fcc0ab4306e"
+          name="Missions"/>
+      <ownedOperationalAnalysisRealizations xsi:type="org.polarsys.capella.core.data.ctx:OperationalAnalysisRealization"
+          id="39d572a4-e973-40ef-abc8-43010fee3729" targetElement="#a5488383-198a-444a-9614-bcdfbfaafe18"
+          sourceElement="#002b009f-5f48-446c-b2ec-2254a0a60764"/>
+    </ownedArchitectures>
+    <ownedArchitectures xsi:type="org.polarsys.capella.core.data.la:LogicalArchitecture"
+        id="8fd4dde1-c3f4-4b34-b3ac-111d8c40cfdf" name="Logical Architecture">
+      <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.la:LogicalFunctionPkg"
+          id="7d2f40af-bc82-46cb-9c2d-9857224eae28" name="Logical Functions">
+        <ownedLogicalFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
+            id="bb2eeabd-3440-4438-8853-d792e2bdbc36" name="Root Logical Function">
+          <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+              id="7237ea66-58ab-4846-a73f-1a1fbfce62fd" targetElement="#2107ba70-4c31-49e7-9c88-bc9e72454463"
+              sourceElement="#bb2eeabd-3440-4438-8853-d792e2bdbc36"/>
+        </ownedLogicalFunctions>
+      </ownedFunctionPkg>
+      <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
+          id="3b3aa6b5-34bd-464e-868d-eedc00cc27d4" name="Capabilities"/>
+      <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
+          id="3d7d079b-7563-4358-a1b5-dbc10ac28341" name="Interfaces"/>
+      <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
+          id="5038aa04-6c20-4c07-a879-f3acb96e6118" name="Data"/>
+      <ownedLogicalContext xsi:type="org.polarsys.capella.core.data.la:LogicalContext"
+          id="bc037b72-b99a-4d41-af5c-8e001714c7d8" name="Logical Context">
+        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="9a835529-8063-4684-b788-90c2e89ade02"
+            name="Logical System" abstractType="#ef5c5319-6704-4f25-8dae-d93f27bb3848"/>
+      </ownedLogicalContext>
+      <ownedLogicalComponent xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
+          id="ef5c5319-6704-4f25-8dae-d93f27bb3848" name="Logical System">
+        <ownedSystemRealizations xsi:type="org.polarsys.capella.core.data.la:SystemRealization"
+            id="e1d409fd-92b4-432d-b7af-43865d47a1a2" targetElement="#709a1770-6eba-4cca-bf11-056cb369239a"
+            sourceElement="#ef5c5319-6704-4f25-8dae-d93f27bb3848"/>
+      </ownedLogicalComponent>
+      <ownedLogicalActorPkg xsi:type="org.polarsys.capella.core.data.la:LogicalActorPkg"
+          id="a159dc84-8574-4e8d-b23f-960e2bfa4207" name="Logical Actors"/>
+      <ownedSystemAnalysisRealizations xsi:type="org.polarsys.capella.core.data.la:SystemAnalysisRealization"
+          id="faf02104-e2ef-42e9-8c34-d9cd24d5e708" targetElement="#002b009f-5f48-446c-b2ec-2254a0a60764"
+          sourceElement="#8fd4dde1-c3f4-4b34-b3ac-111d8c40cfdf"/>
+    </ownedArchitectures>
+    <ownedArchitectures xsi:type="org.polarsys.capella.core.data.pa:PhysicalArchitecture"
+        id="7f590675-527c-417b-9794-1117eeb2079f" name="Physical Architecture">
+      <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunctionPkg"
+          id="6997a2f3-52ba-415c-b583-35363cbc95e7" name="Physical Functions">
+        <ownedPhysicalFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+            id="4057af6b-c874-47bd-a793-f87cf685eb61" name="Root Physical Function">
+          <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+              id="c4fd79b4-658e-48bc-ad1d-35a25d049236" targetElement="#bb2eeabd-3440-4438-8853-d792e2bdbc36"
+              sourceElement="#4057af6b-c874-47bd-a793-f87cf685eb61"/>
+        </ownedPhysicalFunctions>
+      </ownedFunctionPkg>
+      <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
+          id="59d562cd-f150-4a35-b463-be8212260559" name="Capabilities"/>
+      <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
+          id="28cc1ff1-11e6-4898-a837-ef1aec979ab0" name="Interfaces"/>
+      <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
+          id="ff8dfb60-c2bd-4fcb-8080-33b46e24cbbf" name="Data"/>
+      <ownedPhysicalContext xsi:type="org.polarsys.capella.core.data.pa:PhysicalContext"
+          id="2c4b933f-6386-4965-9f34-1ff783ea6995" name="Physical Context">
+        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="13d220ae-98b5-440e-9c09-c1e9b0036b6c"
+            name="Physical System" abstractType="#fdc15d9e-beaa-4ea9-8409-507334cc721f"/>
+      </ownedPhysicalContext>
+      <ownedPhysicalComponent xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+          id="fdc15d9e-beaa-4ea9-8409-507334cc721f" name="Physical System">
+        <ownedLogicalComponentRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalComponentRealization"
+            id="5890ea4b-a742-4f16-9246-2dea42c8755a" targetElement="#ef5c5319-6704-4f25-8dae-d93f27bb3848"
+            sourceElement="#fdc15d9e-beaa-4ea9-8409-507334cc721f"/>
+      </ownedPhysicalComponent>
+      <ownedPhysicalActorPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalActorPkg"
+          id="5c8e4083-6933-43d8-9b39-97696a84f615" name="Physical Actors"/>
+      <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
+          id="e16c3f43-16be-4523-8cc0-8ab57c399e15" targetElement="#8fd4dde1-c3f4-4b34-b3ac-111d8c40cfdf"
+          sourceElement="#7f590675-527c-417b-9794-1117eeb2079f"/>
+    </ownedArchitectures>
+    <ownedArchitectures xsi:type="org.polarsys.capella.core.data.epbs:EPBSArchitecture"
+        id="beee30fb-f901-4292-886c-231b1c2de145" name="EPBS Architecture">
+      <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
+          id="8fa0364a-c0d7-46d0-ba2d-9978e3cc5615" name="Capabilities"/>
+      <ownedEPBSContext xsi:type="org.polarsys.capella.core.data.epbs:EPBSContext"
+          id="aaa48b0b-95f2-49e7-ae21-e8d78ae68a55" name="EPBS Context">
+        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="e1a17e4e-8b2c-4662-9b71-9ca6023e4624"
+            name="System" abstractType="#05521b9a-1da2-434d-8a49-da967c72533f"/>
+      </ownedEPBSContext>
+      <ownedConfigurationItem xsi:type="org.polarsys.capella.core.data.epbs:ConfigurationItem"
+          id="05521b9a-1da2-434d-8a49-da967c72533f" name="System" kind="SystemCI">
+        <ownedPhysicalArtifactRealizations xsi:type="org.polarsys.capella.core.data.epbs:PhysicalArtifactRealization"
+            id="fc68f77e-5240-42ee-84cf-f3b312d4fcf5" targetElement="#fdc15d9e-beaa-4ea9-8409-507334cc721f"
+            sourceElement="#05521b9a-1da2-434d-8a49-da967c72533f"/>
+      </ownedConfigurationItem>
+      <ownedPhysicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.epbs:PhysicalArchitectureRealization"
+          id="2c2a3809-889b-4649-96cb-f4000446b599" targetElement="#7f590675-527c-417b-9794-1117eeb2079f"
+          sourceElement="#beee30fb-f901-4292-886c-231b1c2de145"/>
+    </ownedArchitectures>
+  </ownedModelRoots>
+</org.polarsys.capella.core.data.capellamodeller:Project>
