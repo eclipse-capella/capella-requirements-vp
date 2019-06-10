@@ -85,12 +85,12 @@
     <img src="../../images/requirements_diagram_example_special_case.png" alt="Special case of displaying requirements in diagrams" title="Special case of displaying requirements in diagrams" />
 	
 	<p>
-	The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 3 properties in 3 bulleted lines:
+	The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 4 properties in 4 bulleted lines:
     </p>
     <table border="1">
         <tr>
         	<td>
-            	<code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFChapterName, self.ReqIFText}->select(s  | s != 'null' and s.size() > 0).prefix('- ')->sep('\n')</code>
+            	<code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFName, self.ReqIFChapterName, self.ReqIFText}->select(s  | s != 'null' and s.size() > 0).prefix('- ')->sep('\n')</code>
             </td>
             <td>
                 <p>

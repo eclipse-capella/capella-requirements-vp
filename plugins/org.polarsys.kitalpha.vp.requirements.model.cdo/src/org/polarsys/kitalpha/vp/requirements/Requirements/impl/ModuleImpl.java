@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -25,6 +25,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +35,8 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl#getReqIFName <em>Req IF Name</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl#getModuleType <em>Module Type</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl#getOwnedRequirements <em>Owned Requirements</em>}</li>
  * </ul>
@@ -46,7 +49,27 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+
+	/**
+	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_PREFIX_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,6 +146,54 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
+	public String getReqIFName() {
+
+		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFName(String newReqIFName) {
+
+		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public String getReqIFPrefix() {
+
+		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFPrefix(String newReqIFPrefix) {
+
+		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -140,6 +211,10 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case RequirementsPackage.MODULE__REQ_IF_NAME:
+			return getReqIFName();
+		case RequirementsPackage.MODULE__REQ_IF_PREFIX:
+			return getReqIFPrefix();
 		case RequirementsPackage.MODULE__MODULE_TYPE:
 			if (resolve)
 				return getModuleType();
@@ -159,6 +234,12 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case RequirementsPackage.MODULE__REQ_IF_NAME:
+			setReqIFName((String) newValue);
+			return;
+		case RequirementsPackage.MODULE__REQ_IF_PREFIX:
+			setReqIFPrefix((String) newValue);
+			return;
 		case RequirementsPackage.MODULE__MODULE_TYPE:
 			setModuleType((ModuleType) newValue);
 			return;
@@ -178,6 +259,12 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case RequirementsPackage.MODULE__REQ_IF_NAME:
+			setReqIFName(REQ_IF_NAME_EDEFAULT);
+			return;
+		case RequirementsPackage.MODULE__REQ_IF_PREFIX:
+			setReqIFPrefix(REQ_IF_PREFIX_EDEFAULT);
+			return;
 		case RequirementsPackage.MODULE__MODULE_TYPE:
 			setModuleType((ModuleType) null);
 			return;
@@ -196,12 +283,57 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case RequirementsPackage.MODULE__REQ_IF_NAME:
+			return REQ_IF_NAME_EDEFAULT == null ? getReqIFName() != null : !REQ_IF_NAME_EDEFAULT.equals(getReqIFName());
+		case RequirementsPackage.MODULE__REQ_IF_PREFIX:
+			return REQ_IF_PREFIX_EDEFAULT == null ? getReqIFPrefix() != null
+					: !REQ_IF_PREFIX_EDEFAULT.equals(getReqIFPrefix());
 		case RequirementsPackage.MODULE__MODULE_TYPE:
 			return basicGetModuleType() != null;
 		case RequirementsPackage.MODULE__OWNED_REQUIREMENTS:
 			return !getOwnedRequirements().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SharedDirectAttributes.class) {
+			switch (derivedFeatureID) {
+			case RequirementsPackage.MODULE__REQ_IF_NAME:
+				return RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME;
+			case RequirementsPackage.MODULE__REQ_IF_PREFIX:
+				return RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SharedDirectAttributes.class) {
+			switch (baseFeatureID) {
+			case RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME:
+				return RequirementsPackage.MODULE__REQ_IF_NAME;
+			case RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX:
+				return RequirementsPackage.MODULE__REQ_IF_PREFIX;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ModuleImpl

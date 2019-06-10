@@ -11,6 +11,8 @@
        Thales - initial API and implementation
 -->
 <toc label="Requirements Viewpoint Guide">
+   <topic href="html/0_ReleaseNote.html" label="Release Notes">
+   </topic>
    <topic href="html/1_gettingstarted/1_gettingstarted.html" label="Getting Started">
       <anchor id="gettingstarted"/>
    </topic>

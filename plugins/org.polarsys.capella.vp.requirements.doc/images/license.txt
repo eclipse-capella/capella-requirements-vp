@@ -4,46 +4,50 @@ These followings icons are made available under the terms of the Eclipse Public 
 
 <icon file path> - <original eclipse plug-in> - <original file path>
 
-/images/categories.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/categories.png
-/images/customize_view.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/customize_view.png
-/images/diffmerge.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/diffmerge.png
-/images/diffmerge_filtering.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/diffmerge_filtering.png
-/images/filter.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/filter.png
-/images/info.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/info.png
-/images/overview.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/overview.png
-/images/preferences_importer_scope2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_importer_scope2.png
-/images/preferences_requirements.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/preferences_requirements.png
-/images/requirement_example.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirement_example.png
-/images/requirement_relations.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirement_relations.png
-/images/semanticbrowser.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/semanticbrowser.png
-/images/semanticbrowserinternalrelations.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/semanticbrowserinternalrelations.png
-/images/showrequirementsinsb.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/showrequirementsinsb.png
-/images/viewpointmanager.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/viewpointmanager.png
-/images/AllocationQueries_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step1.png
-/images/AllocationQueries_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step2.png
-/images/AllocationQueries_Step3.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/AllocationQueries_Step3.png
-/images/Allocation_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step1.png
-/images/Allocation_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step2.png
-/images/Allocation_Step3.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/Allocation_Step3.png
-/images/InternalAllocation_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step1.png
-/images/InternalAllocation_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/InternalAllocation_Step2.png
-/images/MergeOperation.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/MergeOperation.png
-/images/RequirementsViewpointImportFromReqIFAction.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/RequirementsViewpointImportFromReqIFAction.png
-/images/RequirementsViewpointMenu.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/RequirementsViewpointMenu.png
-/images/NonReferencedAttributeDefinition_Step1.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/NonReferencedAttributeDefinition_Step1.png
-/images/NonReferencedAttributeDefinition_Step2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/NonReferencedAttributeDefinition_Step2.png
-/images/ExportReqIfBaseline.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/ExportReqIfBaseline.png
-/images/RemoveBaselineFromIdentifier.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/RemoveBaselineFromIdentifier.png
-/images/REQ_001.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/REQ_001.png
-/images/REQ_002.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/REQ_002.png
-
-/images/requirements_diagram_example_special_case.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example_special_case.png
-/images/requirements_diagram_example_old.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example_old.png
-/images/requirements_diagram_example_2.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example_2.png
-/images/requirements_diagram_example.png- org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example.png
-/images/RefreshAllDiagramsMenu.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/RefreshAllDiagramsMenu.png
-/images/requirements_configuration_wizard.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_configuration_wizard.png
-/images/requirements_configuration_wizard_menu.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_configuration_wizard_menu.png
-/images/requirements_segment.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_segment.png
-/images/requirements_layer.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_layer.png
-/images/requirements_diagram_example_diagram_related.png - org.polarsys.capella.vp.requirements.doc - org.polarsys.capella.vp.requirements.doc/images/requirements_diagram_example_diagram_related.png
+/images/AllocationQueries_Step1.png - org.polarsys.capella.vp.requirements.doc
+/images/AllocationQueries_Step2.png - org.polarsys.capella.vp.requirements.doc
+/images/AllocationQueries_Step3.png - org.polarsys.capella.vp.requirements.doc
+/images/Allocation_Step1.png - org.polarsys.capella.vp.requirements.doc
+/images/Allocation_Step2.png - org.polarsys.capella.vp.requirements.doc
+/images/Allocation_Step3.png - org.polarsys.capella.vp.requirements.doc
+/images/ExportReqIfBaseline.png - org.polarsys.capella.vp.requirements.doc
+/images/InternalAllocation_Step1.png - org.polarsys.capella.vp.requirements.doc
+/images/InternalAllocation_Step2.png - org.polarsys.capella.vp.requirements.doc
+/images/ME.png - org.polarsys.capella.vp.requirements.doc
+/images/MergeOperation.png - org.polarsys.capella.vp.requirements.doc
+/images/NonReferencedAttributeDefinition_Step1.png - org.polarsys.capella.vp.requirements.doc
+/images/NonReferencedAttributeDefinition_Step2.png - org.polarsys.capella.vp.requirements.doc
+/images/RefreshAllDiagramsMenu.png - org.polarsys.capella.vp.requirements.doc
+/images/RemoveBaselineFromIdentifier.png - org.polarsys.capella.vp.requirements.doc
+/images/RequirementsViewpointImportFromReqIFAction.png - org.polarsys.capella.vp.requirements.doc
+/images/RequirementsViewpointMenu.png - org.polarsys.capella.vp.requirements.doc
+/images/attributes.png - org.polarsys.capella.vp.requirements.doc
+/images/categories.png - org.polarsys.capella.vp.requirements.doc
+/images/create-req.png - org.polarsys.capella.vp.requirements.doc
+/images/customize_view.png - org.polarsys.capella.vp.requirements.doc
+/images/diffmerge.png - org.polarsys.capella.vp.requirements.doc
+/images/diffmerge_filtering.png - org.polarsys.capella.vp.requirements.doc
+/images/edit-req.png - org.polarsys.capella.vp.requirements.doc
+/images/filter.png - org.polarsys.capella.vp.requirements.doc
+/images/info.png - org.polarsys.capella.vp.requirements.doc
+/images/massreq.png - org.polarsys.capella.vp.requirements.doc
+/images/overview.png - org.polarsys.capella.vp.requirements.doc
+/images/preferences_importer_scope2.png - org.polarsys.capella.vp.requirements.doc
+/images/preferences_requirements.png - org.polarsys.capella.vp.requirements.doc
+/images/req-property.png - org.polarsys.capella.vp.requirements.doc
+/images/requirement_example.png - org.polarsys.capella.vp.requirements.doc
+/images/requirement_relations.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_configuration_wizard.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_configuration_wizard_menu.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_diagram_example.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_diagram_example_2.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_diagram_example_diagram_related.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_diagram_example_old.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_diagram_example_special_case.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_layer.png - org.polarsys.capella.vp.requirements.doc
+/images/requirements_segment.png - org.polarsys.capella.vp.requirements.doc
+/images/semanticbrowser.png - org.polarsys.capella.vp.requirements.doc
+/images/semanticbrowserinternalrelations.png - org.polarsys.capella.vp.requirements.doc
+/images/showrequirementsinsb.png - org.polarsys.capella.vp.requirements.doc
+/images/type.png - org.polarsys.capella.vp.requirements.doc
+/images/viewpointmanager.png - org.polarsys.capella.vp.requirements.doc

@@ -187,6 +187,13 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case RequirementsPackage.SHARED_DIRECT_ATTRIBUTES: {
+			SharedDirectAttributes sharedDirectAttributes = (SharedDirectAttributes) theEObject;
+			T result = caseSharedDirectAttributes(sharedDirectAttributes);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case RequirementsPackage.ATTRIBUTE_OWNER: {
 			AttributeOwner attributeOwner = (AttributeOwner) theEObject;
 			T result = caseAttributeOwner(attributeOwner);
@@ -204,6 +211,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAttributeOwner(requirement);
 			if (result == null)
+				result = caseSharedDirectAttributes(requirement);
+			if (result == null)
 				result = caseReqIFElement(requirement);
 			if (result == null)
 				result = caseIdentifiableElement(requirement);
@@ -219,6 +228,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAttributeOwner(folder);
 			if (result == null)
+				result = caseSharedDirectAttributes(folder);
+			if (result == null)
 				result = caseReqIFElement(folder);
 			if (result == null)
 				result = caseIdentifiableElement(folder);
@@ -231,6 +242,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseModule(module);
 			if (result == null)
 				result = caseAttributeOwner(module);
+			if (result == null)
+				result = caseSharedDirectAttributes(module);
 			if (result == null)
 				result = caseReqIFElement(module);
 			if (result == null)
@@ -522,6 +535,21 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDateValueAttribute(DateValueAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Shared Direct Attributes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Shared Direct Attributes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSharedDirectAttributes(SharedDirectAttributes object) {
 		return null;
 	}
 

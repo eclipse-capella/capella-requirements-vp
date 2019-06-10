@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
+	<title>Edition</title>
+</head>
+<body>
+<h1>Edition</h1>
+<h2>Creation of Requirements</h2>
+<p>The viewpoint is mainly dedicated to import Requirements from a ReqIF file and to manage allocations of model elements to them.</p>
+<p>It is possible to create and edit requirements though.</p>
+
+<h3>Manage Types</h3>
+<p>Requirements, Folder, Modules are associated to a Type, defining which attributes apply to them. </p>
+<p>By default, types are hidden in the Project Explorer. </p>
+
+<h3>Visualize Types</h3>
+<p>
+Disable the corresponding filter:<br/>
+In Capella Project Explorer menu choose "Customize View...".
+</p>
+<p>
+<img src="../../images/customize_view.png" alt="Customize View" title="Customize View"/>
+</p>
+<p>
+Search the filter "Requirement VP Types" and unmatch it.
+</p>
+<p>
+<img src="../../images/filter.png" alt="Requirement VP Types filter" title="Requirement VP Types filter"/>
+</p>
+
+<p>
+If you have already done a import from a ReqIF file, Capella Types Folders must now be visible under an Architecture Block.<br/>
+Otherwise, you can create your own types folder (right-click on Architecture Block, "Add Capella Element > Capella Types Folder").
+</p>
+
+<h3>Create Requirement Type</h3>
+<p>Under the Type Folders, create some types as below.</p>
+
+<img src="../../images/type.png" alt="Types" title="Types"/>
+
+<h4>Predefined types</h4>
+<p>Some predefined types are managed by the tool. Those are automatically created while ReqIF import, but if missing we advise you to create them in the Types Folder and reference them in your types:</p>
+
+<table>
+<th>Predefined Type</th>
+<td>Boolean</td>
+<td>String</td>
+<td>Text</td>
+<td>Integer</td>
+<td>Real</td>
+<td>Date</td>
+</table>
+
+<h3>Create Requirements</h3>
+
+<p>In the architecture, create a new Module, and in it, a new Requirement.</p>
+<img src="../../images/create-req.png" alt="Create Requirement" title="Create Requirement"/>
+
+<p>Click on the Requirement and associate it, through the Property View, to the newly created type (or an existing one)</p>
+<img src="../../images/req-property.png" alt="Property View" title="Property View"/>
+
+<p>As new requirement has to be associated to a Type before editing custom attributes, we advise you to create one 'empty' requirement associated to your type and do copy/paste of it when you want to create a new Requirement. That way, it will be directly associated to the expected Requirement Type.</p>
+
+<h3>Edit Requirement</h3>
+<p>Now you can edit attributes of your requirements by sending them into the Mass Editing View.</p>
+
+<img src="../../images/edit-req.png" alt="Edit" title="Edit"/>
+
+<p>A mass editing table opens and you can edit attributes of your requirements.</p>
+
+<img src="../../images/massreq.png" alt="Mass" title="Mass"/>
+
+<p>Please have a look to the Capella Guide > User Manual > User Interface > Mass Editing and Visualization section to see how these tables work and how to customize them.</p>
+
+<h3>Add a new relation type</h3>
+<p>
+To create a new relation type, right-click on a Capella Types Folder : "Add Capella Element > Relation Type".<br/>
+Do not forget to set its name.<br/>
+The new relation type is now available for requirements allocation.
+</p>
+</body>
+</html>

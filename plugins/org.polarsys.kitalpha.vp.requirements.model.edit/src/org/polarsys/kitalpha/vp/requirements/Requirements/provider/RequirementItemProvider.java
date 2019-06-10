@@ -107,10 +107,11 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReqIFNamePropertyDescriptor(object);
+			addReqIFPrefixPropertyDescriptor(object);
 			addRequirementTypePropertyDescriptor(object);
 			addReqIFChapterNamePropertyDescriptor(object);
 			addReqIFForeignIDPropertyDescriptor(object);
-			addReqIFPrefixPropertyDescriptor(object);
 			addReqIFTextPropertyDescriptor(object);
 			addRequirementTypeProxyPropertyDescriptor(object);
 		}
@@ -138,6 +139,28 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 				// begin-extension-code
 				null);
 		itemPropertyDescriptors.add(requirementTypePropertyDescriptor);
+		// end-extension-code
+	}
+
+	/**
+	 * This adds a property descriptor for the Req IF Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReqIFNamePropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_SharedDirectAttributes_ReqIFName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SharedDirectAttributes_ReqIFName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SharedDirectAttributes_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
 		// end-extension-code
 	}
 
@@ -197,10 +220,10 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 		itemPropertyDescriptors.add(createItemPropertyDescriptor
 		// end-extension-code
 		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_ReqIFPrefix_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFPrefix_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Requirement_type"), //$NON-NLS-1$
-				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, true, false, false,
+				getString("_UI_SharedDirectAttributes_ReqIFPrefix_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SharedDirectAttributes_ReqIFPrefix_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SharedDirectAttributes_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));
@@ -319,9 +342,10 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Requirement.class)) {
+		case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
 		case RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME:
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
-		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

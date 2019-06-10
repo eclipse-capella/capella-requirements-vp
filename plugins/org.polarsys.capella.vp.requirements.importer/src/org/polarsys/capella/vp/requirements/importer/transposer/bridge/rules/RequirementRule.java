@@ -44,7 +44,7 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, requirement));
     }
     requirement.setReqIFIdentifier(object.getIdentifier());
-    requirement.setReqIFLongName(requirement.getReqIFChapterName());
+    requirement.setReqIFLongName(object.getLongName());
     return new TupleNP<Object>(requirement, createdElements);
   }
 

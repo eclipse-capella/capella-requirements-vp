@@ -64,7 +64,7 @@ public class TypesFolderSection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), true);
+    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), false, false);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 	}
 

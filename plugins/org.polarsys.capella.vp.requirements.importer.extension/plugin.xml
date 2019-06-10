@@ -15,9 +15,29 @@
     <extension
           point="org.polarsys.capella.vp.requirements.importer.extension.attributesProvider">
        <attributesProvider
-       		 id="reqif"
-             category="ReqIF standard attributes"
+       		 id="reqif-mandatory"
+             category="ReqIF mandatory attributes"
              mandatory="true">
+          <attribute
+          		name="&lt;Identifier&gt;"
+                defaultValue="true">
+          </attribute>
+          <attribute
+          		name="&lt;LongName&gt;"
+                defaultValue="true">
+          </attribute>
+       </attributesProvider>
+    </extension>
+    <extension
+          point="org.polarsys.capella.vp.requirements.importer.extension.attributesProvider">
+       <attributesProvider
+       		 id="reqif-standard"
+             category="ReqIF attributes"
+             mandatory="false">
+          <attribute
+          		name="ReqIF.Name"
+                defaultValue="true">
+          </attribute>
           <attribute
           		name="ReqIF.ChapterName"
                 defaultValue="true">
@@ -27,19 +47,7 @@
                 defaultValue="true">
           </attribute>
           <attribute
-          		name="ReqIF.ForeignCreatedBy"
-                defaultValue="true">
-          </attribute>
-          <attribute
-          		name="ReqIF.ForeignCreatedThru"
-                defaultValue="true">
-          </attribute>
-          <attribute
-          		name="ReqIF.ForeignID"
-                defaultValue="true">
-          </attribute>
-          <attribute
-          		name="ReqIF.ForeignModifiedBy"
+          		name="ReqIF.Text"
                 defaultValue="true">
           </attribute>
           <attribute
@@ -47,8 +55,32 @@
                 defaultValue="true">
           </attribute>
           <attribute
-          		name="ReqIF.Text"
+          		name="ReqIF.ForeignID"
                 defaultValue="true">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignCreatedBy"
+                defaultValue="false">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignCreatedOn"
+                defaultValue="false">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignCreatedThru"
+                defaultValue="false">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignDeleted"
+                defaultValue="false">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignModifiedBy"
+                defaultValue="false">
+          </attribute>
+          <attribute
+          		name="ReqIF.ForeignModifiedOn"
+                defaultValue="false">
           </attribute>
        </attributesProvider>
     </extension>

@@ -28,15 +28,23 @@ import org.polarsys.kitalpha.vp.requirements.ui.properties.Messages;
  */
 public class BasicReqIFElementGroup extends AbstractSemanticField {
 
+  protected Text longNameField;
   protected Text nameField;
   protected Text chapternameField;
   protected Text textField;
+  protected Text prefixField;
+
+  @Deprecated
+  public BasicReqIFElementGroup(Composite parent, TabbedPropertySheetWidgetFactory widgetFactory, boolean onlyName) {
+    this(parent, widgetFactory, !onlyName, !onlyName);
+  }
 
   /**
    * @param parent
    * @param widgetFactory
    */
-  public BasicReqIFElementGroup(Composite parent, TabbedPropertySheetWidgetFactory widgetFactory, boolean onlyName) {
+  public BasicReqIFElementGroup(Composite parent, TabbedPropertySheetWidgetFactory widgetFactory,
+      boolean sharedAttributes, boolean requirementAttributes) {
     super(widgetFactory);
 
     Group textGroup = widgetFactory.createGroup(parent, ICommonConstants.EMPTY_STRING);
@@ -45,9 +53,18 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
     gd.horizontalSpan = 2;
     textGroup.setLayoutData(gd);
 
-    nameField = createTextField(textGroup, Messages.getString("ReqIFElement.NameLabel")); //$NON-NLS-1$
-    if (!onlyName) {
+    longNameField = createTextField(textGroup, Messages.getString("ReqIFElement.LongNameLabel")); //$NON-NLS-1$
+
+    if (sharedAttributes) {
+      nameField = createTextField(textGroup, Messages.getString("ReqIFElement.NameLabel")); //$NON-NLS-1$
+    }
+    if (requirementAttributes) {
       chapternameField = createTextField(textGroup, Messages.getString("ReqIFElement.ChapterNameLabel")); //$NON-NLS-1$
+    }
+    if (sharedAttributes) {
+      prefixField = createTextField(textGroup, Messages.getString("ReqIFElement.PrefixLabel")); //$NON-NLS-1$
+    }
+    if (requirementAttributes) {
       textField = createTextField(textGroup, Messages.getString("ReqIFElement.TextLabel")); //$NON-NLS-1$
     }
   }
@@ -75,24 +92,44 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
     loadData(semanticElement, null);
 
     if (null != semanticElement) {
-      if (null != nameField)
-        setTextValue(nameField, semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName());
-      if (null != chapternameField)
-        setTextValue(chapternameField, semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName());
-      if (null != textField)
+      if (null != longNameField) {
+        setTextValue(longNameField, semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName());
+      }
+      if (null != nameField) {
+        setTextValue(nameField, semanticElement, RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFName());
+      }
+      if (null != chapternameField) {
+        setTextValue(chapternameField, semanticElement,
+            RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName());
+      }
+      if (null != prefixField) {
+        setTextValue(prefixField, semanticElement,
+            RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFPrefix());
+      }
+      if (null != textField) {
         setTextValue(textField, semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText());
+      }
     }
   }
 
   /**
-   * @param field text field to be filled
+   * @param field
+   *          text field to be filled
    */
   @Override
   protected void fillTextField(Text field) {
-    if (field.equals(nameField)) {
-      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName(), nameField.getText());
+    if (field.equals(longNameField)) {
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getReqIFElement_ReqIFLongName(),
+          longNameField.getText());
+    } else if (field.equals(nameField)) {
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFName(),
+          nameField.getText());
     } else if (field.equals(chapternameField)) {
-      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName(), chapternameField.getText());
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFChapterName(),
+          chapternameField.getText());
+    } else if (field.equals(prefixField)) {
+      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFPrefix(),
+          prefixField.getText());
     } else if (field.equals(textField)) {
       setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText(), textField.getText());
     }
@@ -103,8 +140,10 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
    */
   @Override
   public void setEnabled(boolean enabled) {
+    LockHelper.getInstance().enable(longNameField, enabled);
     LockHelper.getInstance().enable(nameField, enabled);
     LockHelper.getInstance().enable(chapternameField, enabled);
+    LockHelper.getInstance().enable(prefixField, enabled);
     LockHelper.getInstance().enable(textField, enabled);
   }
 }

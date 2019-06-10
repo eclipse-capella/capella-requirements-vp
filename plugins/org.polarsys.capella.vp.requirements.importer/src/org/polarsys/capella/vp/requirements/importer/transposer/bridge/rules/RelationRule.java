@@ -40,6 +40,7 @@ public class RelationRule extends AbstractRule<SpecRelation, TupleNP<Object>> {
 
     InternalRelation targetRelation = RequirementsFactory.eINSTANCE.createInternalRelation();
     targetRelation.setReqIFIdentifier(source.getIdentifier());
+    targetRelation.setReqIFLongName(source.getLongName());
     targetRelation.setRelationTypeProxy(source.getType().getLongName());
 
     createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(source), targetRelation);

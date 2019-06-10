@@ -61,49 +61,50 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
         id="24658239-7734-4c39-9402-83325c52d04c" name="System Analysis">
-      <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="85e3ef35-1f2e-48a8-aef2-7a3f245fbe73"
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="601e7b38-7e23-476c-b4bc-38b996f61abc"
           ReqIFIdentifier="_8da68f26-585c-4193-b6ca-a07cedff2a5c" ReqIFLongName="Types Folder">
-        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="3d21fc16-25ed-4916-a59c-f0a4543a7838"
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="450b7b83-470f-4552-a648-bb1534ba0e7f"
             ReqIFIdentifier="_i6FNMMkgEee8KsfWrp9EJQ" ReqIFLongName="String"/>
         <ownedDefinitionTypes xsi:type="Requirements:EnumerationDataTypeDefinition"
-            id="729e187c-8aad-4832-806c-5a282fd12104" ReqIFIdentifier="_ahyOEMk3Eee5A_N9aQFa1w"
+            id="cbb09368-130d-4e9a-b6de-715a4fd36dcb" ReqIFIdentifier="_ahyOEMk3Eee5A_N9aQFa1w"
             ReqIFLongName="IE Object Type">
-          <specifiedValues xsi:type="Requirements:EnumValue" id="19e828bf-ea74-4367-9379-8be422894117"
+          <specifiedValues xsi:type="Requirements:EnumValue" id="19a57d3d-4459-41b1-8021-ef671d03e565"
               ReqIFIdentifier="_gXZ9oMk3Eee5A_N9aQFa1w" ReqIFLongName="Requirement"/>
-          <specifiedValues xsi:type="Requirements:EnumValue" id="e2a806fe-0fe4-4d30-815f-91abfc116079"
+          <specifiedValues xsi:type="Requirements:EnumValue" id="f0c8c1d9-7b64-4504-bbab-5cf26e8e3728"
               ReqIFIdentifier="_hGeDEMk3Eee5A_N9aQFa1w" ReqIFLongName="Function"/>
-          <specifiedValues xsi:type="Requirements:EnumValue" id="788d8136-a194-4e04-a3c9-c47a2e85ec7e"
+          <specifiedValues xsi:type="Requirements:EnumValue" id="66dbdf94-2cbd-4842-b96e-c2e01457b046"
               ReqIFIdentifier="_hZP1IMk3Eee5A_N9aQFa1w" ReqIFLongName="Capability"/>
         </ownedDefinitionTypes>
-        <ownedTypes xsi:type="Requirements:ModuleType" id="c764ecbd-7f74-4f0c-b22a-070ee83d027e"
+        <ownedTypes xsi:type="Requirements:ModuleType" id="377eaf1b-955a-4103-995c-96026659ff80"
             ReqIFIdentifier="_NAXScMkhEee8KsfWrp9EJQ" ReqIFLongName="Module Type">
-          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="41f9d57e-ccae-406e-851b-92f68a7de207"
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="fdb71d1e-bba9-4f30-9789-4776b976dd7f"
               ReqIFIdentifier="_jLB90MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Name"
-              definitionType="#3d21fc16-25ed-4916-a59c-f0a4543a7838"/>
+              definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
         </ownedTypes>
-        <ownedTypes xsi:type="Requirements:RequirementType" id="dcdad50f-e24a-46cc-a5e9-82dfecb501ff"
+        <ownedTypes xsi:type="Requirements:RequirementType" id="98408e68-da9c-4a0d-b836-b5f757da3539"
             ReqIFIdentifier="_LaeSsMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement Type">
-          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="062d884b-da51-43aa-b196-6ce2ccd776d1"
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="f0969d66-d464-40d1-903a-2aa9277d45c0"
               ReqIFIdentifier="_cf7-0MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Text"
-              definitionType="#3d21fc16-25ed-4916-a59c-f0a4543a7838"/>
-          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="ca5a9c88-6174-4bd3-9edf-708914d1e7ee"
-              ReqIFIdentifier="_25YvEMkyEee5A_N9aQFa1w" ReqIFLongName="IE PUID" definitionType="#3d21fc16-25ed-4916-a59c-f0a4543a7838"/>
+              definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="4b21244a-2fdb-4103-83d7-cc3a72dd55ff"
+              ReqIFIdentifier="_25YvEMkyEee5A_N9aQFa1w" ReqIFLongName="IE PUID" definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
           <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
-              id="e18412c3-af83-4426-820b-e02a0255b449" ReqIFIdentifier="_0VDX0Mk3Eee5A_N9aQFa1w"
-              ReqIFLongName="IE Object Type" definitionType="#729e187c-8aad-4832-806c-5a282fd12104"/>
+              id="8dbd6351-6dfc-4455-aa6d-7e496940d937" ReqIFIdentifier="_0VDX0Mk3Eee5A_N9aQFa1w"
+              ReqIFLongName="IE Object Type" definitionType="#cbb09368-130d-4e9a-b6de-715a4fd36dcb"/>
         </ownedTypes>
       </ownedExtensions>
-      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="bfb31da5-64ac-4df8-9df5-5711be63a4e2"
-          ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#c764ecbd-7f74-4f0c-b22a-070ee83d027e">
-        <ownedRequirements xsi:type="Requirements:Requirement" id="5c513aa9-45c0-436d-a830-97dd406ad61c"
-            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" requirementType="#dcdad50f-e24a-46cc-a5e9-82dfecb501ff"
-            ReqIFText="Requirement-1" requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
-          <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="5110c489-61ac-44b3-aa90-ebdc019c6963"
-              definition="#ca5a9c88-6174-4bd3-9edf-708914d1e7ee" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="c9489067-4165-4d88-a98b-160fb3ed5aab"
+          ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#377eaf1b-955a-4103-995c-96026659ff80">
+        <ownedRequirements xsi:type="Requirements:Requirement" id="20169578-b83e-4d02-a041-d41a9f7b60ae"
+            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
+            requirementType="#98408e68-da9c-4a0d-b836-b5f757da3539" ReqIFText="Requirement-1"
+            requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
+          <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="5b44aee5-2cfb-44b2-8b6b-a55cbe2889a3"
+              definition="#4b21244a-2fdb-4103-83d7-cc3a72dd55ff" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
               value="PUID-1"/>
-          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="2ab0c500-2af1-4b8d-8977-f9e0f4979d5f"
-              definition="#e18412c3-af83-4426-820b-e02a0255b449" definitionProxy="_0VDX0Mk3Eee5A_N9aQFa1w"
-              values="#19e828bf-ea74-4367-9379-8be422894117"/>
+          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="278e2531-ea77-4c05-a355-c608f514cb6b"
+              definition="#8dbd6351-6dfc-4455-aa6d-7e496940d937" definitionProxy="_0VDX0Mk3Eee5A_N9aQFa1w"
+              values="#19a57d3d-4459-41b1-8021-ef671d03e565"/>
         </ownedRequirements>
       </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemFunctionPkg"

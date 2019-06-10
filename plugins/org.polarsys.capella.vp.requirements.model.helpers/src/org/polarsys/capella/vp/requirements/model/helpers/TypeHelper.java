@@ -12,6 +12,7 @@ package org.polarsys.capella.vp.requirements.model.helpers;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
@@ -19,8 +20,10 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 
 public class TypeHelper {
 
@@ -37,6 +40,35 @@ public class TypeHelper {
       return EcorePackage.Literals.EDATE;
     } 
     return null;
+  }
+
+  public static EStructuralFeature getDirectFeature(String longName, AttributeOwner target) {
+    if (target instanceof SharedDirectAttributes) {
+      if ("ReqIF.Name".equals(longName)) {
+        return RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME;
+      } else if ("ReqIF.Prefix".equals(longName)) {
+        return RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX;
+      }
+    }
+    if (target instanceof ReqIFElement) {
+      if ("ReqIF.Description".equals(longName)) {
+        return RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION;
+      } 
+    }
+    if (target instanceof Requirement) {
+      if ("ReqIF.ChapterName".equals(longName)) {
+        return RequirementsPackage.Literals.REQUIREMENT__REQ_IF_CHAPTER_NAME;
+      } else if ("ReqIF.Text".equals(longName)) {
+        return RequirementsPackage.Literals.REQUIREMENT__REQ_IF_TEXT;
+      } else if ("ReqIF.ForeignID".equals(longName)) {
+        return RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID;
+      }
+    }
+    return null;
+  }
+
+  public static boolean isDirectFeature(String longName, AttributeOwner target) {
+    return getDirectFeature(longName, target) != null;
   }
 
   public static EClass getCompatibleType(AttributeDefinition def) {
@@ -68,5 +100,4 @@ public class TypeHelper {
     }
     return null;
   }
-
 }

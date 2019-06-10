@@ -105,6 +105,8 @@ public class ModelDiffTestCase3 extends BasicTestCase {
     
     if (differencesFromReference.size() > 0 || differencesFromTarget.size() > 0) {
       fail("There should not be any differences between the test model with ReqIf imported and the reference model");
+      // If you have changed the fixtureModel, you may have forgotten that types are hidden by default in diffmerge
+      // view, so perhaps your fixtureModel is incomplete
     }
   }
 }

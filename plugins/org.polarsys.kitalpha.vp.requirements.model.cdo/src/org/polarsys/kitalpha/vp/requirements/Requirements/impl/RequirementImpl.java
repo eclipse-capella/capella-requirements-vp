@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,11 +36,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFName <em>Req IF Name</em>}</li>
+ *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getRequirementType <em>Requirement Type</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getOwnedRelations <em>Owned Relations</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFChapterName <em>Req IF Chapter Name</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getReqIFText <em>Req IF Text</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementImpl#getRequirementTypeProxy <em>Requirement Type Proxy</em>}</li>
  * </ul>
@@ -52,7 +54,27 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+
+	/**
+	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReqIFPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQ_IF_PREFIX_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getReqIFChapterName() <em>Req IF Chapter Name</em>}' attribute.
@@ -73,16 +95,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @ordered
 	 */
 	protected static final BigInteger REQ_IF_FOREIGN_ID_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getReqIFPrefix() <em>Req IF Prefix</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReqIFPrefix()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REQ_IF_PREFIX_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getReqIFText() <em>Req IF Text</em>}' attribute.
@@ -180,6 +192,30 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	public String getReqIFName() {
+
+		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFName(String newReqIFName) {
+
+		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
 	public String getReqIFChapterName() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME,
@@ -231,7 +267,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	public String getReqIFPrefix() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, true, true);
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
 	}
 
 	/**
@@ -243,7 +279,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	public void setReqIFPrefix(String newReqIFPrefix) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_PREFIX, newReqIFPrefix);
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
 	}
 
 	/**
@@ -316,6 +352,10 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+			return getReqIFName();
+		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
+			return getReqIFPrefix();
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE:
 			if (resolve)
 				return getRequirementType();
@@ -326,8 +366,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return getReqIFChapterName();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
 			return getReqIFForeignID();
-		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			return getReqIFPrefix();
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			return getReqIFText();
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
@@ -345,6 +383,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+			setReqIFName((String) newValue);
+			return;
+		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
+			setReqIFPrefix((String) newValue);
+			return;
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE:
 			setRequirementType((RequirementType) newValue);
 			return;
@@ -357,9 +401,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
 			setReqIFForeignID((BigInteger) newValue);
-			return;
-		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			setReqIFPrefix((String) newValue);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			setReqIFText((String) newValue);
@@ -379,6 +420,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+			setReqIFName(REQ_IF_NAME_EDEFAULT);
+			return;
+		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
+			setReqIFPrefix(REQ_IF_PREFIX_EDEFAULT);
+			return;
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE:
 			setRequirementType((RequirementType) null);
 			return;
@@ -390,9 +437,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
 			setReqIFForeignID(REQ_IF_FOREIGN_ID_EDEFAULT);
-			return;
-		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			setReqIFPrefix(REQ_IF_PREFIX_EDEFAULT);
 			return;
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			setReqIFText(REQ_IF_TEXT_EDEFAULT);
@@ -412,6 +456,11 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+			return REQ_IF_NAME_EDEFAULT == null ? getReqIFName() != null : !REQ_IF_NAME_EDEFAULT.equals(getReqIFName());
+		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
+			return REQ_IF_PREFIX_EDEFAULT == null ? getReqIFPrefix() != null
+					: !REQ_IF_PREFIX_EDEFAULT.equals(getReqIFPrefix());
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE:
 			return basicGetRequirementType() != null;
 		case RequirementsPackage.REQUIREMENT__OWNED_RELATIONS:
@@ -422,9 +471,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		case RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID:
 			return REQ_IF_FOREIGN_ID_EDEFAULT == null ? getReqIFForeignID() != null
 					: !REQ_IF_FOREIGN_ID_EDEFAULT.equals(getReqIFForeignID());
-		case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
-			return REQ_IF_PREFIX_EDEFAULT == null ? getReqIFPrefix() != null
-					: !REQ_IF_PREFIX_EDEFAULT.equals(getReqIFPrefix());
 		case RequirementsPackage.REQUIREMENT__REQ_IF_TEXT:
 			return REQ_IF_TEXT_EDEFAULT == null ? getReqIFText() != null : !REQ_IF_TEXT_EDEFAULT.equals(getReqIFText());
 		case RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY:
@@ -432,6 +478,46 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 					: !REQUIREMENT_TYPE_PROXY_EDEFAULT.equals(getRequirementTypeProxy());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SharedDirectAttributes.class) {
+			switch (derivedFeatureID) {
+			case RequirementsPackage.REQUIREMENT__REQ_IF_NAME:
+				return RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME;
+			case RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX:
+				return RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SharedDirectAttributes.class) {
+			switch (baseFeatureID) {
+			case RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME:
+				return RequirementsPackage.REQUIREMENT__REQ_IF_NAME;
+			case RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX:
+				return RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //RequirementImpl

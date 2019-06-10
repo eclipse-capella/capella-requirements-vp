@@ -69,7 +69,7 @@ public class RequirementSection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), false);
+    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), true, true);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     typeField = new SimpleSemanticField(getReferencesGroup(),

@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 
-public interface Module extends AttributeOwner {
+public interface Module extends AttributeOwner, SharedDirectAttributes {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

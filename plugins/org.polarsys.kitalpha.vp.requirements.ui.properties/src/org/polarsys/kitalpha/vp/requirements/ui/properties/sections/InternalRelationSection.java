@@ -70,7 +70,7 @@ public class InternalRelationSection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), true);
+    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), false, false);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     sourceField = new SimpleSemanticField(getReferencesGroup(),

@@ -42,6 +42,7 @@ public class FolderRule extends AbstractRule<SpecHierarchy, TupleNP<Object>> {
     for (AttributeValue value : object.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, folder));
     }
+    folder.setReqIFLongName(object.getLongName());
     folder.setReqIFIdentifier(object.getIdentifier());
     return new TupleNP<Object>(folder, createdElements);
   }

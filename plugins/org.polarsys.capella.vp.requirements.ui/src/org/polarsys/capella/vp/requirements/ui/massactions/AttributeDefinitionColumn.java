@@ -188,13 +188,11 @@ public class AttributeDefinitionColumn extends AbstractMAColumn {
         .filter(aa -> getIdentifier(definition).equals(getIdentifier(aa.getDefinition()))).findFirst()
         .orElseGet(() -> createAttribute(req, definition));
 
-    if (attribute instanceof BooleanValueAttribute) {
+    if (attribute instanceof BooleanValueAttribute && arg1 instanceof Boolean) {
       ((BooleanValueAttribute) attribute).setValue(((Boolean) arg1).booleanValue());
 
-    } else if (attribute instanceof DateValueAttribute) {
-      if (arg1 != null) {
-        ((DateValueAttribute) attribute).setValue((Date) arg1);
-      }
+    } else if (attribute instanceof DateValueAttribute && arg1 instanceof Date) {
+      ((DateValueAttribute) attribute).setValue((Date) arg1);
 
     } else if (attribute instanceof EnumerationValueAttribute) {
       ((EnumerationValueAttribute) attribute).getValues().clear();
@@ -204,10 +202,10 @@ public class AttributeDefinitionColumn extends AbstractMAColumn {
         ((EnumerationValueAttribute) attribute).getValues().addAll((Collection) arg1);
       }
 
-    } else if (attribute instanceof IntegerValueAttribute) {
+    } else if (attribute instanceof IntegerValueAttribute && arg1 instanceof Integer) {
       ((IntegerValueAttribute) attribute).setValue(((Integer) arg1).intValue());
 
-    } else if (attribute instanceof RealValueAttribute) {
+    } else if (attribute instanceof RealValueAttribute && arg1 instanceof Double) {
       ((RealValueAttribute) attribute).setValue(((Double) arg1).doubleValue());
 
     } else if (attribute instanceof StringValueAttribute) {

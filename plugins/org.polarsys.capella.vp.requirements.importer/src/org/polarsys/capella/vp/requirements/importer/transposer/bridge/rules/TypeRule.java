@@ -81,8 +81,8 @@ public class TypeRule extends AbstractRule<SpecType, TupleNP<Object>> {
       } else
         definition = RequirementsFactory.eINSTANCE.createAttributeDefinition();
       setDefaultValue(srcDefinition, definition, createdElements);
-      definition.setReqIFLongName(srcDefinition.getLongName());
       definition.setReqIFIdentifier(srcDefinition.getIdentifier());
+      definition.setReqIFLongName(srcDefinition.getLongName());
       type.getOwnedAttributes().add(definition);
       createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(srcDefinition), definition);
     }

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
+	<title>Release Notes</title>
+</head>
+<body>
+<h1>Attribute import has been clarified</h1>
+
+<h2>LongName</h2>
+<p>Prior this version, attribute ReqIFLongName was matched to another ReqIf attribute.</p>
+
+<p>
+<table>
+<th>Attribute name</th>
+<th>Requirement</th>
+<th>Folder</th>
+<th>Module</th>
+
+<tr>
+<td>ReqIFLongName</td>
+<td>ReqIF.ChapterName</td>
+<td>ReqIF.Name</td>
+<td>LongName</td>
+</tr>
+
+</table>
+</p>
+<p>It was misleading and according to the tool from which the Reqif was generated, the filled attributes may change from the defined match and were not properly imported.</p>
+<p>Some tools are using only LongName to store the name of the requirement, some are using ReqIF.ChapterName for the heading, some other are using ReqIF.Name.</p>
+
+Now, the tool doesn't try to merge value of one attribute to the other and separated attributes are available on Requirement, Folder and Modules.
+Attributes will be filled by the values if they are defined in the ReqIf file.
+<ul>
+<li>ReqIFLongName will be always matched to LongName attribute</li>
+<li>ReqIFName will be matched to ReqIF.Name attribute if any</li>
+<li>ReqIFChapterName will be matched to ReqIF.ChapterName attribute if any</li>
+</ul>
+
+<h2>ReqIF missing attributes</h2>
+<p>Some attributes like ReqIF.Prefix, ReqIF.ReqIF.ForeignCreatedBy, ReqIF.ForeignModifiedBy, ReqIF.ForeignDeleted were marked as mandatory but couldn't be imported even if the user was creating a file adding these attributes.</p>
+<p>Now, it is possible to specify which ReqIF attributes to import. (Some of them are imported by default, but it is now possible to disable most of them)</p>
+
+<img src="../images/attributes.png" alt="Attributes" title="Attributes"/>
+
+<h2>Mass Visualization and Edition</h2>
+Attributes of Requirements can now be edited / view in Mass Editing/Visualization tables.
+
+
+
+<img src="../images/ME.png" alt="Attributes" title="Attributes"/>
+
+<p>Please have a look to the Capella Guide > User Manual > User Interface > Mass Editing and Visualization section.</p>
+
+<p>In these tables you will be able to edit all attributes defined in the type of the Requirement.</p>
+
+</body>
+</html>

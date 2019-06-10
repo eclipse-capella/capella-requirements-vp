@@ -37,13 +37,17 @@ public class RequirementAttributesProvider extends AbstractMAColumnProvider {
           AttributeOwner element = (AttributeOwner) object;
           for (Attribute attribute : element.getOwnedAttributes()) {
             if (attribute.getDefinition() != null) {
-              columns.add(new AttributeDefinitionColumn(attribute.eClass(), attribute.getDefinition()));
+              if (!TypeHelper.isDirectFeature(attribute.getDefinition().getReqIFLongName(), element)) {
+                columns.add(new AttributeDefinitionColumn(attribute.eClass(), attribute.getDefinition()));
+              }
             }
           }
           AbstractType type = TypeHelper.getType(element);
           if (type != null) {
             for (AttributeDefinition definition : type.getOwnedAttributes()) {
-              columns.add(new AttributeDefinitionColumn(TypeHelper.getCompatibleType(definition), definition));
+              if (!TypeHelper.isDirectFeature(definition.getReqIFLongName(), element)) {
+                columns.add(new AttributeDefinitionColumn(TypeHelper.getCompatibleType(definition), definition));
+              }
             }
           }
         }

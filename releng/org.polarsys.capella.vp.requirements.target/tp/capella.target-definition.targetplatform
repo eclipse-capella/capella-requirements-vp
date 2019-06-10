@@ -16,6 +16,7 @@ with source, requirements
 
 location "https://ci.polarsys.org/capella/job/capella-master/1996/artifact/releng/plugins/org.polarsys.capella.rcp.site/target/repository" {
 	org.polarsys.capella.rcp.feature.feature.group
+	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
 location "https://ci.polarsys.org/capella/job/capella-master/1996/artifact/releng/plugins/org.polarsys.capella.test.site/target/repository" {

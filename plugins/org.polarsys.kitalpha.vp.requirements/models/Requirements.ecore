@@ -38,17 +38,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="DateValueAttribute" eSuperTypes="#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SharedDirectAttributes" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeOwner" abstract="true" eSuperTypes="#//ReqIFElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//AttributeOwner">
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//AttributeOwner #//SharedDirectAttributes">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirementType" eType="#//RequirementType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRelations" upperBound="-1"
         eType="#//AbstractRelation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFChapterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFForeignID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementTypeProxy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -56,7 +59,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRequirements" upperBound="-1"
         eType="#//Requirement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//AttributeOwner">
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//AttributeOwner #//SharedDirectAttributes">
     <eStructuralFeatures xsi:type="ecore:EReference" name="moduleType" eType="#//ModuleType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRequirements" upperBound="-1"
         eType="#//Requirement" containment="true"/>

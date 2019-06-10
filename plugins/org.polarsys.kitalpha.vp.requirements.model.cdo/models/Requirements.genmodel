@@ -48,6 +48,10 @@
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//DateValueAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//DateValueAttribute/value"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes/ReqIFName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes/ReqIFPrefix"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeOwner/ownedAttributes"/>
     </genClasses>
@@ -56,7 +60,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ownedRelations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFChapterName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFForeignID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFPrefix"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFText"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/requirementTypeProxy"/>
     </genClasses>

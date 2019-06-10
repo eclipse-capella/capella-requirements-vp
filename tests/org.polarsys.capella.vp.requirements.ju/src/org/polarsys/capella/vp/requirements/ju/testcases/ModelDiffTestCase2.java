@@ -87,6 +87,8 @@ public class ModelDiffTestCase2 extends BasicTestCase {
 
     if (differencesFromReferenceScope.size() > 0) {
       fail("There should not be any differences when Sample1.reqif is imported to Capella model");
+      // If you have changed the fixtureModel, you may have forgotten that types are hidden by default in diffmerge
+      // view, so perhaps your fixtureModel is incomplete
     }
 
   }

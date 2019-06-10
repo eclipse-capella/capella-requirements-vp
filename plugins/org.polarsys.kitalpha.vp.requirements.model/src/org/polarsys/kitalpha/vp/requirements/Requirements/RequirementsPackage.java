@@ -733,6 +733,52 @@ public interface RequirementsPackage extends EPackage {
 	int DATE_VALUE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.SharedDirectAttributesImpl <em>Shared Direct Attributes</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.SharedDirectAttributesImpl
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getSharedDirectAttributes()
+	 * @generated
+	 */
+	int SHARED_DIRECT_ATTRIBUTES = 10;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX = 1;
+
+	/**
+	 * The number of structural features of the '<em>Shared Direct Attributes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_DIRECT_ATTRIBUTES_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Shared Direct Attributes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_DIRECT_ATTRIBUTES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeOwnerImpl <em>Attribute Owner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -740,7 +786,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeOwner()
 	 * @generated
 	 */
-	int ATTRIBUTE_OWNER = 10;
+	int ATTRIBUTE_OWNER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -813,7 +859,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRequirement()
 	 * @generated
 	 */
-	int REQUIREMENT = 11;
+	int REQUIREMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -861,40 +907,13 @@ public interface RequirementsPackage extends EPackage {
 	int REQUIREMENT__OWNED_ATTRIBUTES = ATTRIBUTE_OWNER__OWNED_ATTRIBUTES;
 
 	/**
-	 * The feature id for the '<em><b>Requirement Type</b></em>' reference.
+	 * The feature id for the '<em><b>Req IF Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__REQUIREMENT_TYPE = ATTRIBUTE_OWNER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Owned Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__OWNED_RELATIONS = ATTRIBUTE_OWNER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Req IF Chapter Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__REQ_IF_CHAPTER_NAME = ATTRIBUTE_OWNER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Req IF Foreign ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__REQ_IF_FOREIGN_ID = ATTRIBUTE_OWNER_FEATURE_COUNT + 3;
+	int REQUIREMENT__REQ_IF_NAME = ATTRIBUTE_OWNER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
@@ -903,7 +922,43 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__REQ_IF_PREFIX = ATTRIBUTE_OWNER_FEATURE_COUNT + 4;
+	int REQUIREMENT__REQ_IF_PREFIX = ATTRIBUTE_OWNER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Requirement Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__REQUIREMENT_TYPE = ATTRIBUTE_OWNER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Owned Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__OWNED_RELATIONS = ATTRIBUTE_OWNER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Chapter Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__REQ_IF_CHAPTER_NAME = ATTRIBUTE_OWNER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Foreign ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__REQ_IF_FOREIGN_ID = ATTRIBUTE_OWNER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Req IF Text</b></em>' attribute.
@@ -912,7 +967,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__REQ_IF_TEXT = ATTRIBUTE_OWNER_FEATURE_COUNT + 5;
+	int REQUIREMENT__REQ_IF_TEXT = ATTRIBUTE_OWNER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Requirement Type Proxy</b></em>' attribute.
@@ -921,7 +976,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__REQUIREMENT_TYPE_PROXY = ATTRIBUTE_OWNER_FEATURE_COUNT + 6;
+	int REQUIREMENT__REQUIREMENT_TYPE_PROXY = ATTRIBUTE_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
@@ -930,7 +985,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 7;
+	int REQUIREMENT_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Requirement</em>' class.
@@ -949,7 +1004,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 12;
+	int FOLDER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -997,6 +1052,24 @@ public interface RequirementsPackage extends EPackage {
 	int FOLDER__OWNED_ATTRIBUTES = REQUIREMENT__OWNED_ATTRIBUTES;
 
 	/**
+	 * The feature id for the '<em><b>Req IF Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__REQ_IF_NAME = REQUIREMENT__REQ_IF_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__REQ_IF_PREFIX = REQUIREMENT__REQ_IF_PREFIX;
+
+	/**
 	 * The feature id for the '<em><b>Requirement Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1031,15 +1104,6 @@ public interface RequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__REQ_IF_FOREIGN_ID = REQUIREMENT__REQ_IF_FOREIGN_ID;
-
-	/**
-	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__REQ_IF_PREFIX = REQUIREMENT__REQ_IF_PREFIX;
 
 	/**
 	 * The feature id for the '<em><b>Req IF Text</b></em>' attribute.
@@ -1094,7 +1158,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 13;
+	int MODULE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1142,13 +1206,31 @@ public interface RequirementsPackage extends EPackage {
 	int MODULE__OWNED_ATTRIBUTES = ATTRIBUTE_OWNER__OWNED_ATTRIBUTES;
 
 	/**
+	 * The feature id for the '<em><b>Req IF Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__REQ_IF_NAME = ATTRIBUTE_OWNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__REQ_IF_PREFIX = ATTRIBUTE_OWNER_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Module Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE__MODULE_TYPE = ATTRIBUTE_OWNER_FEATURE_COUNT + 0;
+	int MODULE__MODULE_TYPE = ATTRIBUTE_OWNER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Owned Requirements</b></em>' containment reference list.
@@ -1157,7 +1239,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE__OWNED_REQUIREMENTS = ATTRIBUTE_OWNER_FEATURE_COUNT + 1;
+	int MODULE__OWNED_REQUIREMENTS = ATTRIBUTE_OWNER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Module</em>' class.
@@ -1166,7 +1248,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 2;
+	int MODULE_FEATURE_COUNT = ATTRIBUTE_OWNER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Module</em>' class.
@@ -1185,7 +1267,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getTypesFolder()
 	 * @generated
 	 */
-	int TYPES_FOLDER = 14;
+	int TYPES_FOLDER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1267,7 +1349,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAbstractType()
 	 * @generated
 	 */
-	int ABSTRACT_TYPE = 15;
+	int ABSTRACT_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1340,7 +1422,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getModuleType()
 	 * @generated
 	 */
-	int MODULE_TYPE = 16;
+	int MODULE_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1413,7 +1495,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRequirementType()
 	 * @generated
 	 */
-	int REQUIREMENT_TYPE = 17;
+	int REQUIREMENT_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1486,7 +1568,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 18;
+	int RELATION_TYPE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1559,7 +1641,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getDataTypeDefinition()
 	 * @generated
 	 */
-	int DATA_TYPE_DEFINITION = 19;
+	int DATA_TYPE_DEFINITION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1623,7 +1705,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeDefinition()
 	 * @generated
 	 */
-	int ATTRIBUTE_DEFINITION = 20;
+	int ATTRIBUTE_DEFINITION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1705,7 +1787,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getAttributeDefinitionEnumeration()
 	 * @generated
 	 */
-	int ATTRIBUTE_DEFINITION_ENUMERATION = 21;
+	int ATTRIBUTE_DEFINITION_ENUMERATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1796,7 +1878,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationValueAttribute()
 	 * @generated
 	 */
-	int ENUMERATION_VALUE_ATTRIBUTE = 22;
+	int ENUMERATION_VALUE_ATTRIBUTE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1860,7 +1942,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumerationDataTypeDefinition()
 	 * @generated
 	 */
-	int ENUMERATION_DATA_TYPE_DEFINITION = 23;
+	int ENUMERATION_DATA_TYPE_DEFINITION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1933,7 +2015,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getEnumValue()
 	 * @generated
 	 */
-	int ENUM_VALUE = 24;
+	int ENUM_VALUE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2255,6 +2337,38 @@ public interface RequirementsPackage extends EPackage {
 	EAttribute getDateValueAttribute_Value();
 
 	/**
+	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes <em>Shared Direct Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Shared Direct Attributes</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
+	 * @generated
+	 */
+	EClass getSharedDirectAttributes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes#getReqIFName <em>Req IF Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Req IF Name</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes#getReqIFName()
+	 * @see #getSharedDirectAttributes()
+	 * @generated
+	 */
+	EAttribute getSharedDirectAttributes_ReqIFName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes#getReqIFPrefix <em>Req IF Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Req IF Prefix</em>'.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes#getReqIFPrefix()
+	 * @see #getSharedDirectAttributes()
+	 * @generated
+	 */
+	EAttribute getSharedDirectAttributes_ReqIFPrefix();
+
+	/**
 	 * Returns the meta object for class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner <em>Attribute Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2328,17 +2442,6 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRequirement_ReqIFForeignID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Req IF Prefix</em>'.
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_ReqIFPrefix();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFText <em>Req IF Text</em>}'.
@@ -2857,6 +2960,32 @@ public interface RequirementsPackage extends EPackage {
 		EAttribute DATE_VALUE_ATTRIBUTE__VALUE = eINSTANCE.getDateValueAttribute_Value();
 
 		/**
+		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.SharedDirectAttributesImpl <em>Shared Direct Attributes</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.SharedDirectAttributesImpl
+		 * @see org.polarsys.kitalpha.vp.requirements.Requirements.impl.RequirementsPackageImpl#getSharedDirectAttributes()
+		 * @generated
+		 */
+		EClass SHARED_DIRECT_ATTRIBUTES = eINSTANCE.getSharedDirectAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Req IF Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME = eINSTANCE.getSharedDirectAttributes_ReqIFName();
+
+		/**
+		 * The meta object literal for the '<em><b>Req IF Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX = eINSTANCE.getSharedDirectAttributes_ReqIFPrefix();
+
+		/**
 		 * The meta object literal for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeOwnerImpl <em>Attribute Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2915,14 +3044,6 @@ public interface RequirementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REQUIREMENT__REQ_IF_FOREIGN_ID = eINSTANCE.getRequirement_ReqIFForeignID();
-
-		/**
-		 * The meta object literal for the '<em><b>Req IF Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__REQ_IF_PREFIX = eINSTANCE.getRequirement_ReqIFPrefix();
 
 		/**
 		 * The meta object literal for the '<em><b>Req IF Text</b></em>' attribute feature.

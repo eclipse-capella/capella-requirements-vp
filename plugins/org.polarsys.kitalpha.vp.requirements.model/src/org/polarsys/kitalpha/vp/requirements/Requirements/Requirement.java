@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getOwnedRelations <em>Owned Relations</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFChapterName <em>Req IF Chapter Name</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFForeignID <em>Req IF Foreign ID</em>}</li>
- *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFText <em>Req IF Text</em>}</li>
  *   <li>{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getRequirementTypeProxy <em>Requirement Type Proxy</em>}</li>
  * </ul>
@@ -38,7 +37,7 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 
-public interface Requirement extends AttributeOwner {
+public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,36 +152,6 @@ public interface Requirement extends AttributeOwner {
 	 */
 
 	void setReqIFForeignID(BigInteger value);
-
-	/**
-	 * Returns the value of the '<em><b>Req IF Prefix</b></em>' attribute.
-	
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Req IF Prefix</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Req IF Prefix</em>' attribute.
-	 * @see #setReqIFPrefix(String)
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_ReqIFPrefix()
-	 * @model
-	 * @generated
-	 */
-
-	String getReqIFPrefix();
-
-	/**
-	 * Sets the value of the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement#getReqIFPrefix <em>Req IF Prefix</em>}' attribute.
-	
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Req IF Prefix</em>' attribute.
-	 * @see #getReqIFPrefix()
-	 * @generated
-	 */
-
-	void setReqIFPrefix(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Req IF Text</b></em>' attribute.

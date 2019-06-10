@@ -72,7 +72,7 @@ public class AttributeDefinitionSection extends AbstractSection {
 
     boolean displayedInWizard = isDisplayedInWizard();
 
-    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), true);
+    reqIFElementGroup = new BasicReqIFElementGroup(rootParentComposite, getWidgetFactory(), false, false);
     reqIFElementGroup.setDisplayedInWizard(displayedInWizard);
 
     definitionField = new SimpleSemanticField(getReferencesGroup(), Messages.getString("AttributeDefinition.DataTypeLabel"), getWidgetFactory(), new CurrentOrUpperBlockArchitectureFilteringController()); //$NON-NLS-1$

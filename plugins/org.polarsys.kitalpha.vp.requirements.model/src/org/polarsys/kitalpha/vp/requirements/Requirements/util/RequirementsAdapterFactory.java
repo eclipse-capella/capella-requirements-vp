@@ -134,6 +134,11 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSharedDirectAttributes(SharedDirectAttributes object) {
+			return createSharedDirectAttributesAdapter();
+		}
+
+		@Override
 		public Adapter caseAttributeOwner(AttributeOwner object) {
 			return createAttributeOwnerAdapter();
 		}
@@ -364,6 +369,20 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDateValueAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes <em>Shared Direct Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
+	 * @generated
+	 */
+	public Adapter createSharedDirectAttributesAdapter() {
 		return null;
 	}
 
