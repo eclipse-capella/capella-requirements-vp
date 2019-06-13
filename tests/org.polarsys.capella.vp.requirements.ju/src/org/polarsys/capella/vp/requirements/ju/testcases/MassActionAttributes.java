@@ -90,22 +90,22 @@ public class MassActionAttributes extends BasicTestCase {
     
     Collection<IMAColumn> cols2 = new RequirementAttributesProvider().getColumnValues(Collections.emptyList(), Arrays.asList(s.getSemanticElement(REQB)));
     assertTrue("At least one column", cols2.size()>0);
-    assertTrue("All are expected kind", cols2.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
+    assertTrue("All have expected kind", cols2.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
     assertTrue("All have definition", cols2.stream().map(AttributeDefinitionColumn.class::cast).noneMatch(x -> x.getDefinition() == null));
     assertTrue("Date shall not be null even if no attribute", cols2.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Req2_Date")).findFirst().get().getDataValue(s.getSemanticElement(REQB)) != null);
     
     Collection<IMAColumn> cols3 = new RequirementAttributesProvider().getColumnValues(Collections.emptyList(), Arrays.asList(s.getSemanticElement(REQA)));
     assertTrue("At least one column", cols3.size()>0);
-    assertTrue("All are expected kind", cols3.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
+    assertTrue("All have expected kind", cols3.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
     assertTrue("Enum and Enum_1 have same definitions, they shall be separated though", cols3.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Enum") || findColumn(x, "Enum_1")).count() == 2);
     
     final Collection<IMAColumn> cols = new RequirementAttributesProvider().getColumnValues(Collections.emptyList(), Arrays.asList(s.getSemanticElement(REQA), s.getSemanticElement(REQB)));
     assertTrue("At least one column", cols.size()>0);
-    assertTrue("All are expected kind", cols.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
+    assertTrue("All have expected kind", cols.stream().allMatch(AttributeDefinitionColumn.class::isInstance));
     assertTrue("All have definition", cols.stream().map(AttributeDefinitionColumn.class::cast).noneMatch(x -> x.getDefinition() == null));
     assertTrue("Bool1.definition have same name, same DataType, they shall be merged to one column", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Bool1")).count() == 1);
     assertTrue("Bool2.definition have same name, same DataType names, they shall be merged to one column", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Bool2")).count() == 1);
-    assertTrue("Bool3.definition have same name, different DataType names, they shall not be merged to one column", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Bool3")).count() == 2);
+    assertTrue("Bool3.definition have same name, different DataType names, they shall not be available", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Bool3")).count() == 0);
     
     TransactionHelper.getExecutionManager((EObject)s.getSemanticElement(REQA)).execute(new AbstractReadWriteCommand() {
       @Override
@@ -119,17 +119,7 @@ public class MassActionAttributes extends BasicTestCase {
     assertTrue("Value shall be set on REQB", getAttributeValue(s.getSemanticElement(REQB), "Bool1").equals(Boolean.TRUE));
     
     
-    assertTrue("Enum have different definitions, they shall be separated", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Enum")).count() == 2);
-    
-    int count = LightMarkerRegistry.getInstance().getMarkers().size();
-    TransactionHelper.getExecutionManager((EObject)s.getSemanticElement(REQA)).execute(new AbstractReadWriteCommand() {
-      @Override
-      public void run() {
-        cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Req2_Date")).findFirst().get().setDataValue(s.getSemanticElement(REQA), new Date());
-      }
-    });
-    int count2 = LightMarkerRegistry.getInstance().getMarkers().size();
-    assertTrue("We modify a attribute not set in the type of REQA, a message shall be raised on information view", count2 != count);
+    assertTrue("Enum have different definitions, they shall be separated", cols.stream().map(AttributeDefinitionColumn.class::cast).filter(x -> findColumn(x, "Enum")).count() == 0);
     
     Collection<IMAColumn> colsModule = new RequirementAttributesProvider().getColumnValues(Collections.emptyList(), Arrays.asList(s.getSemanticElement(REQB)));
     assertTrue("At least one column for modules", colsModule.size()>0);

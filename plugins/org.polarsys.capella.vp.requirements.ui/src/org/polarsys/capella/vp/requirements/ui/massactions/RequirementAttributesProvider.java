@@ -11,7 +11,11 @@
 package org.polarsys.capella.vp.requirements.ui.massactions;
 
 import java.util.Collection;
-import java.util.LinkedHashSet;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.vp.requirements.model.helpers.TypeHelper;
@@ -25,39 +29,58 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 
 public class RequirementAttributesProvider extends AbstractMAColumnProvider {
 
-  Collection<IMAColumn> columns = null;
-
   @Override
   public Collection<IMAColumn> getColumnValues(Collection<PossibleFeature> arg0, Collection<EObject> elements) {
-    if (columns == null) {
-      columns = new LinkedHashSet<IMAColumn>();
 
-      for (EObject object : elements) {
-        if (object instanceof AttributeOwner) {
-          AttributeOwner element = (AttributeOwner) object;
-          for (Attribute attribute : element.getOwnedAttributes()) {
-            if (attribute.getDefinition() != null) {
-              if (!TypeHelper.isDirectFeature(attribute.getDefinition().getReqIFLongName(), element)) {
-                columns.add(new AttributeDefinitionColumn(attribute.eClass(), attribute.getDefinition()));
-              }
-            }
-          }
-          AbstractType type = TypeHelper.getType(element);
-          if (type != null) {
-            for (AttributeDefinition definition : type.getOwnedAttributes()) {
-              if (!TypeHelper.isDirectFeature(definition.getReqIFLongName(), element)) {
-                columns.add(new AttributeDefinitionColumn(TypeHelper.getCompatibleType(definition), definition));
-              }
+    //We return columns shared by all elements
+    HashMap<IMAColumn, Integer> commonColumns = new HashMap<IMAColumn, Integer>();
+
+    for (EObject object : elements) {
+      if (object instanceof AttributeOwner) {
+        AttributeOwner element = (AttributeOwner) object;
+        HashSet<IMAColumn> columns = new HashSet<IMAColumn>();
+        
+        //Columns for owned attributes
+        for (Attribute attribute : element.getOwnedAttributes()) {
+          if (attribute.getDefinition() != null) {
+            if (!TypeHelper.isDirectFeature(attribute.getDefinition().getReqIFLongName(), element)) {
+              AttributeDefinitionColumn column = new AttributeDefinitionColumn(attribute.eClass(),
+                  attribute.getDefinition());
+              columns.add(column);
             }
           }
         }
-      }
 
-      for (IMAColumn c : columns) {
-        ((AttributeDefinitionColumn) c).setBodyLayer(bodyLayer);
+        //Columns for its type
+        AbstractType type = TypeHelper.getType(element);
+        if (type != null) {
+          for (AttributeDefinition definition : type.getOwnedAttributes()) {
+            if (!TypeHelper.isDirectFeature(definition.getReqIFLongName(), element)) {
+              AttributeDefinitionColumn c = new AttributeDefinitionColumn(TypeHelper.getCompatibleType(definition),
+                  definition);
+              columns.add(c);
+            }
+          }
+        }
+        
+        //We add columns to the commonColumns
+        for (IMAColumn c : columns) {
+          commonColumns.put(c, commonColumns.getOrDefault(c, 0) + 1);
+        }
+      } else {
+        
+        //If there is an invalid element, we don't have common columns
+        return Collections.emptyList();
       }
     }
-    return columns;
+    
+    //We return columns shared by all elements
+    List<IMAColumn> result = commonColumns.entrySet().stream().filter(e -> e.getValue() == elements.size())
+        .map(e -> e.getKey()).collect(Collectors.toList());
+    for (IMAColumn c : result) {
+      ((AttributeDefinitionColumn) c).setBodyLayer(bodyLayer);
+    }
+    return result;
   }
 
 }
