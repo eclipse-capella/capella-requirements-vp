@@ -28,7 +28,11 @@ import org.eclipse.emf.diffmerge.bridge.mapping.impl.emf.EMFMappingBridge;
 import org.eclipse.emf.diffmerge.bridge.mapping.operations.MappingBridgeOperation;
 import org.eclipse.emf.diffmerge.bridge.util.structures.ITuple;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -125,48 +129,52 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     for (org.eclipse.rmf.reqif10.AttributeDefinition attribute : spectype.getSpecAttributes()) {
       org.eclipse.rmf.reqif10.DatatypeDefinition datatype = null;
       org.eclipse.rmf.reqif10.AttributeDefinition valueDef = null;
-      if (attribute instanceof AttributeDefinitionEnumeration) {
-        datatype = ((AttributeDefinitionEnumeration) attribute).getType();
-        AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
+      try {
+        if (attribute instanceof AttributeDefinitionEnumeration) {
+          datatype = ((AttributeDefinitionEnumeration) attribute).getType();
+          AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionBoolean) {
+          datatype = ((AttributeDefinitionBoolean) attribute).getType();
+          AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionDate) {
+          datatype = ((AttributeDefinitionDate) attribute).getType();
+          AttributeValueDate defaultValue = ((AttributeDefinitionDate) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionInteger) {
+          datatype = ((AttributeDefinitionInteger) attribute).getType();
+          AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionReal) {
+          datatype = ((AttributeDefinitionReal) attribute).getType();
+          AttributeValueReal defaultValue = ((AttributeDefinitionReal) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionString) {
+          datatype = ((AttributeDefinitionString) attribute).getType();
+          AttributeValueString defaultValue = ((AttributeDefinitionString) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
+        } else if (attribute instanceof AttributeDefinitionXHTML) {
+          datatype = ((AttributeDefinitionXHTML) attribute).getType();
+          AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attribute).getDefaultValue();
+          if (defaultValue != null) {
+            valueDef = defaultValue.getDefinition();
+          }
         }
-      } else if (attribute instanceof AttributeDefinitionBoolean) {
-        datatype = ((AttributeDefinitionBoolean) attribute).getType();
-        AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
-      } else if (attribute instanceof AttributeDefinitionDate) {
-        datatype = ((AttributeDefinitionDate) attribute).getType();
-        AttributeValueDate defaultValue = ((AttributeDefinitionDate) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
-      } else if (attribute instanceof AttributeDefinitionInteger) {
-        datatype = ((AttributeDefinitionInteger) attribute).getType();
-        AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
-      } else if (attribute instanceof AttributeDefinitionReal) {
-        datatype = ((AttributeDefinitionReal) attribute).getType();
-        AttributeValueReal defaultValue = ((AttributeDefinitionReal) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
-      } else if (attribute instanceof AttributeDefinitionString) {
-        datatype = ((AttributeDefinitionString) attribute).getType();
-        AttributeValueString defaultValue = ((AttributeDefinitionString) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
-      } else if (attribute instanceof AttributeDefinitionXHTML) {
-        datatype = ((AttributeDefinitionXHTML) attribute).getType();
-        AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attribute).getDefaultValue();
-        if (defaultValue != null) {
-          valueDef = defaultValue.getDefinition();
-        }
+      } catch (Exception e) {
+        System.out.println("Can't read type of attribute: " + attribute.getLongName());
       }
 
       Object attr = ruleEnv.getOne(attribute.eContainer(), ITuple.class);
@@ -276,6 +284,36 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     return null;
   }
 
+  public void setAttribute(EObject target, EStructuralFeature feature, Object value) {
+    if (value != null) {
+      EClassifier type = feature.getEType();
+      try {
+        if (type == EcorePackage.Literals.EBIG_INTEGER && !(value instanceof BigInteger)) {
+          if (value instanceof Integer) {
+            value = BigInteger.valueOf(((Integer) value).longValue());
+          } else {
+            value = new BigInteger(value.toString());
+          }
+        } else if (type == EcorePackage.Literals.EBOOLEAN && !(value instanceof Boolean)) {
+          value = Boolean.valueOf(value.toString());
+
+        } else if (type == EcorePackage.Literals.EINT && !(value instanceof Integer)) {
+          value = Integer.valueOf(value.toString());
+
+        } else if (type == EcorePackage.Literals.EDOUBLE && !(value instanceof Double)) {
+          value = Double.valueOf(value.toString());
+
+        } else if (type == EcorePackage.Literals.ESTRING && !(value instanceof String)) {
+          value = value.toString();
+        }
+      } catch (NumberFormatException e) {
+        System.out.println("Can't import value: " + value);
+      }
+    }
+    target.eSet(feature, value);
+
+  }
+
   /**
    * Create an attribute with the given type and the given value.
    * 
@@ -287,23 +325,23 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     container.getOwnedAttributes().add(attribute);
 
     if (attribute instanceof BooleanValueAttribute) {
-      attribute.eSet(RequirementsPackage.Literals.BOOLEAN_VALUE_ATTRIBUTE__VALUE, value);
+      setAttribute(attribute, RequirementsPackage.Literals.BOOLEAN_VALUE_ATTRIBUTE__VALUE, value);
 
     } else if (attribute instanceof DateValueAttribute) {
-      attribute.eSet(RequirementsPackage.Literals.DATE_VALUE_ATTRIBUTE__VALUE, value);
+      setAttribute(attribute, RequirementsPackage.Literals.DATE_VALUE_ATTRIBUTE__VALUE, value);
 
     } else if (attribute instanceof EnumerationValueAttribute) {
       // We don't set enumeration value here. it is done in synchronizeAttributes()
       // attribute.eSet(RequirementsPackage.Literals.ENUMERATION_VALUE_ATTRIBUTE__VALUES, value);
 
     } else if (attribute instanceof IntegerValueAttribute) {
-      attribute.eSet(RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE__VALUE, value);
+      setAttribute(attribute, RequirementsPackage.Literals.INTEGER_VALUE_ATTRIBUTE__VALUE, value);
 
     } else if (attribute instanceof RealValueAttribute) {
-      attribute.eSet(RequirementsPackage.Literals.REAL_VALUE_ATTRIBUTE__VALUE, value);
+      setAttribute(attribute, RequirementsPackage.Literals.REAL_VALUE_ATTRIBUTE__VALUE, value);
 
     } else if (attribute instanceof StringValueAttribute) {
-      attribute.eSet(RequirementsPackage.Literals.STRING_VALUE_ATTRIBUTE__VALUE, value);
+      setAttribute(attribute, RequirementsPackage.Literals.STRING_VALUE_ATTRIBUTE__VALUE, value);
     }
     return attribute;
   }
@@ -340,10 +378,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     if (value instanceof AttributeValueXHTML) {
       return getContent((AttributeValueXHTML) value);
     } else if (value instanceof AttributeValueInteger) {
-      AttributeValueInteger attribute = (AttributeValueInteger) value;
-      if (attribute.getTheValue() != null) {
-        return ((AttributeValueInteger) value).getTheValue();
-      }
+      return ((AttributeValueInteger) value).getTheValue();
     } else if (value instanceof AttributeValueString) {
       return ((AttributeValueString) value).getTheValue();
     } else if (value instanceof AttributeValueBoolean) {
@@ -372,12 +407,9 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       } else {
         EStructuralFeature feature = TypeHelper.getDirectFeature(type, target);
         Object attributeValue = getAttributeValue(value);
-        if (value instanceof BigInteger) {
-          // An Integer can't be cast to BigInteger, so we can't return an int wrapped into Integer in getAttributeValue
-          attributeValue = ((BigInteger) value).intValue();
-        }
+
         if (feature != null) {
-          target.eSet(feature, attributeValue);
+          setAttribute(target, feature, attributeValue);
         } else {
           Attribute result = createAttributeValue(target, getAttributeType(value), attributeValue);
           if (result != null) {

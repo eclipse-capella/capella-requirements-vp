@@ -76,10 +76,7 @@ public class ReqIFMappingQueries {
     if (block != null) {
       for (ElementExtension ext : block.getOwnedExtensions()) {
         if (ext instanceof TypesFolder) {
-//          String reqIFId = ((TypesFolder) ext).getReqIF_Identifier();
-//          if (reqIFId != null && reqIFId.equals(getSourceModelId(context))) {
-            return (TypesFolder) ext;
-//          }
+          return (TypesFolder) ext;
         }
       }
       // no types folder has been found, we create one
@@ -165,27 +162,38 @@ public class ReqIFMappingQueries {
     List<DatatypeDefinition> typeDefinitions = new ArrayList<DatatypeDefinition>();
     for (SpecType type : getAllTypes(scope)) {
       for (AttributeDefinition definition : type.getSpecAttributes()) {
-        if (definition instanceof AttributeDefinitionEnumeration) {
-          DatatypeDefinition def = ((AttributeDefinitionEnumeration) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionXHTML) {
-          DatatypeDefinition def = ((AttributeDefinitionXHTML) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionBoolean) {
-          DatatypeDefinition def = ((AttributeDefinitionBoolean) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionDate) {
-          DatatypeDefinition def = ((AttributeDefinitionDate) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionInteger) {
-          DatatypeDefinition def = ((AttributeDefinitionInteger) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionReal) {
-          DatatypeDefinition def = ((AttributeDefinitionReal) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
-        } else if (definition instanceof AttributeDefinitionString) {
-          DatatypeDefinition def = ((AttributeDefinitionString) definition).getType();
-          if (!typeDefinitions.contains(def)) typeDefinitions.add(def);
+        try {
+          if (definition instanceof AttributeDefinitionEnumeration) {
+            DatatypeDefinition def = ((AttributeDefinitionEnumeration) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionXHTML) {
+            DatatypeDefinition def = ((AttributeDefinitionXHTML) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionBoolean) {
+            DatatypeDefinition def = ((AttributeDefinitionBoolean) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionDate) {
+            DatatypeDefinition def = ((AttributeDefinitionDate) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionInteger) {
+            DatatypeDefinition def = ((AttributeDefinitionInteger) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionReal) {
+            DatatypeDefinition def = ((AttributeDefinitionReal) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          } else if (definition instanceof AttributeDefinitionString) {
+            DatatypeDefinition def = ((AttributeDefinitionString) definition).getType();
+            if (!typeDefinitions.contains(def))
+              typeDefinitions.add(def);
+          }
+        } catch (Exception e) {
+          System.out.println("Can't read type of definition: "+definition.getLongName());
         }
       }
     }
@@ -223,20 +231,16 @@ public class ReqIFMappingQueries {
           }
         } else if (attributeValue instanceof AttributeValueEnumeration) {
           if ("IE Object Type".equals(((AttributeValueEnumeration) attributeValue).getDefinition().getLongName())) {
-            // for (EnumValue ev : ((AttributeValueEnumeration) attributeValue).getValues()) {
-            // if ("Requirement".equals(ev.getLongName())) {
             foundIEObjectType = true;
-            // }
-            // }
           }
         }
       }
-      
+
       Boolean forceDoorsRmfUsage = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-  	        .getBoolean(RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE);
+          .getBoolean(RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE);
       // In case of using Doors with RMF plugin, attribute PE UID is mandatory
-      if(forceDoorsRmfUsage) {
-    	  return (foundIEPUID && foundIEObjectType);
+      if (forceDoorsRmfUsage) {
+        return (foundIEPUID && foundIEObjectType);
       }
     }
     return true;
@@ -249,12 +253,7 @@ public class ReqIFMappingQueries {
    * @return
    */
   private static boolean relationCondition(EObject object) {
-    // if (object instanceof SpecHierarchy) {
-    // if (((SpecHierarchy) object).getChildren().isEmpty()) {
     return condition(object);
-    // }
-    // }
-    // return true;
   }
 
   public static SpecHierarchy getHierarchyFromObject(SpecObject object) {
