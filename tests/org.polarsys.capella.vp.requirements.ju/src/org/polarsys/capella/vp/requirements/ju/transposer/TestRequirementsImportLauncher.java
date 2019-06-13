@@ -25,7 +25,7 @@ public class TestRequirementsImportLauncher extends RequirementsImportLauncher {
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__INITIALIZATION,
         new String[] { TestInitializeTransformation.getId() });
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE,
-        new String[] { TriggerDiffMerge.getId(), TestInitializeTransformation.getId() });
+        new String[] { TriggerDiffMerge.getId(), TestTransposerTransformation.getId() });
   }
 
   public IContext getContext() {

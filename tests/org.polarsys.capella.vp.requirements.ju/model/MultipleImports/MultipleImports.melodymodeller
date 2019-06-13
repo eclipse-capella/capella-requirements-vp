@@ -98,8 +98,9 @@
       <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="86396b0c-6ee0-42b0-8327-f3669b9973b6"
           ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#62f33032-670d-472d-8290-a5a3aaee18ae">
         <ownedRequirements xsi:type="Requirements:Requirement" id="a95c9d88-4115-472d-965c-f19efe2409ee"
-            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441"
-            ReqIFText="Requirement-1" requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
+            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
+            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="Requirement-1"
+            requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="e1e36fb5-b764-42e8-b969-1dc068b06cd6"
               definition="#7b594bc2-766b-4a88-9039-3ccea7415d9c" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
               value="PUID-1"/>
@@ -107,13 +108,14 @@
               definition="#aee6977a-d22a-43fb-84d7-c8d4ff3423a2" definitionProxy="_0VDX0Mk3Eee5A_N9aQFa1w"
               values="#54ab1495-b889-476f-8adc-32e030493192"/>
           <ownedRelations xsi:type="Requirements:InternalRelation" id="359c2d3b-f45c-409c-8848-5a2fb69508a4"
-              ReqIFIdentifier="_sAR68PIYEee7hfk_gkTvOQ" relationType="#3065abf9-22b5-4457-bd92-f7d612a19d6a"
-              relationTypeProxy="Relation Type" source="#a95c9d88-4115-472d-965c-f19efe2409ee"
-              target="#f58e9077-fe09-4eb2-b4eb-4f670a997d9c"/>
+              ReqIFIdentifier="_sAR68PIYEee7hfk_gkTvOQ" ReqIFLongName="Relation-1"
+              relationType="#3065abf9-22b5-4457-bd92-f7d612a19d6a" relationTypeProxy="Relation Type"
+              source="#a95c9d88-4115-472d-965c-f19efe2409ee" target="#f58e9077-fe09-4eb2-b4eb-4f670a997d9c"/>
         </ownedRequirements>
         <ownedRequirements xsi:type="Requirements:Requirement" id="f58e9077-fe09-4eb2-b4eb-4f670a997d9c"
-            ReqIFIdentifier="_we1mYPIXEee7hfk_gkTvOQ" requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441"
-            ReqIFText="Requirement-2" requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
+            ReqIFIdentifier="_we1mYPIXEee7hfk_gkTvOQ" ReqIFLongName="Requirement-2"
+            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="Requirement-2"
+            requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="ee7192dd-ad4e-4ff0-aba5-eb79b4c58983"
               definition="#7b594bc2-766b-4a88-9039-3ccea7415d9c" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
               value="PUID-2"/>

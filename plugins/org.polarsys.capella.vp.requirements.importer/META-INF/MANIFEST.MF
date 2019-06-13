@@ -27,7 +27,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.vp.requirements.importer.preferences,
  org.polarsys.kitalpha.vp.requirements.model.edit,
  org.polarsys.capella.core.model.helpers,
- org.polarsys.capella.vp.requirements.model.helpers
+ org.polarsys.capella.vp.requirements.model.helpers,
+ org.eclipse.jface,
+ org.eclipse.ui.ide,
+ org.eclipse.swt
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.polarsys.capella.vp.requirements.importer,

@@ -26,6 +26,9 @@ import org.eclipse.emf.diffmerge.bridge.api.incremental.IIncrementalBridgeExecut
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.UIJob;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
@@ -51,7 +54,7 @@ public class TransposerTransformation extends AbstractActivity {
   protected IStatus _run(final ActivityParameters activityParams) {
     Job job = new UIJob("Merge of ReqIF elements") {
       @Override
-      public IStatus runInUIThread(final IProgressMonitor monitor) {
+      public IStatus runInUIThread(IProgressMonitor monitor) {
         return mergeAndSave(activityParams);
       }
     };
@@ -64,35 +67,48 @@ public class TransposerTransformation extends AbstractActivity {
 
   protected IStatus mergeAndSave(ActivityParameters activityParams) {
     final IContext context = (IContext) activityParams.getParameter(ITransposerWorkflow.TRANSPOSER_CONTEXT).getValue();
-    final IEditableModelScope targetScope = (IEditableModelScope) context
-        .get(IRequirementsImporterBridgeConstants.TARGET_SCOPE);
-    BlockArchitecture target = (BlockArchitecture) context.get(IRequirementsImporterBridgeConstants.TARGET_ELEMENT);
-    TransactionHelper.getExecutionManager(target).execute(new AbstractReadWriteCommand() {
-      @Override
-      public void run() {
-        RequirementsVPBridge bridge = (RequirementsVPBridge) context.get(IRequirementsImporterBridgeConstants.BRIDGE);
-        Resource traceResource = (Resource) context.get(IRequirementsImporterBridgeConstants.TRACE_RESOURCE);
-        final IIncrementalBridgeExecution execution2 = (IIncrementalBridgeExecution) context
-            .get(IRequirementsImporterBridgeConstants.BRIDGE_EXECUTION);
 
-        IStatus result = bridge.mergeInteractively(execution2, new NullProgressMonitor());
-        if (result == Status.CANCEL_STATUS) {
-          throw new OperationCanceledException(result.getMessage());
-        }
+    Object reqIfContainsModule = context.get(IRequirementsImporterBridgeConstants.REQIF_MODEL_CONTAINS_MODULE);
+    // Only run diffmerge activity if at least a module found in the reqif file
+    if (reqIfContainsModule instanceof Boolean && ((Boolean) reqIfContainsModule).booleanValue()) {
 
-        // Save traces and output model
-        save(execution2, traceResource, execution2.getTrace(), targetScope);
+      final IEditableModelScope targetScope = (IEditableModelScope) context
+          .get(IRequirementsImporterBridgeConstants.TARGET_SCOPE);
+      BlockArchitecture target = (BlockArchitecture) context.get(IRequirementsImporterBridgeConstants.TARGET_ELEMENT);
 
-        TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
-          @Override
-          public void run() {
-            HoldingResourceHelper
-                .flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
+      TransactionHelper.getExecutionManager(target).execute(new AbstractReadWriteCommand() {
+        @Override
+        public void run() {
+          RequirementsVPBridge bridge = (RequirementsVPBridge) context.get(IRequirementsImporterBridgeConstants.BRIDGE);
+          Resource traceResource = (Resource) context.get(IRequirementsImporterBridgeConstants.TRACE_RESOURCE);
+          final IIncrementalBridgeExecution execution2 = (IIncrementalBridgeExecution) context
+              .get(IRequirementsImporterBridgeConstants.BRIDGE_EXECUTION);
+
+          IStatus result = bridge.mergeInteractively(execution2, new NullProgressMonitor());
+          if (result == Status.CANCEL_STATUS) {
+            throw new OperationCanceledException(result.getMessage());
           }
-        });
 
-      }
-    });
+          // Save traces and output model
+          save(execution2, traceResource, execution2.getTrace(), targetScope);
+
+          TransactionHelper.getExecutionManager(traceResource).execute(new AbstractReadWriteCommand() {
+            @Override
+            public void run() {
+              HoldingResourceHelper
+                  .flushHoldingResource(TransactionHelper.getEditingDomain(targetScope.getContents().get(0)));
+            }
+          });
+
+        }
+      });
+    } else {
+
+      Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+      String title = Messages.ReqIfImport_NoModuleFoundPopup_Title;
+      String content = Messages.ReqIfImport_NoModuleFoundPopup_Content;
+      MessageDialog.openInformation(shell, title, content);
+    }
     return Status.OK_STATUS;
   }
 

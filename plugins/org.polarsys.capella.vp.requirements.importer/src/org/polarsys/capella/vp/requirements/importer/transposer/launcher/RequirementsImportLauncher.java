@@ -40,8 +40,9 @@ public class RequirementsImportLauncher extends ActivitiesLauncher {
     activities = new HashMap<String, String[]>();
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__INITIALIZATION, new String[] { InitializeTransformation.getId() });
     activities.put(IDefaultWorkflow.WORKFLOW_STEP__TRANSPOSITION, new String[] {});
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE, new String[] { TriggerDiffMerge.getId(), TransposerTransformation.getId() });
-    activities.put(IDefaultWorkflow.WORKFLOW_STEP__FINALIZATION, new String[] { });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE,
+        new String[] { TriggerDiffMerge.getId(), TransposerTransformation.getId() });
+    activities.put(IDefaultWorkflow.WORKFLOW_STEP__FINALIZATION, new String[] {});
   }
 
   public void launch(URI model, BlockArchitecture target, IProgressMonitor monitor) {
@@ -58,7 +59,7 @@ public class RequirementsImportLauncher extends ActivitiesLauncher {
   @Override
   protected String[] getWorkflowElements(String workflowId) {
     return new String[] { IDefaultWorkflow.WORKFLOW_STEP__INITIALIZATION, IDefaultWorkflow.WORKFLOW_STEP__TRANSPOSITION,
-                         IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE };
+        IDefaultWorkflow.WORKFLOW_STEP__DIFF_MERGE };
   }
 
   @Override
@@ -74,7 +75,8 @@ public class RequirementsImportLauncher extends ActivitiesLauncher {
   protected WorkflowActivityParameter createParameter(String... ids) {
     WorkflowActivityParameter parameter = new WorkflowActivityParameter();
 
-    GenericParameter<IContext> gContext = new GenericParameter<IContext>(ITransposerWorkflow.TRANSPOSER_CONTEXT, context, "context");
+    GenericParameter<IContext> gContext = new GenericParameter<IContext>(ITransposerWorkflow.TRANSPOSER_CONTEXT,
+        context, "context"); //$NON-NLS-1$
     for (String id : ids) {
       parameter.addActivity(getActivity(id));
       parameter.addParameter(getActivity(id), gContext);

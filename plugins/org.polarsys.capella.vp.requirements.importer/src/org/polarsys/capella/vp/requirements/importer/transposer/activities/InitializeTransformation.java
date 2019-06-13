@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.transposer.activities;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
@@ -39,7 +42,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
@@ -47,9 +53,7 @@ import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
-import org.polarsys.capella.core.data.capellamodeller.util.CapellamodellerResourceFactoryImpl;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
-import org.polarsys.capella.core.model.handler.command.CapellaResourceHelper;
 import org.polarsys.capella.core.transition.common.activities.AbstractActivity;
 import org.polarsys.capella.vp.requirements.importer.RequirementsVPPlugin;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.IRequirementsImporterBridgeConstants;
@@ -74,7 +78,7 @@ public class InitializeTransformation extends AbstractActivity {
   protected IStatus _run(final ActivityParameters activityParams) {
     Job job = new Job("Load ReqIF resource") {
       @Override
-      protected IStatus run(IProgressMonitor monitor) {
+      public IStatus run(IProgressMonitor monitor) {
         return initializeTransformation(activityParams);
       }
     };
@@ -174,22 +178,33 @@ public class InitializeTransformation extends AbstractActivity {
     resourceSet.getPackageRegistry().put(XhtmlPackage.eINSTANCE.getNsURI(), XhtmlPackage.eINSTANCE);
     resourceSet.getPackageRegistry().put(DatatypesPackage.eINSTANCE.getNsURI(), DatatypesPackage.eINSTANCE);
 
-    // Capella resources can be loaded using source scope editing domain (see
-    // org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementsVPBridge.initializeTemporaryScope(IEditableModelScope))
-    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-        .put(CapellaResourceHelper.CAPELLA_MODEL_FILE_EXTENSION, new CapellamodellerResourceFactoryImpl());
-    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-        .put(CapellaResourceHelper.CAPELLA_FRAGMENT_FILE_EXTENSION, new CapellamodellerResourceFactoryImpl());
-
     resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
         .put(IRequirementsImporterBridgeConstants.REQIF_MODEL_FILE_EXTENSION, new ReqIF10ResourceFactoryImpl());
 
     URI uri = (URI) context.get(IRequirementsImporterBridgeConstants.CONTEXT_MODEL);
     Resource resource = resourceSet.getResource(uri, true);
+
+    List<Specification> specifications = resource.getContents().stream() //
+        .filter(ReqIF.class::isInstance) //
+        .map(ReqIF.class::cast) //
+        .map(ReqIF::getCoreContent) //
+        .map(ReqIFContent::getSpecifications) //
+        .flatMap(s -> s.stream()) //
+        .collect(Collectors.toList());
+
+    if (specifications.isEmpty()) { // If no Requirement module found
+      context.put(IRequirementsImporterBridgeConstants.REQIF_MODEL_CONTAINS_MODULE, false);
+
+      // Set status to cancel to avoid unnecessary calculations.
+      return new Status(IStatus.CANCEL, RequirementsVPPlugin.PLUGIN_ID, Messages.ReqIfImport_NoModuleFoundPopup_Content);
+    }
+
+    context.put(IRequirementsImporterBridgeConstants.REQIF_MODEL_CONTAINS_MODULE, true);
     IModelScopeDefinition definition = new ResourceScopeDefinition(resource, getId(), false);
     IEditableModelScope sourceScope = definition.createScope(definition.getEntrypoint());
     context.put(IRequirementsImporterBridgeConstants.SOURCE_SCOPE, sourceScope);
     return checkErrors(resource.getErrors());
+
   }
 
   private IStatus checkErrors(EList<Diagnostic> errors) {
