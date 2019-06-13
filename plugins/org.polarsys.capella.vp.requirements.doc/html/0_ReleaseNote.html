@@ -6,9 +6,12 @@
 	<title>Release Notes</title>
 </head>
 <body>
-<h1>Attribute import has been clarified</h1>
+<h1>Version 0.10.1</h1>
+<p><b>Notes: </b>Attributes import has been clarified. When importing a ReqIF file, you may notice some differences compared to 0.10.0 version. For instance, attribute LongName doesn't contain anymore the ChapterName of the requirement, (as it is already available on ChapterName field). </p>
+<p>You may have to update your tools depending on these attributes to use the correct one. (please see below)</p>
 
-<h2>LongName</h2>
+<h2>Attributes import has been clarified</h2>
+<h3>LongName</h3>
 <p>Prior this version, attribute ReqIFLongName was matched to another ReqIf attribute.</p>
 
 <p>
@@ -38,14 +41,14 @@ Attributes will be filled by the values if they are defined in the ReqIf file.
 <li>ReqIFChapterName will be matched to ReqIF.ChapterName attribute if any</li>
 </ul>
 
-<h2>ReqIF missing attributes</h2>
+<h3>ReqIF missing attributes</h3>
 <p>Some attributes like ReqIF.Prefix, ReqIF.ReqIF.ForeignCreatedBy, ReqIF.ForeignModifiedBy, ReqIF.ForeignDeleted were marked as mandatory but couldn't be imported even if the user was creating a file adding these attributes.</p>
 <p>Now, it is possible to specify which ReqIF attributes to import. (Some of them are imported by default, but it is now possible to disable most of them)</p>
 
 <img src="../images/attributes.png" alt="Attributes" title="Attributes"/>
 
-<h2>Mass Visualization and Edition</h2>
-Attributes of Requirements can now be edited / view in Mass Editing/Visualization tables.
+<h3>Mass Visualization and Edition</h3>
+<p>Attributes of Requirements can now be edited / viewed in Mass Editing/Visualization tables.</p>
 
 
 
