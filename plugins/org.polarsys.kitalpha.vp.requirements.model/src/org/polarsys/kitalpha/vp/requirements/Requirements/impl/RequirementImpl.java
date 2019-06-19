@@ -13,6 +13,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import java.math.BigInteger;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -229,6 +230,60 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	public String getReqIFName() {
+
+		return reqIFName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFName(String newReqIFName) {
+
+		String oldReqIFName = reqIFName;
+		reqIFName = newReqIFName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
+					oldReqIFName, reqIFName));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public String getReqIFPrefix() {
+
+		return reqIFPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFPrefix(String newReqIFPrefix) {
+
+		String oldReqIFPrefix = reqIFPrefix;
+		reqIFPrefix = newReqIFPrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
+					oldReqIFPrefix, reqIFPrefix));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
 	public RequirementType getRequirementType() {
 
 		if (requirementType != null && requirementType.eIsProxy()) {
@@ -291,33 +346,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIFName() {
-
-		return reqIFName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFName(String newReqIFName) {
-
-		String oldReqIFName = reqIFName;
-		reqIFName = newReqIFName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
-					oldReqIFName, reqIFName));
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
 	public String getReqIFChapterName() {
 
 		return reqIFChapterName;
@@ -363,33 +391,6 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID,
 					oldReqIFForeignID, reqIFForeignID));
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIFPrefix() {
-
-		return reqIFPrefix;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFPrefix(String newReqIFPrefix) {
-
-		String oldReqIFPrefix = reqIFPrefix;
-		reqIFPrefix = newReqIFPrefix;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-					oldReqIFPrefix, reqIFPrefix));
 
 	}
 

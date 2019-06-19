@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2016 THALES GLOBAL SERVICES.&#xD;&#xA; All rights reserved. This program and the accompanying materials&#xD;&#xA; are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA; which accompanies this distribution, and is available at&#xD;&#xA; http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA; Contributors:&#xD;&#xA;    Thales - initial API and implementation"
-    modelDirectory="/org.polarsys.kitalpha.vp.requirements.model/src" modelPluginID="org.polarsys.kitalpha.vp.requirements.model"
-    modelName="Requirements" nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" optimizedHasChildren="true" runtimeVersion="2.11" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.polarsys.kitalpha.vp.requirements.model/src"
+    modelPluginID="org.polarsys.kitalpha.vp.requirements.model" modelName="Requirements"
+    nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" optimizedHasChildren="true" runtimeVersion="2.12"
+    usedGenPackages="platform:/plugin/org.polarsys.kitalpha.emde.model/model/eMDE.genmodel#//emde"
     operationReflection="true" importOrganizing="true">
   <foreignModel>../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore</foreignModel>
   <genPackages prefix="Requirements" basePackage="org.polarsys.kitalpha.vp.requirements"
       resource="XMI" disposableProviderFactory="true" generateExampleClass="false"
       multipleEditorPages="false" extensibleProviderFactory="true" childCreationExtenders="true"
       ecorePackage="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#/">
+    <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//IdentifiableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//IdentifiableElement/id"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/ReqIF_Identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/ReqIFIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/ReqIFDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ReqIFElement/ReqIFLongName"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractRelation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractRelation/ReqIF_RelationType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractRelation/relationType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractRelation/relationTypeProxy"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//InternalRelation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//InternalRelation/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//InternalRelation/target"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Attribute/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Attribute/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Attribute/definitionProxy"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//StringValueAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//StringValueAttribute/value"/>
@@ -31,21 +37,61 @@
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//IntegerValueAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//IntegerValueAttribute/value"/>
     </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//BooleanValueAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//BooleanValueAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//RealValueAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//RealValueAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//DateValueAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//DateValueAttribute/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes/ReqIFName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//SharedDirectAttributes/ReqIFPrefix"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeOwner/ownedAttributes"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/requirementType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ownedRelations"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIF_ChapterName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIF_ForeignID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIF_Prefix"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIF_Text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFChapterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFForeignID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/ReqIFText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement/requirementTypeProxy"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Folder">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Folder/ownedRequirements"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Module">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Module/moduleType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Module/ownedRequirements"/>
     </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//TypesFolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//TypesFolder/ownedDefinitionTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//TypesFolder/ownedTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AbstractType/ownedAttributes"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//ModuleType"/>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//RequirementType"/>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//RelationType"/>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//DataTypeDefinition"/>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeDefinition/definitionType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeDefinition/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeDefinitionEnumeration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//AttributeDefinitionEnumeration/multiValued"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//EnumerationValueAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//EnumerationValueAttribute/values"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//EnumerationDataTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//EnumerationDataTypeDefinition/specifiedValues"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//EnumValue"/>
   </genPackages>
 </genmodel:GenModel>

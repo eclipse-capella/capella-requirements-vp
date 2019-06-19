@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -143,6 +144,60 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	public String getReqIFName() {
+
+		return reqIFName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFName(String newReqIFName) {
+
+		String oldReqIFName = reqIFName;
+		reqIFName = newReqIFName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.MODULE__REQ_IF_NAME, oldReqIFName,
+					reqIFName));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public String getReqIFPrefix() {
+
+		return reqIFPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	public void setReqIFPrefix(String newReqIFPrefix) {
+
+		String oldReqIFPrefix = reqIFPrefix;
+		reqIFPrefix = newReqIFPrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.MODULE__REQ_IF_PREFIX,
+					oldReqIFPrefix, reqIFPrefix));
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
 	public ModuleType getModuleType() {
 
 		if (moduleType != null && moduleType.eIsProxy()) {
@@ -197,60 +252,6 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 					RequirementsPackage.MODULE__OWNED_REQUIREMENTS);
 		}
 		return ownedRequirements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIFName() {
-
-		return reqIFName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFName(String newReqIFName) {
-
-		String oldReqIFName = reqIFName;
-		reqIFName = newReqIFName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.MODULE__REQ_IF_NAME, oldReqIFName,
-					reqIFName));
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIFPrefix() {
-
-		return reqIFPrefix;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFPrefix(String newReqIFPrefix) {
-
-		String oldReqIFPrefix = reqIFPrefix;
-		reqIFPrefix = newReqIFPrefix;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RequirementsPackage.MODULE__REQ_IF_PREFIX,
-					oldReqIFPrefix, reqIFPrefix));
-
 	}
 
 	/**

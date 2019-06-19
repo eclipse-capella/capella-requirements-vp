@@ -8,10 +8,13 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.polarsys.kitalpha.vp.requirements.Requirements.impl
 Import-Package: org.polarsys.kitalpha.vp.requirements.Requirements,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.polarsys.kitalpha.emde.model
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.emf.cdo;visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.polarsys.kitalpha.emde.model.cdo;visibility:=reexport,
+ org.polarsys.kitalpha.emde.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

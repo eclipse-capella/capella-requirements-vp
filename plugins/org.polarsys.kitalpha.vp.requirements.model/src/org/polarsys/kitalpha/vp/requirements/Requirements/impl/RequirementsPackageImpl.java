@@ -16,8 +16,11 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.polarsys.kitalpha.emde.model.EmdePackage;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -293,7 +296,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		EmdePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theRequirementsPackage.createPackageContents();
@@ -999,11 +1002,15 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		EmdePackage theEmdePackage = (EmdePackage) EPackage.Registry.INSTANCE.getEPackage(EmdePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		identifiableElementEClass.getESuperTypes().add(theEmdePackage.getElement());
 		reqIFElementEClass.getESuperTypes().add(this.getIdentifiableElement());
 		abstractRelationEClass.getESuperTypes().add(this.getReqIFElement());
 		internalRelationEClass.getESuperTypes().add(this.getAbstractRelation());
