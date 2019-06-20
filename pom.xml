@@ -36,7 +36,7 @@
 
     <!-- for packaging -->
     <eclipse-repo.url>http://download.eclipse.org/releases/neon</eclipse-repo.url>
-    <packagedAddonName>org.polarsys.capella.vp.requirements</packagedAddonName>
+    <packagedAddonName>Requirements</packagedAddonName>
 
     <!-- for junit -->
     <capella-product-id>org.polarsys.capella.rcp.product</capella-product-id>
