@@ -32,7 +32,7 @@ public abstract class Representation_CapellaRelation_Requirement implements IBus
 
   @Override
 	public EClass getEClass() {
-    return ViewpointPackage.Literals.DREPRESENTATION;
+    return ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR;
   }
 
   /**

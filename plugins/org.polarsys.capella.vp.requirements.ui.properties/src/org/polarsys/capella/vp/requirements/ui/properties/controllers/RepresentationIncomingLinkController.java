@@ -36,7 +36,7 @@ public class RepresentationIncomingLinkController extends AbstractAllocationCont
    */
   @Override
   protected IBusinessQuery getReadOpenValuesQuery(EObject semanticElement) {
-    return BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION,
+    return BusinessQueriesProvider.getInstance().getContribution(ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
         CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
   }
 
