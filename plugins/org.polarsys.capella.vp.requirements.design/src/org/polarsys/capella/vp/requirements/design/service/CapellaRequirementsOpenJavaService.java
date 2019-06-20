@@ -39,6 +39,7 @@ import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.model.handler.helpers.RepresentationHelper;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
@@ -228,15 +229,15 @@ public class CapellaRequirementsOpenJavaService {
     List<EObject> result = new ArrayList<>();
     if (incoming) {
     	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			ViewpointPackage.Literals.DREPRESENTATION,
+    			ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
     	        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
-    	result.addAll(query.getCurrentElements(diagram, false));
+    	result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
     }
     if (outgoing) {
     	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			ViewpointPackage.Literals.DREPRESENTATION,
+    			ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
     	        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-    	result.addAll(query.getCurrentElements(diagram, false));
+    	result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
     }
     return result;
   }
@@ -531,14 +532,9 @@ public class CapellaRequirementsOpenJavaService {
    * @param diagram
    * @return
    */
-  public boolean isLinkedToDiagram(Requirement requirement, DSemanticDiagram diagram) {
-    if (requirement != null && diagram != null) {
-      List<EObject> requirements = getRequirementsForDiagram(diagram, true, true);
-      for (EObject currentRequirement : requirements) {
-        if (requirement.equals(currentRequirement)) {
-          return true;
-        }
-      }
+  public boolean isLinkedToDiagram(EObject requirement, EObject diagram) {
+    if (requirement instanceof Requirement && diagram instanceof DSemanticDiagram) {
+      return getRequirementsForDiagram((DSemanticDiagram) diagram, true, true).stream().anyMatch(req -> req.equals(requirement));
     }
     return false;
   }

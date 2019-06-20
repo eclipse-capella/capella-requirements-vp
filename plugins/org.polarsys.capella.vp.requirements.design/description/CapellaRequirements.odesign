@@ -751,6 +751,9 @@
             </tools>
           </ownedTools>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="LinkedToDiagram" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="service:isLinkedToDiagram(diagram)" imageExpression="/org.polarsys.capella.vp.requirements.design/description/images/LinkedToDiagram.png"/>
+        </decorationDescriptionsSet>
       </layers>
     </ownedRepresentationExtensions>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.vp.requirements.design.service.CapellaRequirementsOpenJavaService"/>
