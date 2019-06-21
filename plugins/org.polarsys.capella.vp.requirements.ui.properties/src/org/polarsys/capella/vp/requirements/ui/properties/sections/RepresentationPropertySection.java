@@ -15,7 +15,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -91,11 +93,19 @@ public class RepresentationPropertySection extends AbstractSection {
           firstElement = ((ItemWrapper) firstElement).getWrappedObject();
         }
         if (firstElement instanceof DRepresentationDescriptor) {
-          descriptor = new WeakReference<DRepresentationDescriptor>((DRepresentationDescriptor) firstElement);
+          descriptor = new WeakReference<>((DRepresentationDescriptor) firstElement);
         } else if (firstElement instanceof IDDiagramEditPart) {
           IDDiagramEditPart diagramEditPart = (IDDiagramEditPart) firstElement;
-          descriptor = new WeakReference<DRepresentationDescriptor>(RepresentationHelper
+          descriptor = new WeakReference<>(RepresentationHelper
               .getRepresentationDescriptor((DRepresentation) ((Diagram) diagramEditPart.getModel()).getElement()));
+        } else if (firstElement instanceof GraphicalEditPart) {
+          Object model = ((GraphicalEditPart) firstElement).getModel();
+          if (model instanceof Shape) {
+            EObject element = ((Shape) model).getElement();
+            if (element instanceof DRepresentationDescriptor) {
+              descriptor = new WeakReference<>((DRepresentationDescriptor) element);
+            }
+          }
         } else {
           descriptor = null;
         }
