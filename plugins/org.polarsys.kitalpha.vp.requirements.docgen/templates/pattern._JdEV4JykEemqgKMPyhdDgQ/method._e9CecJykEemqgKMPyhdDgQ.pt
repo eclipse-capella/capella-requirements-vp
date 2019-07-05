@@ -1,0 +1,5 @@
+<%
+if(RequirementsServices.hasChildren(parameter)) {
+	super.method_startSidebarSubElement(new StringBuffer(), ctx);
+%>
+<%}%>

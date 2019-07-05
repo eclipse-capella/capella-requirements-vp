@@ -1,0 +1,1 @@
+<%= org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper.generateRequirementRelations((org.polarsys.capella.core.data.capellacore.CapellaElement) element)%>

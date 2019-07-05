@@ -1,0 +1,18 @@
+<%
+Set<DSemanticDiagram> diagramSet = RequirementsServices.getDiagramContainingObject(element);
+if (diagramSet.size() >= 1){%>
+<h2>Diagrams displaying "<%=LabelProviderHelper.getText(element)%>"</h2>
+<ul>
+<%for (DSemanticDiagram diagram : diagramSet){
+EObject eObject = diagram.getTarget();
+if (eObject == null){
+	//The diagram could not be exported 
+	continue;
+}%>
+<li>
+<%=RequirementsServices.getHyperlinkFromElement(diagram, domainFileNameService) %> 
+</li>
+<%
+}%>
+</ul>
+<%}%>

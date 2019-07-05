@@ -1,0 +1,11 @@
+<%
+String outputFolder = ctx.getValue("outputFolder").toString();
+String projectName = ctx.getValue("projectName").toString();
+%>
+
+<%super.method_content(stringBuffer, ctx);%>
+<%=RequirementHelper.generateRequirementProperties(parameter)%>
+<%=RequirementHelper.generateFolderContent(parameter)%>
+<%=RequirementHelper.generateRequirementAttributesSection(parameter)%>
+<%=RequirementHelper.generateRequirementInternalAllocationSection(parameter)%>
+<%=RequirementHelper.generateRequirementsAllocationSection(parameter, projectName, outputFolder)%>
