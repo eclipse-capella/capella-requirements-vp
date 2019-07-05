@@ -1,0 +1,3 @@
+<%super.method_content(stringBuffer, ctx);%>
+
+<%= RequirementHelper.generateModuleContents(parameter) %>

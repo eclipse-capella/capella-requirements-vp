@@ -44,6 +44,7 @@
 		<module>org.polarsys.kitalpha.vp.requirements</module>
 		<module>org.polarsys.kitalpha.vp.requirements.af</module>
 		<module>org.polarsys.kitalpha.vp.requirements.design</module>
+		<module>org.polarsys.kitalpha.vp.requirements.docgen</module>
 		<module>org.polarsys.kitalpha.vp.requirements.model</module>
 		<module>org.polarsys.kitalpha.vp.requirements.model.edit</module>
 		<module>org.polarsys.kitalpha.vp.requirements.model.edit.decorators</module>

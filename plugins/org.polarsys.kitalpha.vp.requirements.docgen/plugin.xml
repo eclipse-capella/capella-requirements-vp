@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+  Copyright (c) 2019 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<plugin>
+   <extension
+         point="org.eclipse.egf.core.fcore">
+      <fcore
+            id="egf/requirement-docgen.fcore">
+      </fcore>
+   </extension>
+   <extension
+         point="org.polarsys.kitalpha.doc.gen.business.core.contentExtension">
+      <pageExtension
+            category="Requirement Viewpoint"
+            defaultStatus="Active"
+            description="Requirement Viewpoint"
+            domain="capella"
+            name="Requirement Viewpoint">
+         <pagePattern
+               URI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#__CAewZv_Eem0XurP-Z9miw">
+         </pagePattern>
+         <pagePattern
+               URI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#_GA0l0JwSEem0XurP-Z9miw">
+         </pagePattern>
+         <pagePattern
+               URI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#__VBcMJwREem0XurP-Z9miw">
+         </pagePattern>
+         <sidebarPattern
+               URI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#_JdEV4JykEemqgKMPyhdDgQ">
+         </sidebarPattern>
+      </pageExtension>
+      <contentExtension
+            description="Generate Capella Requirement in dedicated Pages"
+            name="Capella Requirement Extension"
+            priority="0"
+            topic="CAPELLA_REQUIREMENTS_EXTENSION">
+         <fcores
+               patternURI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#_nBpUEKO1Eem8As8LW0Fw9Q">
+         </fcores>
+      </contentExtension>
+   </extension>
+
+</plugin>

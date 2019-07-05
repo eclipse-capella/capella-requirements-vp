@@ -1,0 +1,5 @@
+<%
+	String elementName = EscapeChars.forHTML(LabelProviderHelper.getText(element));
+	String elementType = EscapeChars.forHTML(element.eClass().getName());
+	title = "Requirement - " + DocGenHtmlUtil.getModelName(element) + " - " + elementType + " " + elementName; 
+%>

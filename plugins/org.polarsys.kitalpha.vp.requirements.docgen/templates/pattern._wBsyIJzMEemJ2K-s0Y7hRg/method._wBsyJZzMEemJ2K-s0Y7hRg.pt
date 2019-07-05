@@ -1,0 +1,22 @@
+<%
+String outputFolder = ctx.getValue("outputFolder").toString();
+String projectName = ctx.getValue("projectName").toString();
+String elementType = EscapeChars.forHTML(element.eClass().getName());
+String documentTitle = RequirementsServices.getHyperlinkFromElement(element, domainFileNameService);
+String elementPath = RequirementsServices.getElementPath(element, domainFileNameService);
+String logo = ImageHelper.getImagePath(element, projectName, outputFolder);
+String description = element.getReqIFDescription();
+
+%>
+<img src="../icon/<%=logo%>" alt="<%=elementType%>" style="float:left; margin-right:10px" />
+
+<h1><%=documentTitle%></h1>
+
+<p style="margin-top:3px; margin-bottom:3px"><span class="elementMetaClass"><%=elementType%></span></p>
+
+<em class="elementPath"><%=elementPath%></em>
+<%if (description != null){%> 
+<%=description%>
+<%} else {%>
+No description
+<%}%>

@@ -1,0 +1,11 @@
+<% fileNameService = RequirementFileNameService.SERVICE; %>
+
+<%
+Object value = ctx.getValue(PageExtensionRuntimeParameters.RUNTIME_PARAMETER_CONTRACT_NAME);
+if (value instanceof Map){
+	Object object = ((Map) value).get(PageExtensionRuntimeParameters.FILE_NAME_SERVICE_PARAMETER);
+	if (object instanceof IFileNameService) {
+		domainFileNameService = (IFileNameService) object;
+	}
+}
+%>

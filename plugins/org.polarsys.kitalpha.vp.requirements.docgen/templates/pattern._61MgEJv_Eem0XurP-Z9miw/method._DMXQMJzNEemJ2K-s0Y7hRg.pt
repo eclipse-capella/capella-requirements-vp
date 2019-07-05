@@ -1,0 +1,1 @@
+<%@ egf:patternCall patternId="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#LogicalName=org.polarsys.kitalpha.vp.requirements.docgen.common.CommonPageTopPattern"	args="element:element, domainFileNameService:domainFileNameService"%>

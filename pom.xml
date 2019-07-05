@@ -68,6 +68,7 @@
     <module>features/org.polarsys.kitalpha.vp.requirements.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.ui.feature</module>
+    <module>features/org.polarsys.kitalpha.vp.requirements.docgen.feature</module>
 
     <!-- plugins -->
     <module>plugins</module>

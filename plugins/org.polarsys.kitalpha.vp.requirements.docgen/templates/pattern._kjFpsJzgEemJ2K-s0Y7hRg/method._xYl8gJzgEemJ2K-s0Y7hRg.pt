@@ -1,0 +1,2 @@
+<% fileNameService = RequirementFileNameService.SERVICE; %>
+<% helper = new RequirementDiagramHelper(); %>
