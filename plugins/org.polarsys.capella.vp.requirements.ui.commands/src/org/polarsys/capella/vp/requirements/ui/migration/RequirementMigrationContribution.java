@@ -39,8 +39,10 @@ public class RequirementMigrationContribution extends AbstractMigrationContribut
     
     if (currentElement instanceof DRepresentationDescriptor) {
       DRepresentation representation = ((DRepresentationDescriptor)currentElement).getRepresentation();
-      migrateAllocations((DRepresentationDescriptor)currentElement, RelationAnnotationHelper.IncomingRelationAnnotation, representation);
-      migrateAllocations((DRepresentationDescriptor)currentElement, RelationAnnotationHelper.OutgoingRelationAnnotation, representation);
+      if (representation != null) {
+        migrateAllocations((DRepresentationDescriptor)currentElement, RelationAnnotationHelper.IncomingRelationAnnotation, representation);
+        migrateAllocations((DRepresentationDescriptor)currentElement, RelationAnnotationHelper.OutgoingRelationAnnotation, representation);
+      }
     }
   }
   
@@ -48,7 +50,7 @@ public class RequirementMigrationContribution extends AbstractMigrationContribut
    * @param descriptor
    * @param relationType one of the constants IncomingRelationAnnotation or OutgoingRelationAnnotation 
    */
-  public void migrateAllocations(final DRepresentationDescriptor descriptor,
+  private void migrateAllocations(final DRepresentationDescriptor descriptor,
       final String relationType, DRepresentation representation) {
     Collection<Couple<Requirement, RelationType>> result = new ArrayList<>();
     final DAnnotation annotation = DAnnotationHelper.getAnnotation(relationType, representation, false);
