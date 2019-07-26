@@ -23,7 +23,9 @@
             category="Requirement Viewpoint"
             defaultStatus="Active"
             description="Requirement Viewpoint"
+            diagramHelper="org.polarsys.kitalpha.vp.requirements.docgen.utils.RequirementDiagramHelper"
             domain="capella"
+            fileNameService="org.polarsys.kitalpha.vp.requirements.docgen.utils.RequirementFileNameService"
             name="Requirement Viewpoint">
          <pagePattern
                URI="platform:/plugin/org.polarsys.kitalpha.vp.requirements.docgen/egf/requirement-docgen.fcore#__CAewZv_Eem0XurP-Z9miw">
