@@ -15,7 +15,7 @@ Configuration CapellaRequirements.conf {
 	project org.polarsys.capella.vp.requirements
 	nsuri "http://www.polarsys.org/capella/requirements"
 	release {
-		version : 0.9.1
+		version : 0.9.2
 		execution environments : "JavaSE-1.8"
 	}
 	generation {

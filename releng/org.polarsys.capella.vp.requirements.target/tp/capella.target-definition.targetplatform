@@ -38,6 +38,6 @@ location "http://download.eclipse.org/modeling/emf/cdo/drops/R20160607-1209/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location "http://download.eclipse.org/kitalpha/updates/nightly/runtime/1.2.1" {
+location "https://download.eclipse.org/kitalpha/updates/stable/runtime/1.2.1-1" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
 }
