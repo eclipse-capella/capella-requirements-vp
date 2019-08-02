@@ -3,16 +3,16 @@
    <description url="http://www.polarsys.org/capella">
       Capella Requirements Viewpoint
    </description>
-   <feature id="org.polarsys.capella.vp.requirements.feature" version="0.10.2.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.feature" version="0.10.3.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
-   <feature id="org.polarsys.capella.vp.requirements.feature.source" version="0.10.2.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.feature.source" version="0.10.3.qualifier">
       <category name="org.polarsys.capella.vp.requirements.source"/>
    </feature>
-   <feature id="org.polarsys.capella.vp.requirements.cdo.feature" version="0.10.2.qualifier">
+   <feature id="org.polarsys.capella.vp.requirements.cdo.feature" version="0.10.3.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
-   <feature url="features/org.polarsys.kitalpha.vp.requirements.docgen.feature" id="org.polarsys.kitalpha.vp.requirements.docgen.feature" version="0.10.2.qualifier">
+   <feature url="features/org.polarsys.kitalpha.vp.requirements.docgen.feature" id="org.polarsys.kitalpha.vp.requirements.docgen.feature" version="0.10.3.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
    <category-def name="org.polarsys.capella.vp.requirements" label="Capella Requirements Viewpoint"/>
