@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,7 +23,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.polarsys.capella.core.ui.toolkit.viewers.CapellaElementLabelProvider;
+import org.polarsys.capella.common.ui.providers.MDEAdapterFactoryLabelProvider;
 import org.polarsys.capella.vp.requirements.importer.extension.AttributeSet;
 
 /**
@@ -41,7 +41,7 @@ public class AttributesSelectionLabelProvider extends DecoratingLabelProvider {
 	 * Constructor
 	 */
 	public AttributesSelectionLabelProvider() {
-		super(new CapellaElementLabelProvider(), PlatformUI.getWorkbench().getDecoratorManager().getLabelDecorator());
+		super(new MDEAdapterFactoryLabelProvider(), PlatformUI.getWorkbench().getDecoratorManager().getLabelDecorator());
 		// Attribute/Category images.
 		attributeImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.kitalpha.vp.requirements.model.edit", "icons/full/obj16/StringValueAttribute.gif").createImage();
     categoryImage = AbstractUIPlugin.imageDescriptorFromPlugin("org.polarsys.capella.vp.requirements.ui.importer.preferences", "icons/folder.gif").createImage();

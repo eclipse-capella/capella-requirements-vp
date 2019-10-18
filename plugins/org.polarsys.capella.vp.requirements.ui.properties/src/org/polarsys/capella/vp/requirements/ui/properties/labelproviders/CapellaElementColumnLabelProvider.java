@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,10 +10,11 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.properties.labelproviders;
 
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Image;
+import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.capella.common.ui.services.helper.EObjectImageProviderHelper;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
@@ -38,10 +39,20 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingR
      */
     @Override
     public Image getImage(Object element) {
-      if (element instanceof CapellaOutgoingRelation)
-        return EObjectImageProviderHelper.getImage(((CapellaOutgoingRelation) element).getSource());
-      else if (element instanceof CapellaIncomingRelation)
-        return EObjectImageProviderHelper.getImage(((CapellaIncomingRelation) element).getTarget());
+      CapellaElement extractedElement = null;
+      
+      if (element instanceof CapellaOutgoingRelation) {
+        extractedElement = ((CapellaOutgoingRelation) element).getSource();
+      }
+      else if (element instanceof CapellaIncomingRelation) {
+        extractedElement = ((CapellaIncomingRelation) element).getTarget();
+      }
+      
+      if(extractedElement != null) {
+        Object imagePointer = EObjectLabelProviderHelper.getImage(extractedElement);
+        return ExtendedImageRegistry.getInstance().getImage(imagePointer);
+      }
+      
       return super.getImage(element);
     }
   }

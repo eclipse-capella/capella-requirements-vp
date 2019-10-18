@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,10 +11,11 @@
 package org.polarsys.capella.vp.requirements.ui.properties.labelproviders;
 
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swt.graphics.Image;
+import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
-import org.polarsys.capella.common.ui.services.helper.EObjectImageProviderHelper;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
@@ -39,7 +40,7 @@ public class RequirementColumnLabelProvider extends ColumnLabelProvider {
           .adapt(requirement, IItemLabelProvider.class);
       return adapted.getText(requirement);
     }
-    
+
     return ICommonConstants.EMPTY_STRING;
   }
 
@@ -48,12 +49,21 @@ public class RequirementColumnLabelProvider extends ColumnLabelProvider {
    */
   @Override
   public Image getImage(Object element) {
-    if (element instanceof CapellaOutgoingRelation)
-      return EObjectImageProviderHelper.getImage(((CapellaOutgoingRelation) element).getTarget());
-    else if (element instanceof CapellaIncomingRelation)
-      return EObjectImageProviderHelper.getImage(((CapellaIncomingRelation) element).getSource());
-    else if (element instanceof InternalRelation)
-      return EObjectImageProviderHelper.getImage(((InternalRelation) element).getTarget());
+    Requirement requirement = null;
+
+    if (element instanceof CapellaOutgoingRelation) {
+      requirement = ((CapellaOutgoingRelation) element).getTarget();
+    } else if (element instanceof CapellaIncomingRelation) {
+      requirement = ((CapellaIncomingRelation) element).getSource();
+    } else if (element instanceof InternalRelation) {
+      requirement = ((InternalRelation) element).getTarget();
+    }
+
+    if (requirement != null) {
+      Object imagePointer = EObjectLabelProviderHelper.getImage(requirement);
+      return ExtendedImageRegistry.getInstance().getImage(imagePointer);
+    }
+
     return super.getImage(element);
   }
 }

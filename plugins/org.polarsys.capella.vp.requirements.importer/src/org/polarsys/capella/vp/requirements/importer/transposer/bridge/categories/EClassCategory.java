@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2017, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,12 +23,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.graphics.Image;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
-import org.polarsys.capella.common.ui.services.helper.EObjectImageProviderHelper;
+import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.core.model.handler.helpers.HoldingResourceHelper;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.Messages;
 
@@ -99,7 +100,7 @@ public class EClassCategory extends AbstractDifferenceCategory {
 
   public Image getImage(final EMFDiffNode node) {
     final Image[] image = new Image[1];
-    
+
     if (iconClazz != null && !iconClazz.isAbstract()) {
       TransactionalEditingDomain domain = (TransactionalEditingDomain) node.getEditingDomain();
       ExecutionManagerRegistry.getInstance().getExecutionManager(domain).execute(new AbstractReadWriteCommand() {
@@ -108,7 +109,8 @@ public class EClassCategory extends AbstractDifferenceCategory {
           Resource res = HoldingResourceHelper.getHoldingResource((TransactionalEditingDomain) node.getEditingDomain());
           EObject obj = ((EPackage) iconClazz.eContainer()).getEFactoryInstance().create(iconClazz);
           res.getContents().add(obj);
-          image[0] = EObjectImageProviderHelper.getImage(obj);
+          Object imagePointer = EObjectLabelProviderHelper.getImage(obj);
+          image[0] = ExtendedImageRegistry.getInstance().getImage(imagePointer);
         }
       });
     }

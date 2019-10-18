@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2018, 2019 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.diagram.business.internal.metamodel.helper.ContentLayerHelper;
 import org.eclipse.sirius.diagram.description.EdgeMapping;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
@@ -467,7 +468,7 @@ public class CapellaRequirementsOpenJavaService {
   // Use DiagramServices.getDiagramServices().getEdgeMapping(diagram, mappingName) when the above bug is fixed and delete this method
   private EdgeMapping getEdgeMapping(final DDiagram diagram, String mappingName) {
     for(Layer layer : diagram.getActivatedLayers()){
-      for (final EdgeMapping mapping : layer.getAllEdgeMappings()) {
+      for (final EdgeMapping mapping : ContentLayerHelper.getAllEdgeMappings(layer)) {
         if (mapping.getName().equals(mappingName)) {
           return mapping;
         }
