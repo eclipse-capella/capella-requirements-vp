@@ -15,7 +15,11 @@
    <feature url="features/org.polarsys.kitalpha.vp.requirements.docgen.feature" id="org.polarsys.kitalpha.vp.requirements.docgen.feature" version="0.10.3.qualifier">
       <category name="org.polarsys.capella.vp.requirements"/>
    </feature>
+   <feature id="org.polarsys.capella.vp.requirements.tests.feature" version="0.10.3.qualifier">
+      <category name="org.polarsys.capella.vp.requirements.tests"/>
+   </feature>
    <category-def name="org.polarsys.capella.vp.requirements" label="Capella Requirements Viewpoint"/>
    <category-def name="org.polarsys.capella.vp.requirements.source" label="Capella Requirements Viewpoint SDK"/>
+   <category-def name="org.polarsys.capella.vp.requirements.tests" label="Capella Requirements Viewpoint Tests"/>
    <repository-reference location="http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site" enabled="true" />
 </site>

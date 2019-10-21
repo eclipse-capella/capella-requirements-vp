@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2017, 2019 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -25,8 +25,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>1.0.0</tycho-version>
-    <tycho-extras-version>1.0.0</tycho-extras-version>
+    <tycho-version>1.3.0</tycho-version>
+    <tycho-extras-version>1.3.0</tycho-extras-version>
 	<antrun-version>1.7</antrun-version>
 	<sonar-version>3.0.2</sonar-version>
 	<jacoco-version>0.7.6.201602180812</jacoco-version>
@@ -69,6 +69,8 @@
     <module>features/org.polarsys.kitalpha.vp.requirements.representation.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.ui.feature</module>
     <module>features/org.polarsys.kitalpha.vp.requirements.docgen.feature</module>
+    <module>features/org.polarsys.capella.vp.requirements.tests.feature</module>
+    
 
     <!-- plugins -->
     <module>plugins</module>
@@ -215,6 +217,8 @@
           <configuration>
             <encoding>UTF-8</encoding>
             <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
+               <source>1.8</source>
+               <target>1.8</target>
           </configuration>
         </plugin>
 
@@ -249,6 +253,7 @@
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
+						<executionEnvironment>JavaSE-1.8</executionEnvironment>
 					</configuration>
 					<executions>
 						<execution>
@@ -259,6 +264,7 @@
 							</goals>
 							<configuration>
 								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
+								<executionEnvironment>JavaSE-1.8</executionEnvironment>
 							</configuration>
 						</execution>
 					</executions>
@@ -286,6 +292,22 @@
 											dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
 											includes="**/META-INF/**" />
 									</delete>
+									
+									<!-- delete test feature (not included in dropins) -->
+									<delete includeemptydirs="true">
+										<fileset
+											dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
+											includes="**/org.polarsys.capella.vp.requirements.tests*/**" />													  
+									</delete>
+									
+									
+									<!-- delete test plugin (not included in dropins) -->
+									<delete>
+										<fileset
+											dir="${project.build.directory}/${packagedAddonName}/eclipse/plugins"
+											includes="org.polarsys.capella.vp.requirements.ju*" />
+									</delete>															
+									
 									<zip
 										destfile="${project.build.directory}/${packagedAddonName}-dropins-${unqualifiedVersion}.${buildQualifier}.zip">
 										<fileset dir="${project.build.directory}">
