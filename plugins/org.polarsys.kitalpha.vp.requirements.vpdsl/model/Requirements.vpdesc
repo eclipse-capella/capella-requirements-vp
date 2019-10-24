@@ -7,6 +7,9 @@
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
+      <Inheritences xsi:type="vpdesc:ExternalSuperClass">
+        <superClass href="http://www.polarsys.org/kitalpha/emde/1.0.0#//Element"/>
+      </Inheritences>
     </VP_Classes>
     <VP_Classes name="ReqIFElement" abstract="true">
       <VP_Class_Attributes name="ReqIFIdentifier">
@@ -27,7 +30,7 @@
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.0"/>
     </VP_Classes>
     <VP_Classes name="AbstractRelation" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.18"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="relationType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.19"/>
       <VP_Class_Attributes name="relationTypeProxy">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -36,12 +39,12 @@
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="InternalRelation" icon="InternalRelation.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="source" type="reference" LocalTarget="//@VP_Data/@VP_Classes.11"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="target" type="reference" LocalTarget="//@VP_Data/@VP_Classes.11"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="source" type="reference" LocalTarget="//@VP_Data/@VP_Classes.12"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="target" type="reference" LocalTarget="//@VP_Data/@VP_Classes.12"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.2"/>
     </VP_Classes>
     <VP_Classes name="Attribute" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definition" type="reference" LocalTarget="//@VP_Data/@VP_Classes.20"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definition" type="reference" LocalTarget="//@VP_Data/@VP_Classes.21"/>
       <VP_Class_Attributes name="definitionProxy">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -89,12 +92,27 @@
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.4"/>
     </VP_Classes>
+    <VP_Classes name="SharedDirectAttributes" abstract="true">
+      <VP_Class_Attributes name="ReqIFName">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <VP_Class_Attributes name="ReqIFPrefix">
+        <owned_type xsi:type="vpdesc:ExternalAttributeType">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </owned_type>
+      </VP_Class_Attributes>
+      <Inheritences xsi:type="vpdesc:ExternalSuperClass">
+        <superClass href="http://www.polarsys.org/kitalpha/emde/1.0.0#//Element"/>
+      </Inheritences>
+    </VP_Classes>
     <VP_Classes name="AttributeOwner" abstract="true">
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.4"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="Requirement" icon="Requirement.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="requirementType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.17"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="requirementType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.18"/>
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRelations" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.2"/>
       <VP_Class_Attributes name="ReqIFChapterName">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
@@ -104,11 +122,6 @@
       <VP_Class_Attributes name="ReqIFForeignID">
         <owned_type xsi:type="vpdesc:ExternalAttributeType">
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
-        </owned_type>
-      </VP_Class_Attributes>
-      <VP_Class_Attributes name="ReqIFPrefix">
-        <owned_type xsi:type="vpdesc:ExternalAttributeType">
-          <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
       <VP_Class_Attributes name="ReqIFText">
@@ -121,40 +134,42 @@
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </owned_type>
       </VP_Class_Attributes>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.10"/>
     </VP_Classes>
     <VP_Classes name="Folder" icon="Folder.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.11"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.12"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.12"/>
     </VP_Classes>
     <VP_Classes name="Module" icon="Module.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="moduleType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.16"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.11"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="moduleType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.17"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedRequirements" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.12"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.11"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.10"/>
     </VP_Classes>
     <VP_Classes name="TypesFolder" icon="TypesFolder.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedDefinitionTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.19"/>
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.15"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedDefinitionTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.20"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedTypes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.16"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="AbstractType" abstract="true">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.20"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="ownedAttributes" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.21"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="ModuleType" icon="ModuleType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.15"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.16"/>
     </VP_Classes>
     <VP_Classes name="RequirementType" icon="RequirementType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.15"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.16"/>
     </VP_Classes>
     <VP_Classes name="RelationType" icon="RelationType.gif">
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.15"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.16"/>
     </VP_Classes>
     <VP_Classes name="DataTypeDefinition" icon="DataTypeDefinition.gif">
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
     <VP_Classes name="AttributeDefinition" icon="AttributeDefinition.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.19"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="definitionType" type="reference" LocalTarget="//@VP_Data/@VP_Classes.20"/>
       <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="defaultValue" LocalTarget="//@VP_Data/@VP_Classes.4"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
@@ -164,19 +179,20 @@
           <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         </owned_type>
       </VP_Class_Attributes>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.20"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.21"/>
     </VP_Classes>
     <VP_Classes name="EnumerationValueAttribute" icon="Attribute.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="values" cardinality="0..*" type="reference" LocalTarget="//@VP_Data/@VP_Classes.24"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="values" cardinality="0..*" type="reference" LocalTarget="//@VP_Data/@VP_Classes.25"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.4"/>
     </VP_Classes>
     <VP_Classes name="EnumerationDataTypeDefinition" icon="EnumerationDataTypeDefinition.gif">
-      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="specifiedValues" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.24"/>
-      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.19"/>
+      <VP_Classes_Associations xsi:type="vpdesc:LocalClassAssociation" name="specifiedValues" cardinality="0..*" LocalTarget="//@VP_Data/@VP_Classes.25"/>
+      <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.20"/>
     </VP_Classes>
     <VP_Classes name="EnumValue" icon="EnumValue.gif">
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.1"/>
     </VP_Classes>
+    <additionalExternalData href="../../../plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#/"/>
   </VP_Data>
   <VP_Aspects xsi:type="vpservices:ServiceSet" name="Requirements.services"/>
   <VP_Aspects xsi:type="vpservices:RuleSet" name="Requirements.rules"/>

@@ -38,12 +38,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class IdentifiableElementImpl extends ElementImpl implements IdentifiableElement {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,6 +88,7 @@ public abstract class IdentifiableElementImpl extends ElementImpl implements Ide
 	 * @generated
 	 */
 
+	@Override
 	public String getId() {
 
 		return id;
@@ -104,6 +100,7 @@ public abstract class IdentifiableElementImpl extends ElementImpl implements Ide
 	 * @generated
 	 */
 
+	@Override
 	public void setId(String newId) {
 
 		String oldId = id;
@@ -182,7 +179,7 @@ public abstract class IdentifiableElementImpl extends ElementImpl implements Ide
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
 		result.append(')');

@@ -33,6 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.polarsys.kitalpha.emde.extension.ExtensionModelManager;
 import org.polarsys.kitalpha.emde.extension.ModelExtensionHelper;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -45,13 +46,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  */
 public class RequirementItemProvider extends AttributeOwnerItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,31 +109,7 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 			addReqIFTextPropertyDescriptor(object);
 			addRequirementTypeProxyPropertyDescriptor(object);
 		}
-		// begin-extension-code
-		checkChildCreationExtender(object);
-		// end-extension-code
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Requirement Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequirementTypePropertyDescriptor(Object object) {
-		// begin-extension-code
-		requirementTypePropertyDescriptor = createItemPropertyDescriptor
-		// end-extension-code		
-		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirement_requirementType_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_requirementType_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Requirement_type"), //$NON-NLS-1$
-				RequirementsPackage.Literals.REQUIREMENT__REQUIREMENT_TYPE, true, false, true, null, null,
-				// begin-extension-code
-				null);
-		itemPropertyDescriptors.add(requirementTypePropertyDescriptor);
-		// end-extension-code
 	}
 
 	/**
@@ -161,6 +131,49 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));
+		// end-extension-code
+	}
+
+	/**
+	 * This adds a property descriptor for the Req IF Prefix feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReqIFPrefixPropertyDescriptor(Object object) {
+
+		// begin-extension-code
+		itemPropertyDescriptors.add(createItemPropertyDescriptor
+		// end-extension-code
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_SharedDirectAttributes_ReqIFPrefix_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SharedDirectAttributes_ReqIFPrefix_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SharedDirectAttributes_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				// begin-extension-code
+				null));
+		// end-extension-code
+	}
+
+	/**
+	 * This adds a property descriptor for the Requirement Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequirementTypePropertyDescriptor(Object object) {
+		// begin-extension-code
+		requirementTypePropertyDescriptor = createItemPropertyDescriptor
+		// end-extension-code		
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Requirement_requirementType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_requirementType_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Requirement_type"), //$NON-NLS-1$
+				RequirementsPackage.Literals.REQUIREMENT__REQUIREMENT_TYPE, true, false, true, null, null,
+				// begin-extension-code
+				null);
+		itemPropertyDescriptors.add(requirementTypePropertyDescriptor);
 		// end-extension-code
 	}
 
@@ -202,28 +215,6 @@ public class RequirementItemProvider extends AttributeOwnerItemProvider implemen
 				getString("_UI_PropertyDescriptor_description", "_UI_Requirement_ReqIFForeignID_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_Requirement_type"), //$NON-NLS-1$
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				// begin-extension-code
-				null));
-		// end-extension-code
-	}
-
-	/**
-	 * This adds a property descriptor for the Req IF Prefix feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReqIFPrefixPropertyDescriptor(Object object) {
-
-		// begin-extension-code
-		itemPropertyDescriptors.add(createItemPropertyDescriptor
-		// end-extension-code
-		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SharedDirectAttributes_ReqIFPrefix_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_SharedDirectAttributes_ReqIFPrefix_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_SharedDirectAttributes_type"), //$NON-NLS-1$
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));

@@ -13,8 +13,8 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -40,12 +40,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class AttributeDefinitionImpl extends ReqIFElementImpl implements AttributeDefinition {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The cached value of the '{@link #getDefinitionType() <em>Definition Type</em>}' reference.
@@ -94,6 +88,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public DataTypeDefinition getDefinitionType() {
 
 		if (definitionType != null && definitionType.eIsProxy()) {
@@ -126,6 +121,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinitionType(DataTypeDefinition newDefinitionType) {
 
 		DataTypeDefinition oldDefinitionType = definitionType;
@@ -142,6 +138,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public Attribute getDefaultValue() {
 
 		return defaultValue;
@@ -175,6 +172,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public void setDefaultValue(Attribute newDefaultValue) {
 
 		if (newDefaultValue != defaultValue) {

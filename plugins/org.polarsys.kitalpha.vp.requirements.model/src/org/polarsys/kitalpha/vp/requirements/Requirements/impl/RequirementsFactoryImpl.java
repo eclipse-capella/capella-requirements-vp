@@ -20,7 +20,26 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.polarsys.kitalpha.vp.requirements.Requirements.*;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
+import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,13 +48,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.*;
  * @generated
  */
 public class RequirementsFactoryImpl extends EFactoryImpl implements RequirementsFactory {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -121,6 +133,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InternalRelation createInternalRelation() {
 		InternalRelationImpl internalRelation = new InternalRelationImpl();
 		return internalRelation;
@@ -131,6 +144,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StringValueAttribute createStringValueAttribute() {
 		StringValueAttributeImpl stringValueAttribute = new StringValueAttributeImpl();
 		return stringValueAttribute;
@@ -141,6 +155,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntegerValueAttribute createIntegerValueAttribute() {
 		IntegerValueAttributeImpl integerValueAttribute = new IntegerValueAttributeImpl();
 		return integerValueAttribute;
@@ -151,6 +166,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BooleanValueAttribute createBooleanValueAttribute() {
 		BooleanValueAttributeImpl booleanValueAttribute = new BooleanValueAttributeImpl();
 		return booleanValueAttribute;
@@ -161,6 +177,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RealValueAttribute createRealValueAttribute() {
 		RealValueAttributeImpl realValueAttribute = new RealValueAttributeImpl();
 		return realValueAttribute;
@@ -171,6 +188,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DateValueAttribute createDateValueAttribute() {
 		DateValueAttributeImpl dateValueAttribute = new DateValueAttributeImpl();
 		return dateValueAttribute;
@@ -181,6 +199,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Requirement createRequirement() {
 		RequirementImpl requirement = new RequirementImpl();
 		return requirement;
@@ -191,6 +210,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Folder createFolder() {
 		FolderImpl folder = new FolderImpl();
 		return folder;
@@ -201,7 +221,8 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module createModule() {
+	@Override
+	public org.polarsys.kitalpha.vp.requirements.Requirements.Module createModule() {
 		ModuleImpl module = new ModuleImpl();
 		return module;
 	}
@@ -211,6 +232,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesFolder createTypesFolder() {
 		TypesFolderImpl typesFolder = new TypesFolderImpl();
 		return typesFolder;
@@ -221,6 +243,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModuleType createModuleType() {
 		ModuleTypeImpl moduleType = new ModuleTypeImpl();
 		return moduleType;
@@ -231,6 +254,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RequirementType createRequirementType() {
 		RequirementTypeImpl requirementType = new RequirementTypeImpl();
 		return requirementType;
@@ -241,6 +265,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RelationType createRelationType() {
 		RelationTypeImpl relationType = new RelationTypeImpl();
 		return relationType;
@@ -251,6 +276,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataTypeDefinition createDataTypeDefinition() {
 		DataTypeDefinitionImpl dataTypeDefinition = new DataTypeDefinitionImpl();
 		return dataTypeDefinition;
@@ -261,6 +287,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AttributeDefinition createAttributeDefinition() {
 		AttributeDefinitionImpl attributeDefinition = new AttributeDefinitionImpl();
 		return attributeDefinition;
@@ -271,6 +298,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AttributeDefinitionEnumeration createAttributeDefinitionEnumeration() {
 		AttributeDefinitionEnumerationImpl attributeDefinitionEnumeration = new AttributeDefinitionEnumerationImpl();
 		return attributeDefinitionEnumeration;
@@ -281,6 +309,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnumerationValueAttribute createEnumerationValueAttribute() {
 		EnumerationValueAttributeImpl enumerationValueAttribute = new EnumerationValueAttributeImpl();
 		return enumerationValueAttribute;
@@ -291,6 +320,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnumerationDataTypeDefinition createEnumerationDataTypeDefinition() {
 		EnumerationDataTypeDefinitionImpl enumerationDataTypeDefinition = new EnumerationDataTypeDefinitionImpl();
 		return enumerationDataTypeDefinition;
@@ -301,6 +331,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnumValue createEnumValue() {
 		EnumValueImpl enumValue = new EnumValueImpl();
 		return enumValue;
@@ -311,6 +342,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RequirementsPackage getRequirementsPackage() {
 		return (RequirementsPackage) getEPackage();
 	}
@@ -326,4 +358,7 @@ public class RequirementsFactoryImpl extends EFactoryImpl implements Requirement
 		return RequirementsPackage.eINSTANCE;
 	}
 
+	//begin-capella-code
+
+	//end-capella-code
 } //RequirementsFactoryImpl

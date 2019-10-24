@@ -41,12 +41,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * @generated
  */
 public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements CapellaIncomingRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -95,6 +89,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public Requirement getSource() {
 
 		if (source != null && source.eIsProxy()) {
@@ -126,6 +121,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setSource(Requirement newSource) {
 
 		Requirement oldSource = source;
@@ -142,6 +138,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public CapellaElement getTarget() {
 
 		if (target != null && target.eIsProxy()) {
@@ -173,6 +170,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setTarget(CapellaElement newTarget) {
 
 		CapellaElement oldTarget = target;

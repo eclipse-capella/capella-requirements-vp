@@ -47,13 +47,6 @@ public class InternalRelationItemProvider extends AbstractRelationItemProvider i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	protected IItemPropertyDescriptor sourcePropertyDescriptor;
 
 	/**
@@ -126,9 +119,6 @@ public class InternalRelationItemProvider extends AbstractRelationItemProvider i
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 		}
-		// begin-extension-code
-		checkChildCreationExtender(object);
-		// end-extension-code
 		return itemPropertyDescriptors;
 	}
 
@@ -210,7 +200,6 @@ public class InternalRelationItemProvider extends AbstractRelationItemProvider i
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

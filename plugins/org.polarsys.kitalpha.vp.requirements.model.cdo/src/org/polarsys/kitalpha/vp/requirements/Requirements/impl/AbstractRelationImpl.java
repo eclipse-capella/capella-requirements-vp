@@ -32,12 +32,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class AbstractRelationImpl extends ReqIFElementImpl implements AbstractRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getRelationTypeProxy() <em>Relation Type Proxy</em>}' attribute.
@@ -76,6 +70,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public RelationType getRelationType() {
 
 		return (RelationType) eDynamicGet(RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE,
@@ -100,10 +95,12 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setRelationType(RelationType newRelationType) {
 
 		eDynamicSet(RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE,
 				RequirementsPackage.Literals.ABSTRACT_RELATION__RELATION_TYPE, newRelationType);
+
 	}
 
 	/**
@@ -112,6 +109,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public String getRelationTypeProxy() {
 
 		return (String) eDynamicGet(RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY,
@@ -124,10 +122,12 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setRelationTypeProxy(String newRelationTypeProxy) {
 
 		eDynamicSet(RequirementsPackage.ABSTRACT_RELATION__RELATION_TYPE_PROXY,
 				RequirementsPackage.Literals.ABSTRACT_RELATION__RELATION_TYPE_PROXY, newRelationTypeProxy);
+
 	}
 
 	/**

@@ -13,8 +13,8 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.polarsys.kitalpha.emde.model.impl.ElementImpl;
 
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 
@@ -32,13 +32,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
  *
  * @generated
  */
-public abstract class SharedDirectAttributesImpl extends CDOObjectImpl implements SharedDirectAttributes {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+public abstract class SharedDirectAttributesImpl extends ElementImpl implements SharedDirectAttributes {
 
 	/**
 	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
@@ -86,17 +80,8 @@ public abstract class SharedDirectAttributesImpl extends CDOObjectImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+
 	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
 	public String getReqIFName() {
 
 		return (String) eDynamicGet(RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME,
@@ -109,10 +94,12 @@ public abstract class SharedDirectAttributesImpl extends CDOObjectImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFName(String newReqIFName) {
 
 		eDynamicSet(RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME,
 				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
+
 	}
 
 	/**
@@ -121,6 +108,7 @@ public abstract class SharedDirectAttributesImpl extends CDOObjectImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFPrefix() {
 
 		return (String) eDynamicGet(RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX,
@@ -133,10 +121,12 @@ public abstract class SharedDirectAttributesImpl extends CDOObjectImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFPrefix(String newReqIFPrefix) {
 
 		eDynamicSet(RequirementsPackage.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX,
 				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
+
 	}
 
 	/**

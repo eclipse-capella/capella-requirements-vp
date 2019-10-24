@@ -18,9 +18,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,11 +28,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.polarsys.kitalpha.emde.extension.ExtensionModelManager;
-import org.polarsys.kitalpha.emde.extension.ModelExtensionHelper;
-
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
-import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
@@ -47,13 +40,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 public class AttributeDefinitionEnumerationItemProvider extends AttributeDefinitionItemProvider
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,9 +63,6 @@ public class AttributeDefinitionEnumerationItemProvider extends AttributeDefinit
 
 			addMultiValuedPropertyDescriptor(object);
 		}
-		// begin-extension-code
-		checkChildCreationExtender(object);
-		// end-extension-code
 		return itemPropertyDescriptors;
 	}
 

@@ -15,8 +15,8 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
@@ -38,12 +38,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class AbstractRelationImpl extends ReqIFElementImpl implements AbstractRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The cached value of the '{@link #getRelationType() <em>Relation Type</em>}' reference.
@@ -102,6 +96,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public RelationType getRelationType() {
 
 		if (relationType != null && relationType.eIsProxy()) {
@@ -133,6 +128,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setRelationType(RelationType newRelationType) {
 
 		RelationType oldRelationType = relationType;
@@ -149,6 +145,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public String getRelationTypeProxy() {
 
 		return relationTypeProxy;
@@ -160,6 +157,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setRelationTypeProxy(String newRelationTypeProxy) {
 
 		String oldRelationTypeProxy = relationTypeProxy;
@@ -252,7 +250,7 @@ public abstract class AbstractRelationImpl extends ReqIFElementImpl implements A
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (relationTypeProxy: "); //$NON-NLS-1$
 		result.append(relationTypeProxy);
 		result.append(')');

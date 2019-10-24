@@ -12,13 +12,9 @@
 
 package org.polarsys.capella.vp.requirements.CapellaRequirements.provider;
 
-import java.util.MissingResourceException;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 import org.polarsys.capella.common.data.activity.provider.ActivityEditPlugin;
 
@@ -39,13 +35,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.provider.RequirementsE
  * @generated
  */
 public final class CapellaRequirementsEditPlugin extends EMFPlugin {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -69,9 +58,9 @@ public final class CapellaRequirementsEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public CapellaRequirementsEditPlugin() {
-		super(new ResourceLocator[] { CapellaModellerEditPlugin.INSTANCE, ModellingCoreEditPlugin.INSTANCE,
-				BehaviorEditPlugin.INSTANCE, ActivityEditPlugin.INSTANCE, RequirementsEditPlugin.INSTANCE,
-				EmdeEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { EmdeEditPlugin.INSTANCE, RequirementsEditPlugin.INSTANCE,
+				CapellaModellerEditPlugin.INSTANCE, ModellingCoreEditPlugin.INSTANCE, ActivityEditPlugin.INSTANCE,
+				BehaviorEditPlugin.INSTANCE, });
 	}
 
 	/**
@@ -117,33 +106,6 @@ public final class CapellaRequirementsEditPlugin extends EMFPlugin {
 			//
 			plugin = this;
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	public Object getImage(String key) {
-		Object image = super.getImage(key);
-		if (image == null)
-			return delegatedGetImage(key);
-		return image;
-	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	protected Object delegatedGetImage(String key) throws MissingResourceException {
-		for (int i = 0; i < delegateResourceLocators.length; ++i) {
-			try {
-				Object image = delegateResourceLocators[i].getImage(key);
-				if (image != null)
-					return image;
-			} catch (MissingResourceException exception) {
-			}
-		}
-		return null;
 	}
 
 }

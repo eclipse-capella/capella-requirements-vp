@@ -2,7 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Requirements" nsURI="http://www.polarsys.org/kitalpha/requirements"
     nsPrefix="Requirements">
-  <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement" abstract="true"
+      eSuperTypes="platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
@@ -38,7 +39,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DateValueAttribute" eSuperTypes="#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SharedDirectAttributes" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="SharedDirectAttributes" abstract="true"
+      eSuperTypes="platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReqIFPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

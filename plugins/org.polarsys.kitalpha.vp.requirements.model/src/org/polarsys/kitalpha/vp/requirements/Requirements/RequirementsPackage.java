@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2017 THALES GLOBAL SERVICES.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.polarsys.kitalpha.emde.model.EmdePackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -24,7 +26,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -34,13 +35,6 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface RequirementsPackage extends EPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -91,7 +85,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT__ID = 0;
+	int IDENTIFIABLE_ELEMENT__ID = EmdePackage.ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Identifiable Element</em>' class.
@@ -100,7 +94,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = 1;
+	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = EmdePackage.ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Identifiable Element</em>' class.
@@ -109,7 +103,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = 0;
+	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = EmdePackage.ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl <em>Req IF Element</em>}' class.
@@ -749,7 +743,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME = 0;
+	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME = EmdePackage.ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
@@ -758,7 +752,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX = 1;
+	int SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX = EmdePackage.ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Shared Direct Attributes</em>' class.
@@ -767,7 +761,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_DIRECT_ATTRIBUTES_FEATURE_COUNT = 2;
+	int SHARED_DIRECT_ATTRIBUTES_FEATURE_COUNT = EmdePackage.ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Shared Direct Attributes</em>' class.
@@ -776,7 +770,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_DIRECT_ATTRIBUTES_OPERATION_COUNT = 0;
+	int SHARED_DIRECT_ATTRIBUTES_OPERATION_COUNT = EmdePackage.ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.AttributeOwnerImpl <em>Attribute Owner</em>}' class.
@@ -2731,7 +2725,6 @@ public interface RequirementsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

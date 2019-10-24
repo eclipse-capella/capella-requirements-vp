@@ -26,8 +26,8 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
 
 /**
@@ -44,13 +44,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
  * @generated
  */
 public class CapellaRequirementsSwitch<T> extends Switch<T> {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -123,13 +116,15 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAttributeOwner(capellaModule);
 			if (result == null)
+				result = caseSharedDirectAttributes(capellaModule);
+			if (result == null)
 				result = caseExtensibleElement(capellaModule);
 			if (result == null)
 				result = caseReqIFElement(capellaModule);
 			if (result == null)
-				result = caseElement(capellaModule);
-			if (result == null)
 				result = caseIdentifiableElement(capellaModule);
+			if (result == null)
+				result = caseElement(capellaModule);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -143,6 +138,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(capellaRelation);
 			if (result == null)
 				result = caseIdentifiableElement(capellaRelation);
+			if (result == null)
+				result = caseElement(capellaRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -158,6 +155,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(capellaIncomingRelation);
 			if (result == null)
 				result = caseIdentifiableElement(capellaIncomingRelation);
+			if (result == null)
+				result = caseElement(capellaIncomingRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -176,9 +175,9 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(capellaOutgoingRelation);
 			if (result == null)
-				result = caseElement(capellaOutgoingRelation);
-			if (result == null)
 				result = caseIdentifiableElement(capellaOutgoingRelation);
+			if (result == null)
+				result = caseElement(capellaOutgoingRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -264,6 +263,21 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElement(Element object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -309,51 +323,6 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute Owner</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute Owner</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAttributeOwner(AttributeOwner object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Module</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModule(Module object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElement(Element object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Extensible Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -380,6 +349,51 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseElementExtension(ElementExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeOwner(AttributeOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Shared Direct Attributes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Shared Direct Attributes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSharedDirectAttributes(SharedDirectAttributes object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Module</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModule(org.polarsys.kitalpha.vp.requirements.Requirements.Module object) {
 		return null;
 	}
 

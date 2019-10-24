@@ -15,6 +15,7 @@ package org.polarsys.capella.vp.requirements.CapellaRequirements;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 
 import org.polarsys.kitalpha.emde.model.ElementExtension;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
@@ -31,27 +32,17 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * </ul>
  *
  * @see org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage#getCapellaOutgoingRelation()
- * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/core/1.3.0#//CapellaElement'"
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/core/1.4.0#//CapellaElement'"
  *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement'"
  * @generated
  */
 
 public interface CapellaOutgoingRelation extends CapellaRelation, ElementExtension {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(CapellaElement)
@@ -78,10 +69,6 @@ public interface CapellaOutgoingRelation extends CapellaRelation, ElementExtensi
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Requirement)

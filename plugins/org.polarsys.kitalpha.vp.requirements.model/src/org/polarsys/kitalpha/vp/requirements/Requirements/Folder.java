@@ -32,22 +32,12 @@ import org.eclipse.emf.common.util.EList;
  */
 
 public interface Folder extends Requirement {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * Returns the value of the '<em><b>Owned Requirements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.polarsys.kitalpha.vp.requirements.Requirements.Requirement}.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Requirements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owned Requirements</em>' containment reference list.
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getFolder_OwnedRequirements()

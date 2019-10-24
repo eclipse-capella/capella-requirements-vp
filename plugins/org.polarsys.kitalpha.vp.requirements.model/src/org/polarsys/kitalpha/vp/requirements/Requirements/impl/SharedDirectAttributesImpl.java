@@ -17,7 +17,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.polarsys.kitalpha.emde.model.impl.ElementImpl;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
@@ -36,13 +37,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
  *
  * @generated
  */
-public abstract class SharedDirectAttributesImpl extends EObjectImpl implements SharedDirectAttributes {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
+public abstract class SharedDirectAttributesImpl extends ElementImpl implements SharedDirectAttributes {
 
 	/**
 	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
@@ -111,6 +106,7 @@ public abstract class SharedDirectAttributesImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFName() {
 
 		return reqIFName;
@@ -122,6 +118,7 @@ public abstract class SharedDirectAttributesImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFName(String newReqIFName) {
 
 		String oldReqIFName = reqIFName;
@@ -138,6 +135,7 @@ public abstract class SharedDirectAttributesImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFPrefix() {
 
 		return reqIFPrefix;
@@ -149,6 +147,7 @@ public abstract class SharedDirectAttributesImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFPrefix(String newReqIFPrefix) {
 
 		String oldReqIFPrefix = reqIFPrefix;
@@ -237,7 +236,7 @@ public abstract class SharedDirectAttributesImpl extends EObjectImpl implements 
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (ReqIFName: "); //$NON-NLS-1$
 		result.append(reqIFName);
 		result.append(", ReqIFPrefix: "); //$NON-NLS-1$

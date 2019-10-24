@@ -35,12 +35,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
  * @generated
  */
 public class StringValueAttributeImpl extends AttributeImpl implements StringValueAttribute {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -89,6 +83,7 @@ public class StringValueAttributeImpl extends AttributeImpl implements StringVal
 	 * @generated
 	 */
 
+	@Override
 	public String getValue() {
 
 		return value;
@@ -100,6 +95,7 @@ public class StringValueAttributeImpl extends AttributeImpl implements StringVal
 	 * @generated
 	 */
 
+	@Override
 	public void setValue(String newValue) {
 
 		String oldValue = value;
@@ -178,7 +174,7 @@ public class StringValueAttributeImpl extends AttributeImpl implements StringVal
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
 		result.append(')');

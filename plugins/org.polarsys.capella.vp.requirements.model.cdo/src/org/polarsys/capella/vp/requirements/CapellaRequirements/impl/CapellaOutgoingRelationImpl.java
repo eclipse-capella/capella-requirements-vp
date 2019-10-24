@@ -14,19 +14,22 @@ package org.polarsys.capella.vp.requirements.CapellaRequirements.impl;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 
-import org.polarsys.kitalpha.emde.model.Element;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
@@ -45,12 +48,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * @generated
  */
 public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements CapellaOutgoingRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,6 +77,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 */
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<ElementExtension> getOwnedExtensions() {
 
 		return (EList<ElementExtension>) eDynamicGet(
@@ -93,6 +91,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public CapellaElement getSource() {
 
 		return (CapellaElement) eDynamicGet(CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE,
@@ -117,10 +116,12 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setSource(CapellaElement newSource) {
 
 		eDynamicSet(CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE,
 				CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__SOURCE, newSource);
+
 	}
 
 	/**
@@ -129,6 +130,7 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public Requirement getTarget() {
 
 		return (Requirement) eDynamicGet(CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__TARGET,
@@ -153,10 +155,12 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setTarget(Requirement newTarget) {
 
 		eDynamicSet(CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__TARGET,
 				CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET, newTarget);
+
 	}
 
 	/**
@@ -264,12 +268,6 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
 		if (baseClass == ExtensibleElement.class) {
 			switch (derivedFeatureID) {
 			case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
@@ -294,12 +292,6 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
 		if (baseClass == ExtensibleElement.class) {
 			switch (baseFeatureID) {
 			case EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS:

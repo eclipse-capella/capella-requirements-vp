@@ -35,13 +35,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  */
 public interface CapellaRequirementsPackage extends EPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
-	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,6 +203,24 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPELLA_MODULE__OWNED_ATTRIBUTES = RequirementsPackage.MODULE__OWNED_ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_MODULE__REQ_IF_NAME = RequirementsPackage.MODULE__REQ_IF_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Req IF Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_MODULE__REQ_IF_PREFIX = RequirementsPackage.MODULE__REQ_IF_PREFIX;
 
 	/**
 	 * The feature id for the '<em><b>Module Type</b></em>' reference.

@@ -32,12 +32,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class ReqIFElementImpl extends IdentifiableElementImpl implements ReqIFElement {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getReqIFIdentifier() <em>Req IF Identifier</em>}' attribute.
@@ -96,6 +90,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFIdentifier() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER,
@@ -108,10 +103,12 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFIdentifier(String newReqIFIdentifier) {
 
 		eDynamicSet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER,
 				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_IDENTIFIER, newReqIFIdentifier);
+
 	}
 
 	/**
@@ -120,6 +117,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFDescription() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION,
@@ -132,10 +130,12 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFDescription(String newReqIFDescription) {
 
 		eDynamicSet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION,
 				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_DESCRIPTION, newReqIFDescription);
+
 	}
 
 	/**
@@ -144,6 +144,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFLongName() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME,
@@ -156,10 +157,12 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFLongName(String newReqIFLongName) {
 
 		eDynamicSet(RequirementsPackage.REQ_IF_ELEMENT__REQ_IF_LONG_NAME,
 				RequirementsPackage.Literals.REQ_IF_ELEMENT__REQ_IF_LONG_NAME, newReqIFLongName);
+
 	}
 
 	/**

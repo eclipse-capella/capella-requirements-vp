@@ -13,6 +13,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import java.math.BigInteger;
+
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -49,12 +50,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
  * @generated
  */
 public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
@@ -143,6 +138,61 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
+	public String getReqIFName() {
+
+		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public void setReqIFName(String newReqIFName) {
+
+		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public String getReqIFPrefix() {
+
+		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public void setReqIFPrefix(String newReqIFPrefix) {
+
+		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
 	public RequirementType getRequirementType() {
 
 		return (RequirementType) eDynamicGet(RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE,
@@ -167,10 +217,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setRequirementType(RequirementType newRequirementType) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE,
 				RequirementsPackage.Literals.REQUIREMENT__REQUIREMENT_TYPE, newRequirementType);
+
 	}
 
 	/**
@@ -180,6 +232,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 */
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<AbstractRelation> getOwnedRelations() {
 
 		return (EList<AbstractRelation>) eDynamicGet(RequirementsPackage.REQUIREMENT__OWNED_RELATIONS,
@@ -192,30 +245,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIFName() {
-
-		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFName(String newReqIFName) {
-
-		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_NAME,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
+	@Override
 	public String getReqIFChapterName() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME,
@@ -228,10 +258,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFChapterName(String newReqIFChapterName) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_CHAPTER_NAME,
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_CHAPTER_NAME, newReqIFChapterName);
+
 	}
 
 	/**
@@ -240,6 +272,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public BigInteger getReqIFForeignID() {
 
 		return (BigInteger) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID,
@@ -252,10 +285,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFForeignID(BigInteger newReqIFForeignID) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_FOREIGN_ID,
 				RequirementsPackage.Literals.REQUIREMENT__REQ_IF_FOREIGN_ID, newReqIFForeignID);
+
 	}
 
 	/**
@@ -264,30 +299,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
-	public String getReqIFPrefix() {
-
-		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFPrefix(String newReqIFPrefix) {
-
-		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
+	@Override
 	public String getReqIFText() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQ_IF_TEXT,
@@ -300,10 +312,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFText(String newReqIFText) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQ_IF_TEXT, RequirementsPackage.Literals.REQUIREMENT__REQ_IF_TEXT,
 				newReqIFText);
+
 	}
 
 	/**
@@ -312,6 +326,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getRequirementTypeProxy() {
 
 		return (String) eDynamicGet(RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY,
@@ -324,10 +339,12 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setRequirementTypeProxy(String newRequirementTypeProxy) {
 
 		eDynamicSet(RequirementsPackage.REQUIREMENT__REQUIREMENT_TYPE_PROXY,
 				RequirementsPackage.Literals.REQUIREMENT__REQUIREMENT_TYPE_PROXY, newRequirementTypeProxy);
+
 	}
 
 	/**

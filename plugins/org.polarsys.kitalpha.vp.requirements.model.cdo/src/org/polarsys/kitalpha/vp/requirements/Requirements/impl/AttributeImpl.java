@@ -32,12 +32,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class AttributeImpl extends IdentifiableElementImpl implements Attribute {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getDefinitionProxy() <em>Definition Proxy</em>}' attribute.
@@ -76,6 +70,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public AttributeDefinition getDefinition() {
 
 		return (AttributeDefinition) eDynamicGet(RequirementsPackage.ATTRIBUTE__DEFINITION,
@@ -100,10 +95,12 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinition(AttributeDefinition newDefinition) {
 
 		eDynamicSet(RequirementsPackage.ATTRIBUTE__DEFINITION, RequirementsPackage.Literals.ATTRIBUTE__DEFINITION,
 				newDefinition);
+
 	}
 
 	/**
@@ -112,6 +109,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public String getDefinitionProxy() {
 
 		return (String) eDynamicGet(RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY,
@@ -124,10 +122,12 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinitionProxy(String newDefinitionProxy) {
 
 		eDynamicSet(RequirementsPackage.ATTRIBUTE__DEFINITION_PROXY,
 				RequirementsPackage.Literals.ATTRIBUTE__DEFINITION_PROXY, newDefinitionProxy);
+
 	}
 
 	/**

@@ -37,7 +37,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
@@ -57,13 +56,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
  * @generated
  */
 public class RequirementsPackageImpl extends EPackageImpl implements RequirementsPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,7 +266,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link RequirementsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -289,9 +281,10 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 			return (RequirementsPackage) EPackage.Registry.INSTANCE.getEPackage(RequirementsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		RequirementsPackageImpl theRequirementsPackage = (RequirementsPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof RequirementsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new RequirementsPackageImpl());
+		Object registeredRequirementsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		RequirementsPackageImpl theRequirementsPackage = registeredRequirementsPackage instanceof RequirementsPackageImpl
+				? (RequirementsPackageImpl) registeredRequirementsPackage
+				: new RequirementsPackageImpl();
 
 		isInited = true;
 
@@ -317,6 +310,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIdentifiableElement() {
 		return identifiableElementEClass;
 	}
@@ -326,6 +320,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIdentifiableElement_Id() {
 		return (EAttribute) identifiableElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -335,6 +330,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReqIFElement() {
 		return reqIFElementEClass;
 	}
@@ -344,6 +340,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReqIFElement_ReqIFIdentifier() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -353,6 +350,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReqIFElement_ReqIFDescription() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -362,6 +360,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReqIFElement_ReqIFLongName() {
 		return (EAttribute) reqIFElementEClass.getEStructuralFeatures().get(2);
 	}
@@ -371,6 +370,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractRelation() {
 		return abstractRelationEClass;
 	}
@@ -380,6 +380,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAbstractRelation_RelationType() {
 		return (EReference) abstractRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -389,6 +390,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbstractRelation_RelationTypeProxy() {
 		return (EAttribute) abstractRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -398,6 +400,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInternalRelation() {
 		return internalRelationEClass;
 	}
@@ -407,6 +410,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInternalRelation_Source() {
 		return (EReference) internalRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -416,6 +420,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInternalRelation_Target() {
 		return (EReference) internalRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -425,6 +430,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -434,6 +440,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttribute_Definition() {
 		return (EReference) attributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -443,6 +450,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAttribute_DefinitionProxy() {
 		return (EAttribute) attributeEClass.getEStructuralFeatures().get(1);
 	}
@@ -452,6 +460,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStringValueAttribute() {
 		return stringValueAttributeEClass;
 	}
@@ -461,6 +470,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringValueAttribute_Value() {
 		return (EAttribute) stringValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -470,6 +480,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIntegerValueAttribute() {
 		return integerValueAttributeEClass;
 	}
@@ -479,6 +490,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIntegerValueAttribute_Value() {
 		return (EAttribute) integerValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -488,6 +500,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanValueAttribute() {
 		return booleanValueAttributeEClass;
 	}
@@ -497,6 +510,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBooleanValueAttribute_Value() {
 		return (EAttribute) booleanValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -506,6 +520,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRealValueAttribute() {
 		return realValueAttributeEClass;
 	}
@@ -515,6 +530,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRealValueAttribute_Value() {
 		return (EAttribute) realValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -524,6 +540,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDateValueAttribute() {
 		return dateValueAttributeEClass;
 	}
@@ -533,6 +550,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDateValueAttribute_Value() {
 		return (EAttribute) dateValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -542,6 +560,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSharedDirectAttributes() {
 		return sharedDirectAttributesEClass;
 	}
@@ -551,6 +570,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSharedDirectAttributes_ReqIFName() {
 		return (EAttribute) sharedDirectAttributesEClass.getEStructuralFeatures().get(0);
 	}
@@ -560,6 +580,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSharedDirectAttributes_ReqIFPrefix() {
 		return (EAttribute) sharedDirectAttributesEClass.getEStructuralFeatures().get(1);
 	}
@@ -569,6 +590,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAttributeOwner() {
 		return attributeOwnerEClass;
 	}
@@ -578,6 +600,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttributeOwner_OwnedAttributes() {
 		return (EReference) attributeOwnerEClass.getEStructuralFeatures().get(0);
 	}
@@ -587,6 +610,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRequirement() {
 		return requirementEClass;
 	}
@@ -596,6 +620,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRequirement_RequirementType() {
 		return (EReference) requirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -605,6 +630,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRequirement_OwnedRelations() {
 		return (EReference) requirementEClass.getEStructuralFeatures().get(1);
 	}
@@ -614,6 +640,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRequirement_ReqIFChapterName() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(2);
 	}
@@ -623,6 +650,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRequirement_ReqIFForeignID() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(3);
 	}
@@ -632,6 +660,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRequirement_ReqIFText() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(4);
 	}
@@ -641,6 +670,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRequirement_RequirementTypeProxy() {
 		return (EAttribute) requirementEClass.getEStructuralFeatures().get(5);
 	}
@@ -650,6 +680,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFolder() {
 		return folderEClass;
 	}
@@ -659,6 +690,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFolder_OwnedRequirements() {
 		return (EReference) folderEClass.getEStructuralFeatures().get(0);
 	}
@@ -668,6 +700,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModule() {
 		return moduleEClass;
 	}
@@ -677,6 +710,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModule_ModuleType() {
 		return (EReference) moduleEClass.getEStructuralFeatures().get(0);
 	}
@@ -686,6 +720,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModule_OwnedRequirements() {
 		return (EReference) moduleEClass.getEStructuralFeatures().get(1);
 	}
@@ -695,6 +730,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypesFolder() {
 		return typesFolderEClass;
 	}
@@ -704,6 +740,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypesFolder_OwnedDefinitionTypes() {
 		return (EReference) typesFolderEClass.getEStructuralFeatures().get(0);
 	}
@@ -713,6 +750,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypesFolder_OwnedTypes() {
 		return (EReference) typesFolderEClass.getEStructuralFeatures().get(1);
 	}
@@ -722,6 +760,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractType() {
 		return abstractTypeEClass;
 	}
@@ -731,6 +770,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAbstractType_OwnedAttributes() {
 		return (EReference) abstractTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -740,6 +780,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModuleType() {
 		return moduleTypeEClass;
 	}
@@ -749,6 +790,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRequirementType() {
 		return requirementTypeEClass;
 	}
@@ -758,6 +800,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationType() {
 		return relationTypeEClass;
 	}
@@ -767,6 +810,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataTypeDefinition() {
 		return dataTypeDefinitionEClass;
 	}
@@ -776,6 +820,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAttributeDefinition() {
 		return attributeDefinitionEClass;
 	}
@@ -785,6 +830,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttributeDefinition_DefinitionType() {
 		return (EReference) attributeDefinitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -794,6 +840,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAttributeDefinition_DefaultValue() {
 		return (EReference) attributeDefinitionEClass.getEStructuralFeatures().get(1);
 	}
@@ -803,6 +850,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAttributeDefinitionEnumeration() {
 		return attributeDefinitionEnumerationEClass;
 	}
@@ -812,6 +860,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAttributeDefinitionEnumeration_MultiValued() {
 		return (EAttribute) attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
 	}
@@ -821,6 +870,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumerationValueAttribute() {
 		return enumerationValueAttributeEClass;
 	}
@@ -830,6 +880,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnumerationValueAttribute_Values() {
 		return (EReference) enumerationValueAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -839,6 +890,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumerationDataTypeDefinition() {
 		return enumerationDataTypeDefinitionEClass;
 	}
@@ -848,6 +900,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnumerationDataTypeDefinition_SpecifiedValues() {
 		return (EReference) enumerationDataTypeDefinitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -857,6 +910,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumValue() {
 		return enumValueEClass;
 	}
@@ -866,6 +920,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RequirementsFactory getRequirementsFactory() {
 		return (RequirementsFactory) getEFactoryInstance();
 	}
@@ -1020,6 +1075,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		booleanValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		realValueAttributeEClass.getESuperTypes().add(this.getAttribute());
 		dateValueAttributeEClass.getESuperTypes().add(this.getAttribute());
+		sharedDirectAttributesEClass.getESuperTypes().add(theEmdePackage.getElement());
 		attributeOwnerEClass.getESuperTypes().add(this.getReqIFElement());
 		requirementEClass.getESuperTypes().add(this.getAttributeOwner());
 		requirementEClass.getESuperTypes().add(this.getSharedDirectAttributes());
@@ -1155,13 +1211,14 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 				Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getModule_ModuleType(), this.getModuleType(), null, "moduleType", null, 0, 1, Module.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(moduleEClass, org.polarsys.kitalpha.vp.requirements.Requirements.Module.class, "Module", //$NON-NLS-1$
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModule_ModuleType(), this.getModuleType(), null, "moduleType", null, 0, 1, //$NON-NLS-1$
+				org.polarsys.kitalpha.vp.requirements.Requirements.Module.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModule_OwnedRequirements(), this.getRequirement(), null, "ownedRequirements", null, 0, -1, //$NON-NLS-1$
-				Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				org.polarsys.kitalpha.vp.requirements.Requirements.Module.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typesFolderEClass, TypesFolder.class, "TypesFolder", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

@@ -32,7 +32,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.polarsys.kitalpha.emde.extension.edit.ExtensionItemProviderAdapter;
+
+import org.polarsys.kitalpha.emde.model.edit.provider.ElementItemProvider;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.model.helpers.SharedInitializeCopyCommandHelper;
@@ -40,20 +42,11 @@ import org.polarsys.kitalpha.vp.requirements.model.helpers.SharedInitializeCopyC
 /**
  * This is the item provider adapter for a {@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement} object.
  * <!-- begin-user-doc -->
- * @superClass ExtensionItemProviderAdapter
  * <!-- end-user-doc -->
  * @generated
  */
-public class IdentifiableElementItemProvider extends ExtensionItemProviderAdapter implements IEditingDomainItemProvider,
+public class IdentifiableElementItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

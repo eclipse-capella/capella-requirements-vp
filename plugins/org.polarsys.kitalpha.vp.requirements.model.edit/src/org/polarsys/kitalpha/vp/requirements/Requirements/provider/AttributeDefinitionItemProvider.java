@@ -19,8 +19,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,12 +28,13 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.polarsys.kitalpha.emde.extension.ExtensionModelManager;
 import org.polarsys.kitalpha.emde.extension.ModelExtensionHelper;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
@@ -44,13 +45,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  */
 public class AttributeDefinitionItemProvider extends ReqIFElementItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,9 +102,6 @@ public class AttributeDefinitionItemProvider extends ReqIFElementItemProvider im
 
 			addDefinitionTypePropertyDescriptor(object);
 		}
-		// begin-extension-code
-		checkChildCreationExtender(object);
-		// end-extension-code
 		return itemPropertyDescriptors;
 	}
 
@@ -220,6 +211,25 @@ public class AttributeDefinitionItemProvider extends ReqIFElementItemProvider im
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createStringValueAttribute()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createIntegerValueAttribute()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createBooleanValueAttribute()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createRealValueAttribute()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createDateValueAttribute()));
+
+		newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
+				RequirementsFactory.eINSTANCE.createEnumerationValueAttribute()));
+
 	}
 
 }

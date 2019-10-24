@@ -17,5 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.kitalpha.emde.model;visibility:=reexport,
  org.polarsys.kitalpha.emde.model.edit;visibility:=reexport,
  org.polarsys.kitalpha.emde;visibility:=reexport,
- org.polarsys.kitalpha.vp.requirements.model.helpers
+ org.polarsys.kitalpha.vp.requirements.model.helpers,
+ org.polarsys.capella.core.data.core.properties
 Bundle-ActivationPolicy: lazy

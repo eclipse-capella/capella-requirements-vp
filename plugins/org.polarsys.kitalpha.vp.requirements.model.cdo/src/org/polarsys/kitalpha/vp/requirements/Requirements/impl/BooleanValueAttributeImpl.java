@@ -30,12 +30,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class BooleanValueAttributeImpl extends AttributeImpl implements BooleanValueAttribute {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
@@ -74,6 +68,7 @@ public class BooleanValueAttributeImpl extends AttributeImpl implements BooleanV
 	 * @generated
 	 */
 
+	@Override
 	public boolean isValue() {
 
 		return (Boolean) eDynamicGet(RequirementsPackage.BOOLEAN_VALUE_ATTRIBUTE__VALUE,
@@ -86,10 +81,12 @@ public class BooleanValueAttributeImpl extends AttributeImpl implements BooleanV
 	 * @generated
 	 */
 
+	@Override
 	public void setValue(boolean newValue) {
 
 		eDynamicSet(RequirementsPackage.BOOLEAN_VALUE_ATTRIBUTE__VALUE,
 				RequirementsPackage.Literals.BOOLEAN_VALUE_ATTRIBUTE__VALUE, newValue);
+
 	}
 
 	/**

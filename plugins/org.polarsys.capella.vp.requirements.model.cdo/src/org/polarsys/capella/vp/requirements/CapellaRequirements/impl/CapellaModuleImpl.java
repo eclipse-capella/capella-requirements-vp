@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 
-import org.polarsys.kitalpha.emde.model.Element;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -46,12 +45,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.impl.ModuleImpl;
  * @generated
  */
 public class CapellaModuleImpl extends ModuleImpl implements CapellaModule {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,6 +74,7 @@ public class CapellaModuleImpl extends ModuleImpl implements CapellaModule {
 	 */
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<ElementExtension> getOwnedExtensions() {
 
 		return (EList<ElementExtension>) eDynamicGet(CapellaRequirementsPackage.CAPELLA_MODULE__OWNED_EXTENSIONS,
@@ -168,12 +162,6 @@ public class CapellaModuleImpl extends ModuleImpl implements CapellaModule {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
 		if (baseClass == ExtensibleElement.class) {
 			switch (derivedFeatureID) {
 			case CapellaRequirementsPackage.CAPELLA_MODULE__OWNED_EXTENSIONS:
@@ -198,12 +186,6 @@ public class CapellaModuleImpl extends ModuleImpl implements CapellaModule {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
 		if (baseClass == ExtensibleElement.class) {
 			switch (baseFeatureID) {
 			case EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS:

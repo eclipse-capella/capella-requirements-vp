@@ -11,7 +11,7 @@
  *
  */
 import external "platform:/resource/org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore"
-import external "platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore"
+import external "platform:/resource/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore"
 
 Data CapellaRequirements.data {
 	Class CapellaTypesFolder {

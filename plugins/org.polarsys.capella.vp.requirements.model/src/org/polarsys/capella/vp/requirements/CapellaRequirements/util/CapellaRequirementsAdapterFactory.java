@@ -28,8 +28,8 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
-import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
 import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
 
 /**
@@ -41,13 +41,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
  * @generated
  */
 public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -120,6 +113,11 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseElement(Element object) {
+			return createElementAdapter();
+		}
+
+		@Override
 		public Adapter caseIdentifiableElement(IdentifiableElement object) {
 			return createIdentifiableElementAdapter();
 		}
@@ -132,11 +130,6 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseTypesFolder(TypesFolder object) {
 			return createTypesFolderAdapter();
-		}
-
-		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
 		}
 
 		@Override
@@ -155,7 +148,12 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseModule(Module object) {
+		public Adapter caseSharedDirectAttributes(SharedDirectAttributes object) {
+			return createSharedDirectAttributesAdapter();
+		}
+
+		@Override
+		public Adapter caseModule(org.polarsys.kitalpha.vp.requirements.Requirements.Module object) {
 			return createModuleAdapter();
 		}
 
@@ -254,6 +252,20 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.emde.model.Element
+	 * @generated
+	 */
+	public Adapter createElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement <em>Identifiable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -296,48 +308,6 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner <em>Attribute Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner
-	 * @generated
-	 */
-	public Adapter createAttributeOwnerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Module <em>Module</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.Module
-	 * @generated
-	 */
-	public Adapter createModuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.polarsys.kitalpha.emde.model.Element
-	 * @generated
-	 */
-	public Adapter createElementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ExtensibleElement <em>Extensible Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -362,6 +332,48 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner <em>Attribute Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner
+	 * @generated
+	 */
+	public Adapter createAttributeOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes <em>Shared Direct Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
+	 * @generated
+	 */
+	public Adapter createSharedDirectAttributesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.vp.requirements.Requirements.Module <em>Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.Module
+	 * @generated
+	 */
+	public Adapter createModuleAdapter() {
 		return null;
 	}
 

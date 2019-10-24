@@ -76,13 +76,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.util.RequirementsSwitc
 public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequirementsAdapterFactory
 		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
-	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +220,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -237,6 +231,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -312,6 +307,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -322,6 +318,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -332,6 +329,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -346,6 +344,7 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (capellaTypesFolderItemProvider != null)
 			capellaTypesFolderItemProvider.dispose();
@@ -355,103 +354,6 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 			capellaIncomingRelationItemProvider.dispose();
 		if (capellaOutgoingRelationItemProvider != null)
 			capellaOutgoingRelationItemProvider.dispose();
-	}
-
-	/**
-	 * A child creation extender for the {@link RequirementsPackage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static class RequirementsChildCreationExtender implements IChildCreationExtender {
-		/**
-		 * The switch for creating child descriptors specific to each extended class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected static class CreationSwitch extends RequirementsSwitch<Object> {
-			/**
-			 * The child descriptors being populated.
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			protected List<Object> newChildDescriptors;
-
-			/**
-			 * The domain in which to create the children.
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			protected EditingDomain editingDomain;
-
-			/**
-			 * Creates the a switch for populating child descriptors in the given domain.
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
-				this.newChildDescriptors = newChildDescriptors;
-				this.editingDomain = editingDomain;
-			}
-
-			/**
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			@Override
-			public Object caseRequirement(Requirement object) {
-				// begin-extension-code
-				if (ModelExtensionHelper.getInstance(object).isExtensionModelDisabled(
-						EcoreUtil.getRootContainer(object).eClass().getEPackage().getNsURI(),
-						"http://www.polarsys.org/capella/requirements")) { //$NON-NLS-1$
-					return null;
-				}
-				// end-extension-code
-
-				newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.REQUIREMENT__OWNED_RELATIONS,
-						CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation()));
-
-				newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.REQUIREMENT__OWNED_RELATIONS,
-						CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation()));
-
-				return null;
-			}
-
-			/**
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			protected CommandParameter createChildParameter(Object feature, Object child) {
-				return new CommandParameter(null, feature, child);
-			}
-
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-			ArrayList<Object> result = new ArrayList<Object>();
-			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
-			return result;
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public ResourceLocator getResourceLocator() {
-			return CapellaRequirementsEditPlugin.INSTANCE;
-		}
 	}
 
 	/**
@@ -541,6 +443,103 @@ public class CapellaRequirementsItemProviderAdapterFactory extends CapellaRequir
 					}
 				}
 				// end-extension-code
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected CommandParameter createChildParameter(Object feature, Object child) {
+				return new CommandParameter(null, feature, child);
+			}
+
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+			ArrayList<Object> result = new ArrayList<Object>();
+			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
+			return result;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public ResourceLocator getResourceLocator() {
+			return CapellaRequirementsEditPlugin.INSTANCE;
+		}
+	}
+
+	/**
+	 * A child creation extender for the {@link RequirementsPackage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static class RequirementsChildCreationExtender implements IChildCreationExtender {
+		/**
+		 * The switch for creating child descriptors specific to each extended class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected static class CreationSwitch extends RequirementsSwitch<Object> {
+			/**
+			 * The child descriptors being populated.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected List<Object> newChildDescriptors;
+
+			/**
+			 * The domain in which to create the children.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected EditingDomain editingDomain;
+
+			/**
+			 * Creates the a switch for populating child descriptors in the given domain.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
+				this.newChildDescriptors = newChildDescriptors;
+				this.editingDomain = editingDomain;
+			}
+
+			/**
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			@Override
+			public Object caseRequirement(Requirement object) {
+				// begin-extension-code
+				if (ModelExtensionHelper.getInstance(object).isExtensionModelDisabled(
+						EcoreUtil.getRootContainer(object).eClass().getEPackage().getNsURI(),
+						"http://www.polarsys.org/capella/requirements")) { //$NON-NLS-1$
+					return null;
+				}
+				// end-extension-code
+
+				newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.REQUIREMENT__OWNED_RELATIONS,
+						CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation()));
+
+				newChildDescriptors.add(createChildParameter(RequirementsPackage.Literals.REQUIREMENT__OWNED_RELATIONS,
+						CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation()));
 
 				return null;
 			}

@@ -98,6 +98,61 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
+	public String getReqIFName() {
+
+		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public void setReqIFName(String newReqIFName) {
+
+		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_NAME,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public String getReqIFPrefix() {
+
+		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
+	public void setReqIFPrefix(String newReqIFPrefix) {
+
+		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
+				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+	@Override
 	public ModuleType getModuleType() {
 
 		return (ModuleType) eDynamicGet(RequirementsPackage.MODULE__MODULE_TYPE,
@@ -122,10 +177,12 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public void setModuleType(ModuleType newModuleType) {
 
 		eDynamicSet(RequirementsPackage.MODULE__MODULE_TYPE, RequirementsPackage.Literals.MODULE__MODULE_TYPE,
 				newModuleType);
+
 	}
 
 	/**
@@ -135,58 +192,11 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 */
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Requirement> getOwnedRequirements() {
 
 		return (EList<Requirement>) eDynamicGet(RequirementsPackage.MODULE__OWNED_REQUIREMENTS,
 				RequirementsPackage.Literals.MODULE__OWNED_REQUIREMENTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIFName() {
-
-		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_NAME,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFName(String newReqIFName) {
-
-		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_NAME,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_NAME, newReqIFName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public String getReqIFPrefix() {
-
-		return (String) eDynamicGet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	public void setReqIFPrefix(String newReqIFPrefix) {
-
-		eDynamicSet(RequirementsPackage.MODULE__REQ_IF_PREFIX,
-				RequirementsPackage.Literals.SHARED_DIRECT_ATTRIBUTES__REQ_IF_PREFIX, newReqIFPrefix);
 	}
 
 	/**

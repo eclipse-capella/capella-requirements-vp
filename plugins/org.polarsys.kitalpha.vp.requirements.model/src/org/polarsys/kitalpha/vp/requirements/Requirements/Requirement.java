@@ -13,6 +13,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements;
 
 import java.math.BigInteger;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -38,21 +39,11 @@ import org.eclipse.emf.common.util.EList;
  */
 
 public interface Requirement extends AttributeOwner, SharedDirectAttributes {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * Returns the value of the '<em><b>Requirement Type</b></em>' reference.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Requirement Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Requirement Type</em>' reference.
 	 * @see #setRequirementType(RequirementType)
@@ -80,10 +71,6 @@ public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	 * The list contents are of type {@link org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation}.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Relations</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owned Relations</em>' containment reference list.
 	 * @see org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage#getRequirement_OwnedRelations()
@@ -97,10 +84,6 @@ public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	 * Returns the value of the '<em><b>Req IF Chapter Name</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Req IF Chapter Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Chapter Name</em>' attribute.
 	 * @see #setReqIFChapterName(String)
@@ -127,10 +110,6 @@ public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	 * Returns the value of the '<em><b>Req IF Foreign ID</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Req IF Foreign ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Foreign ID</em>' attribute.
 	 * @see #setReqIFForeignID(BigInteger)
@@ -157,10 +136,6 @@ public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	 * Returns the value of the '<em><b>Req IF Text</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Req IF Text</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Req IF Text</em>' attribute.
 	 * @see #setReqIFText(String)
@@ -187,10 +162,6 @@ public interface Requirement extends AttributeOwner, SharedDirectAttributes {
 	 * Returns the value of the '<em><b>Requirement Type Proxy</b></em>' attribute.
 	
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Requirement Type Proxy</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Requirement Type Proxy</em>' attribute.
 	 * @see #setRequirementTypeProxy(String)

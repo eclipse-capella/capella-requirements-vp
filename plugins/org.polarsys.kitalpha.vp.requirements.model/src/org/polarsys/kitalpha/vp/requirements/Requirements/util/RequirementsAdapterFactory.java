@@ -21,7 +21,33 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.polarsys.kitalpha.emde.model.Element;
 
-import org.polarsys.kitalpha.vp.requirements.Requirements.*;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinitionEnumeration;
+import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeOwner;
+import org.polarsys.kitalpha.vp.requirements.Requirements.BooleanValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.DateValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumValue;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationDataTypeDefinition;
+import org.polarsys.kitalpha.vp.requirements.Requirements.EnumerationValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Folder;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.IntegerValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.InternalRelation;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ModuleType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementType;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes;
+import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.Requirements.TypesFolder;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +58,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.*;
  * @generated
  */
 public class RequirementsAdapterFactory extends AdapterFactoryImpl {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

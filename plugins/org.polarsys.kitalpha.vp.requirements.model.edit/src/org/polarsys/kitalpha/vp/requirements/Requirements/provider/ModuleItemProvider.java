@@ -33,6 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.polarsys.kitalpha.emde.extension.ExtensionModelManager;
 import org.polarsys.kitalpha.emde.extension.ModelExtensionHelper;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.Module;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -45,13 +46,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  */
 public class ModuleItemProvider extends AttributeOwnerItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,26 +108,6 @@ public class ModuleItemProvider extends AttributeOwnerItemProvider implements IE
 	}
 
 	/**
-	 * This adds a property descriptor for the Module Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModuleTypePropertyDescriptor(Object object) {
-		// begin-extension-code
-		moduleTypePropertyDescriptor = createItemPropertyDescriptor
-		// end-extension-code		
-		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Module_moduleType_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Module_moduleType_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				RequirementsPackage.Literals.MODULE__MODULE_TYPE, true, false, true, null, null,
-				// begin-extension-code
-				null);
-		itemPropertyDescriptors.add(moduleTypePropertyDescriptor);
-		// end-extension-code
-	}
-
-	/**
 	 * This adds a property descriptor for the Req IF Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,6 +148,26 @@ public class ModuleItemProvider extends AttributeOwnerItemProvider implements IE
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
 				// begin-extension-code
 				null));
+		// end-extension-code
+	}
+
+	/**
+	 * This adds a property descriptor for the Module Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModuleTypePropertyDescriptor(Object object) {
+		// begin-extension-code
+		moduleTypePropertyDescriptor = createItemPropertyDescriptor
+		// end-extension-code		
+		(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Module_moduleType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Module_moduleType_feature", "_UI_Module_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				RequirementsPackage.Literals.MODULE__MODULE_TYPE, true, false, true, null, null,
+				// begin-extension-code
+				null);
+		itemPropertyDescriptors.add(moduleTypePropertyDescriptor);
 		// end-extension-code
 	}
 

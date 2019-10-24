@@ -16,12 +16,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.polarsys.capella.common.data.activity.ActivityPackage;
+
 import org.polarsys.capella.common.data.behavior.BehaviorPackage;
+
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+
 import org.polarsys.capella.core.data.capellacommon.CapellacommonPackage;
 
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
@@ -56,8 +58,8 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingR
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
-
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
+
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -69,13 +71,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class CapellaRequirementsPackageImpl extends EPackageImpl implements CapellaRequirementsPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,7 +134,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link CapellaRequirementsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -155,13 +150,16 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 					.getEPackage(CapellaRequirementsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CapellaRequirementsPackageImpl theCapellaRequirementsPackage = (CapellaRequirementsPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof CapellaRequirementsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new CapellaRequirementsPackageImpl());
+		Object registeredCapellaRequirementsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		CapellaRequirementsPackageImpl theCapellaRequirementsPackage = registeredCapellaRequirementsPackage instanceof CapellaRequirementsPackageImpl
+				? (CapellaRequirementsPackageImpl) registeredCapellaRequirementsPackage
+				: new CapellaRequirementsPackageImpl();
 
 		isInited = true;
 
 		// Initialize simple dependencies
+		EmdePackage.eINSTANCE.eClass();
+		RequirementsPackage.eINSTANCE.eClass();
 		CapellamodellerPackage.eINSTANCE.eClass();
 		CapellacorePackage.eINSTANCE.eClass();
 		OaPackage.eINSTANCE.eClass();
@@ -177,11 +175,8 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		FaPackage.eINSTANCE.eClass();
 		InteractionPackage.eINSTANCE.eClass();
 		ModellingcorePackage.eINSTANCE.eClass();
-		BehaviorPackage.eINSTANCE.eClass();
 		ActivityPackage.eINSTANCE.eClass();
-		RequirementsPackage.eINSTANCE.eClass();
-		EmdePackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
+		BehaviorPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCapellaRequirementsPackage.createPackageContents();
@@ -202,6 +197,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCapellaTypesFolder() {
 		return capellaTypesFolderEClass;
 	}
@@ -211,6 +207,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCapellaModule() {
 		return capellaModuleEClass;
 	}
@@ -220,6 +217,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCapellaRelation() {
 		return capellaRelationEClass;
 	}
@@ -229,6 +227,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCapellaIncomingRelation() {
 		return capellaIncomingRelationEClass;
 	}
@@ -238,6 +237,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCapellaIncomingRelation_Source() {
 		return (EReference) capellaIncomingRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -247,6 +247,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCapellaIncomingRelation_Target() {
 		return (EReference) capellaIncomingRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -256,6 +257,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCapellaOutgoingRelation() {
 		return capellaOutgoingRelationEClass;
 	}
@@ -265,6 +267,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCapellaOutgoingRelation_Source() {
 		return (EReference) capellaOutgoingRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -274,6 +277,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCapellaOutgoingRelation_Target() {
 		return (EReference) capellaOutgoingRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -283,6 +287,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaRequirementsFactory getCapellaRequirementsFactory() {
 		return (CapellaRequirementsFactory) getEFactoryInstance();
 	}
@@ -412,15 +417,15 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * @generated
 	 */
 	protected void createConstraintAnnotations() {
-		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$	
+		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$
 		addAnnotation(capellaTypesFolderEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.3.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaModuleEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.3.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaOutgoingRelationEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.3.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.4.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 	}
 
@@ -431,7 +436,7 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	 * @generated
 	 */
 	protected void createConstraintMappingAnnotations() {
-		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping"; //$NON-NLS-1$	
+		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping"; //$NON-NLS-1$
 		addAnnotation(capellaTypesFolderEClass, source, new String[] { "Mapping", //$NON-NLS-1$
 				" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture" //$NON-NLS-1$
 		});

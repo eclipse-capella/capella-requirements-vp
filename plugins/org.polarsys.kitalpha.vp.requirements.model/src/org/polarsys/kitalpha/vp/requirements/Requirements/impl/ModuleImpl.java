@@ -144,6 +144,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFName() {
 
 		return reqIFName;
@@ -155,6 +156,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFName(String newReqIFName) {
 
 		String oldReqIFName = reqIFName;
@@ -171,6 +173,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFPrefix() {
 
 		return reqIFPrefix;
@@ -182,6 +185,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFPrefix(String newReqIFPrefix) {
 
 		String oldReqIFPrefix = reqIFPrefix;
@@ -198,6 +202,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public ModuleType getModuleType() {
 
 		if (moduleType != null && moduleType.eIsProxy()) {
@@ -229,6 +234,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public void setModuleType(ModuleType newModuleType) {
 
 		ModuleType oldModuleType = moduleType;
@@ -245,6 +251,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 	 * @generated
 	 */
 
+	@Override
 	public EList<Requirement> getOwnedRequirements() {
 
 		if (ownedRequirements == null) {
@@ -410,7 +417,7 @@ public class ModuleImpl extends AttributeOwnerImpl implements Module {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (ReqIFName: "); //$NON-NLS-1$
 		result.append(reqIFName);
 		result.append(", ReqIFPrefix: "); //$NON-NLS-1$

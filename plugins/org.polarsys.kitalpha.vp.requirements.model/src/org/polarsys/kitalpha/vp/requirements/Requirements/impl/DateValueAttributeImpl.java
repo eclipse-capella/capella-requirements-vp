@@ -37,12 +37,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class DateValueAttributeImpl extends AttributeImpl implements DateValueAttribute {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -91,6 +85,7 @@ public class DateValueAttributeImpl extends AttributeImpl implements DateValueAt
 	 * @generated
 	 */
 
+	@Override
 	public Date getValue() {
 
 		return value;
@@ -102,6 +97,7 @@ public class DateValueAttributeImpl extends AttributeImpl implements DateValueAt
 	 * @generated
 	 */
 
+	@Override
 	public void setValue(Date newValue) {
 
 		Date oldValue = value;
@@ -180,7 +176,7 @@ public class DateValueAttributeImpl extends AttributeImpl implements DateValueAt
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
 		result.append(')');

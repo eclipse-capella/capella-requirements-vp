@@ -13,8 +13,11 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
@@ -34,12 +37,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class ReqIFElementImpl extends IdentifiableElementImpl implements ReqIFElement {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getReqIFIdentifier() <em>Req IF Identifier</em>}' attribute.
@@ -128,6 +125,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFIdentifier() {
 
 		return reqIFIdentifier;
@@ -139,6 +137,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFIdentifier(String newReqIFIdentifier) {
 
 		String oldReqIFIdentifier = reqIFIdentifier;
@@ -155,6 +154,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFDescription() {
 
 		return reqIFDescription;
@@ -166,6 +166,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFDescription(String newReqIFDescription) {
 
 		String oldReqIFDescription = reqIFDescription;
@@ -182,6 +183,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFLongName() {
 
 		return reqIFLongName;
@@ -193,6 +195,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFLongName(String newReqIFLongName) {
 
 		String oldReqIFLongName = reqIFLongName;
@@ -294,7 +297,7 @@ public abstract class ReqIFElementImpl extends IdentifiableElementImpl implement
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (ReqIFIdentifier: "); //$NON-NLS-1$
 		result.append(reqIFIdentifier);
 		result.append(", ReqIFDescription: "); //$NON-NLS-1$

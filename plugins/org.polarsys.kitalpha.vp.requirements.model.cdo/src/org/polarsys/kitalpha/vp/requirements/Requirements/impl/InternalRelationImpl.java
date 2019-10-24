@@ -32,12 +32,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class InternalRelationImpl extends AbstractRelationImpl implements InternalRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,6 +60,7 @@ public class InternalRelationImpl extends AbstractRelationImpl implements Intern
 	 * @generated
 	 */
 
+	@Override
 	public Requirement getSource() {
 
 		return (Requirement) eDynamicGet(RequirementsPackage.INTERNAL_RELATION__SOURCE,
@@ -90,10 +85,12 @@ public class InternalRelationImpl extends AbstractRelationImpl implements Intern
 	 * @generated
 	 */
 
+	@Override
 	public void setSource(Requirement newSource) {
 
 		eDynamicSet(RequirementsPackage.INTERNAL_RELATION__SOURCE,
 				RequirementsPackage.Literals.INTERNAL_RELATION__SOURCE, newSource);
+
 	}
 
 	/**
@@ -102,6 +99,7 @@ public class InternalRelationImpl extends AbstractRelationImpl implements Intern
 	 * @generated
 	 */
 
+	@Override
 	public Requirement getTarget() {
 
 		return (Requirement) eDynamicGet(RequirementsPackage.INTERNAL_RELATION__TARGET,
@@ -126,10 +124,12 @@ public class InternalRelationImpl extends AbstractRelationImpl implements Intern
 	 * @generated
 	 */
 
+	@Override
 	public void setTarget(Requirement newTarget) {
 
 		eDynamicSet(RequirementsPackage.INTERNAL_RELATION__TARGET,
 				RequirementsPackage.Literals.INTERNAL_RELATION__TARGET, newTarget);
+
 	}
 
 	/**

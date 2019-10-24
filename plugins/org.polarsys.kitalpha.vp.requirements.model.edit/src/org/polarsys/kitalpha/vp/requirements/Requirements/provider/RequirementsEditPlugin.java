@@ -16,7 +16,7 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.polarsys.kitalpha.emde.model.edit.provider.EmdeEditPlugin;
 
 /**
  * This is the central singleton for the Requirements edit plugin.
@@ -25,13 +25,6 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
  * @generated
  */
 public final class RequirementsEditPlugin extends EMFPlugin {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -55,7 +48,7 @@ public final class RequirementsEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public RequirementsEditPlugin() {
-		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { EmdeEditPlugin.INSTANCE, });
 	}
 
 	/**

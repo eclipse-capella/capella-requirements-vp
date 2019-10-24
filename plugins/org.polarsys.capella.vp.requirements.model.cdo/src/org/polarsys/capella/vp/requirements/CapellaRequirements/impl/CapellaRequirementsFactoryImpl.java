@@ -30,13 +30,6 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.*;
  */
 public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements CapellaRequirementsFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
-
-	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,6 +84,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaTypesFolder createCapellaTypesFolder() {
 		CapellaTypesFolderImpl capellaTypesFolder = new CapellaTypesFolderImpl();
 		return capellaTypesFolder;
@@ -101,6 +95,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaModule createCapellaModule() {
 		CapellaModuleImpl capellaModule = new CapellaModuleImpl();
 		return capellaModule;
@@ -111,6 +106,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaIncomingRelation createCapellaIncomingRelation() {
 		CapellaIncomingRelationImpl capellaIncomingRelation = new CapellaIncomingRelationImpl();
 		return capellaIncomingRelation;
@@ -121,6 +117,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaOutgoingRelation createCapellaOutgoingRelation() {
 		CapellaOutgoingRelationImpl capellaOutgoingRelation = new CapellaOutgoingRelationImpl();
 		return capellaOutgoingRelation;
@@ -131,6 +128,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaRequirementsPackage getCapellaRequirementsPackage() {
 		return (CapellaRequirementsPackage) getEPackage();
 	}
@@ -146,4 +144,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 		return CapellaRequirementsPackage.eINSTANCE;
 	}
 
+	//begin-capella-code
+
+	//end-capella-code
 } //CapellaRequirementsFactoryImpl

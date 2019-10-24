@@ -13,6 +13,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -35,12 +36,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public class AttributeDefinitionImpl extends ReqIFElementImpl implements AttributeDefinition {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,6 +64,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public DataTypeDefinition getDefinitionType() {
 
 		return (DataTypeDefinition) eDynamicGet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFINITION_TYPE,
@@ -93,10 +89,12 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinitionType(DataTypeDefinition newDefinitionType) {
 
 		eDynamicSet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFINITION_TYPE,
 				RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFINITION_TYPE, newDefinitionType);
+
 	}
 
 	/**
@@ -105,6 +103,7 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public Attribute getDefaultValue() {
 
 		return (Attribute) eDynamicGet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
@@ -131,10 +130,12 @@ public class AttributeDefinitionImpl extends ReqIFElementImpl implements Attribu
 	 * @generated
 	 */
 
+	@Override
 	public void setDefaultValue(Attribute newDefaultValue) {
 
 		eDynamicSet(RequirementsPackage.ATTRIBUTE_DEFINITION__DEFAULT_VALUE,
 				RequirementsPackage.Literals.ATTRIBUTE_DEFINITION__DEFAULT_VALUE, newDefaultValue);
+
 	}
 
 	/**

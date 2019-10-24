@@ -56,12 +56,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.SharedDirectAttributes
  * @generated
  */
 public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The default value of the '{@link #getReqIFName() <em>Req IF Name</em>}' attribute.
@@ -230,6 +224,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFName() {
 
 		return reqIFName;
@@ -241,6 +236,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFName(String newReqIFName) {
 
 		String oldReqIFName = reqIFName;
@@ -257,6 +253,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFPrefix() {
 
 		return reqIFPrefix;
@@ -268,6 +265,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFPrefix(String newReqIFPrefix) {
 
 		String oldReqIFPrefix = reqIFPrefix;
@@ -284,6 +282,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public RequirementType getRequirementType() {
 
 		if (requirementType != null && requirementType.eIsProxy()) {
@@ -315,6 +314,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setRequirementType(RequirementType newRequirementType) {
 
 		RequirementType oldRequirementType = requirementType;
@@ -331,6 +331,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public EList<AbstractRelation> getOwnedRelations() {
 
 		if (ownedRelations == null) {
@@ -346,6 +347,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFChapterName() {
 
 		return reqIFChapterName;
@@ -357,6 +359,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFChapterName(String newReqIFChapterName) {
 
 		String oldReqIFChapterName = reqIFChapterName;
@@ -373,6 +376,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public BigInteger getReqIFForeignID() {
 
 		return reqIFForeignID;
@@ -384,6 +388,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFForeignID(BigInteger newReqIFForeignID) {
 
 		BigInteger oldReqIFForeignID = reqIFForeignID;
@@ -400,6 +405,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getReqIFText() {
 
 		return reqIFText;
@@ -411,6 +417,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setReqIFText(String newReqIFText) {
 
 		String oldReqIFText = reqIFText;
@@ -427,6 +434,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public String getRequirementTypeProxy() {
 
 		return requirementTypeProxy;
@@ -438,6 +446,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 	 * @generated
 	 */
 
+	@Override
 	public void setRequirementTypeProxy(String newRequirementTypeProxy) {
 
 		String oldRequirementTypeProxy = requirementTypeProxy;
@@ -648,7 +657,7 @@ public class RequirementImpl extends AttributeOwnerImpl implements Requirement {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (ReqIFName: "); //$NON-NLS-1$
 		result.append(reqIFName);
 		result.append(", ReqIFPrefix: "); //$NON-NLS-1$

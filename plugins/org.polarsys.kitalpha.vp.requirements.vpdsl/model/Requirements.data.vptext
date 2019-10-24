@@ -93,6 +93,7 @@ Data Requirements.data {
 			value type ecore.EDate
 	}
 	Class SharedDirectAttributes {
+		superClass external emde.Element
 		abstract: true
 
 		Attributes:

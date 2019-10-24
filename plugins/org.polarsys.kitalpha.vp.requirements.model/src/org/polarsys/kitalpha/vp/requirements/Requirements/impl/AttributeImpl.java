@@ -15,8 +15,8 @@ package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -38,12 +38,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  * @generated
  */
 public abstract class AttributeImpl extends IdentifiableElementImpl implements Attribute {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
@@ -102,6 +96,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public AttributeDefinition getDefinition() {
 
 		if (definition != null && definition.eIsProxy()) {
@@ -133,6 +128,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinition(AttributeDefinition newDefinition) {
 
 		AttributeDefinition oldDefinition = definition;
@@ -149,6 +145,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public String getDefinitionProxy() {
 
 		return definitionProxy;
@@ -160,6 +157,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 	 * @generated
 	 */
 
+	@Override
 	public void setDefinitionProxy(String newDefinitionProxy) {
 
 		String oldDefinitionProxy = definitionProxy;
@@ -251,7 +249,7 @@ public abstract class AttributeImpl extends IdentifiableElementImpl implements A
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (definitionProxy: "); //$NON-NLS-1$
 		result.append(definitionProxy);
 		result.append(')');

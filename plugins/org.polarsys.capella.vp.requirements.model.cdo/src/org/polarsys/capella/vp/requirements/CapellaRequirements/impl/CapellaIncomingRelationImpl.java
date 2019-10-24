@@ -35,12 +35,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * @generated
  */
 public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements CapellaIncomingRelation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.\r\n All rights reserved. This program and the accompanying materials\r\n are made available under the terms of the Eclipse Public License v1.0\r\n which accompanies this distribution, and is available at\r\n http://www.eclipse.org/legal/epl-v10.html\r\n\r\n Contributors:\r\n    Thales - initial API and implementation"; //$NON-NLS-1$
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,6 +63,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public Requirement getSource() {
 
 		return (Requirement) eDynamicGet(CapellaRequirementsPackage.CAPELLA_INCOMING_RELATION__SOURCE,
@@ -93,10 +88,12 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setSource(Requirement newSource) {
 
 		eDynamicSet(CapellaRequirementsPackage.CAPELLA_INCOMING_RELATION__SOURCE,
 				CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE, newSource);
+
 	}
 
 	/**
@@ -105,6 +102,7 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public CapellaElement getTarget() {
 
 		return (CapellaElement) eDynamicGet(CapellaRequirementsPackage.CAPELLA_INCOMING_RELATION__TARGET,
@@ -129,10 +127,12 @@ public class CapellaIncomingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 
+	@Override
 	public void setTarget(CapellaElement newTarget) {
 
 		eDynamicSet(CapellaRequirementsPackage.CAPELLA_INCOMING_RELATION__TARGET,
 				CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__TARGET, newTarget);
+
 	}
 
 	/**
