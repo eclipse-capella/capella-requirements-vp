@@ -89,11 +89,11 @@ public class CapellaElementSection extends AbstractSection {
   @Override
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
+    
+    parent.setLayout(new GridLayout());
+    parent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-    rootParentComposite.setLayout(new GridLayout());
-    rootParentComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
-    Group grp = getWidgetFactory().createGroup(rootParentComposite, ICommonConstants.EMPTY_STRING);
+    Group grp = getWidgetFactory().createGroup(parent, ICommonConstants.EMPTY_STRING);
     grp.setLayout(new GridLayout(2, false));
     grp.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
 
