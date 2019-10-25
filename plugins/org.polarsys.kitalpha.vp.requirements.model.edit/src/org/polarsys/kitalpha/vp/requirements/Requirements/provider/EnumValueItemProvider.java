@@ -96,6 +96,7 @@ public class EnumValueItemProvider extends ReqIFElementItemProvider implements I
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

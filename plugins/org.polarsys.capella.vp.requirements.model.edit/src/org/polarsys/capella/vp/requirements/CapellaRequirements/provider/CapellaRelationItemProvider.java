@@ -87,6 +87,7 @@ public class CapellaRelationItemProvider extends AbstractRelationItemProvider im
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

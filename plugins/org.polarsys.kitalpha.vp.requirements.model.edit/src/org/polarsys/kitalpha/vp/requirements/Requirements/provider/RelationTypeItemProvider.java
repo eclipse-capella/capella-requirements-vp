@@ -96,6 +96,7 @@ public class RelationTypeItemProvider extends AbstractTypeItemProvider implement
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

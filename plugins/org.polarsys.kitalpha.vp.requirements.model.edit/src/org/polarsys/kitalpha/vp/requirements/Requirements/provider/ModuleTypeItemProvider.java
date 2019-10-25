@@ -96,6 +96,7 @@ public class ModuleTypeItemProvider extends AbstractTypeItemProvider implements 
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

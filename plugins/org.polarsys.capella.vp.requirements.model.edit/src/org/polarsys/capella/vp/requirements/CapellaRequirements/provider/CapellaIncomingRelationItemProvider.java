@@ -203,6 +203,7 @@ public class CapellaIncomingRelationItemProvider extends CapellaRelationItemProv
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
