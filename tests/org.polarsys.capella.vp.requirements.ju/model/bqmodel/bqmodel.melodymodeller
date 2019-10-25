@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_1.3.1-->
+<!--Capella_Version_1.4.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
-    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/1.3.0"
-    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/1.3.0"
-    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/1.3.0"
-    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/1.3.0"
-    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/1.3.0"
-    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/1.3.0"
-    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/1.3.0"
-    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/1.3.0"
-    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/1.3.0"
-    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/1.3.0"
-    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/1.3.0"
-    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/1.3.0"
-    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/1.3.0"
-    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/1.3.0"
+    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/1.4.0"
+    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/1.4.0"
+    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/1.4.0"
+    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/1.4.0"
+    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/1.4.0"
+    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/1.4.0"
+    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/1.4.0"
+    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/1.4.0"
+    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/1.4.0"
+    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/1.4.0"
+    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/1.4.0"
+    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/1.4.0"
+    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/1.4.0"
+    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/1.4.0"
     id="1fdc0cd1-8529-48b8-a1d8-ff08a9eb6202"
     name="bqmodel">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="9b5593d0-46e9-4a26-8700-79e20167f609">
@@ -97,11 +97,9 @@
           id="795a0893-505e-4936-a634-bc2b41629d98" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
           id="f72acb37-0f75-4b2a-a56f-3355983dd6b3" name="Data"/>
-      <ownedOperationalContext xsi:type="org.polarsys.capella.core.data.oa:OperationalContext"
-          id="8da1176a-28ef-41c3-837e-c99b27574280" name="Operational Context"/>
       <ownedRolePkg xsi:type="org.polarsys.capella.core.data.oa:RolePkg" id="b20f3e65-4c6f-44ee-90cc-a365a06083ca"
           name="Roles"/>
-      <ownedEntityPkg xsi:type="org.polarsys.capella.core.data.oa:EntityPkg" id="98aea1ed-fad2-4a34-a3d3-03084e82eeb9"
+      <ownedEntityPkg xsi:type="org.polarsys.capella.core.data.oa:EntityPkg" id="8da1176a-28ef-41c3-837e-c99b27574280"
           name="Operational Entities"/>
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
@@ -255,21 +253,19 @@
           </ownedDataTypes>
         </ownedDataPkgs>
       </ownedDataPkg>
-      <ownedSystemContext xsi:type="org.polarsys.capella.core.data.ctx:SystemContext"
-          id="a47c6202-39ed-4d99-b949-fbbe9639ed9b" name="System Context">
-        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="7dc0dbe6-cd59-4bb8-80f7-ac3decc2203e"
+      <ownedSystemComponentPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemComponentPkg"
+          id="a47c6202-39ed-4d99-b949-fbbe9639ed9b" name="Structure">
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="7dc0dbe6-cd59-4bb8-80f7-ac3decc2203e"
             name="System" abstractType="#a0945cf7-ffa6-4548-b356-afae218d3fb2"/>
-      </ownedSystemContext>
-      <ownedSystem xsi:type="org.polarsys.capella.core.data.ctx:System" id="a0945cf7-ffa6-4548-b356-afae218d3fb2"
-          name="System">
-        <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
-            id="cd59c482-e0f6-4744-9333-426d61a5e449" name="System State Machine">
-          <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-              id="e494431a-6d7d-4393-b037-6a9c8a8b15ed" name="Default Region"/>
-        </ownedStateMachines>
-      </ownedSystem>
-      <ownedActorPkg xsi:type="org.polarsys.capella.core.data.ctx:ActorPkg" id="1c1df676-4be2-46ab-8c5e-841b3ec74cf4"
-          name="Actors"/>
+        <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
+            id="a0945cf7-ffa6-4548-b356-afae218d3fb2" name="System">
+          <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
+              id="cd59c482-e0f6-4744-9333-426d61a5e449" name="System State Machine">
+            <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                id="e494431a-6d7d-4393-b037-6a9c8a8b15ed" name="Default Region"/>
+          </ownedStateMachines>
+        </ownedSystemComponents>
+      </ownedSystemComponentPkg>
       <ownedMissionPkg xsi:type="org.polarsys.capella.core.data.ctx:MissionPkg" id="51a6e4d9-1f9a-4606-8769-9baa1ed6acf9"
           name="Missions"/>
       <ownedOperationalAnalysisRealizations xsi:type="org.polarsys.capella.core.data.ctx:OperationalAnalysisRealization"
@@ -334,19 +330,17 @@
           id="5f397b00-e5d8-4f56-8da1-df4491dd05b2" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
           id="fb645200-008c-4068-bc67-6fdd4b97bc61" name="Data"/>
-      <ownedLogicalContext xsi:type="org.polarsys.capella.core.data.la:LogicalContext"
-          id="495381e1-eb58-4b63-a8b9-a185a822ba92" name="Logical Context">
-        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ffaf0555-9292-4b26-8b9e-859ed636ae35"
+      <ownedLogicalComponentPkg xsi:type="org.polarsys.capella.core.data.la:LogicalComponentPkg"
+          id="495381e1-eb58-4b63-a8b9-a185a822ba92" name="Structure">
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="ffaf0555-9292-4b26-8b9e-859ed636ae35"
             name="Logical System" abstractType="#47a18ccb-e364-48f6-b168-0435c54d9df0"/>
-      </ownedLogicalContext>
-      <ownedLogicalComponent xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-          id="47a18ccb-e364-48f6-b168-0435c54d9df0" name="Logical System">
-        <ownedSystemRealizations xsi:type="org.polarsys.capella.core.data.la:SystemRealization"
-            id="9b1516d9-8ae4-4f39-a4a4-fd02270f1b79" targetElement="#a0945cf7-ffa6-4548-b356-afae218d3fb2"
-            sourceElement="#47a18ccb-e364-48f6-b168-0435c54d9df0"/>
-      </ownedLogicalComponent>
-      <ownedLogicalActorPkg xsi:type="org.polarsys.capella.core.data.la:LogicalActorPkg"
-          id="4a8f1f2e-e32e-45dc-8613-aa3df26b6954" name="Logical Actors"/>
+        <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
+            id="47a18ccb-e364-48f6-b168-0435c54d9df0" name="Logical System">
+          <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
+              id="9b1516d9-8ae4-4f39-a4a4-fd02270f1b79" targetElement="#a0945cf7-ffa6-4548-b356-afae218d3fb2"
+              sourceElement="#47a18ccb-e364-48f6-b168-0435c54d9df0"/>
+        </ownedLogicalComponents>
+      </ownedLogicalComponentPkg>
       <ownedSystemAnalysisRealizations xsi:type="org.polarsys.capella.core.data.la:SystemAnalysisRealization"
           id="f87b2851-d8b5-413f-b41a-c4773abaafc2" targetElement="#bdf2722d-f692-4807-91c1-95ec59fe7556"
           sourceElement="#49b5f1d1-5205-4cb3-af9e-2c1a68c49b3c"/>
@@ -410,19 +404,17 @@
           id="4289dea2-870c-4cfb-bbbf-2d16133c7da7" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
           id="81d3cb52-a9e6-49d3-b551-aa688ac230d7" name="Data"/>
-      <ownedPhysicalContext xsi:type="org.polarsys.capella.core.data.pa:PhysicalContext"
-          id="8478c62c-6f63-40ff-891c-2407023b8de3" name="Physical Context">
-        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="4c1324aa-e5bc-482a-80e4-c4590052e592"
+      <ownedPhysicalComponentPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponentPkg"
+          id="8478c62c-6f63-40ff-891c-2407023b8de3" name="Structure">
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="4c1324aa-e5bc-482a-80e4-c4590052e592"
             name="Physical System" abstractType="#b7364b26-49fd-4de5-9957-952832273152"/>
-      </ownedPhysicalContext>
-      <ownedPhysicalComponent xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-          id="b7364b26-49fd-4de5-9957-952832273152" name="Physical System">
-        <ownedLogicalComponentRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalComponentRealization"
-            id="bf8bc516-45e1-4158-9213-6cef2d34d1a8" targetElement="#47a18ccb-e364-48f6-b168-0435c54d9df0"
-            sourceElement="#b7364b26-49fd-4de5-9957-952832273152"/>
-      </ownedPhysicalComponent>
-      <ownedPhysicalActorPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalActorPkg"
-          id="9d74b8af-4948-4c02-a77f-8e0f55771367" name="Physical Actors"/>
+        <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+            id="b7364b26-49fd-4de5-9957-952832273152" name="Physical System">
+          <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
+              id="bf8bc516-45e1-4158-9213-6cef2d34d1a8" targetElement="#47a18ccb-e364-48f6-b168-0435c54d9df0"
+              sourceElement="#b7364b26-49fd-4de5-9957-952832273152"/>
+        </ownedPhysicalComponents>
+      </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
           id="48ebfdae-b181-418a-9616-472b4db74953" targetElement="#49b5f1d1-5205-4cb3-af9e-2c1a68c49b3c"
           sourceElement="#d9acee52-531a-4418-a78e-2839f091cf90"/>
@@ -431,17 +423,17 @@
         id="da9beafa-cffa-45b6-8267-77ff330ed8e9" name="EPBS Architecture">
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
           id="0de417ce-3221-4671-9b31-cbf424ef83bb" name="Capabilities"/>
-      <ownedEPBSContext xsi:type="org.polarsys.capella.core.data.epbs:EPBSContext"
-          id="0e58108d-90ed-4269-ace8-98e7ed7c9bb5" name="EPBS Context">
-        <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="65e2d429-9dd2-4cf5-943d-f5f1d2d560df"
+      <ownedConfigurationItemPkg xsi:type="org.polarsys.capella.core.data.epbs:ConfigurationItemPkg"
+          id="0e58108d-90ed-4269-ace8-98e7ed7c9bb5" name="Structure">
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="65e2d429-9dd2-4cf5-943d-f5f1d2d560df"
             name="System" abstractType="#65ee8ffb-f60b-4994-9962-e532cd13c39a"/>
-      </ownedEPBSContext>
-      <ownedConfigurationItem xsi:type="org.polarsys.capella.core.data.epbs:ConfigurationItem"
-          id="65ee8ffb-f60b-4994-9962-e532cd13c39a" name="System" kind="SystemCI">
-        <ownedPhysicalArtifactRealizations xsi:type="org.polarsys.capella.core.data.epbs:PhysicalArtifactRealization"
-            id="426e5787-0112-450e-94c5-2f801ae38d4c" targetElement="#b7364b26-49fd-4de5-9957-952832273152"
-            sourceElement="#65ee8ffb-f60b-4994-9962-e532cd13c39a"/>
-      </ownedConfigurationItem>
+        <ownedConfigurationItems xsi:type="org.polarsys.capella.core.data.epbs:ConfigurationItem"
+            id="65ee8ffb-f60b-4994-9962-e532cd13c39a" name="System" kind="SystemCI">
+          <ownedPhysicalArtifactRealizations xsi:type="org.polarsys.capella.core.data.epbs:PhysicalArtifactRealization"
+              id="426e5787-0112-450e-94c5-2f801ae38d4c" targetElement="#b7364b26-49fd-4de5-9957-952832273152"
+              sourceElement="#65ee8ffb-f60b-4994-9962-e532cd13c39a"/>
+        </ownedConfigurationItems>
+      </ownedConfigurationItemPkg>
       <ownedPhysicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.epbs:PhysicalArchitectureRealization"
           id="40684919-6b8b-494b-bf0c-5049cfc9b8aa" targetElement="#d9acee52-531a-4418-a78e-2839f091cf90"
           sourceElement="#da9beafa-cffa-45b6-8267-77ff330ed8e9"/>

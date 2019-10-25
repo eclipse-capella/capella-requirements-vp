@@ -26,7 +26,7 @@
                namespaceUri="http://www.polarsys.org/kitalpha/requirements">
          </package>
          <package
-               namespaceUri="http://www.polarsys.org/capella/core/core/1.3.0">
+               namespaceUri="http://www.polarsys.org/capella/core/core/1.4.0">
          </package>
          <package
                namespaceUri="http://www.eclipse.org/sirius/1.1.0">

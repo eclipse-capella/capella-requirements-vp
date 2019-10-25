@@ -516,7 +516,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@edgeMappings[name='Package%20Dependency']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_21fg0B3jEeaQyMG3gogpEQ" name="http://www.polarsys.org/capella/core/core/1.3.0" outgoingEdges="_6zisYCTWEeac4tsXhdEkWQ" incomingEdges="_21_3IB3jEeaQyMG3gogpEQ">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_21fg0B3jEeaQyMG3gogpEQ" name="http://www.polarsys.org/capella/core/core/1.4.0" outgoingEdges="_6zisYCTWEeac4tsXhdEkWQ" incomingEdges="_21_3IB3jEeaQyMG3gogpEQ">
       <target xmi:type="ecore:EPackage" href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
