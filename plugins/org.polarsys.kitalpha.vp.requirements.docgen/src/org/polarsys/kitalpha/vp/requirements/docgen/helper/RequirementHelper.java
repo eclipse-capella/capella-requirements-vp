@@ -126,7 +126,8 @@ public class RequirementHelper {
     return builder.toString();
   }
 
-  public static String generateRequirementInternalAllocationSection(Requirement requirement) {
+  public static String generateRequirementInternalAllocationSection(Requirement requirement, String projectName,
+	      String outputFolder) {
     StringBuilder sb = new StringBuilder();
     EList<AbstractRelation> ownedRelations = requirement.getOwnedRelations();
 
@@ -145,7 +146,8 @@ public class RequirementHelper {
           String relationTypeName = getRelationTypeName(relation);
           Requirement target = ((InternalRelation) relation).getTarget();
           String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(target);
-          sb.append(genTableRow(false, hyperlinkFromElement, relationTypeName));
+          String imageLinkFromElmeent = RequirementsServices.getImageLinkFromElement(target, projectName, outputFolder);
+          sb.append(genTableRow(false, imageLinkFromElmeent + " " + hyperlinkFromElement, relationTypeName));
         }
       }
       sb.append(RequirementsServices.TABLE_CLOSE);
