@@ -148,15 +148,26 @@ public class RequirementHelper {
           }
           String relationTypeName = getRelationTypeName(relation);
           Requirement target = ((InternalRelation) relation).getTarget();
-          String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(target);
-          String imageLinkFromElmeent = RequirementsServices.getImageLinkFromElement(target, projectName, outputFolder);
-          sb.append(genTableRow(false, imageLinkFromElmeent + " " + hyperlinkFromElement, relationTypeName));
+          String linkFromElement = getImageHyperlinkFromElement(target, projectName, outputFolder, RequirementsServices.NO_TARGET_DEFINED);
+          sb.append(genTableRow(false, linkFromElement, relationTypeName));
         }
       }
       sb.append(RequirementsServices.TABLE_CLOSE);
     }
 
     return sb.toString();
+  }
+  
+  private static String getImageHyperlinkFromElement (EObject target, String projectName, String outputFolder, String defaultValue) {
+	  String linkFromElement = "";
+      if (target != null) {
+    	  String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(target);
+    	  String imageLinkFromElement = RequirementsServices.getImageLinkFromElement(target, projectName, outputFolder);
+    	  linkFromElement = imageLinkFromElement + " " + hyperlinkFromElement;
+      } else {
+    	  linkFromElement = defaultValue;
+      }
+      return linkFromElement;
   }
 
   public static String generateRequirementsAllocationSection(Requirement requirement, String projectName,
@@ -199,9 +210,8 @@ public class RequirementHelper {
       for (EObject eObject : incomingRelations) {
         String relationTypeName = getRelationTypeName((AbstractRelation) eObject);
         CapellaElement source = ((CapellaOutgoingRelation) eObject).getSource();
-        String imageLinkFromElement = RequirementsServices.getImageLinkFromElement(source, projectName, folderName);
-        String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(source);
-        builder.append(genTableRow(false, imageLinkFromElement + " " + hyperlinkFromElement, relationTypeName));
+        String linkFromElement = getImageHyperlinkFromElement(source, projectName, folderName, RequirementsServices.NO_SOURCE_DEFINED);
+        builder.append(genTableRow(false, linkFromElement, relationTypeName));
       }
       builder.append(RequirementsServices.TABLE_CLOSE).append("</div>");
     }
@@ -220,9 +230,8 @@ public class RequirementHelper {
       for (EObject eObject : outgoingRelations) {
         String relationTypeName = getRelationTypeName((AbstractRelation) eObject);
         CapellaElement target = ((CapellaIncomingRelation) eObject).getTarget();
-        String imageLinkFromElement = RequirementsServices.getImageLinkFromElement(target, projectName, folderName);
-        String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(target);
-        builder.append(genTableRow(false, imageLinkFromElement + " " + hyperlinkFromElement, relationTypeName));
+        String linkFromElement = getImageHyperlinkFromElement(target, projectName, folderName, RequirementsServices.NO_TARGET_DEFINED);
+        builder.append(genTableRow(false, linkFromElement, relationTypeName));
       }
       builder.append(RequirementsServices.TABLE_CLOSE).append("</div>");
     }
