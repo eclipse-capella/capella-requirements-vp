@@ -72,6 +72,9 @@ public class RequirementsServices {
   private static final String PATH_COMPLETE = ".html";
   public static final String LINE_BREAK = "<br/>";
 
+  public static final String NO_SOURCE_DEFINED = "No source defined";
+  public static final String NO_TARGET_DEFINED = "No target defined";
+
   public static Set<DSemanticDiagram> getDiagramContainingObject(ReqIFElement element) {
     Set<DSemanticDiagram> diagrams = new HashSet<DSemanticDiagram>();
     if (!DocgenDiagramPreferencesHelper.getExportDiagram()) {
