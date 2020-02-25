@@ -43,7 +43,7 @@
   <VP_Aspects xsi:type="vpconf:Configuration" name="CapellaRequirements.conf">
     <vpConfigurationElements xsi:type="vpconf:TargetApplication" type="CDO for Capella"/>
     <vpConfigurationElements xsi:type="vpconf:GenerationConfiguration" projectName="org.polarsys.capella.vp.requirements" nsuri="http://www.polarsys.org/capella/requirements"/>
-    <vpConfigurationElements xsi:type="vpconf:Release" viewpointVersion="0.11.0">
+    <vpConfigurationElements xsi:type="vpconf:Release" viewpointVersion="0.11.1">
       <requiredExecutionEnvironment>JavaSE-1.8</requiredExecutionEnvironment>
     </vpConfigurationElements>
     <vpConfigurationElements xsi:type="vpconf:Generation">
