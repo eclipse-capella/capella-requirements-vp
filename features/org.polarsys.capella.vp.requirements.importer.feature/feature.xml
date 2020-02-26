@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
+  Copyright (c) 2016, 2020 THALES GLOBAL SERVICES.
   All rights reserved. This program and the accompanying materials
   are made available under the terms of the Eclipse Public License v1.0
   which accompanies this distribution, and is available at
@@ -12,23 +12,23 @@
 <feature
       id="org.polarsys.capella.vp.requirements.importer.feature"
       label="%featureName"
-      version="0.11.0.qualifier"
+      version="0.11.1.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright>
+      %copyright
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
+   <license url="%licenseURL">
+      %license
    </license>
 
    <requires>
-      <import feature="org.polarsys.capella.vp.requirements.thirdparty.feature" version="0.11.0.qualifier"/>
+      <import feature="org.polarsys.capella.vp.requirements.thirdparty.feature" version="0.11.1.qualifier"/>
    </requires>
 
    <plugin
