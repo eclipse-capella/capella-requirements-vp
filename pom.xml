@@ -407,16 +407,4 @@
 			</pluginRepositories>
 		</profile>
   </profiles>
-  <pluginRepositories>
-	<pluginRepository>
-		<id>cbi</id>
-		<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
-		<releases>
-				<enabled>true</enabled>
-		</releases>
-		<snapshots>
-			<enabled>false</enabled>
-		</snapshots>
-	</pluginRepository>
-  </pluginRepositories>
 </project>
