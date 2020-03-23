@@ -86,8 +86,8 @@ pipeline {
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", 'http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository', 'org.jsoup')	        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${BUILD_KEY}"), 'org.polarsys.capella.test.feature.feature.group')
 	        		
-	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.transition.system2subsystem.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.vp.requirements.feature.feature.group')
-	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.transition.system2subsystem.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.vp.requirements.tests.feature.feature.group')
+	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.vp.requirements.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.vp.requirements.feature.feature.group')
+	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.vp.requirements.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.vp.requirements.tests.feature.feature.group')
 	       		}         
 	     	}
 	    }
