@@ -142,7 +142,7 @@ public class TransposerTransformation extends AbstractActivity {
    * @param monitor
    * @return the execution status.
    */
-  private IStatus mergeAndSave(ActivityParameters activityParams, IProgressMonitor monitor) {
+  protected IStatus mergeAndSave(ActivityParameters activityParams, IProgressMonitor monitor) {
     IContext context = (IContext) activityParams.getParameter(ITransposerWorkflow.TRANSPOSER_CONTEXT).getValue();
 
     if (reqIfContainsModule(context)) {
