@@ -23,6 +23,7 @@ import org.polarsys.capella.vp.requirements.ju.testcases.MassActionAttributes;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase2;
 import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffTestCase3;
+import org.polarsys.capella.vp.requirements.ju.testcases.ModelDiffWithManuallyCreatedElements;
 import org.polarsys.capella.vp.requirements.ju.testcases.PropertyViewTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_01;
 import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_02;
@@ -81,7 +82,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new Requirement_InternalRelationTarget_Requirement());
     tests.add(new Requirement_InternalRelationSource_Requirement());
     tests.add(new StringValueAttribute_Definition_AttributeDefinition());
-    
+    tests.add(new ModelDiffWithManuallyCreatedElements());
 
     tests.add(new ValidationRulesRegisteringTest());
     tests.add(new ImportPreferencesTestCase());
@@ -90,7 +91,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
     tests.add(new REQ_Relation_02());
 
     tests.add(new PropertyViewTestCase());
-    
+
     tests.add(new ModelDiffTestCase());
     tests.add(new ModelDiffTestCase2());
     tests.add(new ModelDiffTestCase3());
