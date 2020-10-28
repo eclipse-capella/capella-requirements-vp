@@ -86,7 +86,7 @@ public class FragmentationTestCase extends BasicTestCase {
     
     IContext context = testRequirementsImportLauncher.getContext();
     List<IDifference> differencesFromReferenceScope = (List<IDifference>) context
-        .get(TestInitializeTransformation.COMPARE_RESULT);
+        .get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
     
     boolean anyMatch = differencesFromReferenceScope.stream().filter(EElementPresence.class::isInstance)
         .map(EElementPresence.class::cast).anyMatch(diff -> (diff.getElement() instanceof ModelElement));

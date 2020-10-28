@@ -26,47 +26,59 @@ import org.polarsys.capella.vp.requirements.importer.transposer.bridge.Requireme
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFImporterDiffPolicy;
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFMergePolicy;
 import org.polarsys.kitalpha.cadence.core.api.parameter.ActivityParameters;
+import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 public class TestInitializeTransformation extends InitializeTransformation {
-  public static final String COMPARE_RESULT = "COMPARE_RESULT";
+  public static final String DIFFERENCES_FROM_REFERENCE_SCOPE = "DIFFERENCES_FROM_REFERENCE_SCOPE";
+  public static final String DIFFERENCES_FROM_TARGET_SCOPE = "DIFFERENCES_FROM_TARGET_SCOPE";
   List<IDifference> differencesFromReferenceScope;
-  
+  List<IDifference> differencesFromTargetScope;
 
   public static String getId() {
     return TestInitializeTransformation.class.getCanonicalName();
   }
 
   @Override
-  protected RequirementsVPBridge createBridge(IEditableModelScope sourceScope, IEditableModelScope targetScope, IBridge<IEditableModelScope, IEditableModelScope> bridge) {
+  protected RequirementsVPBridge createBridge(IEditableModelScope sourceScope, IEditableModelScope targetScope,
+      IBridge<IEditableModelScope, IEditableModelScope> bridge) {
 
     IMergeSelector selector = new IMergeSelector() {
       /**
        * @see org.eclipse.emf.diffmerge.api.IMergeSelector#getMergeDirection(org.eclipse.emf.diffmerge.api.diff.IDifference)
        */
+      @Override
       public Role getMergeDirection(IDifference difference_p) {
         return Role.TARGET;
       }
     };
 
-    return new RequirementsVPBridge(sourceScope, targetScope, bridge, new ReqIFImporterDiffPolicy(), new ReqIFMergePolicy(), selector) {
+    return new RequirementsVPBridge(sourceScope, targetScope, bridge, new ReqIFImporterDiffPolicy(),
+        new ReqIFMergePolicy(), selector) {
       @Override
       protected boolean isAlwaysInteractive() {
         return false;
       }
-      
+
+      @Override
       protected EComparison compare(IEditableModelScope created, IEditableModelScope existing,
           IBridgeTrace createdTrace, IBridgeTrace existingTrace, IProgressMonitor monitor) {
         EComparison compare = super.compare(created, existing, createdTrace, existingTrace, monitor);
         differencesFromReferenceScope = compare.getDifferences(Role.REFERENCE);
+        differencesFromTargetScope = compare.getDifferences(Role.TARGET);
         return compare;
       }
     };
   }
-  
+
+  @Override
   protected IStatus _run(ActivityParameters activityParams) {
     // Override this to avoid launching the activity in a Job in testing mode
     IStatus status = initializeTransformation(activityParams);
-    getContext(activityParams).put(COMPARE_RESULT, differencesFromReferenceScope);
+
+    IContext context = getContext(activityParams);
+    context.put(DIFFERENCES_FROM_REFERENCE_SCOPE, differencesFromReferenceScope);
+    context.put(DIFFERENCES_FROM_TARGET_SCOPE, differencesFromTargetScope);
+
     return status;
   }
 }
