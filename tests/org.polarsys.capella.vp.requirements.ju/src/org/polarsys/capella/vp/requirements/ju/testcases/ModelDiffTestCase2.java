@@ -76,7 +76,7 @@ public class ModelDiffTestCase2 extends BasicTestCase {
 
     IContext context = testRequirementsImportLauncher.getContext();
     @SuppressWarnings("unchecked")
-    List<IDifference> differences = (List<IDifference>) context.get(TestInitializeTransformation.COMPARE_RESULT);
+    List<IDifference> differences = (List<IDifference>) context.get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
 
     // Take into account the Relation Identifier filter category
     RelationIdentifierCategory relationIdentifierCategoryFilter = new RelationIdentifierCategory();
