@@ -5,13 +5,13 @@ pipeline {
   
 	tools {
 		maven 'apache-maven-latest'
-		jdk 'oracle-jdk8-latest'
+		jdk 'openjdk-jdk14-latest'
 	}
   
 	environment {
 		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
-		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/eclipse/eclipse"
-		CAPELLA_BRANCH = '1.4.x'
+		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
+		CAPELLA_BRANCH = 'master'
   	}
   
   	stages {
@@ -83,8 +83,8 @@ pipeline {
         	steps {
         		script {
 	        		sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
-	        		
-	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", 'http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository', 'org.jsoup')	        		
+	        		sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
+	        		        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${CAPELLA_BRANCH}"), 'org.polarsys.capella.test.feature.feature.group')
 	        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.vp.requirements.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.vp.requirements.feature.feature.group')
