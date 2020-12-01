@@ -419,13 +419,13 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	protected void createConstraintAnnotations() {
 		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$
 		addAnnotation(capellaTypesFolderEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaModuleEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaOutgoingRelationEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/1.4.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 	}
 

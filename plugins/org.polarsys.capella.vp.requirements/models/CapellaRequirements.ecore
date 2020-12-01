@@ -4,7 +4,7 @@
     nsPrefix="CapellaRequirements">
   <eClassifiers xsi:type="ecore:EClass" name="CapellaTypesFolder" eSuperTypes="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//TypesFolder platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
-      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture"/>
+      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture"/>
     </eAnnotations>
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture"/>
@@ -12,7 +12,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapellaModule" eSuperTypes="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Module platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
-      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture"/>
+      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture"/>
     </eAnnotations>
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture"/>
@@ -25,7 +25,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapellaOutgoingRelation" eSuperTypes="#//CapellaRelation platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
-      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/core/1.4.0#//CapellaElement"/>
+      <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
     </eAnnotations>
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement"/>
