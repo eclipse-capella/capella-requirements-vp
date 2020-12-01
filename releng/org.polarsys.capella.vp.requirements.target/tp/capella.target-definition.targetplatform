@@ -10,20 +10,20 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://raw.githubusercontent.com/eclipse/capella/v1.4.x/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
+include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/nightly/1.4.x/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/nightly/1.4.x/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "https://download.eclipse.org/diffmerge/releases/0.12.0/edm-coevolution-site" {
+location "https://download.eclipse.org/diffmerge/stable/0.13.0-M4/edm-coevolution-site" {
 	org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group
 }
 
@@ -39,6 +39,6 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20180613-0111/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location kitalpha "https://download.eclipse.org/kitalpha/updates/nightly/runtime/1.4.x/" {
+location kitalpha "https://download.eclipse.org/kitalpha/updates/nightly/runtime/master" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
 }
