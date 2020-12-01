@@ -17,9 +17,10 @@ import java.util.List;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.diffmerge.api.Role;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.diffdata.impl.EComparisonImpl;
+import org.eclipse.emf.diffmerge.generic.api.Role;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
+import org.eclipse.emf.diffmerge.generic.api.scopes.IEditableTreeDataScope;
 import org.eclipse.emf.diffmerge.impl.policies.ConfigurableMatchPolicy;
 import org.eclipse.emf.diffmerge.impl.policies.ConfigurableMatchPolicy.FineGrainedMatchCriterion;
 import org.eclipse.emf.diffmerge.impl.policies.ConfigurableMatchPolicy.MatchCriterionKind;
@@ -30,6 +31,7 @@ import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.compare.CapellaMatchPolicy;
 import org.polarsys.capella.core.compare.CapellaScopeFactory;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.libraries.model.CapellaModel;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.capella.test.framework.helpers.IResourceHelpers;
@@ -77,14 +79,21 @@ public class ModelDiffTestCase3 extends BasicTestCase {
       });
     }
 
-    IModelScopeDefinition testFixtureScope = new CapellaScopeFactory().createScopeDefinition(
-        getTestModel(projectWithImportedReqifTestName).getUriSemanticFile(), "testFixtureModel", true);
-    IModelScopeDefinition modelToTestScope = new CapellaScopeFactory()
-        .createScopeDefinition(getTestModel(projectTestName).getUriSemanticFile(), "toTestModel", true);
+    CapellaModel modelWithReqif = getTestModel(projectWithImportedReqifTestName);
+    CapellaModel testModel = getTestModel(projectTestName);
 
-    EComparisonImpl comparison = new EComparisonImpl(
-        testFixtureScope.createScope(getTestModel(projectWithImportedReqifTestName).getEditingDomain()),
-        modelToTestScope.createScope(getTestModel(projectTestName).getEditingDomain()));
+    IModelScopeDefinition testFixtureScopeDef = new CapellaScopeFactory()
+        .createScopeDefinition(modelWithReqif.getUriSemanticFile(), "testFixtureModel", true);
+    IModelScopeDefinition modelToTestScopDef = new CapellaScopeFactory()
+        .createScopeDefinition(testModel.getUriSemanticFile(), "toTestModel", true);
+
+    IEditableTreeDataScope<EObject> testFixtureScope = (IEditableTreeDataScope<EObject>) testFixtureScopeDef
+        .createScope(modelWithReqif.getEditingDomain());
+
+    IEditableTreeDataScope<EObject> modelToTestScope = (IEditableTreeDataScope<EObject>) modelToTestScopDef
+        .createScope(testModel.getEditingDomain());
+
+    EComparisonImpl comparison = new EComparisonImpl(testFixtureScope, modelToTestScope);
 
     // Since ReqIF elements have different IDs each time they are imported, we should use these match criteria
     CapellaMatchPolicy custoMatchPolicy = new CapellaMatchPolicy();
@@ -100,9 +109,9 @@ public class ModelDiffTestCase3 extends BasicTestCase {
     comparison.compute(custoMatchPolicy, new ReqIFImporterDiffPolicy(), new ReqIFMergePolicy(),
         new NullProgressMonitor());
 
-    List<IDifference> differencesFromReference = comparison.getDifferences(Role.REFERENCE);
-    List<IDifference> differencesFromTarget = comparison.getDifferences(Role.TARGET);
-    
+    Collection<IDifference<EObject>> differencesFromReference = comparison.getDifferences(Role.REFERENCE);
+    Collection<IDifference<EObject>> differencesFromTarget = comparison.getDifferences(Role.TARGET);
+
     if (differencesFromReference.size() > 0 || differencesFromTarget.size() > 0) {
       fail("There should not be any differences between the test model with ReqIf imported and the reference model");
       // If you have changed the fixtureModel, you may have forgotten that types are hidden by default in diffmerge

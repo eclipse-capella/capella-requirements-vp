@@ -30,6 +30,7 @@ import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFact
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesPackage;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
+import org.eclipse.emf.diffmerge.generic.api.scopes.IEditableTreeDataScope;
 import org.eclipse.emf.diffmerge.impl.scopes.FragmentedModelScope;
 import org.eclipse.emf.diffmerge.ui.specification.IModelScopeDefinition;
 import org.eclipse.emf.diffmerge.ui.specification.ext.ResourceScopeDefinition;
@@ -163,7 +164,7 @@ public class InitializeTransformation extends AbstractActivity {
     EObject root = EcoreUtil.getRootContainer(target);
     // Target scope must not be read-only. Otherwise we can have problems during the merge
     IModelScopeDefinition definition = new ResourceScopeDefinition(root.eResource(), getId(), true);
-    IEditableModelScope targetScope = definition.createScope(definition.getEntrypoint());
+    IEditableTreeDataScope<?> targetScope = definition.createScope(definition.getEntrypoint());
     context.put(IRequirementsImporterBridgeConstants.TARGET_SCOPE, targetScope);
     return Status.OK_STATUS;
   }
@@ -196,12 +197,13 @@ public class InitializeTransformation extends AbstractActivity {
       context.put(IRequirementsImporterBridgeConstants.REQIF_MODEL_CONTAINS_MODULE, false);
 
       // Set status to cancel to avoid unnecessary calculations.
-      return new Status(IStatus.CANCEL, RequirementsVPPlugin.PLUGIN_ID, Messages.ReqIfImport_NoModuleFoundPopup_Content);
+      return new Status(IStatus.CANCEL, RequirementsVPPlugin.PLUGIN_ID,
+          Messages.ReqIfImport_NoModuleFoundPopup_Content);
     }
 
     context.put(IRequirementsImporterBridgeConstants.REQIF_MODEL_CONTAINS_MODULE, true);
     IModelScopeDefinition definition = new ResourceScopeDefinition(resource, getId(), false);
-    IEditableModelScope sourceScope = definition.createScope(definition.getEntrypoint());
+    IEditableTreeDataScope<?> sourceScope = definition.createScope(definition.getEntrypoint());
     context.put(IRequirementsImporterBridgeConstants.SOURCE_SCOPE, sourceScope);
     return checkErrors(resource.getErrors());
 

@@ -14,9 +14,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.eclipse.emf.diffmerge.api.Role;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
-import org.eclipse.emf.diffmerge.api.diff.IElementPresence;
+import org.eclipse.emf.diffmerge.diffdata.EElementPresence;
+import org.eclipse.emf.diffmerge.generic.api.Role;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.AbstractDifferenceCategory;
 import org.eclipse.emf.ecore.EClass;
@@ -66,10 +66,10 @@ public class EClassCategory extends AbstractDifferenceCategory {
   }
 
   @Override
-  public boolean covers(IDifference difference, EMFDiffNode node) {
-    if (difference instanceof IElementPresence) {
-      EObject source = ((IElementPresence) difference).getElementMatch().get(Role.REFERENCE);
-      EObject target = ((IElementPresence) difference).getElementMatch().get(Role.TARGET);
+  public boolean covers(IDifference<?> difference, EMFDiffNode node) {
+    if (difference instanceof EElementPresence) {
+      EObject source = ((EElementPresence) difference).getElementMatch().get(Role.REFERENCE);
+      EObject target = ((EElementPresence) difference).getElementMatch().get(Role.TARGET);
       for (EClass clazz : clazzes) {
         if (clazz.isInstance(source) || clazz.isInstance(target)) {
           return true;
@@ -98,6 +98,7 @@ public class EClassCategory extends AbstractDifferenceCategory {
     return name;
   }
 
+  @Override
   public Image getImage(final EMFDiffNode node) {
     final Image[] image = new Image[1];
 

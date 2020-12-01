@@ -10,9 +10,9 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories;
 
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.diffdata.EAttributeValuePresence;
 import org.eclipse.emf.diffmerge.diffdata.EMatch;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.AbstractDifferenceCategory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
@@ -40,7 +40,7 @@ public class RelationIdentifierCategory extends AbstractDifferenceCategory {
    * @see org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory#covers(org.eclipse.emf.diffmerge.api.diff.IDifference,
    *      org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode)
    */
-  public boolean covers(IDifference difference_p, EMFDiffNode node_p) {
+  public boolean covers(IDifference<?> difference_p, EMFDiffNode node_p) {
     boolean result = false;
     if (difference_p instanceof EAttributeValuePresence) {
       EAttributeValuePresence vp = (EAttributeValuePresence) difference_p;
@@ -64,6 +64,7 @@ public class RelationIdentifierCategory extends AbstractDifferenceCategory {
   /**
    * @see org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory#getID()
    */
+  @Override
   public String getID() {
     return ID;
   }
@@ -80,6 +81,7 @@ public class RelationIdentifierCategory extends AbstractDifferenceCategory {
   /**
    * @see org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory#getText(org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode)
    */
+  @Override
   public String getText(EMFDiffNode node_p) {
     return Messages.Categories_Relation_Identifier;
   }

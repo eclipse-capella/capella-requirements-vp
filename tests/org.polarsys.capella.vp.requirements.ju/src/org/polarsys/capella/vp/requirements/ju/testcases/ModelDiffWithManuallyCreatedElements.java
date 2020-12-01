@@ -13,12 +13,13 @@ package org.polarsys.capella.vp.requirements.ju.testcases;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
-import org.eclipse.emf.diffmerge.api.diff.IElementPresence;
+import org.eclipse.emf.diffmerge.diffdata.EElementPresence;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -108,27 +109,27 @@ public class ModelDiffWithManuallyCreatedElements extends BasicTestCase {
 
     IContext context = requirementsImportLauncher.getContext();
 
-    List<IDifference> targetScopeDifferences = (List<IDifference>) context
+    Collection<IDifference<EObject>> targetScopeDifferences = (Collection<IDifference<EObject>>) context
         .get(TestInitializeTransformation.DIFFERENCES_FROM_TARGET_SCOPE);
     assertScopeDifferences(targetScopeDifferences, TARGET_CAPELLA_INCOMING_RELATIONS_NUMBER,
         TARGET_CAPELLA_OUTGOING_RELATIONS_NUMBER, TARGET_CAPELLA_REQUIREMENTS_NUMBER);
 
-    List<IDifference> referenceScopeDifferences = (List<IDifference>) context
+    Collection<IDifference<EObject>> referenceScopeDifferences = (Collection<IDifference<EObject>>) context
         .get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
     assertScopeDifferences(referenceScopeDifferences, REFERENCE_CAPELLA_INCOMING_RELATIONS_NUMBER,
         REFERENCE_CAPELLA_OUTGOING_RELATIONS_NUMBER, REFERENCE_CAPELLA_REQUIREMENTS_NUMBER);
 
   }
 
-  private void assertScopeDifferences(List<IDifference> differences, int incomingRelationsNumber,
+  private void assertScopeDifferences(Collection<IDifference<EObject>> differences, int incomingRelationsNumber,
       int outgoingRelationsNumber, int requirementsNumber) {
     List<CapellaIncomingRelation> incomingRelations = new ArrayList<>();
     List<CapellaOutgoingRelation> outgoingRelations = new ArrayList<>();
     List<Requirement> requirements = new ArrayList<>();
 
-    for (IDifference difference : differences) {
-      if (difference instanceof IElementPresence) {
-        IElementPresence elementPresence = (IElementPresence) difference;
+    for (IDifference<EObject> difference : differences) {
+      if (difference instanceof EElementPresence) {
+        EElementPresence elementPresence = (EElementPresence) difference;
         EObject element = elementPresence.getElement();
 
         if (element instanceof CapellaIncomingRelation) {
