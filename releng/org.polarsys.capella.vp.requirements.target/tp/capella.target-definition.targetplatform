@@ -15,7 +15,7 @@ include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins
 with source, requirements
 
 location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
-	org.polarsys.capella.rcp.feature.feature.group
+	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 

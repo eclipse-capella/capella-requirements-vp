@@ -19,14 +19,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.diffmerge.api.IComparison;
-import org.eclipse.emf.diffmerge.api.IDiffPolicy;
-import org.eclipse.emf.diffmerge.api.IMatchPolicy;
-import org.eclipse.emf.diffmerge.api.IMergePolicy;
-import org.eclipse.emf.diffmerge.api.IMergeSelector;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
-import org.eclipse.emf.diffmerge.api.scopes.IModelScope;
 import org.eclipse.emf.diffmerge.bridge.api.IBridge;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.incremental.BridgeTraceBasedMatchPolicy;
@@ -36,6 +29,13 @@ import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFact
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
 import org.eclipse.emf.diffmerge.diffdata.impl.EComparisonImpl;
+import org.eclipse.emf.diffmerge.generic.api.IComparison;
+import org.eclipse.emf.diffmerge.generic.api.IDiffPolicy;
+import org.eclipse.emf.diffmerge.generic.api.IMatchPolicy;
+import org.eclipse.emf.diffmerge.generic.api.IMergePolicy;
+import org.eclipse.emf.diffmerge.generic.api.IMergeSelector;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
+import org.eclipse.emf.diffmerge.generic.api.scopes.ITreeDataScope;
 import org.eclipse.emf.diffmerge.ui.viewers.AbstractComparisonViewer;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.DifferenceCategorySet;
@@ -75,8 +75,8 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   IEditableModelScope _targetScope;
 
   public RequirementsVPBridge(IEditableModelScope sourceScope, IEditableModelScope targetScope,
-      IBridge<IEditableModelScope, IEditableModelScope> bridge, IDiffPolicy diffPolicy, IMergePolicy mergePolicy,
-      IMergeSelector merger) {
+      IBridge<IEditableModelScope, IEditableModelScope> bridge, IDiffPolicy<EObject> diffPolicy,
+      IMergePolicy<EObject> mergePolicy, IMergeSelector<EObject> merger) {
     super(bridge, diffPolicy, mergePolicy, merger);
     _sourceScope = sourceScope;
     _targetScope = targetScope;
@@ -93,10 +93,11 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   protected EComparison compare(IEditableModelScope created, IEditableModelScope existing, IBridgeTrace createdTrace,
       IBridgeTrace existingTrace, IProgressMonitor monitor) {
     EComparison result = new EComparisonImpl(existing, created);
-    IMatchPolicy matchPolicy = new BridgeTraceBasedMatchPolicy(created, createdTrace, existingTrace) {
+
+    IMatchPolicy<EObject> matchPolicy = new BridgeTraceBasedMatchPolicy<EObject>(created, createdTrace, existingTrace) {
 
       @Override
-      public Object getMatchID(EObject element, IModelScope scope) {
+      public Object getMatchID(EObject element, ITreeDataScope<EObject> scope) {
         Object trace = super.getMatchID(element, scope);
         if (trace == null) {
           trace = EcoreUtil.getID(element);
@@ -218,7 +219,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   }
 
   @Override
-  protected void handleMergedDifferences(final IComparison comparison, final IBridgeTrace createdTrace,
+  protected void handleMergedDifferences(final IComparison<EObject> comparison, final IBridgeTrace createdTrace,
       final IBridgeTrace existingTrace) {
     ExecutionManager manager = TransactionHelper.getExecutionManager(_targetScope.getContents());
     if (manager != null) {
@@ -235,7 +236,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
   protected EMFDiffNode createDiffNode(EComparison comparison, EditingDomain domain) {
     final EMFDiffNode diffNode = super.createDiffNode(comparison, domain);
 
-    Collection<IDifference> remainingDifferences = comparison.getRemainingDifferences();
+    Collection<IDifference<EObject>> remainingDifferences = comparison.getRemainingDifferences();
 
     DifferenceCategorySet set = new DifferenceCategorySet(Messages.Categories_Name, Messages.Categories_Description);
     set.getChildren().add(new EClassCategory(RequirementsPackage.Literals.INTERNAL_RELATION,

@@ -12,12 +12,14 @@ package org.polarsys.capella.vp.requirements.ju.testcases;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
+import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
@@ -70,17 +72,18 @@ public class ModelDiffTestCase2 extends BasicTestCase {
       public void run() {
         File file = IResourceHelpers.getFileOrFolderInTestPlugin(getClass(), inputFileName);
         URI model = URI.createFileURI(file.getPath());
-        testRequirementsImportLauncher.launch(model, (BlockArchitecture) target, new NullProgressMonitor());
+        testRequirementsImportLauncher.launch(model, target, new NullProgressMonitor());
       }
     });
 
     IContext context = testRequirementsImportLauncher.getContext();
     @SuppressWarnings("unchecked")
-    List<IDifference> differences = (List<IDifference>) context.get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
+    Collection<IDifference<EObject>> differences = (Collection<IDifference<EObject>>) context
+        .get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
 
     // Take into account the Relation Identifier filter category
     RelationIdentifierCategory relationIdentifierCategoryFilter = new RelationIdentifierCategory();
-    List<IDifference> filteredDifferences = differences.stream() //
+    List<IDifference<EObject>> filteredDifferences = differences.stream() //
         .filter(d -> !relationIdentifierCategoryFilter.covers(d, null)) //
         .collect(Collectors.toList());
 

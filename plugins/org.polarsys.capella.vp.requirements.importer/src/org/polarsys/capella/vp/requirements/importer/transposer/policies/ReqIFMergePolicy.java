@@ -12,7 +12,7 @@ package org.polarsys.capella.vp.requirements.importer.transposer.policies;
 
 import java.util.Set;
 
-import org.eclipse.emf.diffmerge.api.scopes.IFeaturedModelScope;
+import org.eclipse.emf.diffmerge.generic.api.scopes.ITreeDataScope;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.compare.CapellaMergePolicy;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -32,7 +32,7 @@ public class ReqIFMergePolicy extends CapellaMergePolicy {
   /* Add the types needed for each Requirement */
   /* Add the source and target for each InternalRelation and their owned Attributes */
   @Override
-  public Set<EObject> getAdditionGroup(EObject element_p, IFeaturedModelScope scope_p) {
+  public Set<EObject> getAdditionGroup(EObject element_p, ITreeDataScope<EObject> scope_p) {
 
     Set<EObject> result = super.getAdditionGroup(element_p, scope_p);
     if (element_p instanceof Attribute) {

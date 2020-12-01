@@ -12,13 +12,14 @@ package org.polarsys.capella.vp.requirements.ju.testcases;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.diffmerge.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.diffdata.EElementPresence;
+import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
@@ -57,6 +58,7 @@ public class FragmentationTestCase extends BasicTestCase {
   public void test() throws Exception {
     SessionContext session = new SessionContext(getSession(projectTestName)) {
 
+      @Override
       public <T extends EObject> T getSemanticElement(String objectIdentifier) {
         Map<String, EObject> map = getSemanticObjectMap();
         if (!map.containsKey(objectIdentifier)) {
@@ -72,7 +74,7 @@ public class FragmentationTestCase extends BasicTestCase {
     final EObject target = session.getSemanticElement(systemAnalysis);
 
     assertTrue(((BlockArchitecture) target).getOwnedExtensions().isEmpty());
-    
+
     TestRequirementsImportLauncher testRequirementsImportLauncher = new TestRequirementsImportLauncher();
     TransactionHelper.getExecutionManager(target).execute(new AbstractReadWriteCommand() {
       @Override
@@ -83,11 +85,11 @@ public class FragmentationTestCase extends BasicTestCase {
       }
     });
     assertTrue(((BlockArchitecture) target).getOwnedExtensions().stream().anyMatch(x -> x instanceof CapellaModule));
-    
+
     IContext context = testRequirementsImportLauncher.getContext();
-    List<IDifference> differencesFromReferenceScope = (List<IDifference>) context
+    Collection<IDifference<EObject>> differencesFromReferenceScope = (Collection<IDifference<EObject>>) context
         .get(TestInitializeTransformation.DIFFERENCES_FROM_REFERENCE_SCOPE);
-    
+
     boolean anyMatch = differencesFromReferenceScope.stream().filter(EElementPresence.class::isInstance)
         .map(EElementPresence.class::cast).anyMatch(diff -> (diff.getElement() instanceof ModelElement));
     assertFalse("There should not be differences of Capella Element in the Candidate model", anyMatch);
