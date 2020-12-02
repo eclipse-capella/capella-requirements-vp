@@ -52,8 +52,8 @@ By default the following options are checked for the merge operation.
 <img src="../../images/MergeOperation.png" alt="Merge Operation" title="Merge Operation">
       </p>
       <p>
-It's highly recommended to keep those options check if you have created requirements manually into your model.
-You may loose manually added requirements if you uncheck those options.
+      Please note that any modification performed to your requirements (creation of new requirements, deletions of existing requirements, etc.) can be lost if you merge everything without any analysis.
+	  We thus strongly recommend to take your time and analyze the displayed impacts in the Diff/Merge window, or make use of the 'Incremental mode' in order to prevent direct deletions. 
       </p>
    
       <p>
@@ -93,7 +93,7 @@ See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation<
 </ul>
 
       <h2>Iterativity</h2>
-<p>After an import, a new file .bridgetraces is created aside the melodymodeller file. This file is used to allow successive imports. It shall not be deleted.</p>
+<p>After an import, a new file .bridgetraces is created aside the .capella file. This file is used to allow successive imports. It shall not be deleted.</p>
 
    </body>
 </html>
