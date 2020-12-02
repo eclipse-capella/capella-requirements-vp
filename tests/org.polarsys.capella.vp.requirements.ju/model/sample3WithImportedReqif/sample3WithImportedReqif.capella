@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_1.4.0-->
+<!--Capella_Version_5.0.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/1.4.0"
-    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/1.4.0"
-    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/1.4.0"
-    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/1.4.0"
-    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/1.4.0"
-    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/1.4.0"
-    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/1.4.0"
-    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/1.4.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
+    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/5.0.0"
+    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/5.0.0"
+    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/5.0.0"
+    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/5.0.0"
+    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/5.0.0"
+    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/5.0.0"
+    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/5.0.0"
+    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/5.0.0"
     id="a17a8f84-21e7-4f43-98a4-a483419def58"
     name="sample3">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="728d7071-f341-49b5-905e-3aff40109207"/>
@@ -40,6 +41,101 @@
       id="16e84f51-a363-450a-af84-96bdd232194a" name="sample3">
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.oa:OperationalAnalysis"
         id="19fef609-7a17-4a16-8c4d-563ae4cfd1c4" name="Operational Analysis">
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="072dedc2-9833-4161-94c3-aa7b4937488e"
+          ReqIFIdentifier="_8da68f26-585c-4193-b6ca-a07cedff2a5c" ReqIFLongName="Types Folder">
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="4f1908e3-b5bb-4100-9dd3-baca2aeef8b7"
+            ReqIFIdentifier="_i6FNMMkgEee8KsfWrp9EJQ" ReqIFLongName="XHTMLString"/>
+        <ownedDefinitionTypes xsi:type="Requirements:EnumerationDataTypeDefinition"
+            id="6c6c33fc-5509-46da-ba00-6df842ca4e13" ReqIFIdentifier="_ahyOEMk3Eee5A_N9aQFa1w"
+            ReqIFLongName="IE Object Type">
+          <specifiedValues xsi:type="Requirements:EnumValue" id="4cf8ffb5-5801-442c-a5c5-91754b87967c"
+              ReqIFIdentifier="_gXZ9oMk3Eee5A_N9aQFa1w" ReqIFLongName="Requirement"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="8c546aae-53b5-483f-a149-dadc4d2ebf1e"
+              ReqIFIdentifier="_hGeDEMk3Eee5A_N9aQFa1w" ReqIFLongName="Function"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="10b7afea-4e05-4649-a2f7-dad3e7de05a2"
+              ReqIFIdentifier="_hZP1IMk3Eee5A_N9aQFa1w" ReqIFLongName="Capability"/>
+        </ownedDefinitionTypes>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="44d1b462-2706-453c-a53a-31dc2cfd7ac1"
+            ReqIFIdentifier="_G8nMAPUuEeeiKJbRhouIkg" ReqIFLongName="Boolean"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="f7c12b06-5f40-4714-8231-42b0dc115f94"
+            ReqIFIdentifier="_K0fcgPUuEeeiKJbRhouIkg" ReqIFLongName="Date"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="dff3ca68-82a4-4400-b91f-61a39cded866"
+            ReqIFIdentifier="_Oc5GkPUuEeeiKJbRhouIkg" ReqIFLongName="Integer"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="1d16d63d-00fc-4ab3-b5bb-73499dc785dc"
+            ReqIFIdentifier="_Ska8oPUuEeeiKJbRhouIkg" ReqIFLongName="Real"/>
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="3562f13e-06fd-4045-8e73-7cdc40b04dde"
+            ReqIFIdentifier="_ZhwiMPUuEeeiKJbRhouIkg" ReqIFLongName="String"/>
+        <ownedTypes xsi:type="Requirements:ModuleType" id="a422327c-fea6-44ee-9f9f-0e252c42b1b0"
+            ReqIFIdentifier="_NAXScMkhEee8KsfWrp9EJQ" ReqIFLongName="Module Type">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="7940d920-d5e0-4521-a980-bd29c2d7a51a"
+              ReqIFIdentifier="_jLB90MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Name"
+              definitionType="#4f1908e3-b5bb-4100-9dd3-baca2aeef8b7">
+            <defaultValue xsi:type="Requirements:StringValueAttribute" id="579cdb10-8183-4899-93f4-533bf155478a"
+                definition="#7940d920-d5e0-4521-a980-bd29c2d7a51a" value="4e0b143928275e1b.00000440"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="8410d312-67bb-4641-ae3f-1da9c8634beb"
+              ReqIFIdentifier="_HlZfwPUtEeeiKJbRhouIkg" ReqIFLongName="Boolean.ForTest"
+              definitionType="#44d1b462-2706-453c-a53a-31dc2cfd7ac1">
+            <defaultValue xsi:type="Requirements:BooleanValueAttribute" id="f75edf3c-08ae-404b-9b3c-df20f1b1819b"
+                definition="#8410d312-67bb-4641-ae3f-1da9c8634beb" value="true"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="db7a0e8c-ea2d-4984-95df-b97c91323c3f"
+              ReqIFIdentifier="_IZgdQPUtEeeiKJbRhouIkg" ReqIFLongName="Date.ForTest"
+              definitionType="#f7c12b06-5f40-4714-8231-42b0dc115f94">
+            <defaultValue xsi:type="Requirements:DateValueAttribute" id="41bd1852-0f8f-43c5-846c-484b4b6dd6a4"
+                definition="#db7a0e8c-ea2d-4984-95df-b97c91323c3f" value="2017-11-14T14:44:26.000+0100"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="25d50231-368d-477c-82cf-b2467d840124" ReqIFIdentifier="_JDAGMPUtEeeiKJbRhouIkg"
+              ReqIFLongName="EnumerationForTest" definitionType="#6c6c33fc-5509-46da-ba00-6df842ca4e13">
+            <defaultValue xsi:type="Requirements:EnumerationValueAttribute" id="f6aba88c-c2eb-4122-81a8-110a8d2e5e50"
+                definition="#134bc269-0688-433e-824d-af46976d0ea7" values="#10b7afea-4e05-4649-a2f7-dad3e7de05a2"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="74c0b5be-33de-4e88-87db-ce73ce6cb317"
+              ReqIFIdentifier="_JjDfQPUtEeeiKJbRhouIkg" ReqIFLongName="Integer.ForTest"
+              definitionType="#dff3ca68-82a4-4400-b91f-61a39cded866">
+            <defaultValue xsi:type="Requirements:IntegerValueAttribute" id="ec886c52-8f74-494f-865a-18ff09038a92"
+                definition="#74c0b5be-33de-4e88-87db-ce73ce6cb317" value="1001"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="11144118-edb8-4eac-9fce-ef735e5154bc"
+              ReqIFIdentifier="_KLzhUPUtEeeiKJbRhouIkg" ReqIFLongName="Real.ForTest"
+              definitionType="#1d16d63d-00fc-4ab3-b5bb-73499dc785dc">
+            <defaultValue xsi:type="Requirements:RealValueAttribute" id="3cb4c514-20df-4cc1-8416-517c35df2b79"
+                definition="#11144118-edb8-4eac-9fce-ef735e5154bc" value="1001.99"/>
+          </ownedAttributes>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="29cd9322-d99e-400f-8679-7cc01982fde3"
+              ReqIFIdentifier="_KwfiwPUtEeeiKJbRhouIkg" ReqIFLongName="String.ForTest"
+              definitionType="#3562f13e-06fd-4045-8e73-7cdc40b04dde">
+            <defaultValue xsi:type="Requirements:StringValueAttribute" id="2c902129-ed49-4658-acef-cc64f65e21b2"
+                definition="#29cd9322-d99e-400f-8679-7cc01982fde3" value="testingDefaultValue"/>
+          </ownedAttributes>
+        </ownedTypes>
+        <ownedTypes xsi:type="Requirements:RequirementType" id="d35f3e90-f8c2-43a6-8e71-5405009e29ab"
+            ReqIFIdentifier="_LaeSsMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement Type">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="6ada3080-5ae9-4c42-8780-19330aff0299"
+              ReqIFIdentifier="_cf7-0MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Text"
+              definitionType="#4f1908e3-b5bb-4100-9dd3-baca2aeef8b7"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="d76d4044-a5f0-4c24-adf4-8623102992b2"
+              ReqIFIdentifier="_25YvEMkyEee5A_N9aQFa1w" ReqIFLongName="IE PUID" definitionType="#4f1908e3-b5bb-4100-9dd3-baca2aeef8b7"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="134bc269-0688-433e-824d-af46976d0ea7" ReqIFIdentifier="_0VDX0Mk3Eee5A_N9aQFa1w"
+              ReqIFLongName="IE Object Type" definitionType="#6c6c33fc-5509-46da-ba00-6df842ca4e13"/>
+        </ownedTypes>
+      </ownedExtensions>
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="cf267d7f-ad8b-4252-a81c-7c6eddeebde8"
+          ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#a422327c-fea6-44ee-9f9f-0e252c42b1b0">
+        <ownedRequirements xsi:type="Requirements:Requirement" id="0a0d43ce-c143-48d4-8a8e-f22db37e228e"
+            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
+            requirementType="#d35f3e90-f8c2-43a6-8e71-5405009e29ab" ReqIFText="Requirement-1"
+            requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
+          <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="f36588fc-0f92-4589-a5e3-cfac63666431"
+              definition="#d76d4044-a5f0-4c24-adf4-8623102992b2" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
+              value="PUID-1"/>
+          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="392432a9-cd0e-4bf6-8a7f-c697a954c5ca"
+              definition="#134bc269-0688-433e-824d-af46976d0ea7" definitionProxy="_0VDX0Mk3Eee5A_N9aQFa1w"
+              values="#4cf8ffb5-5801-442c-a5c5-91754b87967c"/>
+        </ownedRequirements>
+      </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalActivityPkg"
           id="52ab178a-4eea-4f78-9dad-d61d20672d5b" name="Operational Activities">
         <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"

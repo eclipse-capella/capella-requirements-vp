@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_1.4.0-->
+<!--Capella_Version_5.0.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/1.4.0"
-    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/1.4.0"
-    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/1.4.0"
-    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/1.4.0"
-    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/1.4.0"
-    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/1.4.0"
-    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/1.4.0"
-    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/1.4.0"
-    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/1.4.0"
-    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/1.4.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
+    xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/5.0.0"
+    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/5.0.0"
+    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/5.0.0"
+    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/5.0.0"
+    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/5.0.0"
+    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/5.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/5.0.0"
+    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/5.0.0"
+    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/5.0.0"
+    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/5.0.0"
     id="4bf4e91c-9ae7-44b9-9fdb-879c3c79d78a"
     name="emptymodel">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="4575eb42-2765-4f68-b7d6-3930d6dbbeb0"/>
@@ -58,6 +59,52 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
         id="24658239-7734-4c39-9402-83325c52d04c" name="System Analysis">
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaTypesFolder" id="601e7b38-7e23-476c-b4bc-38b996f61abc"
+          ReqIFIdentifier="_8da68f26-585c-4193-b6ca-a07cedff2a5c" ReqIFLongName="Types Folder">
+        <ownedDefinitionTypes xsi:type="Requirements:DataTypeDefinition" id="450b7b83-470f-4552-a648-bb1534ba0e7f"
+            ReqIFIdentifier="_i6FNMMkgEee8KsfWrp9EJQ" ReqIFLongName="String"/>
+        <ownedDefinitionTypes xsi:type="Requirements:EnumerationDataTypeDefinition"
+            id="cbb09368-130d-4e9a-b6de-715a4fd36dcb" ReqIFIdentifier="_ahyOEMk3Eee5A_N9aQFa1w"
+            ReqIFLongName="IE Object Type">
+          <specifiedValues xsi:type="Requirements:EnumValue" id="19a57d3d-4459-41b1-8021-ef671d03e565"
+              ReqIFIdentifier="_gXZ9oMk3Eee5A_N9aQFa1w" ReqIFLongName="Requirement"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="f0c8c1d9-7b64-4504-bbab-5cf26e8e3728"
+              ReqIFIdentifier="_hGeDEMk3Eee5A_N9aQFa1w" ReqIFLongName="Function"/>
+          <specifiedValues xsi:type="Requirements:EnumValue" id="66dbdf94-2cbd-4842-b96e-c2e01457b046"
+              ReqIFIdentifier="_hZP1IMk3Eee5A_N9aQFa1w" ReqIFLongName="Capability"/>
+        </ownedDefinitionTypes>
+        <ownedTypes xsi:type="Requirements:ModuleType" id="377eaf1b-955a-4103-995c-96026659ff80"
+            ReqIFIdentifier="_NAXScMkhEee8KsfWrp9EJQ" ReqIFLongName="Module Type">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="fdb71d1e-bba9-4f30-9789-4776b976dd7f"
+              ReqIFIdentifier="_jLB90MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Name"
+              definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
+        </ownedTypes>
+        <ownedTypes xsi:type="Requirements:RequirementType" id="98408e68-da9c-4a0d-b836-b5f757da3539"
+            ReqIFIdentifier="_LaeSsMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement Type">
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="f0969d66-d464-40d1-903a-2aa9277d45c0"
+              ReqIFIdentifier="_cf7-0MkhEee8KsfWrp9EJQ" ReqIFLongName="ReqIF.Text"
+              definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinition" id="4b21244a-2fdb-4103-83d7-cc3a72dd55ff"
+              ReqIFIdentifier="_25YvEMkyEee5A_N9aQFa1w" ReqIFLongName="IE PUID" definitionType="#450b7b83-470f-4552-a648-bb1534ba0e7f"/>
+          <ownedAttributes xsi:type="Requirements:AttributeDefinitionEnumeration"
+              id="8dbd6351-6dfc-4455-aa6d-7e496940d937" ReqIFIdentifier="_0VDX0Mk3Eee5A_N9aQFa1w"
+              ReqIFLongName="IE Object Type" definitionType="#cbb09368-130d-4e9a-b6de-715a4fd36dcb"/>
+        </ownedTypes>
+      </ownedExtensions>
+      <ownedExtensions xsi:type="CapellaRequirements:CapellaModule" id="c9489067-4165-4d88-a98b-160fb3ed5aab"
+          ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#377eaf1b-955a-4103-995c-96026659ff80">
+        <ownedRequirements xsi:type="Requirements:Requirement" id="20169578-b83e-4d02-a041-d41a9f7b60ae"
+            ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
+            requirementType="#98408e68-da9c-4a0d-b836-b5f757da3539" ReqIFText="Requirement-1"
+            requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
+          <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="5b44aee5-2cfb-44b2-8b6b-a55cbe2889a3"
+              definition="#4b21244a-2fdb-4103-83d7-cc3a72dd55ff" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
+              value="PUID-1"/>
+          <ownedAttributes xsi:type="Requirements:EnumerationValueAttribute" id="278e2531-ea77-4c05-a355-c608f514cb6b"
+              definition="#8dbd6351-6dfc-4455-aa6d-7e496940d937" definitionProxy="_0VDX0Mk3Eee5A_N9aQFa1w"
+              values="#19a57d3d-4459-41b1-8021-ef671d03e565"/>
+        </ownedRequirements>
+      </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemFunctionPkg"
           id="9ee086cc-16ea-41f5-b08a-21ff347993e0" name="System Functions">
         <ownedSystemFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
