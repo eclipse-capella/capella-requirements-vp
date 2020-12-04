@@ -27,7 +27,6 @@ import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.api.incremental.IIncrementalBridgeExecution;
 import org.eclipse.emf.diffmerge.bridge.interactive.util.ResourceUtil;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesFactory;
-import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.BridgetracesPackage;
 import org.eclipse.emf.diffmerge.bridge.traces.gen.bridgetraces.Trace;
 import org.eclipse.emf.diffmerge.diffdata.EComparison;
 import org.eclipse.emf.diffmerge.generic.api.scopes.IEditableTreeDataScope;
@@ -62,6 +61,7 @@ import org.polarsys.capella.vp.requirements.importer.transposer.bridge.ReqIFMapp
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.RequirementsVPBridge;
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFImporterDiffPolicy;
 import org.polarsys.capella.vp.requirements.importer.transposer.policies.ReqIFMergePolicy;
+import org.polarsys.capella.vp.requirements.model.helpers.TraceHelper;
 import org.polarsys.kitalpha.cadence.core.api.parameter.ActivityParameters;
 import org.polarsys.kitalpha.transposer.api.ITransposerWorkflow;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
@@ -114,7 +114,7 @@ public class InitializeTransformation extends AbstractActivity {
     final RequirementsVPBridge bridge = createBridge(sourceScope, targetScope, mapping);
 
     // Load traces
-    Resource traceResource = getCreateResource(getTraceURI(getTransformationURI(targetScope)),
+    Resource traceResource = getCreateResource(TraceHelper.getTraceURI(getTransformationURI(targetScope)),
         getTransformationDomain(targetScope));
     IBridgeTrace/* .Editable */ existingTrace = /* (IBridgeTrace.Editable) */getTrace(bridge, traceResource);
 
@@ -147,13 +147,6 @@ public class InitializeTransformation extends AbstractActivity {
         return diffNode;
       }
     };
-  }
-
-  /**
-   * TODO COEV From org.eclipse.emf.diffmerge.bridge.interactive.BridgeJob
-   */
-  protected URI getTraceURI(URI uri) {
-    return uri.appendFileExtension(BridgetracesPackage.eNAME);
   }
 
   /**

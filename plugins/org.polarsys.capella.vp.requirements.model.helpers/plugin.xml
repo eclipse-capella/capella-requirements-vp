@@ -24,4 +24,50 @@
             id="org.polarsys.capella.vp.requirements.id.handler.identifiableelement">
       </IdHandler>
    </extension>
+      <extension
+            point="org.polarsys.capella.core.data.migration.migrationContributors">
+         <migrationContributor
+               class="org.polarsys.capella.vp.requirements.model.migration.TraceMigrationContributor">
+         </migrationContributor>
+      </extension>
+      <extension
+            point="org.eclipse.ui.commands">
+         <command
+               categoryId="org.polarsys.capella.core.data.migration"
+               description="This action is available on Trace resources and migrates them to the current version"
+               id="org.polarsys.capella.vp.requirements.model.helpers.migration.trace"
+               name="Migrate Trace resource to current version">
+         </command>
+      </extension>
+      <extension
+            point="org.eclipse.ui.handlers">
+         <handler
+               class="org.polarsys.capella.vp.requirements.model.migration.TraceMigrationHandler"
+               commandId="org.polarsys.capella.vp.requirements.model.helpers.migration.trace">
+         </handler>
+      </extension>
+      <extension
+            point="org.eclipse.ui.commandImages">
+         <image
+               commandId="org.polarsys.capella.vp.requirements.model.helpers.migration.trace"
+               icon="icons/full/etools16/capella_migrate.gif">
+         </image>
+      </extension>
+      <extension
+            point="org.eclipse.ui.menus">
+         <menuContribution
+               locationURI="popup:capella.project.explorer#PopupMenu?after=group.migration">
+            <menu
+                  id="org.polarsys.capella.core.data.migration"
+                  label="Migration">
+               <command
+                     commandId="org.polarsys.capella.vp.requirements.model.helpers.migration.trace"
+                     style="push">
+                  <visibleWhen
+                        checkEnabled="true">
+                  </visibleWhen>
+               </command>
+            </menu>
+         </menuContribution>
+      </extension>
 </plugin>

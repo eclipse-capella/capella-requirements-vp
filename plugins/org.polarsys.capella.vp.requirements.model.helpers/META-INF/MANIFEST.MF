@@ -13,6 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.vp.requirements.model,
  org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.shared.id.handler,
- org.polarsys.capella.core.diagram.helpers
+ org.polarsys.capella.core.diagram.helpers,
+ org.polarsys.capella.core.data.migration,
+ org.eclipse.ui
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.capella.vp.requirements.model.helpers
