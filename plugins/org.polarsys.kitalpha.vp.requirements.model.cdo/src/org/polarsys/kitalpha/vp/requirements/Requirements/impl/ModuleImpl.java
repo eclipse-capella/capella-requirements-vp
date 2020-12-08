@@ -1,15 +1,15 @@
-/**
- *
- *  Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
- *  All rights reserved. This program and the accompanying materials
- *  are made available under the terms of the Eclipse Public License v1.0
- *  which accompanies this distribution, and is available at
- *  http://www.eclipse.org/legal/epl-v10.html
+/*******************************************************************************
+ * Copyright (c) 2016, 2019 THALES GLOBAL SERVICES.
  * 
- *  Contributors:
- *     Thales - initial API and implementation
- */
-
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *    Thales - initial API and implementation
+ *******************************************************************************/
 package org.polarsys.kitalpha.vp.requirements.Requirements.impl;
 
 import java.util.Collection;
