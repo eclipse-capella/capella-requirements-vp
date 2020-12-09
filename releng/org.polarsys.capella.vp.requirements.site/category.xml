@@ -19,5 +19,4 @@
    <category-def name="org.polarsys.capella.vp.requirements.collaboration" label="Capella Requirements Viewpoint Collaboration"/>
    <category-def name="org.polarsys.capella.vp.requirements.tests" label="Capella Requirements Viewpoint Tests"/>
    <category-def name="org.polarsys.capella.vp.requirements.docgen" label="Capella Requirements Viewpoint DocGen"/>
-   <repository-reference location="http://download.eclipse.org/diffmerge/releases/0.1.0/edm-coevolution-site" enabled="true" />
 </site>
