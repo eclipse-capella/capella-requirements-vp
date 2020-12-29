@@ -91,8 +91,7 @@ public class ReqImporterPreferencesUtil {
       if (absoluteFilePath != null) {
         File file = new File(absoluteFilePath);
         if (file.exists()) {
-          try {
-            FileInputStream stream = new FileInputStream(file);
+          try (FileInputStream stream = new FileInputStream(file)) {
             Properties properties = new Properties();
             properties.load(stream);
             String fileName = file.getName();
@@ -109,7 +108,6 @@ public class ReqImporterPreferencesUtil {
               childAttr.setSelected(selected);
             }
             result.add(attrSet);
-            stream.close();
           } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage());
           } catch (IOException ex) {
