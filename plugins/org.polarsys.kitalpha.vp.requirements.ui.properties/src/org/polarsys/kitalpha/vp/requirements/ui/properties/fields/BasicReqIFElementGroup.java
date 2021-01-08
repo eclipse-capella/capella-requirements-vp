@@ -33,7 +33,6 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
   protected Text longNameField;
   protected Text nameField;
   protected Text chapternameField;
-  protected Text textField;
   protected Text prefixField;
 
   @Deprecated
@@ -65,9 +64,6 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
     }
     if (sharedAttributes) {
       prefixField = createTextField(textGroup, Messages.getString("ReqIFElement.PrefixLabel")); //$NON-NLS-1$
-    }
-    if (requirementAttributes) {
-      textField = createTextField(textGroup, Messages.getString("ReqIFElement.TextLabel")); //$NON-NLS-1$
     }
   }
 
@@ -108,9 +104,6 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
         setTextValue(prefixField, semanticElement,
             RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFPrefix());
       }
-      if (null != textField) {
-        setTextValue(textField, semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText());
-      }
     }
   }
 
@@ -132,8 +125,6 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
     } else if (field.equals(prefixField)) {
       setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getSharedDirectAttributes_ReqIFPrefix(),
           prefixField.getText());
-    } else if (field.equals(textField)) {
-      setDataValue(semanticElement, RequirementsPackage.eINSTANCE.getRequirement_ReqIFText(), textField.getText());
     }
   }
 
@@ -146,6 +137,5 @@ public class BasicReqIFElementGroup extends AbstractSemanticField {
     LockHelper.getInstance().enable(nameField, enabled);
     LockHelper.getInstance().enable(chapternameField, enabled);
     LockHelper.getInstance().enable(prefixField, enabled);
-    LockHelper.getInstance().enable(textField, enabled);
   }
 }

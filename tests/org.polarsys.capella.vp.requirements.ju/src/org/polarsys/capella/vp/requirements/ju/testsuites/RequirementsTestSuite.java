@@ -32,6 +32,7 @@ import org.polarsys.capella.vp.requirements.ju.testcases.REQ_Relation_02;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsCustomDataTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.RequirementsToolsTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.SemanticRequirementElementTestCase;
+import org.polarsys.capella.vp.requirements.ju.testcases.TextTransformTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.TraceHelperTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.TraceMigrationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.ValidationRulesRegisteringTest;
@@ -70,7 +71,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
-
+    
     tests.add(new MassActionAttributes());
     tests.add(new AbstractRelation_RelationType());
     tests.add(new BooleanValueAttribute_Definition_AttributeDefinition());
@@ -108,6 +109,7 @@ public class RequirementsTestSuite extends BasicTestSuite {
 
     tests.add(new TraceHelperTestCase());
     tests.add(new TraceMigrationTestCase());
+    tests.add(new TextTransformTestCase());
     return tests;
   }
 }

@@ -32,6 +32,7 @@ import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPre
 import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesPlugin;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
+import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
 
 /**
  * @author Joao Barata
@@ -89,6 +90,7 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
         } else {
           result += value;
         }
+        result = LabelHelper.transformHTMLToText(result);
         return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
             .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN));
       }

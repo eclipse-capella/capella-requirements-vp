@@ -20,9 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.impl.MappingExecution;
@@ -33,7 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -82,6 +79,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RealValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
+import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
 
 /**
  * @author Joao Barata
@@ -89,12 +87,12 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditableModelScope> {
 
   IContext context;
-
   Collection<String> reqTypes;
+  ReqIFTextParser textParser;
 
   public ReqIFMapping(IContext context) {
     this.context = context;
-
+    this.textParser = new ReqIFTextParser(context);
     ModuleQuery modules = new ModuleQuery(this);
     FolderQuery folders = new FolderQuery(this);
     RequirementQuery requirements = new RequirementQuery(this);
@@ -117,6 +115,10 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
 
   public IContext getContext() {
     return context;
+  }
+  
+  public void setTextParser(ReqIFTextParser textParser) {
+    this.textParser = textParser;
   }
 
   @Override
@@ -376,9 +378,9 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   /**
    * For a given ReqIf attribute, retrieve its value.
    */
-  private Object getAttributeValue(AttributeValue value) {
+  private Object getAttributeValue(AttributeValue value, AttributeOwner owner) {
     if (value instanceof AttributeValueXHTML) {
-      return getContent((AttributeValueXHTML) value);
+      return getContent((AttributeValueXHTML) value, owner);
     } else if (value instanceof AttributeValueInteger) {
       return ((AttributeValueInteger) value).getTheValue();
     } else if (value instanceof AttributeValueString) {
@@ -408,7 +410,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
         System.out.println("[" + value.eClass().getName() + "] Not imported: " + type);
       } else {
         EStructuralFeature feature = TypeHelper.getDirectFeature(type, target);
-        Object attributeValue = getAttributeValue(value);
+        Object attributeValue = getAttributeValue(value, target);
 
         if (feature != null) {
           setAttribute(target, feature, attributeValue);
@@ -423,19 +425,23 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
     return createdObjects;
   }
 
-  protected String getContent(AttributeValueXHTML value) {
+  protected String getContent(AttributeValueXHTML value, AttributeOwner owner) {
     String content = "";
     try {
       content = ReqIF10XhtmlUtil.getXhtmlString(((AttributeValueXHTML) value).getTheValue());
-      content = content.replaceAll("<[^>]*>", "").replaceAll("\r\n", " ").trim();
-      // Decode special characters
-      content = URI.decode(content);
-      // Unescape HTML special character entities
-      content = StringEscapeUtils.unescapeHtml(content);
+      if (value.getDefinition().getLongName().equals("ReqIF.Text")) {
+        content = textParser.transformToHTML(content, owner);
+      } else {
+        content = transformToText(content);
+      }
     } catch (IOException ex) {
       ex.printStackTrace();
     }
     return content;
+  }
+
+  protected String transformToText(String content) {
+    return LabelHelper.transformHTMLToText(content);
   }
 
   /**

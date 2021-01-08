@@ -28,4 +28,5 @@ public class IRequirementsImporterBridgeConstants {
   public static final String BRIDGE_EXECUTION = "BRIDGE_EXECUTION";
   public static final String REQIF_MODEL_FILE_EXTENSION = "reqif";
   public static final String REQIF_MODEL_CONTAINS_MODULE = "ReqIF model must have at least a module";
+  public static final String IMAGES_TO_COPY = "Images to copy";
 }

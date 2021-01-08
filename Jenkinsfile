@@ -60,8 +60,8 @@ pipeline {
         		script {
 	        		def capellaURL = capella.getDownloadURL("${CAPELLA_BRANCH}", 'linux', '')
 	        		
-	        		sh "curl -k -o capella.zip ${capellaURL}"
-					sh "unzip -q capella.zip"
+	        		sh "curl -k -o capella.tar.gz ${capellaURL}"
+					sh "tar xvzf capella.tar.gz"
 
 	       		}         
 	     	}

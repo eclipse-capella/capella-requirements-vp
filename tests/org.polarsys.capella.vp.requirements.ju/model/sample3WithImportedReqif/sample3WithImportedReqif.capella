@@ -126,7 +126,7 @@
           ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#a422327c-fea6-44ee-9f9f-0e252c42b1b0">
         <ownedRequirements xsi:type="Requirements:Requirement" id="0a0d43ce-c143-48d4-8a8e-f22db37e228e"
             ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
-            requirementType="#d35f3e90-f8c2-43a6-8e71-5405009e29ab" ReqIFText="Requirement-1"
+            requirementType="#d35f3e90-f8c2-43a6-8e71-5405009e29ab" ReqIFText="&lt;p>Requirement-1&lt;/p>"
             requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="f36588fc-0f92-4589-a5e3-cfac63666431"
               definition="#d76d4044-a5f0-4c24-adf4-8623102992b2" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
