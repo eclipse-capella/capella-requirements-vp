@@ -92,6 +92,21 @@ See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation<
       </p>
 </ul>
 
+<b>Display ReqIF Text content in Capella Richtext editor</b>
+<p>
+	Requirement's ReqIf.Text field when imported into Capella model can be displayed in Capella Richtext editor in the property view as shown in the below image.</div>
+</p>
+<img src="../../images/ReqIFText.png" alt="ReqIF Text" title="ReqIF Text">
+<p>
+	For imported images, users can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.
+</p>
+<img src="../../images/ImageImportStrategy.png" alt="Image import strategies" title="Image import strategies">
+<ul>
+<li>Absolute path: This is the recommended mode. However, images cannot be loaded if the image folder location is not known to Capella. Thus, users must make sure that the image folder is accessible (e.g. folder in a shared drive)</li>
+<li>Relative path: The image folder is included in Capella project. However, due to some limitations, this mode does not work well with connected models in collaborative mode.</li>
+<li>Embed in Base64: The image is directly embedded in Capella model. This can significantly increase the size of the model.</li>
+</ul>
+<p>Notice that between imports, if the image importing strategy is changed, the tool will consider that the text has been changed and thus, show the difference. If you do not want to see these differences, make sure to use the same image importing strategy in interative imports.</p>
       <h2>Iterativity</h2>
 <p>After an import, a new file .bridgetraces is created aside the .capella file. This file is used to allow successive imports. It shall not be deleted.</p>
 

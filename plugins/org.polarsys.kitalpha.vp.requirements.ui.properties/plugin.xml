@@ -20,7 +20,13 @@
 		        category="semantic &amp; extension"
 		        id="Requirements VP"
 		        label="Requirements VP">
-		    </propertyTab> 
+		    </propertyTab>
+			<propertyTab
+				category="semantic &amp; extension"
+				id="Requirement Text"
+				label="Text"
+				afterTab="Requirements VP">
+			</propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -31,7 +37,13 @@
 		        category="default"
 		        id="Requirements VP"
 		        label="Requirements VP">
-		    </propertyTab> 
+		    </propertyTab>
+			<propertyTab
+				category="default"
+				id="Requirement Text"
+				label="Text"
+				afterTab="Requirements VP">
+			</propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -141,6 +153,15 @@
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        tab="Requirement Text">
               <input
                type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
               </input>
@@ -272,6 +293,15 @@
 		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.RequirementSection"
 		        tab="Requirements VP">
+              <input
+               type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
+              </input>
+		    </propertySection>
+		    <propertySection
+		    	class="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        filter="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        id="org.polarsys.kitalpha.vp.requirements.ui.properties.sections.DescriptionPropertySection"
+		        tab="Requirement Text">
               <input
                type="org.polarsys.kitalpha.vp.requirements.Requirements.Requirement">
               </input>

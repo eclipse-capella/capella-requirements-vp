@@ -57,6 +57,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RelationType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
+import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
  
 /**
  * <!-- begin-user-doc --> This class is an implementation of the Sirius
@@ -359,7 +360,7 @@ public class CapellaRequirementsOpenJavaService {
           .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
     }
     
-    return evaluateExpression(session, requirement, expression, maxLength);
+    return LabelHelper.transformHTMLToText(evaluateExpression(session, requirement, expression, maxLength));
   }
 
   /**

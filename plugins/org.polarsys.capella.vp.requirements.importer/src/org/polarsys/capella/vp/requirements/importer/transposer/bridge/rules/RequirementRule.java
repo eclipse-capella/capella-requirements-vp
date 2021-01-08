@@ -42,11 +42,11 @@ public class RequirementRule extends AbstractRule<SpecHierarchy, TupleNP<Object>
     Requirement requirement = RequirementsFactory.eINSTANCE.createRequirement();
     createdElements.put(RequirementEMFSYmbolFunction.getInstance().getEObjectSymbol(hierarchy), requirement);
     SpecObject object = hierarchy.getObject();
+    requirement.setReqIFIdentifier(object.getIdentifier());
+    requirement.setReqIFLongName(object.getLongName());
     for (AttributeValue value : object.getValues()) {
       createdElements.putAll(getMapping().parseStandardReqIFAttributes(value, requirement));
     }
-    requirement.setReqIFIdentifier(object.getIdentifier());
-    requirement.setReqIFLongName(object.getLongName());
     return new TupleNP<Object>(requirement, createdElements);
   }
 

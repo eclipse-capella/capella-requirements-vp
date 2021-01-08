@@ -53,3 +53,5 @@ http://www.eclipse.org/legal/epl-2.0
 /images/viewpointmanager.png - org.polarsys.capella.vp.requirements.doc
 /images/migration1.png - org.polarsys.capella.vp.requirements.doc
 /images/migration2.png - org.polarsys.capella.vp.requirements.doc
+/images/ReqIFText.png - org.polarsys.capella.vp.requirements.doc
+/images/ImageImportStrategy.png - org.polarsys.capella.vp.requirements.doc

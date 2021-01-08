@@ -13,9 +13,16 @@
 package org.polarsys.capella.vp.requirements.importer.transposer.activities;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.IWorkspaceRunnable;
@@ -26,6 +33,7 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.diffmerge.api.scopes.IEditableModelScope;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeTrace;
 import org.eclipse.emf.diffmerge.bridge.api.incremental.IIncrementalBridgeExecution;
@@ -42,6 +50,8 @@ import org.eclipse.ui.progress.UIJob;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.common.tools.report.config.registry.ReportManagerRegistry;
+import org.polarsys.capella.common.tools.report.util.IReportManagerDefaultComponents;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.model.handler.helpers.HoldingResourceHelper;
 import org.polarsys.capella.core.transition.common.activities.AbstractActivity;
@@ -50,6 +60,7 @@ import org.polarsys.capella.vp.requirements.importer.transposer.bridge.Requireme
 import org.polarsys.kitalpha.cadence.core.api.parameter.ActivityParameters;
 import org.polarsys.kitalpha.transposer.api.ITransposerWorkflow;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
+import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 
 /**
  * This class managers the merge of requirements into the model and the save of the associated resources.
@@ -67,6 +78,8 @@ public class TransposerTransformation extends AbstractActivity {
    * There must be a cleaner way to achieve this. But for the moment this will do.
    */
   final boolean[] mergeOperationCanceled = { false };
+  private static final Logger LOGGER = ReportManagerRegistry.getInstance()
+      .subscribe(IReportManagerDefaultComponents.DEFAULT);
 
   /**
    * The UI job that manages the transformation.
@@ -173,6 +186,7 @@ public class TransposerTransformation extends AbstractActivity {
           Resource traceResource = (Resource) context.get(IRequirementsImporterBridgeConstants.TRACE_RESOURCE);
 
           saveAndCleanResources(executionManager, modelResource, traceResource, subMonitor.split(1));
+          importReferencedImages(blockArchitecture, context);
         }
       }
 
@@ -180,6 +194,40 @@ public class TransposerTransformation extends AbstractActivity {
       displayNoModuleFoundInformationDialog();
     }
     return Status.OK_STATUS;
+  }
+
+  /**
+   * Copy referenced images
+   * @param targetElement
+   * @param context
+   */
+  protected void importReferencedImages(EObject targetElement, IContext context) {
+    TreeIterator<EObject> eAllContents = targetElement.eAllContents();
+    while (eAllContents.hasNext()) {
+      EObject eObj = eAllContents.next();
+      if (eObj instanceof Requirement) {
+        Requirement requirement = (Requirement) eObj;
+        importReferencedImagesOfRequirement(requirement, context);
+      }
+    }
+  }
+
+  protected void importReferencedImagesOfRequirement(Requirement requirement, IContext context) {
+    Map<String, List<List<Path>>> reqID2Images = (Map<String, List<List<Path>>>) context
+        .get(IRequirementsImporterBridgeConstants.IMAGES_TO_COPY);
+    if (reqID2Images.containsKey(requirement.getReqIFIdentifier())) {
+      List<List<Path>> imagesToCopy = reqID2Images.get(requirement.getReqIFIdentifier());
+      if (!imagesToCopy.isEmpty()) {
+        for (List<Path> srcPath2TargetPath : imagesToCopy) {
+          try {
+            Files.copy(srcPath2TargetPath.get(0), srcPath2TargetPath.get(1), StandardCopyOption.REPLACE_EXISTING);
+          } catch (IOException e) {
+            LOGGER.log(Level.ERROR, MessageFormat.format("Cannot find or cannot copy {0}", srcPath2TargetPath.get(0)),
+                e);
+          }
+        }
+      }
+    }
   }
 
   /**

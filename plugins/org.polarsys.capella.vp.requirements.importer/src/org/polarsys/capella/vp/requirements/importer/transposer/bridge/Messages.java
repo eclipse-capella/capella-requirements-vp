@@ -22,6 +22,11 @@ public class Messages extends NLS {
   public static String Categories_Types;
   public static String CategoryFormat_Description;
   public static String CategoryFormat_Name;
+  public static String ImageImportingDialog_DefaultMessage;
+  public static String ImageImportingDialog_AbsPathMessage;
+  public static String ImageImportingDialog_RelPathMessage; 
+  public static String ImageImportingDialog_EmbeddedMessage;
+  
   static {
     // initialize resource bundle
     NLS.initializeMessages(BUNDLE_NAME, Messages.class);
