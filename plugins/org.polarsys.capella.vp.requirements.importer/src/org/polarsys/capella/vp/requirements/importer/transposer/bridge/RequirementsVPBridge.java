@@ -63,6 +63,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.EClassCategory;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.RelationIdentifierCategory;
+import org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories.ReqIFTextCategory;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.vp.requirements.Requirements.ReqIFElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
@@ -252,6 +253,7 @@ public class RequirementsVPBridge extends EMFInteractiveBridge<IEditableModelSco
     set.getChildren().add(typesFolderEClassCategory);
 
     set.getChildren().add(new RelationIdentifierCategory());
+    set.getChildren().add(new ReqIFTextCategory());
 
     diffNode.getCategoryManager().addCategories(set);
     return diffNode;

@@ -55,3 +55,4 @@ http://www.eclipse.org/legal/epl-2.0
 /images/migration2.png - org.polarsys.capella.vp.requirements.doc
 /images/ReqIFText.png - org.polarsys.capella.vp.requirements.doc
 /images/ImageImportStrategy.png - org.polarsys.capella.vp.requirements.doc
+/images/DiffMerge_Text_Filtering.png - org.polarsys.capella.vp.requirements.doc

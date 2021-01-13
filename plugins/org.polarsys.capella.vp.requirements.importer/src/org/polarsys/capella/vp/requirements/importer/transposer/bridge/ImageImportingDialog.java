@@ -160,6 +160,7 @@ public class ImageImportingDialog extends TitleAreaDialog {
         if (Paths.get(absPathText.getText()).toFile().exists() && Paths.get(absPathText.getText()).isAbsolute()) {
           enableFinishForAbsPath();
         } else {
+          setMessage(Messages.ImageImportingDialog_DefaultMessage + Messages.ImageImportingDialog_AbsPathMessage);
           disableFinish();
         }
       }

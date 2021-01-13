@@ -92,11 +92,24 @@ See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation<
       </p>
 </ul>
 
-<b>Display ReqIF Text content in Capella Richtext editor</b>
+<b>Ignore differences in ReqIF.Text attributes</b>
+	<p>
+		Since v0.12.0, ReqIF.Text attributes are imported in a way that HTML formatting is kept, on the contrary to previous versions where only plain text is imported.
+		Thus, differences in these attributes will be shown when the same ReqIf model is imported. If you want to ignore these differences during the import, you can choose to activate the ReqIF Text filter, as shown in the image below.
+	</p>
+	<p>
+		<img src="../../images/DiffMerge_Text_Filtering.png" alt="Ignore differences in ReqIF.Text attribute" title="Ignore differences in ReqIF.Text attribute">
+	</p>
+
+<h2>Display ReqIF Text content in Capella Richtext editor</h2>
 <p>
 	Requirement's ReqIf.Text field when imported into Capella model can be displayed in Capella Richtext editor in the property view as shown in the below image.</div>
 </p>
+<p>
 <img src="../../images/ReqIFText.png" alt="ReqIF Text" title="ReqIF Text">
+</p>
+
+<b>Image importing strategies</b>
 <p>
 	For imported images, users can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.
 </p>
