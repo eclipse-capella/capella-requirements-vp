@@ -16,6 +16,7 @@ import org.eclipse.emf.diffmerge.diffdata.EAttributeValuePresence;
 import org.eclipse.emf.diffmerge.diffdata.EMatch;
 import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
+import org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.AbstractDifferenceCategory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.swt.graphics.Image;
@@ -86,6 +87,13 @@ public class ReqIFTextCategory extends AbstractDifferenceCategory {
   @Override
   public String getText(EMFDiffNode node_p) {
     return Messages.Categories_ReqIFText_Identifier;
+  }
+
+  @Override
+  public IDifferenceCategory copy() {
+    ReqIFTextCategory copied = new ReqIFTextCategory();
+    copied.copyState(this);
+    return copied;
   }
 
 }
