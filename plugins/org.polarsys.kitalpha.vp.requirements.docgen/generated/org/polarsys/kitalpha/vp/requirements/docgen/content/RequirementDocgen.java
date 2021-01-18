@@ -105,7 +105,7 @@ public class RequirementDocgen extends org.polarsys.kitalpha.vp.requirements.doc
 		stringBuffer.append(TEXT_1);
 		super.method_content(stringBuffer, ctx);
 		stringBuffer.append(TEXT_2);
-		stringBuffer.append(RequirementHelper.generateRequirementProperties(parameter));
+		stringBuffer.append(RequirementHelper.generateRequirementProperties(parameter, projectName, outputFolder));
 		stringBuffer.append(TEXT_2);
 		stringBuffer.append(RequirementHelper.generateFolderContent(parameter));
 		stringBuffer.append(TEXT_2);

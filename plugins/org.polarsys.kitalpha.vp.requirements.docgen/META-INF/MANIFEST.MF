@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.egf.pattern.ftask;visibility:=reexport,
  org.polarsys.kitalpha.vp.requirements.docgen,
  org.polarsys.kitalpha.doc.gen.business.core.preference,
- org.polarsys.capella.vp.requirements.model
+ org.polarsys.capella.vp.requirements.model,
+ org.polarsys.capella.docgen
 Export-Package: org.polarsys.kitalpha.vp.requirements.docgen,
  org.polarsys.kitalpha.vp.requirements.docgen.common,
  org.polarsys.kitalpha.vp.requirements.docgen.content,

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.docgen.util.StringUtil;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
@@ -46,12 +47,12 @@ import org.polarsys.kitalpha.vp.requirements.docgen.utils.RequirementsServices;
 
 public class RequirementHelper {
 	
-  public static String generateRequirementProperties(Requirement requirement) {
+  public static String generateRequirementProperties(Requirement requirement, String projectName, String outputFolder) {
     String reqIFIdentifier = requirement.getReqIFIdentifier();
     String chapterName = requirement.getReqIFChapterName();
     String reqIFName = requirement.getReqIFName();
     String reqIFLongName = requirement.getReqIFLongName();
-    String reqIFText = requirement.getReqIFText();
+    String reqIFText = StringUtil.transformAREFString(requirement, requirement.getReqIFText(), projectName, outputFolder);
     RequirementType requirementType = requirement.getRequirementType();
 
     StringBuilder builder = new StringBuilder();
