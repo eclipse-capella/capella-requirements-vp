@@ -16,7 +16,6 @@ import org.eclipse.emf.diffmerge.diffdata.EAttributeValuePresence;
 import org.eclipse.emf.diffmerge.diffdata.EMatch;
 import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
-import org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.AbstractDifferenceCategory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.swt.graphics.Image;
@@ -87,13 +86,6 @@ public class RelationIdentifierCategory extends AbstractDifferenceCategory {
   @Override
   public String getText(EMFDiffNode node_p) {
     return Messages.Categories_Relation_Identifier;
-  }
-
-  @Override
-  public IDifferenceCategory copy() {
-    RelationIdentifierCategory copied = new RelationIdentifierCategory();
-    copied.copyState(this);
-    return copied;
   }
 
 }

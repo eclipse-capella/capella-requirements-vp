@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2020, 2019 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -20,7 +20,6 @@ import org.eclipse.emf.diffmerge.diffdata.EElementPresence;
 import org.eclipse.emf.diffmerge.generic.api.Role;
 import org.eclipse.emf.diffmerge.generic.api.diff.IDifference;
 import org.eclipse.emf.diffmerge.ui.viewers.EMFDiffNode;
-import org.eclipse.emf.diffmerge.ui.viewers.IDifferenceCategory;
 import org.eclipse.emf.diffmerge.ui.viewers.categories.AbstractDifferenceCategory;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -52,13 +51,6 @@ public class EClassCategory extends AbstractDifferenceCategory {
     return false;
   }
 
-  public EClassCategory(EClass iconClazz, String name, String description, Collection<EClass> clazzes) {
-    this.iconClazz = iconClazz;
-    this.name = name;
-    this.description = description;
-    this.clazzes = clazzes;
-  }
-  
   public EClassCategory(EClass iconClazz, String name, EClass clazz) {
     this(iconClazz, name, Collections.singletonList(clazz));
   }
@@ -128,10 +120,4 @@ public class EClassCategory extends AbstractDifferenceCategory {
     return image[0];
   }
 
-  @Override
-  public IDifferenceCategory copy() {
-    EClassCategory copied = new EClassCategory(iconClazz, name, description, clazzes);
-    copied.copyState(this);
-    return copied;
-  }
 }
