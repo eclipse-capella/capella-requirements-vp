@@ -58,12 +58,11 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsFactory;
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
- 
+
 /**
- * <!-- begin-user-doc --> This class is an implementation of the Sirius
- * JavaExtension
- * '<em><b>[org.polarsys.capella.vp.requirements.design.service.CapellaRequirementsOpenJavaService]</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> This class is an implementation of the Sirius JavaExtension
+ * '<em><b>[org.polarsys.capella.vp.requirements.design.service.CapellaRequirementsOpenJavaService]</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
  *
@@ -71,20 +70,21 @@ import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
  */
 
 public class CapellaRequirementsOpenJavaService {
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public CapellaRequirementsOpenJavaService() {
-		// Do nothing
-	}
-	
-	/**
-	 * Return all the requirements in the block architecture for the given context.
-	 * @param context
-	 * @return
-	 */
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   */
+  public CapellaRequirementsOpenJavaService() {
+    // Do nothing
+  }
+
+  /**
+   * Return all the requirements in the block architecture for the given context.
+   * 
+   * @param context
+   * @return
+   */
   public Collection<EObject> getAllAvailableRequirements(EObject context) {
     EObject element = context;
     if (element instanceof DSemanticDecorator) {
@@ -104,9 +104,10 @@ public class CapellaRequirementsOpenJavaService {
     result.addAll(outgoingQuery.getAvailableElements(element));
     return result;
   }
-  
+
   /**
    * Return the visible requirements on the given diagram.
+   * 
    * @param elementView
    * @param diagram
    * @param incoming
@@ -124,7 +125,7 @@ public class CapellaRequirementsOpenJavaService {
     }
     return Collections.emptySet();
   }
-  
+
   private DDiagram getDiagram(EObject context) {
     DDiagram result = null;
     if (context instanceof DDiagram) {
@@ -135,47 +136,48 @@ public class CapellaRequirementsOpenJavaService {
     return result;
   }
 
-	/**
-	 * Return all Requirements for a diagram or a diagram element
-	 * 
-	 * @param context
-	 * @param elementView
-	 * @return
-	 */
-	public Collection<EObject> getAllRequirementsForElement(EObject elementView) {
-		List<EObject> result = new ArrayList<>();
+  /**
+   * Return all Requirements for a diagram or a diagram element
+   * 
+   * @param context
+   * @param elementView
+   * @return
+   */
+  public Collection<EObject> getAllRequirementsForElement(EObject elementView) {
+    List<EObject> result = new ArrayList<>();
 
-		// if the given element view is a diagram, return all requirements of the
-		// diagram and all requirements of all Capella Elements of the diagram
-		if (elementView instanceof DSemanticDiagram) {
-		  DSemanticDiagram diagram = (DSemanticDiagram) elementView;
-			result.addAll(getRequirementsForDiagram(diagram, true, true));
-			for (DDiagramElement diagramElement : diagram.getDiagramElements()) {
-				if (diagramElement.getTarget() instanceof CapellaElement) {
-					result.addAll(getRequirementsForDiagramElement(diagramElement, true, true));
-				}
-			}
-		// if the given element view is a diagram element (of a Capella Element or Requirement), return all of its requirements
-		} else if (elementView instanceof DDiagramElement) {
-			result.addAll(getRequirementsForDiagramElement((DDiagramElement) elementView, true, true));
-		}
-		return result;
-	}
+    // if the given element view is a diagram, return all requirements of the
+    // diagram and all requirements of all Capella Elements of the diagram
+    if (elementView instanceof DSemanticDiagram) {
+      DSemanticDiagram diagram = (DSemanticDiagram) elementView;
+      result.addAll(getRequirementsForDiagram(diagram, true, true));
+      for (DDiagramElement diagramElement : diagram.getDiagramElements()) {
+        if (diagramElement.getTarget() instanceof CapellaElement) {
+          result.addAll(getRequirementsForDiagramElement(diagramElement, true, true));
+        }
+      }
+      // if the given element view is a diagram element (of a Capella Element or Requirement), return all of its
+      // requirements
+    } else if (elementView instanceof DDiagramElement) {
+      result.addAll(getRequirementsForDiagramElement((DDiagramElement) elementView, true, true));
+    }
+    return result;
+  }
 
-	/**
-	 * Found all incoming and/or outgoing Requirements from/to an element using business queries
-	 * 
-	 * @param context
-	 * @param elementView
-	 * @param incoming
-	 *            true if you want all incoming requirements
-	 * @param outgoing
-	 *            true if you want all outgoing requirements
-	 * @return
-	 */
+  /**
+   * Found all incoming and/or outgoing Requirements from/to an element using business queries
+   * 
+   * @param context
+   * @param elementView
+   * @param incoming
+   *          true if you want all incoming requirements
+   * @param outgoing
+   *          true if you want all outgoing requirements
+   * @return
+   */
   public Collection<EObject> getRequirementsForElement(EObject elementView, boolean incoming, boolean outgoing) {
     if (elementView instanceof DSemanticDiagram) {
-      return getRequirementsForDiagram((DSemanticDiagram)elementView, incoming, outgoing);
+      return getRequirementsForDiagram((DSemanticDiagram) elementView, incoming, outgoing);
     }
 
     if (elementView instanceof DDiagramElement) {
@@ -184,13 +186,14 @@ public class CapellaRequirementsOpenJavaService {
     return Collections.emptyList();
   }
 
-  private List<EObject> getRequirementsForDiagramElement(DDiagramElement diagramElement, boolean incoming, boolean outgoing) {
+  private List<EObject> getRequirementsForDiagramElement(DDiagramElement diagramElement, boolean incoming,
+      boolean outgoing) {
     EObject element = diagramElement.getTarget();
     if (element instanceof CapellaElement) {
       return getRequirementsForCapellaElement((CapellaElement) element, incoming, outgoing);
     }
     if (element instanceof Requirement) {
-    	return getRequirementsForRequirement((Requirement) element, incoming, outgoing);
+      return getRequirementsForRequirement((Requirement) element, incoming, outgoing);
     }
     return Collections.emptyList();
   }
@@ -198,16 +201,14 @@ public class CapellaRequirementsOpenJavaService {
   private List<EObject> getRequirementsForRequirement(Requirement requirement, boolean incoming, boolean outgoing) {
     List<EObject> result = new ArrayList<>();
     if (incoming) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			RequirementsPackage.Literals.REQUIREMENT,
-    			RequirementsPackage.Literals.INTERNAL_RELATION__SOURCE);
-    	result.addAll(query.getCurrentElements(requirement, false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          RequirementsPackage.Literals.REQUIREMENT, RequirementsPackage.Literals.INTERNAL_RELATION__SOURCE);
+      result.addAll(query.getCurrentElements(requirement, false));
     }
     if (outgoing) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			RequirementsPackage.Literals.REQUIREMENT,
-    			RequirementsPackage.Literals.INTERNAL_RELATION__TARGET);
-    	result.addAll(query.getCurrentElements(requirement, false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          RequirementsPackage.Literals.REQUIREMENT, RequirementsPackage.Literals.INTERNAL_RELATION__TARGET);
+      result.addAll(query.getCurrentElements(requirement, false));
     }
     return result;
   }
@@ -215,16 +216,16 @@ public class CapellaRequirementsOpenJavaService {
   private List<EObject> getRequirementsForCapellaElement(CapellaElement element, boolean incoming, boolean outgoing) {
     List<EObject> result = new ArrayList<>();
     if (incoming) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			CapellacorePackage.Literals.CAPELLA_ELEMENT,
-    	        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
-    	result.addAll(query.getCurrentElements(element, false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          CapellacorePackage.Literals.CAPELLA_ELEMENT,
+          CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+      result.addAll(query.getCurrentElements(element, false));
     }
     if (outgoing) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			CapellacorePackage.Literals.CAPELLA_ELEMENT,
-    	        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-    	result.addAll(query.getCurrentElements(element, false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          CapellacorePackage.Literals.CAPELLA_ELEMENT,
+          CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
+      result.addAll(query.getCurrentElements(element, false));
     }
     return result;
   }
@@ -232,53 +233,54 @@ public class CapellaRequirementsOpenJavaService {
   private List<EObject> getRequirementsForDiagram(DSemanticDiagram diagram, boolean incoming, boolean outgoing) {
     List<EObject> result = new ArrayList<>();
     if (incoming) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
-    	        CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
-    	result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
+          CapellaRequirementsPackage.Literals.CAPELLA_INCOMING_RELATION__SOURCE);
+      result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
     }
     if (outgoing) {
-    	IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
-    			ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
-    	        CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
-    	result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
+      IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
+          ViewpointPackage.Literals.DREPRESENTATION_DESCRIPTOR,
+          CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION__TARGET);
+      result.addAll(query.getCurrentElements(RepresentationHelper.getRepresentationDescriptor(diagram), false));
     }
     return result;
   }
-	
 
-	/**
-	 * Found all incoming and/or outgoing Requirements from/to an element in a diagram
-	 * 
-	 * @param context
-	 * @param elementView
-	 * @param diagram
-	 * @param incoming
-	 *            true if you want all incoming requirements
-	 * @param outgoing
-	 *            true if you want all outgoing requirements
-	 * @return
-	 */
-	public Collection<EObject> getExistingRequirementsInDiagram(EObject elementView, DDiagram diagram, boolean incoming, boolean outgoing) {
-		Collection<EObject> requirements = getRequirementsForElement(elementView, incoming, outgoing);
+  /**
+   * Found all incoming and/or outgoing Requirements from/to an element in a diagram
+   * 
+   * @param context
+   * @param elementView
+   * @param diagram
+   * @param incoming
+   *          true if you want all incoming requirements
+   * @param outgoing
+   *          true if you want all outgoing requirements
+   * @return
+   */
+  public Collection<EObject> getExistingRequirementsInDiagram(EObject elementView, DDiagram diagram, boolean incoming,
+      boolean outgoing) {
+    Collection<EObject> requirements = getRequirementsForElement(elementView, incoming, outgoing);
 
-		// Collect requirements of elementView if they are the target of a diagram element in the diagram
-		return diagram.getDiagramElements().stream() //
-		    .map(DDiagramElement::getTarget) //
-				.filter(requirements::contains) //
-				.collect(Collectors.toList());
-	}
+    // Collect requirements of elementView if they are the target of a diagram element in the diagram
+    return diagram.getDiagramElements().stream() //
+        .map(DDiagramElement::getTarget) //
+        .filter(requirements::contains) //
+        .collect(Collectors.toList());
+  }
 
-	/**
-	 * Hide Requirements (Requirements in requirementsInDiagram but not in selectedRequirements)
-	 * 
-	 * @param context
-	 * @param diagram
-	 * @param selectedRequirements
-	 * @param requirementsInDiagram
-	 * @return
-	 */
-	public EObject hideRequirements(EObject diagram, Collection<EObject> selectedRequirements, Collection<EObject> requirementsInDiagram) {
+  /**
+   * Hide Requirements (Requirements in requirementsInDiagram but not in selectedRequirements)
+   * 
+   * @param context
+   * @param diagram
+   * @param selectedRequirements
+   * @param requirementsInDiagram
+   * @return
+   */
+  public EObject hideRequirements(EObject diagram, Collection<EObject> selectedRequirements,
+      Collection<EObject> requirementsInDiagram) {
 
     if (diagram instanceof DDiagram) {
       DDiagram ddiagram = (DDiagram) diagram;
@@ -295,54 +297,53 @@ public class CapellaRequirementsOpenJavaService {
           .filter(container -> requirementsToHide.contains(container.getTarget())) //
           .forEach(diagramService::removeContainerView);
     }
-		
-		return diagram;
-	}
-	
-	/**
-	 * Return the name of the relation type, empty string if not found
-	 * 
-	 * @param relation
-	 * @return
-	 */
-	public String getRelationTypeLabel(AbstractRelation relation) {
-		RelationType type = relation.getRelationType();
-		if (type != null) {
-			String name = type.getReqIFLongName();
-			if (name != null) {
-				return name;
-			}
-		}
-		return ICommonConstants.EMPTY_STRING;
-	}
 
-	/**
-   * Return the title of a Requirement
-   * based on the predefined AQL expression
+    return diagram;
+  }
+
+  /**
+   * Return the name of the relation type, empty string if not found
+   * 
+   * @param relation
+   * @return
+   */
+  public String getRelationTypeLabel(AbstractRelation relation) {
+    RelationType type = relation.getRelationType();
+    if (type != null) {
+      String name = type.getReqIFLongName();
+      if (name != null) {
+        return name;
+      }
+    }
+    return ICommonConstants.EMPTY_STRING;
+  }
+
+  /**
+   * Return the title of a Requirement based on the predefined AQL expression
+   * 
    * @param requirement
    * @return
    */
   public String getRequirementTitle(Requirement requirement) {
     Session session = SessionManager.INSTANCE.getSession(requirement);
-    
+
     String expression = ReqVPCustomDataHelper.getDefaultLabelExpression();
     String maxLength = ReqVPCustomDataHelper.getDefaultLabelLength();
-    
+
     EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
-    
+
     if (queriesAnnotation != null) {
-      expression = queriesAnnotation.getDetails()
-          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL);
+      expression = queriesAnnotation.getDetails().get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL);
       maxLength = queriesAnnotation.getDetails()
           .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL_LENGTH);
     }
-   
+
     return evaluateExpression(session, requirement, expression, maxLength);
   }
 
   /**
-   * Return the content of a Requirement
-   * based on the predefined AQL expression
+   * Return the content of a Requirement based on the predefined AQL expression
+   * 
    * @param requirement
    * @return
    */
@@ -350,21 +351,21 @@ public class CapellaRequirementsOpenJavaService {
     Session session = SessionManager.INSTANCE.getSession(requirement);
 
     String expression = ReqVPCustomDataHelper.getDefaultContentExpression();
-    String maxLength = ReqVPCustomDataHelper.getDefaultContentLength(); 
-    
+    String maxLength = ReqVPCustomDataHelper.getDefaultContentLength();
+
     EAnnotation queriesAnnotation = ReqVPCustomDataHelper.getCustomData(session);
     if (queriesAnnotation != null) {
-      expression = queriesAnnotation.getDetails()
-          .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT);
+      expression = queriesAnnotation.getDetails().get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT);
       maxLength = queriesAnnotation.getDetails()
           .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
     }
-    
-    return LabelHelper.transformHTMLToText(evaluateExpression(session, requirement, expression, maxLength));
+
+    return evaluateExpression(session, requirement, expression, maxLength);
   }
 
   /**
    * Compute the string from an AQL expression for a requirement.
+   * 
    * @param session
    * @param requirement
    * @param expression
@@ -385,7 +386,10 @@ public class CapellaRequirementsOpenJavaService {
           } else {
             resultBuilder.append(value);
           }
-          return reduceString(resultBuilder.toString(), maxLength);
+          String evaluationResult = resultBuilder.toString();
+          String sanytizedResult = LabelHelper.transformHTMLToText(evaluationResult);
+
+          return reduceString(sanytizedResult, maxLength);
         }
       }
     } catch (EvaluationException ex) {
@@ -393,9 +397,10 @@ public class CapellaRequirementsOpenJavaService {
     }
     return "<Undefined>";
   }
-  
+
   /**
    * If the string is longer than a predefined maximum length, it will be reduced and followed by "..."
+   * 
    * @param value
    * @param maxLengthText
    * @return
@@ -413,64 +418,68 @@ public class CapellaRequirementsOpenJavaService {
     }
     return value;
   }
-  
+
   /**
-   * Find the source of the outgoing relation with a requirement.
-   * With this relation, the target is a requirement, the source is capella element or diagram.
+   * Find the source of the outgoing relation with a requirement. With this relation, the target is a requirement, the
+   * source is capella element or diagram.
+   * 
    * @param relation
    * @return
    */
   public Collection<EObject> findOutgoingRelationSource(CapellaOutgoingRelation relation) {
     return findRelationEnds(relation.getSource());
   }
-  
+
   /**
-   * Find the source of the incoming relation with a requirement.
-   * With this relation, the source is a requirement, the target is capella element or diagram.
+   * Find the source of the incoming relation with a requirement. With this relation, the source is a requirement, the
+   * target is capella element or diagram.
+   * 
    * @param relation
    * @return
    */
   public Collection<EObject> findIncomingRelationTarget(CapellaIncomingRelation relation) {
-   return findRelationEnds(relation.getTarget());
+    return findRelationEnds(relation.getTarget());
   }
-  
+
   private List<EObject> findRelationEnds(CapellaElement element) {
     List<EObject> result = new ArrayList<>();
-    // TODO If in the method getCurrentElements(EObject element, boolean onlyGenerated), 
+    // TODO If in the method getCurrentElements(EObject element, boolean onlyGenerated),
     // if the RepresentedInstance of InstanceRole is handled,
     // we need to add the representing instance roles in the result
     if (element instanceof Component) {
       result.addAll(ComponentExt.getRepresentingParts((Component) element));
-    } 
+    }
     result.add(element);
     return result;
   }
-  
-  public void createRequirementLink(EObject source, EObject target, EdgeTarget sourceView, EdgeTarget targetView){
-    if(source instanceof Requirement){
-      if(target instanceof CapellaElement){
-        CapellaIncomingRelation relation = createCapellaIncomingRelation((Requirement)source, (CapellaElement)target);
+
+  public void createRequirementLink(EObject source, EObject target, EdgeTarget sourceView, EdgeTarget targetView) {
+    if (source instanceof Requirement) {
+      if (target instanceof CapellaElement) {
+        CapellaIncomingRelation relation = createCapellaIncomingRelation((Requirement) source, (CapellaElement) target);
         createEdge(ReqDesignNameConstants.REQ_VP_INCOMING_RELATION, sourceView, targetView, relation);
-      }else if(target instanceof Requirement){
-        InternalRelation relation = createInternalRelation((Requirement)source, (Requirement)target);
+      } else if (target instanceof Requirement) {
+        InternalRelation relation = createInternalRelation((Requirement) source, (Requirement) target);
         createEdge(ReqDesignNameConstants.REQ_VP_INTERNAL_RELATION, sourceView, targetView, relation);
       }
-    }else if(source instanceof CapellaElement && target instanceof Requirement){
-      CapellaOutgoingRelation relation = createCapellaOutgoingRelation((Requirement)target, (CapellaElement)source);
+    } else if (source instanceof CapellaElement && target instanceof Requirement) {
+      CapellaOutgoingRelation relation = createCapellaOutgoingRelation((Requirement) target, (CapellaElement) source);
       createEdge(ReqDesignNameConstants.REQ_VP_OUTGOING_RELATION, sourceView, targetView, relation);
     }
   }
-  
-  private DEdge createEdge(String mappingName, EdgeTarget sourceView, EdgeTarget targetView, AbstractRelation relation) {
+
+  private DEdge createEdge(String mappingName, EdgeTarget sourceView, EdgeTarget targetView,
+      AbstractRelation relation) {
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(sourceView);
     EdgeMapping mapping = getEdgeMapping(diagram, mappingName);
     return DiagramServices.getDiagramServices().createEdge(mapping, sourceView, targetView, relation);
   }
-  
+
   // https://bugs.polarsys.org/show_bug.cgi?id=2113
-  // Use DiagramServices.getDiagramServices().getEdgeMapping(diagram, mappingName) when the above bug is fixed and delete this method
+  // Use DiagramServices.getDiagramServices().getEdgeMapping(diagram, mappingName) when the above bug is fixed and
+  // delete this method
   private EdgeMapping getEdgeMapping(final DDiagram diagram, String mappingName) {
-    for(Layer layer : diagram.getActivatedLayers()){
+    for (Layer layer : diagram.getActivatedLayers()) {
       for (final EdgeMapping mapping : ContentLayerHelper.getAllEdgeMappings(layer)) {
         if (mapping.getName().equals(mappingName)) {
           return mapping;
@@ -479,16 +488,16 @@ public class CapellaRequirementsOpenJavaService {
     }
     return null;
   }
-  
+
   private CapellaOutgoingRelation createCapellaOutgoingRelation(Requirement requirement,
       CapellaElement capellaElement) {
     CapellaOutgoingRelation link = CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation();
-    if(capellaElement instanceof Part && ((Part)capellaElement).getAbstractType() instanceof CapellaElement){
-      CapellaElement type = (CapellaElement)((Part)capellaElement).getAbstractType();
-      link.setSource(type);      
+    if (capellaElement instanceof Part && ((Part) capellaElement).getAbstractType() instanceof CapellaElement) {
+      CapellaElement type = (CapellaElement) ((Part) capellaElement).getAbstractType();
+      link.setSource(type);
       type.getOwnedExtensions().add(link);
-    }else{
-      link.setSource(capellaElement);      
+    } else {
+      link.setSource(capellaElement);
       capellaElement.getOwnedExtensions().add(link);
     }
     link.setTarget(requirement);
@@ -496,23 +505,22 @@ public class CapellaRequirementsOpenJavaService {
     capellaElement.getOwnedExtensions().add(link);
     return link;
   }
-  
+
   private CapellaIncomingRelation createCapellaIncomingRelation(Requirement requirement,
       CapellaElement capellaElement) {
     CapellaIncomingRelation link = CapellaRequirementsFactory.eINSTANCE.createCapellaIncomingRelation();
     link.setSource(requirement);
-    if(capellaElement instanceof Part && ((Part)capellaElement).getAbstractType() instanceof CapellaElement){
-      link.setTarget((CapellaElement)((Part)capellaElement).getAbstractType());      
-    }else{
-      link.setTarget(capellaElement);      
+    if (capellaElement instanceof Part && ((Part) capellaElement).getAbstractType() instanceof CapellaElement) {
+      link.setTarget((CapellaElement) ((Part) capellaElement).getAbstractType());
+    } else {
+      link.setTarget(capellaElement);
     }
     link.setRelationType(getDefaultType(link));
     requirement.getOwnedRelations().add(link);
     return link;
   }
 
-  private InternalRelation createInternalRelation(Requirement sourceRequirement,
-      Requirement targetRequirment) {
+  private InternalRelation createInternalRelation(Requirement sourceRequirement, Requirement targetRequirment) {
     InternalRelation internalLink = RequirementsFactory.eINSTANCE.createInternalRelation();
     internalLink.setSource(sourceRequirement);
     internalLink.setTarget(targetRequirment);
@@ -520,7 +528,7 @@ public class CapellaRequirementsOpenJavaService {
     sourceRequirement.getOwnedRelations().add(internalLink);
     return internalLink;
   }
-  
+
   private RelationType getDefaultType(AbstractRelation relation) {
     IBusinessQuery query = BusinessQueriesProvider.getInstance().getContribution(
         RequirementsPackage.eINSTANCE.getAbstractRelation(),
@@ -530,15 +538,18 @@ public class CapellaRequirementsOpenJavaService {
       return (RelationType) availableElements.get(0);
     return null;
   }
+
   /**
    * Check whether the selected requirement is linked to the current diagram.
+   * 
    * @param requirement
    * @param diagram
    * @return
    */
   public boolean isLinkedToDiagram(EObject requirement, EObject diagram) {
     if (requirement instanceof Requirement && diagram instanceof DSemanticDiagram) {
-      return getRequirementsForDiagram((DSemanticDiagram) diagram, true, true).stream().anyMatch(req -> req.equals(requirement));
+      return getRequirementsForDiagram((DSemanticDiagram) diagram, true, true).stream()
+          .anyMatch(req -> req.equals(requirement));
     }
     return false;
   }

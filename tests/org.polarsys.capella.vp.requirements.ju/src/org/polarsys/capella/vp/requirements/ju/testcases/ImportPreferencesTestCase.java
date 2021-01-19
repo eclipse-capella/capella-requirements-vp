@@ -78,7 +78,7 @@ public class ImportPreferencesTestCase extends BasicTestCase {
     propertiesFileURIs.add(URI.createFileURI(classicFile.getAbsolutePath()));
     // Write property files list in preferences.
     String value = ReqImporterPreferencesUtil.serializePropertyFilesPreference(propertiesFileURIs);
-    preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, value);
+    preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES_KEY, value);
 
     //
     // Perform tests

@@ -59,7 +59,7 @@ public class EnumerationValueAttributeItemProviderDecorator extends ItemProvider
 
     return reduceValueLabelLen(result.toString(),
         RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-        .getString(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN));
+        .getString(RequirementsPreferencesConstants.ENUMERATION_VALUE_ATTRIBUTE_LABEL_MAX_LEN_KEY));
   }
 
   /**

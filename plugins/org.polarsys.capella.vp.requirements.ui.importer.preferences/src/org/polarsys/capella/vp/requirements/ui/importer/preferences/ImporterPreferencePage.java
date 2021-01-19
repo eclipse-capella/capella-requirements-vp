@@ -96,7 +96,7 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
       try {
         // Write property files list in preferences.
         String value = ReqImporterPreferencesUtil.serializePropertyFilesPreference(model.getPropertiesFiles());
-        preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES, value);
+        preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES_KEY, value);
 
         // Write selected attributes in preferences.
         for (AttributeSet category : model.getCategories()) {
