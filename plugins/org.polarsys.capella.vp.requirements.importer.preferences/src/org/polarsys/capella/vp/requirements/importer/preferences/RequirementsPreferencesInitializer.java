@@ -26,14 +26,14 @@ public class RequirementsPreferencesInitializer extends AbstractPreferenceInitia
   @Override
   public void initializeDefaultPreferences() {
     IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
-    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION,
+    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION_KEY,
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_EXPRESSION);
-    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN,
+    store.setDefault(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN_KEY,
         RequirementsPreferencesConstants.REQUIREMENT_DEFAULT_LABEL_MAX_LEN);
-    store.setDefault(RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN,
-        RequirementsPreferencesConstants.VALUE_DEFAULT_LABEL_MAX_LEN);
+    store.setDefault(RequirementsPreferencesConstants.ENUMERATION_VALUE_ATTRIBUTE_LABEL_MAX_LEN_KEY,
+        RequirementsPreferencesConstants.ENUMERATION_VALUE_ATTRIBUTE_DEFAULT_LABEL_MAX_LEN);
     store.setDefault(RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE,
-            RequirementsPreferencesConstants.DEFAULT_VALUE_FORCE_DOORS_RMF_USAGE);
+        RequirementsPreferencesConstants.DEFAULT_VALUE_FORCE_DOORS_RMF_USAGE);
   }
-  
+
 }

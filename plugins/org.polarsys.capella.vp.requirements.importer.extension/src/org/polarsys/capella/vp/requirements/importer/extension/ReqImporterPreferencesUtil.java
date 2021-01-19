@@ -125,7 +125,7 @@ public class ReqImporterPreferencesUtil {
 
   public static List<URI> getPropertyFilesFromPreferences() {
     IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
-    String values = store.getString(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES);
+    String values = store.getString(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES_KEY);
     return deserializePropertyFilesPreference(values);
   }
 

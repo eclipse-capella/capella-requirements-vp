@@ -66,34 +66,50 @@ public class RequirementsPreferencePage extends AbstractDefaultPreferencePage {
     Composite parentGroup = new Composite(getFieldEditorParent(), SWT.NONE);
     parentGroup.setLayout(new GridLayout(1, false));
 
-    final Composite grp = createGroup("Requirement's label",
-        "Insert here an interpreted expression that will be evaluated to show the requirement's label", parentGroup);
+    createRequirementFieldEditors(parentGroup);
+    createEnumerationValueFieldEditors(parentGroup);
+    createOtherFieldEditors(parentGroup);
+  }
 
-    StringFieldEditor _delayFieldEditor = new StringFieldEditor(
-        RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION, "Expression", grp);
+  private void createRequirementFieldEditors(Composite parentGroup) {
+    Composite reqGroup = createGroup("Requirements", "Requirement Preferences", parentGroup);
 
-    addField(_delayFieldEditor);
+    StringFieldEditor reqLabelExpressionEditor = new StringFieldEditor(
+        RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION_KEY, "Label Expression", 80, 4,
+        StringFieldEditor.VALIDATE_ON_KEY_STROKE, reqGroup);
 
-    final StringFieldEditor maxLenFieldEditor = new StringFieldEditor(
-        RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN, "Length (put nothing to display full text):", grp);
-    maxLenFieldEditor.getTextControl(grp)
-        .addModifyListener(new NumberFieldModifyListener(maxLenFieldEditor.getTextControl(grp)));
-    addField(maxLenFieldEditor);
+    addField(reqLabelExpressionEditor);
 
-    final Composite grpValue = createGroup("Attribute Value's label",
-        "Insert here the maximum length of an attribute value's label", parentGroup);
-    final StringFieldEditor maxValueLenFieldEditor = new StringFieldEditor(
-        RequirementsPreferencesConstants.VALUE_LABEL_MAX_LEN, "Length (put nothing to display full text):", grpValue);
-    maxValueLenFieldEditor.getTextControl(grpValue)
-        .addModifyListener(new NumberFieldModifyListener(maxValueLenFieldEditor.getTextControl(grpValue)));
-    addField(maxValueLenFieldEditor);
-    
-    final Composite grpOther = createGroup("Other configuration items",
-            "", parentGroup);
-        final BooleanFieldEditor forceDoorsRmfUsageBooleanEditor = new BooleanFieldEditor(
-            RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE, "Force DOORS RMF usage check while importing requirements", grpOther);
-        addField(forceDoorsRmfUsageBooleanEditor);
+    StringFieldEditor reqLabelMaxLenEditor = new StringFieldEditor(
+        RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN_KEY, "Label Max Length (leave empty for full text)",
+        reqGroup);
+    reqLabelMaxLenEditor.getTextControl(reqGroup)
+        .addModifyListener(new NumberFieldModifyListener(reqLabelMaxLenEditor.getTextControl(reqGroup)));
 
+    addField(reqLabelMaxLenEditor);
+  }
+
+  private void createEnumerationValueFieldEditors(Composite parentGroup) {
+    Composite enumGroup = createGroup("Enumeration Value Attributes", "Enumeration Value Attribute Preferences",
+        parentGroup);
+
+    StringFieldEditor enumValueLabelMaxLenEditor = new StringFieldEditor(
+        RequirementsPreferencesConstants.ENUMERATION_VALUE_ATTRIBUTE_LABEL_MAX_LEN_KEY,
+        "Label Max Length (leave empty for full text)", enumGroup);
+    enumValueLabelMaxLenEditor.getTextControl(enumGroup)
+        .addModifyListener(new NumberFieldModifyListener(enumValueLabelMaxLenEditor.getTextControl(enumGroup)));
+
+    addField(enumValueLabelMaxLenEditor);
+  }
+
+  private void createOtherFieldEditors(Composite parentGroup) {
+    Composite otherGroup = createGroup("Other configuration items", "", parentGroup);
+
+    BooleanFieldEditor forceDoorsRmfUsageEditor = new BooleanFieldEditor(
+        RequirementsPreferencesConstants.PREFERENCE_FORCE_DOORS_RMF_USAGE,
+        "Force DOORS RMF usage check while importing requirements", otherGroup);
+
+    addField(forceDoorsRmfUsageEditor);
   }
 
   @Override
@@ -103,7 +119,7 @@ public class RequirementsPreferencePage extends AbstractDefaultPreferencePage {
 
   @Override
   protected String getPageDescription() {
-    return "Capella requirements preference page";
+    return "Preferences related to Requirements";
   }
 
   class NumberFieldModifyListener implements ModifyListener {

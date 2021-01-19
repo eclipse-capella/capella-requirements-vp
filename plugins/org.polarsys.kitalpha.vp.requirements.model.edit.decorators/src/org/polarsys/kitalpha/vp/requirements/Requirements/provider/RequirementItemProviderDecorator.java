@@ -80,7 +80,7 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
         interpreter = CompoundInterpreter.INSTANCE;
       if (interpreter != null) {
         String expression = RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION);
+            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_EXPRESSION_KEY);
         Object value = interpreter.evaluate(requirement, expression);
         String result = "";
         if (value instanceof List<?>) {
@@ -92,7 +92,7 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
         }
         result = LabelHelper.transformHTMLToText(result);
         return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
-            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN));
+            .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN_KEY));
       }
     } catch (EvaluationException ex) {
       return "[Error in label expression] " + super.getText(object);
