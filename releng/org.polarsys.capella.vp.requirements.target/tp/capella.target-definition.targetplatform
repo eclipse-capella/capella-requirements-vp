@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c)  2017, 2019 THALES GLOBAL SERVICES.
+ * Copyright (c)  2017, 2021 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,4 +41,8 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20180613-0111/" {
 
 location kitalpha "https://download.eclipse.org/kitalpha/updates/nightly/runtime/master" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
+}
+
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master" {
+    org.polarsys.capella.docgen.feature.feature.group
 }
