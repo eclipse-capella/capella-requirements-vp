@@ -1,0 +1,24 @@
+= ReqIF Export from IBM Rational DOORS &reg; =
+
+(applicable to version 9.6, extract of the official documentation available online)
+
+When you export a Requirements Interchange Format package, the data that is included in the selected definition is copied to an XML file.
+Data locks are applied to the local data as prescribed by the definition.
+The XML file is called a Requirements Interchange Format package.
+
+== Before you begin ==
+
+You must have the required permissions to partition data, and modify access to the project.
+Make sure the project and the modules in the definition you want to export are not open.
+
+<b>Note:</b> When you export a package, all public views that you can access in the modules in the definition are included in the package.
+
+== Procedure ==
+
+<ol>
+* In the database explorer, select the project that contains the definition and the data that you want to export. Click <b>File > Properties</b>.
+* Click the <b>ReqIF Definitions</b> tab, select the definition, and click <b>Export</b>.
+* Enter a package file name and location and click <b>OK</b>.
+</ol>
+
+<b>Note:</b> If you want to import then the ReqIF file into Capella, please make sure to export also necessary modules containing exported requirements. 

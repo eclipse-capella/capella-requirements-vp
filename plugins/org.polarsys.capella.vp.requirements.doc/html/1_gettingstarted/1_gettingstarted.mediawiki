@@ -1,0 +1,8 @@
+= Getting Started = 
+
+The Requirements Viewpoint for Capella allows importing a set of requirements from a ReqIF file.
+
+This file shall be exported from IBM Doors or any other requirement tool supporting the ReqIF OMG standard.
+
+* <b>Note:</b> Capella provides also Legacy Capella requirements (Right click, Add Element "Requirement Package"), but there is no relation with this advanced Requirement Viewpoint. For a next Major Release to plan, these Legacy Requirements will be removed from Capella and migrated to this new Viewpoint requirements through a dedicated migration tooling and, then, no more available within Capella core.
+

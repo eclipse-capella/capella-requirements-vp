@@ -1,0 +1,26 @@
+= Meta-Models = 
+
+The generic part of the requirements meta-model only depends on ECore.
+
+[[Image:../../images/metamodels/Requirements_package_dependencies.jpg]]
+
+This class diagram shows the main concepts and relations related to the Requirements.
+
+[[Image:../../images/metamodels/Requirements_class_diagram.jpg]]
+
+This class diagram shows the concepts and relations related to the Type Definitions.
+
+[[Image:../../images/metamodels/TypeDefinitions_class_diagram.jpg]]
+
+This class diagram shows the concepts and relations related to the Enumerations.
+
+[[Image:../../images/metamodels/Enumerations_class_diagram.jpg]]
+
+The Capella specific part of the requirements meta-model depends on eMDE and Capella.
+
+[[Image:../../images/metamodels/CapellaRequirements_package_dependencies.jpg]]
+
+This class diagram shows how the requirement concepts of the generic meta-model are linked to Capella.
+
+[[Image:../../images/metamodels/CapellaRequirements_class_diagram.jpg]]
+

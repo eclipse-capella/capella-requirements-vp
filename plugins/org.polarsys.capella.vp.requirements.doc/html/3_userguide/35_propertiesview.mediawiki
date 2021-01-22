@@ -1,0 +1,61 @@
+= Requirement Allocation Views =
+
+
+Requirement allocation views should allow to specify :
+
+	* relations between Requirements and Capella elements
+	* relations between Requirements themselves (feature coming from ReqIf known as internal relation)
+
+ Respectively, there are two Property views dedicated for these purposes: The Requirements Allocation view and the Internal Requirements Allocation view. 
+
+
+== Requirements Allocation ==
+The Requirements Allocation view shows all incoming and outgoing relations for an element. This element could be a Requirement, a Capella element or a Diagram. The addition of a relation can be done in three steps as demonstrated with the following example
+
+
+* Click on the Plus button to show target elements
+[[Image:../../images/Allocation_Step1.png]]
+
+* Select multiple elements to which we want to create relations
+[[Image:../../images/Allocation_Step2.png]]
+
+* Choose the Relation Type of each added relation (available Relation types are those imported or created in the current architecture level and all upper levels of the current model, Relation types of referenced libraries are not available. See &quot;Edition of Requirements > Add a new Relation Type&quot; part for more details on Relation types creation)
+[[Image:../../images/Allocation_Step3.png]]
+
+
+
+<br/>
+== Internal Requirements Allocation ==
+The Internal Requirements Allocation view shows all relations coming from one Requirement to another Requirement.
+[[Image:../../images/InternalAllocation_Step1.png]]
+
+Multiple Requirements can be chosen to create new Relations
+[[Image:../../images/InternalAllocation_Step2.png]]
+<br/>
+
+
+Technically, relations are stored under the source element of the relation. Also note that relations are technical elements and they are filtered by default. In order to see relations in Capella project explorer, the default filter must be deactivated. Following is an example of Requirements and their relations to/from Capella Elements:
+
+
+[[Image:../../images/requirement_example.png]]
+
+== Relations between elements stored in different layers ==
+Certain rules are applied when creating relations between Requirements and Capella elements (and vice versa), especially when they are stored in different layers. In general, a relation is valid if its target comes from the same layer or another upper layer than its source. Therefore,
+<ol>
+* For outgoing links, target elements are limited to those stored in the current layer and the upper ones
+* For incoming links, source elements are limited to those stored in the current layer and the lower ones
+* For internal links, target elements are limited to those stored in the current layer and the upper ones
+</ol>
+<i>Some limitations should be noted for Libraries (see the suitable part of <a href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/html/4_knownissues/4.1_limitations.html">Limitations</a> section).</i>
+<br/>
+
+The following is an example of creating different types of relations from a Requirement.
+
+* For a Requirement stored at System Analysis layer, available <b>target elements</b> for an outgoing link can only come from System Analysis layer and upper ones (Operational Analysis)
+[[Image:../../images/AllocationQueries_Step1.png]]
+
+* Available <b>source elements</b> for an incoming link can only come from System Analysis layer and lower ones (Logical Architecture, Physical Architecture and EPBS Architecture)
+[[Image:../../images/AllocationQueries_Step2.png]]
+
+* Similarly, available <b>target elements</b> for an internal link can only come from System Analysis layer and upper ones
+[[Image:../../images/AllocationQueries_Step3.png]]
