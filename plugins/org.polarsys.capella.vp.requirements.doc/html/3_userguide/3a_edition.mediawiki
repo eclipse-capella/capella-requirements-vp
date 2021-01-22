@@ -1,0 +1,68 @@
+= Edition =
+== Creation of Requirements ==
+<b>Note: </b>The viewpoint is mainly dedicated to manage allocations of model elements to requirements imported from a ReqIF file. 
+In this main use case, requirements are edited/baselined by an external tool and iteratively imported into Capella to manage allocation of model elements.
+It is possible to create and edit requirements though but be aware that there is no export from Capella to ReqIF.
+
+=== Manage Types ===
+Requirements, Folder, Modules are associated to a Type, defining which attributes apply to them. 
+By default, types are hidden in the Project Explorer. 
+
+=== Visualize Types ===
+
+Disable the corresponding filter:<br/>
+In Capella Project Explorer menu choose "Customize View...".
+
+[[Image:../../images/customize_view.png]]
+
+Search the filter "Requirement VP Types" and unmatch it.
+
+[[Image:../../images/filter.png]]
+
+If you have already done a import from a ReqIF file, Capella Types Folders must now be visible under an Architecture Block.<br/>
+Otherwise, you can create your own types folder (right-click on Architecture Block, "Add Capella Element > Capella Types Folder").
+
+=== Create Requirement Type ===
+Under the Type Folders, create some types as below.
+
+[[Image:../../images/type.png]]
+
+==== Predefined types ====
+Some predefined types are managed by the tool. Those are automatically created while ReqIF import, but if missing we advise you to create them in the Types Folder and reference them in your types:
+
+<table>
+<th>Predefined Type</th>
+<td>Boolean</td>
+<td>String</td>
+<td>Text</td>
+<td>Integer</td>
+<td>Real</td>
+<td>Date</td>
+</table>
+
+=== Create Requirements ===
+
+In the architecture, create a new Module, and in it, a new Requirement.
+[[Image:../../images/create-req.png]]
+
+Click on the Requirement and associate it, through the Property View, to the newly created type (or an existing one)
+[[Image:../../images/req-property.png]]
+
+As new requirement has to be associated to a Type before editing custom attributes, we advise you to create one 'empty' requirement associated to your type and do copy/paste of it when you want to create a new Requirement. That way, it will be directly associated to the expected Requirement Type.
+
+=== Edit Requirement ===
+Now you can edit attributes of your requirements by sending them into the Mass Editing View.
+
+[[Image:../../images/edit-req.png]]
+
+A mass editing table opens and you can edit attributes of your requirements.
+
+[[Image:../../images/massreq.png]]
+
+Please have a look to the Capella Guide > User Manual > User Interface > Mass Editing and Visualization section to see how these tables work and how to customize them.
+
+=== Add a new relation type ===
+
+To create a new relation type, right-click on a Capella Types Folder : "Add Capella Element > Relation Type".<br/>
+Do not forget to set its name.<br/>
+The new relation type is now available for requirements allocation.

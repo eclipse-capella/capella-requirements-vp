@@ -1,0 +1,82 @@
+= Preferences =
+== Requirement label ==
+
+
+The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page (Capella  <font color="blue">></font>  Requirements).<br/>
+Click <strong>Window > Preferences > Capella > Requirements</strong> to open this preference page.
+[[Image:../../images/preferences_requirements.png]]
+
+The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:
+
+
+<i>IE_PUID? (Text|Name|ChapterName|LongName)</i>
+
+
+The length of requirement's label can be specified (default = 80, nothing = full label , x = size and "..." )
+It is also possible to truncate the displayed requirement label if the length exceed
+
+
+
+The last preference option is the "Force DOORS RMF usage check while importing requirements", 
+if checked, this will force the importer to import requirements only having IE PUID and IE Object Type,
+so requirements with no IE PUID and IE Object Type will be omitted.
+
+
+You should keep this preference unchecked if you are not using IE PUID and IE Object Type for your requirements.
+
+
+== Importer scope ==
+
+The scope of data to import can be customized in the Importer preference page (Capella  <font color="blue">></font>  Requirements <font color="blue">></font> Importer):
+
+
+[[Image:../../images/preferences_importer_scope2.png]]
+
+You are not allowed to rename the set of attributes shipped in the add-on.<br/>
+If the DOORS add-on called IRDRMFAO is installed also, all attributes which start with "IE" are also not allowed to be renamed.<br/>
+Any change to the attributes name will harm the add-on and prevent it from properly importing your data.<br/>
+To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).
+
+=== Default configuration ===
+The recommended default set of attributes to be imported are the following one :
+<pre>
+IE PUID
+IE Object Type
+Object Text
+Object Heading
+Object Short Text
+IE Req Status
+IE Test Method Expected
+IE IVV Method
+RCM Version
+IE Req Version
+</pre>
+
+=== Add custom attributes ===
+There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.
+
+==== 1. Use Properties Files ====
+You can add new attributes by referencing .properties files with the following format (be careful to escape whitespaces):
+<pre>
+Attribute1Name:defaultSelectionState
+Attribute2Name:defaultSelectionState
+</pre>
+Then add the properties file in the first part of the preference dialog by clicking on "Add file".
+Once the added attributes are shown in the tree, you can select the attributes you need to import if they are not selected by default.
+
+In the screenshot above, the following file was used:
+<pre>
+Requirement\ Author:true
+Requirement\ Identifier:false
+Requirement\ State:false
+</pre>
+ 
+==== 2. Use Eclipse extension points ====
+
+The list of attributes to be imported can be enhanced by contributing to an extension point (see Programmer's Guide).
+
+
+<table border="1"><tr>
+<td><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></td>
+<td>When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.</td>
+</tr></table>

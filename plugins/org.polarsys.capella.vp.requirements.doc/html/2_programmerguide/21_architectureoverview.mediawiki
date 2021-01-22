@@ -1,0 +1,6 @@
+= Architecture Overview = 
+
+The image below presents the architecture overview of the ReqIF importer for Capella.
+
+[[Image:../../images/overview.png]]
+
