@@ -20,7 +20,11 @@ public class LabelHelper {
     // Private constructor
   }
   public static String transformHTMLToText(String content) {
-    content = content.replaceAll("<[^>]*>", "").replaceAll("\r\n", " ").replaceAll("\n", " ").trim();
+    return transformHTMLToTextWithLineFeed(content).replace("\r\n", " ").replace("\n", " ").trim();
+  }
+  
+  public static String transformHTMLToTextWithLineFeed(String content) {
+    content = content.replaceAll("<[^>]*>", "").trim();
     // Decode special characters
     content = URI.decode(content);
     // Unescape HTML special character entities
