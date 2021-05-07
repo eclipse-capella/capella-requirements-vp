@@ -39,6 +39,7 @@
 		<module>org.polarsys.capella.vp.requirements.ui.importer.preferences</module>
 		<module>org.polarsys.capella.vp.requirements.ui.properties</module>
 		<module>org.polarsys.capella.vp.requirements.validation</module>
+		<module>org.polarsys.capella.vp.requirements.quickfix</module>
 		<module>org.polarsys.capella.vp.requirements.vpdsl</module>
 		<module>org.polarsys.capella.vp.requirements.model.cdo</module>
 		<module>org.polarsys.kitalpha.vp.requirements.model.cdo</module>

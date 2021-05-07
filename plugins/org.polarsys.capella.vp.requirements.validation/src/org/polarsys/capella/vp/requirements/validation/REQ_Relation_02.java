@@ -53,6 +53,9 @@ public class REQ_Relation_02 extends AbstractValidationRule {
                 EObjectLabelProviderHelper.getText(entry.getKey().getSourceElement()),
                 EObjectLabelProviderHelper.getText(entry.getKey().getTargetElement()),
                 EObjectLabelProviderHelper.getText(entry.getKey().getRelationType()) });
+        ctx.addResult(entry.getKey().getSourceElement());
+        ctx.addResult(entry.getKey().getTargetElement());
+        ctx.addResult(entry.getKey().getRelationType());
         IStatus failureStatus = ctx.createFailureStatus(msg);
         statuses.add(failureStatus);
       }
