@@ -4,5 +4,5 @@ The following extension points can be used to extend the capabilities of the Cap
 
 == Importer ==
 
-* <a href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.importer.extension/schema/doc/org_polarsys_capella_vp_requirements_importer_extension_attributesProvider.html">org.polarsys.capella.vp.requirements.importer.extension.attributesProvider</a>
+* [[../help/topic/org.polarsys.capella.vp.requirements.importer.extension/schema/doc/org_polarsys_capella_vp_requirements_importer_extension_attributesProvider.html|org.polarsys.capella.vp.requirements.importer.extension.attributesProvider]]
 

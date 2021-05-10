@@ -1,29 +1,18 @@
 = Validation rules =
-		
-			<br/>  
-		
-		<table class="VALIDATION-RULE">
-			<tr>
-				<th>
-					<img title="ERROR" alt="ERROR" border="0" src="../../images/error.gif"/>
-				</th>
-				<td>REQ_Relation_01 - Logical component used interfaces delegation check </td>
-			</tr>
-			<tr>
-				<td colspan="2">This rule checks that a Relation has its Relation Type set with a non null value. </td>
-			</tr>
-		</table>
-		
-			<br/>  
-		
-		<table class="VALIDATION-RULE">
-			<tr>
-				<th>
-					<img title="ERROR" alt="ERROR" border="0" src="../../images/error.gif"/>
-				</th>
-				<td>REQ_Relation_02 - Logical component used interfaces delegation check </td>
-			</tr>
-			<tr>
-				<td colspan="2">This rule checks that a relation of a given type between the same source and target must be unique. </td>
-			</tr>
-		</table>
+
+<br/>
+{| class="wikitable"
+| [[File:../../images/error.gif]]
+| REQ_Relation_01 - Logical component used interfaces delegation check
+|-
+|colspan="2"| This rule checks that a Relation has its Relation Type set with a non null value. 
+|}
+
+<br/>
+
+{| class="wikitable"
+| [[File:../../images/error.gif]]
+|REQ_Relation_02 - Logical component used interfaces delegation check
+|-
+|colspan="2"| This rule checks that a relation of a given type between the same source and target must be unique.
+|}	

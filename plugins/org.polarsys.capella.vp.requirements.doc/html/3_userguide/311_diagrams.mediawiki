@@ -10,27 +10,32 @@ For this, the Requirements layer must be activated (activated by default for new
 [[Image:../../images/requirements_layer.png]]
 
 Once activated, a new segment <b>Requirements</b> appears in the palette tools:
+<br/>
 [[Image:../../images/requirements_segment.png]]
 
 In this <b>Requirements</b> segment, 5 new tools are available to manipulate the requirements on a diagram.
 
-==== Requirements ====
-Allow to add or remove a requirement to/from a diagram. This tool does not modify the semantic element.
+* ''' Requirements '''
 
-==== Requirement Link ====
-Allow to allocate a requirement to a Capella element represented on the diagram by drawing an edge between them.
+: Allow to add or remove a requirement to/from a diagram. This tool does not modify the semantic element.
 
-==== All Linked Requirements: ====
-On a Capella element, show all of its linked Requirements, incoming and outgoing.
-<br/> On a Requirement, show all of its internal Requirements, incoming and outgoing.
-<br/> On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all
-graphical elements of the diagram, incoming and outgoing.
+* ''' Requirement Link '''
 
-==== Incoming Requirements: ====
-Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.
+: Allow to allocate a requirement to a Capella element represented on the diagram by drawing an edge between them.
 
-==== Outgoing Requirements: ====
-Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.
+* ''' All Linked Requirements: '''
+
+: On a Capella element, show all of its linked Requirements, incoming and outgoing.
+: On a Requirement, show all of its internal Requirements, incoming and outgoing.
+: On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all graphical elements of the diagram, incoming and outgoing.
+
+* ''' Incoming Requirements: '''
+
+: Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.
+
+* ''' Outgoing Requirements: '''
+
+: Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.
 
 == Label and content configuration ==
 
@@ -50,27 +55,16 @@ It is possible to change AQL expressions and the lengths to fulfill operational 
 
 The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 4 properties in 4 bulleted lines:
 
-<table border="1">
-<tr>
-<td>
-<code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFName, self.ReqIFChapterName, self.ReqIFText}->select(s  | s != 'null' and s.size() > 0).prefix('- ')->sep('\n')</code>
-</td>
-<td>
-<img height="180" border="0" src="../../images/requirements_diagram_example_2.png"/>
-</td>
-</tr>
-</table>
-
-<table border="1">
-<tr>
-<td>
-<img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/>
-</td>
-<td>
-After each modification of the AQL expressions, each diagram needs to be refreshed manually by users so that new changes will be taken into account. It is possible to refresh all diagrams at one click by following the screenshot below.
-</td>
-</tr>
-
-</table>
+{| class="wikitable"
+|width="40%"| <code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFName, self.ReqIFChapterName, self.ReqIFText}->select(s  | s != 'null' and s.size() > 0).prefix('- ')->sep('\n')</code>
+|width="60%"| [[File:../../images/requirements_diagram_example_2.png]]
+|}
 <br/>
+
+{| class="wikitable"
+|width="50%"| [[File:PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png|32x32px]]
+|width="50%"| After each modification of the AQL expressions, each diagram needs to be refreshed manually by users so that new changes will be taken into account. It is possible to refresh all diagrams at one click by following the screenshot below.
+|}
+<br/>
+
 [[Image:../../images/RefreshAllDiagramsMenu.png]]

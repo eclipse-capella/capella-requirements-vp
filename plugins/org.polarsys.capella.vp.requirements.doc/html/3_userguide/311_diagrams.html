@@ -1,121 +1,112 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-    <link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"
     />
-    <title>Requirements in Diagrams</title>
-</head>
+    	<title>Requirements in Diagrams</title>
+	</head>
+	<body>
+		<h1 id="Requirements_in_Diagrams">Requirements in Diagrams</h1>
+		<h2 id="Layer_and_tools_in_diagram">Layer and tools in diagram</h2>
+		<p>
+			<img border="0" src="../../images/requirements_diagram_example.png"/>
+		</p>
+		<p>Requirements and their relations (from/to Capella elements and internal relations between Requirements) can be displayed
+			in your diagrams. Requirements that are associated with the current diagram is displayed with a special icon on the top right corner as shown in the above image.</p>
+		<p>For this, the Requirements layer must be activated (activated by default for new diagrams):
 
-<body>
-    <h1>Requirements in Diagrams</h1>
+			<img border="0" src="../../images/requirements_layer.png"/>
+		</p>
+		<p>Once activated, a new segment <b>Requirements</b> appears in the palette tools:
 
-    <h2>Layer and tools in diagram</h2>
-    <img src="../../images/requirements_diagram_example.png" alt="Requirements Diagram Example" title="Requirements Diagram Example"/>
+			<br/>
 
-    <p>Requirements and their relations (from/to Capella elements and internal relations between Requirements) can be displayed
-        in your diagrams. Requirements that are associated with the current diagram is displayed with a special icon on the top right corner as shown in the above image.</p>
-        
-    <p>For this, the Requirements layer must be activated (activated by default for new diagrams):</p>
-    <img src="../../images/requirements_layer.png" alt="Requirements Layer" title="Requirements Layer" />
-
-    <p>Once activated, a new segment <b>Requirements</b> appears in the palette tools:</p>
-    <img src="../../images/requirements_segment.png" alt="Requirements Segment" title="Requirements Segment" />
-
-    <p>In this <b>Requirements</b> segment, 5 new tools are available to manipulate the requirements on a diagram.</p>
-	
-	<ul>
-		<li>
-			<h4>Requirements</h4>
-    		<p>Allow to add or remove a requirement to/from a diagram. This tool does not modify the semantic element.</p>
-		</li>
-		<li>
-			<h4>Requirement Link</h4>
-    		<p>Allow to allocate a requirement to a Capella element represented on the diagram by drawing an edge between them.</p>
-		</li>
-		<li>
-			<h4>All Linked Requirements:</h4>
-    		<p>On a Capella element, show all of its linked Requirements, incoming and outgoing.
-        		<br/> On a Requirement, show all of its internal Requirements, incoming and outgoing.
-        		<br/> On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all
-        		graphical elements of the diagram, incoming and outgoing.
-        	</p>
-        	<!--
-        	<table border="1">
-		        <tr>
-		            <td width="50%">
-		                <p>
-		                    <img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"
-		                    />
-		                    If a requirement is related to (incoming or outgoing) the opened diagram, it will be decorated with a little icon on the upper-right corner.
-		                </p>
-		            </td>
-		            <td>
-						<img src="../../images/requirements_diagram_example_diagram_related.png" alt="Decorator for requirement related to a diagram" title="Decorator for requirement related to a diagram" />
-		            </td>
-		        </tr>
-		    </table>
-		    -->
-		</li>
-		<li>
-			<h4>Incoming Requirements:</h4>
-    		<p>Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.</p>
-		</li>
-		<li>
-			<h4>Outgoing Requirements:</h4>
-    		<p>Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.</p>
-		</li>
-	</ul>
-	
-	<h2>Label and content configuration</h2>
-    <p>
-    	The label and content displayed for each requirement can be computed dynamically by evaluating two predefined AQL expressions.
-    	The two AQL expressions can be configured in the dedicated wizard dialog.
-    </p>
-    <img src="../../images/requirements_configuration_wizard.png" alt="Requirements Configuration Wizard" title="Requirements Configuration Wizard" />
-    <p>
-    	The wizard can be activated by clicking on the root "System Engineering" of a Capella project which has been referenced by the Requirements Viewpoint.
-    </p> 
-    <img src="../../images/requirements_configuration_wizard_menu.png" alt="Menu Item for Requirements Configuration Wizard" title="Menu Item for Requirements Configuration Wizard" />
-    <p>
-    	By default, there are two predefined AQL expressions for both label and content of requirements. The displayed texts are truncated and followed by <b>"..."</b> if they are longer than the defined lengths.
-    	It is possible to change AQL expressions and the lengths to fulfill operational needs. However, if the AQL expression is invalid, in other words, could not be interpreted, the result will be displayed as <b>&lt;undefined&gt;</b>.
-    </p>
-    <img src="../../images/requirements_diagram_example_special_case.png" alt="Special case of displaying requirements in diagrams" title="Special case of displaying requirements in diagrams" />
-	
-	<p>
-	The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 4 properties in 4 bulleted lines:
-    </p>
-    <table border="1">
-        <tr>
-        	<td>
-            	<code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFName, self.ReqIFChapterName, self.ReqIFText}->select(s  | s != 'null' and s.size() > 0).prefix('- ')->sep('\n')</code>
-            </td>
-            <td>
-                <p>
-                    <img height="180" border="0" src="../../images/requirements_diagram_example_2.png"/>
-                </p>
-            </td>
-        </tr>
-    </table>
-    <br/>
-   	<table border="1">
-        <tr>
-            <td>
-                <p>
-                    <img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/>
-                </p>
-            </td>
-            <td>
-            	<ul>
-            		<li>After each modification of the AQL expressions, each diagram needs to be refreshed manually by users so that new changes will be taken into account. It is possible to refresh all diagrams at one click by following the screenshot below.</li>
-            	</ul>
-            </td>
-        </tr>
-    </table>
-    <br/>
-	<img src="../../images/RefreshAllDiagramsMenu.png" alt="Refresh all diagrams" title="Refresh all diagrams" />
-</body>
-
+			<img border="0" src="../../images/requirements_segment.png"/>
+		</p>
+		<p>In this <b>Requirements</b> segment, 5 new tools are available to manipulate the requirements on a diagram.</p>
+		<ul>
+			<li>
+				<b> Requirements </b>
+			</li>
+		</ul>
+		<dl>
+			<dd>Allow to add or remove a requirement to/from a diagram. This tool does not modify the semantic element.</dd>
+		</dl>
+		<ul>
+			<li>
+				<b> Requirement Link </b>
+			</li>
+		</ul>
+		<dl>
+			<dd>Allow to allocate a requirement to a Capella element represented on the diagram by drawing an edge between them.</dd>
+		</dl>
+		<ul>
+			<li>
+				<b> All Linked Requirements: </b>
+			</li>
+		</ul>
+		<dl>
+			<dd>On a Capella element, show all of its linked Requirements, incoming and outgoing.</dd>
+			<dd>On a Requirement, show all of its internal Requirements, incoming and outgoing.</dd>
+			<dd>On the back of the diagram, show all linked Requirements of the diagram and also all linked Requirements of all graphical elements of the diagram, incoming and outgoing.</dd>
+		</dl>
+		<ul>
+			<li>
+				<b> Incoming Requirements: </b>
+			</li>
+		</ul>
+		<dl>
+			<dd>Display a wizard to select incoming Requirements to show or hide, from a Capella Element or another Requirement.</dd>
+		</dl>
+		<ul>
+			<li>
+				<b> Outgoing Requirements: </b>
+			</li>
+		</ul>
+		<dl>
+			<dd>Display a wizard to select outgoing Requirements to show or hide, to a Capella Element or another Requirement.</dd>
+		</dl>
+		<h2 id="Label_and_content_configuration">Label and content configuration</h2>
+		<p>The label and content displayed for each requirement can be computed dynamically by evaluating two predefined AQL expressions.
+			The two AQL expressions can be configured in the dedicated wizard dialog.</p>
+		<p>
+			<img border="0" src="../../images/requirements_configuration_wizard.png"/>
+		</p>
+		<p>The wizard can be activated by clicking on the root "System Engineering" of a Capella project which has been referenced by the Requirements Viewpoint.</p>
+		<p>
+			<img border="0" src="../../images/requirements_configuration_wizard_menu.png"/>
+		</p>
+		<p>By default, there are two predefined AQL expressions for both label and content of requirements. The displayed texts are truncated and followed by <b>"..."</b> if they are longer than the defined lengths.
+			It is possible to change AQL expressions and the lengths to fulfill operational needs. However, if the AQL expression is invalid, in other words, could not be interpreted, the result will be displayed as <b>&lt;undefined&gt;</b>.</p>
+		<p>
+			<img border="0" src="../../images/requirements_diagram_example_special_case.png"/>
+		</p>
+		<p>The AQL expression is very flexible and easy to use for almost every operational need. For instance, the example below shows how we can display the content of each requirement by aggregating information from 4 properties in 4 bulleted lines:</p>
+		<table class="wikitable">
+			<tr>
+				<td><code>aql:OrderedSet{self.ReqIFLongName, self.ReqIFName, self.ReqIFChapterName, self.ReqIFText}-&gt;select(s  | s != 'null' and s.size() &gt; 0).prefix('- ')-&gt;sep('\n')</code></td>
+				<td>
+					<img border="0" src="../../images/requirements_diagram_example_2.png"/>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br/>
+		</p>
+		<table class="wikitable">
+			<tr>
+				<td>
+					<img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/>
+				</td>
+				<td>After each modification of the AQL expressions, each diagram needs to be refreshed manually by users so that new changes will be taken into account. It is possible to refresh all diagrams at one click by following the screenshot below.</td>
+			</tr>
+		</table>
+		<p>
+			<br/>
+		</p>
+		<p>
+			<img border="0" src="../../images/RefreshAllDiagramsMenu.png"/>
+		</p>
+	</body>
 </html>

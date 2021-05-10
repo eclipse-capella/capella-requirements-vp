@@ -9,26 +9,24 @@ The .capella.bridgetraces file for the iterative import has been modified for pe
 
 * ReqIf file exported from a base-lined DOORS module does not contain any link. If you intend to export links to ReqIf, the current module should be used instead of baselined one. This issue will be fixed in DOORS 9.6.1.11.
 
-* ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. 
-This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module.
-Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.
+* ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module. Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.
 
-[[Image:../../images/ExportReqIfBaseline.png]]
+: [[Image:../../images/ExportReqIfBaseline.png]]
 
-However, if you must use the base-lined modules, a workaround is to make sure that elements from base-lined modules have the same identifiers by removing the baseline part in all elements' identifiers. Note that this workaround only works with base-lined modules, comparing a base-lined one with the current module is still not possible.
+: However, if you must use the base-lined modules, a workaround is to make sure that elements from base-lined modules have the same identifiers by removing the baseline part in all elements' identifiers. Note that this workaround only works with base-lined modules, comparing a base-lined one with the current module is still not possible.
 
-[[Image:../../images/RemoveBaselineFromIdentifier.png]]
+: [[Image:../../images/RemoveBaselineFromIdentifier.png]]
 
 
 == Import limitation ==
 
-* OLE elements or images are not imported in Capella even if they are present in the ReqIF source file.</li>
+* OLE elements or images are not imported in Capella even if they are present in the ReqIF source file.
 
 == Diagrams/Tables requirement allocations ==
 
 * Allocation of requirements from/to diagrams or tables can only be performed in the Properties view when the diagram is selected, it is not possible to create allocation links from/to diagrams or tables when a Requirement is selected
 
-== Allocation links reach (Models and Libraries): ==
+== Allocation links reach (Models and Libraries) ==
 
 * Allocations links or Internal Relation links can only be created from elements in an architecture level to elements in the same architecture level or in an upper architecture level in the same model
 

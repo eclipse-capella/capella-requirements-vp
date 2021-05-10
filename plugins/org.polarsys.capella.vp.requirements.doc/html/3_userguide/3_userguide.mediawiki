@@ -1,0 +1,17 @@
+= User's Guide =
+
+This user's guide provides information related to the viewpoint usage
+
+== Contents ==
+
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/31_reqifexport.html|ReqIF Export]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/32_viewpointmanager.html|Viewpoint Manager]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/33_reqifimport.html|ReqIF Import in Capella]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/33_1_migration.html|Project migration]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/34_preferences.html|Preferences]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/35_propertiesview.html|Properties View]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/311_diagrams.html|Requirements in Diagrams]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/37_semanticbrowser.html|Semantic Browser]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/38_validation_rule.html|Validation Rules]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/39_commandline.html|Command Line Importer]]
+* [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/310_teamforcapella.html|Team for Capella]]

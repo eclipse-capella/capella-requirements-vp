@@ -4,31 +4,40 @@ The Capella Requirements viewpoint provides the capability to launch a ReqIF fil
 
 == Mandatory parameters: ==
 -appid: id of the command line application to be launched.
+<br/>
 -filepath: aird file path (relative to the workspace).
 
 == Optional parameters: ==
 -data: path to be used for the workspace.
+<br/>
 -import: defines a list of projects to import into the workspace before doing the actual job (the list of projects is a '|' separated list).
 
 <br/>
-<table border="1"><tr>
-<td><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></td>
-<td>Default behavior of the command line support checks that the specified workspace is not in use by another instance of Eclipse.</td>
-</tr></table>
+{| class="wikitable"
+|width="50%"| [[File:PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png|32x32px]]
+|width="50%"| Default behavior of the command line support checks that the specified workspace is not in use by another instance of Eclipse.
+|}
 
 <br/>
-<table border="1"><tr>
-<td><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></td>
-<td>If the path to the aird file, or the path to the workspace, or the path to the log file contains white space, it should be in quotes (eg: <b>-data &ldquo;D: \Application Data\workspace&rdquo;)</b></td>
-</tr></table>
+{| class="wikitable"
+|width="50%"| [[File:PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png|32x32px]]
+|width="50%"| If the path to the aird file, or the path to the workspace, or the path to the log file contains white space, it should be in quotes (eg: '''-data "D: \Application Data\workspace"''')
+|}
+
 
 == Import example ==
 This command imports the file <i>d:/test.reqif</i> into the <i>&lt;workspacePath&gt;</i>/test/test.aird file. The project <i>test</i> is an existing project into the specified workspace. An <i>importcontext </i>parameter allows to specify the URI of the model element on which the import will be applied.
 
-<i>&lt;</i><i>CapellaInstallationPath&gt;/eclipse.exe -nosplash </i>
-<i>-application </i><i>org.polarsys.capella.core.commandline.core</i>
-<i>-appid </i><i>org.polarsys.capella.vp.requirements.importer.commandline</i>
-<i>-data &lt;workspacePath&gt; </i>
-<i>-filepath /test/test.aird</i>
-<i>-reqifpath d:/test.reqif</i>
-<i>-importcontext &quot;test/test.capella#971d9934-9780-4e41-b02e-312d0eac3223</i>
+''<CapellaInstallationPath>/eclipse.exe -nosplash''
+
+''-application org.polarsys.capella.core.commandline.core''
+
+''-appid org.polarsys.capella.vp.requirements.importer.commandline''
+
+''-data <workspacePath> ''
+
+''-filepath /test/test.aird''
+
+''-reqifpath d:/test.reqif''
+
+''-importcontext "test/test.capella#971d9934-9780-4e41-b02e-312d0eac3223"''

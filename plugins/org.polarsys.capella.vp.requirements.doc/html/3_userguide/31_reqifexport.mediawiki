@@ -15,10 +15,9 @@ Make sure the project and the modules in the definition you want to export are n
 
 == Procedure ==
 
-<ol>
-* In the database explorer, select the project that contains the definition and the data that you want to export. Click <b>File > Properties</b>.
-* Click the <b>ReqIF Definitions</b> tab, select the definition, and click <b>Export</b>.
-* Enter a package file name and location and click <b>OK</b>.
-</ol>
+# In the database explorer, select the project that contains the definition and the data that you want to export. Click <b>File > Properties</b>.
+# Click the <b>ReqIF Definitions</b> tab, select the definition, and click <b>Export</b>.
+# Enter a package file name and location and click <b>OK</b>.
+
 
 <b>Note:</b> If you want to import then the ReqIF file into Capella, please make sure to export also necessary modules containing exported requirements. 

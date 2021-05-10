@@ -1,55 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
-	<title>Limitations</title>
-</head>
-<body>
-<h1>Limitations</h1>
-
-<h2>No compatiblity with previous prototypes</h2>
-<ul>
-	<li>
-This version is not compatible with previous prototypes (0.5.x) due to some blocking issues fixes identified during prototype validation. 
-The .capella.bridgetraces file for the iterative import has been modified for persistence ReqIf IDs.
-	</li>
-</ul>
-
-<h2>Export ReqIf limitation with DOORS</h2>
-<ul>
-	<li>
-		ReqIf file exported from a base-lined DOORS module does not contain any link. If you intend to export links to ReqIf, the current module should be used instead of baselined one. This issue will be fixed in DOORS 9.6.1.11.
-	</li>
-	<li>
-		ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. 
-		This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module.
-		Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.
-		<img src="../../images/ExportReqIfBaseline.png" alt="Export ReqIf limitation with baselines" title="Export ReqIf limitation with baselines"/>
-		<br/>
-		However, if you must use the base-lined modules, a workaround is to make sure that elements from base-lined modules have the same identifiers by removing the baseline part in all elements' identifiers. Note that this workaround only works with base-lined modules, comparing a base-lined one with the current module is still not possible.
-		<img src="../../images/RemoveBaselineFromIdentifier.png" alt="Remove baseline from identifier" title="Remove baseline from identifier"/>
-		<br/>
-	</li>
-</ul>
-
-<h2>Import limitation</h2>
-<ul>
-<li>OLE elements or images are not imported in Capella even if they are present in the ReqIF source file.</li>
-</ul>
-<h2>Diagrams/Tables requirement allocations:</h2>
-<ul>
-	<li><p>Allocation of requirements from/to diagrams or tables can only be performed in the Properties view when the diagram is selected, it is not possible to create allocation links from/to diagrams or tables when a Requirement is selected,</p></li>
-</ul>
-<h2>Allocation links reach (Models and Libraries):</h2>
-<ul>
-<li><p>Allocations links or Internal Relation links can only be created from elements in an architecture level to elements in the same architecture level or in an upper architecture level in the same model,</p></li>
-<li><p>In a Project/Library, the Requirement model can not reference elements from a referenced Library (e.g model elements, Data Types, Attribute Definitions...). Anyway, it is possible to create Allocation links or Internal Relation links inside a library seen from a model/library in Read/Write mode,</p></li>
-</ul>
-<h2>Other limitations:</h2>
-<ul>
-<li><p>Requirements allocation can only be done on elements belonging to the Capella metamodel or an inheriting Metamodel (+ Sirius' diagrams and table). If additional Viewpoints are used, they must inherit from the Capella metamodel to work with the Requirements Viewpoint,</p></li>
-<li><p>There is no way to export elements of the Requirements VP. So changes done in the Requirements model (changed/created Requirements, created Allocations or Internal Links...) will stay in the model and it will not be possible to export them in a Requirement Management tool (e.g. DOORS).</p></li>
-</ul>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
+		<title>Limitations</title>
+	</head>
+	<body>
+		<h1 id="Limitations">Limitations</h1>
+		<h2 id="No_compatiblity_with_previous_prototypes">No compatiblity with previous prototypes</h2>
+		<ul>
+			<li>This version is not compatible with previous prototypes (0.5.x) due to some blocking issues fixes identified during prototype validation. </li>
+		</ul>
+		<p>The .capella.bridgetraces file for the iterative import has been modified for persistence ReqIf IDs.</p>
+		<h2 id="Export_ReqIf_limitation_with_DOORS">Export ReqIf limitation with DOORS</h2>
+		<ul>
+			<li>ReqIf file exported from a base-lined DOORS module does not contain any link. If you intend to export links to ReqIf, the current module should be used instead of baselined one. This issue will be fixed in DOORS 9.6.1.11.</li>
+		</ul>
+		<ul>
+			<li>ReqIf elements exported from a base-lined module do not have the same identifiers than the current module. This comes from the fact that with DOORS, a base-lined module is a snapshot of the current module. Thus, we recommend not to rely on base-lined module to export ReqIf file, otherwise export a ReqIf module from the current module in parallel with baselines.</li>
+		</ul>
+		<dl>
+			<dd>
+				<img border="0" src="../../images/ExportReqIfBaseline.png"/>
+			</dd>
+		</dl>
+		<dl>
+			<dd>However, if you must use the base-lined modules, a workaround is to make sure that elements from base-lined modules have the same identifiers by removing the baseline part in all elements' identifiers. Note that this workaround only works with base-lined modules, comparing a base-lined one with the current module is still not possible.</dd>
+		</dl>
+		<dl>
+			<dd>
+				<img border="0" src="../../images/RemoveBaselineFromIdentifier.png"/>
+			</dd>
+		</dl>
+		<h2 id="Import_limitation">Import limitation</h2>
+		<ul>
+			<li>OLE elements or images are not imported in Capella even if they are present in the ReqIF source file.</li>
+		</ul>
+		<h2 id="Diagrams.2FTables_requirement_allocations">Diagrams/Tables requirement allocations</h2>
+		<ul>
+			<li>Allocation of requirements from/to diagrams or tables can only be performed in the Properties view when the diagram is selected, it is not possible to create allocation links from/to diagrams or tables when a Requirement is selected</li>
+		</ul>
+		<h2 id="Allocation_links_reach_.28Models_and_Libraries.29">Allocation links reach (Models and Libraries)</h2>
+		<ul>
+			<li>Allocations links or Internal Relation links can only be created from elements in an architecture level to elements in the same architecture level or in an upper architecture level in the same model</li>
+		</ul>
+		<ul>
+			<li>In a Project/Library, the Requirement model can not reference elements from a referenced Library (e.g model elements, Data Types, Attribute Definitions...). Anyway, it is possible to create Allocation links or Internal Relation links inside a library seen from a model/library in Read/Write mode</li>
+		</ul>
+		<h2 id="Other_limitations">Other limitations</h2>
+		<ul>
+			<li>Requirements allocation can only be done on elements belonging to the Capella metamodel or an inheriting Metamodel (+ Sirius' diagrams and table). If additional Viewpoints are used, they must inherit from the Capella metamodel to work with the Requirements Viewpoint</li>
+		</ul>
+		<ul>
+			<li>There is no way to export elements of the Requirements VP. So changes done in the Requirements model (changed/created Requirements, created Allocations or Internal Links...) will stay in the model and it will not be possible to export them in a Requirement Management tool (e.g. DOORS).</li>
+		</ul>
+	</body>
 </html>
