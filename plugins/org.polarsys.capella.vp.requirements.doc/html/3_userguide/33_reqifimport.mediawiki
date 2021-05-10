@@ -1,13 +1,13 @@
 = ReqIF Import in Capella =
 == Requirements ==
 
-* The importer supports ReqIF version <b>1.0</b>
-* <b>Only requirements under modules</b> will be imported. If a ReqIF file contains requirements but does not contain any module, the importer will not launch.
+* The importer supports ReqIF version '''1.0'''
+* '''Only requirements under modules''' will be imported. If a ReqIF file contains requirements but does not contain any module, the importer will not launch.
 * Some tools like Doors NG doesn't export some attributes properly (ForeignID for instance). By importing such ReqIF file, you may lose some attribute values/types during the import.
 
 == Launch the import ==
 
-Right click on an Architecture element of your model and select &quot;Requirements Viewpoint&quot; &gt; &quot;Import from ReqIF&quot;:
+Right click on an Architecture element of your model and select "Requirements Viewpoint" > "Import from ReqIF":
 
 [[Image:../../images/RequirementsViewpointImportFromReqIFAction.png]]
 
@@ -22,16 +22,18 @@ Once the ReqIF elements are loaded from the selected file, a Diff/Merge dialog o
 
 The default GUI is composed of 3 vertical sections and 2 horizontal sections. 
 
-<b>Vertical sections</b>
+'''Vertical sections'''
+
 The middle section represents the contents of the initial model (before import) while the section on the right-hand side represents the contents of the resulting model (after import). When hovering on the top of any section, the complete path to the model is displayed as a tooltip if the window is too narrow. Each side is associated to a colour: by default, dark red for the left model and blue for the right model. This colour code is also used in other dialogs of the diff/merge tool in order to prevent any ambiguity. 
 The section on the left-hand side is the Synthesis section: it represents the differences between the models. According to the colour code, model elements which are present in the right model but not in the left model are written in blue, while they are written in dark red in the opposite case. Elements which are present in both sides but have differences in their attributes or references ("modified elements") are labeled in purple. The number of differences they contain (after filtering) is written between parentheses. The 3 sections are synchronized: clicking an element in the Synthesis section highlights it in the other sections and vice-versa. 
 
-<b>Horizontal sections</b>
+'''Horizontal sections'''
+
 The 2 horizontal sections correspond to 2 levels of detail. The top section focuses on model elements and only reflects that level of granularity. The bottom section is the Details section: it shows the contents (attributes and references) of the model element which is currently selected in the top section.
 
 For example, if a modified element (in purple) is being clicked in the Synthesis section, then the Details section displays all the attributes and references of that element that have differences. The corresponding values are displayed in the middle and right parts of the Details section according to the model they belong to. These sub-sections are called the Value sections. For instance, in the snapshot above, element "N2" is selected in the Synthesis section; the Details section shows that it has a difference on its name: the name is "N2" in the left model and "N2-Container" in the right model as shown in the Value sections.
 
-<b>Iterative import</b>
+'''Iterative import'''
 
 By default the following options are checked for the merge operation.
 
@@ -40,36 +42,38 @@ By default the following options are checked for the merge operation.
 Please note that any modification performed to your requirements (creation of new requirements, deletions of existing requirements, etc.) can be lost if you merge everything without any analysis.
 We thus strongly recommend to take your time and analyze the displayed impacts in the Diff/Merge window, or make use of the 'Incremental mode' in order to prevent direct deletions. 
 
-<b>Filtering Capability</b>
+'''Filtering Capability'''
 
-The scope of the data can be customized using the <i>[[Image:../../images/categories.png]] Difference Categories</i> toolbar button, either by choosing to import (or not) the internal links between modules or the type definitions. See the "Requirements" part in the following screenshot:
+The scope of the data can be customized using the ''[[Image:../../images/categories.png]] Difference Categories'' toolbar button, either by choosing to import (or not) the internal links between modules or the type definitions. See the "Requirements" part in the following screenshot:
 
 [[Image:../../images/diffmerge_filtering.png]]
 
-See <a href="http://wiki.eclipse.org/EMF_DiffMerge">EMF DiffMerge documentation</a> for more detailed information.
+See [http://wiki.eclipse.org/EMF_DiffMerge EMF DiffMerge documentation] for more detailed information.
 
-<b>Reference merging rules</b>
+'''Reference merging rules'''
+
 The merge policy is based the following main rules. Thus, are take into account within the merge:
 
-* For each <b>Attribute</b>, the <b>Attribute Definition</b> along with the Attribute
-* For each <b>Attribute Definition</b>, the <b>Attribute with default value</b> along with the Attribute Definition
-* For each <b>Module</b>, the <b>Module Type</b> along with the module
-* For each <b>Internal Relation</b>, the <b>Source/Target</b> along with the Internal Relation and their owned Attributes
-* For each <b>Requirement</b>, the <b>Requirement Type</b> along with the Requirement Type
+* For each '''Attribute''', the '''Attribute Definition''' along with the Attribute
+* For each '''Attribute Definition''', the '''Attribute with default value''' along with the Attribute Definition
+* For each '''Module''', the '''Module Type''' along with the module
+* For each '''Internal Relation''', the '''Source/Target''' along with the Internal Relation and their owned Attributes
+* For each '''Requirement''', the '''Requirement Type''' along with the Requirement Type
 
-<b>Add non-referenced attribute definition</b>
+'''Add non-referenced attribute definition'''
+
 By default, non-referenced attribute definitions are not imported into Capella model. To explicitly ask Requirement Viewpoint to import these attribute definitions, you could do the following steps:
 
-* In the <b>Model Update</b> dialog, deactivate the <b>Type definitions</b> filter
+* In the '''Model Update''' dialog, deactivate the '''Type definitions''' filter
 
-[[Image:../../images/NonReferencedAttributeDefinition_Step1.png]]
+: [[Image:../../images/NonReferencedAttributeDefinition_Step1.png]]
  
 * Do a "Copy to the right action" on Requirement Modules
-* Under the <b>Types Folder</b> element, choose the attribute definition to put to the Resulting model
+* Under the '''Types Folder''' element, choose the attribute definition to put to the Resulting model
 
-[[Image:../../images/NonReferencedAttributeDefinition_Step2.png]]
+: [[Image:../../images/NonReferencedAttributeDefinition_Step2.png]]
 
-<b>Ignore differences in ReqIF.Text attributes</b>
+'''Ignore differences in ReqIF.Text attributes'''
 
 Since v0.12.0, ReqIF.Text attributes are imported in a way that HTML formatting is kept, on the contrary to previous versions where only plain text is imported.
 Thus, differences in these attributes will be shown when the same ReqIf model is imported. If you want to ignore these differences during the import, you can choose to activate the ReqIF Text filter, as shown in the image below.
@@ -78,15 +82,15 @@ Thus, differences in these attributes will be shown when the same ReqIf model is
 
 == Display ReqIF Text content in Capella Richtext editor ==
 
-Requirement's ReqIf.Text field when imported into Capella model can be displayed in Capella Richtext editor in the property view as shown in the below image.</div>
+Requirement's ReqIf.Text field when imported into Capella model can be displayed in Capella Richtext editor in the property view as shown in the below image.
 
 [[Image:../../images/ReqIFText.png]]
 
-<b>Image importing strategies</b>
+'''Image importing strategies'''
 
-For imported images, users can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.
+For imported images, users  can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.
 
-[[Image:../../images/ImageImportStrategy.png]]
+[[File:../../images/ImageImportStrategy.png]]
 
 * Absolute path: This is the recommended mode. However, images cannot be loaded if the image folder location is not known to Capella. Thus, users must make sure that the image folder is accessible (e.g. folder in a shared drive)
 * Relative path: The image folder is included in Capella project. However, due to some limitations, this mode does not work well with connected models in collaborative mode.

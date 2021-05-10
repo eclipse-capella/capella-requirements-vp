@@ -17,7 +17,5 @@
    <topic href="html/2_programmerguide/22_metamodels.html" label="Meta-models">
    </topic>
    <topic href="html/2_programmerguide/23_extensionpoints.html" label="Extension Points">
-      <topic href="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.importer.extension/schema/doc/org_polarsys_capella_vp_requirements_importer_extension_attributesProvider.html" label="org.polarsys.capella.vp.requirements.importer.extension.attributesProvider">
-      </topic>
    </topic>
 </toc>

@@ -2,6 +2,7 @@
 
 == Show Requirements VP elements in the Semantic Browser ==
 By default, for performance reasons, Requirements VP elements are not displayed in the Semantic Browser.
+
 To show them, click on the encircled toggle button:
 [[Image:../../images/showrequirementsinsb.png]]
 == Semantic Browser queries ==
@@ -9,19 +10,19 @@ The following queries are contributed by the Requirements VP to the Semantic Bro
 
 * On model elements, diagrams and tables:
 
-* Allocating Requirements,
-* Allocated Requirements.
+** Allocating Requirements,
+** Allocated Requirements.
 
 
 Example with a System Function:
 [[Image:../../images/semanticbrowser.png]]
 * On Requirements elements:
 
-* Allocating model elements and representations
-* Allocated Requirements
-* Referencing Requirements via incoming Internal Relations,
-* Referenced Requirements via outgoing Internal Relations,
-* The Requirement's type.
+** Allocating model elements and representations
+** Allocated Requirements
+** Referencing Requirements via incoming Internal Relations,
+** Referenced Requirements via outgoing Internal Relations,
+** The Requirement's type.
 
 
 Example with a Requirement:

@@ -2,10 +2,12 @@
 == Creation of Requirements ==
 <b>Note: </b>The viewpoint is mainly dedicated to manage allocations of model elements to requirements imported from a ReqIF file. 
 In this main use case, requirements are edited/baselined by an external tool and iteratively imported into Capella to manage allocation of model elements.
+
 It is possible to create and edit requirements though but be aware that there is no export from Capella to ReqIF.
 
 === Manage Types ===
 Requirements, Folder, Modules are associated to a Type, defining which attributes apply to them. 
+
 By default, types are hidden in the Project Explorer. 
 
 === Visualize Types ===
@@ -43,9 +45,11 @@ Some predefined types are managed by the tool. Those are automatically created w
 === Create Requirements ===
 
 In the architecture, create a new Module, and in it, a new Requirement.
+
 [[Image:../../images/create-req.png]]
 
 Click on the Requirement and associate it, through the Property View, to the newly created type (or an existing one)
+
 [[Image:../../images/req-property.png]]
 
 As new requirement has to be associated to a Type before editing custom attributes, we advise you to create one 'empty' requirement associated to your type and do copy/paste of it when you want to create a new Requirement. That way, it will be directly associated to the expected Requirement Type.

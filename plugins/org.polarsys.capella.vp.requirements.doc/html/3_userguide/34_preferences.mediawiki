@@ -76,7 +76,7 @@ Requirement\ State:false
 The list of attributes to be imported can be enhanced by contributing to an extension point (see Programmer's Guide).
 
 
-<table border="1"><tr>
-<td><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></td>
-<td>When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.</td>
-</tr></table>
+{| class="wikitable"
+|width="50%"| [[File:PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png|32x32px]]
+|width="50%"| When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.
+|}

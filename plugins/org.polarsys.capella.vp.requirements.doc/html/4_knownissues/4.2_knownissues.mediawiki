@@ -1,3 +1,5 @@
 = Known Issues = 
 
-* The command line importer is still not functional.
+Retrieve all known issues by following this link.
+
+* [https://github.com/eclipse/capella-requirements-vp/issues Known issues]
