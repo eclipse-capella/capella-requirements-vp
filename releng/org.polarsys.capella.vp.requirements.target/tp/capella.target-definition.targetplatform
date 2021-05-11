@@ -14,12 +14,12 @@ include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/products/nightly/master-PR-2195-4/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/products/nightly/master-PR-2195-4/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
