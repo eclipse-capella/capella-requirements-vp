@@ -1,0 +1,19 @@
+= Team for Capella = 
+
+In the context of Team for Capella product, the import from a connected project is not supported
+
+The recommended process is :
+
+=== Initial Import Reqif ===
+
+* Launch Reqif Import on a local project
+* Export the project to the server.
+* Backup the .capella.bridgetraces file for the next import since the file created while the reqif import is not exported to the server.
+
+=== Once model is exported to the server, to import Reqif again ===
+
+* Import the remote project to a local project
+* Put inside the project the .capella.bridgetraces file kept from the previous import
+* Launch Reqif Import on the local project
+* Re-Export the project to the server.
+* Backup the .capella.bridgetraces file for the next import

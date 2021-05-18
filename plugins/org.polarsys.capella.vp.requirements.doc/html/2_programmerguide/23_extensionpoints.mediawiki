@@ -1,0 +1,10 @@
+= Extension Points = 
+
+The following extension points can be used to extend the capabilities of the Capella Requirements Viewpoint.
+
+== Importer ==
+
+# '''"org.polarsys.capella.vp.requirements.importer.extension.attributesProvider"'''
+
+: This extension point allows to extend the scope of the importer.
+: [[Image:../../images/extension_point.png]]

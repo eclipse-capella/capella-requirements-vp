@@ -1,0 +1,2 @@
+= Team for Capella =
+This add-on is compatible with Team for Capella product, allowing collaborative requirement allocations to model elements and representations.

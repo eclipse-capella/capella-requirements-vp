@@ -1,53 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-	<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
-	<title>Preferences</title>
-</head>
-<body>
-<h1>Preferences</h1>
-<h2>Requirement label</h2>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all"/>
+		<title>Preferences</title>
+	</head>
+	<body>
+		<h1 id="Preferences">Preferences</h1>
+		<h2 id="Requirement_label">Requirement label</h2>
+		<p>The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page (Capella  <font color="blue">&gt;</font>  Requirements).
+			<br/>
+			Click <strong>Window &gt; Preferences &gt; Capella &gt; Requirements</strong> to open this preference page.
 
-<p>
-The label of the requirements can be customized through an Acceleo expression in the Requirements Preference page (Capella  <font color="blue">></font>  Requirements).<br/>
-Click <strong>Window > Preferences > Capella > Requirements</strong> to open this preference page.</p>
-<img src="../../images/preferences_requirements.png" alt="Requirements Preferences " title="Requirements Preferences"/>
-<p>
-The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:
-</p>
-<p>
-<i>IE_PUID? (Text|Name|ChapterName|LongName)</i>
-</p>
-<p>
-The length of requirement's label can be specified (default = 80, nothing = full label , x = size and "..." )
-It is also possible to truncate the displayed requirement label if the length exceed
-</p>
-
-<p>
-The last preference option is the "Force DOORS RMF usage check while importing requirements", 
-if checked, this will force the importer to import requirements only having IE PUID and IE Object Type,
-so requirements with no IE PUID and IE Object Type will be omitted.
-</p>
-<p>
-You should keep this preference unchecked if you are not using IE PUID and IE Object Type for your requirements.
-</p>
-
-<h2>Importer scope</h2>
-<p>
-The scope of data to import can be customized in the Importer preference page (Capella  <font color="blue">></font>  Requirements <font color="blue">></font> Importer):
-</p>
-
-<img src="../../images/preferences_importer_scope2.png" alt="Importer Scope" title="Importer Scope"/>
-
-<p>You are not allowed to rename the set of attributes shipped in the add-on.<br/>
-If the DOORS add-on called IRDRMFAO is installed also, all attributes which start with "IE" are also not allowed to be renamed.<br/>
-Any change to the attributes name will harm the add-on and prevent it from properly importing your data.<br/>
-To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).</p>
-
-<h3>Default configuration</h3>
-The recommended default set of attributes to be imported are the following one :
-<pre>
+			<img border="0" src="../../images/preferences_requirements.png"/>
+		</p>
+		<p>The default expression shows a Requirement based on its IE_PUID attribute if any, concatenated with one of the following attributes Text, LongName or ChapterName:</p>
+		<p><i>IE_PUID? (Text|Name|ChapterName|LongName)</i></p>
+		<p>The length of requirement's label can be specified (default = 80, nothing = full label , x = size and "..." )
+			It is also possible to truncate the displayed requirement label if the length exceed</p>
+		<p>The last preference option is the "Force DOORS RMF usage check while importing requirements", 
+			if checked, this will force the importer to import requirements only having IE PUID and IE Object Type,
+			so requirements with no IE PUID and IE Object Type will be omitted.</p>
+		<p>You should keep this preference unchecked if you are not using IE PUID and IE Object Type for your requirements.</p>
+		<h2 id="Importer_scope">Importer scope</h2>
+		<p>The scope of data to import can be customized in the Importer preference page (Capella  <font color="blue">&gt;</font>  Requirements <font color="blue">&gt;</font> Importer):</p>
+		<p>
+			<img border="0" src="../../images/preferences_importer_scope2.png"/>
+		</p>
+		<p>You are not allowed to rename the set of attributes shipped in the add-on.
+			<br/>
+			If the DOORS add-on called IRDRMFAO is installed also, all attributes which start with "IE" are also not allowed to be renamed.
+			<br/>
+			Any change to the attributes name will harm the add-on and prevent it from properly importing your data.
+			<br/>
+			To choose the set of attributes to be imported, check the corresponding line in the tree (some attributes are defined as 'mandatory' and cannot be deselected).
+		</p>
+		<h3 id="Default_configuration">Default configuration</h3>
+		<p>The recommended default set of attributes to be imported are the following one :</p>
+		<pre>
 IE PUID
 IE Object Type
 Object Text
@@ -59,34 +49,31 @@ IE IVV Method
 RCM Version
 IE Req Version
 </pre>
-
-<h3>Add custom attributes</h3>
-There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.
-
-<h4>1. Use Properties Files</h4>
-You can add new attributes by referencing .properties files with the following format (be careful to escape whitespaces):
-<pre>
+		<h3 id="Add_custom_attributes">Add custom attributes</h3>
+		<p>There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.</p>
+		<h4 id="1._Use_Properties_Files">1. Use Properties Files</h4>
+		<p>You can add new attributes by referencing .properties files with the following format (be careful to escape whitespaces):</p>
+		<pre>
 Attribute1Name:defaultSelectionState
 Attribute2Name:defaultSelectionState
 </pre>
-Then add the properties file in the first part of the preference dialog by clicking on "Add file".
-Once the added attributes are shown in the tree, you can select the attributes you need to import if they are not selected by default.
-<p>
-In the screenshot above, the following file was used:
-<pre>
+		<p>Then add the properties file in the first part of the preference dialog by clicking on "Add file".
+			Once the added attributes are shown in the tree, you can select the attributes you need to import if they are not selected by default.</p>
+		<p>In the screenshot above, the following file was used:</p>
+		<pre>
 Requirement\ Author:true
 Requirement\ Identifier:false
 Requirement\ State:false
 </pre>
-</p> 
-<h4>2. Use Eclipse extension points</h4>
-<p>
-The list of attributes to be imported can be enhanced by contributing to an extension point (see Programmer's Guide).
-</p>
-
-<table border="1"><tr>
-<td><p><img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/></p></td>
-<td><p>When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.</p></td>
-</tr></table>
-</body>
+		<h4 id="2._Use_Eclipse_extension_points">2. Use Eclipse extension points</h4>
+		<p>The list of attributes to be imported can be enhanced by contributing to an extension point (see Programmer's Guide).</p>
+		<table class="wikitable">
+			<tr>
+				<td>
+					<img height="32" width="32" border="0" src="PLUGINS_ROOT/org.polarsys.capella.vp.requirements.doc/images/info.png"/>
+				</td>
+				<td>When you deal with custom attributes, be aware to keep them updated. Do NOT forget to rename the attributes either in properties file or in Eclipse extension point if you rename them in DOORS/ReqIF, otherwise they will not be imported.</td>
+			</tr>
+		</table>
+	</body>
 </html>
