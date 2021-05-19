@@ -12,7 +12,7 @@
        Thales - initial API and implementation
 -->
 <toc label="Requirements Viewpoint Guide">
-   <topic label="Getting Started">
+   <topic href="html/1_gettingstarted/1_gettingstarted.html" label="Getting Started">
       <anchor id="gettingstarted"/>
    </topic>
    <topic label="User's Guide">
