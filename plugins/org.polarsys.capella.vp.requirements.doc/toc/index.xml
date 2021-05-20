@@ -11,18 +11,26 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<toc label="Requirements Viewpoint Guide">
-   <topic href="html/1_gettingstarted/1_gettingstarted.html" label="Getting Started">
-      <anchor id="gettingstarted"/>
+<toc label="Requirements Viewpoint Guide" sort="false">
+   <anchor id="requirementsviewpointforcapella"/>
+   <topic label="Release Notes">
+      <anchor id="releasenotes"/>
+      <topic href="html/1_releasenotes/Whatsnew.html" label="What&apos;s new">
+      </topic>
+      <topic href="html/1_releasenotes/KnownIssues.html" label="Known Issues">
+      </topic>
+      <topic href="html/1_releasenotes/Limitations.html" label="Limitations">
+         <topic href="html/1_releasenotes/TeamForCapella.html" label="Team for Capella">
+         </topic>
+      </topic>
    </topic>
-   <topic label="User's Guide">
-      <anchor id="userguide"/>
+   <topic href="html/2_installation/2_installation.html" label="Installation and Uninstallation">
+      <anchor id="installation"/>
    </topic>
-   <topic label="Limitations / Known Issues">
-      <anchor id="knownissues"/>
+   <topic label="User Manual">
+      <anchor id="usermanual"/>
    </topic>
-   <topic label="Programmer's Guide">
+   <topic label="Programmer&apos;s Guide">
       <anchor id="programmerguide"/>
    </topic>
-   <anchor id="requirementsviewpointforcapella"/>
 </toc>
