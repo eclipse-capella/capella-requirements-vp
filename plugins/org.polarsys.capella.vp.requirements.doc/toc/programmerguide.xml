@@ -11,11 +11,11 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<toc label="Programmer's Guide" link_to="toc/index.xml#programmerguide" topic="html/2_programmerguide/2_programmerguide.html">
-   <topic href="html/2_programmerguide/21_architectureoverview.html" label="Architecture Overview">
+<toc label="Programmer's Guide" link_to="toc/index.xml#programmerguide">
+   <topic href="html/4_programmerguide/21_architectureoverview.html" label="Architecture Overview">
    </topic>
-   <topic href="html/2_programmerguide/22_metamodels.html" label="Meta-models">
+   <topic href="html/4_programmerguide/22_metamodels.html" label="Meta-models">
    </topic>
-   <topic href="html/2_programmerguide/23_extensionpoints.html" label="Extension Points">
+   <topic href="html/4_programmerguide/23_extensionpoints.html" label="Extension Points">
    </topic>
 </toc>

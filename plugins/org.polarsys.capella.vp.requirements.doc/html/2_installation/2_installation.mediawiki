@@ -1,0 +1,20 @@
+<!--
+	Copyright (c) 2021 THALES GLOBAL SERVICES.
+	
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License 2.0 which is available at
+	http://www.eclipse.org/legal/epl-2.0
+	
+	SPDX-License-Identifier: EPL-2.0
+	
+	Contributors:
+	   Thales - initial API and implementation
+-->
+=Installation and Uninstallation=
+
+Install Capella as described [[../help/topic/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.html | here]]<span class="github-link">
+[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki|(online documentation)]]</span>.
+
+
+To install the Requirements Viewpoint read the [[../help/topic/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.html?#Configuration_and_Extensibility | Configuration and Extensibility]]
+<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility|(online documentation)]]</span> section.

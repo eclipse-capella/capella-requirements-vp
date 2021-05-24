@@ -1,4 +1,4 @@
-= Getting Started = 
+= Introduction = 
 
 The Requirements Viewpoint for Capella allows importing a set of requirements from a ReqIF file.
 This file shall be exported from IBM Doors or any other requirement tool supporting the ReqIF OMG standard.

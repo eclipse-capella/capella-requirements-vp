@@ -19,16 +19,10 @@
             primary="true">
       </toc>
       <toc
-            file="toc/gettingstarted.xml">
-      </toc>
-      <toc
             file="toc/programmerguide.xml">
       </toc>
       <toc
             file="toc/userguide.xml">
-      </toc>
-      <toc
-            file="toc/knownissues.xml">
       </toc>
    </extension>
 </plugin>

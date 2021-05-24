@@ -11,7 +11,9 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<toc label="User's Guide" link_to="toc/index.xml#userguide" topic="html/3_userguide/3_userguide.html"> 
+<toc label="User's Guide" link_to="toc/index.xml#usermanual">
+   <topic href="html/3_userguide/1_gettingstarted.html" label="Introduction">
+   </topic> 
    <topic href="html/3_userguide/31_reqifexport.html" label="ReqIF Export">
    </topic>
    <topic href="html/3_userguide/32_viewpointmanager.html" label="Viewpoint Manager">

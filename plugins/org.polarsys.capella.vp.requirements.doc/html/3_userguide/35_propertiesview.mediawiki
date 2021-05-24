@@ -46,7 +46,8 @@ Certain rules are applied when creating relations between Requirements and Capel
 # For incoming links, source elements are limited to those stored in the current layer and the lower ones
 # For internal links, target elements are limited to those stored in the current layer and the upper ones
 
-''Some limitations should be noted for Libraries (see the suitable part of [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/4_knownissues/4.1_limitations.html|Limitations]] section).''
+''Some limitations should be noted for Libraries (see the suitable part of [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/1_releasenotes/Limitations.html|Limitations]] <span class="github-link">
+[[../1_releasenotes/Limitations.mediawiki|(online documentation)]]</span> section).''
 <br/>
 <br/>
 
