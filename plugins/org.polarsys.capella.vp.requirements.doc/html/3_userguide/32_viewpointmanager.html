@@ -10,6 +10,7 @@
 		<p>Requirements Viewpoint is a Kitalpha AF Viewpoint.</p>
 		<p>To see tools and model elements contributed by this viewpoint, you must activate it through the &quot;Viewpoint Manager&quot; view. </p>
 		<p>To open the &quot;Viewpoint Manager&quot; view, go to &quot;Window&quot;&gt;&quot;Show View&quot;&gt;&quot;Other...&quot; then open the &quot;Kitalpha&quot; category and select &quot;Viewpoint Manager&quot;</p>
+		<h2 id="Reference_the_viewpoint">Reference the viewpoint</h2>
 		<p>Once the view is open, select an element of your model. Then in the view, right click on the &quot;Capella Requirements&quot; view and click on &quot;Reference&quot;.</p>
 		<p>
 			<img border="0" src="../../images/viewpointmanager.png"/>
@@ -17,6 +18,21 @@
 		<p>To check that the viewpoint is working correctly, right click on an Architecture element of your model and check that the Requirements Viewpoint menu is available:</p>
 		<p>
 			<img border="0" src="../../images/RequirementsViewpointMenu.png"/>
+		</p>
+		<h2 id="Unreference_the_viewpoint">Unreference the viewpoint</h2>
+		<h3 id="From_Viewpoint_Manager">From Viewpoint Manager</h3>
+		<p>To correctly unreference the Requirements Viewpoint from Viewpoint Manager, check the 'Show all viewpoints' button to reveal the hidden 'Requirements' viewpoint which is also active along with 'Capella Requirements' (known limitation). Make sure to unreference both 'Requirements' and 'Capella Requirements'.</p>
+		<p>
+			<img height="305" width="609" border="0" src="../../images/unreference_viewpoint_manager.png"/>
+		</p>
+		<h3 id="With_Model_Detachment">With Model Detachment</h3>
+		<p>First close the session, then right click on the .aird and select 'Model Detachment' from the opened menu:</p>
+		<p>
+			<img height="516" width="522" border="0" src="../../images/unreference_detach_menu.png"/>
+		</p>
+		<p>In the opened detachment view, select the 'Viewpoint Tree Page' tab and make sure to check both 'Requirements' and 'Capella Requirements' then launch the detachment.</p>
+		<p>
+			<img height="294" width="583" border="0" src="../../images/unreference_perform_detach.png"/>
 		</p>
 	</body>
 </html>

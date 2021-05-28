@@ -6,6 +6,8 @@ To see tools and model elements contributed by this viewpoint, you must activate
 
 To open the &quot;Viewpoint Manager&quot; view, go to &quot;Window&quot;&gt;&quot;Show View&quot;&gt;&quot;Other...&quot; then open the &quot;Kitalpha&quot; category and select &quot;Viewpoint Manager&quot;
 
+== Reference the viewpoint ==
+
 Once the view is open, select an element of your model. Then in the view, right click on the &quot;Capella Requirements&quot; view and click on &quot;Reference&quot;.
 
 [[Image:../../images/viewpointmanager.png]]
@@ -13,3 +15,23 @@ Once the view is open, select an element of your model. Then in the view, right 
 To check that the viewpoint is working correctly, right click on an Architecture element of your model and check that the Requirements Viewpoint menu is available:
 
 [[Image:../../images/RequirementsViewpointMenu.png]]
+
+== Unreference the viewpoint ==
+
+=== From Viewpoint Manager ===
+
+To correctly unreference the Requirements Viewpoint from Viewpoint Manager, check the 'Show all viewpoints' button to reveal the hidden 'Requirements' viewpoint which is also active along with 'Capella Requirements' (known limitation). Make sure to unreference both 'Requirements' and 'Capella Requirements'.
+
+[[Image:../../images/unreference_viewpoint_manager.png|609x305px]]
+
+
+=== With Model Detachment ===
+
+First close the session, then right click on the .aird and select 'Model Detachment' from the opened menu:
+
+[[Image:../../images/unreference_detach_menu.png|522x516px]]
+
+In the opened detachment view, select the 'Viewpoint Tree Page' tab and make sure to check both 'Requirements' and 'Capella Requirements' then launch the detachment.
+
+[[Image:../../images/unreference_perform_detach.png|583x294px]]
+
