@@ -23,8 +23,11 @@ location "https://download.eclipse.org/capella/core/updates/nightly/master/org.p
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "https://download.eclipse.org/diffmerge/stable/0.13.1-M1/edm-coevolution-site" {
-	org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group
+location "https://download.eclipse.org/diffmerge/releases/0.13.1/emf-diffmerge-site" {
+	org.eclipse.emf.diffmerge.egit.feature.feature.group
+	org.eclipse.emf.diffmerge.gmf.feature.feature.group
+	org.eclipse.emf.diffmerge.sdk.feature.source.feature.group
+	org.eclipse.emf.diffmerge.sirius.feature.feature.group
 }
 
 location "https://download.eclipse.org/rmf/updates/releases/0.13.0" {
