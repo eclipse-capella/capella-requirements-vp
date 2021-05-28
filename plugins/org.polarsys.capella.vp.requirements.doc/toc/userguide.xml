@@ -17,6 +17,10 @@
    <topic href="html/3_userguide/31_reqifexport.html" label="ReqIF Export">
    </topic>
    <topic href="html/3_userguide/32_viewpointmanager.html" label="Viewpoint Manager">
+      <topic href="html/3_userguide/32_viewpointmanager.html#Reference_the_viewpoint" label="Reference the viewpoint">
+      </topic>
+      <topic href="html/3_userguide/32_viewpointmanager.html#Unreference_the_viewpoint" label="Unreference the viewpoint">
+      </topic>
    </topic>
    <topic href="html/3_userguide/33_reqifimport.html" label="ReqIF Import in Capella">
    </topic>

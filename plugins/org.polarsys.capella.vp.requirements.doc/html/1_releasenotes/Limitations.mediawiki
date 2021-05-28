@@ -44,6 +44,15 @@ The .capella.bridgetraces file for the iterative import has been modified for pe
 
 * In a Project/Library, the Requirement model can not reference elements from a referenced Library (e.g model elements, Data Types, Attribute Definitions...). Anyway, it is possible to create Allocation links or Internal Relation links inside a library seen from a model/library in Read/Write mode
 
+== Hidden viewpoint ==
+
+Along with the 'Capella Requirements' viewpoint, another hidden 'Requirements' viewpoint is referenced.
+
+[[Image:../../images/hidden_viewpoint.png]]
+
+To correctly unreference the Requirements Viewpoint check the [[../help/topic/org.polarsys.capella.vp.requirements.doc/html/3_userguide/32_viewpointmanager.html?#Unreference_the_viewpoint | Unreference the viewpoint]]<span class="github-link">
+[[../3_userguide/32_viewpointmanager.mediawiki#Unreference_the_viewpoint|(online documentation)]]</span> section.
+
 
 == Other limitations ==
 
