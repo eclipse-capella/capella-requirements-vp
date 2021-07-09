@@ -10,16 +10,16 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/nightly/master-6.0-PR-2212-2/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master-6.0-PR-2212-2/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master-6.0-PR-2212-2/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -39,10 +39,10 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20180613-0111/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location kitalpha "https://download.eclipse.org/kitalpha/updates/nightly/runtime/master" {
+location kitalpha-runtime-core-master "https://ci.eclipse.org/kitalpha/job/Kitalpha/job/master-6.0/7/artifact/releng/plugins/org.polarsys.kitalpha.releng.runtime.updatesite/target/repository/" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master" {
+location xhtml "https://ci.eclipse.org/capella/job/Docgen-addon/job/PR-189/1/artifact/releng/org.polarsys.capella.docgen.site/target/repository/" {
     org.polarsys.capella.docgen.feature.feature.group
 }
