@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_5.1.0-->
+<!--Capella_Version_5.2.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
     xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
@@ -95,7 +95,7 @@
           ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#377eaf1b-955a-4103-995c-96026659ff80">
         <ownedRequirements xsi:type="Requirements:Requirement" id="20169578-b83e-4d02-a041-d41a9f7b60ae"
             ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
-            requirementType="#98408e68-da9c-4a0d-b836-b5f757da3539" ReqIFText="&lt;p>Requirement-1&lt;/p>"
+            requirementType="#98408e68-da9c-4a0d-b836-b5f757da3539" ReqIFText="&lt;div>Requirement-1&lt;/div>"
             requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="5b44aee5-2cfb-44b2-8b6b-a55cbe2889a3"
               definition="#4b21244a-2fdb-4103-83d7-cc3a72dd55ff" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"

@@ -80,13 +80,24 @@ public class ReqIFTextParser {
    * @return
    */
   public String transformToHTML(String content, AttributeOwner owner) {
+    return transformToHTML(content, owner, null);
+  }
+
+  /**
+   * Transform XHTML text into HTML text
+   * 
+   * @param content: the XHTML content
+   *        rootTag: the original root tag of the content
+   * @return
+   */
+  public String transformToHTML(String content, AttributeOwner owner, String rootTag) {
     try {
       DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
       df.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
       df.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
       DocumentBuilder builder = df.newDocumentBuilder();
       Document document = builder.parse(new InputSource(new StringReader(content)));
-      transformToHTML(document, document.getDocumentElement());
+      transformToHTML(document, document.getDocumentElement(), rootTag);
       removeOLEObjects(document, document.getDocumentElement());
       replaceImgObjects(document, document.getDocumentElement());
       convertAllImgElements(document, document.getDocumentElement(), owner);
@@ -106,7 +117,7 @@ public class ReqIFTextParser {
     // Return the raw content in case it cannot be parsed
     return content;
   }
-
+  
   /**
    * Transform XHTML text into HTML text
    * 
@@ -114,8 +125,16 @@ public class ReqIFTextParser {
    * @param element
    */
   protected void transformToHTML(Document document, Element element) {
+    transformToHTML(document, element, null);
+  }
+
+  protected void transformToHTML(Document document, Element element, String rootTag) {
     if (element.getTagName().equals("reqif:XHTML")) {
-      document.renameNode(element, null, "p");
+      if (rootTag == null) {
+        document.renameNode(element, null, "p");
+      } else {
+        document.renameNode(element, null, rootTag);        
+      }
       while (element.getAttributes().getLength() > 0) {
         Node att = element.getAttributes().item(0);
         element.getAttributes().removeNamedItem(att.getNodeName());
@@ -132,7 +151,7 @@ public class ReqIFTextParser {
 
     }
   }
-
+  
   /**
    * Remove OLE objects in ReqIF format
    * 
