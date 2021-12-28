@@ -14,6 +14,8 @@ package org.polarsys.kitalpha.vp.requirements.model.helpers;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.common.util.URI;
+import org.polarsys.capella.vp.requirements.importer.extension.ReqImporterPreferencesUtil;
+import org.polarsys.capella.vp.requirements.importer.preferences.RequirementsPreferencesConstants;
 
 public class LabelHelper {
   private LabelHelper() {
@@ -24,7 +26,11 @@ public class LabelHelper {
   }
   
   public static String transformHTMLToTextWithLineFeed(String content) {
-    content = content.replaceAll("<[^>]*>", "").trim();
+    Boolean keepXhtmlTages = (Boolean) ReqImporterPreferencesUtil
+        .getValueForPreferenceKey(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, Boolean.class);
+    if (!keepXhtmlTages) {
+      content = content.replace("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
+    }
     // Decode special characters
     content = URI.decode(content);
     // Unescape HTML special character entities

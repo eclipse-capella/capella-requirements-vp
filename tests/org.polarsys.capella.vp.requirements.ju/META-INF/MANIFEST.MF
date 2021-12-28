@@ -28,7 +28,8 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.ui,
  org.polarsys.capella.common.ui.massactions.core,
  org.polarsys.capella.core.model.handler,
- org.polarsys.capella.test.migration.ju
+ org.polarsys.capella.test.migration.ju,
+ org.polarsys.kitalpha.vp.requirements.model.helpers;bundle-version="0.12.1"
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,

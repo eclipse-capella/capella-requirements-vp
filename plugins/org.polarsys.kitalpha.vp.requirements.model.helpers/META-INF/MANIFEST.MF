@@ -7,7 +7,10 @@ Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.polarsys.kitalpha.ad.services
+ org.polarsys.kitalpha.ad.services,
+ org.eclipse.ui;bundle-version="3.117.0",
+ org.polarsys.capella.vp.requirements.importer.extension;bundle-version="0.12.1",
+ org.polarsys.capella.vp.requirements.importer.preferences;bundle-version="0.12.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.kitalpha.vp.requirements.model.helpers
 Import-Package: org.apache.commons.lang
