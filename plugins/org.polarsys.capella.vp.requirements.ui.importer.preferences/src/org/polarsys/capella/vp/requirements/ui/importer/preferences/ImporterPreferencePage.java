@@ -138,7 +138,4 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
     protected void performDefaults() {
       attributesSelectionSection.performDefaults(getPreferenceStore());
     }
-    
-    
-    
 }

@@ -13,7 +13,7 @@
 <feature
       id="org.polarsys.capella.vp.requirements.tests.feature"
       label="%featureName"
-      version="0.12.1.qualifier"
+      version="0.12.2.qualifier"
       provider-name="%providerName">
 
    <description url="%descriptionURL">
