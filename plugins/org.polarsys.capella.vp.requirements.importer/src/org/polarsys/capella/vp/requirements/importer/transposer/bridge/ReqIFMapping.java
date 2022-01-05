@@ -51,7 +51,9 @@ import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.polarsys.capella.vp.requirements.importer.extension.AttributesProvider;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.FolderQuery;
 import org.polarsys.capella.vp.requirements.importer.transposer.bridge.query.ModuleQuery;
@@ -427,10 +429,14 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
 
   protected String getContent(AttributeValueXHTML value, AttributeOwner owner) {
     String content = "";
+    String rootTag = null;
     try {
-      content = ReqIF10XhtmlUtil.getXhtmlString(((AttributeValueXHTML) value).getTheValue());
+      XhtmlContent theValue = ((AttributeValueXHTML) value).getTheValue();
+      // We've got to store root tag here since ReqIF10XhtmlUtil.getXhtmlString does not include the original root tag of the XHTML element
+      rootTag = getRootTag(theValue);
+      content = ReqIF10XhtmlUtil.getXhtmlString(theValue);
       if (value.getDefinition().getLongName().equals("ReqIF.Text")) {
-        content = textParser.transformToHTML(content, owner);
+        content = textParser.transformToHTML(content, owner, rootTag);
       } else {
         content = transformToText(content);
       }
@@ -438,6 +444,20 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       ex.printStackTrace();
     }
     return content;
+  }
+
+  /**
+   * 
+   * @param theValue
+   * @return the root tag of the xhtml element inside theValue
+   */
+  protected String getRootTag(XhtmlContent theValue) {
+    // There's currently no better way to retrieve the root tag of a XhtmlContent.
+    // div is a commonly used tag in reqif coming from DOORS
+    if (theValue.getXhtml() instanceof XhtmlDivType) {
+      return "div";
+    }
+    return null;
   }
 
   protected String transformToText(String content) {

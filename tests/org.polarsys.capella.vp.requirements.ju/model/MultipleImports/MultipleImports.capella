@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_5.1.0-->
+<!--Capella_Version_5.2.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
     xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0"
@@ -97,7 +97,7 @@
           ReqIFIdentifier="_dESzoMkiEee8KsfWrp9EJQ" ReqIFLongName="MODULE-1" moduleType="#62f33032-670d-472d-8290-a5a3aaee18ae">
         <ownedRequirements xsi:type="Requirements:Requirement" id="a95c9d88-4115-472d-965c-f19efe2409ee"
             ReqIFIdentifier="_xen_QMkhEee8KsfWrp9EJQ" ReqIFLongName="Requirement-1"
-            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="&lt;p>Requirement-1&lt;/p>"
+            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="&lt;div>Requirement-1&lt;/div>"
             requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="e1e36fb5-b764-42e8-b969-1dc068b06cd6"
               definition="#7b594bc2-766b-4a88-9039-3ccea7415d9c" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
@@ -112,7 +112,7 @@
         </ownedRequirements>
         <ownedRequirements xsi:type="Requirements:Requirement" id="f58e9077-fe09-4eb2-b4eb-4f670a997d9c"
             ReqIFIdentifier="_we1mYPIXEee7hfk_gkTvOQ" ReqIFLongName="Requirement-2"
-            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="&lt;p>Requirement-2&lt;/p>"
+            requirementType="#65fb29fb-b0f5-42ac-8ff7-30bdff36d441" ReqIFText="&lt;div>Requirement-2&lt;/div>"
             requirementTypeProxy="_LaeSsMkhEee8KsfWrp9EJQ">
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="ee7192dd-ad4e-4ff0-aba5-eb79b4c58983"
               definition="#7b594bc2-766b-4a88-9039-3ccea7415d9c" definitionProxy="_25YvEMkyEee5A_N9aQFa1w"
