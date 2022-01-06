@@ -154,4 +154,15 @@ public class ReqImporterPreferencesUtil {
     }
     return contributedAttributes;
   }
+  
+
+  public static Object getValueForPreferenceKey(String key, Class clazz) {
+    IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
+    if (clazz.equals(String.class)) {
+      return store.getString(key);
+    } else if (clazz.equals(Boolean.class)) {
+      return store.getBoolean(key) ;
+    }
+    throw new InternalError("This data type is not supported!");
+  }
 }

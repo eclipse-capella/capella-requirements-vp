@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
+import org.polarsys.capella.vp.requirements.ju.preferences.KeepXHTMLTagsTest;
 import org.polarsys.capella.vp.requirements.ju.testcases.EditableTargetScope;
 import org.polarsys.capella.vp.requirements.ju.testcases.FragmentationTestCase;
 import org.polarsys.capella.vp.requirements.ju.testcases.HtmlToTextTestCase;
@@ -72,6 +73,8 @@ public class RequirementsTestSuite extends BasicTestSuite {
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
+    
+    tests.add(new KeepXHTMLTagsTest());
     
     tests.add(new HtmlToTextTestCase());
     tests.add(new MassActionAttributes());

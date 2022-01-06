@@ -18,7 +18,7 @@ package org.polarsys.capella.vp.requirements.importer.preferences;
 public class RequirementsPreferencesConstants {
 
   public static final String REQUIREMENT_PROPERTIES_FILES_KEY = "requirement.properties.files";
-
+  public static final String REQUIREMENT_KEEP_XHTML_TAGS = "keepXHTMLTags";
   public static final String REQUIREMENT_LABEL_EXPRESSION_KEY = "requirement.label.expression";
   public static final String REQUIREMENT_DEFAULT_LABEL_EXPRESSION = "aql:let puid = self.ownedAttributes->any(a | a.definition.ReqIFLongName == 'IE PUID')->collect(a | '['+a.value+']')->first() in let name = OrderedSet{self.ReqIFText, self.ReqIFName, self.ReqIFChapterName, self.ReqIFLongName}->any(s | s != null and s.size() > 0)->first() in OrderedSet{puid, name}->select(s | s != null)->sep(' ')->toString()";
   public static final String REQUIREMENT_LABEL_MAX_LEN_KEY = "requirement.label.max.len";

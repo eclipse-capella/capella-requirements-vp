@@ -14,6 +14,7 @@ package org.polarsys.capella.vp.requirements.ui.importer.preferences;
 
 import java.io.IOException;
 
+import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
@@ -44,6 +45,7 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
     
     private AttributesSelectionSection attributesSelectionSection;
     private FilesSelectionSection filesSelectionSection;
+    private BooleanFieldEditor keepXHTMlTags;
 
     private ImportPreferencesModel model;
     
@@ -65,9 +67,11 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
         result.setLayout(layout);
 
         createFilesSelectionSection(result);
-
-        createAttributesSelectionSection(result);
         
+        createKeepXHTMLCheckBox(result);
+        
+        createAttributesSelectionSection(result);
+                
         // Wire both sections
         filesSelectionSection.addListener(attributesSelectionSection);
 
@@ -85,7 +89,18 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
       attributesSelectionSection = new AttributesSelectionSection(model);
       attributesSelectionSection.createComposite(container);
     }
-
+    
+    private void createKeepXHTMLCheckBox(Composite container) {
+      keepXHTMlTags = new BooleanFieldEditor(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS
+          , "Keep XHTML tags", container) {
+        @Override
+        public IPreferenceStore getPreferenceStore() {
+          return doGetPreferenceStore();
+        }
+      };
+      keepXHTMlTags.load();
+    }
+    
     @Override
     public void init(IWorkbench workbench) {
     }
@@ -96,8 +111,9 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
       try {
         // Write property files list in preferences.
         String value = ReqImporterPreferencesUtil.serializePropertyFilesPreference(model.getPropertiesFiles());
+        Boolean keepXHTMLTags = keepXHTMlTags.getBooleanValue();
         preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_PROPERTIES_FILES_KEY, value);
-
+        preferenceStore.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, keepXHTMLTags);
         // Write selected attributes in preferences.
         for (AttributeSet category : model.getCategories()) {
           for (AttributeSet attribute : category.getChildren()) {

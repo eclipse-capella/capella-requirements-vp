@@ -2,12 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.kitalpha.vp.requirements.model.helpers;singleton:=true
-Bundle-Version: 0.12.1.qualifier
+Bundle-Version: 0.12.2.qualifier
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.polarsys.kitalpha.ad.services
+ org.polarsys.kitalpha.ad.services,
+ org.eclipse.ui,
+ org.polarsys.capella.vp.requirements.importer.extension,
+ org.polarsys.capella.vp.requirements.importer.preferences
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.kitalpha.vp.requirements.model.helpers
 Import-Package: org.apache.commons.lang

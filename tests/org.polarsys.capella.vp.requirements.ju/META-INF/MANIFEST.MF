@@ -2,13 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.ju;singleton:=true
-Bundle-Version: 0.12.1.qualifier
+Bundle-Version: 0.12.2.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.af,
  org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.importer.extension,
- org.polarsys.capella.vp.requirements.importer.preferences,
  org.polarsys.capella.vp.requirements.model,
  org.polarsys.capella.test.validation.rules.ju,
  org.polarsys.capella.common.re.gen,
@@ -28,7 +27,9 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.vp.requirements.ui,
  org.polarsys.capella.common.ui.massactions.core,
  org.polarsys.capella.core.model.handler,
- org.polarsys.capella.test.migration.ju
+ org.polarsys.capella.test.migration.ju,
+ org.polarsys.kitalpha.vp.requirements.model.helpers,
+ org.polarsys.capella.vp.requirements.importer.preferences
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.vp.requirements.ju.testcases,
