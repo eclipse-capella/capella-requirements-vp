@@ -92,7 +92,7 @@ public class ImporterPreferencePage extends PreferencePage implements IWorkbench
     
     private void createKeepXHTMLCheckBox(Composite container) {
       keepXHTMlTags = new BooleanFieldEditor(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS
-          , "Keep XHTML tags", container) {
+          , "Keep original HTML format for all fields", container) {
         @Override
         public IPreferenceStore getPreferenceStore() {
           return doGetPreferenceStore();

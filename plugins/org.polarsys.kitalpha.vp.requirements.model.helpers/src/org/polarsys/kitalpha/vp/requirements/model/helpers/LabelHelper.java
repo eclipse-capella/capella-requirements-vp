@@ -29,8 +29,9 @@ public class LabelHelper {
     Boolean keepXhtmlTages = (Boolean) ReqImporterPreferencesUtil
         .getValueForPreferenceKey(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, Boolean.class);
     if (!keepXhtmlTages) {
-      content = content.replace("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
+      content = content.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
     }
+    content = content.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
     // Decode special characters
     content = URI.decode(content);
     // Unescape HTML special character entities

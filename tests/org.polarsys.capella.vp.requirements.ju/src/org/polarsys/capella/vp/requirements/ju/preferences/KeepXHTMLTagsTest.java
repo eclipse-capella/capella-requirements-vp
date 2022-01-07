@@ -20,7 +20,7 @@ import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
 
 public class KeepXHTMLTagsTest extends BasicTestCase {
   
-  private final String BR_TAG = "<xhtml:br/>";
+  private final String BR_TAG = "<br/>";
   private String testString = "Test text<xhtml:br/>";
   private IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
   

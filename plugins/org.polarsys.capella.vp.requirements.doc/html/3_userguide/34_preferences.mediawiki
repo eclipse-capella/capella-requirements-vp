@@ -52,6 +52,14 @@ RCM Version
 IE Req Version
 </pre>
 
+=== Keep original HTML format for all fields ===
+
+[[Image:../../images/preferenceHtmlTags.png]]
+
+The users are able to choose to display the HTML tags in Capella when importing a .reqif file by checking the 'Keep original HTML format for all fields' preference.
+
+[[Image:../../images/htmlTags.png]]
+
 === Add custom attributes ===
 There are 2 means to add custom attributes: use Properties files or use Eclipse extensions points.
 
