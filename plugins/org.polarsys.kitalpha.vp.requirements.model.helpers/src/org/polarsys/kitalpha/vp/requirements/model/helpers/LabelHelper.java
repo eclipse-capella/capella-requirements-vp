@@ -25,17 +25,29 @@ public class LabelHelper {
     return transformHTMLToTextWithLineFeed(content).replace("\r\n", " ").replace("\n", " ").trim();
   }
   
-  public static String transformHTMLToTextWithLineFeed(String content) {
-    Boolean keepXhtmlTages = (Boolean) ReqImporterPreferencesUtil
-        .getValueForPreferenceKey(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, Boolean.class);
-    if (!keepXhtmlTages) {
-      content = content.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
+  public static String transformHTMLToText(String content, String rootTag) {
+    String result = transformHTMLToTextWithLineFeed(content).replace("\r\n", " ").replace("\n", " ").trim();
+    if (rootTag != null && keepHtmlTags()) {
+      return "<" + rootTag + ">" + result + "</" + rootTag + ">";
     }
-    content = content.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
+    return result;
+  }
+  
+  public static String transformHTMLToTextWithLineFeed(String content) {
+    if (!keepHtmlTags()) {
+      content = content.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
+    } else {
+      content = content.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
+    }
     // Decode special characters
     content = URI.decode(content);
     // Unescape HTML special character entities
     content = StringEscapeUtils.unescapeHtml(content);
     return content;
+  }
+  
+  public static boolean keepHtmlTags() {
+    return (Boolean) ReqImporterPreferencesUtil
+        .getValueForPreferenceKey(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, Boolean.class);
   }
 }

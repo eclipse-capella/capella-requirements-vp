@@ -438,7 +438,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       if (value.getDefinition().getLongName().equals("ReqIF.Text")) {
         content = textParser.transformToHTML(content, owner, rootTag);
       } else {
-        content = transformToText(content);
+        content = transformToText(content, rootTag);
       }
     } catch (IOException ex) {
       ex.printStackTrace();
@@ -461,7 +461,11 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
   }
 
   protected String transformToText(String content) {
-    return LabelHelper.transformHTMLToText(content);
+    return transformToText(content, null);
+  }
+
+  protected String transformToText(String content, String rootTag) {
+    return LabelHelper.transformHTMLToText(content, rootTag);
   }
 
   /**
