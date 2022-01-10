@@ -20,7 +20,10 @@ import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
 
 public class KeepXHTMLTagsTest extends BasicTestCase {
   
+  private final String DIV = "div";
   private final String BR_TAG = "<br/>";
+  private final String DIV_TAG = "<div>";
+  private final String DIV_END_TAG = "/div";
   private String testString = "Test text<xhtml:br/>";
   private IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
   
@@ -32,14 +35,18 @@ public class KeepXHTMLTagsTest extends BasicTestCase {
   
   public void testWithTags() {
     store.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, true);
-    String result = LabelHelper.transformHTMLToTextWithLineFeed(testString);
+    String result = LabelHelper.transformHTMLToText(testString, DIV);
     assertTrue(result.indexOf(BR_TAG) >= 0);
+    assertEquals(result.indexOf(DIV_TAG), 0);
+    assertTrue(result.indexOf(DIV_END_TAG) >= 0);
   }
   
   public void testWithoutTags() {
     store.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, false);
-    String result = LabelHelper.transformHTMLToTextWithLineFeed(testString);
+    String result = LabelHelper.transformHTMLToText(testString, DIV);
     assertTrue(result.indexOf(BR_TAG) < 0);
+    assertTrue(result.indexOf(DIV_TAG) < 0);
+    assertTrue(result.indexOf(DIV_END_TAG) < 0);
   }
 
 }
