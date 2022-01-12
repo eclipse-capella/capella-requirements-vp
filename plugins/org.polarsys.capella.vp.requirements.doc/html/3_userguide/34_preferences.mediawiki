@@ -54,9 +54,7 @@ IE Req Version
 
 === Keep original HTML format for all fields ===
 
-[[Image:../../images/preferenceHtmlTags.png]]
-
-The users are able to choose to display the HTML tags in Capella when importing a .reqif file by checking the 'Keep original HTML format for all fields' preference.
+The users are able to choose to display the HTML tags in Capella when importing a .reqif file by checking the '''Keep original HTML format for all fields''' preference.
 
 [[Image:../../images/htmlTags.png]]
 
