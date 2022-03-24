@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2020 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2022 THALES GLOBAL SERVICES.
  *  
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -421,13 +421,13 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	protected void createConstraintAnnotations() {
 		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$
 		addAnnotation(capellaTypesFolderEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaModuleEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaOutgoingRelationEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 	}
 

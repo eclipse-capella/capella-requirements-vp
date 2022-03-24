@@ -2,13 +2,13 @@
 <vpdesc:Viewpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/conf/1.0.0" xmlns:docGenConfiguration="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/DocGenConfiguration/1.0.0" xmlns:vpconf="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpconf/1.0.0" xmlns:vpdesc="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdesc/1.0.0" xmlns:vpdiagram="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpdiagram/1.0.0" xmlns:vpservices="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpservices/1.0.0" xmlns:vpui="http://www.polarsys.org/kitalpha/ad/viewpoint/dsl/as/vpui/1.0.0" name="CapellaRequirements" shortName="CapellaRequirements">
   <VP_Data name="CapellaRequirements.data">
     <VP_Classes name="CapellaTypesFolder" icon="CapellaTypesFolder.gif">
-      <extends href="http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture"/>
+      <extends href="http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture"/>
       <Inheritences xsi:type="vpdesc:ExternalSuperClass">
         <superClass href="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//TypesFolder"/>
       </Inheritences>
     </VP_Classes>
     <VP_Classes name="CapellaModule" icon="CapellaModule.gif">
-      <extends href="http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture"/>
+      <extends href="http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture"/>
       <Inheritences xsi:type="vpdesc:ExternalSuperClass">
         <superClass href="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Module"/>
       </Inheritences>
@@ -23,18 +23,18 @@
         <ExternalTarget href="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement"/>
       </VP_Classes_Associations>
       <VP_Classes_Associations xsi:type="vpdesc:ExternalClassAssociation" name="target" type="reference">
-        <ExternalTarget href="http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
+        <ExternalTarget href="http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement"/>
       </VP_Classes_Associations>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.2"/>
     </VP_Classes>
     <VP_Classes name="CapellaOutgoingRelation" icon="CapellaRelation.gif">
       <VP_Classes_Associations xsi:type="vpdesc:ExternalClassAssociation" name="source" type="reference">
-        <ExternalTarget href="http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
+        <ExternalTarget href="http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement"/>
       </VP_Classes_Associations>
       <VP_Classes_Associations xsi:type="vpdesc:ExternalClassAssociation" name="target" type="reference">
         <ExternalTarget href="../../org.polarsys.kitalpha.vp.requirements/models/Requirements.ecore#//Requirement"/>
       </VP_Classes_Associations>
-      <extends href="http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
+      <extends href="http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement"/>
       <Inheritences xsi:type="vpdesc:LocalSuperClass" superClass="//@VP_Data/@VP_Classes.2"/>
     </VP_Classes>
     <additionalExternalData href="../../org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>

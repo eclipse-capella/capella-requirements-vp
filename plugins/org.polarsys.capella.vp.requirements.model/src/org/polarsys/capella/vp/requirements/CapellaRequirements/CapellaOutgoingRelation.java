@@ -1,6 +1,6 @@
 /**
  *
- *  Copyright (c) 2016, 2020 THALES GLOBAL SERVICES.
+ *  Copyright (c) 2016, 2022 THALES GLOBAL SERVICES.
  *  
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -34,7 +34,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * </ul>
  *
  * @see org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage#getCapellaOutgoingRelation()
- * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement'"
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement'"
  *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//CapellaElement'"
  * @generated
  */
