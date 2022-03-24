@@ -4,7 +4,7 @@ String projectName = ctx.getValue("projectName").toString();
 %>
 
 <%super.method_content(stringBuffer, ctx);%>
-<%=RequirementHelper.generateRequirementProperties(parameter)%>
+<%=RequirementHelper.generateRequirementProperties(parameter, projectName, outputFolder)%>
 <%=RequirementHelper.generateFolderContent(parameter)%>
 <%=RequirementHelper.generateRequirementAttributesSection(parameter)%>
 <%=RequirementHelper.generateRequirementInternalAllocationSection(parameter, projectName, outputFolder)%>
