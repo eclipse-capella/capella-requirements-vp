@@ -16,6 +16,18 @@ You will be asked to choose a .reqif file containing data to import.
 
 Once the ReqIF elements are loaded from the selected file, a Diff/Merge dialog opens to allow integration of Requirement elements in your model.
 
+{| class="prettytable"
+|-
+|
+
+Please be aware of the following limitations/choices regarding imported content:
+
+# Default ReqIf content generated from DOORS does not allow to discriminate between: a Requirement, and a Folder that does not contain any Requirements. Thus the result of importing an empty Folder will generate a Requirement.
+# Custom attributes added to Requirements can be automatically imported if they are correctly specified. Please refer to the dedicated ''Preferences'' documentation section.
+
+|}
+
+
 == Diff/Merge Dialog ==
 
 [[Image:../../images/diffmerge.png]]
