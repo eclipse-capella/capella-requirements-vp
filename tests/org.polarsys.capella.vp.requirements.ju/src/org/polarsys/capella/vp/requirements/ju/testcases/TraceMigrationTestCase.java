@@ -25,20 +25,19 @@ import org.polarsys.capella.test.migration.ju.helpers.MigrationHelper;
 public class TraceMigrationTestCase extends BasicTestCase {
 
   private static final String TEST_MODEL = "migration-model";
-  private static final String LEGACY_TRACE_FILE = "migration-model.melodymodeller.bridgetraces";
-  private static final String MIGRATED_TRACE_FILE = "migration-model.capella.bridgetraces";
+  private static final String TRACE_FILE_POSTFIX = ".capella.bridgetraces";
 
   @Override
   public void test() throws Exception {
     IProject project = IResourceHelpers.getEclipseProjectInWorkspace(TEST_MODEL);
 
-    IFile legacyTraceFile = project.getFile(LEGACY_TRACE_FILE);
+    IFile legacyTraceFile = project.getFile(TEST_MODEL + TRACE_FILE_POSTFIX);
     String legacyTracePath = legacyTraceFile.getFullPath().toOSString();
     String legacyTraceContent = FileHelper.readFile(legacyTracePath);
 
     MigrationHelper.migrateProject(project);
 
-    IFile migratedTraceFile = project.getFile(MIGRATED_TRACE_FILE);
+    IFile migratedTraceFile = project.getFile(TEST_MODEL + TRACE_FILE_POSTFIX);
     String migratedTracePath = migratedTraceFile.getFullPath().toOSString();
     String migratedTraceContent = FileHelper.readFile(migratedTracePath);
 
