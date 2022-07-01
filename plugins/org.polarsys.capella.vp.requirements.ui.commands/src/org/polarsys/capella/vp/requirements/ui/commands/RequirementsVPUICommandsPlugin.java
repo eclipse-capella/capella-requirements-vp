@@ -12,8 +12,10 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.ui.commands;
 
+import org.eclipse.sirius.business.api.image.RichTextAttributeRegistry;
 import org.osgi.framework.BundleContext;
 import org.polarsys.capella.common.ui.services.AbstractUIActivator;
+import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -39,6 +41,8 @@ public class RequirementsVPUICommandsPlugin extends AbstractUIActivator {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		// Register ReqIfText attribute for handling of images references
+        RichTextAttributeRegistry.INSTANCE.add(RequirementsPackage.eINSTANCE.getRequirement_ReqIFText());
 	}
 
 	/**
