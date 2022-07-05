@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 THALES GLOBAL SERVICES.
+ * Copyright (c) 2020, 2022 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -236,34 +236,25 @@ public class ReqIFTextParser {
         dialog.open();
       });
     }
-    if (imageImporter.getImgImportStrategy() != null) {
+    if (imageImporter.getRelPath() != null) {
       convertImgElement(imgElement, owner);
     } else {
-      LOGGER.log(Level.ERROR, "No valid image import strategy. Images won't be imported");
+      LOGGER.log(Level.ERROR, "No valid path to import. Images won't be imported");
     }
   }
 
   /**
-   * Convert the img element in ReqIF format into Capella description format according to the chosen image importing
-   * strategy. We suppose that the src of the imgElement before being converted is always the name of the exported
-   * image.
+   * Convert the img element in ReqIF format into Capella description format. We suppose that the src of the 
+   * imgElement before being converted is always the name of the exported image.
    * 
    * @param imgElement
    *          the img element to convert
    */
   protected void convertImgElement(Element imgElement, AttributeOwner owner) {
     String imgName = imgElement.getAttribute("src");
-    if (imageImporter.getImgImportStrategy() == ImageImportStrategy.ABS_PATH) {
-      imgElement.setAttribute("src", (new File(imageImporter.getAbsPath(), imgName)).toURI().toString());
-      storeFileToCopy(imgName, getReqIFFolder(), imageImporter.getAbsPath(), owner);
-    } else if (imageImporter.getImgImportStrategy() == ImageImportStrategy.REL_PATH) {
-      imgElement.setAttribute("src", Paths.get(imageImporter.getRelPath(), imgName).toString());
-      storeFileToCopy(imgName, getReqIFFolder(),
-          (new File(getCurrentProject().getLocation().toString(), imageImporter.getRelPath())).getPath(), owner);
-    } else if (imageImporter.getImgImportStrategy() == ImageImportStrategy.EMBEDDED) {
-      String base64Image = encode((new File(getReqIFFolder(), imgName)).getPath());
-      imgElement.setAttribute("src", base64Image);
-    }
+    imgElement.setAttribute("src", getCurrentProject().getName() + "/" +  imageImporter.getRelPath() + imgName);
+    storeFileToCopy(imgName, getReqIFFolder(),
+        (new File(getCurrentProject().getLocation().toString(), imageImporter.getRelPath())).getPath(), owner);
   }
 
   /**
