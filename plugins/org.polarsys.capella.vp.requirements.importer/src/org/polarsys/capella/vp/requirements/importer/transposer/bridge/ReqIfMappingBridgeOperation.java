@@ -12,6 +12,9 @@
  *******************************************************************************/
 package org.polarsys.capella.vp.requirements.importer.transposer.bridge;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.diffmerge.bridge.api.IBridgeExecution;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IMappingBridge;
 import org.eclipse.emf.diffmerge.bridge.mapping.api.IRule;
@@ -43,7 +46,11 @@ public class ReqIfMappingBridgeOperation extends MappingBridgeOperation {
 			manager.execute(new AbstractReadWriteCommand() {
 				@Override
 				public void run() {
-					ReqIfMappingBridgeOperation.super.handleBridge(bridge, execution, sourceDataSet, targetDataSet);
+				    try {
+				        ReqIfMappingBridgeOperation.super.handleBridge(bridge, execution, sourceDataSet, targetDataSet);
+				    } catch (OperationCanceledException e) {
+				        execution.setStatus(Status.CANCEL_STATUS);
+				    }
 				}
 			});
 		}
@@ -74,5 +81,15 @@ public class ReqIfMappingBridgeOperation extends MappingBridgeOperation {
     if (target instanceof ModelElement) {
       ((ModelElement) target).getId();
     }
+	}
+	
+	@Override
+	public IStatus run() {
+	    IStatus runStatus = super.run();
+	    IStatus executionStatus = getBridgeExecution().getStatus();
+	    if (executionStatus.equals(Status.CANCEL_STATUS)) {
+	        return executionStatus;
+	    }
+	    return runStatus;
 	}
 }
