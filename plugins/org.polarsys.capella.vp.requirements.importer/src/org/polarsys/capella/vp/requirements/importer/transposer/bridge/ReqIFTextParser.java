@@ -41,8 +41,10 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.polarsys.capella.common.tools.report.config.registry.ReportManagerRegistry;
 import org.polarsys.capella.common.tools.report.util.IReportManagerDefaultComponents;
@@ -61,6 +63,7 @@ public class ReqIFTextParser {
   private ImageImporter imageImporter;
   private IContext context;
   private static final Logger LOGGER = ReportManagerRegistry.getInstance().subscribe(IReportManagerDefaultComponents.DEFAULT);
+  private int dialogResult = Window.OK;
 
   public ReqIFTextParser(IContext context) {
     this.context = context;
@@ -233,8 +236,11 @@ public class ReqIFTextParser {
       Display.getDefault().syncExec(() -> {
         ImageImportingDialog dialog = new ImageImportingDialog(Display.getDefault().getActiveShell(),
             imageImporter, getCurrentProject());
-        dialog.open();
+        this.dialogResult = dialog.open();
       });
+      if (this.dialogResult == Window.CANCEL) {
+          throw new OperationCanceledException();
+      }
     }
     if (imageImporter.getRelPath() != null) {
       convertImgElement(imgElement, owner);
