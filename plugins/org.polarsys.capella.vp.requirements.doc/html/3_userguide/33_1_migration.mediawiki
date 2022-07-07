@@ -5,10 +5,15 @@ for successive imports. Models that have been created in previous
 versions of Capella need to be migrated for this version, including
 the .bridgetraces file.
 
-* If the .bridgetraces file is present in your Capella project, it will be automatically migrated during the migration procedure. For more details regarding the migration please of Capella projects please consult <b>Capella Guide / User Manual / First steps with Capella / How to Migrate Capella Project</b>
+* If the .bridgetraces file is present in your Capella project, it will be automatically migrated during the migration procedure. For more details regarding the migration of Capella projects please consult <b>Capella Guide / User Manual / First steps with Capella / How to Migrate Capella Project</b>
 
 * [[Image:../../images/migration1.png]]
 
 * If the .bridgetraces file is present in elsewhere in your workspace, you can migrate them independently by doing <b>Right Click / Migration / Migrate Trace resource to current version</b>
 
 * [[Image:../../images/migration2.png]]
+
+= Migration result =
+
+Image management in RichText contents have been modified in Capella 6.0. Images are now only referred using paths that are relative to the workspace. It is thus important to notice the [[../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project | following modification]] applied to your models during the migration.
+This leads to potential differences raised during import of ReqIF content containing images on projects where the same ReqIf content was imported in a previous version of Capella.  

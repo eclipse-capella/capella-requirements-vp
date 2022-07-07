@@ -25,6 +25,10 @@
    <topic href="html/3_userguide/33_reqifimport.html" label="ReqIF Import in Capella">
    </topic>
    <topic href="html/3_userguide/33_1_migration.html" label="Project migration">
+      <topic href="html/3_userguide/33_1_migration.html#Migration_procedure" label="Migration procedure">
+      </topic>
+      <topic href="html/3_userguide/33_1_migration.html#Migration_result" label="Migration result">
+      </topic>
    </topic>
    <topic href="html/3_userguide/34_preferences.html" label="Preferences">
    </topic>

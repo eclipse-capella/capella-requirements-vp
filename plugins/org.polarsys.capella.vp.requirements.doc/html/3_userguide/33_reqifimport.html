@@ -141,18 +141,16 @@
 			<img border="0" src="../../images/ReqIFText.png"/>
 		</p>
 		<p>
-			<b>Image importing strategies</b>
+			<b>Image importing</b>
 		</p>
-		<p>For imported images, users  can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.</p>
+		<p>Starting in Capella 6.0, images referenced in Requirements text shall be imported on projects available in the workspace. Users should then provide the path to the project and possibly sub-folder where images are to be stored.</p>
 		<p>
-			<img border="0" src="../../images/ImageImportStrategy.png"/>
+			<img border="0" src="../../images/ImageImportDialog.png"/>
 		</p>
-		<ul>
-			<li>Absolute path: This is the recommended mode. However, images cannot be loaded if the image folder location is not known to Capella. Thus, users must make sure that the image folder is accessible (e.g. folder in a shared drive)</li>
-			<li>Relative path: The image folder is included in Capella project. However, due to some limitations, this mode does not work well with connected models in collaborative mode.</li>
-			<li>Embed in Base64: The image is directly embedded in Capella model. This can significantly increase the size of the model.</li>
-		</ul>
-		<p>Notice that between imports, if the image importing strategy is changed, the tool will consider that the text has been changed and thus, show the difference. If you do not want to see these differences, make sure to use the same image importing strategy in interative imports.</p>
+		<p>Images previously imported may have been modified if your project have been 
+			<a href="/wiki/../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project" title="../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project">migrated</a>.
+			This leads to potential differences raised during import of ReqIF content containing images on projects where the same ReqIf content was imported in a previous version of Capella.
+		</p>
 		<h2 id="Iterativity">Iterativity</h2>
 		<p>After an import, a new file .bridgetraces is created aside the .capella file. This file is used to allow successive imports. It shall not be deleted.</p>
 	</body>
