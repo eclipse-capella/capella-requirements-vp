@@ -70,12 +70,12 @@ public class TextTransformTestCase extends BasicTestCase {
   }
   
   protected void testRelativePathImportStrategy(IContext context, ImageImporter imageImporter) {
-    imageImporter.setRelPath("");
+    imageImporter.setRelPath(PROJECT + "/");
     ReqIFTextParser parser = new ReqIFTextParser(context, imageImporter);
     Requirement dummyReq = RequirementsFactory.eINSTANCE.createRequirement();
     dummyReq.setReqIFIdentifier("Dummy");
     String parsedContent = parser.transformToHTML(REQIF_TEXT, dummyReq);
-    String expectedConent = MessageFormat.format(PARSED_REQIF_TEXT, PROJECT + "/" + OUPUT_IMG_FILE_RELATIVE_PATH);
+    String expectedConent = MessageFormat.format(PARSED_REQIF_TEXT,  PROJECT + "/" + OUPUT_IMG_FILE_RELATIVE_PATH);
     assertTrue(UNEXPECTED_IMPORTED_TEXT, parsedContent.equals(expectedConent));
   }
 }

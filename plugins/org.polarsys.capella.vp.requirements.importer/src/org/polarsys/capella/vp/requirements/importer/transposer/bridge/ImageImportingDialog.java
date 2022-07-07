@@ -64,15 +64,16 @@ public class ImageImportingDialog extends TitleAreaDialog {
 
   protected void setUpRelPathUI(Composite container, Composite importingModesComposite) {
     Label relativePathTextChoice = new Label(importingModesComposite, SWT.SINGLE);
-    relativePathTextChoice.setText("Path to image folder that is relative to the current project:");
+    relativePathTextChoice.setText(Messages.ImageImportingDialog_RelativePathLabel);
     GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).applyTo(relativePathTextChoice);
 
     relativePathText = new Text(importingModesComposite, SWT.SINGLE | SWT.BORDER);
+    relativePathText.setText(currentProject.getName() + "/");
     relativePathText.addModifyListener(e -> {
-      String currentProjectLocation = currentProject.getLocation().toString();
-      Path currentProjectPath = Paths.get(currentProjectLocation);
-      if (!currentProjectPath.resolve(relativePathText.getText()).toFile().exists()) {
-        setErrorMessage("The relative path does not point to a valid folder.");
+      String currentProjectParentLocation = currentProject.getLocation().removeLastSegments(1).toString();
+      Path currentProjectParentPath = Paths.get(currentProjectParentLocation);
+      if (relativePathText.getText() == "" || !currentProjectParentPath.resolve(relativePathText.getText()).toFile().exists()) {
+        setErrorMessage(Messages.ImageImportingDialog_RelativePathErrorMessage);
         disableFinish();
       } else {
         enableFinishForRelPath();
@@ -87,13 +88,14 @@ public class ImageImportingDialog extends TitleAreaDialog {
       public void widgetSelected(SelectionEvent e) {
         DirectoryDialog dialog = new DirectoryDialog(container.getShell());
         String currentProjectLocation = currentProject.getLocation().toString();
+        String currentProjectParentLocation = currentProject.getLocation().removeLastSegments(1).toString();
         dialog.setFilterPath(currentProjectLocation);
         String result = dialog.open();
         if (result != null) {
           URI resultPath = Paths.get(result).toUri();
-          URI currentProjectPath = Paths.get(currentProjectLocation).toUri();
-          if (resultPath.toString().startsWith(currentProjectPath.toString())) {
-            URI relativizedPath = currentProjectPath.relativize(resultPath);
+          URI currentProjectParentPath = Paths.get(currentProjectParentLocation).toUri();
+          if (resultPath.toString().startsWith(currentProjectParentPath.toString())) {
+            URI relativizedPath = currentProjectParentPath.relativize(resultPath);
             relativePathText.setText(relativizedPath.getPath());
           } else {
             relativePathText.setText("");
@@ -106,7 +108,6 @@ public class ImageImportingDialog extends TitleAreaDialog {
   }
 
   protected void enableFinishForRelPath() {
-    setMessage(Messages.ImageImportingDialog_DefaultMessage + Messages.ImageImportingDialog_RelPathMessage);
     setErrorMessage(null);
     getButton(IDialogConstants.OK_ID).setEnabled(true);
     imageImporter.setRelPath(relativePathText.getText());
@@ -123,7 +124,7 @@ public class ImageImportingDialog extends TitleAreaDialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(600, 200);
+    return new Point(700, 200);
   }
 
   @Override

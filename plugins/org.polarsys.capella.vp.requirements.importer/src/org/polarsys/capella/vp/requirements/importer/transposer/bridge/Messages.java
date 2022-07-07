@@ -23,9 +23,9 @@ public class Messages extends NLS {
   public static String CategoryFormat_Description;
   public static String CategoryFormat_Name;
   public static String ImageImportingDialog_DefaultMessage;
-  public static String ImageImportingDialog_AbsPathMessage;
-  public static String ImageImportingDialog_RelPathMessage; 
-  public static String ImageImportingDialog_EmbeddedMessage;
+  public static String ImageImportingDialog_RelPathMessage;
+  public static String ImageImportingDialog_RelativePathLabel;
+  public static String ImageImportingDialog_RelativePathErrorMessage;
   
   static {
     // initialize resource bundle
