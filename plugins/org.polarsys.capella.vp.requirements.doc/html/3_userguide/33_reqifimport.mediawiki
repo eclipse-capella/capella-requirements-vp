@@ -98,17 +98,14 @@ Requirement's ReqIf.Text field when imported into Capella model can be displayed
 
 [[Image:../../images/ReqIFText.png]]
 
-'''Image importing strategies'''
+'''Image importing'''
 
-For imported images, users  can choose one of three strategies: import to an absolute path, import to a relative path or embed image in Base64 format. Here below are the advantages and inconveniences for each approach.
+Starting in Capella 6.0, images referenced in Requirements text shall be imported on projects available in the workspace. Users should then provide the path to the project and possibly sub-folder where images are to be stored.
 
-[[File:../../images/ImageImportStrategy.png]]
+[[File:../../images/ImageImportDialog.png]]
 
-* Absolute path: This is the recommended mode. However, images cannot be loaded if the image folder location is not known to Capella. Thus, users must make sure that the image folder is accessible (e.g. folder in a shared drive)
-* Relative path: The image folder is included in Capella project. However, due to some limitations, this mode does not work well with connected models in collaborative mode.
-* Embed in Base64: The image is directly embedded in Capella model. This can significantly increase the size of the model.
-
-Notice that between imports, if the image importing strategy is changed, the tool will consider that the text has been changed and thus, show the difference. If you do not want to see these differences, make sure to use the same image importing strategy in interative imports.
+Images previously imported may have been modified if your project have been [[../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project | migrated]].
+This leads to potential differences raised during import of ReqIF content containing images on projects where the same ReqIf content was imported in a previous version of Capella.
 
 == Iterativity ==
 

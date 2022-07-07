@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css" media="all" />
-		<title>Migration</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>33_1_migration</title>
+		<link type="text/css" rel="stylesheet" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css"/>
 	</head>
 	<body>
 		<h1 id="Migration_procedure">Migration procedure</h1>
@@ -13,7 +13,7 @@
 			versions of Capella need to be migrated for this version, including
 			the .bridgetraces file.</p>
 		<ul>
-			<li>If the .bridgetraces file is present in your Capella project, it will be automatically migrated during the migration procedure. For more details regarding the migration please of Capella projects please consult <b>Capella Guide / User Manual / First steps with Capella / How to Migrate Capella Project</b></li>
+			<li>If the .bridgetraces file is present in your Capella project, it will be automatically migrated during the migration procedure. For more details regarding the migration of Capella projects please consult <b>Capella Guide / User Manual / First steps with Capella / How to Migrate Capella Project</b></li>
 		</ul>
 		<ul>
 			<li>
@@ -28,5 +28,10 @@
 				<img border="0" src="../../images/migration2.png"/>
 			</li>
 		</ul>
+		<h1 id="Migration_result">Migration result</h1>
+		<p>Image management in RichText contents have been modified in Capella 6.0. Images are now only referred using paths that are relative to the workspace. It is thus important to notice the 
+			<a href="/wiki/../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project" title="../help/topic/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.5.%20How%20to%20migrate%20Capella%20projects.html?cp=6_1_3_4_0#Special_attention_to_image_used_in_the_project">following modification</a> applied to your models during the migration.
+			This leads to potential differences raised during import of ReqIF content containing images on projects where the same ReqIf content was imported in a previous version of Capella.  
+		</p>
 	</body>
 </html>
