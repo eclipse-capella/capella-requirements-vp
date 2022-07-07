@@ -258,9 +258,9 @@ public class ReqIFTextParser {
    */
   protected void convertImgElement(Element imgElement, AttributeOwner owner) {
     String imgName = imgElement.getAttribute("src");
-    imgElement.setAttribute("src", getCurrentProject().getName() + "/" +  imageImporter.getRelPath() + imgName);
+    imgElement.setAttribute("src", imageImporter.getRelPath() + imgName);
     storeFileToCopy(imgName, getReqIFFolder(),
-        (new File(getCurrentProject().getLocation().toString(), imageImporter.getRelPath())).getPath(), owner);
+        (new File(getCurrentProject().getLocation().removeLastSegments(1).toString(), imageImporter.getRelPath())).getPath(), owner);
   }
 
   /**
