@@ -39,6 +39,7 @@ public class ImageImportingDialog extends TitleAreaDialog {
   private Text relativePathText;
   private ImageImporter imageImporter;
   private IProject currentProject;
+  private String separator = System.getProperty("file.separator");
 
   protected ImageImportingDialog(Shell parentShell, ImageImporter imageImporter, IProject currentProject) {
     super(parentShell);
@@ -68,7 +69,7 @@ public class ImageImportingDialog extends TitleAreaDialog {
     GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).applyTo(relativePathTextChoice);
 
     relativePathText = new Text(importingModesComposite, SWT.SINGLE | SWT.BORDER);
-    relativePathText.setText(currentProject.getName() + "/");
+    relativePathText.setText(currentProject.getName() + separator);
     relativePathText.addModifyListener(e -> {
       String currentProjectParentLocation = currentProject.getLocation().removeLastSegments(1).toString();
       Path currentProjectParentPath = Paths.get(currentProjectParentLocation);
@@ -110,7 +111,11 @@ public class ImageImportingDialog extends TitleAreaDialog {
   protected void enableFinishForRelPath() {
     setErrorMessage(null);
     getButton(IDialogConstants.OK_ID).setEnabled(true);
-    imageImporter.setRelPath(relativePathText.getText());
+    String path = relativePathText.getText();
+    if (!path.endsWith("/") && !path.endsWith("\\")) {
+        path = path + separator;
+    }
+    imageImporter.setRelPath(path);
   }
 
   protected void disableFinish() {
