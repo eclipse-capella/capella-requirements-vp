@@ -1,1 +1,6 @@
-<%= org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper.generateRequirementRelations((org.polarsys.capella.core.data.capellacore.CapellaElement) element)%>
+<%
+String outputFolder = ctx.getValue("outputFolder").toString();
+String projectName = ctx.getValue("projectName").toString();
+%>
+
+<%= org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper.generateRequirementRelations((org.polarsys.capella.core.data.capellacore.CapellaElement) element, outputFolder, projectName)%>

@@ -349,7 +349,7 @@ public class RequirementHelper {
     return sb.toString();
   }
 
-  public static String generateRequirementRelations(CapellaElement capellaElement) {
+  public static String generateRequirementRelations(CapellaElement capellaElement, String outputFolder, String projectName) {
     StringBuilder builder = new StringBuilder();
 
     List<EObject> incomingRelations = EObjectExt.getReferencers(capellaElement,
@@ -362,17 +362,17 @@ public class RequirementHelper {
     }
 
     if (!incomingRelations.isEmpty()) {
-      builder.append(generateElementRequirementsIncomingAllocation(incomingRelations));
+      builder.append(generateElementRequirementsIncomingAllocation(incomingRelations, outputFolder, projectName));
     }
 
     if (!outgoingRelations.isEmpty()) {
-      builder.append(generateElementRequirementsOutgoingAllocation(outgoingRelations));
+      builder.append(generateElementRequirementsOutgoingAllocation(outgoingRelations, outputFolder, projectName));
     }
 
     return builder.toString();
   }
 
-  public static String generateElementRequirementsIncomingAllocation(List<EObject> incomingRelations) {
+  public static String generateElementRequirementsIncomingAllocation(List<EObject> incomingRelations, String outputFolder, String projectName) {
     StringBuilder builder = new StringBuilder();
 
     if (!incomingRelations.isEmpty()) {
@@ -382,7 +382,7 @@ public class RequirementHelper {
       for (EObject eObject : incomingRelations) {
         String relationTypeName = getRelationTypeName((AbstractRelation) eObject);
         Requirement source = ((CapellaIncomingRelation) eObject).getSource();
-        String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(source);
+        String hyperlinkFromElement = getImageHyperlinkFromElement(source, projectName, outputFolder, RequirementsServices.NO_TARGET_DEFINED);
         builder.append(genTableRow(false, hyperlinkFromElement, relationTypeName));
       }
       builder.append(RequirementsServices.TABLE_CLOSE).append("</div>");
@@ -391,7 +391,7 @@ public class RequirementHelper {
     return builder.toString();
   }
 
-  public static String generateElementRequirementsOutgoingAllocation(List<EObject> outgoingRelations) {
+  public static String generateElementRequirementsOutgoingAllocation(List<EObject> outgoingRelations, String outputFolder, String projectName) {
     StringBuilder builder = new StringBuilder();
 
     if (!outgoingRelations.isEmpty()) {
@@ -401,7 +401,7 @@ public class RequirementHelper {
       for (EObject eObject : outgoingRelations) {
         String relationTypeName = getRelationTypeName((AbstractRelation) eObject);
         Requirement target = ((CapellaOutgoingRelation) eObject).getTarget();
-        String hyperlinkFromElement = RequirementsServices.getHyperlinkFromElement(target);
+        String hyperlinkFromElement = getImageHyperlinkFromElement(target, projectName, outputFolder, RequirementsServices.NO_TARGET_DEFINED);
         builder.append(genTableRow(false, hyperlinkFromElement, relationTypeName));
       }
       builder.append(RequirementsServices.TABLE_CLOSE).append("</div>");

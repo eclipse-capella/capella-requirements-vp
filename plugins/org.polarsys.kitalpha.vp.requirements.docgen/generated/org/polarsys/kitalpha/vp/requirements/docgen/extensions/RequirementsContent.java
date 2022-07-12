@@ -1,4 +1,4 @@
-//Generated with EGF 1.5.1.v20180423-0901
+//Generated with EGF 1.6.3.202110291409
 package org.polarsys.kitalpha.vp.requirements.docgen.extensions;
 
 import org.eclipse.egf.common.helper.*;
@@ -11,108 +11,114 @@ import org.polarsys.kitalpha.doc.gen.business.core.extension.page.PageExtensionR
 import org.polarsys.kitalpha.doc.gen.business.core.extension.page.PageExtensionElement.PageExtensionActivationStatus;
 
 public class RequirementsContent {
-	protected static String nl;
+    protected static String nl;
 
-	public static synchronized RequirementsContent create(String lineSeparator) {
-		nl = lineSeparator;
-		RequirementsContent result = new RequirementsContent();
-		nl = null;
-		return result;
-	}
+    public static synchronized RequirementsContent create(String lineSeparator) {
+        nl = lineSeparator;
+        RequirementsContent result = new RequirementsContent();
+        nl = null;
+        return result;
+    }
 
-	public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-	protected final String TEXT_1 = "";
-	protected final String TEXT_2 = NL;
+    public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
 
-	public RequirementsContent() {
-		//Here is the constructor
-		StringBuffer stringBuffer = new StringBuffer();
+    protected final String TEXT_1 = "";
 
-		// add initialisation of the pattern variables (declaration has been already done).
+    protected final String TEXT_2 = NL;
 
-	}
+    public RequirementsContent() {
+        //Here is the constructor
+        StringBuffer stringBuffer = new StringBuffer();
 
-	public String generate(Object argument) throws Exception {
-		final StringBuffer stringBuffer = new StringBuffer();
+        // add initialisation of the pattern variables (declaration has been already done).
 
-		InternalPatternContext ctx = (InternalPatternContext) argument;
-		Map<String, String> queryCtx = null;
-		IQuery.ParameterDescription paramDesc = null;
-		Node.Container currentNode = ctx.getNode();
+    }
 
-		List<Object> elementList = null;
-		//this pattern can only be called by another (i.e. it's not an entry point in execution)
-		List<Object> documentTitleList = null;
-		//this pattern can only be called by another (i.e. it's not an entry point in execution)
+    public String generate(Object argument) throws Exception {
+        final StringBuffer stringBuffer = new StringBuffer();
 
-		for (Object elementParameter : elementList) {
-			for (Object documentTitleParameter : documentTitleList) {
+        InternalPatternContext ctx = (InternalPatternContext) argument;
+        Map<String, String> queryCtx = null;
+        IQuery.ParameterDescription paramDesc = null;
+        Node.Container currentNode = ctx.getNode();
 
-				this.element = (org.eclipse.emf.ecore.EObject) elementParameter;
-				this.documentTitle = (java.lang.String) documentTitleParameter;
+        List<Object> elementList = null;
+        //this pattern can only be called by another (i.e. it's not an entry point in execution)
+        List<Object> documentTitleList = null;
+        //this pattern can only be called by another (i.e. it's not an entry point in execution)
 
-				if (preCondition(ctx)) {
-					ctx.setNode(new Node.Container(currentNode, getClass()));
-					orchestration(ctx);
-				}
+        for (Object elementParameter : elementList) {
+            for (Object documentTitleParameter : documentTitleList) {
 
-			}
-		}
-		ctx.setNode(currentNode);
-		if (ctx.useReporter()) {
-			ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
-		}
+                this.element = (org.eclipse.emf.ecore.EObject) elementParameter;
+                this.documentTitle = (java.lang.String) documentTitleParameter;
 
-		stringBuffer.append(TEXT_1);
-		stringBuffer.append(TEXT_2);
-		return stringBuffer.toString();
-	}
+                if (preCondition(ctx)) {
+                    ctx.setNode(new Node.Container(currentNode, getClass()));
+                    orchestration(ctx);
+                }
 
-	public String orchestration(PatternContext ctx) throws Exception {
-		InternalPatternContext ictx = (InternalPatternContext) ctx;
+            }
+        }
+        ctx.setNode(currentNode);
+        if (ctx.useReporter()) {
+            ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
+        }
 
-		method_content(new StringBuffer(), ictx);
+        stringBuffer.append(TEXT_2);
+        stringBuffer.append(TEXT_2);
+        return stringBuffer.toString();
+    }
 
-		if (ictx.useReporter()) {
-			Map<String, Object> parameterValues = new HashMap<String, Object>();
-			parameterValues.put("element", this.element);
-			parameterValues.put("documentTitle", this.documentTitle);
-			String outputWithCallBack = OutputManager.computeLoopOutput(ictx);
-			String loop = OutputManager.computeLoopOutputWithoutCallback(ictx);
-			ictx.getReporter().loopFinished(loop, outputWithCallBack, ictx, parameterValues);
-		}
-		return null;
-	}
+    public String orchestration(PatternContext ctx) throws Exception {
+        InternalPatternContext ictx = (InternalPatternContext) ctx;
 
-	protected org.eclipse.emf.ecore.EObject element = null;
+        method_content(new StringBuffer(), ictx);
 
-	public void set_element(org.eclipse.emf.ecore.EObject object) {
-		this.element = object;
-	}
+        if (ictx.useReporter()) {
+            Map<String, Object> parameterValues = new HashMap<String, Object>();
+            parameterValues.put("element", this.element);
+            parameterValues.put("documentTitle", this.documentTitle);
+            String outputWithCallBack = OutputManager.computeLoopOutput(ictx);
+            String loop = OutputManager.computeLoopOutputWithoutCallback(ictx);
+            ictx.getReporter().loopFinished(loop, outputWithCallBack, ictx, parameterValues);
+        }
+        return null;
+    }
 
-	protected java.lang.String documentTitle = null;
+    protected org.eclipse.emf.ecore.EObject element = null;
 
-	public void set_documentTitle(java.lang.String object) {
-		this.documentTitle = object;
-	}
+    public void set_element(org.eclipse.emf.ecore.EObject object) {
+        this.element = object;
+    }
 
-	public Map<String, Object> getParameters() {
-		final Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("element", this.element);
-		parameters.put("documentTitle", this.documentTitle);
-		return parameters;
-	}
+    protected java.lang.String documentTitle = null;
 
-	protected void method_content(final StringBuffer stringBuffer, final PatternContext ctx) throws Exception {
+    public void set_documentTitle(java.lang.String object) {
+        this.documentTitle = object;
+    }
 
-		stringBuffer.append(org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper
-				.generateRequirementRelations((org.polarsys.capella.core.data.capellacore.CapellaElement) element));
-		InternalPatternContext ictx = (InternalPatternContext) ctx;
-		new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
-	}
+    public Map<String, Object> getParameters() {
+        final Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("element", this.element);
+        parameters.put("documentTitle", this.documentTitle);
+        return parameters;
+    }
 
-	public boolean preCondition(PatternContext ctx) throws Exception {
-		return PageExtensionRegistry.getInstance().getCategoryActivationStatus("Capella", "Requirement Viewpoint")
-				.equals(PageExtensionActivationStatus.Active);
-	}
+    protected void method_content(final StringBuffer stringBuffer, final PatternContext ctx) throws Exception {
+
+        String outputFolder = ctx.getValue("outputFolder").toString();
+        String projectName = ctx.getValue("projectName").toString();
+
+        stringBuffer.append(TEXT_1);
+        stringBuffer.append(TEXT_2);
+        stringBuffer.append(org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper.generateRequirementRelations((org.polarsys.capella.core.data.capellacore.CapellaElement) element,
+                outputFolder, projectName));
+        InternalPatternContext ictx = (InternalPatternContext) ctx;
+        new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
+    }
+
+    public boolean preCondition(PatternContext ctx) throws Exception {
+        return PageExtensionRegistry.getInstance().getCategoryActivationStatus("Capella", "Requirement Viewpoint").equals(PageExtensionActivationStatus.Active);
+    }
 }
