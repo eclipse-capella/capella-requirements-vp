@@ -129,7 +129,7 @@ public class ImageImportingDialog extends TitleAreaDialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(700, 200);
+    return new Point(700, 250);
   }
 
   @Override
