@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.session.Session;
@@ -387,8 +388,7 @@ public class CapellaRequirementsOpenJavaService {
             resultBuilder.append(value);
           }
           String evaluationResult = resultBuilder.toString();
-          String sanytizedResult = LabelHelper.transformHTMLToTextWithLineFeed(evaluationResult);
-
+          String sanytizedResult = LabelHelper.unescape(LabelHelper.transformHTMLToText(evaluationResult));
           return reduceString(sanytizedResult, maxLength);
         }
       }

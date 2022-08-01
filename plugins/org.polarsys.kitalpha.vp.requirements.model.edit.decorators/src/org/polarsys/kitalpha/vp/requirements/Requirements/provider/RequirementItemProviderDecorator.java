@@ -13,6 +13,7 @@
 package org.polarsys.kitalpha.vp.requirements.Requirements.provider;
 
 import java.util.List;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -90,7 +91,8 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
         } else {
           result += value;
         }
-        result = LabelHelper.transformHTMLToText(result);
+        result = LabelHelper.toOneLine(LabelHelper.unescape(LabelHelper.transformHTMLToText(result)));
+        
         return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
             .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN_KEY));
       }
