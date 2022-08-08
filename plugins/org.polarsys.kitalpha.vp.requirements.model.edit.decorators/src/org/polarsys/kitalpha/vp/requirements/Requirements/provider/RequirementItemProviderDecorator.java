@@ -90,7 +90,7 @@ public class RequirementItemProviderDecorator extends ItemProviderAdapterDecorat
         } else {
           result += value;
         }
-        result = LabelHelper.transformHTMLToText(result);
+        result = LabelHelper.unescape(LabelHelper.transformHTMLToText(result));
         return reduceReqNameLen(result, RequirementsPreferencesPlugin.getDefault().getPreferenceStore()
             .getString(RequirementsPreferencesConstants.REQUIREMENT_LABEL_MAX_LEN_KEY));
       }

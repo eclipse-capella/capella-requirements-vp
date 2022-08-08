@@ -23,6 +23,7 @@ import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AttributeDefinition;
 import org.polarsys.kitalpha.vp.requirements.Requirements.StringValueAttribute;
 import org.polarsys.kitalpha.vp.requirements.model.edit.decorators.ItemProviderAdapterDecorator;
+import org.polarsys.kitalpha.vp.requirements.model.helpers.LabelHelper;
 
 /**
  * @author Joao Barata
@@ -49,8 +50,7 @@ public class StringValueAttributeItemProviderDecorator extends
     }
     
     result.append(" ");
-    result.append(attribute.getValue());
-    
+    result.append(LabelHelper.unescape(attribute.getValue()));
     return result.toString();
   }
 }
