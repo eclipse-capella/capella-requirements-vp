@@ -22,7 +22,7 @@
   <name>Capella Requirements Viewpoint</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
-  <version>0.12.2-SNAPSHOT</version>
+  <version>0.12.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -111,7 +111,7 @@
 				<artifact>
 					<groupId>org.polarsys</groupId>
 					<artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
-					<version>0.12.2-SNAPSHOT</version>
+					<version>0.12.3-SNAPSHOT</version>
 					<classifier>releng/org.polarsys.capella.vp.requirements.target/tp/capella.target-definition</classifier>
 				</artifact>
 			</target>

@@ -11,7 +11,7 @@ pipeline {
 	environment {
 		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
 		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
-		CAPELLA_BRANCH = 'master'
+		CAPELLA_BRANCH = '5.x'
   	}
   
   	stages {

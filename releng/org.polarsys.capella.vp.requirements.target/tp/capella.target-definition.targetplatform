@@ -10,16 +10,16 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/nightly/5.x/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/releases/5.2.0-R20211130-125709/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/releases/5.2.0-R20211130-125709/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -39,10 +39,10 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20180613-0111/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location kitalpha "https://download.eclipse.org/kitalpha/updates/nightly/runtime/master" {
+location kitalpha-runtime-core-master "https://download.eclipse.org/kitalpha/updates/release/runtime/5.2.0/" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/stable/5.1.0-S202106151504/" {
     org.polarsys.capella.docgen.feature.feature.group
 }

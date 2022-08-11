@@ -435,7 +435,7 @@ public class ReqIFMapping extends EMFMappingBridge<IEditableModelScope, IEditabl
       // We've got to store root tag here since ReqIF10XhtmlUtil.getXhtmlString does not include the original root tag of the XHTML element
       rootTag = getRootTag(theValue);
       content = ReqIF10XhtmlUtil.getXhtmlString(theValue);
-      if (value.getDefinition().getLongName().equals("ReqIF.Text")) {
+      if (LabelHelper.keepHtmlTags() || value.getDefinition().getLongName().equals("ReqIF.Text")) {
         content = textParser.transformToHTML(content, owner, rootTag);
       } else {
         content = transformToText(content, rootTag);
