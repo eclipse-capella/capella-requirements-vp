@@ -21,12 +21,21 @@ public class LabelHelper {
   private LabelHelper() {
     // Private constructor
   }
+
+  public static String unescape(String content) {
+    return StringEscapeUtils.unescapeHtml(content);
+  }
+
+  public static String toOneLine(String content) {
+    return content.replace("\r\n", " ").replace("\n", " ").trim();
+  }
+	  
   public static String transformHTMLToText(String content) {
-    return transformHTMLToTextWithLineFeed(content).replace("\r\n", " ").replace("\n", " ").trim();
+    return toOneLine(transformHTMLToTextWithLineFeed(content));
   }
   
   public static String transformHTMLToText(String content, String rootTag) {
-    String result = transformHTMLToTextWithLineFeed(content).replace("\r\n", " ").replace("\n", " ").trim();
+    String result = toOneLine(transformHTMLToTextWithLineFeed(content));
     if (rootTag != null && keepHtmlTags()) {
       return "<" + rootTag + ">" + result + "</" + rootTag + ">";
     }
@@ -36,13 +45,13 @@ public class LabelHelper {
   public static String transformHTMLToTextWithLineFeed(String content) {
     if (!keepHtmlTags()) {
       content = content.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
+//      // Decode special characters
+      content = URI.decode(content);
+//      // Unescape HTML special character entities
+      content = unescape(content);
     } else {
       content = content.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
     }
-    // Decode special characters
-    content = URI.decode(content);
-    // Unescape HTML special character entities
-    content = StringEscapeUtils.unescapeHtml(content);
     return content;
   }
   
