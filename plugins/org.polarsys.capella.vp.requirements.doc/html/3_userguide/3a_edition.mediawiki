@@ -13,7 +13,7 @@ By default, types are hidden in the Project Explorer.
 === Visualize Types ===
 
 Disable the corresponding filter:<br/>
-In Capella Project Explorer menu choose "Customize View...".
+In Capella Project Explorer menu choose "Filters and Customization...".
 
 [[Image:../../images/customize_view.png]]
 

@@ -10,20 +10,20 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://download.eclipse.org/capella/core/updates/stable/6.0.0-S20220817-190901/targets/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/releases/6.0.0/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/stable/6.0.0-S20220817-190901/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/releases/6.0.0/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location "https://download.eclipse.org/capella/core/updates/stable/6.0.0-S20220817-190901/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/releases/6.0.0/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "https://download.eclipse.org/diffmerge/stable/0.14.0-S20220817/edm-coevolution-site" {
+location "https://download.eclipse.org/diffmerge/releases/0.14.0/edm-coevolution-site" {
 	org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group
 }
 
