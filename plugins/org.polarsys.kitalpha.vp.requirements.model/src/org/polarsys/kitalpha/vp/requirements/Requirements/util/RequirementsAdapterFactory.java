@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.polarsys.kitalpha.emde.model.Element;
 
+import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -177,7 +178,7 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseModule(Module object) {
+		public Adapter caseModule(org.polarsys.kitalpha.vp.requirements.Requirements.Module object) {
 			return createModuleAdapter();
 		}
 
@@ -239,6 +240,11 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseElement(Element object) {
 			return createElementAdapter();
+		}
+
+		@Override
+		public Adapter caseExtensibleElement(ExtensibleElement object) {
+			return createExtensibleElementAdapter();
 		}
 
 		@Override
@@ -635,6 +641,20 @@ public class RequirementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ExtensibleElement <em>Extensible Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.polarsys.kitalpha.emde.model.ExtensibleElement
+	 * @generated
+	 */
+	public Adapter createExtensibleElementAdapter() {
 		return null;
 	}
 

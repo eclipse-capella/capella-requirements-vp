@@ -14,6 +14,7 @@
 
 package org.polarsys.kitalpha.vp.requirements.Requirements;
 
+import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 import org.polarsys.kitalpha.emde.model.Element;
 
 /**
@@ -33,7 +34,7 @@ import org.polarsys.kitalpha.emde.model.Element;
  * @generated
  */
 
-public interface IdentifiableElement extends Element {
+public interface IdentifiableElement extends ExtensibleElement {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.

@@ -99,9 +99,9 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseReqIFElement(capellaTypesFolder);
 			if (result == null)
-				result = caseExtensibleElement(capellaTypesFolder);
-			if (result == null)
 				result = caseIdentifiableElement(capellaTypesFolder);
+			if (result == null)
+				result = caseExtensibleElement(capellaTypesFolder);
 			if (result == null)
 				result = caseElement(capellaTypesFolder);
 			if (result == null)
@@ -120,11 +120,11 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseSharedDirectAttributes(capellaModule);
 			if (result == null)
-				result = caseExtensibleElement(capellaModule);
-			if (result == null)
 				result = caseReqIFElement(capellaModule);
 			if (result == null)
 				result = caseIdentifiableElement(capellaModule);
+			if (result == null)
+				result = caseExtensibleElement(capellaModule);
 			if (result == null)
 				result = caseElement(capellaModule);
 			if (result == null)
@@ -140,6 +140,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(capellaRelation);
 			if (result == null)
 				result = caseIdentifiableElement(capellaRelation);
+			if (result == null)
+				result = caseExtensibleElement(capellaRelation);
 			if (result == null)
 				result = caseElement(capellaRelation);
 			if (result == null)
@@ -158,6 +160,8 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(capellaIncomingRelation);
 			if (result == null)
+				result = caseExtensibleElement(capellaIncomingRelation);
+			if (result == null)
 				result = caseElement(capellaIncomingRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -173,11 +177,11 @@ public class CapellaRequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAbstractRelation(capellaOutgoingRelation);
 			if (result == null)
-				result = caseExtensibleElement(capellaOutgoingRelation);
-			if (result == null)
 				result = caseReqIFElement(capellaOutgoingRelation);
 			if (result == null)
 				result = caseIdentifiableElement(capellaOutgoingRelation);
+			if (result == null)
+				result = caseExtensibleElement(capellaOutgoingRelation);
 			if (result == null)
 				result = caseElement(capellaOutgoingRelation);
 			if (result == null)

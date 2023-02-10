@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Requirements" nsURI="http://www.polarsys.org/kitalpha/requirements"
     nsPrefix="Requirements">
   <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement" abstract="true"
-      eSuperTypes="platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//Element">
+      eSuperTypes="platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ExtensibleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>

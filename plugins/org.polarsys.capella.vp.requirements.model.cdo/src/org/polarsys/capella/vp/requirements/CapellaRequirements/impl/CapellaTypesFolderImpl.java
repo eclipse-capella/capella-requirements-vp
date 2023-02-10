@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
@@ -37,12 +39,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.impl.TypesFolderImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Capella Types Folder</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaTypesFolderImpl#getOwnedExtensions <em>Owned Extensions</em>}</li>
- * </ul>
  *
  * @generated
  */
@@ -67,142 +63,6 @@ public class CapellaTypesFolderImpl extends TypesFolderImpl implements CapellaTy
 	@Override
 	protected EClass eStaticClass() {
 		return CapellaRequirementsPackage.Literals.CAPELLA_TYPES_FOLDER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<ElementExtension> getOwnedExtensions() {
-
-		return (EList<ElementExtension>) eDynamicGet(CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS,
-				EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-			return ((InternalEList<?>) getOwnedExtensions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-			return getOwnedExtensions();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-			getOwnedExtensions().clear();
-			getOwnedExtensions().addAll((Collection<? extends ElementExtension>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-			getOwnedExtensions().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-			return !getOwnedExtensions().isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ExtensibleElement.class) {
-			switch (derivedFeatureID) {
-			case CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS:
-				return EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == ElementExtension.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ExtensibleElement.class) {
-			switch (baseFeatureID) {
-			case EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS:
-				return CapellaRequirementsPackage.CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == ElementExtension.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //CapellaTypesFolderImpl

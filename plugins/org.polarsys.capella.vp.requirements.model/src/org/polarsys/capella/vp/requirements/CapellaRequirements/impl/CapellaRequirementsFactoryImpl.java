@@ -86,10 +86,10 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaTypesFolder createCapellaTypesFolder() {
 		CapellaTypesFolderImpl capellaTypesFolder = new CapellaTypesFolderImpl();
 		//begin-capella-code
-
 		//end-capella-code
 		return capellaTypesFolder;
 	}
@@ -99,10 +99,10 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaModule createCapellaModule() {
 		CapellaModuleImpl capellaModule = new CapellaModuleImpl();
 		//begin-capella-code
-
 		//end-capella-code
 		return capellaModule;
 	}
@@ -112,10 +112,10 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaIncomingRelation createCapellaIncomingRelation() {
 		CapellaIncomingRelationImpl capellaIncomingRelation = new CapellaIncomingRelationImpl();
 		//begin-capella-code
-
 		//end-capella-code
 		return capellaIncomingRelation;
 	}
@@ -125,10 +125,10 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaOutgoingRelation createCapellaOutgoingRelation() {
 		CapellaOutgoingRelationImpl capellaOutgoingRelation = new CapellaOutgoingRelationImpl();
 		//begin-capella-code
-
 		//end-capella-code
 		return capellaOutgoingRelation;
 	}
@@ -138,6 +138,7 @@ public class CapellaRequirementsFactoryImpl extends EFactoryImpl implements Cape
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CapellaRequirementsPackage getCapellaRequirementsPackage() {
 		return (CapellaRequirementsPackage) getEPackage();
 	}

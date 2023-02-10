@@ -80,6 +80,15 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_TYPES_FOLDER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS = RequirementsPackage.TYPES_FOLDER__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,22 +143,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_TYPES_FOLDER__OWNED_TYPES = RequirementsPackage.TYPES_FOLDER__OWNED_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_TYPES_FOLDER__OWNED_EXTENSIONS = RequirementsPackage.TYPES_FOLDER_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Capella Types Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_TYPES_FOLDER_FEATURE_COUNT = RequirementsPackage.TYPES_FOLDER_FEATURE_COUNT + 1;
+	int CAPELLA_TYPES_FOLDER_FEATURE_COUNT = RequirementsPackage.TYPES_FOLDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaModuleImpl <em>Capella Module</em>}' class.
@@ -160,6 +160,15 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int CAPELLA_MODULE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_MODULE__OWNED_EXTENSIONS = RequirementsPackage.MODULE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -243,22 +252,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_MODULE__OWNED_REQUIREMENTS = RequirementsPackage.MODULE__OWNED_REQUIREMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_MODULE__OWNED_EXTENSIONS = RequirementsPackage.MODULE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Capella Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_MODULE_FEATURE_COUNT = RequirementsPackage.MODULE_FEATURE_COUNT + 1;
+	int CAPELLA_MODULE_FEATURE_COUNT = RequirementsPackage.MODULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaRelationImpl <em>Capella Relation</em>}' class.
@@ -269,6 +269,15 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int CAPELLA_RELATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_RELATION__OWNED_EXTENSIONS = RequirementsPackage.ABSTRACT_RELATION__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -342,6 +351,15 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int CAPELLA_INCOMING_RELATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_INCOMING_RELATION__OWNED_EXTENSIONS = CAPELLA_RELATION__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -435,6 +453,15 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_OUTGOING_RELATION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS = CAPELLA_RELATION__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,22 +516,13 @@ public interface CapellaRequirementsPackage extends EPackage {
 	int CAPELLA_OUTGOING_RELATION__RELATION_TYPE_PROXY = CAPELLA_RELATION__RELATION_TYPE_PROXY;
 
 	/**
-	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS = CAPELLA_RELATION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION__SOURCE = CAPELLA_RELATION_FEATURE_COUNT + 1;
+	int CAPELLA_OUTGOING_RELATION__SOURCE = CAPELLA_RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -513,7 +531,7 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION__TARGET = CAPELLA_RELATION_FEATURE_COUNT + 2;
+	int CAPELLA_OUTGOING_RELATION__TARGET = CAPELLA_RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Capella Outgoing Relation</em>' class.
@@ -522,7 +540,7 @@ public interface CapellaRequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPELLA_OUTGOING_RELATION_FEATURE_COUNT = CAPELLA_RELATION_FEATURE_COUNT + 3;
+	int CAPELLA_OUTGOING_RELATION_FEATURE_COUNT = CAPELLA_RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder <em>Capella Types Folder</em>}'.

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.polarsys.kitalpha.emde.model.impl.ExtensibleElementImpl;
 import org.polarsys.kitalpha.emde.model.impl.ElementImpl;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
@@ -39,7 +40,7 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
  *
  * @generated
  */
-public abstract class IdentifiableElementImpl extends ElementImpl implements IdentifiableElement {
+public abstract class IdentifiableElementImpl extends ExtensibleElementImpl implements IdentifiableElement {
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.

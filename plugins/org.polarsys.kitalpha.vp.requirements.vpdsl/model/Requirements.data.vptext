@@ -14,7 +14,7 @@ import external "platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore"
 
 Data Requirements.data {
 	Class IdentifiableElement {
-		superClass external emde.Element
+		superClass external emde.ExtensibleElement
 		abstract: true
 
 		Attributes:

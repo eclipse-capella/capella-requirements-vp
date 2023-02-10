@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.polarsys.kitalpha.emde.model.Element;
 
+import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractRelation;
 import org.polarsys.kitalpha.vp.requirements.Requirements.AbstractType;
 import org.polarsys.kitalpha.vp.requirements.Requirements.Attribute;
@@ -110,6 +111,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			IdentifiableElement identifiableElement = (IdentifiableElement) theEObject;
 			T result = caseIdentifiableElement(identifiableElement);
 			if (result == null)
+				result = caseExtensibleElement(identifiableElement);
+			if (result == null)
 				result = caseElement(identifiableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -120,6 +123,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseReqIFElement(reqIFElement);
 			if (result == null)
 				result = caseIdentifiableElement(reqIFElement);
+			if (result == null)
+				result = caseExtensibleElement(reqIFElement);
 			if (result == null)
 				result = caseElement(reqIFElement);
 			if (result == null)
@@ -133,6 +138,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(abstractRelation);
 			if (result == null)
 				result = caseIdentifiableElement(abstractRelation);
+			if (result == null)
+				result = caseExtensibleElement(abstractRelation);
 			if (result == null)
 				result = caseElement(abstractRelation);
 			if (result == null)
@@ -149,6 +156,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(internalRelation);
 			if (result == null)
+				result = caseExtensibleElement(internalRelation);
+			if (result == null)
 				result = caseElement(internalRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -159,6 +168,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			T result = caseAttribute(attribute);
 			if (result == null)
 				result = caseIdentifiableElement(attribute);
+			if (result == null)
+				result = caseExtensibleElement(attribute);
 			if (result == null)
 				result = caseElement(attribute);
 			if (result == null)
@@ -173,6 +184,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(stringValueAttribute);
 			if (result == null)
+				result = caseExtensibleElement(stringValueAttribute);
+			if (result == null)
 				result = caseElement(stringValueAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -185,6 +198,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseAttribute(integerValueAttribute);
 			if (result == null)
 				result = caseIdentifiableElement(integerValueAttribute);
+			if (result == null)
+				result = caseExtensibleElement(integerValueAttribute);
 			if (result == null)
 				result = caseElement(integerValueAttribute);
 			if (result == null)
@@ -199,6 +214,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(booleanValueAttribute);
 			if (result == null)
+				result = caseExtensibleElement(booleanValueAttribute);
+			if (result == null)
 				result = caseElement(booleanValueAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -212,6 +229,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(realValueAttribute);
 			if (result == null)
+				result = caseExtensibleElement(realValueAttribute);
+			if (result == null)
 				result = caseElement(realValueAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -224,6 +243,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseAttribute(dateValueAttribute);
 			if (result == null)
 				result = caseIdentifiableElement(dateValueAttribute);
+			if (result == null)
+				result = caseExtensibleElement(dateValueAttribute);
 			if (result == null)
 				result = caseElement(dateValueAttribute);
 			if (result == null)
@@ -247,6 +268,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(attributeOwner);
 			if (result == null)
+				result = caseExtensibleElement(attributeOwner);
+			if (result == null)
 				result = caseElement(attributeOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -263,6 +286,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(requirement);
 			if (result == null)
 				result = caseIdentifiableElement(requirement);
+			if (result == null)
+				result = caseExtensibleElement(requirement);
 			if (result == null)
 				result = caseElement(requirement);
 			if (result == null)
@@ -283,13 +308,15 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(folder);
 			if (result == null)
+				result = caseExtensibleElement(folder);
+			if (result == null)
 				result = caseElement(folder);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case RequirementsPackage.MODULE: {
-			Module module = (Module) theEObject;
+			org.polarsys.kitalpha.vp.requirements.Requirements.Module module = (org.polarsys.kitalpha.vp.requirements.Requirements.Module) theEObject;
 			T result = caseModule(module);
 			if (result == null)
 				result = caseAttributeOwner(module);
@@ -299,6 +326,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(module);
 			if (result == null)
 				result = caseIdentifiableElement(module);
+			if (result == null)
+				result = caseExtensibleElement(module);
 			if (result == null)
 				result = caseElement(module);
 			if (result == null)
@@ -313,6 +342,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(typesFolder);
 			if (result == null)
+				result = caseExtensibleElement(typesFolder);
+			if (result == null)
 				result = caseElement(typesFolder);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -325,6 +356,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(abstractType);
 			if (result == null)
 				result = caseIdentifiableElement(abstractType);
+			if (result == null)
+				result = caseExtensibleElement(abstractType);
 			if (result == null)
 				result = caseElement(abstractType);
 			if (result == null)
@@ -341,6 +374,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(moduleType);
 			if (result == null)
+				result = caseExtensibleElement(moduleType);
+			if (result == null)
 				result = caseElement(moduleType);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -355,6 +390,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(requirementType);
 			if (result == null)
 				result = caseIdentifiableElement(requirementType);
+			if (result == null)
+				result = caseExtensibleElement(requirementType);
 			if (result == null)
 				result = caseElement(requirementType);
 			if (result == null)
@@ -371,6 +408,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(relationType);
 			if (result == null)
+				result = caseExtensibleElement(relationType);
+			if (result == null)
 				result = caseElement(relationType);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -384,6 +423,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(dataTypeDefinition);
 			if (result == null)
+				result = caseExtensibleElement(dataTypeDefinition);
+			if (result == null)
 				result = caseElement(dataTypeDefinition);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -396,6 +437,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(attributeDefinition);
 			if (result == null)
 				result = caseIdentifiableElement(attributeDefinition);
+			if (result == null)
+				result = caseExtensibleElement(attributeDefinition);
 			if (result == null)
 				result = caseElement(attributeDefinition);
 			if (result == null)
@@ -412,6 +455,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(attributeDefinitionEnumeration);
 			if (result == null)
+				result = caseExtensibleElement(attributeDefinitionEnumeration);
+			if (result == null)
 				result = caseElement(attributeDefinitionEnumeration);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -424,6 +469,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseAttribute(enumerationValueAttribute);
 			if (result == null)
 				result = caseIdentifiableElement(enumerationValueAttribute);
+			if (result == null)
+				result = caseExtensibleElement(enumerationValueAttribute);
 			if (result == null)
 				result = caseElement(enumerationValueAttribute);
 			if (result == null)
@@ -440,6 +487,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseIdentifiableElement(enumerationDataTypeDefinition);
 			if (result == null)
+				result = caseExtensibleElement(enumerationDataTypeDefinition);
+			if (result == null)
 				result = caseElement(enumerationDataTypeDefinition);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -452,6 +501,8 @@ public class RequirementsSwitch<T> extends Switch<T> {
 				result = caseReqIFElement(enumValue);
 			if (result == null)
 				result = caseIdentifiableElement(enumValue);
+			if (result == null)
+				result = caseExtensibleElement(enumValue);
 			if (result == null)
 				result = caseElement(enumValue);
 			if (result == null)
@@ -684,7 +735,7 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModule(Module object) {
+	public T caseModule(org.polarsys.kitalpha.vp.requirements.Requirements.Module object) {
 		return null;
 	}
 
@@ -865,6 +916,21 @@ public class RequirementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseElement(Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extensible Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extensible Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtensibleElement(ExtensibleElement object) {
 		return null;
 	}
 

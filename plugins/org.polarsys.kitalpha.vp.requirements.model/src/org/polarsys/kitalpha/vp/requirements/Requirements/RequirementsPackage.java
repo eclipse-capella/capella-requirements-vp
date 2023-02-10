@@ -81,13 +81,22 @@ public interface RequirementsPackage extends EPackage {
 	int IDENTIFIABLE_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_ELEMENT__OWNED_EXTENSIONS = EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT__ID = EmdePackage.ELEMENT_FEATURE_COUNT + 0;
+	int IDENTIFIABLE_ELEMENT__ID = EmdePackage.EXTENSIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Identifiable Element</em>' class.
@@ -96,7 +105,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = EmdePackage.ELEMENT_FEATURE_COUNT + 1;
+	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = EmdePackage.EXTENSIBLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Identifiable Element</em>' class.
@@ -105,7 +114,7 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = EmdePackage.ELEMENT_OPERATION_COUNT + 0;
+	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = EmdePackage.EXTENSIBLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.polarsys.kitalpha.vp.requirements.Requirements.impl.ReqIFElementImpl <em>Req IF Element</em>}' class.
@@ -116,6 +125,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int REQ_IF_ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQ_IF_ELEMENT__OWNED_EXTENSIONS = IDENTIFIABLE_ELEMENT__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -180,6 +198,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ABSTRACT_RELATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RELATION__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -262,6 +289,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERNAL_RELATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__OWNED_EXTENSIONS = ABSTRACT_RELATION__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -364,6 +400,15 @@ public interface RequirementsPackage extends EPackage {
 	int ATTRIBUTE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__OWNED_EXTENSIONS = IDENTIFIABLE_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +462,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int STRING_VALUE_ATTRIBUTE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -483,6 +537,15 @@ public interface RequirementsPackage extends EPackage {
 	int INTEGER_VALUE_ATTRIBUTE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -545,6 +608,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int BOOLEAN_VALUE_ATTRIBUTE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -611,6 +683,15 @@ public interface RequirementsPackage extends EPackage {
 	int REAL_VALUE_ATTRIBUTE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -673,6 +754,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int DATE_VALUE_ATTRIBUTE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -785,6 +875,15 @@ public interface RequirementsPackage extends EPackage {
 	int ATTRIBUTE_OWNER = 11;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_OWNER__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +955,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int REQUIREMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__OWNED_EXTENSIONS = ATTRIBUTE_OWNER__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1001,6 +1109,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int FOLDER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__OWNED_EXTENSIONS = REQUIREMENT__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1157,6 +1274,15 @@ public interface RequirementsPackage extends EPackage {
 	int MODULE = 14;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__OWNED_EXTENSIONS = ATTRIBUTE_OWNER__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1266,6 +1392,15 @@ public interface RequirementsPackage extends EPackage {
 	int TYPES_FOLDER = 15;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_FOLDER__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1348,6 +1483,15 @@ public interface RequirementsPackage extends EPackage {
 	int ABSTRACT_TYPE = 16;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TYPE__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,6 +1563,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int MODULE_TYPE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_TYPE__OWNED_EXTENSIONS = ABSTRACT_TYPE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1494,6 +1647,15 @@ public interface RequirementsPackage extends EPackage {
 	int REQUIREMENT_TYPE = 18;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_TYPE__OWNED_EXTENSIONS = ABSTRACT_TYPE__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1565,6 +1727,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int RELATION_TYPE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_TYPE__OWNED_EXTENSIONS = ABSTRACT_TYPE__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1640,6 +1811,15 @@ public interface RequirementsPackage extends EPackage {
 	int DATA_TYPE_DEFINITION = 20;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DEFINITION__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1702,6 +1882,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE_DEFINITION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1784,6 +1973,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE_DEFINITION_ENUMERATION = 22;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_DEFINITION_ENUMERATION__OWNED_EXTENSIONS = ATTRIBUTE_DEFINITION__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1877,6 +2075,15 @@ public interface RequirementsPackage extends EPackage {
 	int ENUMERATION_VALUE_ATTRIBUTE = 23;
 
 	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_VALUE_ATTRIBUTE__OWNED_EXTENSIONS = ATTRIBUTE__OWNED_EXTENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1939,6 +2146,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ENUMERATION_DATA_TYPE_DEFINITION = 24;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_DATA_TYPE_DEFINITION__OWNED_EXTENSIONS = DATA_TYPE_DEFINITION__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2012,6 +2228,15 @@ public interface RequirementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ENUM_VALUE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__OWNED_EXTENSIONS = REQ_IF_ELEMENT__OWNED_EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.

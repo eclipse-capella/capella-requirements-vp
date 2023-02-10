@@ -1067,7 +1067,7 @@ public class RequirementsPackageImpl extends EPackageImpl implements Requirement
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		identifiableElementEClass.getESuperTypes().add(theEmdePackage.getElement());
+		identifiableElementEClass.getESuperTypes().add(theEmdePackage.getExtensibleElement());
 		reqIFElementEClass.getESuperTypes().add(this.getIdentifiableElement());
 		abstractRelationEClass.getESuperTypes().add(this.getReqIFElement());
 		internalRelationEClass.getESuperTypes().add(this.getAbstractRelation());

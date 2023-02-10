@@ -48,7 +48,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaOutgoingRelationImpl#getOwnedExtensions <em>Owned Extensions</em>}</li>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaOutgoingRelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.polarsys.capella.vp.requirements.CapellaRequirements.impl.CapellaOutgoingRelationImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -56,16 +55,6 @@ import org.polarsys.kitalpha.vp.requirements.Requirements.Requirement;
  * @generated
  */
 public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements CapellaOutgoingRelation {
-
-	/**
-	 * The cached value of the '{@link #getOwnedExtensions() <em>Owned Extensions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedExtensions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ElementExtension> ownedExtensions;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -106,22 +95,6 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return CapellaRequirementsPackage.Literals.CAPELLA_OUTGOING_RELATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-	@Override
-	public EList<ElementExtension> getOwnedExtensions() {
-
-		if (ownedExtensions == null) {
-			ownedExtensions = new EObjectContainmentEList<ElementExtension>(ElementExtension.class, this,
-					CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS);
-		}
-		return ownedExtensions;
 	}
 
 	/**
@@ -228,24 +201,8 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-			return ((InternalEList<?>) getOwnedExtensions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-			return getOwnedExtensions();
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
 			if (resolve)
 				return getSource();
@@ -267,10 +224,6 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-			getOwnedExtensions().clear();
-			getOwnedExtensions().addAll((Collection<? extends ElementExtension>) newValue);
-			return;
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
 			setSource((CapellaElement) newValue);
 			return;
@@ -289,9 +242,6 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-			getOwnedExtensions().clear();
-			return;
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
 			setSource((CapellaElement) null);
 			return;
@@ -310,62 +260,12 @@ public class CapellaOutgoingRelationImpl extends CapellaRelationImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-			return ownedExtensions != null && !ownedExtensions.isEmpty();
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__SOURCE:
 			return source != null;
 		case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__TARGET:
 			return target != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ExtensibleElement.class) {
-			switch (derivedFeatureID) {
-			case CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS:
-				return EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == ElementExtension.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ExtensibleElement.class) {
-			switch (baseFeatureID) {
-			case EmdePackage.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS:
-				return CapellaRequirementsPackage.CAPELLA_OUTGOING_RELATION__OWNED_EXTENSIONS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == ElementExtension.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //CapellaOutgoingRelationImpl
