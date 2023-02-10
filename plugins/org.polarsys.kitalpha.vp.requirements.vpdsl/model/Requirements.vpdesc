@@ -8,7 +8,7 @@
         </owned_type>
       </VP_Class_Attributes>
       <Inheritences xsi:type="vpdesc:ExternalSuperClass">
-        <superClass href="http://www.polarsys.org/kitalpha/emde/1.0.0#//Element"/>
+        <superClass href="http://www.polarsys.org/kitalpha/emde/1.0.0#//ExtensibleElement"/>
       </Inheritences>
     </VP_Classes>
     <VP_Classes name="ReqIFElement" abstract="true">

@@ -35,6 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.polarsys.kitalpha.emde.model.edit.provider.ExtensibleElementItemProvider;
 import org.polarsys.kitalpha.emde.model.edit.provider.ElementItemProvider;
 
 import org.polarsys.kitalpha.vp.requirements.Requirements.IdentifiableElement;
@@ -47,8 +48,9 @@ import org.polarsys.kitalpha.vp.requirements.model.helpers.SharedInitializeCopyC
  * <!-- end-user-doc -->
  * @generated
  */
-public class IdentifiableElementItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class IdentifiableElementItemProvider extends ExtensibleElementItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

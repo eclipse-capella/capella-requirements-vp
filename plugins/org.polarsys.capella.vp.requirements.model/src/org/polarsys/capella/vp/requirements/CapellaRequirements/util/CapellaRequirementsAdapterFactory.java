@@ -120,6 +120,11 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseExtensibleElement(ExtensibleElement object) {
+			return createExtensibleElementAdapter();
+		}
+
+		@Override
 		public Adapter caseIdentifiableElement(IdentifiableElement object) {
 			return createIdentifiableElementAdapter();
 		}
@@ -132,11 +137,6 @@ public class CapellaRequirementsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseTypesFolder(TypesFolder object) {
 			return createTypesFolderAdapter();
-		}
-
-		@Override
-		public Adapter caseExtensibleElement(ExtensibleElement object) {
-			return createExtensibleElementAdapter();
 		}
 
 		@Override

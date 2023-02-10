@@ -20,6 +20,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -29,6 +30,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 
+import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
+import org.polarsys.kitalpha.emde.model.EmdePackage;
+import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 import org.polarsys.kitalpha.vp.requirements.Requirements.provider.AbstractRelationItemProvider;
 
 /**
@@ -61,6 +65,9 @@ public class CapellaRelationItemProvider extends AbstractRelationItemProvider im
 			super.getPropertyDescriptors(object);
 
 		}
+		// begin-extension-code
+		checkChildCreationExtender(object);
+		// end-extension-code
 		return itemPropertyDescriptors;
 	}
 
@@ -102,6 +109,39 @@ public class CapellaRelationItemProvider extends AbstractRelationItemProvider im
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+		// begin-extension-code
+		{
+			CommandParameter commandParameter = createChildParameter(
+					EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+					CapellaRequirementsFactory.eINSTANCE.createCapellaTypesFolder());
+			if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+				newChildDescriptors.add(commandParameter);
+			}
+		}
+		// end-extension-code
+
+		// begin-extension-code
+		{
+			CommandParameter commandParameter = createChildParameter(
+					EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+					CapellaRequirementsFactory.eINSTANCE.createCapellaModule());
+			if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+				newChildDescriptors.add(commandParameter);
+			}
+		}
+		// end-extension-code
+
+		// begin-extension-code
+		{
+			CommandParameter commandParameter = createChildParameter(
+					EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+					CapellaRequirementsFactory.eINSTANCE.createCapellaOutgoingRelation());
+			if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+				newChildDescriptors.add(commandParameter);
+			}
+		}
+		// end-extension-code
+
 	}
 
 }
