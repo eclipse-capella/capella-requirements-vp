@@ -22,12 +22,12 @@
   <name>Capella Requirements Viewpoint</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
-  <version>0.13.1-SNAPSHOT</version>
+  <version>0.14.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>2.0.0</tycho-version>
-    <tycho-extras-version>2.0.0</tycho-extras-version>
+    <tycho-version>2.7.5</tycho-version>
+    <tycho-extras-version>2.7.5</tycho-extras-version>
 	<antrun-version>3.0.0</antrun-version>
 
     <!-- for tycho -->
@@ -111,7 +111,7 @@
 				<artifact>
 					<groupId>org.polarsys</groupId>
 					<artifactId>org.polarsys.capella.addon.vp.requirements</artifactId>
-					<version>0.13.1-SNAPSHOT</version>
+					<version>0.14.0-SNAPSHOT</version>
 					<classifier>releng/org.polarsys.capella.vp.requirements.target/tp/capella.target-definition</classifier>
 				</artifact>
 			</target>
@@ -183,8 +183,8 @@
           <configuration>
             <encoding>UTF-8</encoding>
             <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
-               <source>1.8</source>
-               <target>1.8</target>
+               <source>17</source>
+               <target>17</target>
           </configuration>
         </plugin>
 
@@ -219,7 +219,7 @@
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
-						<executionEnvironment>JavaSE-1.8</executionEnvironment>
+						<executionEnvironment>JavaSE-17</executionEnvironment>
 					</configuration>
 					<executions>
 						<execution>
@@ -230,7 +230,7 @@
 							</goals>
 							<configuration>
 								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
-								<executionEnvironment>JavaSE-1.8</executionEnvironment>
+								<executionEnvironment>JavaSE-17</executionEnvironment>
 							</configuration>
 						</execution>
 					</executions>

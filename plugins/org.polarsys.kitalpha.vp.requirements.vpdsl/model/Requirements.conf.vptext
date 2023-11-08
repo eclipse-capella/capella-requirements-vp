@@ -15,8 +15,8 @@ Configuration Requirements.conf {
 	project org.polarsys.kitalpha.vp.requirements
 	nsuri "http://www.polarsys.org/kitalpha/requirements"
 	release {
-		version : 0.13.1
-		execution environments : "JavaSE-1.8"
+		version : 0.14.0
+		execution environments : "JavaSE-17"
 	}
 	generation {
 		data (

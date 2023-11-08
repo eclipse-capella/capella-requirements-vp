@@ -200,8 +200,8 @@
   <VP_Aspects xsi:type="vpconf:Configuration" name="Requirements.conf">
     <vpConfigurationElements xsi:type="vpconf:TargetApplication" type="EMF"/>
     <vpConfigurationElements xsi:type="vpconf:GenerationConfiguration" projectName="org.polarsys.kitalpha.vp.requirements" nsuri="http://www.polarsys.org/kitalpha/requirements"/>
-    <vpConfigurationElements xsi:type="vpconf:Release" viewpointVersion="0.13.1">
-      <requiredExecutionEnvironment>JavaSE-1.8</requiredExecutionEnvironment>
+    <vpConfigurationElements xsi:type="vpconf:Release" viewpointVersion="0.14.0">
+      <requiredExecutionEnvironment>JavaSE-17</requiredExecutionEnvironment>
     </vpConfigurationElements>
     <vpConfigurationElements xsi:type="vpconf:Generation">
       <ownedDataGenerationConf/>
