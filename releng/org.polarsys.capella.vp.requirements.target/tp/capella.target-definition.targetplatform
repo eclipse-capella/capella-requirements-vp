@@ -10,16 +10,16 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://download.eclipse.org/capella/core/updates/stable/6.1.0-S20230214/targets/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/stable/7.0.0-S20231002/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/stable/6.1.0-S20230214/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/stable/7.0.0-S20231002/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
-	org.polarsys.capella.cdo.mock.feature.feature.group
+	org.polarsys.capella.cdo.mock.feature.feature.group	
 }
 
-location "https://download.eclipse.org/capella/core/updates/stable/6.1.0-S20230214/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/stable/7.0.0-S20231002/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -31,15 +31,18 @@ location "https://download.eclipse.org/rmf/updates/releases/0.13.0" {
 	org.eclipse.rmf.reqif10.feature.feature.group
 }
 
-location "https://download.eclipse.org/sphinx/releases/0.8.x" {
+location "https://download.eclipse.org/sphinx/releases/0.9.x" {
 	org.eclipse.sphinx.emf.serialization.feature.group
 }
 
-location "https://download.eclipse.org/modeling/emf/cdo/drops/R20210608-2339/" {
+location "https://download.eclipse.org/modeling/emf/cdo/drops/R20230307-0126/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
 location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master/" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
     org.polarsys.capella.docgen.feature.feature.group
+}
+location eclipse_2023_03 "https://download.eclipse.org/releases/2023-03/" {
+	org.apache.commons.io lazy
 }
