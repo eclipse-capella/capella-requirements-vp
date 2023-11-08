@@ -1,4 +1,4 @@
-//Generated with EGF 1.5.1.v20180423-0901
+//Generated with EGF 1.6.4.202309201142
 package org.polarsys.kitalpha.vp.requirements.docgen.content;
 
 import org.polarsys.kitalpha.vp.requirements.docgen.helper.RequirementHelper;
@@ -22,9 +22,6 @@ public class ModuleDocgen extends org.polarsys.kitalpha.vp.requirements.docgen.c
 	public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
 	protected final String TEXT_1 = " ";
 	protected final String TEXT_2 = NL;
-	protected final String TEXT_3 = NL;
-	protected final String TEXT_4 = NL;
-	protected final String TEXT_5 = NL;
 
 	public ModuleDocgen() {
 		//Here is the constructor
@@ -60,8 +57,8 @@ public class ModuleDocgen extends org.polarsys.kitalpha.vp.requirements.docgen.c
 			ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
 		}
 
-		stringBuffer.append(TEXT_4);
-		stringBuffer.append(TEXT_5);
+		stringBuffer.append(TEXT_2);
+		stringBuffer.append(TEXT_2);
 		return stringBuffer.toString();
 	}
 
@@ -105,7 +102,7 @@ public class ModuleDocgen extends org.polarsys.kitalpha.vp.requirements.docgen.c
 
 		super.method_content(stringBuffer, ctx);
 		stringBuffer.append(TEXT_2);
-		stringBuffer.append(TEXT_3);
+		stringBuffer.append(TEXT_2);
 		stringBuffer.append(RequirementHelper.generateModuleContents(parameter));
 		InternalPatternContext ictx = (InternalPatternContext) ctx;
 		new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
