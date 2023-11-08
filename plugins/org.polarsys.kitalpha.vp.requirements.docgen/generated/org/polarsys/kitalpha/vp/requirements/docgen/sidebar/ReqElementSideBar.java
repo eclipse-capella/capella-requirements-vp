@@ -1,4 +1,4 @@
-//Generated with EGF 1.5.1.v20180423-0901
+//Generated with EGF 1.6.4.202309201142
 package org.polarsys.kitalpha.vp.requirements.docgen.sidebar;
 
 import org.eclipse.egf.common.helper.*;
