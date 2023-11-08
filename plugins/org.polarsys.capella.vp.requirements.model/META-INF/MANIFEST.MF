@@ -2,11 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.model;singleton:=true
-Bundle-Version: 0.13.1.qualifier
+Automatic-Module-Name: org.polarsys.capella.vp.requirements.model
+Bundle-Version: 0.14.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.vp.requirements.CapellaRequirements,
  org.polarsys.capella.vp.requirements.CapellaRequirements.impl,
  org.polarsys.capella.vp.requirements.CapellaRequirements.util

@@ -17,43 +17,23 @@ package org.polarsys.capella.vp.requirements.CapellaRequirements.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.polarsys.capella.common.data.activity.ActivityPackage;
-
 import org.polarsys.capella.common.data.behavior.BehaviorPackage;
-
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
-
 import org.polarsys.capella.core.data.capellacommon.CapellacommonPackage;
-
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
-
 import org.polarsys.capella.core.data.capellamodeller.CapellamodellerPackage;
-
 import org.polarsys.capella.core.data.cs.CsPackage;
-
 import org.polarsys.capella.core.data.ctx.CtxPackage;
-
 import org.polarsys.capella.core.data.epbs.EpbsPackage;
-
 import org.polarsys.capella.core.data.fa.FaPackage;
-
 import org.polarsys.capella.core.data.information.InformationPackage;
-
 import org.polarsys.capella.core.data.interaction.InteractionPackage;
-
 import org.polarsys.capella.core.data.la.LaPackage;
-
 import org.polarsys.capella.core.data.oa.OaPackage;
-
 import org.polarsys.capella.core.data.pa.PaPackage;
-
-import org.polarsys.capella.core.data.requirement.RequirementPackage;
-
 import org.polarsys.capella.core.data.sharedmodel.SharedmodelPackage;
-
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaIncomingRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaModule;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaOutgoingRelation;
@@ -61,9 +41,7 @@ import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRelation;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsFactory;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaRequirementsPackage;
 import org.polarsys.capella.vp.requirements.CapellaRequirements.CapellaTypesFolder;
-
 import org.polarsys.kitalpha.emde.model.EmdePackage;
-
 import org.polarsys.kitalpha.vp.requirements.Requirements.RequirementsPackage;
 
 /**
@@ -170,7 +148,6 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 		PaPackage.eINSTANCE.eClass();
 		EpbsPackage.eINSTANCE.eClass();
 		SharedmodelPackage.eINSTANCE.eClass();
-		RequirementPackage.eINSTANCE.eClass();
 		CapellacommonPackage.eINSTANCE.eClass();
 		InformationPackage.eINSTANCE.eClass();
 		CsPackage.eINSTANCE.eClass();
@@ -421,13 +398,13 @@ public class CapellaRequirementsPackageImpl extends EPackageImpl implements Cape
 	protected void createConstraintAnnotations() {
 		String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$
 		addAnnotation(capellaTypesFolderEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/7.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaModuleEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/7.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 		addAnnotation(capellaOutgoingRelationEClass, source,
-				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
+				new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/core/7.0.0#//CapellaElement" //$NON-NLS-1$ //$NON-NLS-2$
 				});
 	}
 
