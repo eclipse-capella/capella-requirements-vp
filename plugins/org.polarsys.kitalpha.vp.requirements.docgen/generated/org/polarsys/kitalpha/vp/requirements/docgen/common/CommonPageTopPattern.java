@@ -1,4 +1,4 @@
-//Generated with EGF 1.5.1.v20180423-0901
+//Generated with EGF 1.6.4.202309201142
 package org.polarsys.kitalpha.vp.requirements.docgen.common;
 
 import org.eclipse.egf.common.helper.*;
@@ -32,8 +32,6 @@ public class CommonPageTopPattern {
 	protected final String TEXT_7 = " ";
 	protected final String TEXT_8 = NL;
 	protected final String TEXT_9 = NL + "No description";
-	protected final String TEXT_10 = NL;
-	protected final String TEXT_11 = NL;
 
 	public CommonPageTopPattern() {
 		//Here is the constructor
@@ -74,8 +72,8 @@ public class CommonPageTopPattern {
 			ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
 		}
 
-		stringBuffer.append(TEXT_10);
-		stringBuffer.append(TEXT_11);
+		stringBuffer.append(TEXT_8);
+		stringBuffer.append(TEXT_8);
 		return stringBuffer.toString();
 	}
 

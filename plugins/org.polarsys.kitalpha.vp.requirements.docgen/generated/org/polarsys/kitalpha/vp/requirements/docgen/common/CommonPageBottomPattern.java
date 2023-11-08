@@ -1,4 +1,4 @@
-//Generated with EGF 1.5.1.v20180423-0901
+//Generated with EGF 1.6.4.202309201142
 package org.polarsys.kitalpha.vp.requirements.docgen.common;
 
 import org.eclipse.egf.common.helper.*;
@@ -31,9 +31,6 @@ public class CommonPageBottomPattern {
 	protected final String TEXT_4 = NL;
 	protected final String TEXT_5 = " " + NL + "</li>";
 	protected final String TEXT_6 = NL + "</ul>";
-	protected final String TEXT_7 = NL;
-	protected final String TEXT_8 = NL;
-	protected final String TEXT_9 = NL;
 
 	public CommonPageBottomPattern() {
 		//Here is the constructor
@@ -74,8 +71,8 @@ public class CommonPageBottomPattern {
 			ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
 		}
 
-		stringBuffer.append(TEXT_8);
-		stringBuffer.append(TEXT_9);
+		stringBuffer.append(TEXT_4);
+		stringBuffer.append(TEXT_4);
 		return stringBuffer.toString();
 	}
 
@@ -149,7 +146,7 @@ public class CommonPageBottomPattern {
 			}
 			stringBuffer.append(TEXT_6);
 		}
-		stringBuffer.append(TEXT_7);
+		stringBuffer.append(TEXT_4);
 		InternalPatternContext ictx = (InternalPatternContext) ctx;
 		new Node.DataLeaf(ictx.getNode(), getClass(), "body", stringBuffer.toString());
 	}
