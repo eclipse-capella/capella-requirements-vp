@@ -13,7 +13,7 @@
 <feature
       id="org.polarsys.capella.vp.requirements.thirdparty.feature"
       label="%featureName"
-      version="0.13.1.qualifier"
+      version="0.14.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -76,6 +76,13 @@
 
    <plugin
          id="org.eclipse.sphinx.emf.serialization"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="org.apache.commons.io"
          download-size="0"
          install-size="0"
          version="0.0.0"

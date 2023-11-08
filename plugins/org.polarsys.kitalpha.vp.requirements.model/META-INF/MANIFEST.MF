@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.kitalpha.vp.requirements.model;singleton:=true
-Bundle-Version: 0.13.1.qualifier
+Bundle-Version: 0.14.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.kitalpha.vp.requirements.Requirements,
  org.polarsys.kitalpha.vp.requirements.Requirements.impl,
  org.polarsys.kitalpha.vp.requirements.Requirements.util
