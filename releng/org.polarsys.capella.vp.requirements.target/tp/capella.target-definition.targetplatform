@@ -39,10 +39,10 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20230307-0126/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/stable/7.0.0-S20230621" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master-PR-238-5/" {
     org.polarsys.kitalpha.doc.gen.business.core.feature.feature.group
     org.polarsys.capella.docgen.feature.feature.group
 }
-location eclipse_2023_03 "https://download.eclipse.org/releases/2021-06/" {
-	javax.xml.bind lazy
+location eclipse_2023_03 "https://download.eclipse.org/releases/2023-03/" {
+	org.apache.commons.io lazy
 }
