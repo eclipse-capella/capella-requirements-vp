@@ -10,10 +10,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.diffmerge.bridge.mapping,
  org.eclipse.emf.diffmerge.ui,
  org.eclipse.emf.diffmerge.ui.sirius;visibility:=reexport,
- org.eclipse.rmf.reqif10,
- org.eclipse.rmf.reqif10.common,
- org.eclipse.rmf.reqif10.serialization,
- org.eclipse.rmf.reqif10.xhtml,
  org.polarsys.capella.core.compare;visibility:=reexport,
  org.polarsys.capella.core.data.gen,
  org.polarsys.capella.common.transition;visibility:=reexport,
@@ -42,5 +38,10 @@ Export-Package: org.polarsys.capella.vp.requirements.importer,
  org.polarsys.capella.vp.requirements.importer.transposer.bridge.categories,
  org.polarsys.capella.vp.requirements.importer.transposer.launcher,
  org.polarsys.capella.vp.requirements.importer.transposer.policies
+Import-Package:  org.eclipse.rmf.reqif10,
+ org.eclipse.rmf.reqif10.common.util,
+ org.eclipse.rmf.reqif10.serialization,
+ org.eclipse.rmf.reqif10.xhtml,
+  org.eclipse.rmf.reqif10.datatypes
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
