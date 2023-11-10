@@ -1,14 +1,16 @@
 /*******************************************************************************
- * Copyright (c)  2017, 2022 THALES GLOBAL SERVICES.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
+ * Copyright (c) 2018, 2023 THALES GLOBAL SERVICES.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-target "CapellaRequirementsVP"
+target "Capella"
 
 include "https://download.eclipse.org/capella/core/updates/stable/7.0.0-S20231002/targets/capella.target-definition.targetplatform"
 
@@ -45,4 +47,8 @@ location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/
 }
 location eclipse_2023_03 "https://download.eclipse.org/releases/2023-03/" {
 	org.apache.commons.io lazy
+} 
+
+location "https://download.eclipse.org/tools/orbit/downloads/2023-03/" {
+	javax.xml
 }

@@ -49,7 +49,6 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
-import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
@@ -173,9 +172,6 @@ public class InitializeTransformation extends AbstractActivity {
     resourceSet.getPackageRegistry().put(ReqIF10Package.eINSTANCE.getNsURI(), ReqIF10Package.eINSTANCE);
     resourceSet.getPackageRegistry().put(XhtmlPackage.eINSTANCE.getNsURI(), XhtmlPackage.eINSTANCE);
     resourceSet.getPackageRegistry().put(DatatypesPackage.eINSTANCE.getNsURI(), DatatypesPackage.eINSTANCE);
-
-    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-        .put(IRequirementsImporterBridgeConstants.REQIF_MODEL_FILE_EXTENSION, new ReqIF10ResourceFactoryImpl());
 
     URI uri = (URI) context.get(IRequirementsImporterBridgeConstants.CONTEXT_MODEL);
     Resource resource = resourceSet.getResource(uri, true);

@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: org.polarsys.capella.vp.requirements.importer
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.vp.requirements.importer;singleton:=true
 Bundle-Version: 0.14.0.qualifier
@@ -12,7 +13,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.diffmerge.ui.sirius;visibility:=reexport,
  org.eclipse.rmf.reqif10,
  org.eclipse.rmf.reqif10.common,
- org.eclipse.rmf.reqif10.serialization,
  org.eclipse.rmf.reqif10.xhtml,
  org.polarsys.capella.core.compare;visibility:=reexport,
  org.polarsys.capella.core.data.gen,
