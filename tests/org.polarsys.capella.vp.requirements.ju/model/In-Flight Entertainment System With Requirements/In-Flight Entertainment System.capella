@@ -4,7 +4,6 @@
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CapellaRequirements="http://www.polarsys.org/capella/requirements"
     xmlns:Requirements="http://www.polarsys.org/kitalpha/requirements" xmlns:libraries="http://www.polarsys.org/capella/common/libraries/7.0.0"
-    xmlns:org.polarsys.capella.basic.requirement="http://www.polarsys.org/capella/basic/requirement"
     xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/7.0.0"
     xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/7.0.0"
     xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/7.0.0"
@@ -216,8 +215,6 @@
               values="#30537d2d-c1bf-4ec8-a6f0-ba0f4d40d619"/>
         </ownedRequirements>
       </ownedExtensions>
-      <ownedExtensions xsi:type="org.polarsys.capella.basic.requirement:RequirementsPkg"
-          id="2fa1be6d-d359-4a83-9c81-1fcc746244a9" name="Requirements"/>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalActivityPkg"
           id="c2be5628-89b1-482e-bf2c-1199c347b03e" name="Operational Activities">
         <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
@@ -853,8 +850,7 @@
         <ownedDataPkgs xsi:type="org.polarsys.capella.core.data.information:DataPkg"
             id="25fe63b8-424c-492e-918c-835cafd785b5" name="Classes"/>
         <ownedStateEvents xsi:type="org.polarsys.capella.core.data.capellacommon:ChangeEvent"
-            id="ebc7485e-718b-4753-93bf-4ee63c5ce81b" name="ChangeEvent 1" expression="#f32488b8-bcc5-4e97-acb7-4e0537b0217f"
-            condition="#f32488b8-bcc5-4e97-acb7-4e0537b0217f">
+            id="ebc7485e-718b-4753-93bf-4ee63c5ce81b" name="ChangeEvent 1" expression="#f32488b8-bcc5-4e97-acb7-4e0537b0217f">
           <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
               id="f32488b8-bcc5-4e97-acb7-4e0537b0217f" name="cruising altitude reached"/>
         </ownedStateEvents>
@@ -1754,8 +1750,6 @@
             requirementType="#b3c75b46-4218-4381-a9d9-ef3a18a75afb" ReqIFChapterName="Titre de UR Module"
             ReqIFForeignID="2" requirementTypeProxy="_c99f5f20-5aab-4347-9326-026b7ae9fe69"/>
       </ownedExtensions>
-      <ownedExtensions xsi:type="org.polarsys.capella.basic.requirement:RequirementsPkg"
-          id="027d60c2-a487-4344-9a58-f32e7ec3854d" name="Requirements"/>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.ctx:SystemFunctionPkg"
           id="0ded555d-3875-4284-af53-0ecf5f890295" name="System Functions">
         <ownedCategories xsi:type="org.polarsys.capella.core.data.fa:ExchangeCategory"
@@ -3742,8 +3736,7 @@
           </ownedDataTypes>
         </ownedDataPkgs>
         <ownedStateEvents xsi:type="org.polarsys.capella.core.data.capellacommon:ChangeEvent"
-            id="42b264b0-4ce5-450a-9c31-1eff447fc315" name="Imposed Video Ended" expression="#cc827db9-9cb3-4778-95cb-692951a8edfd"
-            condition="#cc827db9-9cb3-4778-95cb-692951a8edfd">
+            id="42b264b0-4ce5-450a-9c31-1eff447fc315" name="Imposed Video Ended" expression="#cc827db9-9cb3-4778-95cb-692951a8edfd">
           <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
               id="cc827db9-9cb3-4778-95cb-692951a8edfd">
             <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
@@ -4314,8 +4307,6 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.la:LogicalArchitecture"
         id="cab89820-127c-4d24-bfe7-31b2000cc23c" name="Logical Architecture" description="">
-      <ownedExtensions xsi:type="org.polarsys.capella.basic.requirement:RequirementsPkg"
-          id="cd3c068f-b05f-4749-9a8b-8b6c7b87a9d3" name="Requirements"/>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="b9e446c0-6144-49ae-a3c3-1aee89e27241" targetElement="#0ded555d-3875-4284-af53-0ecf5f890295"
           sourceElement="#acc8c52c-8fb3-40ec-a4e0-42ee0d6f9d8b">
@@ -9444,8 +9435,7 @@
               sub="#dcb7f0b0-c6f6-4e96-b7bd-762bb0488430"/>
         </ownedClasses>
         <ownedStateEvents xsi:type="org.polarsys.capella.core.data.capellacommon:ChangeEvent"
-            id="0a37d4a9-5c42-4307-8c17-1ed01608ab7b" name="Imposed Movie Ended" expression="#3ef6f083-ed61-4799-916f-0bf24329ffe3"
-            condition="#3ef6f083-ed61-4799-916f-0bf24329ffe3">
+            id="0a37d4a9-5c42-4307-8c17-1ed01608ab7b" name="Imposed Movie Ended" expression="#3ef6f083-ed61-4799-916f-0bf24329ffe3">
           <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
               id="3ef6f083-ed61-4799-916f-0bf24329ffe3">
             <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
@@ -10904,15 +10894,6 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.pa:PhysicalArchitecture"
         id="9a0668cf-db26-4ee7-9339-c1d8658fa112" name="Physical Architecture">
-      <ownedExtensions xsi:type="org.polarsys.capella.basic.requirement:RequirementsPkg"
-          id="54c1210d-498a-4504-ac86-16910a5a01d8" name="Requirements">
-        <ownedRequirements xsi:type="org.polarsys.capella.basic.requirement:SystemNonFunctionalRequirement"
-            id="c3afdc35-4e05-49b2-ab26-a686c7649984" name="REQ_NFR" description="&lt;p>&#xD;&#xA;    Upon &quot;Video On Demand&quot; PLAY command, the System shall display movie within 1 second&#xD;&#xA;&lt;/p>"
-            requirementId="001"/>
-        <ownedRequirements xsi:type="org.polarsys.capella.basic.requirement:SystemNonFunctionalRequirement"
-            id="610dce09-dfce-4eb6-98be-a4e2461b3719" name="REQ_NFR" description="&lt;p>&#xD;&#xA;    The System shall serve &quot;Video On Demand&quot; to up to 650 passengers&#xD;&#xA;&lt;/p>"
-            requirementId="002"/>
-      </ownedExtensions>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="23813753-8421-4099-b3b2-9029c38fc70a" targetElement="#18343c7c-2223-46bc-a55d-c77e1d7c5caf"
           sourceElement="#2ba076cf-81ed-43f3-8735-2205ad26b31c">
