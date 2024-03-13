@@ -14,4 +14,4 @@
 
 Release notes describing enhancements and fixes done per release are available online on each dedicated release pages.
 
-* [https://github.com/eclipse/capella-requirements-vp/releases Requirements releases]
+* [https://github.com/eclipse-capella/capella-requirements-vp/releases Requirements releases]
