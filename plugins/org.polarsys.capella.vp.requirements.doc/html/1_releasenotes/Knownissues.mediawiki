@@ -14,4 +14,4 @@
 
 Retrieve all known issues by following this link.
 
-* [https://github.com/eclipse/capella-requirements-vp/issues Known issues]
+* [https://github.com/eclipse-capella/capella-requirements-vp/issues Known issues]
