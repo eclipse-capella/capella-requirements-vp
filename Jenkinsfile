@@ -99,7 +99,7 @@ pipeline {
 		stage('Sonar') {
 			steps {
 				script {
-					sonar.runSonar("eclipse_capella-requirements-vp", "eclipse/capella-requirements-vp", 'sonarcloud-token-requirements-vp')
+					sonar.runSonar("eclipse-capella_capella-requirements-vp", "eclipse/capella-requirements-vp", 'sonarcloud-token-requirements-vp')
 				}
 			}
 		}
