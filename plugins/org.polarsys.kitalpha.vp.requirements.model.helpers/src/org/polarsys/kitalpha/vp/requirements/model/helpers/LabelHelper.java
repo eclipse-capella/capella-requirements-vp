@@ -35,7 +35,7 @@ public class LabelHelper {
   }
   
   public static String transformHTMLToText(String content, String rootTag) {
-    String result = toOneLine(transformHTMLToTextWithLineFeed(content));
+    String result = transformHTMLToText(content);
     if (rootTag != null && keepHtmlTags()) {
       return "<" + rootTag + ">" + result + "</" + rootTag + ">";
     }
@@ -43,16 +43,17 @@ public class LabelHelper {
   }
   
   public static String transformHTMLToTextWithLineFeed(String content) {
+    String transformedHTML = content;
     if (!keepHtmlTags()) {
-      content = content.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
-//      // Decode special characters
-      content = URI.decode(content);
-//      // Unescape HTML special character entities
-      content = unescape(content);
+      transformedHTML = transformedHTML.replaceAll("<xhtml:br/>", " ").replaceAll("<[^>]*>", "").trim();
     } else {
-      content = content.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
+      transformedHTML = transformedHTML.replaceAll("(?!</xhtml)(?!<xhtml)<[^>]*>", "").replace("xhtml:", "");
     }
-    return content;
+    // Decode special characters
+    transformedHTML = URI.decode(transformedHTML);
+    // Unescape HTML special character entities
+    transformedHTML = unescape(transformedHTML);
+    return transformedHTML;
   }
   
   public static boolean keepHtmlTags() {
