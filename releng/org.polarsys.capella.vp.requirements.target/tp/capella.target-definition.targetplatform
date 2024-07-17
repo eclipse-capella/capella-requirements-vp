@@ -23,7 +23,7 @@ location "https://download.eclipse.org/capella/core/updates/releases/7.0.0/org.p
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "https://download.eclipse.org/diffmerge/releases/0.14.0/edm-coevolution-site" {
+location "https://download.eclipse.org/diffmerge/releases/0.15.0/edm-coevolution-site" {
 	org.eclipse.emf.diffmerge.coevolution.sdk.feature.feature.group
 }
 
