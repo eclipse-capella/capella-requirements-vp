@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2019, 2019 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2024 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -30,9 +30,9 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
-import org.eclipse.sirius.diagram.model.business.internal.helper.ContentLayerHelper;
 import org.eclipse.sirius.diagram.description.EdgeMapping;
-import org.eclipse.sirius.diagram.description.Layer; 
+import org.eclipse.sirius.diagram.description.Layer;
+import org.eclipse.sirius.diagram.model.business.internal.helper.ContentLayerHelper;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
@@ -364,6 +364,24 @@ public class CapellaRequirementsOpenJavaService {
   }
 
   /**
+   * Converts the provided HTML content into plain text, preserving line feeds.
+   * 
+   * @param htmlContent
+   *          the HTML content to be converted to plain text
+   * @return the plain text representation of the HTML content with line feeds preserved, or an empty string if the
+   *         input HTML content is null
+   */
+  public String htmlToText(String htmlContent) {
+    final String result;
+    if (htmlContent != null) {
+      result = LabelHelper.transformHTMLToTextWithLineFeed(htmlContent);
+    } else {
+      result = "";
+    }
+    return result;
+  }
+
+  /**
    * Compute the string from an AQL expression for a requirement.
    * 
    * @param session
@@ -386,9 +404,7 @@ public class CapellaRequirementsOpenJavaService {
           } else {
             resultBuilder.append(value);
           }
-          String evaluationResult = resultBuilder.toString();
-          String sanytizedResult = LabelHelper.unescape(LabelHelper.transformHTMLToText(evaluationResult));
-          return reduceString(sanytizedResult, maxLength);
+          return reduceString(resultBuilder.toString(), maxLength);
         }
       }
     } catch (EvaluationException ex) {

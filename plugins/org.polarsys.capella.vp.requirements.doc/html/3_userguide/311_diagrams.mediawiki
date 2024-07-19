@@ -41,6 +41,7 @@ In this <b>Requirements</b> segment, 5 new tools are available to manipulate the
 
 The label and content displayed for each requirement can be computed dynamically by evaluating two predefined AQL expressions.
 The two AQL expressions can be configured in the dedicated wizard dialog.
+The '''htmlToText(String)''' operation can be used to format HTML content.
 
 [[Image:../../images/requirements_configuration_wizard.png]]
 
