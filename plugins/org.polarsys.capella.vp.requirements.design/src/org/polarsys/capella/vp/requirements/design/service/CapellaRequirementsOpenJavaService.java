@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2019, 2019 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2024 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -13,10 +13,12 @@
 package org.polarsys.capella.vp.requirements.design.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -30,11 +32,17 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
-import org.eclipse.sirius.diagram.model.business.internal.helper.ContentLayerHelper;
 import org.eclipse.sirius.diagram.description.EdgeMapping;
-import org.eclipse.sirius.diagram.description.Layer; 
+import org.eclipse.sirius.diagram.description.Layer;
+import org.eclipse.sirius.diagram.model.business.internal.helper.ContentLayerHelper;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
+import org.jsoup.select.NodeTraversor;
+import org.jsoup.select.NodeVisitor;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
@@ -338,7 +346,7 @@ public class CapellaRequirementsOpenJavaService {
           .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_LABEL_LENGTH);
     }
 
-    return evaluateExpression(session, requirement, expression, maxLength);
+    return evaluateExpression(session, requirement, expression, maxLength, false);
   }
 
   /**
@@ -360,7 +368,7 @@ public class CapellaRequirementsOpenJavaService {
           .get(ReqVPCustomDataHelper.CUSTOM_DATA_KEY_FOR_REQ_VP_QUERIES_CONTENT_LENGTH);
     }
 
-    return evaluateExpression(session, requirement, expression, maxLength);
+    return evaluateExpression(session, requirement, expression, maxLength, true);
   }
 
   /**
@@ -370,9 +378,10 @@ public class CapellaRequirementsOpenJavaService {
    * @param requirement
    * @param expression
    * @param maxLength
+   * @param keepEnfOfLine
    * @return
    */
-  protected String evaluateExpression(Session session, Requirement requirement, String expression, String maxLength) {
+  protected String evaluateExpression(Session session, Requirement requirement, String expression, String maxLength, boolean keepEnfOfLine) {
     try {
       if (session != null && expression != null) {
         IInterpreter interpreter = session.getInterpreter();
@@ -387,7 +396,7 @@ public class CapellaRequirementsOpenJavaService {
             resultBuilder.append(value);
           }
           String evaluationResult = resultBuilder.toString();
-          String sanytizedResult = LabelHelper.unescape(LabelHelper.transformHTMLToText(evaluationResult));
+          String sanytizedResult = getTextFromHtml(evaluationResult, keepEnfOfLine);
           return reduceString(sanytizedResult, maxLength);
         }
       }
@@ -416,6 +425,20 @@ public class CapellaRequirementsOpenJavaService {
       return value.substring(0, maxLen).concat("...");
     }
     return value;
+  }
+
+  public static String getTextFromHtml(String html, boolean keepMultiline) {
+    if (html == null) {
+      return null;
+    }
+
+    Html2TextVisitor visitor = new Html2TextVisitor(keepMultiline);
+    Document htmlDoc = Jsoup.parse(html);
+    NodeTraversor.traverse(visitor, htmlDoc);
+
+    String text = visitor.toString();
+    text = text.trim();
+    return text;
   }
 
   /**
@@ -551,5 +574,91 @@ public class CapellaRequirementsOpenJavaService {
           .anyMatch(req -> req.equals(requirement));
     }
     return false;
+  }
+
+  private static class Html2TextVisitor implements NodeVisitor {
+
+    private static final Pattern MULTI_BLANKS_PATTERN = Pattern.compile("\\p{javaWhitespace}+");
+
+    private final StringBuilder str = new StringBuilder();
+
+    private final boolean keepMultiline;
+
+    public Html2TextVisitor(boolean keepMultiline) {
+      this.keepMultiline = keepMultiline;
+    }
+
+    private void addNewLineIfNoneBefore() {
+      if (str.length() == 0 || str.charAt(str.length() - 1) == '\n') {
+        return;
+      }
+
+      str.append('\n');
+    }
+
+    private void addBlankIfNoneBefore() {
+      if (str.length() == 0 || Character.isWhitespace(str.charAt(str.length() - 1))) {
+        return;
+      }
+
+      str.append(' ');
+    }
+
+    private void addBlankOrNewLineIfNoneBefore() {
+      if (keepMultiline) {
+        addNewLineIfNoneBefore();
+      } else {
+        addBlankIfNoneBefore();
+      }
+    }
+
+    @Override
+    public void head(Node node, int depth) {
+      String name = node.nodeName();
+      if (node instanceof TextNode) {
+        String internalText = ((TextNode) node).text();
+        // Internal text does not contains any formatting (as defined by HTML except inside "pre" tag) so multiple
+        // blanks are equals to 1 and newline and stuff is the same, so replace them all by a single space
+        // pre tags does not seem to be used by Capella editors so do not handle it
+        String pureText = MULTI_BLANKS_PATTERN.matcher(internalText).replaceAll(" ");
+
+        // Add a new line before each occurrence of "- "
+        pureText = pureText.replaceAll("- ", "\n- ");
+
+        pureText = pureText.trim();
+        str.append(pureText);
+      } else if (name.equals("li")) {
+        // Basic handling of list items (no difference between numbered and dotted nor depth)
+        if (keepMultiline) {
+          addNewLineIfNoneBefore();
+          str.append(" * ");
+        } else {
+          addBlankIfNoneBefore();
+          str.append("* ");
+        }
+      } else if (Arrays.asList("p", "h1", "h2", "h3", "h4", "h5", "tr").contains(name)) {
+        if (str.length() > 0 && str.charAt(str.length() - 1) == '-') {
+          // Prevents adding a new line right after a dash
+          str.append(' ');
+        } else {
+          addBlankOrNewLineIfNoneBefore();
+        }
+      }
+    }
+
+    @Override
+    public void tail(Node node, int depth) {
+      String name = node.nodeName();
+      if (name.equals("br")) {
+        str.append(keepMultiline ? '\n' : ' ');
+      } else if (Arrays.asList("li", "p", "h1", "h2", "h3", "h4", "h5").contains(name)) {
+        addBlankOrNewLineIfNoneBefore();
+      }
+    }
+
+    @Override
+    public String toString() {
+      return str.toString();
+    }
   }
 }
