@@ -34,8 +34,8 @@
 	</licenses>
 
 	<properties>
-		<tycho-version>2.7.5</tycho-version>
-		<tycho-extras-version>2.7.5</tycho-extras-version>
+		<tycho-version>4.0.9</tycho-version>
+		<tycho-extras-version>4.0.9</tycho-extras-version>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
 		<converterApplication.name>org.eclipse.cbi.targetplatform.tpd.converter</converterApplication.name>
 	</properties>
@@ -43,9 +43,9 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-eclipserun-plugin</artifactId>
-				<version>${tycho-extras-version}</version>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-eclipse-plugin</artifactId>
+				<version>${tycho-version}</version>
 				<configuration>
 					<repositories>
 						<repository>
@@ -78,9 +78,11 @@
 						<phase>validate</phase>
 						<configuration>
 							<executionEnvironment>JavaSE-17</executionEnvironment>
-							<applicationsArgs>
-								<args>-application ${converterApplication.name} tp/${targetPlatform.name}</args>
-							</applicationsArgs>
+							<applicationArgs>
+								<arg>-application</arg>
+								<arg>${converterApplication.name}</arg>
+								<arg>tp/${targetPlatform.name}</arg>
+							</applicationArgs>
 						</configuration>
 						<goals>
 							<goal>eclipse-run</goal>

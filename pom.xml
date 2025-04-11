@@ -26,8 +26,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>2.7.5</tycho-version>
-    <tycho-extras-version>2.7.5</tycho-extras-version>
+    <tycho-version>4.0.9</tycho-version>
+    <tycho-extras-version>4.0.9</tycho-extras-version>
 	<antrun-version>3.0.0</antrun-version>
 
     <!-- for tycho -->
@@ -190,9 +190,9 @@
 
 		<!-- plugins only called if a descendant need them -->
 				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-eclipserun-plugin</artifactId>
-					<version>${tycho-extras-version}</version>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-eclipse-plugin</artifactId>
+					<version>${tycho-version}</version>
 					<configuration>
 						<repositories>
 							<repository>
@@ -229,7 +229,14 @@
 								<goal>eclipse-run</goal>
 							</goals>
 							<configuration>
-								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
+								<applicationArgs>
+									<arg>-application</arg>
+									<arg>org.eclipse.equinox.p2.repository.repo2runnable</arg>
+									<arg>-source</arg>
+									<arg>file:${project.build.directory}/repository</arg>
+									<arg>-destination</arg>
+									<arg>${project.build.directory}/${packagedAddonName}/eclipse</arg>
+								</applicationArgs>
 								<executionEnvironment>JavaSE-17</executionEnvironment>
 							</configuration>
 						</execution>
@@ -300,6 +307,30 @@
 							<configuration>
 								<finalName>${packagedAddonName}-updateSite-${unqualifiedVersion}.${buildQualifier}</finalName>
 							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<version>2.8.1</version>
+					<configuration>
+						<schemaVersion>1.5</schemaVersion>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>tycho-sbom</artifactId>
+							<version>${tycho-version}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>create-bom</id>
+							<phase>package</phase>
+							<goals>
+								<goal>makeBom</goal>
+							</goals>
 						</execution>
 					</executions>
 				</plugin>
