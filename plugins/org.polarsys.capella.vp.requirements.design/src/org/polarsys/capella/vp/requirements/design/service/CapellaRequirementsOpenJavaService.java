@@ -387,7 +387,7 @@ public class CapellaRequirementsOpenJavaService {
             resultBuilder.append(value);
           }
           String evaluationResult = resultBuilder.toString();
-          String sanytizedResult = LabelHelper.unescape(LabelHelper.transformHTMLToText(evaluationResult));
+          String sanytizedResult = LabelHelper.transformHTMLToTextWithLineFeed(evaluationResult);
           return reduceString(sanytizedResult, maxLength);
         }
       }
