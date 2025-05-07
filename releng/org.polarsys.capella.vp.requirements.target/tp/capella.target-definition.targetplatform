@@ -47,3 +47,7 @@ location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/
 location orbit "https://download.eclipse.org/tools/orbit/downloads/2023-03" {
 	org.apache.commons.io lazy
 }
+
+location eclipse "https://download.eclipse.org/releases/2023-03" {
+	org.jsoup lazy
+}
