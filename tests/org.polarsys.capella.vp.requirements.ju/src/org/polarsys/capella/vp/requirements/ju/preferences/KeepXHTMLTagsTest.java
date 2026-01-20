@@ -30,39 +30,56 @@ public class KeepXHTMLTagsTest extends BasicTestCase {
   private final String DIV_END_TAG = "/div";
   private String testString = "<xhtml:div>Test text <xhtml:br/></xhtml:div>";
   private String testQuotes = "<xhtml:div>Capella &quot;&lt;is&gt;&quot; great <xhtml:a href=\"to%20.pdf\">here</xhtml:a></xhtml:div>";
-  private String expectedResultWithoutTags= "Capella \"<is>\" great here";
+
+  private String expectedResultLabelHelperWithoutTags = "Capella \"<is>\" great here";
+
+  private String expectedResultLabelHelperWithTags = "<div>Capella \"<is>\" great <a href=\"to%20.pdf\">here</a></div>";
+
   private String expectedResultWithTags = "<div>Capella \"&lt;is&gt;\" great <a href=\"to%20.pdf\">here</a></div>";
+
   private IPreferenceStore store = RequirementsPreferencesPlugin.getDefault().getPreferenceStore();
-  
+
   @Override
   public void test() throws Exception {
     testWithTags();
-    testWithoutTags();
+    testLabelHelperWithoutTags();
+    testLabelHelperWithTags();
   }
-  
+
   public void testWithTags() {
     store.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, true);
     ReqIFTextParser parser = new ReqIFTextParser(new TransitionContext());
     Requirement dummyRequirement = RequirementsFactory.eINSTANCE.createRequirement();
     String result = parser.transformToHTML(testString, dummyRequirement);
-    
+
     assertTrue(result.indexOf(BR_TAG) >= 0);
     assertEquals(result.indexOf(DIV_TAG), 0);
     assertTrue(result.indexOf(DIV_END_TAG) >= 0);
-    
+
     String resultQuotes = parser.transformToHTML(testQuotes, dummyRequirement);
     assertEquals(resultQuotes, expectedResultWithTags);
   }
-  
-  public void testWithoutTags() {
+
+  public void testLabelHelperWithoutTags() {
     store.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, false);
     String result = LabelHelper.transformHTMLToText(testString, DIV);
     assertTrue(result.indexOf(BR_TAG) < 0);
     assertTrue(result.indexOf(DIV_TAG) < 0);
     assertTrue(result.indexOf(DIV_END_TAG) < 0);
-    
+
     String resultTestWithQuotes = LabelHelper.transformHTMLToText(testQuotes);
-    assertEquals(resultTestWithQuotes, expectedResultWithoutTags);
+    assertEquals(resultTestWithQuotes, expectedResultLabelHelperWithoutTags);
+  }
+
+  public void testLabelHelperWithTags() {
+    store.setValue(RequirementsPreferencesConstants.REQUIREMENT_KEEP_XHTML_TAGS, true);
+    String result = LabelHelper.transformHTMLToText(testString, DIV);
+    assertTrue(result.indexOf(BR_TAG) >= 0);
+    assertEquals(result.indexOf(DIV_TAG), 0);
+    assertTrue(result.indexOf(DIV_END_TAG) >= 0);
+
+    String resultTestWithQuotes = LabelHelper.transformHTMLToText(testQuotes);
+    assertEquals(resultTestWithQuotes, expectedResultLabelHelperWithTags);
   }
 
 }
