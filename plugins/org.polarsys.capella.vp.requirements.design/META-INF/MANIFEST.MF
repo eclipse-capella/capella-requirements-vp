@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.polarsys.capella.core.data.business.queries,
  org.eclipse.sirius.common,
  org.polarsys.capella.vp.requirements.ui.commands,
- org.polarsys.kitalpha.vp.requirements.model.helpers
+ org.polarsys.kitalpha.vp.requirements.model.helpers,
+ org.jsoup;bundle-version="1.15.3"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Localization: plugin
