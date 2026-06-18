@@ -19,4 +19,17 @@
    <category-def name="org.polarsys.capella.vp.requirements.collaboration" label="Capella Requirements Viewpoint Collaboration"/>
    <category-def name="org.polarsys.capella.vp.requirements.tests" label="Capella Requirements Viewpoint Tests"/>
    <category-def name="org.polarsys.capella.vp.requirements.docgen" label="Capella Requirements Viewpoint DocGen"/>
+   <category-def name="dependencies" label="Dependencies"/>
+   <bundle id="org.apache.xerces" version="0.0.0">
+      <category name="dependencies"/>
+   </bundle>
+   <bundle id="org.apache.xml.resolver" version="0.0.0">
+      <category name="dependencies"/>
+   </bundle>
+   <bundle id="org.apache.xml.serializer" version="0.0.0">
+      <category name="dependencies"/>
+   </bundle>
+   <bundle id="javax.xml" version="0.0.0">
+      <category name="dependencies"/>
+   </bundle>
 </site>

@@ -29,6 +29,10 @@ location "https://download.eclipse.org/diffmerge/releases/0.15.0/edm-coevolution
 
 location "https://download.eclipse.org/rmf/updates/releases/0.13.0" {
 	org.eclipse.rmf.reqif10.feature.feature.group
+	org.apache.xerces
+	org.apache.xml.resolver
+	org.apache.xml.serializer
+	javax.xml
 }
 
 location "https://download.eclipse.org/sphinx/releases/0.9.x" {
