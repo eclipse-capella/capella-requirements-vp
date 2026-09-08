@@ -223,7 +223,7 @@
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
-						<executionEnvironment>JavaSE-17</executionEnvironment>
+						<executionEnvironment>JavaSE-21</executionEnvironment>
 					</configuration>
 					<executions>
 						<execution>
@@ -241,7 +241,7 @@
 									<arg>-destination</arg>
 									<arg>${project.build.directory}/${packagedAddonName}/eclipse</arg>
 								</applicationArgs>
-								<executionEnvironment>JavaSE-17</executionEnvironment>
+								<executionEnvironment>JavaSE-21</executionEnvironment>
 							</configuration>
 						</execution>
 					</executions>
