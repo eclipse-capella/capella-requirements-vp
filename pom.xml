@@ -26,8 +26,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>4.0.9</tycho-version>
-    <tycho-extras-version>4.0.9</tycho-extras-version>
+    <tycho-version>4.0.13</tycho-version>
+    <tycho-extras-version>4.0.13</tycho-extras-version>
 	<antrun-version>3.0.0</antrun-version>
 
     <!-- for tycho -->
@@ -84,6 +84,10 @@
 	<version>${tycho-version}</version>
 	<configuration>
           <strictBinIncludes>false</strictBinIncludes>
+	  <skipPomGeneration>true</skipPomGeneration>
+	  <archive>
+	    <addMavenDescriptor>false</addMavenDescriptor>
+	  </archive>
 	  <sourceReferences>
 	    <generate>true</generate>
 	  </sourceReferences>
