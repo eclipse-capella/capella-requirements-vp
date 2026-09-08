@@ -34,8 +34,8 @@
 	</licenses>
 
 	<properties>
-		<tycho-version>4.0.9</tycho-version>
-		<tycho-extras-version>4.0.9</tycho-extras-version>
+		<tycho-version>4.0.13</tycho-version>
+		<tycho-extras-version>4.0.13</tycho-extras-version>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
 		<converterApplication.name>org.eclipse.cbi.targetplatform.tpd.converter</converterApplication.name>
 	</properties>
