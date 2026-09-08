@@ -70,14 +70,14 @@
 							<type>eclipse-feature</type>
 						</dependency>
 					</dependencies>
-					<executionEnvironment>JavaSE-17</executionEnvironment>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
 				</configuration>
 				<executions>
 					<execution>
 						<id>generate.target</id>
 						<phase>validate</phase>
 						<configuration>
-							<executionEnvironment>JavaSE-17</executionEnvironment>
+							<executionEnvironment>JavaSE-21</executionEnvironment>
 							<applicationArgs>
 								<arg>-application</arg>
 								<arg>${converterApplication.name}</arg>
