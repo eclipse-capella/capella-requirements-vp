@@ -28,7 +28,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide,
  org.eclipse.swt,
  org.polarsys.capella.core.preferences,
- org.apache.commons.io,
+ org.apache.commons.commons-io,
  org.polarsys.kitalpha.vp.requirements.model.helpers
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
