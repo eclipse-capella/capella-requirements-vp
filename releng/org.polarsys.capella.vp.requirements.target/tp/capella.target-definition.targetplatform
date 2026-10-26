@@ -10,16 +10,16 @@
  *******************************************************************************/
 target "CapellaRequirementsVP"
 
-include "https://download.eclipse.org/capella/core/updates/releases/7.1.0/targets/capella.target-definition.targetplatform"
+include "https://download.eclipse.org/capella/core/updates/nightly/master/targets/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location "https://download.eclipse.org/capella/core/updates/releases/7.1.0/org.polarsys.capella.rcp.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group	
 }
 
-location "https://download.eclipse.org/capella/core/updates/releases/7.1.0/org.polarsys.capella.test.site" {
+location "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -50,5 +50,4 @@ location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/
 
 location orbit "https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/release/4.40.0" {
 	org.apache.commons.commons-io lazy
-	org.apache.commons.logging lazy
 }
