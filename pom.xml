@@ -34,7 +34,7 @@
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-requirements-vp.git</tycho.scmUrl>
 
     <!-- for packaging -->
-    <eclipse-repo.url>https://download.eclipse.org/releases/2023-03/</eclipse-repo.url>
+    <eclipse-repo.url>https://download.eclipse.org/releases/2025-09/</eclipse-repo.url>
     <packagedAddonName>Requirements</packagedAddonName>
 
     <!-- for junit -->
