@@ -87,11 +87,9 @@ pipeline {
         	steps {
         		script {
         			wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-                    withEnv(["JAVA_HOME=${WORKSPACE}/capella/jre", "PATH+JAVA=${WORKSPACE}/capella/jre/bin"]) {
-                        sh 'java -version'
-                        tester.runUITests("${CAPELLA_PRODUCT_PATH}", 'RequirementsTestSuite', 'org.polarsys.capella.vp.requirements.ju',
-                            ['org.polarsys.capella.vp.requirements.ju.testsuites.RequirementsTestSuite'])
-                    }
+		        		
+		        		tester.runUITests("${CAPELLA_PRODUCT_PATH}", 'RequirementsTestSuite', 'org.polarsys.capella.vp.requirements.ju', 
+		        			['org.polarsys.capella.vp.requirements.ju.testsuites.RequirementsTestSuite'])		        			 
 	        		}
 	        		
 	        		tester.publishTests()
