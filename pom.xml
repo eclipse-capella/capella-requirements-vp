@@ -26,8 +26,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>4.0.13</tycho-version>
-    <tycho-extras-version>4.0.13</tycho-extras-version>
+    <tycho-version>5.0.4</tycho-version>
+    <tycho-extras-version>5.0.4</tycho-extras-version>
 	<antrun-version>3.2.0</antrun-version>
 
     <!-- for tycho -->
